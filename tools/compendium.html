@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="../style.css" />
+		<title>Compedium</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="mainbox">
+				<h1 class="pagetitle">Compendium</h1>
+				<div class="menu">
+					<p class ="bodytext" id="demo">Created in worship of a great Giant of old, ForgeForge is a group primarily focused on fantastic craftsmanship in weapons and armor.  While ForgeForge  members will sell many of their wares for coin, it is much more common for the most exquisitely done pieces to be traded among members, or gifted in an ultimate sign of respect and gratitude.</p>
+						<script>
+						window.onload = myFunction()
+					function myFunction() {
+    			var bodytext = document.getElementById("demo").innerHTML;
+    			var n = bodytext.search("ForgeForge");
+					if (n !== -1){
+						var newtext = bodytext.replace("ForgeForge", "<a href=\"onenote:https://d.docs.live.net/acd661a65c5fe18b/Documents/Homebrew%20Campaign/Groups%20and%20Organizations.one#ForgeForge&section-id={F1F2B4A6-9CC6-4FA9-9256-2F3E3E8EAD87}&page-id={65C18AC9-FE9B-4091-9BC2-765C6BE53D4C}&end\" target=\"onenote\">ForgeForge</a>")
+					}
+					else{
+						newtext = bodytext;
+					}
+    document.getElementById("demo").innerHTML = newtext;
+	}
+					</script>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
