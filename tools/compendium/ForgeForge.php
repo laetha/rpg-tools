@@ -29,22 +29,22 @@
 				</div>
 				<?php
 					include('../../sql-connect.php');
-					$sqlget = "SELECT * FROM NPCs";
+					$sqlget = "SELECT * FROM npcs";
 					$sqldata = mysqli_query($dbcon, $sqlget) or die('error getting data');
-					echo "<table>";
-					echo "<tr><th>ID</th><th>Name</th><th>Race</th><th>Job</th></tr>";
+					echo '<table>';
+					echo '<tr><th>ID</th><th>Name</th><th>Race</th><th>Job</th></tr>';
 					while($row = mysqli_fetch_array($sqldata, MYSQLI_ASSOC)) {
-						echo "<tr><td>";
+						echo '<tr><td>';
 						echo $row['id'];
-						echo "<tr><td>"	;
+						echo '<td>'	;
 						echo $row['name'];
-						echo "<tr><td>"	;
+						echo '<td>'	;
 						echo $row['race'];
-						echo "<tr><td>"	;
+						echo '<td>'	;
 						echo $row['job'];
-						echo "</tr>";
+						echo '</tr>';
 					}
-		echo "</table>";
+		echo '</table>';
 				?>
 			</div>
 		</div>
