@@ -3,15 +3,27 @@
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="../../style.css" />
-		<title>Compedium</title>
+		<title>Compendium</title>
 	</head>
 	<body>
-
+<?php
+	include('../../sql-connect.php');
+	$sqlcompendium = "SELECT * FROM `compendium` WHERE `title` LIKE 'forgeforge'";
+	$compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+	?>
 		<div class="container">
 			<div class="mainbox">
 				<h1 class="pagetitle">ForgeForge</h1>
 				<div class="menu">
-					<p class ="bodytext" id="demo">Created in worship of a great Giant of old, ForgeForge is a group primarily focused on fantastic craftsmanship in weapons and armor.  While ForgeForge  members will sell many of their wares for coin, it is much more common for the most exquisitely done pieces to be traded among members, or gifted in an ultimate sign of respect and gratitude.</p>
+					<p class ="bodytext" id="demo">
+						<?php
+							$sqlcompendium = "SELECT * FROM `compendium` WHERE `title` LIKE 'forgeforge'";
+							$compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+							while($row =  mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+								echo $row['body'];
+							}
+						?>
+						</p>
 						<script>
 						window.onload = myFunction("ForgeForge")
 					function myFunction(querytext) {
@@ -28,7 +40,6 @@
 					</script>
 				</div>
 				<?php
-					include('../../sql-connect.php');
 					$sqlget = "SELECT * FROM npcs";
 					$sqldata = mysqli_query($dbcon, $sqlget) or die('error getting data');
 					echo '<table>';
