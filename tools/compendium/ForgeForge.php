@@ -8,8 +8,6 @@
 	<body>
 <?php
 	include('../../sql-connect.php');
-	$sqlcompendium = "SELECT * FROM compendium";
-	$compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
 	$sqlget = "SELECT * FROM npcs";
 	$sqldata = mysqli_query($dbcon, $sqlget) or die('error getting data');
 	?>
@@ -26,28 +24,28 @@
 							}
 						?>
 						</p>
-						<script>
 						<?php
-							while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-								echo "TEST"
-						?>
-								window.onload = myFunction("<?php echo $row['title'] ?>")
-						<?php
+							$sqlcompendium = "SELECT * FROM compendium";
+							$compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+							while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+							$temp = $linkrow['title'];
+							?>
+							<script>
+							var foundlink = "<?php echo $temp ?>";
+							function replace (querytext){
+								var bodytext = document.getElementById("demo").innerHTML;
+								var querylower = querytext.toLowerCase();
+								var url = "<a href=\"onenote:https://d.docs.live.net/acd661a65c5fe18b/Documents/Homebrew%20Campaign/Groups%20and%20Organizations.one#" + querylower + "\">" + querytext + "</a>";
+								var queryexp = new RegExp(querytext, "gi");
+								var newtext = bodytext.replace(queryexp, url)
+								document.getElementById("demo").innerHTML = newtext;
 							}
+							replace(foundlink);
+
+							</script>
+							<?php
+						}
 						?>
-						//window.onload = myFunction("ForgeForge")
-					function myFunction(querytext) {
-    			var bodytext = document.getElementById("demo").innerHTML;
-    			var n = bodytext.search(querytext);
-					if (n !== -1){
-						var newtext = bodytext.replace("<?php echo $row['title'] ?>", "<a href=\"onenote:https://d.docs.live.net/acd661a65c5fe18b/Documents/Homebrew%20Campaign/Groups%20and%20Organizations.one#ForgeForge\"><?php echo $row['title'] ?></a>")
-					}
-					else{
-						newtext = bodytext;
-					}
-    document.getElementById("demo").innerHTML = newtext;
-	}
-					</script>
 				</div>
 				<?php
 					echo '<table>';
