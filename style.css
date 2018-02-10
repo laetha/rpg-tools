@@ -60,3 +60,17 @@ div.menuitem {
 	text-align:left;
 	padding: 25px;
 }
+.footer {
+	text-align:center;
+	font-color:white;
+	font-family:arial;
+	font-size:20px;
+	margin-top: 20px;
+}
+.header {
+	text-align:center;
+	font-color:white;
+	font-family:arial;
+	font-size:20px;
+	margin-bottom: 20px;
+}

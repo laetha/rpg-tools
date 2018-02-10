@@ -6,11 +6,7 @@
 		<title>Compendium</title>
 	</head>
 	<body>
-<?php
-	include('../../sql-connect.php');
-	$sqlget = "SELECT * FROM npcs";
-	$sqldata = mysqli_query($dbcon, $sqlget) or die('error getting data');
-	?>
+	<?php include('../../sql-connect.php'); ?>
 		<div class="container">
 			<div class="mainbox">
 				<h1 class="pagetitle">ForgeForge</h1>
