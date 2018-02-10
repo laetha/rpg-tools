@@ -57,4 +57,6 @@ div.menuitem {
 	font-family:arial;
 	font-size: 20px;
 	color: #C8C5C5;
+	text-align:left;
+	padding: 25px;
 }
