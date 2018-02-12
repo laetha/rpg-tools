@@ -7,7 +7,7 @@
    echo $row['title'];
  }
   ?></h1>
-  <div class="menu">
+  <div class="body">
     <p class ="bodytext" id="body">
       <?php
         $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
@@ -37,5 +37,5 @@
         <?php
       }
       ?>
-  </div>
+    </div>
 </div>
