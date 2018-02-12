@@ -21,6 +21,7 @@ div.body {
 	padding-bottom:60px;
 	padding-top:20px;
 	border-radius:40px;
+	float:left;
 }
 
 div.menuitem {
@@ -87,4 +88,18 @@ div.menuitem {
 }
 h2 {
 	color: #ABAAAF;
+}
+.sidebar {
+	text-align:center;
+}
+.toc {
+	text-align: center;
+}
+.tocbox {
+	background-color: #37393E;
+	text-align:center;
+	margin-top:15px;
+	padding-bottom:60px;
+	padding-top:20px;
+	border-radius:40px;
 }

@@ -1,8 +1,8 @@
-<div class="mainbox">
+<div class="tocbox col-md-12">
   <h1 class="pagetitle">Compendium</h1>
-      <div class="toc1">
+<div class ="body bodytext">
+      <div class="toc bodytext">
       <h2>Settlements</h2>
-      <p class="bodytext">
       <?php
         $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE '%settlement%'";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
@@ -16,4 +16,5 @@
         ?>
       </p>
       </div>
-    </div>
+  </div>
+</div>

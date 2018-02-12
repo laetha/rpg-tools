@@ -11,6 +11,7 @@ if (!empty($_GET['id'])) {
   }
 if (empty($_GET['id'])) {
   include('toc.php');
+
 }
   include('footer.html');
 ?>

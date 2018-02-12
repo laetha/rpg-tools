@@ -7,8 +7,7 @@
    echo $row['title'];
  }
   ?></h1>
-  <div class="body">
-    <p class ="bodytext" id="body">
+  <div class="body bodytext col-md-9" id="body">
       <?php
         $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
         $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
@@ -16,7 +15,7 @@
           echo nl2br($row['body']);
         }
       ?>
-      </p>
+
       <?php
         $sqlcompendium = "SELECT * FROM compendium";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
@@ -38,4 +37,21 @@
       }
       ?>
     </div>
+    <div class="sidebar bodytext col-md-3">
+    <div class="toc1">
+    <h2>Settlements</h2>
+    <?php
+      $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE '%settlement%'";
+      $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+      while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+      $entry = $row['title'];
+      echo "<a href=\"compendium.php?id=$entry\">";
+      echo $entry;
+      echo "</a>";
+      echo "<br>";
+    }
+      ?>
+    </p>
+    </div>
+  </div>
 </div>
