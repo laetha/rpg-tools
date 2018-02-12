@@ -1,5 +1,6 @@
 <div class="mainbox">
   <h1 class="pagetitle"><?php
+  $id = addslashes($id);
   $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
   $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
