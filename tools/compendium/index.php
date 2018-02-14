@@ -41,7 +41,16 @@
     <div class="sidebar bodytext col-md-3">
     <p><a href="/tools/compendium/compendium.php">Back to Compendium</a></p>
     <div class="toc1">
-    <h2><?php echo ucwords($sidebartype);
+    <h2><?php
+    if ($sidebartype == "npc" ) {
+      echo "NPC";
+    }
+    else if ($sidebartype == "diety" ) {
+      echo "Dietie";
+    }
+    else {
+    echo ucwords($sidebartype);
+  }
     echo "s"; ?></h2>
     <?php
       $sidebar = "SELECT * FROM compendium WHERE type LIKE '%{$sidebartype}%'";
