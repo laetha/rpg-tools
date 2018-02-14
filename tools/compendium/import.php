@@ -12,7 +12,7 @@ include_once($headpath);
       <form method="post" action="process.php" id="import">
       <p class="text">Name         <input type="text" name="name" id="name" placeholder="Name..."></p>
       <p class="text">Type
-        <select form="import" required="yes">
+        <select form="import" required="yes" name="type" id="type">
           <option value="settlement" selected="selected">Settlement</option>
           <option value="faction">Faction</option>
           <option value="npc">NPC</option>
