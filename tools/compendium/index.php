@@ -45,7 +45,7 @@
     if ($sidebartype == "npc" ) {
       echo "NPC";
     }
-    else if ($sidebartype == "diety" ) {
+    else if ($sidebartype == "deity" ) {
       echo "Dietie";
     }
     else {
