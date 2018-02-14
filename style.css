@@ -4,8 +4,7 @@ body {
 }
 div.body {
 	padding:30px;
-/*	width: 75%; */
-	float:left;
+
 }
 .pagetitle {
 	font-family: 'Helvetica', sans-serif;
