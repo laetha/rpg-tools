@@ -11,7 +11,13 @@ include_once($headpath);
   <h1 class="pagetitle">Import</h1>
       <form method="post" action="process.php">
       <p class="text">Name         <input type="text" name="name" id="name"></p>
-      <p class="text">Type        <input type="text" name="type" id="type"></p>
+      <p class="text">Type
+        <select>
+          <option value="settlement" selected>Settlement</option>
+          <option value="faction">Faction</option>
+          <option value="npc">NPC</option>
+          <option value="deity">Deity</option>
+        </select></p>
       <p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body"></textarea></p>
       <input type="submit" value="Submit">
     </form>
