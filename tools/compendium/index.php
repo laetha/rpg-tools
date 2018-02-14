@@ -13,6 +13,7 @@
         $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           echo nl2br($row['body']);
+          $sidebartype = $row['type'];
         }
       ?>
 
@@ -38,12 +39,14 @@
       ?>
     </div>
     <div class="sidebar bodytext col-md-3">
+    <p><a href="/tools/compendium/compendium.php">Back to Compendium</a></p>
     <div class="toc1">
-    <h2>Settlements</h2>
+    <h2><?php echo ucwords($sidebartype);
+    echo "s"; ?></h2>
     <?php
-      $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE '%settlement%'";
-      $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-      while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+      $sidebar = "SELECT * FROM compendium WHERE type LIKE '%{$sidebartype}%'";
+      $sidebardata = mysqli_query($dbcon, $sidebar) or die('error getting data');
+      while($row =  mysqli_fetch_array($sidebardata, MYSQLI_ASSOC)) {
       $entry = $row['title'];
       echo "<a href=\"compendium.php?id=$entry\">";
       echo $entry;
