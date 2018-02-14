@@ -1,0 +1,9 @@
+{
+    "type": "ftp",
+    "host": "ftp.gameripple.net",
+    "username": "gameripp",
+    "password": "G0der!ch",
+    "port": 21,
+    "remotePath": "",
+    "uploadOnSave": false
+}
