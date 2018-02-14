@@ -1,4 +1,4 @@
-<div class="mainbox">
+<div class="mainbox col-md-12">
   <h1 class="pagetitle"><?php
   $id = addslashes($id);
   $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
