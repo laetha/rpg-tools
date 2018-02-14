@@ -1,6 +1,10 @@
 <?php
-include('../../sql-connect.php');
-include('header.html');
+   $sqlpath = $_SERVER['DOCUMENT_ROOT'];
+   $sqlpath .= "/sql-connect.php";
+   include_once($sqlpath);
+   $headpath = $_SERVER['DOCUMENT_ROOT'];
+   $headpath .= "/header.html";
+   include_once($headpath);
 $id = "index";
 $disallowed_paths = array('header', 'footer');
 if (!empty($_GET['id'])) {
@@ -13,5 +17,7 @@ if (empty($_GET['id'])) {
   include('toc.php');
 
 }
-  include('footer.html');
+$footpath = $_SERVER['DOCUMENT_ROOT'];
+$footpath .= "/footer.html";
+include_once($footpath);
 ?>

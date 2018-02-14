@@ -1,4 +1,6 @@
-<?php include '../../sql-connect.php'; ?>
+<?php $sqlpath = $_SERVER['DOCUMENT_ROOT'];
+$sqlpath .= "/sql-connect.php";
+include_once($sqlpath); ?>
 
 <?php
 

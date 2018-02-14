@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="/style.css" />
+
+		<!-- Prevent FOUC -->
+		<style type="text/css">
+		    .hidden {display:none;}
+		  </style>
+		  <script type="text/javascript" src="/scripts/jquery.js"></script>
+
+			<!-- This code is to prevent FOUC -->
+			<script type="text/javascript">
+		    $('html').addClass('hidden');
+		    $(window).on('load', function () {
+		    $('html').removeClass('hidden');
+		     });
+		   </script>
+
+		<title>RPG Tools</title>
+	</head>
+	<body>
+		<div class="container">
+			<nav class="header">
+				<a href="/index.php">Home</a>
+				<a href="/tools/compendium/import.php">Import</a>
+				<a href="/login.php">Signup/Login</a>
+			</nav>

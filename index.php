@@ -1,16 +1,9 @@
-<!DOCTYPE HTML>
-<html>
-	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="style.css" />
-		<title>DND Homebrew</title>
-	</head>
-	<body>
-		<div class="container">
+<?php include('header.html'); ?>
+
 			<div class="mainbox">
 				<h1 class="pagetitle">Brian's RPG Tools</h1>
 				<div class="menu">
-					<a class="menulink" href="tools/mapping.html"><div class="menuitem">
+					<a class="menulink" href="tools/mapping.php"><div class="menuitem">
 						<img class ="menu-icon" src="assets/images/map-icon.png" />
 						<h3>Mapping</h3>
 					</div></a>
@@ -36,6 +29,4 @@
 					</div></a>
 				</div>
 			</div>
-		</div>
-	</body>
-</html>
+<?php include('footer.html'); ?>

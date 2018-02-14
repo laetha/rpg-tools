@@ -14,7 +14,6 @@
         echo "<br>";
       }
         ?>
-      </p>
       </div>
   </div>
 </div>

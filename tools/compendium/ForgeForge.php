@@ -2,11 +2,13 @@
 <html>
 	<head>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="../../style.css" />
+		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<title>Compendium</title>
 	</head>
 	<body>
-	<?php include('../../sql-connect.php'); ?>
+	<?php $sqlpath = $_SERVER['DOCUMENT_ROOT'];
+	$sqlpath .= "/sql-connect.php";
+	include_once($sqlpath); ?>
 		<div class="container">
 			<div class="mainbox">
 				<h1 class="pagetitle">ForgeForge</h1>
