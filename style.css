@@ -85,7 +85,7 @@ div.menuitem {
 }
 .toc1 {
 	padding-left: 35px;
-	text-align: justify;
+	text-align: left;
 }
 .text {
 	font-family: sans-serif;
@@ -97,7 +97,20 @@ h2 {
 }
 .sidebar {
 	text-align:center;
-	width:25%;
+	width:20%;
+	background-color: #37393E;
+	text-align:center;
+	margin-top:15px;
+	margin-left:15px;
+	padding-bottom:60px;
+	padding-top:20px;
+	border-radius:40px;
+}
+.sidebartext {
+	font-family:arial;
+	font-size: 16px;
+	color: #C8C5C5;
+	text-align:left;
 }
 .toc {
 	text-align: center;
@@ -131,3 +144,6 @@ input[type=text], select {
 textarea {
     color: #000;
     }
+ul {
+	list-style-type: none;
+}
