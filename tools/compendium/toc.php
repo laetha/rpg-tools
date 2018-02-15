@@ -18,6 +18,7 @@
       }
         ?>
       </div>
+
       <!-- Factions -->
       <div class="tocitem col-md-3">
         <h2>Factions</h2>
@@ -33,6 +34,7 @@
       }
         ?>
       </div>
+
       <!-- NPCs -->
       <div class="tocitem col-md-3">
         <h2>NPCs</h2>
@@ -48,6 +50,7 @@
       }
         ?>
       </div>
+      
       <!-- Deities -->
       <div class="tocitem col-md-3">
         <h2>Deities</h2>

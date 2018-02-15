@@ -1,10 +1,15 @@
 <?php
+  //SQL Connect
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];
    $sqlpath .= "/sql-connect.php";
    include_once($sqlpath);
+
+   //Header
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.html";
    include_once($headpath);
+
+//Display specific page or Table of Contents
 $id = "index";
 $disallowed_paths = array('header', 'footer');
 if (!empty($_GET['id'])) {
@@ -17,6 +22,7 @@ if (empty($_GET['id'])) {
   include('toc.php');
 
 }
+//Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
 $footpath .= "/footer.html";
 include_once($footpath);

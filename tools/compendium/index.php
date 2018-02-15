@@ -1,4 +1,6 @@
 <div class="mainbox col-md-9">
+
+  <!-- Page Header -->
   <h1 class="pagetitle"><?php
   $id = addslashes($id);
   $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
@@ -9,6 +11,8 @@
  }
   ?></h1>
   <div class="body bodytext col-md-12" id="body">
+
+    <!-- Body Text -->
       <?php
         $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
         $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
@@ -18,6 +22,7 @@
         }
       ?>
 
+<!-- Search and add hyperlinks -->
       <?php
         $sqlcompendium = "SELECT * FROM compendium";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
@@ -42,7 +47,6 @@
 
 
   <!--Settlement NPCs-->
-
   <?php
   if ($sidebartype == "settlement") {
     ?>
