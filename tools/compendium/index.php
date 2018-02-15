@@ -10,7 +10,7 @@
    $title = $row['title'];
  }
   ?></h1>
-  <div class="body bodytext col-md-12" id="body">
+  <div class="body bodytext col-xs-12" id="body">
 
     <!-- Body Text -->
       <?php
@@ -105,9 +105,9 @@
 </div>
 
 <!-- Sidebar -->
-    <div class="sidebar sidebartext col-md-2">
+    <div class="sidebar sidebartext col-xs-2">
     <p><a href="/tools/compendium/compendium.php">Back to Compendium</a></p>
-    <div>
+
     <h2><?php
     if ($sidebartype == "npc" ) {
       echo "NPC";
@@ -130,5 +130,5 @@
       echo "<br>";
     }
       ?>
-    </div>
+
   </div>
