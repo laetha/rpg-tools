@@ -54,7 +54,7 @@
     <?php
     echo "<h3>Key NPC's:</h3>";
     $temptitle = str_replace("'", "''", $title);
-    $npcs = "SELECT * FROM compendium WHERE npclocation LIKE '%$temptitle%'";
+    $npcs = "SELECT * FROM compendium WHERE npc_location LIKE '%$temptitle%'";
     $npcdata = mysqli_query($dbcon, $npcs) or die('error getting data');
     while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
       $selectednpc = $titlerow['title'];
@@ -64,7 +64,44 @@
     }
     echo "</div>";
   }
+
+  //Faction NPCs
+  if ($sidebartype == "faction") {
+    ?>
+    <div class="body col-md-9 bodytext">
+    <?php
+    echo "<h3>Known Members:</h3>";
+    $temptitle = str_replace("'", "''", $title);
+    $factionnpcs = "SELECT * FROM compendium WHERE npc_faction LIKE '%$temptitle%'";
+    $factiondata = mysqli_query($dbcon, $factionnpcs) or die('error getting data');
+    while($factionrow = mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
+      $selectednpc = $factionrow['title'];
+      echo "<a href=\"compendium.php?id=$selectednpc\">";
+      echo $selectednpc;
+      echo "</a><br />";
+    }
+    echo "</div>";
+  }
+
+  //Deity NPC's
+  if ($sidebartype == "deity") {
+    ?>
+    <div class="body col-md-9 bodytext">
+    <?php
+    echo "<h3>Known Followers:</h3>";
+    $temptitle = str_replace("'", "''", $title);
+    $deitynpcs = "SELECT * FROM compendium WHERE npc_deity LIKE '%$temptitle%'";
+    $deitydata = mysqli_query($dbcon, $deitynpcs) or die('error getting data');
+    while($deityrow = mysqli_fetch_array($deitydata, MYSQLI_ASSOC)) {
+      $selectednpc = $deityrow['title'];
+      echo "<a href=\"compendium.php?id=$selectednpc\">";
+      echo $selectednpc;
+      echo "</a><br />";
+    }
+    echo "</div>";
+  }
   ?>
+
 </div>
 
 <!-- Sidebar -->
