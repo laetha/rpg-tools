@@ -47,11 +47,11 @@ include_once($headpath);
    var output=document.getElementById("output");
    //alert(output.innerText);
    document.getElementById("npc-form").style.display = "none";
-   document.getElementById("faction-form").style.display = "none";
-   document.getElementById("settlement-form").style.display = "none";
-   document.getElementById("deity-form").style.display = "none";
+   //document.getElementById("faction-form").style.display = "none";
+   //document.getElementById("settlement-form").style.display = "none";
+   //document.getElementById("deity-form").style.display = "none";
 
-   if (selectValue == "Faction") {
+   /*if (selectValue == "Faction") {
      document.getElementById("faction-form").style.display = "block";
   }
   if (selectValue == "Deity") {
@@ -59,7 +59,7 @@ include_once($headpath);
  }
   if (selectValue == "Settlement") {
    document.getElementById("settlement-form").style.display = "block";
-}
+}*/
   if (selectValue == "NPC") {
     document.getElementById("npc-form").style.display = "block";
 }
@@ -137,23 +137,6 @@ include_once($headpath);
 </div>
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
-
-
-
-<div id="faction-form">
-<!-- 'NPC Diety' Dropbox -->
-<div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
-</div>
-<div id="deity-form">
-<!-- 'NPC Diety' Dropbox -->
-<div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
-
-</div>
-<div id="settlement-form">
-<!-- 'NPC Diety' Dropbox -->
-<div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
-
-</div>
 <div class="col-centered">
 <input class="col-centered" type="submit" value="Submit">
 </div>
