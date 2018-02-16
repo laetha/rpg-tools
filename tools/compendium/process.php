@@ -28,6 +28,7 @@ $sql = "INSERT INTO compendium(title,type,body,npc_location,npc_faction,npc_deit
 				VALUES('$name','$type','$body','$npclocation','$npcfaction','$npcdeity')";
 
         if ($dbcon->query($sql) === TRUE) {
+					include('import.php');
 					include('success.php');
         }
 				else {
@@ -37,4 +38,4 @@ $sql = "INSERT INTO compendium(title,type,body,npc_location,npc_faction,npc_deit
 //Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
 $footpath .= "/footer.html";
-include_once($footpath);
+include_once($footpath); ?>

@@ -10,6 +10,7 @@
    $title = $row['title'];
  }
   ?></h1>
+  
   <div class="body bodytext col-xs-12" id="body">
 
     <!-- Body Text -->

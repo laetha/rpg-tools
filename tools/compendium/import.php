@@ -112,15 +112,17 @@ include_once($headpath);
 
 <div id="faction-form">
 <!-- 'NPC Diety' Dropbox -->
-Faction
+<p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
 </div>
 <div id="deity-form">
 <!-- 'NPC Diety' Dropbox -->
-Deity
+<p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
+
 </div>
 <div id="settlement-form">
 <!-- 'NPC Diety' Dropbox -->
-Settlement
+<p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
+
 </div>
 <input type="submit" value="Submit">
 </form>

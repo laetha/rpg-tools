@@ -152,3 +152,16 @@ ul {
 #npc-form, #settlement-form, #deity-form, #faction-form {
 	display:none;
 }
+.modalstyle {
+	background-color: #37393E;
+}
+.close {
+    color: #fff;
+    opacity: 1;
+}
+.modal-header {
+	border-bottom: none;
+}
+.modal-footer {
+	border-top: none;
+}
