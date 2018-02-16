@@ -10,13 +10,16 @@ include_once($headpath);
 ?>
 <!-- Import Form -->
   <div class="tocbox col-md-12">
-    <div class ="toc body bodytext">
+    <div class ="body bodytext">
   <h1 class="pagetitle">Add to Compendium</h1>
+<div class="col-md-10 col-centered">
+  <div class="col-sm-6 typebox col-centered" id="name">
       <form method="post" action="process.php" id="import">
-      <p class="text">Name         <input type="text" name="name" id="name" placeholder="Name..."></p>
-
+      <div class="text">Name</div><input class="textbox" type="text" name="name" id="name" placeholder="Name...">
+</div>
 <!-- 'Type' Dropbox -->
-<div id="npc-type">
+
+<div class="col-sm-6 typebox col-centered" id="npc-type">
       <p class="text">Type
           <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
           <option value="" disabled selected>Entry Type</option>
@@ -28,7 +31,7 @@ include_once($headpath);
 
         <script type="text/javascript">
         $('#type').selectize({
-    create: true,
+    create: false,
     sortField: 'text'
 });
         </script>
@@ -66,9 +69,9 @@ include_once($headpath);
 <!--NPC FORM -->
 <div id="npc-form">
 <!-- 'NPC Diety' Dropbox -->
-<div class="typebox" id="npc-deity">
+<div class="col-sm-6 typebox col-centered" id="npc-deity">
       <p class="text">Faith
-        <select form="import" name="npc-deity" id="type">
+        <select form="import" name="npc-deity" id="deity-form">
           <option value="" selected>None...</option>
           <?php
           $faithdrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'deity' ORDER BY `compendium`.`title` ASC";
@@ -79,12 +82,18 @@ include_once($headpath);
           }
           ?>
         </select>
+        <script type="text/javascript">
+        $('#deity-form').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
       </p>
 </div>
 <!-- 'NPC location' Dropbox -->
-<div class="typebox" id="npc-location">
+<div class="col-sm-6 typebox col-centered" id="npc-location">
       <p class="text">Location
-        <select form="import" name="npc-location" id="type">
+        <select form="import" name="npc-location" id="location-form">
           <option value="" selected>None...</option>
           <?php
           $locationdrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'settlement' ORDER BY `compendium`.`title` ASC";
@@ -95,12 +104,18 @@ include_once($headpath);
           }
           ?>
         </select>
+        <script type="text/javascript">
+        $('#location-form').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
       </p>
     </div>
 <!-- 'NPC faction' Dropbox -->
-<div class="typebox" id="npc-faction">
+<div class="col-sm-6 typebox col-centered" id="npc-faction">
       <p class="text">Faction
-        <select form="import" name="npc-faction" id="type">
+        <select form="import" name="npc-faction" id="faction-form">
           <option value="" selected>None...</option>
           <?php
           $factiondrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'faction' ORDER BY `compendium`.`title` ASC";
@@ -111,28 +126,39 @@ include_once($headpath);
           }
           ?>
         </select>
+        <script type="text/javascript">
+        $('#faction-form').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
       </p>
     </div>
-    <p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
-
 </div>
+    <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
+
+
+
 
 <div id="faction-form">
 <!-- 'NPC Diety' Dropbox -->
-<p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
+<div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 </div>
 <div id="deity-form">
 <!-- 'NPC Diety' Dropbox -->
-<p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
+<div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
 </div>
 <div id="settlement-form">
 <!-- 'NPC Diety' Dropbox -->
-<p class="text">Body         <textarea type="text" cols="50" rows="10" name="body" id="body" placeholder="Type the body of your content here..."></textarea></p>
+<div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
 </div>
-<input type="submit" value="Submit">
+<div class="col-centered">
+<input class="col-centered" type="submit" value="Submit">
+</div>
 </form>
+</div>
 </div>
 </div>
 <!-- Footer -->
