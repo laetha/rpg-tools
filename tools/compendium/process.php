@@ -37,5 +37,5 @@ $sql = "INSERT INTO compendium(title,type,body,npc_location,npc_faction,npc_deit
 
 //Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
-$footpath .= "/footer.html";
+$footpath .= "/footer.php";
 include_once($footpath); ?>

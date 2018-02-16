@@ -24,6 +24,6 @@ if (empty($_GET['id'])) {
 }
 //Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
-$footpath .= "/footer.html";
+$footpath .= "/footer.php";
 include_once($footpath);
 ?>

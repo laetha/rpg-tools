@@ -18,15 +18,22 @@ include_once($headpath);
 <!-- 'Type' Dropbox -->
 <div id="npc-type">
       <p class="text">Type
-        <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
+          <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
           <option value="" disabled selected>Entry Type</option>
           <option value="settlement">Settlement</option>
           <option value="faction">Faction</option>
           <option value="npc">NPC</option>
           <option value="deity">Deity</option>
-        </select></p>
-      </div>
+        </select>
 
+        <script type="text/javascript">
+        $('#type').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
+      </p>
+      </div>
 <!-- Different form for Different types -->
 <!-- Form Alteration Script -->
 <script type="text/javascript">
@@ -131,6 +138,6 @@ include_once($headpath);
 <!-- Footer -->
 <?php
 $footpath = $_SERVER['DOCUMENT_ROOT'];
-$footpath .= "/footer.html";
+$footpath .= "/footer.php";
 include_once($footpath);
  ?>

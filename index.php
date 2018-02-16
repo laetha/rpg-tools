@@ -11,19 +11,19 @@
 						<img class ="menu-icon" src="assets/images/compendium-icon.png" />
 						<h3>Compendium</h3>
 					</div></a>
-					<a class="menulink" href="tools/compendium/forgeforge.php"><div class="menuitem">
-						<img class ="menu-icon" src="*" />
-						<h3>ForgeForge</h3>
-					</div></a>
-					<a class="menulink" href="tools/mapping.html"><div class="menuitem">
+					<a class="menulink" href=""><div class="menuitem">
 						<img class ="menu-icon" src="*" />
 						<h3>---</h3>
 					</div></a>
-					<a class="menulink" href="tools/mapping.html"><div class="menuitem">
+					<a class="menulink" href=""><div class="menuitem">
 						<img class ="menu-icon" src="*" />
 						<h3>---</h3>
 					</div></a>
-					<a class="menulink" href="tools/mapping.html"><div class="menuitem">
+					<a class="menulink" href=""><div class="menuitem">
+						<img class ="menu-icon" src="*" />
+						<h3>---</h3>
+					</div></a>
+					<a class="menulink" href=""><div class="menuitem">
 						<img class ="menu-icon" src="*" />
 						<h3>---</h3>
 					</div></a>

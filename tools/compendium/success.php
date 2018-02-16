@@ -40,6 +40,6 @@ include_once($headpath);
     </div>
   </div>
 <?php  $footpath = $_SERVER['DOCUMENT_ROOT'];
-  $footpath .= "/footer.html";
+  $footpath .= "/footer.php";
   include_once($footpath);
   ?>
