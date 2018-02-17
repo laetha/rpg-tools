@@ -34,7 +34,6 @@ $sql = "INSERT INTO compendium(title,type,body,npc_location,npc_faction,npc_deit
 				else {
             echo "Error: " . $sql . "<br>" . $dbcon->error;
         }
-
 //Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
 $footpath .= "/footer.php";

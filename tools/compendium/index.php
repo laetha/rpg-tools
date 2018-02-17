@@ -9,6 +9,7 @@
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo $row['title'];
    $title = $row['title'];
+   $deleteid = $row['id'];
  }
   ?>
 </div>
@@ -46,7 +47,7 @@
         <?php
       }
       ?><p>
-      <a href="delete.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Delete</button></a>
+      <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
     </div>
 
@@ -137,3 +138,26 @@
       ?>
 
   </div>
+<!-- Delete Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content modalstyle bodytext">
+
+      <div class="modal-body">
+        <p>Are you sure you want to delete <?php echo $title; ?>?</p>
+      </div>
+      <div class="modal-footer">
+      <form class="delform" method="post" id="delform" action="delete.php">
+        <select form="delform" name="delete" id="deleteid" style="display:none;" required="yes">
+          <option value="<?php echo $deleteid; ?>" selected></option></select>
+<button type="button" class="btn btn-info delform" data-dismiss="modal">Go Back</button>
+          <input class="btn btn-danger" type="submit" value="Delete"></Input>
+
+      </form>
+      </div>
+    </div>
+
+  </div>
+</div>
