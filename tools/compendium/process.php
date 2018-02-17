@@ -28,8 +28,8 @@ $sql = "INSERT INTO compendium(title,type,body,npc_location,npc_faction,npc_deit
 				VALUES('$name','$type','$body','$npclocation','$npcfaction','$npcdeity')";
 
         if ($dbcon->query($sql) === TRUE) {
-					include('import.php');
 					include('success.php');
+					include('import.php');
         }
 				else {
             echo "Error: " . $sql . "<br>" . $dbcon->error;
