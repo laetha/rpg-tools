@@ -138,7 +138,7 @@ include_once($headpath);
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
 <div class="col-centered">
-<input class="col-centered" type="submit" value="Submit">
+<input class="btn btn-primary col-centered" type="submit" value="Submit">
 </div>
 </form>
 </div>
