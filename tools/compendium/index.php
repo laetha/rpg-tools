@@ -1,7 +1,8 @@
 <div class="mainbox col-md-9">
 
   <!-- Page Header -->
-  <h1 class="pagetitle"><?php
+  <div class="col-md-12">
+  <div class="pagetitle"><?php
   $id = addslashes($id);
   $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
   $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
@@ -9,8 +10,9 @@
    echo $row['title'];
    $title = $row['title'];
  }
-  ?></h1>
-  
+  ?><a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a>
+</div>
+</div>
   <div class="body bodytext col-xs-12" id="body">
 
     <!-- Body Text -->
