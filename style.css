@@ -160,9 +160,9 @@ textarea {
 ul {
 	list-style-type: none;
 }
-#npc-form, #settlement-form, #deity-form, #faction-form {
+/*#npc-form, #settlement-form, #deity-form, #faction-form {
 	display:none;
-}
+}*/
 .modalstyle {
 	background-color: #37393E;
 }
@@ -202,6 +202,7 @@ ul {
 	margin-left: 10px;
 	font-size: 14px;
 	opacity: 0.6;
+	float:right;
 }
 .glyphicon-edit {
 	padding-right: 5px;

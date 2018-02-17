@@ -10,7 +10,7 @@
    echo $row['title'];
    $title = $row['title'];
  }
-  ?><a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a>
+  ?>
 </div>
 </div>
   <div class="body bodytext col-xs-12" id="body">
@@ -45,7 +45,9 @@
         </script>
         <?php
       }
-      ?>
+      ?><p>
+      <a href="delete.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Delete</button></a>
+      <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
     </div>
 
 

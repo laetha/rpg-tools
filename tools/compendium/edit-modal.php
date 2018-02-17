@@ -29,11 +29,11 @@ include_once($headpath);
       <div class="modal-content modalstyle bodytext">
 
         <div class="modal-body">
-          <p><?php echo $name; ?> page successfully created.</p>
+          <p><?php echo $name; ?> page successfully edited.</p>
         </div>
         <div class="modal-footer">
           <a href="compendium.php?id=<?php echo $name; ?>" class="btn btn-info" href>View <strong><?php echo $name; ?></strong> Page</a>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Add another page</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
         </div>
       </div>
 
