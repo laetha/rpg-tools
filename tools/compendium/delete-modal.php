@@ -12,7 +12,7 @@
 
 <?php
 $headpath = $_SERVER['DOCUMENT_ROOT'];
-$headpath .= "/header.html";
+$headpath .= "/header.php";
 include_once($headpath);
 ?>
 <script type="text/javascript">

@@ -6,7 +6,7 @@ include_once($sqlpath); ?>
 <!-- Header -->
 <?php
 $headpath = $_SERVER['DOCUMENT_ROOT'];
-$headpath .= "/header.html";
+$headpath .= "/header.php";
 include_once($headpath);
 
 // Create variables

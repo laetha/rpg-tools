@@ -1,4 +1,4 @@
-<?php include('header.html'); ?>
+<?php include('header.php'); ?>
 
 			<div class="mainbox">
 				<h1 class="pagetitle">Brian's RPG Tools</h1>

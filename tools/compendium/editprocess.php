@@ -6,7 +6,7 @@ include_once($sqlpath); ?>
 <!-- Header -->
 <?php
 $headpath = $_SERVER['DOCUMENT_ROOT'];
-$headpath .= "/header.html";
+$headpath .= "/header.php";
 include_once($headpath);
 
 // Create variables
@@ -25,7 +25,7 @@ $npcfaction=addslashes($npcfactiontemp);
 $npcdeity=addslashes($npcdeitytemp);
 
 //Execute the query
-$sql = "UPDATE Compendium
+$sql = "UPDATE compendium
 SET title = '$name', type = '$type', body = '$body',  npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction'
 WHERE id = $id;";
 
@@ -38,6 +38,4 @@ WHERE id = $id;";
         }
 
 //Footer
-$footpath = $_SERVER['DOCUMENT_ROOT'];
-$footpath .= "/footer.php";
-include_once($footpath); ?>
+ ?>

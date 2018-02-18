@@ -5,7 +5,7 @@ $sqlpath .= "/sql-connect.php";
 include_once($sqlpath);
 //Header
 $headpath = $_SERVER['DOCUMENT_ROOT'];
-$headpath .= "/header.html";
+$headpath .= "/header.php";
 include_once($headpath);
 
 
