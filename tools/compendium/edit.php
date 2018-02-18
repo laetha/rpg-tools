@@ -8,7 +8,6 @@ $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
 
-
 $id = "index";
 $disallowed_paths = array('header', 'footer');
 if (!empty($_GET['id'])) {
@@ -174,9 +173,11 @@ display:none;
            <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body"><?php echo $editrow['body']; ?></textarea></div>
 
        <div class="col-centered">
-       <input class="btn btn-primary col-centered" type="submit" value="Save">
+       <input class="btn btn-primary col-centered inline" type="submit" value="Save">
+       <a class="clean" href="compendium.php?id=<?php echo $id; ?>"><button class="btn btn-danger col-centered inline" type="button">Cancel</button></a>
        </div>
       </form>
+
      </div>
    </div>
   </div>
