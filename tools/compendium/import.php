@@ -21,14 +21,22 @@ include_once($headpath);
 
 <div class="col-sm-6 typebox col-centered" id="npc-type">
       <p class="text">Type
-          <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
-          <option value="" disabled selected>Entry Type</option>
-          <option value="settlement">Settlement</option>
-          <option value="faction">Faction</option>
-          <option value="npc">NPC</option>
-          <option value="deity">Deity</option>
-        </select>
+         <select form="import" name="editid" id="editid" style="display:none;" required="yes">
+           <option value="<?php echo $editrow['id']; ?>" selected></option>
+           </select>
+        <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
+          <option value="">None...</option>
+          <?php
+          $typeedit = "SELECT type FROM `compendium`";
+          $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+          while($typerow =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+            $type = $typerow['type'];
+            $typeUpper = ucwords($type);
+            echo "<option value=\"$type\">$type</option>";
+          }
 
+         ?>
+        </select>
         <script type="text/javascript">
         $('#type').selectize({
     create: false,
@@ -37,7 +45,7 @@ include_once($headpath);
         </script>
       </p>
       </div>
-<!-- Different form for Different types -->
+      <!-- Different form for Different types -->
 <!-- Form Alteration Script -->
 <script type="text/javascript">
  function typeForm(selectObj) {
@@ -60,14 +68,14 @@ include_once($headpath);
   if (selectValue == "Settlement") {
    document.getElementById("settlement-form").style.display = "block";
 }*/
-  if (selectValue == "NPC") {
+  if (selectValue == "npc") {
     document.getElementById("npc-form").style.display = "block";
 }
  }
 </script>
 
 <!--NPC FORM -->
-<div id="npc-form">
+<div id="npc-form" style="display:none;">
 <!-- 'NPC Diety' Dropbox -->
 <div class="col-sm-6 typebox col-centered" id="npc-deity">
       <p class="text">Faith
