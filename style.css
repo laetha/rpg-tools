@@ -213,6 +213,28 @@ ul {
 .clean, a:hover{
 	text-decoration: none;
 }
-.list {
-	
+#logsearch {
+	padding-left:20px;
+	/*text-align: left; */
+}
+.search {
+	width: 300px;
+}
+.headitem {
+	/*background-color: #524b57;*/
+	border-bottom: 2px solid;
+}
+.date {
+	min-width: 90px;
+}
+.padding {
+	margin-top:20px;
+}
+.searchbox {
+	border-radius: 10px;
+	height: 30px;
+	text-align: center;
+}
+.tablehead {
+	background: linear-gradient(to right, #524b57, #37393E);
 }
