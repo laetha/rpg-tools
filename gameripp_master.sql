@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2018 at 08:15 PM
+-- Generation Time: Feb 18, 2018 at 03:59 AM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `gameripp_master`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `campaignlog`
+--
+
+CREATE TABLE `campaignlog` (
+  `id` int(11) NOT NULL,
+  `date` int(11) NOT NULL,
+  `entry` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `campaignlog`
+--
+
+INSERT INTO `campaignlog` (`id`, `date`, `entry`) VALUES
+(1, 1, 'Torian got attacked alone by a Mezzoloth trying to get down to the Fane.'),
+(2, 1, 'Party attacked a Hezrou who was left in charge by Gar Shatterkeel in the Temple of the Crushing Wave.'),
+(3, 1, 'Held two Crushing Wave Piests hostage while they rested, then forcing them to escort them to the Fane. They let them go after.'),
+(4, 1, 'Dispatched some fungus in the Fane.'),
+(5, 1, 'Fought Harpies in the Fane without too much trouble.'),
+(6, 2, 'Test day 2 entry with extra word. Torian.'),
+(7, 2, 'Test Day 2 entry with extra word. Fane. Also Hope\'s Landing.');
 
 -- --------------------------------------------------------
 
@@ -59,7 +84,6 @@ INSERT INTO `compendium` (`id`, `title`, `type`, `body`, `image`, `npc_location`
 (18, 'Yasmina Dustshot', 'npc', 'Name: Yasmina Dustshot\r\nRace: Half-elf\r\nJob: Alchemist\r\nFaction:  The Crimson Seal \r\nFaith:  Roros the Father \r\nLocation: Wondrous Potions\r\nTown:  Hope\'s Landing \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Crimson Seal', 'Roros the Father'),
 (19, 'Loras Stoneflaw', 'npc', 'Name: Loras Stoneflaw\r\nRace: Halfling\r\nJob: Blacksmith\r\nFaction:  ForgeForge \r\nFaith:  Sydona the Mother \r\nLocation: Stoneflaw\'s Arsenal\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'ForgeForge', 'Sydona the Mother'),
 (20, 'Kada Alpenward', 'npc', 'Name: Kada Alpenward\r\nRace: Human\r\nJob: Jeweler\r\nFaction:  The Exchange \r\nFaith:  Sydona the Mother \r\nLocation: Alpenward\'s Jewels\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Exchange', 'Sydona the Mother'),
-(21, 'Tara-Ann Shadowspell', 'npc', 'Name: Tara-Ann Shadowspell\r\nRace: Tiefling\r\nJob: Enchanter\r\nFaction: Twilight Helix \r\nFaith:  Ottori the Brother \r\nLocation: A Touch of Wizardry\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Hope\'s Landing', 'Twilight Helix', 'Ottori the Brother'),
 (22, 'Nando Craghunter', 'npc', 'Name: Nando Craghunter\r\nRace: Human\r\nJob: General Store\r\nFaction:  The Exchange \r\nFaith:  Sydona the Mother \r\nLocation: Hope\'s Landing Exchange\r\nTown:  Hope\'s Landing \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Exchange', 'Sydona the Mother'),
 (23, 'Gothor Paddle', 'npc', 'Name: Gothor Paddle\r\nRace: Human\r\nJob: Guard Captain\r\nFaction:  The Blue Veterans \r\nFaith:  Sydona the Mother \r\nLocation: Town Hall\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Blue Veterans', 'Sydona the Mother'),
 (24, 'Franz Marshcaller', 'npc', 'Name: Franz Marshcaller\r\nRace: Elf\r\nJob: Leader,  The Blue Veterans \r\nFaction:  The Blue Veterans \r\nFaith:  Sydona the Mother \r\nLocation: Cerulean Keep\r\nTown:  Riverbend \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Riverbend', 'The Blue Veterans', 'Sydona the Mother'),
@@ -81,7 +105,9 @@ INSERT INTO `compendium` (`id`, `title`, `type`, `body`, `image`, `npc_location`
 (41, 'Zophine the Sister', 'deity', 'With the world covered in a cornucopia of wonderfully diverse forms of life, Zophine the Sister wondered how they would all manage to coexist. Then she gifted them with the only prize she thought would allow all life to live together in harmony. She granted all living things the capacity for caring and compassion.Followers of Zophine often take the path of the healer or the philanthropist, while others simply follow Zophine out of an intense concern for the well-being of all living things.\r\n', '', '', '', ''),
 (42, 'Ottori the Brother', 'deity', 'Ottori the Bother saw all creation and thought it was wonderful and amazing, but he pitied all who lived upon the world for their inability to witness creation as he had. Feeling this pity, Ottori decided to give the world the capacity for knowledge, so they might understand the world around them. He then gave them magic, so they might experience a form of wonder for themselves.Followers of Ottori are those who value knowledge and wisdom, as well as practitioners of the arcane. Wizards, scholars, historians, and many others all seek wisdom through Ottori the Brother.', '', '', '', ''),
 (43, 'Ozmund the Welcomed Guest', 'deity', 'When the house of giving was create, there was another god created unknown to the others. Ozmund came upon the House of Giving as an outsider and was welcomed with open arms. Feeling the joy of inclusion despite a foreign background, Ozmund the Welcomed Guest granted the world with the capacity for language and understanding, so they might communicate and find common ground. Ozmund is very popular among those of the uncommon races who live among the masses. He is also heavily worshipped by the nomadic types who spend their lives on the road, constantly encountering new cultures, races, and languages.', '', '', '', ''),
-(44, 'Furin Cragskill', 'npc', 'Name: Furin Cragskill\r\nRace: Dwarf\r\nJob: Leader,  The Exchange \r\nFaction:  The Exchange \r\nFaith:  Opeus the Grandfather \r\nLocation: The Great Hold\r\nTown:  Seffaren \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', '', 'The Exchange', 'Opeus the Grandfather');
+(44, 'Furin Cragskill', 'npc', 'Name: Furin Cragskill\r\nRace: Dwarf\r\nJob: Leader,  The Exchange \r\nFaction:  The Exchange \r\nFaith:  Opeus the Grandfather \r\nLocation: The Great Hold\r\nTown:  Seffaren \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', '', 'The Exchange', 'Opeus the Grandfather'),
+(54, 'Tara-Ann Shadowspell', 'npc', 'Name: Tara-Ann Shadowspell\r\nRace: Tiefling\r\nJob: Enchanter\r\nFaction:  The Twilight Helix \r\nFaith:  Ottori the Brother \r\nLocation: A Touch of Wizardry\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Hope\'s Landing', 'Twilight Helix', 'Ottori the Brother'),
+(53, '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -118,6 +144,12 @@ INSERT INTO `npcs` (`id`, `name`, `race`, `job`, `faction`, `faith`, `location`,
 --
 
 --
+-- Indexes for table `campaignlog`
+--
+ALTER TABLE `campaignlog`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `compendium`
 --
 ALTER TABLE `compendium`
@@ -134,10 +166,16 @@ ALTER TABLE `npcs`
 --
 
 --
+-- AUTO_INCREMENT for table `campaignlog`
+--
+ALTER TABLE `campaignlog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `compendium`
 --
 ALTER TABLE `compendium`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
