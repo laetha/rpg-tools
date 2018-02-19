@@ -16,8 +16,8 @@ $date=addslashes($datetemp);
 $entry=addslashes($entrytemp);
 
 //Execute the query
-$sql = "INSERT INTO campaignlog(date,entry)
-				VALUES('$date','$entry')";
+$sql = "INSERT INTO campaignlog(date,entry,active)
+				VALUES('$date','$entry',1)";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('logmodal.php');

@@ -15,7 +15,6 @@
 
     <input class="search searchbox" placeholder="Search" />
 
-
     <!-- Add to Log -->
     <p><button class="btn btn-info" id="addbutton">Add to Log</button>
     <div id="adddiv" style="display:none;">
@@ -47,22 +46,24 @@
 <div class="list sidebartext" id="thelog">
 <form action="" method="post">
 <?php
-   $logtitle = "SELECT * FROM `campaignlog` WHERE active=1 ORDER BY `date` DESC ";
+   $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
    $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
    while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
     echo ('<div class="row"><div class="date col-sm-1 col-xs-1 col-md-1">');
     echo ('Day ');
     echo $row['date'];
-    echo('</div><div class="logbuttons col-sm-2 col-xs-2 col-md-1 col-lg-1">');
+    echo ('</div><div class="logbuttons col-sm-2 col-xs-2 col-md-1 col-lg-1">');
+    echo ('<form action="" method="post">');
     echo ('<button type="submit" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" value="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>');
     echo ('<button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span></button>');
+    echo ('</form>');
     echo ('</div><div class="entry col-sm-7 col-xs-7 col-md-9 col-lg-10">');
     echo $row['entry'];
     echo ('</div>');
     echo ('</div>');
    }
    ?>
- </form>
+ <!--</form>-->
  </div>
 
 </div>
@@ -90,10 +91,10 @@
           fuzzySearch: {
             searchClass: "search",
             location: 0,
-            distance: 1000,
+            distance: 500,
             threshold: 0.4,
             multiSearch: true
-  }
+        }
 
         };
 
