@@ -1,6 +1,7 @@
 body {
 	background-color: #4C5471;
 	color: #282829;
+	min-width: 444px;
 }
 div.body {
 	padding-left:30px;
@@ -237,4 +238,28 @@ ul {
 }
 .tablehead {
 	background: linear-gradient(to right, #524b57, #37393E);
+}
+#adddiv, #addbutton {
+    padding: 5px;
+    text-align: center;
+		margin-top: 10px;
+}
+#adddiv {
+    display: none;
+}
+#delete-log.btn{
+	padding: 1px 1px;
+	margin-left: -15px;
+	opacity: 0.6;
+}
+#edit-log.btn{
+	padding: 1px 1px 0px 6px;
+	opacity: 0.6;
+	margin-right: 10px;
+}
+.logbuttons {
+	min-width:73px;
+}
+.date {
+	max-width:70px;
 }
