@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 18, 2018 at 03:59 AM
+-- Generation Time: Feb 19, 2018 at 07:56 PM
 -- Server version: 10.1.30-MariaDB
 -- PHP Version: 7.2.1
 
@@ -31,21 +31,24 @@ SET time_zone = "+00:00";
 CREATE TABLE `campaignlog` (
   `id` int(11) NOT NULL,
   `date` int(11) NOT NULL,
-  `entry` text NOT NULL
+  `entry` text NOT NULL,
+  `active` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `campaignlog`
 --
 
-INSERT INTO `campaignlog` (`id`, `date`, `entry`) VALUES
-(1, 1, 'Torian got attacked alone by a Mezzoloth trying to get down to the Fane.'),
-(2, 1, 'Party attacked a Hezrou who was left in charge by Gar Shatterkeel in the Temple of the Crushing Wave.'),
-(3, 1, 'Held two Crushing Wave Piests hostage while they rested, then forcing them to escort them to the Fane. They let them go after.'),
-(4, 1, 'Dispatched some fungus in the Fane.'),
-(5, 1, 'Fought Harpies in the Fane without too much trouble.'),
-(6, 2, 'Test day 2 entry with extra word. Torian.'),
-(7, 2, 'Test Day 2 entry with extra word. Fane. Also Hope\'s Landing.');
+INSERT INTO `campaignlog` (`id`, `date`, `entry`, `active`) VALUES
+(1, 1, 'Torian got attacked alone by a Mezzoloth trying to get down to the Fane.', 0),
+(2, 1, 'Party attacked a Hezrou who was left in charge by Gar Shatterkeel in the Temple of the Crushing Wave.', 1),
+(3, 1, 'Held two Crushing Wave Piests hostage while they rested, then forcing them to escort them to the Fane. They let them go after.', 1),
+(4, 1, 'Dispatched some fungus in the Fane.', 1),
+(6, 2, 'Test day 2 entry with extra word. Torian.', 1),
+(7, 2, 'Test Day 2 entry with extra word. Fane. Also Hope\'s Landing.', 1),
+(9, 3, 'Testing with Day 3', 0),
+(10, 3, 'Testing with Day 3', 0),
+(11, 3, 'Testing with Day 3', 0);
 
 -- --------------------------------------------------------
 
@@ -74,14 +77,12 @@ INSERT INTO `compendium` (`id`, `title`, `type`, `body`, `image`, `npc_location`
 (5, 'The Junction', 'settlement', 'The Junction barely constitutes a settlement. Serving as the middle point between Hope\'s Landing, Selnora, Kirnheim, and Westfair, it was created as a neutral ground at which the various communities can gather for discussions and important meetings. \r\n\r\nThe town consists of only three main parts. There is the Inn, literally just called The Junction Hotel. With limited space available, The Junction Hotel is often prohibitively expensive for most visitors and only plays host to the most wealthy nobles and highly regarded diplomats. Other than that, there is \"The Court\", a circular outdoor arena in the middle of town where major meetings take place. The Court is overseen by an elderly Halfling named Zigmi Rumblestride, known simply as \"The Scribe\". Finally, for anyone who doesn\'t stay at the inn, there\'s a small tent-city that encircles most of the area. With the lack of shops and markets in the town, the tent city becomes a bustling flurry of impromptu trade.\r\n\r\n\r\nThe Junction is where most large-scale agreements between the people of the region are negotiated and decided. There is no approved format or voting. Either all sides come to an agreement, or they don\'t. On rare occasion The Court is also used to try criminals, although this is rare and reserved only for instances where multiple settlements have a vested interest in the outcome.', '', '', '', ''),
 (6, 'Flintspark', 'settlement', 'A much older city than it looks, Flintspark is a bastion of magic, technology, and science. Experimentation and invention are highly prized in this community, which is what gives Flintspark a much newer feel than its actual age.\r\n\r\nLikely to be one of the first communities discovered by the Trailblazer settlers, Flintspark has accepted many gnomes from that community, as well as a few particularly gifted folks from the other races. While the permanent population of Flintspark is almost exclusively gnome, there are frequently many visitors from other lands buying, selling, sharing technology, and learning from the gnomes.\r\n\r\n\r\nThe study of the Flintspark gnomes is almost completely practical, with very little in the way of a theoretical component. As such, while there are libraries in Flintspark, the main attraction and source of knowledge comes from the Blackbox Lyceum. The Lyceum is an amazing place where inventors or enchanters will experiement/demonstrate (often for the first time) their creations in front of an audience of esteemed members of the community. The success of a showing at the Blackbox Lyceum can have a great impact on a gnome\'s personal standing in Flintspark, or an outsider\'s esteem within the city.', '', '', '', ''),
 (7, 'Selnora', 'settlement', 'Seeking a home amongst the wilderness, the Elves departed from Hope\'s Landing for Selnora. Perfectly nestled between a large lake and The Shadewood, the Elves settled in and established a town with a very open feel to it.\r\n\r\nThe \"roads\" of Selnora are not paved. Instead, the grassland and the trees originally present in the area are interwoven into the layout of the town itself. The primary fixture of Selnora is the massive library, The Springwell Archives. When the Elves left the old world, preservation of the knowledge and history was their primary directive. The Springwell Archives contains almost all of the remaining books from the old world, and is rapidly filling up with texts and studies from the new world.\r\n\r\n\r\nBecause of the presence of the Archives, Selnora is frequented and visited often by members of both  The Twilight Helix , and to a lesser extent  The Seekers .', '', '', '', ''),
-(8, 'Kirnheim', 'settlement', 'Not long after arriving in Hope\'s Landing, most dwarves began exploring outward in search of a mountain location that would better suit their culture and society. Nestled into the Shieldforge Mountains, Kirnheim provided everything they required; cooler climate, plenty of stone, and ready access to a variety of ores and resources. They went to work immediately, rapidly mining, crafting and building until Kirnheim stood as a new home for the dwarven people. Some structures are less built than simply carved into the edge of the mountains, making the city appear old despite being quite new.', '', '', '', ''),
 (9, 'Hope\'s Landing', 'settlement', 'As the  The War of the Risen  waged on and most took to ships in search of a new world, Hope\'s Landing is where the first of  The Trailblazers  made land. Through various forms of communication, all vessels were notified of this new location and most made their way there. While the majority of Humans, Dwarves, and Elves left and settled elsewhere, some stayed behind along with the minor races and settled in Hope\'s Landing.\r\n\r\nDespite being technically the first of the new settlements, Hope\'s Landing is also the least developed, as it was constantly in flux and was required to house numerous ships full of people as they arrived in the new world. It is only relatively recently that the community has settled down and started to build an identity of its own as a bastion of diversity, inclusivity, and the promise of the new world. ', '', '', '', ''),
 (11, 'Zigmi Rumblestride', 'npc', 'Name: Zigmi Rumblestride\r\nRace: Halfling\r\nJob: \"The Scribe\"\r\nFaction:  The Exchange \r\nFaith:  Sydona the Mother \r\nLocation: The Court\r\nTown:  The Junction \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Exchange', 'Sydona The Mother'),
 (12, 'Yara The First Dead', 'deity', 'Yara was part of the House of Giving and originally gifted those in the material plane with immortality. Unfortunately she was betrayed and killed by her brother Zarazim The Betrayer, becoming the very first being of any kind to die. As the first to die, she governs the ethereal plane and holds dominion over the transition between life and death.\r\n', '', '', '', ''),
 (15, 'Tanner Cogsnap', 'npc', 'Name: Tanner Cogsnap\r\nRace: Gnome\r\nJob: Innkeep\r\nFaction: \r\nFaith:  Ozmund the Welcomed Guest \r\nLocation: The Half-Full Cask\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Hope\'s Landing', '', 'Ozmund The Welcomed Guest'),
 (16, 'Mary Seatail', 'npc', 'Name: Mary Seatail\r\nRace: Human\r\nJob: Townmaster\r\nFaction:  The Blue Veterans \r\nFaith:  Sydona the Mother\r\nLocation: Town Hall\r\nTown: Hope\'s Landing\r\n\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Hope\'s Landing', 'The Blue Veterans', 'Sydona the Mother'),
 (17, 'Bretta Bluewater', 'npc', 'Name: Bretta Bluewater\r\nRace: Human\r\nJob: Holy Person\r\nFaction:  The Blue Veterans \r\nFaith:  Sydona the Mother \r\nLocation: Temple of the Mother\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Hope\'s Landing', 'The Blue Veterans', 'Sydona the Mother'),
-(18, 'Yasmina Dustshot', 'npc', 'Name: Yasmina Dustshot\r\nRace: Half-elf\r\nJob: Alchemist\r\nFaction:  The Crimson Seal \r\nFaith:  Roros the Father \r\nLocation: Wondrous Potions\r\nTown:  Hope\'s Landing \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Crimson Seal', 'Roros the Father'),
 (19, 'Loras Stoneflaw', 'npc', 'Name: Loras Stoneflaw\r\nRace: Halfling\r\nJob: Blacksmith\r\nFaction:  ForgeForge \r\nFaith:  Sydona the Mother \r\nLocation: Stoneflaw\'s Arsenal\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'ForgeForge', 'Sydona the Mother'),
 (20, 'Kada Alpenward', 'npc', 'Name: Kada Alpenward\r\nRace: Human\r\nJob: Jeweler\r\nFaction:  The Exchange \r\nFaith:  Sydona the Mother \r\nLocation: Alpenward\'s Jewels\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Exchange', 'Sydona the Mother'),
 (22, 'Nando Craghunter', 'npc', 'Name: Nando Craghunter\r\nRace: Human\r\nJob: General Store\r\nFaction:  The Exchange \r\nFaith:  Sydona the Mother \r\nLocation: Hope\'s Landing Exchange\r\nTown:  Hope\'s Landing \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:\r\n', '', 'Hope\'s Landing', 'The Exchange', 'Sydona the Mother'),
@@ -99,7 +100,6 @@ INSERT INTO `compendium` (`id`, `title`, `type`, `body`, `image`, `npc_location`
 (34, 'Belaxion the Warmonger', 'deity', 'Born into corruption. Belaxion delighted in playing with the emotions and alliances of the humanoid races. The first wars were fought and the first blood was spilled among the humanoids by the will of Belaxion. If it was Zarazim the Betrayer who corrupted the Gods, it is Belaxion corrupted the mortal races.\r\n', '', '', '', ''),
 (36, 'Asha the Child', 'deity', 'Asha was born in the World, the daughter of Yara the First Dead. Zarazim The Betrayer brought Yara to the World to kill her and grant immortality to the gods, but what he didn\'t know was that Yara was with child. After her death, emerging from Yara\'s remains  was Asha, The Child. Asha is bound to the material world and is unable to ever join the gods. Because Vivia the Thief stole immortality from the world, Asha is the sole true immortal on the material plane.', '', '', '', ''),
 (37, 'Avana the Grandmother', 'deity', 'Creator of the basest elements of air and water, Avana created the very winds and the seas that served as the building blocks for all of creation. Along with Opeus the Grandfather, Avana is also said to be responsible for the creation of the other gods themselves. ', '', '', '', ''),
-(38, 'Opeus the Grandfather', 'deity', 'In league with Avana the Grandmother, Opeus the Grandfather created the very first essences of land, rock, and fire to build and shape the landmasses of the world as they are known today. Opeus created the shape and the substance of all existence, and it was filled by Avana with the building blocks necessary for the following gods to create.\r\n', '', '', '', ''),
 (39, 'Sydona the Mother', 'deity', 'By far the most commonly worshipped deity of the modern world, Sydona the Mother used her gifts to create all the creatures who live upon the world. Literally referred to as \"Mother of All\", Sydona gave birth to intelligent life itself. Followers of Sydona are numerous and widespread, spanning almost all races and regions of the known world. Her followers include almost all for whom none of the other gods appeal to in a very specific manner.', '', '', '', ''),
 (40, 'Roros the Father', 'deity', 'Roros the Father looked upon the world and thought it looked lonely. Using the powers he had been granted, Roros gave life to all things that grow. Plant-life, trees, and all the tiniest organisms that slowly but steadily flourish upon the world were all created by Roros to keep the land company and cover it in life and warmth.Roros is very heavily worshipped by those who feel an intense connection to nature. Common followers of Roros are Elves, Firbolg, Druids, farmers, and any who live in harmony with the world around them.\r\n', '', '', '', ''),
 (41, 'Zophine the Sister', 'deity', 'With the world covered in a cornucopia of wonderfully diverse forms of life, Zophine the Sister wondered how they would all manage to coexist. Then she gifted them with the only prize she thought would allow all life to live together in harmony. She granted all living things the capacity for caring and compassion.Followers of Zophine often take the path of the healer or the philanthropist, while others simply follow Zophine out of an intense concern for the well-being of all living things.\r\n', '', '', '', ''),
@@ -107,7 +107,8 @@ INSERT INTO `compendium` (`id`, `title`, `type`, `body`, `image`, `npc_location`
 (43, 'Ozmund the Welcomed Guest', 'deity', 'When the house of giving was create, there was another god created unknown to the others. Ozmund came upon the House of Giving as an outsider and was welcomed with open arms. Feeling the joy of inclusion despite a foreign background, Ozmund the Welcomed Guest granted the world with the capacity for language and understanding, so they might communicate and find common ground. Ozmund is very popular among those of the uncommon races who live among the masses. He is also heavily worshipped by the nomadic types who spend their lives on the road, constantly encountering new cultures, races, and languages.', '', '', '', ''),
 (44, 'Furin Cragskill', 'npc', 'Name: Furin Cragskill\r\nRace: Dwarf\r\nJob: Leader,  The Exchange \r\nFaction:  The Exchange \r\nFaith:  Opeus the Grandfather \r\nLocation: The Great Hold\r\nTown:  Seffaren \r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', '', 'The Exchange', 'Opeus the Grandfather'),
 (54, 'Tara-Ann Shadowspell', 'npc', 'Name: Tara-Ann Shadowspell\r\nRace: Tiefling\r\nJob: Enchanter\r\nFaction:  The Twilight Helix \r\nFaith:  Ottori the Brother \r\nLocation: A Touch of Wizardry\r\nTown: Hope\'s Landing\r\n\r\nWants: \r\nFears: \r\nDM ROLEPLAY:\r\n\r\nBio:\r\n\r\nPC Interactions:', '', 'Hope\'s Landing', 'Twilight Helix', 'Ottori the Brother'),
-(53, '', '', '', '', '', '', '');
+(58, 'Torian', 'player character', 'Test Data', '', '', '', ''),
+(59, 'Skunk', 'player character', 'test data 1', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -169,13 +170,13 @@ ALTER TABLE `npcs`
 -- AUTO_INCREMENT for table `campaignlog`
 --
 ALTER TABLE `campaignlog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `compendium`
 --
 ALTER TABLE `compendium`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
