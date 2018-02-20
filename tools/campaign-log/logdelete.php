@@ -5,17 +5,16 @@ include_once($sqlpath); ?>
 
 <!-- Header -->
 <?php
-if (!empty($_GET['editid'])) {
-  $tmp_action = basename($_GET['editid']);
+if (!empty($_GET['id'])) {
+  $tmp_action = basename($_GET['id']);
   if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("compendium/{$tmp_action}.php")*/)
         $id = $tmp_action;
 
   }
-  $entrytemp=$_POST['editentry'.$id];
-  $entry=htmlentities(trim(addslashes($entrytemp)));
+
 //Execute the query
 $sql = "UPDATE campaignlog
-SET entry = '$entry'
+SET active = '0'
 WHERE id = $id;";
 
         if ($dbcon->query($sql) === TRUE) {

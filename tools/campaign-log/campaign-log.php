@@ -44,7 +44,6 @@
     </div>
   </div>
 <div class="list sidebartext" id="thelog">
-  <div id="editdiv" style="display:none;">BOOBS</div>
 <form action="" method="post">
 <?php
    $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
@@ -54,33 +53,31 @@
     echo ('Day ');
     echo $row['date'];
     echo ('</div><div class="logbuttons col-sm-2 col-xs-2 col-md-1 col-lg-1">');
-    echo ('<button type="submit" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" value="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>');
-    echo ('<button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#myModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>');
-    echo ('</div><div class="entry col-sm-7 col-xs-7 col-md-9 col-lg-10" id="entry');
+    echo ('<button type="button" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" data-toggle="modal" data-target="#deleteModal'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>');
+    echo ('<button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#editModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>');
+    echo ('</div><div class="entry col-sm-7 col-xs-7 col-md-9 col-lg-10" name ="entry1" id="entry');
     echo $row['id'];
     echo ('">');
     echo $row['entry'];
     echo ('<div id="hiddenid">'.$row['entry'].'</div>');
     echo ('</div></div>');
     ?>
-    <!-- Modal -->
-    <div class="modal fade" id="myModal<?php echo $row['id']; ?>" role="dialog">
+    <!-- EDIT Modal -->
+    <div class="modal fade" id="editModal<?php echo $row['id']; ?>" role="dialog">
       <div class="modal-dialog">
 
         <!-- Modal content-->
         <div class="modal-content modalstyle bodytext">
 
           <div class="modal-body">
-            <form method="post" action="logedit.php" id="import">
-              <select form="import" name="editid" id="editid" style="display:none;" required="yes">
-                <option value="<?php echo $row['id']; ?>" selected></option>
-                </select>
-
-              <select>
-              <input form="import" class="logeditbox" type="text" name="editEntry" id="editEntry" value="">
-              <button class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save">
-            <span class="glyphicon glyphicon-ok"></span></button>
+            <form method="post" action="logedit.php?editid=<?php echo $row['id']; ?>" id="edit<?php echo $row['id']; ?>">
+              <input form="edit<?php echo $row['id']; ?>" class="logeditbox" type="text" name="editentry<?php echo $row['id']; ?>" id="editentry<?php echo $row['id']; ?>" placeholder="Enter text here..." value="" />
+              <button form="edit<?php echo $row['id']; ?>"class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save" />
+                <span class="glyphicon glyphicon-ok"></span></button>
             </form>
+            <p></p><p>Old Text:</p>
+            <p class="sidebartext">
+            <?php echo $row['entry']; ?></p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
@@ -90,6 +87,24 @@
       </div>
     </div>
 
+    <!-- DELETE Modal -->
+    <div class="modal fade" id="deleteModal<?php echo $row['id']; ?>" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content modalstyle bodytext">
+
+          <div class="modal-body">
+            <p>Are you sure you want to delete <em>"<?php echo $row['entry']; ?>"</em>?</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info delform" data-dismiss="modal">Go Back</button>
+                <a href="logdelete.php?id=<?php echo $row['id']; ?>"><button class="btn btn-danger delform">Delete</button></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
     <?php
     }
    ?>
@@ -148,22 +163,8 @@
 
         </script>
         <?php
-        }
-        // Create variables
-        if(isset($_POST['deleteItem']) and is_numeric($_POST['deleteItem'])){
-        $delid = $_POST['deleteItem'];
-        //Execute the query
-        $sqldelete = "UPDATE campaignlog
-        SET active = 0
-        WHERE id = $delid;";
-                if ($dbcon->query($sqldelete) === TRUE) {
-        					include('delete-modal.php');
-                }
-        				else {
-                    echo "Error: " . $sqldelete . "<br>" . $dbcon->error;
-                }
-}
-?>
+      } ?>
+
 </div>
 
 

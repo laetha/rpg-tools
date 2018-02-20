@@ -5,23 +5,21 @@ include_once($sqlpath); ?>
 
 <!-- Header -->
 <?php
-$headpath = $_SERVER['DOCUMENT_ROOT'];
-$headpath .= "/header.php";
-include_once($headpath);
+
 
 // Create variables
 $datetemp=$_POST['logdate'];
 $entrytemp=$_POST['logentry'];
-$date=addslashes($datetemp);
-$entry=addslashes($entrytemp);
+$date=htmlentities(trim(addslashes($datetemp)));
+$entry=htmlentities(trim(addslashes($entrytemp)));
 
 //Execute the query
 $sql = "INSERT INTO campaignlog(date,entry,active)
 				VALUES('$date','$entry',1)";
 
         if ($dbcon->query($sql) === TRUE) {
-					include('logmodal.php');
-					include('campaign-log.php');
+					header("Location: campaign-log.php");
+
         }
 				else {
             echo "Error: " . $sql . "<br>" . $dbcon->error;

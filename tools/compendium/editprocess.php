@@ -17,12 +17,12 @@ $id=$_POST['editid'];
 $npcfactiontemp=$_POST['npc-faction'];
 $npclocationtemp=$_POST['npc-location'];
 $npcdeitytemp=$_POST['npc-deity'];
-$name=addslashes($nametemp);
-$type=addslashes($typetemp);
-$body=addslashes($bodytemp);
-$npclocation=addslashes($npclocationtemp);
-$npcfaction=addslashes($npcfactiontemp);
-$npcdeity=addslashes($npcdeitytemp);
+$name=htmlentities(trim(addslashes($nametemp)));
+$type=htmlentities(trim(addslashes($typetemp)));
+$body=htmlentities(trim(addslashes($bodytemp)));
+$npclocation=htmlentities(trim(addslashes($npclocationtemp)));
+$npcfaction=htmlentities(trim(addslashes($npcfactiontemp)));
+$npcdeity=htmlentities(trim(addslashes($npcdeitytemp)));
 
 //Execute the query
 $sql = "UPDATE compendium
