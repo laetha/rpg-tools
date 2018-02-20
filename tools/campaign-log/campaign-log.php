@@ -25,8 +25,8 @@
     </form>
   </div>
   <script>
-  $(document).ready(function(){
-      $("#addbutton").click(function(){
+  $(document).ready(function addLog(){
+      $("#addbutton").click(function addLog(){
           $("#adddiv").slideToggle("slow");
       });
   });
@@ -44,6 +44,7 @@
     </div>
   </div>
 <div class="list sidebartext" id="thelog">
+  <div id="editdiv" style="display:none;">BOOBS</div>
 <form action="" method="post">
 <?php
    $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
@@ -53,15 +54,44 @@
     echo ('Day ');
     echo $row['date'];
     echo ('</div><div class="logbuttons col-sm-2 col-xs-2 col-md-1 col-lg-1">');
-    echo ('<form action="" method="post">');
     echo ('<button type="submit" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" value="'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button>');
-    echo ('<button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-edit"></span></button>');
-    echo ('</form>');
-    echo ('</div><div class="entry col-sm-7 col-xs-7 col-md-9 col-lg-10">');
+    echo ('<button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#myModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button>');
+    echo ('</div><div class="entry col-sm-7 col-xs-7 col-md-9 col-lg-10" id="entry');
+    echo $row['id'];
+    echo ('">');
     echo $row['entry'];
-    echo ('</div>');
-    echo ('</div>');
-   }
+    echo ('<div id="hiddenid">'.$row['entry'].'</div>');
+    echo ('</div></div>');
+    ?>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal<?php echo $row['id']; ?>" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content modalstyle bodytext">
+
+          <div class="modal-body">
+            <form method="post" action="logedit.php" id="import">
+              <select form="import" name="editid" id="editid" style="display:none;" required="yes">
+                <option value="<?php echo $row['id']; ?>" selected></option>
+                </select>
+
+              <select>
+              <input form="import" class="logeditbox" type="text" name="editEntry" id="editEntry" value="">
+              <button class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save">
+            <span class="glyphicon glyphicon-ok"></span></button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <?php
+    }
    ?>
  <!--</form>-->
  </div>
@@ -86,6 +116,7 @@
         }
         replace(foundlink);
 
+//List.js
         var options = {
           valueNames: [ 'date', 'entry' ],
           fuzzySearch: {
@@ -95,10 +126,25 @@
             threshold: 0.4,
             multiSearch: true
         }
-
         };
-
         var userList = new List('logsearch', options);
+
+//Edit Entry
+
+/*function logEdit(editquery) {
+      var editid = ('entry' + editquery);
+      var originaltext = document.getElementById(editid).innerHTML;
+      var doc = new DOMParser().parseFromString(originaltext, 'text/html');
+      var cleantext = doc.body.textContent || "";
+      var editbox = '<form method="post" action="" id="import">' +
+      '<input class="logeditbox" type="text" name="editEntry" id="editEntry" value="' + cleantext +
+      '">' +
+      '<button class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save">' +
+      '<span class="glyphicon glyphicon-ok"></span></button>' +
+      '</form>'
+      document.getElementById(editquery).innerHTML = editbox;
+};*/
+
 
         </script>
         <?php

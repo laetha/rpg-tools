@@ -263,3 +263,18 @@ ul {
 .date {
 	max-width:70px;
 }
+.logeditbox {
+	width: 80%;
+	height: 20px;
+	color:black;
+	text-align: left;
+	margin-top:0px;
+}
+#editconfirm.btn{
+	padding: 1px 4px 0px 4px;
+	opacity: 0.6;
+	margin-left: 10px;
+}
+#hiddenid {
+	display:none;
+}
