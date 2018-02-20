@@ -21,9 +21,7 @@ include_once($headpath);
 
 <div class="col-sm-6 typebox col-centered" id="npc-type">
       <p class="text">Type
-         <select form="import" name="editid" id="editid" style="display:none;" required="yes">
-           <option value="<?php echo $editrow['id']; ?>" selected></option>
-           </select>
+         
         <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
           <option value="">None...</option>
           <?php
@@ -146,7 +144,7 @@ include_once($headpath);
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
 <div class="col-centered">
-<input class="btn btn-primary col-centered" type="submit" value="Submit">
+<input form="import" class="btn btn-primary col-centered" type="submit" value="Submit">
 </div>
 </form>
 </div>
