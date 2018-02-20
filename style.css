@@ -278,3 +278,6 @@ ul {
 #hiddenid {
 	display:none;
 }
+#body {
+	padding-bottom: 0px;
+}

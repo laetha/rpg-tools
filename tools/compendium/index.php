@@ -25,50 +25,32 @@
           $sidebartype = $row['type'];
         }
       ?>
-
-<!-- Search and add hyperlinks -->
-      <?php
-        $sqlcompendium = "SELECT * FROM compendium";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $temp = $linkrow['title'];
-        ?>
-        <script>
-        var foundlink = "<?php echo $temp ?>";
-        function replace (querytext){
-          var bodytext = document.getElementById("body").innerHTML;
-          var url = "<a href=\"compendium.php?id=" + querytext + "\">" + querytext + "</a>";
-          var newtext = bodytext.replace(querytext, url)
-          document.getElementById("body").innerHTML = newtext;
-        }
-        replace(foundlink);
-
-        </script>
-        <?php
-      }
-      ?><p>
+      </div>
+      <p>
       <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
-    </div>
 
+    <div class="body bodytext col-xs-12" id="body2">
 
   <!--Settlement NPCs-->
   <?php
   if ($sidebartype == "settlement") {
     ?>
-    <div class="body col-md-9 bodytext">
+    <div class="body col-md-12 bodytext">
     <?php
     echo "<h3>Key NPC's:</h3>";
+    echo ('<div class="row col-md-12">');
     $temptitle = str_replace("'", "''", $title);
     $npcs = "SELECT * FROM compendium WHERE npc_location LIKE '%$temptitle%'";
     $npcdata = mysqli_query($dbcon, $npcs) or die('error getting data');
     while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
       $selectednpc = $titlerow['title'];
-      echo "<a href=\"compendium.php?id=$selectednpc\">";
+      //echo "<a href=\"compendium.php?id=$selectednpc\">";
+      echo ('<div class="col-md-4">');
       echo $selectednpc;
-      echo "</a><br />";
+      echo "</div>";
     }
-    echo "</div>";
+    echo "</div></div>";
   }
 
   //Faction NPCs
@@ -82,7 +64,7 @@
     $factiondata = mysqli_query($dbcon, $factionnpcs) or die('error getting data');
     while($factionrow = mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
       $selectednpc = $factionrow['title'];
-      echo "<a href=\"compendium.php?id=$selectednpc\">";
+      //echo "<a href=\"compendium.php?id=$selectednpc\">";
       echo $selectednpc;
       echo "</a><br />";
     }
@@ -100,7 +82,7 @@
     $deitydata = mysqli_query($dbcon, $deitynpcs) or die('error getting data');
     while($deityrow = mysqli_fetch_array($deitydata, MYSQLI_ASSOC)) {
       $selectednpc = $deityrow['title'];
-      echo "<a href=\"compendium.php?id=$selectednpc\">";
+      //echo "<a href=\"compendium.php?id=$selectednpc\">";
       echo $selectednpc;
       echo "</a><br />";
     }
@@ -108,7 +90,77 @@
   }
   ?>
 
+  <!-- campaignlog References -->
+  <?php
+  if ($sidebartype == "settlement") {
+    ?>
+    <div class="body sidebartext col-md-12 bodytext">
+    <?php
+    echo "<h3>Log references:</h3>";
+    echo ('<ul style="list-style-type: circle;">');
+    $temptitle = str_replace("'", "''", $title);
+    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%'";
+    $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
+    while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
+      echo ('<li>');
+      $selectedlog = $logrow['entry'];
+      echo $selectedlog;
+      echo "</li><p>";
+    }
+
+    echo "</ul></div>";
+  }
+
+  ?>
+<!-- Search and add hyperlinks -->
+  <?php
+    $sqlcompendium = "SELECT * FROM compendium";
+    $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+    while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+    $temp = $linkrow['title'];
+    ?>
+    <script>
+    var foundlink = "<?php echo $temp ?>";
+    function replace (querytext){
+      var bodytext = document.getElementById("body").innerHTML;
+      var url = "<a href=\"compendium.php?id=" + querytext + "\">" + querytext + "</a>";
+      var regex = new RegExp(querytext, 'ig');
+      var newtext = bodytext.replace(regex, url)
+      document.getElementById("body").innerHTML = newtext;
+    }
+    replace(foundlink);
+
+    </script>
+    <?php
+  }
+  ?>
+  <!-- Search and add hyperlinks -->
+    <?php
+      $sqlcompendium = "SELECT * FROM compendium";
+      $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+      while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+      $temp = $linkrow['title'];
+      ?>
+      <script>
+      var foundlink = "<?php echo $temp ?>";
+      function replace (querytext){
+        var bodytext = document.getElementById("body2").innerHTML;
+        var url = "<a href=\"compendium.php?id=" + querytext + "\">" + querytext + "</a>";
+        var regex = new RegExp(querytext, 'ig');
+        var newtext = bodytext.replace(regex, url)
+        document.getElementById("body2").innerHTML = newtext;
+      }
+      replace(foundlink);
+
+      </script>
+      <?php
+    }
+    ?>
 </div>
+
+</div>
+
+
 
 <!-- Sidebar -->
     <div class="sidebar sidebartext col-xs-2">
