@@ -19,7 +19,11 @@ SET entry = '$entry'
 WHERE id = $id;";
 
         if ($dbcon->query($sql) === TRUE) {
-          header("Location: campaign-log.php");
+          ?>
+<script type="text/javascript">
+window.location.href = 'campaign-log.php';
+</script>
+<?php
           die();
         }
 				else {
