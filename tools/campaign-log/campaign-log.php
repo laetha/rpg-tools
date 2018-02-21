@@ -44,7 +44,6 @@
     </div>
   </div>
 <div class="list sidebartext" id="thelog">
-<form action="" method="post">
 <?php
    $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
    $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
