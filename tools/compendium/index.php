@@ -92,24 +92,28 @@
 
   <!-- campaignlog References -->
   <?php
-  if ($sidebartype == "settlement") {
+
     ?>
     <div class="body sidebartext col-md-12 bodytext">
     <?php
     echo "<h3>Log references:</h3>";
     echo ('<ul style="list-style-type: circle;">');
     $temptitle = str_replace("'", "''", $title);
-    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%'";
+    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' ORDER BY date DESC";
     $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
     while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
       echo ('<li>');
+      $selecteddate = $logrow['date'];
       $selectedlog = $logrow['entry'];
+      echo ('<strong>Day ');
+      echo $selecteddate;
+      echo (':</strong> ');
       echo $selectedlog;
       echo "</li><p>";
     }
 
     echo "</ul></div>";
-  }
+
 
   ?>
 <!-- Search and add hyperlinks -->

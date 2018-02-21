@@ -89,6 +89,7 @@ div.menuitem {
 	font-size:20px;
 	margin-bottom: 20px;
 	margin-top: 20px;
+  background-color: #333;
 }
 .toc1 {
 	padding-left: 35px;
@@ -280,4 +281,12 @@ ul {
 }
 #body {
 	padding-bottom: 0px;
+}
+.logeditdate {
+	color:black;
+	width:10%;
+}
+.logeditentry {
+	color:black;
+	width:80%;
 }

@@ -71,7 +71,8 @@
 
           <div class="modal-body">
             <form method="post" action="logedit.php?editid=<?php echo $row['id']; ?>" id="edit<?php echo $row['id']; ?>">
-              <input form="edit<?php echo $row['id']; ?>" class="logeditbox" type="text" name="editentry<?php echo $row['id']; ?>" id="editentry<?php echo $row['id']; ?>" placeholder="Enter text here..." value="" />
+              <input form="edit<?php echo $row['id']; ?>" type="text" class="logeditdate" name="editdate<?php echo $row['id']; ?>" id="date<?php echo $row['id']; ?>" placeholder="Date..." value="" />
+              <input form="edit<?php echo $row['id']; ?>" class="logeditentry" type="text" name="editentry<?php echo $row['id']; ?>" id="editentry<?php echo $row['id']; ?>" placeholder="Entry..." value="" />
               <button form="edit<?php echo $row['id']; ?>"class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save" />
                 <span class="glyphicon glyphicon-ok"></span></button>
             </form>
@@ -125,7 +126,7 @@
         function replace (querytext){
           var bodytext = document.getElementById("thelog").innerHTML;
           var url = "<a href=\"/tools/compendium/compendium.php?id=" + querytext + "\">" + querytext + "</a>";
-          var regex = new RegExp(querytext, 'g');
+          var regex = new RegExp(querytext, 'ig');
           newtext = bodytext.replace(regex, url);
           document.getElementById("thelog").innerHTML = newtext;
         }

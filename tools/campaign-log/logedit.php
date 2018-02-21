@@ -12,10 +12,11 @@ if (!empty($_GET['editid'])) {
 
   }
   $entrytemp=$_POST['editentry'.$id];
+  $date=$_POST['editdate'.$id];
   $entry=htmlentities(trim(addslashes($entrytemp)));
 //Execute the query
 $sql = "UPDATE campaignlog
-SET entry = '$entry'
+SET entry = '$entry', date = '$date'
 WHERE id = $id;";
 
         if ($dbcon->query($sql) === TRUE) {
