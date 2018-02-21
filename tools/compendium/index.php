@@ -2,7 +2,7 @@
 
   <!-- Page Header -->
   <div class="col-md-12">
-  <div class="pagetitle"><?php
+  <div class="pagetitle" id="pgtitle"><?php
   $id = addslashes($id);
   $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
   $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
@@ -114,7 +114,7 @@
   ?>
 <!-- Search and add hyperlinks -->
   <?php
-    $sqlcompendium = "SELECT * FROM compendium";
+    $sqlcompendium = "SELECT * FROM compendium WHERE title NOT LIKE '%{$id}%'";
     $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
     while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
     $temp = $linkrow['title'];
@@ -123,6 +123,7 @@
     var foundlink = "<?php echo $temp ?>";
     function replace (querytext){
       var bodytext = document.getElementById("body").innerHTML;
+      //var pgtitle = document.getElementById("pgtitle").innerHTML;
       var url = "<a href=\"compendium.php?id=" + querytext + "\">" + querytext + "</a>";
       var regex = new RegExp(querytext, 'ig');
       var newtext = bodytext.replace(regex, url)
