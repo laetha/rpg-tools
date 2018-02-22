@@ -10,9 +10,9 @@ $headpath .= "/header.php";
 include_once($headpath);
 
 //Execute the query
-$sql = "LOAD XML LOCAL INFILE 'xml/Output1.xml'
-  INTO TABLE items
-  ROWS IDENTIFIED BY '<item>'";
+$sql = "LOAD XML LOCAL INFILE 'xml/Output.xml'
+  INTO TABLE races
+  ROWS IDENTIFIED BY '<race>'";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');
