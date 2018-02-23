@@ -115,16 +115,16 @@
 
 <!-- Search and add hyperlinks -->
       <?php
-        $sqlcompendium = "SELECT * FROM compendium";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+        $sqlworld = "SELECT * FROM world";
+        $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+        while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
         $temp = $linkrow['title'];
         ?>
         <script>
         var foundlink = "<?php echo $temp ?>";
         function replace (querytext){
           var bodytext = document.getElementById("thelog").innerHTML;
-          var url = "<a href=\"/tools/compendium/compendium.php?id=" + querytext + "\">" + querytext + "</a>";
+          var url = "<a href=\"/tools/world/world.php?id=" + querytext + "\">" + querytext + "</a>";
           var regex = new RegExp(querytext, 'ig');
           newtext = bodytext.replace(regex, url);
           document.getElementById("thelog").innerHTML = newtext;

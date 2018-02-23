@@ -13,9 +13,9 @@ include_once($headpath);
 $delid=$_POST['delete'];
 
 //Execute the query
-$sqldelete = "DELETE FROM compendium WHERE id = $delid";
+$sqldelete = "DELETE FROM world WHERE id = $delid";
         if ($dbcon->query($sqldelete) === TRUE) {
-					include('compendium.php');
+					include('world.php');
           include('delete-modal.php');
         }
 				else {

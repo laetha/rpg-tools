@@ -12,11 +12,11 @@ $id = "index";
 $disallowed_paths = array('header', 'footer');
 if (!empty($_GET['id'])) {
   $tmp_action = basename($_GET['id']);
-  if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("compendium/{$tmp_action}.php")*/)
+  if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("world/{$tmp_action}.php")*/)
         $id = $tmp_action;
         $id = addslashes($id);
-        $compendiumedit = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
-        $editdata = mysqli_query($dbcon, $compendiumedit) or die('error getting data');
+        $worldedit = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
+        $editdata = mysqli_query($dbcon, $worldedit) or die('error getting data');
         while($editrow =  mysqli_fetch_array($editdata, MYSQLI_ASSOC)) {
           $editid = $editrow['id'];
 if ($editrow['type'] == "npc"){
@@ -34,7 +34,7 @@ display:none;
          ?>
          <div class="tocbox col-md-12">
            <div class ="body bodytext">
-         <h1 class="pagetitle">Edit Compendium Entry</h1>
+         <h1 class="pagetitle">Edit Entry</h1>
        <div class="col-md-10 col-centered">
          <div class="col-sm-6 typebox col-centered" id="name">
              <form method="post" action="editprocess.php" id="import">
@@ -51,7 +51,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['type']; ?>" selected><?php echo $editrow['type']; ?></option>
                  <?php
-                 $typeedit = "SELECT type FROM `compendium`";
+                 $typeedit = "SELECT type FROM `world`";
                  $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
                  while($typerow =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
                    $type = $typerow['type'];
@@ -107,7 +107,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['npc_deity']; ?>" selected><?php echo $editrow['npc_deity']; ?></option>
                  <?php
-                 $faithdrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'deity' ORDER BY `compendium`.`title` ASC";
+                 $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'deity' ORDER BY `world`.`title` ASC";
                  $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
                  while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
                    $deity = $deityrow['title'];
@@ -130,7 +130,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['npc_location']; ?>" selected><?php echo $editrow['npc_location']; ?></option>
                  <?php
-                 $locationdrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'settlement' ORDER BY `compendium`.`title` ASC";
+                 $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' ORDER BY `world`.`title` ASC";
                  $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
                  while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
                    $location = $locationrow['title'];
@@ -153,7 +153,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['npc_faction']; ?>" selected><?php echo $editrow['npc_faction']; ?></option>
                  <?php
-                 $factiondrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'faction' ORDER BY `compendium`.`title` ASC";
+                 $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' ORDER BY `world`.`title` ASC";
                  $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
                  while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
                    $faction = $factionrow['title'];
@@ -174,7 +174,7 @@ display:none;
 
        <div class="col-centered">
        <input class="btn btn-primary col-centered inline" type="submit" value="Save">
-       <a class="clean" href="compendium.php?id=<?php echo $id; ?>"><button class="btn btn-danger col-centered inline" type="button">Cancel</button></a>
+       <a class="clean" href="world.php?id=<?php echo $id; ?>"><button class="btn btn-danger col-centered inline" type="button">Cancel</button></a>
        </div>
       </form>
 

@@ -4,8 +4,8 @@
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle"><?php
   $id = addslashes($id);
-  $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
-  $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
+  $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
+  $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo $row['title'];
    $title = $row['title'];
@@ -18,8 +18,8 @@
 
     <!-- Body Text -->
       <?php
-        $compendiumtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%{$id}%'";
-        $titledata = mysqli_query($dbcon, $compendiumtitle) or die('error getting data');
+        $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
+        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           echo nl2br($row['body']);
           $sidebartype = $row['type'];
@@ -41,11 +41,11 @@
     echo "<h3>Key NPC's:</h3>";
     echo ('<div class="row col-md-12">');
     $temptitle = str_replace("'", "''", $title);
-    $npcs = "SELECT * FROM compendium WHERE npc_location LIKE '%$temptitle%'";
+    $npcs = "SELECT * FROM world WHERE npc_location LIKE '%$temptitle%'";
     $npcdata = mysqli_query($dbcon, $npcs) or die('error getting data');
     while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
       $selectednpc = $titlerow['title'];
-      //echo "<a href=\"compendium.php?id=$selectednpc\">";
+      //echo "<a href=\"world.php?id=$selectednpc\">";
       echo ('<div class="col-md-4">');
       echo $selectednpc;
       echo "</div>";
@@ -60,11 +60,11 @@
     <?php
     echo "<h3>Known Members:</h3>";
     $temptitle = str_replace("'", "''", $title);
-    $factionnpcs = "SELECT * FROM compendium WHERE npc_faction LIKE '%$temptitle%'";
+    $factionnpcs = "SELECT * FROM world WHERE npc_faction LIKE '%$temptitle%'";
     $factiondata = mysqli_query($dbcon, $factionnpcs) or die('error getting data');
     while($factionrow = mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
       $selectednpc = $factionrow['title'];
-      //echo "<a href=\"compendium.php?id=$selectednpc\">";
+      //echo "<a href=\"world.php?id=$selectednpc\">";
       echo $selectednpc;
       echo "</a><br />";
     }
@@ -78,11 +78,11 @@
     <?php
     echo "<h3>Known Followers:</h3>";
     $temptitle = str_replace("'", "''", $title);
-    $deitynpcs = "SELECT * FROM compendium WHERE npc_deity LIKE '%$temptitle%'";
+    $deitynpcs = "SELECT * FROM world WHERE npc_deity LIKE '%$temptitle%'";
     $deitydata = mysqli_query($dbcon, $deitynpcs) or die('error getting data');
     while($deityrow = mysqli_fetch_array($deitydata, MYSQLI_ASSOC)) {
       $selectednpc = $deityrow['title'];
-      //echo "<a href=\"compendium.php?id=$selectednpc\">";
+      //echo "<a href=\"world.php?id=$selectednpc\">";
       echo $selectednpc;
       echo "</a><br />";
     }
@@ -118,9 +118,9 @@
   ?>
 <!-- Search and add hyperlinks -->
   <?php
-    $sqlcompendium = "SELECT * FROM compendium WHERE title NOT LIKE '%{$id}%'";
-    $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-    while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '%{$id}%'";
+    $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+    while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
     $temp = $linkrow['title'];
     ?>
     <script>
@@ -128,7 +128,7 @@
     function replace (querytext){
       var bodytext = document.getElementById("body").innerHTML;
       //var pgtitle = document.getElementById("pgtitle").innerHTML;
-      var url = "<a href=\"compendium.php?id=" + querytext + "\">" + querytext + "</a>";
+      var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
       var regex = new RegExp(querytext, 'ig');
       var newtext = bodytext.replace(regex, url)
       document.getElementById("body").innerHTML = newtext;
@@ -141,16 +141,16 @@
   ?>
   <!-- Search and add hyperlinks -->
     <?php
-      $sqlcompendium = "SELECT * FROM compendium";
-      $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-      while($linkrow = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+      $sqlworld = "SELECT * FROM world";
+      $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+      while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
       $temp = $linkrow['title'];
       ?>
       <script>
       var foundlink = "<?php echo $temp ?>";
       function replace (querytext){
         var bodytext = document.getElementById("body2").innerHTML;
-        var url = "<a href=\"compendium.php?id=" + querytext + "\">" + querytext + "</a>";
+        var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
         var regex = new RegExp(querytext, 'ig');
         var newtext = bodytext.replace(regex, url)
         document.getElementById("body2").innerHTML = newtext;
@@ -169,7 +169,7 @@
 
 <!-- Sidebar -->
     <div class="sidebar sidebartext col-xs-2">
-    <p><a href="/tools/compendium/compendium.php">Back to Compendium</a></p>
+    <p><a href="/tools/world/world.php">Back</a></p>
 
     <h2><?php
     if ($sidebartype == "npc" ) {
@@ -183,11 +183,11 @@
   }
     echo "s"; ?></h2>
     <?php
-      $sidebar = "SELECT * FROM compendium WHERE type LIKE '%{$sidebartype}%'";
+      $sidebar = "SELECT * FROM world WHERE type LIKE '%{$sidebartype}%'";
       $sidebardata = mysqli_query($dbcon, $sidebar) or die('error getting data');
       while($row =  mysqli_fetch_array($sidebardata, MYSQLI_ASSOC)) {
       $entry = $row['title'];
-      echo "<a href=\"compendium.php?id=$entry\">";
+      echo "<a href=\"world.php?id=$entry\">";
       echo $entry;
       echo "</a>";
       echo "<br>";

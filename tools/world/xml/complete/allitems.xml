@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<compendium version="5" auto_indent="NO">
+<world version="5" auto_indent="NO">
   <item>
     <name>Copper (cp)</name>
     <type>$</type>
@@ -25711,4 +25711,4 @@ Source: Hoard of the Dragon Queen p. 94</text>
 
 Source: Dungeon Master's Guide p. 212</text>
   </item>
-</compendium>
+</world>

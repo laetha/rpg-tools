@@ -143,10 +143,10 @@ INSERT INTO `campaignlog` (`id`, `date`, `entry`, `active`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `compendium`
+-- Table structure for table `world`
 --
 
-CREATE TABLE `compendium` (
+CREATE TABLE `world` (
   `id` int(11) NOT NULL,
   `title` text NOT NULL,
   `type` text NOT NULL,
@@ -158,10 +158,10 @@ CREATE TABLE `compendium` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `compendium`
+-- Dumping data for table `world`
 --
 
-INSERT INTO `compendium` (`id`, `title`, `type`, `body`, `image`, `npc_location`, `npc_faction`, `npc_deity`) VALUES
+INSERT INTO `world` (`id`, `title`, `type`, `body`, `image`, `npc_location`, `npc_faction`, `npc_deity`) VALUES
 (1, 'ForgeForge', 'faction', 'Created in worship of a great Giant of old, ForgeForge is a group primarily focused on fantastic craftsmanship in weapons and armor.  While ForgeForge  members will sell many of their wares for coin, it is much more common for the most exquisitely done pieces to be traded among members, or gifted in an ultimate sign of respect and gratitude.\r\n\r\nThey\'re a very well respected organization that almost entirely operates above board and whose hierarchy  is based exclusively on the skill of one\'s craftsmanship. Also, here\'s the word Westfair.', '', '', '', ''),
 (2, 'Westfair', 'settlement', 'Hope\'s Landing was a town of a location and style that suited much of the human settlers very well, however they sought a place to call their home. After travelling along the coast they happened upon a perfect location to set up their new home, Westfair. Westfair is a coastal town with fairly ready access to resources via the sea and the nearby Shadewood.\r\n\r\nIts location in a diverse and very wild ecosystem made it the primary location for  The Crimson Seal , who make their headquarters in The Crimson Lodge within Westfair. The Lodge provides much of the identity of the town, as much of the economy in the town revolves around the hunt and its side businesses.', '', '', '', ''),
 (5, 'The Junction', 'settlement', 'The Junction barely constitutes a settlement. Serving as the middle point between Hope\'s Landing, Selnora, Kirnheim, and Westfair, it was created as a neutral ground at which the various communities can gather for discussions and important meetings. \r\n\r\nThe town consists of only three main parts. There is the Inn, literally just called The Junction Hotel. With limited space available, The Junction Hotel is often prohibitively expensive for most visitors and only plays host to the most wealthy nobles and highly regarded diplomats. Other than that, there is \"The Court\", a circular outdoor arena in the middle of town where major meetings take place. The Court is overseen by an elderly Halfling named Zigmi Rumblestride, known simply as \"The Scribe\". Finally, for anyone who doesn\'t stay at the inn, there\'s a small tent-city that encircles most of the area. With the lack of shops and markets in the town, the tent city becomes a bustling flurry of impromptu trade.\r\n\r\n\r\nThe Junction is where most large-scale agreements between the people of the region are negotiated and decided. There is no approved format or voting. Either all sides come to an agreement, or they don\'t. On rare occasion The Court is also used to try criminals, although this is rare and reserved only for instances where multiple settlements have a vested interest in the outcome.', '', '', '', ''),
@@ -3510,9 +3510,9 @@ ALTER TABLE `campaignlog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `compendium`
+-- Indexes for table `world`
 --
-ALTER TABLE `compendium`
+ALTER TABLE `world`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3568,9 +3568,9 @@ ALTER TABLE `campaignlog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `compendium`
+-- AUTO_INCREMENT for table `world`
 --
-ALTER TABLE `compendium`
+ALTER TABLE `world`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --

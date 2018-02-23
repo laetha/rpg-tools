@@ -13,7 +13,6 @@ include_once($headpath);
 $nametemp=$_POST['name'];
 $typetemp=$_POST['type'];
 $bodytemp=$_POST['body'];
-$id=$_POST['editid'];
 $npcfactiontemp=$_POST['npc-faction'];
 $npclocationtemp=$_POST['npc-location'];
 $npcdeitytemp=$_POST['npc-deity'];
@@ -25,17 +24,17 @@ $npcfaction=htmlentities(trim(addslashes($npcfactiontemp)));
 $npcdeity=htmlentities(trim(addslashes($npcdeitytemp)));
 
 //Execute the query
-$sql = "UPDATE compendium
-SET title = '$name', type = '$type', body = '$body',  npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction'
-WHERE id = $id;";
+$sql = "INSERT INTO world(title,type,body,npc_location,npc_faction,npc_deity)
+				VALUES('$name','$type','$body','$npclocation','$npcfaction','$npcdeity')";
 
         if ($dbcon->query($sql) === TRUE) {
-					include('edit-modal.php');
-					include('compendium.php');
+					include('success.php');
+					include('import.php');
         }
 				else {
             echo "Error: " . $sql . "<br>" . $dbcon->error;
         }
-
 //Footer
- ?>
+$footpath = $_SERVER['DOCUMENT_ROOT'];
+$footpath .= "/footer.php";
+include_once($footpath); ?>

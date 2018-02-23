@@ -11,7 +11,7 @@ include_once($headpath);
 <!-- Import Form -->
   <div class="tocbox col-md-12">
     <div class ="body bodytext">
-  <h1 class="pagetitle">Add to Compendium</h1>
+  <h1 class="pagetitle">Add to World</h1>
 <div class="col-md-10 col-centered">
   <div class="col-sm-6 typebox col-centered" id="name">
       <form method="post" action="process.php" id="import">
@@ -21,11 +21,11 @@ include_once($headpath);
 
 <div class="col-sm-6 typebox col-centered" id="npc-type">
       <p class="text">Type
-         
+
         <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
           <option value="">None...</option>
           <?php
-          $typeedit = "SELECT type FROM `compendium`";
+          $typeedit = "SELECT type FROM `world`";
           $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
           while($typerow =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
             $type = $typerow['type'];
@@ -80,7 +80,7 @@ include_once($headpath);
         <select form="import" name="npc-deity" id="deity-form">
           <option value="" selected>None...</option>
           <?php
-          $faithdrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'deity' ORDER BY `compendium`.`title` ASC";
+          $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'deity' ORDER BY `world`.`title` ASC";
           $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
           while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
             $deity = $deityrow['title'];
@@ -102,7 +102,7 @@ include_once($headpath);
         <select form="import" name="npc-location" id="location-form">
           <option value="" selected>None...</option>
           <?php
-          $locationdrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'settlement' ORDER BY `compendium`.`title` ASC";
+          $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' ORDER BY `world`.`title` ASC";
           $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
           while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
             $location = $locationrow['title'];
@@ -124,7 +124,7 @@ include_once($headpath);
         <select form="import" name="npc-faction" id="faction-form">
           <option value="" selected>None...</option>
           <?php
-          $factiondrop = "SELECT title FROM `compendium` WHERE `type` LIKE 'faction' ORDER BY `compendium`.`title` ASC";
+          $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' ORDER BY `world`.`title` ASC";
           $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
           while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
             $faction = $factionrow['title'];

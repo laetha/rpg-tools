@@ -35,15 +35,15 @@
 			<div class="header">
 				<div class="col-md-2"></div>
 				<div class="col-md-2"><a href="/index.php">Home</a></div>
-				<div class="col-md-2"><a href="/tools/compendium/import.php">Import</a></div>
+				<div class="col-md-2"><a href="/tools/world/import.php">Import</a></div>
 				<div class="col-md-2"><a href="/login.php">Signup/Login</a></div>
 			</div>
 				<div class="col-md-3">
-					<!--<form method="post" id="searchdiv" action="/tools/compendium/compendium.php">-->
+					<!--<form method="post" id="searchdiv" action="/tools/world/world.php">-->
 				<select id="search">
 				<option value=""></option>
 				<?php
-				$searchdrop = "SELECT * FROM compendium";
+				$searchdrop = "SELECT * FROM world";
 				$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 				while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
 					$search = $searchrow['title'];
@@ -56,7 +56,7 @@
 				<script type="text/javascript">
 				$('#search').selectize({
 				onChange: function(value){
-					window.location.href = '/tools/compendium/compendium.php?id=' + value;
+					window.location.href = '/tools/world/world.php?id=' + value;
 				},
 				create: false,
 				openOnFocus: false,

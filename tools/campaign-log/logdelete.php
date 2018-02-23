@@ -6,7 +6,7 @@ include_once($sqlpath); ?>
 <?php
 if (!empty($_GET['id'])) {
   $tmp_action = basename($_GET['id']);
-  if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("compendium/{$tmp_action}.php")*/)
+  if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("world/{$tmp_action}.php")*/)
         $id = $tmp_action;
   }
 //Execute the query

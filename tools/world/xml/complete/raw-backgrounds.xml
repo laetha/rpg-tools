@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<compendium version="5" auto_indent="NO">
+<world version="5" auto_indent="NO">
 
 <background>
 	<name>Acolyte</name>
@@ -5739,4 +5739,4 @@
 		<text>6. By my words and actions, I often bring shame to my family.</text>
 	</trait>
 </background>
-</compendium>
+</world>

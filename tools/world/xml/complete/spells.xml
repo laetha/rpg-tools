@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<compendium version="5" auto_indent="NO">
+<world version="5" auto_indent="NO">
   <spell>
     <name>Abi-Dalzim’s Horrid Wilting</name>
     <level>8</level>
@@ -13328,4 +13328,4 @@ You can see the true form of any shapechanger or creature concealed by illusion 
 
 Source: Player's Handbook, p. 111</text>
   </spell>
-</compendium>
+</world>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<compendium version="5" auto_indent="NO">
+<world version="5" auto_indent="NO">
 <feat>
 	<name>Actor</name>
 	<prerequisite></prerequisite>
@@ -1127,4 +1127,4 @@
 	<text> </text>
 	<text>Source: Xanathar's Guide to Everything, p. 75</text>
 </feat>
-</compendium>
+</world>
