@@ -43,11 +43,21 @@
 				<select id="search">
 				<option value=""></option>
 				<?php
-				$searchdrop = "SELECT * FROM world";
+				$searchdrop = "SELECT title FROM world";
 				$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 				while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
 					$search = $searchrow['title'];
-					echo "<option value=\"$search\">$search</option>";
+					$searchvalue = $search.'1';
+					echo "<option value=\"$searchvalue\">$search</option>";
+				}
+				?>
+				<?php
+				$searchdrop1 = "SELECT title FROM compendium";
+				$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
+				while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
+					$search1 = $searchrow1['title'];
+					$searchvalue1 = $search1.'2';
+					echo "<option value=\"$searchvalue1\">$search1</option>";
 				}
 				?>
 				</select>
@@ -56,7 +66,12 @@
 				<script type="text/javascript">
 				$('#search').selectize({
 				onChange: function(value){
-					window.location.href = '/tools/world/world.php?id=' + value;
+					if(value.slice(-1) == 1) {
+					window.location.href = '/tools/world/world.php?id=' + value.slice(0, -1);
+				}
+				else {
+					window.location.href = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
+				}
 				},
 				create: false,
 				openOnFocus: false,
