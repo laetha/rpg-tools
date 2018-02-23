@@ -11,8 +11,8 @@ include_once($headpath);
 
 //Execute the query
 $sql = "LOAD XML LOCAL INFILE 'xml/Output.xml'
-  INTO TABLE races
-  ROWS IDENTIFIED BY '<race>'";
+  INTO TABLE monsters
+  ROWS IDENTIFIED BY '<monster>'";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');
