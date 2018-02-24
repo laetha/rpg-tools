@@ -16,7 +16,7 @@
   ?>
 </div>
 </div>
-  <div class="body sidebartext col-xs-12" id="body">
+  <div class="body bodytext col-xs-12" id="body">
 
     <!-- Body Text -->
       <?php
@@ -329,7 +329,6 @@
 
       ?>
       </div>
-
 <!-- Search and add hyperlinks -->
 <?php
   /*  $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '%{$id}%'";

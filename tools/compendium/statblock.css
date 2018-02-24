@@ -1,8 +1,6 @@
 
 body {
-  text-align: center;
-  font-size: 13.5px;
-  line-height: 1.2em;
+
 }
 body *{
   box-sizing: border-box;
@@ -22,9 +20,12 @@ body *{
   box-shadow: 0 0 1.5em #867453;
 }
 .stat-block.wide{
+  margin-top:15px;
   width: 96.5%;
   min-width: 560px;
   text-align: center;
+  font-size: 13.5px;
+  line-height: 1.2em;
 }
 .stat-block.wide .section-left,
 .stat-block.wide .section-right{
@@ -41,7 +42,7 @@ body *{
 }
 @media screen and (max-width: 675px){
 	.stat-block.wide{
-		min-width: 280px;
+		min-width: 260px;
 	}
 	.stat-block.wide .section-left,
 	.stat-block.wide .section-right{
@@ -92,6 +93,7 @@ body *{
   font-size: 12px;
   line-height: 1.2em;
   margin: 0 0 10px;
+  color:black;
 }
 .property-line h4,
 .property-line p{
