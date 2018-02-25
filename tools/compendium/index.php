@@ -74,9 +74,20 @@
               echo ('<strong>Range:</strong> '.$row['spellRange'].'<br />');
               echo ('<strong>Components:</strong> '.$row['spellComponents'].'<br />');
               echo ('<strong>Duration:</strong> '.$row['spellDuration'].'<br />');
-              echo ('<strong>Class:</strong> '.$row['spellClasses'].'<br />');
-              if($row['spellRitual'] == 1){
-                echo ('<strong>This spell can be cast as a Ritual.</strong><p></p>');
+              echo ('<strong>Class:</strong> '.$row['spellClasses']);
+              $classID = $id.'*';
+              $spellclasstitle = "SELECT spellClasses FROM compendium WHERE title LIKE '$classID'";
+              $spellclassdata = mysqli_query($dbcon, $spellclasstitle) or die('error getting data');
+              while($spellclassrow =  mysqli_fetch_array($spellclassdata, MYSQLI_ASSOC)) {
+                echo (', ');
+                echo $spellclassrow['spellClasses'];
+              }
+              echo ('<br />');
+              $ritualID = $id.' (Ritual Only)';
+              $ritualtitle = "SELECT spellClasses FROM compendium WHERE title LIKE '$ritualID'";
+              $ritualdata = mysqli_query($dbcon, $ritualtitle) or die('error getting data');
+              while($ritualrow =  mysqli_fetch_array($ritualdata, MYSQLI_ASSOC)) {
+                echo ('<strong>This spell can be cast as a Ritual</strong>');
               }
               echo ('</div>');
             echo nl2br('<p></p><div class="sidebartext">'.$row['text'].'</div>');
@@ -186,10 +197,107 @@
     <h4><strong>Languages:</strong></h4>
     <p><?php echo $row['monsterLanguages']; ?></p>
   </div> <!-- property line -->
-<?php } ?><?php if($row['monsterCr'] != ''){ ?>
+<?php } ?><?php
+$cr = $row['monsterCr'];
+ if($row['monsterCr'] != ''){ ?>
   <div class="property-line">
     <h4><strong>Challenge Rating:</strong></h4>
-    <p><?php echo $row['monsterCr']; ?></p>
+    <p><?php echo $cr;
+      if($cr == 0){
+        echo (' (10xp)');
+      }
+      if($cr == 1){
+        echo (' (200xp)');
+      }
+      if($cr == 2){
+        echo (' (450xp)');
+      }
+      if($cr == 3){
+        echo (' (700xp)');
+      }
+      if($cr == 4){
+        echo (' (1,100xp)');
+      }
+      if($cr == 5){
+        echo (' (1,800xp)');
+      }
+      if($cr == 6){
+        echo (' (4,100xp)');
+      }
+      if($cr == 7){
+        echo (' (2,900xp)');
+      }
+      if($cr == 8){
+        echo (' (3,900xp)');
+      }
+      if($cr == 9){
+        echo (' (5,000xp)');
+      }
+      if($cr == 10){
+        echo (' (5,900xp)');
+      }
+      if($cr == 11){
+        echo (' (7,200xp)');
+      }
+      if($cr == 12){
+        echo (' (8,400xp)');
+      }
+      if($cr == 13){
+        echo (' (10,000xp)');
+      }
+      if($cr == 14){
+        echo (' (11,500xp)');
+      }
+      if($cr == 15){
+        echo (' (13,000xp)');
+      }
+      if($cr == 16){
+        echo (' (15,000xp)');
+      }
+      if($cr == 17){
+        echo (' (18,000xp)');
+      }
+      if($cr == 18){
+        echo (' (20,000xp)');
+      }
+      if($cr == 19){
+        echo (' (22,000xp)');
+      }
+      if($cr == 20){
+        echo (' (25,000xp)');
+      }
+      if($cr == 21){
+        echo (' (33,000xp)');
+      }
+      if($cr == 22){
+        echo (' (41,000xp)');
+      }
+      if($cr == 23){
+        echo (' (50,000xp)');
+      }
+      if($cr == 24){
+        echo (' (62,000xp)');
+      }
+      if($cr == 25){
+        echo (' (75,000xp)');
+      }
+      if($cr == 26){
+        echo (' (90,000xp)');
+      }
+      if($cr == 27){
+        echo (' (105,000xp)');
+      }
+      if($cr == 28){
+        echo (' (120,000xp)');
+      }
+      if($cr == 29){
+        echo (' (135,000xp)');
+      }
+      if($cr == 30){
+        echo (' (155,000xp)');
+      }
+      ?>
+    </p>
   </div> <!-- property line -->
 <?php } ?>
 		</div> <!-- top stats -->
@@ -395,7 +503,7 @@
   }
     echo "s"; ?></h2>
     <?php
-      $sidebar = "SELECT title FROM compendium WHERE type LIKE '%{$sidebartype}%' LIMIT 0,12";
+      $sidebar = "SELECT title FROM compendium WHERE type LIKE '%{$sidebartype}%' AND title NOT LIKE '%*' AND title NOT LIKE '%(Ritual Only)' LIMIT 0,12";
       $sidebardata = mysqli_query($dbcon, $sidebar) or die('error getting data');
       while($row =  mysqli_fetch_array($sidebardata, MYSQLI_ASSOC)) {
       $entry = $row['title'];
