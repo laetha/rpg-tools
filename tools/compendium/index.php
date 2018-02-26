@@ -29,6 +29,20 @@
             echo nl2br('<div class="sidebartext">'.$row['backgroundTraits'].'</div>');
             $sidebartype = $row['type'];
           }
+          elseif($type == 'class'){
+            echo ('<strong>Playable Class<br />');
+            if($row['classHd'] != ''){
+              echo ('Hit Dice: d'.$row['classHd'].'<br />');
+            }
+            if($row['classProficiency'] != ''){
+              echo ('Proficiency - Choose '.$row['classNumSkills'].' skills from the following: '.$row['classProficiency'].'<br />');
+            }
+            if($row['classSpellAbility'] != ''){
+              echo ('Spellcasting Ability: '.$row['classSpellAbility'].'<br />');
+            }
+            echo nl2br('<p></p><div class="sidebartext">'.$row['text'].'</div>');
+            $sidebartype = $row['type'];
+          }
           elseif($type == 'feat'){
             if($row['featModifier'] != ''){
             echo ('<strong>Ability Score Increase: '.ucwords($row['featModifier']).'</strong><p></p>');
