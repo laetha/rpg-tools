@@ -19,7 +19,7 @@
 
      <!-- Page Header -->
      <div class="col-md-12">
-     <div class="pagetitle" id="pgtitle">Monsters</div>
+     <div class="pagetitle" id="pgtitle">Classes</div>
    </div>
      <div class="body sidebartext col-xs-12" id="body">
        <div class="table-responsive">
@@ -27,22 +27,24 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
-                   <th scope="col">Size</th>
-                   <th scope="col">Type</th>
-                   <th scope="col">CR</th>
+                   <th scope="col">Hit Dice</th>
+                   <th scope="col">Saving Throws</th>
+                   <th scope="col">Spell Ability</th>
+                   <th scope="col">Proficiency</th>
                </tr>
            </thead>
            <tfoot>
                <tr>
                  <th scope="col">Name</th>
-                 <th scope="col">Size</th>
-                 <th scope="col">Type</th>
-                 <th scope="col">CR</th>
+                 <th scope="col">Hit Dice</th>
+                 <th scope="col">Saving Throws</th>
+                 <th scope="col">Spell Ability</th>
+                 <th scope="col">Proficiency</th>
                </tr>
            </tfoot>
            <tbody>
              <?php
-               $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'monster'";
+               $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'class'";
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
@@ -50,23 +52,10 @@
                echo "<a href=\"compendium.php?id=$entry\">";
                echo $entry;
                echo "</a></td>";
-               echo ('<td>'.$row['monsterSize'].'</td>');
-               echo ('<td>'.$row['monsterType'].'</td>');
-               if($row['monsterCr'] ==0.125){
-                 echo ('<td>0.125</td>');
-
-               }
-               elseif($row['monsterCr'] ==0.25){
-                 echo ('<td>0.25</td>');
-
-               }
-               elseif($row['monsterCr'] ==0.5){
-                 echo ('<td>0.5</td>');
-
-               }
-               else{
-               echo ('<td>'.number_format((float)$row['monsterCr'], 0, '.', '').'</td>');
-             }
+               echo ('<td>'.$row['classHd'].'</td>');
+               echo ('<td>'.$row['classSaves'].'</td>');
+               echo ('<td>'.$row['classSpellAbility'].'</td>');
+               echo ('<td>'.$row['classProficiency'].'</td>');
 
              }
                ?>

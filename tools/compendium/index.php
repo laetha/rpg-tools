@@ -16,7 +16,7 @@
   ?>
 </div>
 </div>
-  <div class="body bodytext col-xs-12" id="body">
+  <div class="body sidebartext col-xs-12" id="body">
 
     <!-- Body Text -->
       <?php
@@ -30,15 +30,18 @@
             $sidebartype = $row['type'];
           }
           elseif($type == 'class'){
-            echo ('<strong>Playable Class<br />');
+            echo ('<strong>Playable Class</strong><br />');
             if($row['classHd'] != ''){
-              echo ('Hit Dice: d'.$row['classHd'].'<br />');
+              echo ('<strong>Hit Dice:</strong> d'.$row['classHd'].'<br />');
+            }
+            if($row['classSaves'] != ''){
+              echo ('<strong>Saving Throws: </strong>'.$row['classSaves'].'<br />');
             }
             if($row['classProficiency'] != ''){
-              echo ('Proficiency - Choose '.$row['classNumSkills'].' skills from the following: '.$row['classProficiency'].'<br />');
+              echo ('<strong>Proficiency:</strong> Choose '.$row['classNumSkills'].' skills from the following: '.$row['classProficiency'].'<br />');
             }
             if($row['classSpellAbility'] != ''){
-              echo ('Spellcasting Ability: '.$row['classSpellAbility'].'<br />');
+              echo ('<strong>Spellcasting Ability:</strong> '.$row['classSpellAbility'].'<br />');
             }
             echo nl2br('<p></p><div class="sidebartext">'.$row['text'].'</div>');
             $sidebartype = $row['type'];
@@ -76,7 +79,8 @@
           elseif($type == 'race'){
             echo ('<strong>Size: </strong>'.ucwords($row['raceSize']).'<br />');
             echo ('<strong>Speed: </strong>'.ucwords($row['raceSpeed']).'<br />');
-            echo ('<strong>Bonus Abilities: </strong>'.ucwords($row['raceAbility']).'<p></p>');
+            echo ('<strong>Bonus Abilities: </strong>'.ucwords($row['raceAbility']).'<br />');
+            echo ('<strong>Spellcasting Ability: </strong>'.ucwords($row['raceSpellAbility']).'<p></p>');
             echo nl2br('<div class="sidebartext">'.$row['raceTraits'].'</div>');
             $sidebartype = $row['type'];
           }
@@ -216,9 +220,33 @@ $cr = $row['monsterCr'];
  if($row['monsterCr'] != ''){ ?>
   <div class="property-line">
     <h4><strong>Challenge Rating:</strong></h4>
-    <p><?php echo $cr;
+    <p><?php
+
+    if($row['monsterCr'] ==0.125){
+      echo ('1/8');
+
+    }
+    elseif($row['monsterCr'] ==0.25){
+      echo ('1/4');
+
+    }
+    elseif($row['monsterCr'] ==0.5){
+      echo ('1/2');
+    }
+    else{
+    echo number_format((float)$cr, 0, '.', '');
+  }
       if($cr == 0){
         echo (' (10xp)');
+      }
+      if($cr == 0.125){
+        echo (' (25xp)');
+      }
+      if($cr == 0.25){
+        echo (' (50xp)');
+      }
+      if($cr == 0.5){
+        echo (' (100xp)');
       }
       if($cr == 1){
         echo (' (200xp)');

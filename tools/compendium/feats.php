@@ -11,7 +11,7 @@
    ?>
 
 <div class="tocbox col-md-12">
-  <h1 class="pagetitle">Backgrounds</h1>
+  <h1 class="pagetitle">Feats</h1>
 <div class ="body bodytext">
       <div class="toc bodytext">
       <!-- Settlements -->

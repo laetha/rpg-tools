@@ -1,100 +1,33 @@
-<div class="tocbox col-md-12">
+<div class="mainbox col-md-12">
   <h1 class="pagetitle">Compendium</h1>
-<div class ="body bodytext">
-      <div class="toc bodytext">
-
-      <!-- Settlements -->
-      <div class="tocitem col-md-3">
-        <h2>Backgrounds</h2>
-      <?php
-        $sqlcompendium = "SELECT title FROM compendium WHERE type LIKE 'background' LIMIT 0,5";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $entry = $row['title'];
-        echo "<a href=\"compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a>";
-        echo "<br>";
-      }
-        ?>
-        <a href="backgrounds.php">View full list...</a>
-      </div>
-      <div class="tocitem col-md-3">
-        <h2>Feats</h2>
-      <?php
-        $sqlcompendium = "SELECT title FROM compendium WHERE type LIKE 'feat' LIMIT 0,5";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $entry = $row['title'];
-        echo "<a href=\"compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a>";
-        echo "<br>";
-      }
-        ?>
-        <a href="feats.php">View full list...</a>
-      </div>
-      <div class="tocitem col-md-3">
-        <h2>Items</h2>
-      <?php
-        $sqlcompendium = "SELECT title FROM compendium WHERE type LIKE 'item' LIMIT 0,5";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $entry = $row['title'];
-        echo "<a href=\"compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a>";
-        echo "<br>";
-      }
-        ?>
-        <a href="items.php">View full list...</a>
-      </div>
-      <div class="tocitem col-md-3">
-        <h2>Monsters</h2>
-      <?php
-        $sqlcompendium = "SELECT title FROM compendium WHERE type LIKE 'monster' LIMIT 0,5";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $entry = $row['title'];
-        echo "<a href=\"compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a>";
-        echo "<br>";
-      }
-        ?>
-        <a href="monsters.php">View full list...</a>
-      </div>
-      <div class="tocitem col-md-3">
-        <h2>Races</h2>
-      <?php
-        $sqlcompendium = "SELECT title FROM compendium WHERE type LIKE 'race' LIMIT 0,5";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $entry = $row['title'];
-        echo "<a href=\"compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a>";
-        echo "<br>";
-      }
-        ?>
-        <a href="races.php">View full list...</a>
-      </div>
-      <div class="tocitem col-md-3">
-        <h2>Spells</h2>
-      <?php
-        $sqlcompendium = "SELECT title FROM compendium WHERE type LIKE 'spell' LIMIT 0,5";
-        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
-        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-        $entry = $row['title'];
-        echo "<a href=\"compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a>";
-        echo "<br>";
-      }
-        ?>
-        <a href="spells.php">View full list...</a>
-      </div>
-
-      </div>
+  <div class="menu">
+    <a class="menulink" href="/tools/compendium/backgrounds.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/backgrounds.png" />
+      <h3>Backgrounds</h3>
+    </div></a>
+    <a class="menulink" href="/tools/compendium/classes.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/classes.png" />
+      <h3>Classes</h3>
+    </div></a>
+    <a class="menulink" href="/tools/compendium/feats.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/feats.png" />
+      <h3>Feats</h3>
+    </div></a>
+    <a class="menulink" href="/tools/compendium/items.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/items.png" />
+      <h3>Items</h3>
+    </div></a>
+    <a class="menulink" href="/tools/compendium/monsters.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/monsters.png" />
+      <h3>Monsters</h3>
+    </div></a>
+    <a class="menulink" href="/tools/compendium/races.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/races.png" />
+      <h3>Races</h3>
+    </div></a>
+    <a class="menulink" href="/tools/compendium/spells.php"><div class="menuitem">
+      <img class ="menu-icon" src="/assets/images/spells.png" />
+      <h3>Spells</h3>
+    </div></a>
   </div>
 </div>
