@@ -7,7 +7,7 @@
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle"><?php
   $id = addslashes($id);
-  $worldtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '$id'";
+  $worldtitle = "SELECT title FROM `compendium` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo htmlspecialchars($row['title']);
@@ -30,7 +30,13 @@
             $sidebartype = $row['type'];
           }
           elseif($type == 'class'){
-            echo ('<strong>Playable Class</strong><br />');
+            $classtitle = "SELECT * FROM `classes1` WHERE `name` LIKE '$id'";
+            $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
+            while($classrow =  mysqli_fetch_array($classdata, MYSQLI_ASSOC)) {
+              echo ($classrow['name'].'<br />');
+              echo ($classrow['hd'].'<br />');
+              echo ($classrow['proficiency'].'<br />');
+            /*echo ('<strong>Playable Class</strong><br />');
             if($row['classHd'] != ''){
               echo ('<strong>Hit Dice:</strong> d'.$row['classHd'].'<br />');
             }
@@ -44,7 +50,8 @@
               echo ('<strong>Spellcasting Ability:</strong> '.$row['classSpellAbility'].'<br />');
             }
             echo nl2br('<p></p><div class="sidebartext">'.$row['text'].'</div>');
-            $sidebartype = $row['type'];
+            $sidebartype = $row['type'];*/
+          }
           }
           elseif($type == 'feat'){
             if($row['featModifier'] != ''){

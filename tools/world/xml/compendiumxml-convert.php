@@ -1,10 +1,10 @@
 <?php
 // LOAD XML AND XSLT
 $doc = new DOMDocument();
-$doc->load('raw-classes.xml');
+$doc->load('raw-classes111.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('xml-conv-classes1.xsl');
+$xsl->load('xml-conv-subclasses.xsl');
 
 // CONFIGURE TRANSFORMER
 $proc = new XSLTProcessor;
