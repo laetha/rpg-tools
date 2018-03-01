@@ -11,7 +11,23 @@
 
   <xsl:template match="subclass">
     <xsl:copy>
-      <xsl:apply-templates select="name|hd|saves|source|proficiency|spellAbility|numSkills"/>
+      <xsl:apply-templates select="name|hd|saves|source|proficiency|spellAbility|numSkills|class"/>
+
+      <multiclass>
+      <xsl:for-each select="multiclass">
+          <xsl:value-of select="name" />
+          <xsl:text> &#xa;</xsl:text>
+          <xsl:for-each select="text">
+              <xsl:value-of select="."/>
+                 <!-- ADD SPACE DELIMITER AFTER EACH ITEM EXCEPT LAST -->
+                 <!-- REPLACE WITH &#xa; FOR LINE BREAK ENTITY or \n -->
+                 <xsl:text>&#xa;</xsl:text>
+
+          </xsl:for-each>
+          <xsl:text>&#xa;</xsl:text>
+      </xsl:for-each>
+    </Multiclass>
+
       <xsl:for-each select="lvl01skill">
         <xsl:variable name="pos" select="position()"/>
         <xsl:element name="lvl01skill{$pos}name">
