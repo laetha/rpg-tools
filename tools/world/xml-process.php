@@ -12,7 +12,7 @@ include_once($headpath);
 //Execute the query
 $sql = "LOAD XML LOCAL INFILE 'xml/Output.xml'
   INTO TABLE classes1
-  ROWS IDENTIFIED BY '<class>'";
+  ROWS IDENTIFIED BY '<subclass>'";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');

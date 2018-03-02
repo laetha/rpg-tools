@@ -26,7 +26,7 @@
           </xsl:for-each>
           <xsl:text>&#xa;</xsl:text>
       </xsl:for-each>
-    </Multiclass>
+    </multiclass>
 
       <xsl:for-each select="lvl01skill">
         <xsl:variable name="pos" select="position()"/>
