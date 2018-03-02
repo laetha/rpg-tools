@@ -11,7 +11,7 @@ include_once($headpath);
 
 //Execute the query
 $sql = "LOAD XML LOCAL INFILE 'xml/Output.xml'
-  INTO TABLE classes1
+  INTO TABLE subclasses
   ROWS IDENTIFIED BY '<subclass>'";
 
         if ($dbcon->query($sql) === TRUE) {

@@ -2058,6 +2058,71 @@ Spell save DC = 8+your proficiency bonus+your Intelligence modifier
 </lvl18skill1text>
   </subclass>
   <subclass>
+    <name>Gunslinger</name>
+    <class>Fighter</class>
+    <source>DM's Guild (Matthew Mercer)</source>
+    <multiclass/>
+    <lvl03skill1name>Martial Archetype: Gunslinger</lvl03skill1name>
+    <lvl03skill1text>Most warriors and combat specialists spend their years perfecting the classic arts of swordplay, archery, or polearm tactics. Whether duelist or infantry, martial weapons were seemingly perfected long ago, and the true challenge is to master them.  
+However, some minds couldn’t stop with the innovation of the crossbow. Experimentation with alchemical components and rare metals have unlocked the secrets of controlled explosive force. The few who survive these trials of ingenuity may become the first to create, and deftly wield, the first firearms. 
+This archetype focuses on the ability to design, craft, and utilize powerful, yet dangerous ranged weapons. Through creative innovation and immaculate aim, you become a distant force of death on the battlefield. However, not being a perfect science, firearms carry an inherent instability that can occasionally leave you without a functional means of attack. This is the danger of new, untested technologies in a world where the arcane energies that rule the elements are ever present. 
+Should this path of powder, fire, and metal call to you, keep your wits about you, hold on to your convictions as a fighter, and let skill meet luck to guide your bullets to strike true. 
+</lvl03skill1text>
+    <lvl03skill2name>Firearm Proficiency (Arcane Archer)</lvl03skill2name>
+    <lvl03skill2text>Starting when you choose this archetype at 3rd level, you gain proficiency with firearms, allowing you to add your proficiency bonus to attacks made with firearms. 
+</lvl03skill2text>
+    <lvl03skill3name>Gunsmith (Arcane Archer)</lvl03skill3name>
+    <lvl03skill3text>Upon choosing this archetype at 3rd level, you gain proficiency with Tinker's Tools. You may use them to craft ammunition, repair damaged firearms, or even draft and create new ones (DM s discretion). Some extremely intricate and experimental firearms are only available through crafting. 
+</lvl03skill3text>
+    <lvl03skill4name>Grit (Arcane Archer)</lvl03skill4name>
+    <lvl03skill4text>Also starting at 3rd level, you gain a number of grit points equal to your Wisdom modifier (minimum of 1). You can spend grit points to perform various “shot" attacks with your firearms. An attack can only be affected by a single shot feature. You can regain spent Grit points in the following ways: 
+Critical hit with a firearm: Each time you score a critical hit with a firearm attack while in the heat of combat, you regain 1 spent grit point. Critical hits gained outside of die rolls (via enemy conditions) do not generate grit. 
+Killing blow with a firearm: Each time you reduce a dangerous creature (DMs discretion) to 0 hit points with a firearm attack, and kill them, you regain 1 spent grit point. You also regain all spent grit points after finishing a short or long rest. 
+</lvl03skill4text>
+    <lvl03skill5name>Deadeye Shot (Arcane Archer)</lvl03skill5name>
+    <lvl03skill5text>Beginning at 3rd level, you can spend 1 grit point to gain advantage on the next attack roll you make with a firearm this round. 
+</lvl03skill5text>
+    <lvl03skill6name>Ammunition</lvl03skill6name>
+    <lvl03skill6text>All firearms require ammunition to make an attack, and due to their rare nature, ammunition may be near impossible to find or purchase. However, if materials are gathered, you can craft ammunition yourself using your Tinker's Tools (cost and time are DM’s discretion). Each firearm uses its own unique ammunition. 
+</lvl03skill6text>
+    <lvl03skill7name>Weapon Properties</lvl03skill7name>
+    <lvl03skill7text>Firearms are a new and volatile technology, and as such bring their own unique set of weapon properties. Some  properties are followed by a number, and this number signifies an element of that property (outlined below). These properties replace the optional ones presented in the Dungeon Master’s Guide. Firearms are ranged weapons. 
+Reload: The weapon can be fired a number of times equal to its Reload score before you must spend 1 attack or 1 action to reload. You must have one free hand to reload a firearm. 
+Misfire: Whenever you make an attack roll with a firearm, and the dice roll is equal to or lower than the weapon’s Misfire score, the weapon misfires. The attack misses, and the weapon cannot be used again until you spend an action to try and repair it. To repair your firearm, you must make a successful Tinkers Tools check (DC equal to 8 + misfire score). If your check fails, the weapon is broken and must be repaired out of combat at half the cost of the firearm. 
+Scatter: An attack is made against each creature within a 30 ft cone. These attacks are simultaneous. If an affected creature is adjacent to you, they suffer double damage on a hit. This attack cannot be affected by any of your shot features. 
+Explosive: Upon a hit, everything within 5 ft of the target must make a Dexterity saving throw (DC equal to 8 + your proficiency bonus + your Dexterity modifier) or suffer ld8 fire damage. If the weapon misses, the ammunition fails to detonate, or bounces away harmlessly before doing so. 
+</lvl03skill7text>
+    <lvl07skill1name>Quickdraw (Arcane Archer)</lvl07skill1name>
+    <lvl07skill1text>When you reach 7th level, you add your proficiency bonus to your initiative. You can also stow a firearm, then draw another firearm as a single object interaction on your turn. 
+</lvl07skill1text>
+    <lvl07skill2name>Violent Shot (Arcane Archer)</lvl07skill2name>
+    <lvl07skill2text>Starting at 7th level, you’ve discovered ways to push your firearms past their intended potential at the peril of damaging them. You can spend 1 or more grit points before making an attack roll with a firearm. For each grit point spent, that attack gains +2 to the firearm’s misfire score. If the attack hits, you can roll one additional weapon damage die per grit point spent when determining damage of the attack. 
+</lvl07skill2text>
+    <lvl07skill3name>Arcane Shot Option (3rd)</lvl07skill3name>
+    <lvl07skill3text>You gain an additional Arcane Shot option. 
+</lvl07skill3text>
+    <lvl10skill1name>Trick Shot Option (4th)</lvl10skill1name>
+    <lvl10skill1text>By 10th level, you’ve honed your aim to fire off targeted shots to disable an opponent. You can spend 1 grit point before making an attack roll to target a specific location on the target’s body. If the specified body part cannot be seen, or the target lacks the part in question, only normal damage is suffered with no additional effect. 
+Trick Shot DC = 8 + your proficiency bonus + your Dexterity modifier 
+Head: On a hit, the target takes normal damage and must make a Constitution saving throw or suffer disadvantage on attacks until the end of their next turn. 
+Arms: On a hit, the target takes normal damage and must make a Strength saving throw or drop 1 held item of your choice. 
+Torso: On a hit, the target takes normal damage and is pushed up to 10 feet directly away from you . 
+Legs/Wings: On a hit, the target takes normal damage and must make a Strength saving throw or get knocked prone. 
+</lvl10skill1text>
+    <lvl15skill1name>Lightning Reload</lvl15skill1name>
+    <lvl15skill1text>Starting at 15th level, you can reload any firearm as a bonus action. 
+</lvl15skill1text>
+    <lvl15skill2name>Piercing Shot (Arcane Archer)</lvl15skill2name>
+    <lvl15skill2text>By 15th level, you’ve refined your deadly gunplay to allow certain shots to pierce through foes and continue on to damage others. You can spend 1 grit point before making an attack roll with a firearm that deals piercing damage. If the attack hits, you make an attack roll against every creature in a line directly behind the target within your first range increment. Only the initial attack can misfire. 
+</lvl15skill2text>
+    <lvl18skill1name>Vicious Intent</lvl18skill1name>
+    <lvl18skill1text>At 18th level, your firearm attacks score a critical hit on a roll of 19-20. 
+</lvl18skill1text>
+    <lvl18skill2name>Hemorrhaging Critical</lvl18skill2name>
+    <lvl18skill2text>Upon reaching 18th level, whenever you score a critical hit on an attack with a firearm, the target additionally suffers half of the damage from the attack at the end of its next turn. 
+</lvl18skill2text>
+  </subclass>
+  <subclass>
     <name>Purple Dragon Knight</name>
     <class>Fighter</class>
     <source>Source: Sword Coast Adventurer's Guide, p. 128</source>
@@ -5420,5 +5485,394 @@ The Hexblade: You can cast blink once using a profane soul spell slot. You can�
     <lvl18skill1name>Soul Siphon</lvl18skill1name>
     <lvl18skill1text>When you reach 18th level, your learn to sacrifice the souls of powerful foes to your dark patron in exchange for immediate power. When you reduce   a creature to 0 hit points with an attack, kill the creature, and they have a challenge rating of 15 or above, you recover an expended spell slot. 
 </lvl18skill1text>
+  </subclass>
+  <subclass>
+    <name>core revised ranger</name>
+    <class>Revised Ranger</class>
+    <hd>10</hd>
+    <saves>Strength, Dexterity</saves>
+    <proficiency>Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, Survival</proficiency>
+    <spellAbility>Wisdom</spellAbility>
+    <numSkills>3</numSkills>
+    <multiclass>Multiclass Ranger (Revised) 
+To multiclass as a Ranger (Revised), you must meet the following prerequisites:
+• Dexterity 13 and Wisdom 13
+
+You gain the following proficiencies:
+• light armor, medium armor, shields, simple weapons, martial weapons; choose one skill from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival
+
+
+</multiclass>
+    <lvl01skill1name>Starting Ranger (Revised)</lvl01skill1name>
+    <lvl01skill1text>As a 1st-level Ranger (Revised), you begin play with 10+your Constitution modifier hit points. 
+ 
+You are proficient with the following items, in addition to any proficiencies provided by your race or background. 
+• Armor: light armor, medium armor, shields 
+• Weapons: simple weapons, martial weapons 
+• Tools: none 
+• Skills: Choose three from Animal Handling, Athletics, Insight, Investigation, Nature, Perception, Stealth, and Survival 
+ 
+You begin play with the following equipment, in addition to any equipment provided by your background. 
+• (a) scale mail or (b) leather armor  
+• (a) two shortswords or (b) two simple melee weapons  
+• (a) a dungeoneer’s pack or (b) an explorer’s pack  
+• A longbow and a quiver of 20 arrows 
+ 
+Alternatively, you may start with 5d4x10 gp and choose your own equipment. 
+</lvl01skill1text>
+    <lvl01skill2name>Favored Enemy</lvl01skill2name>
+    <lvl01skill2text>Beginning at 1st level, you have significant experience studying, tracking, hunting, and even talking to a certain type of enemy commonly encountered in the wilds. Choose a type of favored enemy: beasts, fey, humanoids, monstrosities, or undead. You gain a +2 bonus to damage rolls with weapon attacks against creatures of the chosen type. Additionally, you have advantage on Wisdom (Survival) checks to track your favored enemies, as well as on Intelligence checks to recall information about them. 
+	When you gain this feature, you also learn one language of your choice, typically one spoken by your favored enemy or creatures associated with it. However, you are free to pick any language you wish to learn. 
+</lvl01skill2text>
+    <lvl01skill3name>Natural Explorer</lvl01skill3name>
+    <lvl01skill3text>You are a master of navigating the natural world, and you react with swift and decisive action when attacked. This grants you the following benefits:  
+ 
+• You ignore difficult terrain.  
+ 
+• You have advantage on initiative rolls.  
+ 
+• On your first turn during combat, you have advantage on attack rolls against creatures that have not yet acted.  
+ 
+	In addition, you are skilled at navigating the wilderness. You gain the following benefits when traveling for an hour or more:  
+ 
+• Difficult terrain doesn’t slow your group’s travel.  
+ 
+• Your group can’t become lost except by magical means.  
+ 
+• Even when you are engaged in another activity while traveling (such as foraging, navigating, or tracking), you remain alert to danger.  
+ 
+• If you are traveling alone, you can move stealthily at a normal pace.  
+ 
+• When you forage, you find twice as much food as you normally would.  
+ 
+• While tracking other creatures, you also learn their exact number, their sizes, and how long ago they passed through the area. 
+</lvl01skill3text>
+    <lvl02skill1name>Fighting Style</lvl02skill1name>
+    <lvl02skill1text>At 2nd level, you adopt a particular style of fighting as your specialty. Choose one of the following options. You can’t take a Fighting Style option more than once, even if you later get to choose again. 
+</lvl02skill1text>
+    <lvl02skill2name>Fighting Style: Archery</lvl02skill2name>
+    <lvl02skill2text>You gain a +2 bonus to attack rolls you make with ranged weapons. 
+</lvl02skill2text>
+    <lvl02skill3name>Fighting Style: Defense</lvl02skill3name>
+    <lvl02skill3text>While you are wearing armor, you gain a +1 bonus to AC. 
+</lvl02skill3text>
+    <lvl02skill4name>Fighting Style: Dueling</lvl02skill4name>
+    <lvl02skill4text>When you are wielding a melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon. 
+</lvl02skill4text>
+    <lvl02skill5name>Fighting Style: Two-Weapon Fighting</lvl02skill5name>
+    <lvl02skill5text>When you engage in two-weapon fighting, you can add your ability modifier to the damage of the second attack. 
+</lvl02skill5text>
+    <lvl02skill6name>Fighting Style: Tunnel Fighter</lvl02skill6name>
+    <lvl02skill6text>You excel at defending narrow passages, doorways, and other tight spaces. As a bonus action, you can enter a defensive stance that lasts until the start of your next turn. While in your defensive stance, you can make opportunity attacks without using your reaction, and you can use your reaction to make a melee attack against a creature that moves more than 5 feet while within your reach. 
+</lvl02skill6text>
+    <lvl02skill7name>Spellcasting</lvl02skill7name>
+    <lvl02skill7text>By the time you reach 2nd level, you have learned to use the magical essence of nature to cast spells, much as a druid does. See chapter 10 for the general rules of spellcasting and chapter 11 for the ranger spell list.  
+ 
+Spell Slots:  
+	The Ranger table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell’s level or higher. You regain all expended spell slots when you finish a long rest.  
+	For example, if you know the 1st-level spell animal friendship and have a 1st-level and a 2nd-level spell slot available, you can cast animal friendship using either slot.  
+ 
+Spells Known of 1st Level and Higher:  
+	You know two 1st-level spells of your choice from the ranger spell list.  
+	At each odd level, you learn an additional ranger spell of your choice. Each of these spells must be of a level for which you have spell slots. For instance, when you reach 5th level in this class, you can learn one new spell of 1st or 2nd level.  
+	Additionally, when you gain a level in this class, you can choose one of the ranger spells you know and replace it with another spell from the ranger spell list, which also must be of a level for which you have spell slots.  
+ 
+Spellcasting Ability:  
+	Wisdom is your spellcasting ability for your ranger spells, since your magic draws on your attunement to nature. You use your Wisdom whenever a spell refers to your spellcasting ability. In addition, you use your Wisdom modifier when setting the saving throw DC for a ranger spell you cast and when making an attack roll with one.  
+ 
+Spell save DC = 8 + your proficiency bonus + your Wisdom modifier  
+ 
+Spell attack modifier = your proficiency bonus + your Wisdom modifier 
+</lvl02skill7text>
+    <lvl03skill1name>Primeval Awareness</lvl03skill1name>
+    <lvl03skill1text>Beginning at 3rd level, your mastery of ranger lore allows you to establish a powerful link to beasts and to the land around you.  
+	You have an innate ability to communicate with beasts, and they recognize you as a kindred spirit. Through sounds and gestures, you can communicate simple ideas to a beast as an action, and can read its basic mood and intent. You learn its emotional state, whether it is affected by magic of any sort, its short-term needs (such as food or safety), and actions you can take (if any) to persuade it to not attack.  
+	You cannot use this ability against a creature that you have attacked within the past 10 minutes.  
+	Additionally, you can attune your senses to determine if any of your favored enemies lurk nearby. By spending 1 uninterrupted minute in concentration (as if you were concentrating on a spell), you can sense whether any of your favored enemies are present within 5 miles of you. This feature reveals which of your favored enemies are present, their numbers, and the creatures’ general direction and distance (in miles) from you.  
+	If there are multiple groups of your favored enemies within range, you learn this information for each group. 
+</lvl03skill1text>
+    <lvl03skill2name>Ranger Conclave</lvl03skill2name>
+    <lvl03skill2text>At 3rd level, you choose to emulate the ideals and training of a ranger conclave: the Beast Conclave, the Hunter Conclave, or the Stalker Conclave, all detailed at the end of the class description. Your choice grants you features at 3rd level and again at 5th, 7th, 11th, and 15th level. 
+</lvl03skill2text>
+    <lvl04skill1name>Ability Score Improvement</lvl04skill1name>
+    <lvl04skill1text>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature. 
+</lvl04skill1text>
+    <lvl06skill1name>Greater Favored Enemy</lvl06skill1name>
+    <lvl06skill1text>At 6th level, you are ready to hunt even deadlier game. Choose a type of greater favored enemy: aberrations, celestials, constructs, dragons, elementals, fiends, or giants. You gain all the benefits against this chosen enemy that you normally gain against your favored enemy, including an additional language. Your bonus to damage rolls against all your favored enemies increases to +4. 
+	Additionally, you have advantage on saving throws against the spells and abilities used by a greater favored enemy. 
+</lvl06skill1text>
+    <lvl08skill1name>Ability Score Improvement (2nd)</lvl08skill1name>
+    <lvl08skill1text>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature. 
+</lvl08skill1text>
+    <lvl08skill2name>Fleet of Foot</lvl08skill2name>
+    <lvl08skill2text>Beginning at 8th level, you can use the Dash action as a bonus action on your turn. 
+</lvl08skill2text>
+    <lvl10skill1name>Hide in Plain Sight</lvl10skill1name>
+    <lvl10skill1text>Starting at 10th level, you can remain perfectly still for long periods of time to set up ambushes.  
+	When you attempt to hide on your turn, you can opt to not move on that turn. If you avoid moving, creatures that attempt to detect you take a _10 penalty to their Wisdom (Perception) checks until the start of your next turn. You lose this benefit if you move or fall prone, either voluntarily or because of some external effect. You are still automatically detected if any effect or action causes you to no longer be hidden.  
+	If you are still hidden on your next turn, you can continue to remain motionless and gain this benefit until you are detected. 
+</lvl10skill1text>
+    <lvl12skill1name>Ability Score Improvement (3rd)</lvl12skill1name>
+    <lvl12skill1text>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature. 
+</lvl12skill1text>
+    <lvl14skill1name>Vanish</lvl14skill1name>
+    <lvl14skill1text>Starting at 14th level, you can use the Hide action as a bonus action on your turn. Also, you can’t be tracked by nonmagical means, unless you choose to leave a trail. 
+</lvl14skill1text>
+    <lvl16skill1name>Ability Score Improvement (4th)</lvl16skill1name>
+    <lvl16skill1text>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature. 
+</lvl16skill1text>
+    <lvl18skill1name>Feral Senses</lvl18skill1name>
+    <lvl18skill1text>At 18th level, you gain preternatural senses that help you fight creatures you can’t see. When you attack a creature you can’t see, your inability to see it doesn’t impose disadvantage on your attack rolls against it. 
+	You are also aware of the location of any invisible creature within 30 feet of you, provided that the creature isn’t hidden from you and you aren’t blinded or deafened. 
+</lvl18skill1text>
+    <lvl19skill1name>Ability Score Improvement (5th)</lvl19skill1name>
+    <lvl19skill1text>When you reach 4th level, and again at 8th, 12th, 16th, and 19th level, you can increase one ability score of your choice by 2, or you can increase two ability scores of your choice by 1. As normal, you can’t increase an ability score above 20 using this feature. 
+</lvl19skill1text>
+    <lvl20skill1name>Foe Slayer</lvl20skill1name>
+    <lvl20skill1text>At 20th level, you become an unparalleled hunter. Once on each of your turns, you can add your Wisdom modifier to the attack roll or the damage roll of an attack you make. You can choose to use this feature before or after the roll, but before any effects of the roll are applied.
+</lvl20skill1text>
+  </subclass>
+  <subclass>
+    <name>Beast Conclave</name>
+    <class>Revised Ranger</class>
+    <source>Source: Unearthed Arcana: The Ranger, Revised, p. 5</source>
+    <multiclass/>
+    <lvl03skill1name>Ranger Conclave: Beast Conclave</lvl03skill1name>
+    <lvl03skill1text>Many rangers are more at home in the wilds than in civilization, to the point where animals consider them kin. Rangers of the Beast Conclave develop a close bond with a beast, then further strengthen that bond through the use of magic. 
+</lvl03skill1text>
+    <lvl03skill2name>Animal Companion (Beast Conclave)</lvl03skill2name>
+    <lvl03skill2text>At 3rd level, you learn to use your magic to create a powerful bond with a creature of the natural world.  
+	With 8 hours of work and the expenditure of 50 gp worth of rare herbs and fine food, you call forth an animal from the wilderness to serve as your faithful companion. You normally select you companion from among the following animals: an ape, a black bear, a boar, a giant badger, a giant weasel, a mule, a panther, or a wolf. However, your DM might pick one of these animals for you, based on the surrounding terrain and on what types of creatures would logically be present in the area.  
+	At the end of the 8 hours, your animal companion appears and gains all the benefits of your Companion’s Bond ability. You can have only one animal companion at a time.  
+	If your animal companion is ever slain, the magical bond you share allows you to return it to life. With 8 hours of work and the expenditure of 25 gp worth of rare herbs and fine food, you call forth your companion’s spirit and use your magic to create a new body for it. You can return an animal companion to life in this manner even if you do not possess any part of its body.  
+	If you use this ability to return a former animal companion to life while you have a current animal companion, your current companion leaves you and is replaced by the restored companion. 
+</lvl03skill2text>
+    <lvl03skill3name>Companion's Bond (Beast Conclave)</lvl03skill3name>
+    <lvl03skill3text>Your animal companion gains a variety of benefits while it is linked to you.  
+	The animal companion loses its Multiattack action, if it has one.  
+	The companion obeys your commands as best it can. It rolls for initiative like any other creature, but you determine its actions, decisions, attitudes, and so on. If you are incapacitated or absent, your companion acts on its own.  
+	When using your Natural Explorer feature, you and your animal companion can both move stealthily at a normal pace.  
+	Your animal companion has abilities and game statistics determined in part by your level. Your companion uses your proficiency bonus rather than its own. In addition to the areas where it normally uses its proficiency bonus, an animal companion also adds its proficiency bonus to its AC and to its damage rolls.  
+	Your animal companion gains proficiency in two skills of your choice. It also becomes proficient with all saving throws.  
+	For each level you gain after 3rd, your animal companion gains an additional hit die and increases its hit points accordingly.  
+	Whenever you gain the Ability Score Improvement class feature, your companion’s abilities also improve. Your companion can increase one ability score of your choice by 2, or it can increase two ability scores of your choice by 1. As normal, your companion can’t increase an ability score above 20 using this feature unless its description specifies otherwise.  
+	Your companion shares your alignment, and has a personality trait and a flaw that you can roll for or select from the tables below. Your companion shares your ideal, and its bond is always, “The ranger who travels with me is a beloved companion for whom I would gladly give my life.”  
+	Your animal companion gains the benefits of your Favored Enemy feature, and of your Greater Favored Enemy feature when you gain that feature at 6th level. It uses the favored enemies you selected for those features.  
+ 
+Trait:  
+1. I’m dauntless in the face of adversity.  
+2. Threaten my friends, threaten me.  
+3. I stay on alert so others can rest.  
+4. People see an animal and underestimate me. I use that to my advantage.  
+5. I have a knack for showing up in the nick of time.  
+6. I put my friends’ needs before my own in all things.  
+ 
+Flaw:  
+1. If there’s food left unattended, I’ll eat it.  
+2. I growl at strangers, and all people except my ranger are strangers to me.  
+3. Any time is a good time for a belly rub.  
+4. I’m deathly afraid of water.  
+5. My idea of hello is a flurry of licks to the face.  
+6. I jump on creatures to tell them how much I love them. 
+</lvl03skill3text>
+    <lvl05skill1name>Coordinated Attack (Beast Conclave)</lvl05skill1name>
+    <lvl05skill1text>Beginning at 5th level, you and your animal companion form a more potent fighting team. When you use the Attack action on your turn, if your companion can see you, it can use its reaction to make a melee attack. 
+</lvl05skill1text>
+    <lvl07skill1name>Beast's Defense (Beast Conclave)</lvl07skill1name>
+    <lvl07skill1text>At 7th level, while your companion can see you, it has advantage on all saving throws. 
+</lvl07skill1text>
+    <lvl11skill1name>Storm of Claws and Fangs (Beast Conclave)</lvl11skill1name>
+    <lvl11skill1text>At 11th level, your companion can use its action to make a melee attack against each creature of its choice within 5 feet of it, with a separate attack roll for each target. 
+</lvl11skill1text>
+    <lvl15skill1name>Superior Beast's Defense (Beast Conclave)</lvl15skill1name>
+    <lvl15skill1text>At 15th level, whenever an attacker that your companion can see hits it with an attack, it can use its reaction to halve the attack’s damage against it. 
+</lvl15skill1text>
+  </subclass>
+  <subclass>
+    <name>Gloom Stalker Conclave</name>
+    <class>Revised Ranger</class>
+    <source>Source: Xanathar's Guide to Everything, p. 41</source>
+    <multiclass/>
+    <lvl03skill1name>Ranger Conclave: Gloom Stalker Conclave</lvl03skill1name>
+    <lvl03skill1text>Gloom Stalkers are at home in the darkest places: deep under the earth, in gloomy alleyways, in primeval forests, and wherever else the light dims. Most folk enter such places with trepidation, but a Gloom Stalkerventures boldly into the darkness, seeking to ambush threats beforethey can reach the broader world. Such rangers are often found in the Underdark, but they will go any place where evil lurks in the shadows. 
+ 
+Source: Xanathar's Guide to Everything, p. 41</lvl03skill1text>
+    <lvl03skill2name>Gloom Stalker Magic (Gloom Stalker Conclave)</lvl03skill2name>
+    <lvl03skill2text>Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. The spell counts as a ranger spell for you, but it doesn’t count against the number of ranger spells you know. 
+ 
+3rd—disguise self 
+5th—rope trick 
+9th—fear 
+13th—greater invisibility 
+17th—seeming 
+ 
+Source: Xanathar's Guide to Everything, p. 42</lvl03skill2text>
+    <lvl03skill3name>Dread Ambusher (Gloom Stalker Conclave)</lvl03skill3name>
+    <lvl03skill3text>At 3rd level, you master the art of the ambush. You can give yourself a bonus to your initiative rolls equal to your Wisdom modifier. 
+	At the start of your first turn of each combat, your walking speed increases by 10 feet, which lasts until the end of that turn. If you take the Attack action on that turn, you can make one additional weapon attack as part of that action. If that attack hits, the target takes an extra 1d8 damage of the weapon’s damage type. 
+</lvl03skill3text>
+    <lvl03skill4name>Umbral Sight (Gloom Stalker Conclave)</lvl03skill4name>
+    <lvl03skill4text>At 3rd level, you gain darkvision out to a range of 60 feet. If you already have darkvision from your race, its range increases by 30 feet. 
+	You are also adept at evading creatures that rely on darkvision. While in darkness, you are invisible to any creature that relies on darkvision to see you in that darkness. 
+</lvl03skill4text>
+    <lvl05skill1name>Extra Attack (Gloom Stalker Conclave)</lvl05skill1name>
+    <lvl05skill1text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. 
+</lvl05skill1text>
+    <lvl07skill1name>Iron Mind (Gloom Stalker Conclave)</lvl07skill1name>
+    <lvl07skill1text>By 7th level, you have honed your ability to resist the mind-altering powers of your prey. You gain proficiency in Wisdom saving throws. If you already have this proficiency, you instead gain proficiency in Intelligence or Charisma saving throws (your choice). 
+</lvl07skill1text>
+    <lvl11skill1name>Stalker's Flurry (Gloom Stalker Conclave)</lvl11skill1name>
+    <lvl11skill1text>At 11th level, you learn to attack with such unexpected speed that you can turn a miss into another strike. Once on each of your turns when you miss with a weapon attack, you can make another weapon attack as part of the same action 
+</lvl11skill1text>
+    <lvl15skill1name>Shadowy Dodge (Gloom Stalker Conclave)</lvl15skill1name>
+    <lvl15skill1text>Starting at 15th level, you can dodge in unforeseen ways, with wisps of supernatural shadow around you. Whenever a creature makes an attack roll against you and doesn’t have advantage on the roll, you can use your reaction to impose disadvantage on it. You must use this feature before you know the outcome of the attack roll. 
+</lvl15skill1text>
+  </subclass>
+  <subclass>
+    <name>Horizon Walker Conclave</name>
+    <class>Revised Ranger</class>
+    <source>Source: Xanathar's Guide to Everything, p. 42</source>
+    <multiclass/>
+    <lvl03skill1name>Ranger Conclave: Horizon Walker</lvl03skill1name>
+    <lvl03skill1text>Horizon Walkers guard the world against threats that originate from other planes or that seek to ravage the mortal realm with otherworldly magic. They seek out planar portals and keep watch over them, venturing to the Inner Planes and the Outer PLanes as needed to pursue their foes. These rangers are also friends to any forces in the multiverse—especially benevolent dragons, fey, and elementals—that work to preserve life and the order of the planes. 
+</lvl03skill1text>
+    <lvl03skill2name>Horizon Walker Magic (Horizon Walker Conclave)</lvl03skill2name>
+    <lvl03skill2text>Starting at 3rd level, you learn an additional spell when you reach certain levels in this class, as shown in the Horizon Walker Spells table. The spell counts as a ranger spell for you, and it doesn’t count against the number of ranger spells you know.  
+ 
+3rd — protection from evil and good  
+5th — alter self  
+9th — protection from energy  
+13th — banishment  
+17th — teleportation circle 
+</lvl03skill2text>
+    <lvl03skill3name>Detect Portal (Horizon Walker Conclave)</lvl03skill3name>
+    <lvl03skill3text>At 3rd level, you gain the ability to magically sense the presence of planar portals. As an action, you detect the distance and direction to the closest planar portal within 1 mile of you. 
+	Once you use this feature, you can’t use it again until you finish a short or long rest. 
+	See the "Planar Travel" section in chapter 2 of the Dungeon Master’s Guide for examples of planar portals. 
+</lvl03skill3text>
+    <lvl03skill4name>Planar Warrior (Horizon Walker Conclave)</lvl03skill4name>
+    <lvl03skill4text>At 3rd level, you learn to draw on the energy of the multiverse to augment your attacks. 
+	As a bonus action, choose one creature you can see within 30 feet of you. The next time you hit that creature on this turn with a weapon attack, all damage dealt by the attack becomes force damage, and the creature takes an extra 1d8 force damage from the attack. When you reach 11th level in this class, the extra damage increases to 2d8. 
+</lvl03skill4text>
+    <lvl05skill1name>Extra Attack (Horizon Walker Conclave)</lvl05skill1name>
+    <lvl05skill1text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. 
+</lvl05skill1text>
+    <lvl07skill1name>Ethereal Step (Horizon Walker Conclave)</lvl07skill1name>
+    <lvl07skill1text>At 7th level, you learn to step through the Ethereal Plane. As a bonus action, you can cast the etherealness spell with this feature without expending a spell slot, but the spell ends at the end of the current turn. Once you use this feature, you can’t use it again until you finish a short or long rest. 
+</lvl07skill1text>
+    <lvl11skill1name>Distant Strike (Horizon Walker Conclave)</lvl11skill1name>
+    <lvl11skill1text>At 11th level, you gain the ability to step between the planes in a blink of an eye. When you use the Attack action, you can teleport up to 10 feet before each attack to an unoccupied space you can see. 
+	If you attack at least two different creatures with the action, you can make one additional attack with it against a third creature. 
+</lvl11skill1text>
+    <lvl15skill1name>Spectral Defense (Horizon Walker Conclave)</lvl15skill1name>
+    <lvl15skill1text>At 15th level, your ability to move between planes enables you to slip through the planar boundaries to lessen the harm donw to you during battle. When you take damage from an attack, you can use your reaction to give yourself resistance to all of that attack’s damage on this turn. 
+</lvl15skill1text>
+  </subclass>
+  <subclass>
+    <name>Hunter Conclave</name>
+    <class>Revised Ranger</class>
+    <source>Source: Unearthed Arcana: The Ranger, Revised, p. 6</source>
+    <multiclass/>
+    <lvl03skill1name>Ranger Conclave: Hunter Conclave</lvl03skill1name>
+    <lvl03skill1text>Some rangers seek to master weapons to better protect civilization from the terrors of the wilderness. Members of the Hunter Conclave learn specialized fighting techniques for use against the most dire threats, from rampaging ogres and hordes of orcs to towering giants and terrifying dragons. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl03skill1text>
+    <lvl03skill2name>Hunter's Prey (Hunter Conclave)</lvl03skill2name>
+    <lvl03skill2text>At 3rd level, you gain one of the following features of your choice: Colossus Slayer, Giant Killer, or Horde Breaker. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl03skill2text>
+    <lvl03skill3name>Hunter's Prey: Colossus Slayer</lvl03skill3name>
+    <lvl03skill3text>Your tenacity can wear down the most potent foes. When you hit a creature with a weapon attack, the creature takes an extra 1d8 damage if it’s below its hit point maximum. You can deal this extra damage only once per turn. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl03skill3text>
+    <lvl03skill4name>Hunter's Prey: Giant Killer</lvl03skill4name>
+    <lvl03skill4text>When a Large or larger creature within 5 feet of you hits or misses you with an attack, you can use your reaction to attack that creature immediately after its attack, provided that you can see the creature. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl03skill4text>
+    <lvl03skill5name>Hunter's Prey: Horde Breaker</lvl03skill5name>
+    <lvl03skill5text>Once on each of your turns when you make a weapon attack, you can make another attack with the same weapon against a different creature that is within 5 feet of the original target and within range of your weapon. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl03skill5text>
+    <lvl05skill1name>Extra Attack (Hunter Conclave)</lvl05skill1name>
+    <lvl05skill1text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl05skill1text>
+    <lvl07skill1name>Defensive Tactics (Hunter Conclave)</lvl07skill1name>
+    <lvl07skill1text>At 7th level, you gain one of the following features of your choice: Escape the Horde, Multiattack Defense, or Steel Will. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl07skill1text>
+    <lvl07skill2name>Defensive Tactics: Escape the Horde</lvl07skill2name>
+    <lvl07skill2text>Opportunity attacks against you are made with disadvantage. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl07skill2text>
+    <lvl07skill3name>Defensive Tactics: Multiattack Defense</lvl07skill3name>
+    <lvl07skill3text>When a creature hits you with an attack, you gain a +4 bonus to AC against all subsequent attacks made by that creature for the rest of the turn. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl07skill3text>
+    <lvl07skill4name>Defensive Tactics: Steel Will</lvl07skill4name>
+    <lvl07skill4text>You have advantage on saving throws against being frightened. 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl07skill4text>
+    <lvl11skill1name>Multiattack (Hunter Conclave)</lvl11skill1name>
+    <lvl11skill1text>At 11th level, you gain one of the following features of your choice: Volley or Whirlwind Attack 
+ 
+Source: Unearthed Arcana: The Ranger, Revised, p. 6</lvl11skill1text>
+    <lvl11skill2name>Multiattack: Volley</lvl11skill2name>
+    <lvl11skill2text>You can use your action to make a ranged attack against any number of creatures within 10 feet of a point you can see within your weapon’s range. You must have ammunition for each target, as normal, and you make a separate attack roll for each target. 
+</lvl11skill2text>
+    <lvl11skill3name>Multiattack: Whirlwind Attack</lvl11skill3name>
+    <lvl11skill3text>You can use your action to make melee attacks against any number of creatures within 5 feet of you, with a separate attack roll for each target. 
+</lvl11skill3text>
+    <lvl15skill1name>Superior Hunter's Defense (Hunter Conclave)</lvl15skill1name>
+    <lvl15skill1text>At 15th level, you gain one of the following features of your choice: Evasion, Stand Against the Tide, and Uncanny Dodge. 
+</lvl15skill1text>
+    <lvl15skill2name>Superior Hunter's Defense: Evasion</lvl15skill2name>
+    <lvl15skill2text>When you are subjected to an effect, such as a red dragon’s fiery breath or a lightning bolt spell, that allows you to make a Dexterity saving throw to take only half damage, you instead take no damage if you succeed on a saving throw, and only half damage if you fail. 
+</lvl15skill2text>
+    <lvl15skill3name>Superior Hunter's Defense: Stand Against the Tide</lvl15skill3name>
+    <lvl15skill3text>When a hostile creature misses you with a melee attack, you can use your reaction to force that creature to repeat the same attack against another creature (other than itself) of your choice. 
+</lvl15skill3text>
+    <lvl15skill4name>Superior Hunter's Defense: Uncanny Dodge</lvl15skill4name>
+    <lvl15skill4text>When an attacker that you can see hits you with an attack, you can use your reaction to halve the attack’s damage against you. 
+</lvl15skill4text>
+  </subclass>
+  <subclass>
+    <name>Monster Slayer Conclave</name>
+    <class>Revised Ranger</class>
+    <source>Source: Unearthed Arcana: The Ranger, Revised, p. 6</source>
+    <multiclass/>
+    <lvl03skill1name>Ranger Conclave: Monster Slayer</lvl03skill1name>
+    <lvl03skill1text>You have dedicated yourself to hunting down creatures of the night and wielders of grim magic. A Monster Slayer seeks out vampires, dragons, evil fey, fiends, and other magical threats. Trained in supernatural techniques to overcome such monsters, slayers are experts at unearthing and defeating mighty, mystical foes. 
+</lvl03skill1text>
+    <lvl03skill2name>Monster Slayer Magic (Monster Slayer Conclave)</lvl03skill2name>
+    <lvl03skill2text>Starting at 3rd level, you learn an additional spell when you reach certain levels in this class. The spell counts as a ranger spell for you but doesn’t count against the number of ranger spells you know. 
+ 
+3rd — protection from evil and good 
+5th — zone of truth 
+9th — magic circle 
+13th — banishment 
+17th — hold monster 
+</lvl03skill2text>
+    <lvl03skill3name>Hunter's Sense (Monster Slayer Conclave)</lvl03skill3name>
+    <lvl03skill3text>At 3rd level, you gain the ability to peer at a creature and magically discern how best to hurt it. As an action, choose one creature you can see within 60 feet of you. You immediately learn whether  the creature has any damage immunities, resistances, or vulnerabilities and what they are. If the creature is hidden from divination magic, you sense that it has no damage immunities, resistances, or vulnerabilities. 
+	You can use this feature a number of times equal to your Wsidom modifier (minimum of once). You regain all expended uses when you finish a long rest. 
+</lvl03skill3text>
+    <lvl03skill4name>Slayer's Prey (Monster Slayer Conclave)</lvl03skill4name>
+    <lvl03skill4text>Starting at 3rd level, you can focus your ire on one foe, increasing the harm you inflict on it. As a bonus action, you designate one creature you can see within 60 feet of you as the target of this feature. The first time each turn that you hit that target with a weapon attack, it takes an extra 1d6 damage from the weapon. 
+	This benefit lasts until you finish a short or long rest. It ends early if you designate a different creature. 
+</lvl03skill4text>
+    <lvl05skill1name>Extra Attack (Monster Slayer Conclave)</lvl05skill1name>
+    <lvl05skill1text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn. 
+</lvl05skill1text>
+    <lvl07skill1name>Supernatural Defense (Monster Slayer Conclave)</lvl07skill1name>
+    <lvl07skill1text>At 7th level, you gain extra resilience against your prey’s assaults on your mind and body. Whenever the target of your Slayer’s Eye forces you to make a saving throw, add 1d6 to your roll. 
+</lvl07skill1text>
+    <lvl11skill1name>Magic-User's Nemesis (Monster Slayer Conclave)</lvl11skill1name>
+    <lvl11skill1text>At 11th level, you gain the ability to thwart someone else’s magic. When you see a creature casting a spell or teleporting within 60 feet of you, you can use your reaction to try to magically foil it. The creature must succeed on a Wisdom saving throw against you spell save DC, or its spell or teleport fails and is wasted. 
+	Once you use this feature, you can’t use it again until you finish a short or long rest. 
+</lvl11skill1text>
+    <lvl15skill1name>Slayer’s Counter (Monster Slayer Conclave)</lvl15skill1name>
+    <lvl15skill1text>At 15th level, you gain the ability to counterattack when your prey tries to sabotage you. If the target of your Slayer’s Prey forces you to make a saving throw, you can use your reaction to make one weapon attack against the quarry. You make this attack immediately before making the saving throw. If the attack hits, your save automatically succeeds, in addition to the attack’s normal effects. 
+</lvl15skill1text>
   </subclass>
 </compendium>
