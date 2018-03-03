@@ -10,7 +10,7 @@ $headpath .= "/header.php";
 include_once($headpath);
 
 //Execute the query
-$sql = "LOAD XML LOCAL INFILE 'xml/Output.xml'
+$sql = "LOAD XML LOCAL INFILE 'xml/Output1.xml'
   INTO TABLE subclasses
   ROWS IDENTIFIED BY '<subclass>'";
 
