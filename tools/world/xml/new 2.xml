@@ -47,6 +47,26 @@
 			
 		</lvl03skill>
 		
+		<lvl03skill>
+			
+				<name>Ammunition</name>
+				<text>All firearms require ammunition to make an attack, and due to their rare nature, ammunition may be near impossible to find or purchase. However, if materials are gathered, you can craft ammunition yourself using your Tinker's Tools (cost and time are DM’s discretion). Each firearm uses its own unique ammunition.</text>
+				<text></text>
+			
+		</lvl03skill>
+		
+		<lvl03skill>
+			
+				<name>Weapon Properties</name>
+				<text>Firearms are a new and volatile technology, and as such bring their own unique set of weapon properties. Some  properties are followed by a number, and this number signifies an element of that property (outlined below). These properties replace the optional ones presented in the Dungeon Master’s Guide. Firearms are ranged weapons.</text>
+				<text>Reload: The weapon can be fired a number of times equal to its Reload score before you must spend 1 attack or 1 action to reload. You must have one free hand to reload a firearm.</text>
+				<text>Misfire: Whenever you make an attack roll with a firearm, and the dice roll is equal to or lower than the weapon’s Misfire score, the weapon misfires. The attack misses, and the weapon cannot be used again until you spend an action to try and repair it. To repair your firearm, you must make a successful Tinkers Tools check (DC equal to 8 + misfire score). If your check fails, the weapon is broken and must be repaired out of combat at half the cost of the firearm.</text>
+				<text>Scatter: An attack is made against each creature within a 30 ft cone. These attacks are simultaneous. If an affected creature is adjacent to you, they suffer double damage on a hit. This attack cannot be affected by any of your shot features.</text>
+				<text>Explosive: Upon a hit, everything within 5 ft of the target must make a Dexterity saving throw (DC equal to 8 + your proficiency bonus + your Dexterity modifier) or suffer ld8 fire damage. If the weapon misses, the ammunition fails to detonate, or bounces away harmlessly before doing so.</text>
+				<text></text>
+			
+		</lvl03skill>
+		
 			<lvl07skill>
 			
 				<name>Quickdraw (Arcane Archer)</name>
@@ -74,24 +94,29 @@
 		
 		<lvl10skill>
 			
-				<name>Arcane Shot Option (4th)</name>
-				<text>You gain an additional Arcane Shot option.</text>
-				<text>	</text>
+				<name>Trick Shot Option (4th)</name>
+				<text>By 10th level, you’ve honed your aim to fire off targeted shots to disable an opponent. You can spend 1 grit point before making an attack roll to target a specific location on the target’s body. If the specified body part cannot be seen, or the target lacks the part in question, only normal damage is suffered with no additional effect.</text>
+				<text>Trick Shot DC = 8 + your proficiency bonus + your Dexterity modifier</text>
+				<text>Head: On a hit, the target takes normal damage and must make a Constitution saving throw or suffer disadvantage on attacks until the end of their next turn.</text>
+				<text>Arms: On a hit, the target takes normal damage and must make a Strength saving throw or drop 1 held item of your choice.</text>
+				<text>Torso: On a hit, the target takes normal damage and is pushed up to 10 feet directly away from you .</text>
+				<text>Legs/Wings: On a hit, the target takes normal damage and must make a Strength saving throw or get knocked prone.</text>
+				<text></text>
 			
 		</lvl10skill>
 
 			<lvl15skill>
 			
-				<name>Arcane Shot Option (5th)</name>
-				<text>You gain an additional Arcane Shot option.</text>
+				<name>Lightning Reload</name>
+				<text>Starting at 15th level, you can reload any firearm as a bonus action.</text>
 				<text>	</text>
 			
 		</lvl15skill>
 
 		<lvl15skill>
 			
-				<name>Ever-Ready Shot (Arcane Archer)</name>
-				<text>Starting at 15th level, your magical archery is available whenever battle starts. If you roll initiative and have no uses of Arcane Shot remaining, you regain one use of it.</text>
+				<name>Piercing Shot (Arcane Archer)</name>
+				<text>By 15th level, you’ve refined your deadly gunplay to allow certain shots to pierce through foes and continue on to damage others. You can spend 1 grit point before making an attack roll with a firearm that deals piercing damage. If the attack hits, you make an attack roll against every creature in a line directly behind the target within your first range increment. Only the initial attack can misfire.</text>
 				<text>	</text>
 			
 		</lvl15skill>
@@ -99,9 +124,15 @@
 		
 		<lvl18skill>
 			
-				<name>Arcane Shot Option (6th)</name>
-				<text>You gain an additional Arcane Shot option.</text>
+				<name>Vicious Intent</name>
+				<text>At 18th level, your firearm attacks score a critical hit on a roll of 19-20.</text>
 				<text>	</text>
+		</lvl18skill>
+		
+		<lvl18skill>
 			
+				<name>Hemorrhaging Critical</name>
+				<text>Upon reaching 18th level, whenever you score a critical hit on an attack with a firearm, the target additionally suffers half of the damage from the attack at the end of its next turn.</text>
+				<text>	</text>
 		</lvl18skill>
 	</subclass>
