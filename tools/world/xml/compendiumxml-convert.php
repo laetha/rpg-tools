@@ -1,7 +1,7 @@
 <?php
 // LOAD XML AND XSLT
 $doc = new DOMDocument();
-$doc->load('coreclasses.xml');
+$doc->load('new 1.xml');
 
 $xsl = new DOMDocument;
 $xsl->load('xml-conv-subclasses1.xsl');

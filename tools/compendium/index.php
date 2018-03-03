@@ -38,9 +38,9 @@
               if (strpos($classrow['name'], ' core') !== false){
               $subtemp = 'Core '.$id;
               }
-
               $subslashes = str_replace(' ', '_', $subtemp);
             echo('<li><a data-toggle="tab" href="#'.$subslashes.'">'.$subtemp.'</a></li>');
+
             }
             ?>
           </ul>
@@ -73,7 +73,7 @@
             echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
           }
       }
-    
+
 
 
               echo('</div>');

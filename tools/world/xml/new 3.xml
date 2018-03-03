@@ -1,144 +1,51 @@
 
 <subclass>
-	<name>barbarian core</name>
-	<class>Barbarian</class>
-	<hd>12</hd>
-	<saves>Strength, Constitution</saves>
-	<proficiency>Animal Handling, Athletics, Intimidation, Nature, Perception, Survival</proficiency>
-	<spellAbility></spellAbility>
-	<numSkills>2</numSkills>
+	<name>artificer core</name>
+	<class>Artificer</class>
+	<hd>8</hd>
+	<source>Unearthed Arcana: Artificer</source>
+	<proficiency>Arcana, Deception, History, Investigation, Medicine, Nature, Religion, Sleight of Hand</proficiency>
+	<saves>Constitution, Intelligence</saves>
+	<spellAbility>Intelligence</spellAbility>
+	<numSkills>3</numSkills>
 		<lvlskill>
 			
-				<name>Starting Barbarian</name>
-				<text>As a 1st-level Barbarian, you begin play with 12+your Constitution modifier hit points.</text>
+				<name>Starting Artificer</name>
+				<text>As a 1st-level Artificer, you begin play with 8+your Constitution modifier hit points.</text>
 				<text> </text>
 				<text>You are proficient with the following items, in addition to any proficiencies provided by your race or background.</text>
-				<text>&#8226; Armor: light armor, medium armor, shields</text>
-				<text>&#8226; Weapons: simple weapons, martial weapons</text>
-				<text>&#8226; Tools: none</text>
-				<text>&#8226; Skills: Choose two from Animal Handling, Athletics, Intimidation, Nature, Perception, and Survival</text>
+				<text>&#8226; Armor: light and medium armors</text>
+				<text>&#8226; Weapons: simple weapons</text>
+				<text>&#8226; Tools: thieves' tools, two other tools of your choice</text>
+				<text>&#8226; Skills: Choose three from Arcana, Deception, History, Investigation, Medicine, Nature, Religion, Sleight of Hand</text>
 				<text> </text>
 				<text>You begin play with the following equipment, in addition to any equipment provided by your background.</text>
-				<text>&#8226; (a) a greataxe or (b) any martial melee weapon</text>
-				<text>&#8226; (a) two handaxes or (b) any simple weapon</text>
-				<text>&#8226; An explorer's pack and four javelins</text>
+				<text>&#8226; (a) a handaxe and a light hammer or (b) any two simple weapons </text>
+				<text>&#8226; a light crossbow and 20 bolts </text>
+				<text>&#8226; (a) scale mail or (b) studded leather armor </text>
+				<text>&#8226; thieves&#8217; tools and a dungeoneer&#8217;s pack</text>
 				<text> </text>
-				<text>Alternatively, you may start with 2d4x10 gp and choose your own equipment.</text>
-				<text> </text>
+				
 			
 		</lvlskill>
 
 		<multiclass>
 			
-				<name>Multiclass Barbarian</name>
-				<text>To multiclass as a Barbarian, you must meet the following prerequisites:</text>
-				<text>&#8226; Strength 13</text>
+				<name>Multiclass Artificer</name>
+				<text>To multiclass as a Artificer, you must meet the following prerequisites:</text>
+				<text>&#8226; Intelligence 13</text>
 				<text> </text>
 				<text>You gain the following proficiencies:</text>
-				<text>&#8226; shields, simple weapons, martial weapons</text>
+				<text>&#8226; light armor, simple weapons, two tools</text>
 				<text> </text>
+				
 			
 		</multiclass>
 
 		<lvlskill>
 			
-				<name>Rage</name>
-				<text>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.</text>
-				<text>	While raging, you gain the following benefits if you aren&#8217;t wearing heavy armor.</text>
-				<text>	 </text>
-				<text>&#8226; You have advantage on Strength checks and Strength saving throws.</text>
-				<text>	 </text>
-				<text>&#8226; When you make a melee weapon attack using Strength, you gain a bonus to the damage roll that increases as you gain levels as a barbarian. At 1st level, you have a +2 bonus to damage. Your bonus increases to +3 at 9th level and to +4 at 16th.</text>
-				<text>	 </text>
-				<text>&#8226; You have resistance to bludgeoning, piercing, and slashing damage.</text>
-				<text>	 </text>
-				<text>	If you are able to cast spells, you can&#8217;t cast them or concentrate on them while raging.</text>
-				<text>	Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven&#8217;t attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.</text>
-				<text>	Once you have raged the maximum number of times for your barbarian level, you must finish a long rest before you can rage again. You may rage 2 times at 1st level, 3 at 3rd, 4 at 6th, 5 at 12th, and 6 at 17th.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Unarmored Defense</name>
-				<text>While you are not wearing any armor, your Armor Class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Reckless Attack</name>
-				<text>Starting at 2nd level, you can throw aside all concern for defense to attack with fierce desperation. When you make your first attack on your turn, you can decide to attack recklessly. Doing so gives you advantage on melee weapon attack rolls using Strength during this turn, but attack rolls against you have advantage until your next turn.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Danger Sense</name>
-				<text>At 2nd level, you gain an uncanny sense of when things nearby aren&#8217;t as they should be, giving you an edge when you dodge away from danger.</text>
-				<text>	You have advantage on Dexterity saving throws against effects that you can see, such as traps and spells. To gain this benefit, you can&#8217;t be blinded, deafened, or incapacitated.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Primal Path</name>
-				<text>At 3rd level, you choose a path that shapes the nature of your rage. Choose the Path of the Berserker or the Path of the Totem Warrior.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Extra Attack</name>
-				<text>Beginning at 5th level, you can attack twice, instead of once, whenever you take the Attack action on your turn.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Fast Movement</name>
-				<text>Starting at 5th level, your speed increases by 10 feet while you aren&#8217;t wearing heavy armor.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Feral Instinct</name>
-				<text>By 7th level, your instincts are so honed that you have advantage on initiative rolls.</text>
-				<text>	Additionally, if you are surprised at the beginning of combat and aren&#8217;t incapacitated, you can act normally on your first turn, but only if you enter your rage before doing anything else on that turn.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Brutal Critical</name>
-				<text>Beginning at 9th level, you can roll one additional weapon damage die when determining the extra damage for a critical hit with a melee attack.</text>
-				<text>	This increases to two additional dice at 13th level and three additional dice at 17th level.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Relentless Rage</name>
-				<text>Starting at 11th level, your rage can keep you fighting despite grievous wounds. If you drop to 0 hit points while you&#8217;re raging and don&#8217;t die outright, you can make a DC 10 Constitution saving throw. If you succeed, you drop to 1 hit point instead.</text>
-				<text>	Each time you use this feature after the first, the DC increases by 5. When you finish a short or long rest, the DC resets to 10.</text>
-				<text>	</text>
-			
-		</lvlskill>
-
-		<lvlskill>
-			
-				<name>Persistent Rage</name>
-				<text>Beginning at 15th level, your rage is so fierce that it ends early only if you fall unconscious or if you choose to end it.</text>
+				<name>Magic Item Analysis</name>
+				<text>Starting at 1st level, your understanding of magic items allows you to analyze and understand their secrets. You know the artificer spells detect magic and identify, and you can cast them as rituals. You don&#8217;t need to provide a material component when casting identify with this class feature.</text>
 				<text>	</text>
 				
 			
@@ -146,8 +53,8 @@
 
 		<lvlskill>
 			
-				<name>Indomitable Might</name>
-				<text>Beginning at 18th level, if your total for a Strength check is less than your Strength score, you can use that score in place of the total.</text>
+				<name>Artificer Specialist</name>
+				<text>At 1st level, you choose the type of Artificer Specialist you are: Alchemist or Gunsmith, both of which are detailed at the end of the class description. Your choice grants you features at 1st level and again at 3rd, 9th, 14th, and 17th level. </text>
 				<text>	</text>
 				
 			
@@ -155,11 +62,172 @@
 
 		<lvlskill>
 			
-				<name>Primal Champion</name>
-				<text>At 20th level, you embody the power of the wilds. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.</text>
+				<name>Tool Expertise</name>
+				<text>Starting at 2nd level, your proficiency bonus is doubled for any ability check you make that uses any of the tool proficiencies you gain from this class.</text>
+				<text>	</text>
+			
+		</lvlskill>
+
+		<lvlskill>
+			
+				<name>Wondrous Invention</name>
+				<text>At 2nd level, you gain the use of a magic item that you have crafted. Choose the item from the list of 2nd-level items below. </text>
+				<text>	Crafting an item is a difficult task. When you gain a magic item from this feature, it reflects long hours of study, tinkering, and experimentation that allowed you to finally complete the item. You are assumed to work on this item in your leisure time and to finish it when you level up. </text>
+				<text>	You complete another item of your choice when you reach certain levels in this class: 5th, 10th, 15th, and 20th level. The item you choose must be on the list for your current artificer level or a lower level. </text>
+				<text>	These magic items are detailed in the Dungeon Master&#8217;s Guide. </text>
+				<text>	 </text>
+				<text>2nd Level: bag of holding, cap of water breathing, driftglobe, goggles of night, sending stones</text>
+				<text>	</text>
+			
+		</lvlskill>
+
+		<lvlskill>
+			
+				<name>Spellcasting</name>
+				<text>As part of your study of magic, you gain the ability to cast spells at 3rd level. The spells you learn are limited in scope, primarily concerned with modifying creatures and objects or creating items. </text>
+				<text>	 </text>
+				<text>Spell Slots: </text>
+				<text>	The Artificer table shows how many spell slots you have to cast your spells of 1st level and higher. To cast one of these spells, you must expend a slot of the spell&#8217;s level or higher. You regain all expended spell slots when you finish a long rest. </text>
+				<text>	 </text>
+				<text>Spells Known of 1st Level and Higher: </text>
+				<text>	You know three 1st-level spells of your choice from the artificer spell list (which appears at the end of this document). </text>
+				<text>	The Spells Known column of the Artificer table shows when you learn more artificer spells of your choice from this feature. Each of these spells must be of a level for which you have spell slots on the Artificer table.</text>
+				<text>	You learn an additional spell at 4th, 7th, 8th, 10th, 11th, 13th, 14th, 16th, 19th, and 20th level. </text>
+				<text>	Additionally, when you gain a level in this class, you can choose one of the artificer spells you know from this feature and replace it with another spell from the artificer spell list. The new spell must also be of a level for which you have spell slots on the Artificer table. </text>
+				<text>	 </text>
+				<text>Spellcasting Ability: </text>
+				<text>	Intelligence is your spellcasting ability for your artificer spells; your understanding of the theory behind magic allows you to wield these spells with superior skill. You use your Intelligence whenever an artificer spell refers to your spellcasting ability. In addition, you use your Intelligence modifier when setting the saving throw DC for an artificer spell you cast and when making an attack roll with one. </text>
+				<text>	 </text>
+				<text>Spell save DC = 8 + your proficiency bonus + your Intelligence modifier </text>
+				<text>	 </text>
+				<text>Spell attack modifier = your proficiency bonus + your Intelligence modifier</text>
+				<text>	 </text>
+				<text>Spellcasting Focus: </text>
+				<text>	You can use an arcane focus as a spellcasting focus for your artificer spells. See chapter 5, &#8220;Equipment,&#8221; in the Player&#8217;s Handbook for various arcane focus options. </text>
+				<text>	</text>
+			
+		</lvlskill>
+
+		<lvlskill>
+			
+				<name>Infuse Magic</name>
+				<text>Starting at 4th level, you gain the ability to channel your artificer spells into objects for later use. When you cast an artificer spell with a casting time of 1 action, you can increase its casting time to 1 minute. If you do so and hold a nonmagical item throughout the casting, you expend a spell slot, but none of the spell&#8217;s effects occur. Instead, the spell transfers into that item for later use if the item doesn&#8217;t already contain a spell from this feature. </text>
+				<text>	Any creature holding the item thereafter can use an action to activate the spell if the creature has an Intelligence score of at least 6. The spell is cast using your spellcasting ability, targeting the creature that activates the item. If the spell targets more than one creature, the creature that activates the item selects the additional targets. If the spell has an area of effect, it is centered on the item. If the spell&#8217;s range is self, it targets the creature that activates the item. </text>
+				<text>	When you infuse a spell in this way, it must be used within 8 hours. After that time, its magic fades and is wasted. </text>
+				<text>	You can have a limited number of infused spells at the same time. The number equals your Intelligence modifier.</text>
+				<text>	</text>
+			
+		</lvlskill>
+		
+		<lvlskill>
+			
+				<name>Wondrous Invention (2nd)</name>
+				<text>You complete another magic item of your choice. The item you choose must be on the list for your current artificer level or a lower level. </text>
+				<text>	These magic items are detailed in the Dungeon Master&#8217;s Guide. </text>
+				<text>	 </text>
+				<text>2nd Level: bag of holding, cap of water breathing, driftglobe, goggles of night, sending stones </text>
+				<text>	 </text>
+				<text>5th Level: alchemy jug, helm of comprehending languages, lantern of revealing, ring of swimming, robe of useful items, rope of climbing, wand of magic detection, wand of secrets</text>
+				<text>	</text>
+			
+		</lvlskill>
+		<lvlskill>
+			
+				<name>Superior Attunement (Four Items)</name>
+				<text>At 5th level, your superior understanding of magic items allows you to master their use. You can now attune to up to four, rather than three, magic items at a time. At 15th level, this limit increases to five magic items.</text>
+				<text>	</text>
+			
+		</lvlskill>
+		
+		<lvlskill>
+			
+				<name>Mechanical Servant</name>
+				<text>At 6th level, your research and mastery of your craft allow you to produce a mechanical servant. The servant is a construct that obeys your commands without hesitation and functions in combat to protect you. Though magic fuels its creation, the servant is not magical itself. You are assumed to have been working on the servant for quite some time, finally finishing it during a short or long rest after you reach 6th level. </text>
+				<text>	Select a Large beast with a challenge rating of 2 or less. The servant uses that beast&#8217;s game statistics, but it can look however you like, as long as its form is appropriate for its statistics. It has the following modifications: </text>
+				<text>	 </text>
+				<text>&#8226; It is a construct instead of a beast. </text>
+				<text>	 </text>
+				<text>&#8226; It can&#8217;t be charmed. </text>
+				<text>	 </text>
+				<text>&#8226; It is immune to poison damage and the poisoned condition. </text>
+				<text>	 </text>
+				<text>&#8226; It gains darkvision with a range of 60 feet if it doesn&#8217;t have it already. </text>
+				<text>	 </text>
+				<text>&#8226; It understands the languages you can speak when you create it, but it can&#8217;t speak. </text>
+				<text>	 </text>
+				<text>&#8226; If you are the target of a melee attack and the servant is within 5 feet of the attacker, you can use your reaction to command the servant to respond, using its reaction to make a melee attack against the attacker. </text>
+				<text>	The servant obeys your orders to the best of its ability. In combat, it rolls its own initiative and acts on its own. </text>
+				<text>	If the servant is killed, it can be returned to life via normal means, such as with the revivify spell. In addition, over the course of a long rest, you can repair a slain servant if you have access to its body. It returns to life with 1 hit point at the end of the rest. If the servant is beyond recovery, you can build a new one with one week of work (eight hours each day) and 1,000 gp of raw materials. </text>
+				<text>	</text>
+			
+		</lvlskill>
+		
+		<lvlskill>
+			
+				<name>Wondrous Invention (3rd)</name>
+				<text>You complete another magic item of your choice. The item you choose must be on the list for your current artificer level or a lower level. </text>
+				<text>	These magic items are detailed in the Dungeon Master&#8217;s Guide. </text>
+				<text>	 </text>
+				<text>2nd Level: bag of holding, cap of water breathing, driftglobe, goggles of night, sending stones </text>
+				<text>	 </text>
+				<text>5th Level: alchemy jug, helm of comprehending languages, lantern of revealing, ring of swimming, robe of useful items, rope of climbing, wand of magic detection, wand of secrets </text>
+				<text>	 </text>
+				<text>10th Level: bag of beans, chime of opening, decanter of endless water, eyes of minute seeing, folding boat, Heward&#8217;s handy haversack</text>
+				<text>	</text>
+			
+		</lvlskill>
+		
+		
+		<lvlskill>
+			
+				<name>Wondrous Invention (4th)</name>
+				<text>You complete another magic item of your choice. The item you choose must be on the list for your current artificer level or a lower level. </text>
+				<text>	These magic items are detailed in the Dungeon Master&#8217;s Guide. </text>
+				<text>	 </text>
+				<text>2nd Level: bag of holding, cap of water breathing, driftglobe, goggles of night, sending stones </text>
+				<text>	 </text>
+				<text>5th Level: alchemy jug, helm of comprehending languages, lantern of revealing, ring of swimming, robe of useful items, rope of climbing, wand of magic detection, wand of secrets </text>
+				<text>	 </text>
+				<text>10th Level: bag of beans, chime of opening, decanter of endless water, eyes of minute seeing, folding boat, Heward&#8217;s handy haversack </text>
+				<text>	 </text>
+				<text>15th Level: boots of striding and springing, bracers of archery, brooch of shielding, broom of flying, hat of disguise, slippers of spider climbing</text>
 				<text>	</text>
 				
 			
 		</lvlskill>
-
+		<lvlskill>
+			
+				<name>Superior Attunement (Five Items)</name>
+				<text>At 15th level, your superior understanding of magic items allows you to master their use. You can now attune to up to four, rather than three, magic items at a time. At 15th level, this limit increases to five magic items.</text>
+				<text>	</text>
+			
+		</lvlskill>
+		
+		<lvlskill>
+			
+				<name>Wondrous Invention (5th)</name>
+				<text>You complete another magic item of your choice. The item you choose must be on the list for your current artificer level or a lower level. </text>
+				<text>	These magic items are detailed in the Dungeon Master&#8217;s Guide. </text>
+				<text>	 </text>
+				<text>2nd Level: bag of holding, cap of water breathing, driftglobe, goggles of night, sending stones </text>
+				<text>	 </text>
+				<text>5th Level: alchemy jug, helm of comprehending languages, lantern of revealing, ring of swimming, robe of useful items, rope of climbing, wand of magic detection, wand of secrets </text>
+				<text>	 </text>
+				<text>10th Level: bag of beans, chime of opening, decanter of endless water, eyes of minute seeing, folding boat, Heward&#8217;s handy haversack </text>
+				<text>	 </text>
+				<text>15th Level: boots of striding and springing, bracers of archery, brooch of shielding, broom of flying, hat of disguise, slippers of spider climbing </text>
+				<text>	 </text>
+				<text>20th Level: eyes of the eagle, gem of brightness, gloves of missile snaring, gloves of swimming and climbing, ring of jumping, ring of mind shielding, wings of flying</text>
+				<text>	</text>
+				
+			
+		</lvlskill>
+		<lvlskill>
+			
+				<name>Soul of Artifice</name>
+				<text>At 20th level, your understanding of magic items is unmatched, allowing you to mingle your soul with items linked to you. You can attune to up to six magic items at once. In addition, you gain a +1 bonus to all saving throws per magic item you are currently attuned to.</text>
+				<text>	</text>
+				
+			
+		</lvlskill>
 </subclass>
