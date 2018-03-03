@@ -1,7 +1,7 @@
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="statblock.css" rel="stylesheet" type="text/css">
-<div class="mainbox col-md-9">
+<div class="mainbox col-md-12">
 
   <!-- Page Header -->
   <div class="col-md-12">
@@ -30,28 +30,247 @@
             $sidebartype = $row['type'];
           }
           elseif($type == 'class'){
-            $classtitle = "SELECT * FROM `classes1` WHERE `name` LIKE '$id'";
+            echo ('<ul class="nav nav-tabs">');
+            $classtitle = "SELECT name FROM `subclasses` WHERE class LIKE '$id'";
             $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
             while($classrow =  mysqli_fetch_array($classdata, MYSQLI_ASSOC)) {
-              echo ($classrow['name'].'<br />');
-              echo ($classrow['hd'].'<br />');
-              echo ($classrow['proficiency'].'<br />');
-            /*echo ('<strong>Playable Class</strong><br />');
-            if($row['classHd'] != ''){
-              echo ('<strong>Hit Dice:</strong> d'.$row['classHd'].'<br />');
+              $subtemp = $classrow['name'];
+              if (strpos($classrow['name'], ' core') !== false){
+              $subtemp = 'Core '.$id;
+              }
+
+              $subslashes = str_replace(' ', '_', $subtemp);
+            echo('<li><a data-toggle="tab" href="#'.$subslashes.'">'.$subtemp.'</a></li>');
             }
-            if($row['classSaves'] != ''){
-              echo ('<strong>Saving Throws: </strong>'.$row['classSaves'].'<br />');
-            }
-            if($row['classProficiency'] != ''){
-              echo ('<strong>Proficiency:</strong> Choose '.$row['classNumSkills'].' skills from the following: '.$row['classProficiency'].'<br />');
-            }
-            if($row['classSpellAbility'] != ''){
-              echo ('<strong>Spellcasting Ability:</strong> '.$row['classSpellAbility'].'<br />');
-            }
-            echo nl2br('<p></p><div class="sidebartext">'.$row['text'].'</div>');
-            $sidebartype = $row['type'];*/
+            ?>
+          </ul>
+          <div class="tab-content">
+            <?php
+              $subtitle = "SELECT * FROM `subclasses` WHERE class LIKE '$id'";
+              $subdata = mysqli_query($dbcon, $subtitle) or die('error getting data');
+              while($subrow =  mysqli_fetch_array($subdata, MYSQLI_ASSOC)) {
+                $subtemp1 = $subrow['name'];
+                if (strpos($subrow['name'], ' core') !== false){
+                $subtemp1 = 'Core '.$id;
+                }
+                $subslashes1 = str_replace(' ', '_', $subtemp1);
+                echo ('<div class="tab-pane fade');
+                if (strpos($subtemp1, 'Core') !== false){
+                echo (' in active');
+                }
+                echo ('" id="'.$subslashes1.'">');
+
+              echo ('<h2>'.$subtemp1.'</h2>');
+              echo ('<h4>'.$subrow['source'].'</h4>');
+
+          for ($counter = 1; $counter <= 10; $counter++) {
+          $skillname = 'lvl01skill'.$counter.'name';
+          $skilltext = 'lvl01skill'.$counter.'text';
+          if(isset($subrow[$skillname])){
+          echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+        }
+          if(isset($subrow[$skilltext])){
+            echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
           }
+      }
+      for ($counter = 1; $counter <= 7; $counter++) {
+      $skillname = 'lvl02skill'.$counter.'name';
+      $skilltext = 'lvl02skill'.$counter.'text';
+      if(isset($subrow[$skillname])){
+      echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+    }
+      if(isset($subrow[$skilltext])){
+        echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+      }
+  }
+  for ($counter = 1; $counter <= 9; $counter++) {
+  $skillname = 'lvl03skill'.$counter.'name';
+  $skilltext = 'lvl03skill'.$counter.'text';
+  if(isset($subrow[$skillname])){
+  echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+  if(isset($subrow[$skilltext])){
+    echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+  }
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl04skill'.$counter.'name';
+$skilltext = 'lvl04skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl05skill'.$counter.'name';
+$skilltext = 'lvl05skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 6; $counter++) {
+$skillname = 'lvl06skill'.$counter.'name';
+$skilltext = 'lvl06skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 4; $counter++) {
+$skillname = 'lvl07skill'.$counter.'name';
+$skilltext = 'lvl07skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl08skill'.$counter.'name';
+$skilltext = 'lvl08skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl09skill'.$counter.'name';
+$skilltext = 'lvl09skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl10skill'.$counter.'name';
+$skilltext = 'lvl10skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 3; $counter++) {
+$skillname = 'lvl11skill'.$counter.'name';
+$skilltext = 'lvl11skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl12skill'.$counter.'name';
+$skilltext = 'lvl12skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 1; $counter++) {
+$skillname = 'lvl13skill'.$counter.'name';
+$skilltext = 'lvl13skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 6; $counter++) {
+$skillname = 'lvl14skill'.$counter.'name';
+$skilltext = 'lvl14skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 4; $counter++) {
+$skillname = 'lvl15skill'.$counter.'name';
+$skilltext = 'lvl15skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl16skill'.$counter.'name';
+$skilltext = 'lvl16skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 1; $counter++) {
+$skillname = 'lvl17skill'.$counter.'name';
+$skilltext = 'lvl17skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl18skill'.$counter.'name';
+$skilltext = 'lvl18skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 1; $counter++) {
+$skillname = 'lvl19skill'.$counter.'name';
+$skilltext = 'lvl19skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+for ($counter = 1; $counter <= 2; $counter++) {
+$skillname = 'lvl20skill'.$counter.'name';
+$skilltext = 'lvl20skill'.$counter.'text';
+if(isset($subrow[$skillname])){
+echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
+}
+if(isset($subrow[$skilltext])){
+  echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+}
+}
+
+
+              echo('</div>');
+            }
+                ?>
+          </div>
+
+          <?php
           }
           elseif($type == 'feat'){
             if($row['featModifier'] != ''){
@@ -132,15 +351,15 @@
 	  </svg>
 		<div class="top-stats">
 			<div class="property-line first">
-				<h4>Armor Class</h4>
+				<h3>Armor Class</h3>
 				<p><?php echo $row['monsterAc']; ?></p>
 			</div> <!-- property line -->
 			<div class="property-line">
-				<h4>Hit Points</h4>
+				<h3>Hit Points</h3>
 				<p><?php echo $row['monsterHp']; ?></p>
 			</div> <!-- property line -->
 			<div class="property-line last">
-				<h4>Speed</h4>
+				<h3>Speed</h3>
 				<p><?php echo $row['monsterSpeed']; ?></p>
 			</div> <!-- property line -->
 			<svg height="5" width="100%" class="tapered-rule">
@@ -148,27 +367,27 @@
 	  </svg>
 			<div class="abilities">
 				<div class="ability-strength">
-					<h4>STR</h4>
+					<h3>STR</h3>
 					<p><?php echo $row['monsterStr']; ?></p>
 				</div> <!-- ability strength -->
 				<div class="ability-dexterity">
-					<h4>DEX</h4>
+					<h3>DEX</h3>
 					<p><?php echo $row['monsterDex']; ?></p>
 				</div> <!-- ability dexterity -->
 				<div class="ability-constitution">
-					<h4>CON</h4>
+					<h3>CON</h3>
 					<p><?php echo $row['monsterCon']; ?></p>
 				</div> <!-- ability constitution -->
 				<div class="ability-intelligence">
-					<h4>INT</h4>
+					<h3>INT</h3>
 					<p><?php echo $row['monsterInt']; ?></p>
 				</div> <!-- ability intelligence -->
 				<div class="ability-wisdom">
-					<h4>WIS</h4>
+					<h3>WIS</h3>
 					<p><?php echo $row['monsterWis']; ?></p>
 				</div> <!-- ability wisdom -->
 				<div class="ability-charisma">
-					<h4>CHA</h4>
+					<h3>CHA</h3>
 					<p><?php echo $row['monsterCha']; ?></p>
 				</div> <!-- ability charisma -->
 			</div> <!-- abilities -->
@@ -177,56 +396,56 @@
 	  </svg>
     <?php if($row['monsterSave'] != ''){ ?>
       <div class="property-line">
-				<h4><strong>Saving Throws:</strong></h4>
+				<h3><strong>Saving Throws:</strong></h3>
 				<p><?php echo $row['monsterSave']; ?></p>
 			</div> <!-- property line -->
     <?php } ?>
   <?php if($row['monsterSkill'] != ''){ ?>
       <div class="property-line">
-				<h4><strong>Skills:</strong></h4>
+				<h3><strong>Skills:</strong></h3>
 				<p><?php echo $row['monsterSkill']; ?></p>
 			</div> <!-- property line -->
     <?php } ?>
     <?php if($row['monsterResist'] != ''){ ?>
       <div class="property-line">
-				<h4><strong>Damage Resistences:</strong></h4>
+				<h3><strong>Damage Resistences:</strong></h3>
 				<p><?php echo $row['monsterResist']; ?></p>
 			</div> <!-- property line -->
     <?php } ?><?php if($row['monsterVulnerable'] != ''){ ?>
       <div class="property-line">
-				<h4><strong>Damage Vulnerabilities:</strong></h4>
+				<h3><strong>Damage Vulnerabilities:</strong></h3>
 				<p><?php echo $row['monsterVulnerable']; ?></p>
 			</div> <!-- property line -->
   <?php } ?><?php if($row['monsterImmune'] != ''){ ?>
     <div class="property-line">
-      <h4><strong>Damage Immunities:</strong></h4>
+      <h3><strong>Damage Immunities:</strong></h3>
       <p><?php echo $row['monsterImmune']; ?></p>
     </div> <!-- property line -->
 <?php } ?><?php if($row['monsterConditionImmune'] != ''){ ?>
   <div class="property-line">
-    <h4><strong>Condition Immunities:</strong></h4>
+    <h3><strong>Condition Immunities:</strong></h3>
     <p><?php echo $row['monsterConditionImmune']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php if($row['monsterSenses'] != ''){ ?>
   <div class="property-line">
-    <h4><strong>Senses:</strong></h4>
+    <h3><strong>Senses:</strong></h3>
     <p><?php echo $row['monsterSenses']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php if($row['monsterPassive'] != ''){ ?>
   <div class="property-line">
-    <h4><strong>Passive Perception:</strong></h4>
+    <h3><strong>Passive Perception:</strong></h3>
     <p><?php echo $row['monsterPassive']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php if($row['monsterLanguages'] != ''){ ?>
   <div class="property-line">
-    <h4><strong>Languages:</strong></h4>
+    <h3><strong>Languages:</strong></h3>
     <p><?php echo $row['monsterLanguages']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php
 $cr = $row['monsterCr'];
  if($row['monsterCr'] != ''){ ?>
   <div class="property-line">
-    <h4><strong>Challenge Rating:</strong></h4>
+    <h3><strong>Challenge Rating:</strong></h3>
     <p><?php
 
     if($row['monsterCr'] ==0.125){
@@ -533,33 +752,3 @@ $cr = $row['monsterCr'];
 */    ?>
 
 </div>
-
-
-
-<!-- Sidebar -->
-    <div class="sidebar sidebartext col-xs-2">
-    <p><a href="/tools/compendium/compendium.php">Back</a></p>
-
-    <h2><?php
-    if ($sidebartype == "npc" ) {
-      echo "NPC";
-    }
-    else if ($sidebartype == "deity" ) {
-      echo "Dietie";
-    }
-    else {
-    echo ucwords($sidebartype);
-  }
-    echo "s"; ?></h2>
-    <?php
-      $sidebar = "SELECT title FROM compendium WHERE type LIKE '%{$sidebartype}%' AND title NOT LIKE '%*' AND title NOT LIKE '%(Ritual Only)' LIMIT 0,12";
-      $sidebardata = mysqli_query($dbcon, $sidebar) or die('error getting data');
-      while($row =  mysqli_fetch_array($sidebardata, MYSQLI_ASSOC)) {
-      $entry = $row['title'];
-      echo "<a href=\"compendium.php?id=$entry\">";
-      echo $entry;
-      echo "</a>";
-      echo "<br>";
-    }
-      ?>
-  </div>

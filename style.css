@@ -295,3 +295,15 @@ a {
 a:hover {
 	color: #7A85B1;
 }
+h3 {
+	color: #5499c7;
+}
+p.subentry {
+	color: #DCE8F5;
+	font-family:arial;
+	font-size: 16px;
+	color: #C8C5C5;
+	text-align:left;
+	margin-bottom:30px;
+
+}
