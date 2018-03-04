@@ -36,8 +36,8 @@
 			<div class="header">
 				<div class="col-md-2"></div>
 				<div class="col-md-2"><a href="/index.php">Home</a></div>
-				<div class="col-md-2"><a href="/tools/world/import.php">Import</a></div>
-				<div class="col-md-2"><a href="/login.php">Signup/Login</a></div>
+				<!--<div class="col-md-2"><a href="/tools/world/import.php">Import</a></div>
+				<div class="col-md-2"><a href="/login.php">Signup/Login</a></div>-->
 			</div>
 				<div class="col-md-3">
 					<!--<form method="post" id="searchdiv" action="/tools/world/world.php">-->
