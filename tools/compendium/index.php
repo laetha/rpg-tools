@@ -162,15 +162,15 @@
 	  </svg>
 		<div class="top-stats">
 			<div class="property-line first">
-				<h3>Armor Class</h3>
+				<h4>Armor Class</h4>
 				<p><?php echo $row['monsterAc']; ?></p>
 			</div> <!-- property line -->
 			<div class="property-line">
-				<h3>Hit Points</h3>
+				<h4>Hit Points</h4>
 				<p><?php echo $row['monsterHp']; ?></p>
 			</div> <!-- property line -->
 			<div class="property-line last">
-				<h3>Speed</h3>
+				<h4>Speed</h4>
 				<p><?php echo $row['monsterSpeed']; ?></p>
 			</div> <!-- property line -->
 			<svg height="5" width="100%" class="tapered-rule">
@@ -178,27 +178,27 @@
 	  </svg>
 			<div class="abilities">
 				<div class="ability-strength">
-					<h3>STR</h3>
+					<h4>STR</h4>
 					<p><?php echo $row['monsterStr']; ?></p>
 				</div> <!-- ability strength -->
 				<div class="ability-dexterity">
-					<h3>DEX</h3>
+					<h4>DEX</h4>
 					<p><?php echo $row['monsterDex']; ?></p>
 				</div> <!-- ability dexterity -->
 				<div class="ability-constitution">
-					<h3>CON</h3>
+					<h4>CON</h4>
 					<p><?php echo $row['monsterCon']; ?></p>
 				</div> <!-- ability constitution -->
 				<div class="ability-intelligence">
-					<h3>INT</h3>
+					<h4>INT</h4>
 					<p><?php echo $row['monsterInt']; ?></p>
 				</div> <!-- ability intelligence -->
 				<div class="ability-wisdom">
-					<h3>WIS</h3>
+					<h4>WIS</h4>
 					<p><?php echo $row['monsterWis']; ?></p>
 				</div> <!-- ability wisdom -->
 				<div class="ability-charisma">
-					<h3>CHA</h3>
+					<h4>CHA</h4>
 					<p><?php echo $row['monsterCha']; ?></p>
 				</div> <!-- ability charisma -->
 			</div> <!-- abilities -->
@@ -207,56 +207,56 @@
 	  </svg>
     <?php if($row['monsterSave'] != ''){ ?>
       <div class="property-line">
-				<h3><strong>Saving Throws:</strong></h3>
+				<h4><strong>Saving Throws:</strong></h4>
 				<p><?php echo $row['monsterSave']; ?></p>
 			</div> <!-- property line -->
     <?php } ?>
   <?php if($row['monsterSkill'] != ''){ ?>
       <div class="property-line">
-				<h3><strong>Skills:</strong></h3>
+				<h4><strong>Skills:</strong></h4>
 				<p><?php echo $row['monsterSkill']; ?></p>
 			</div> <!-- property line -->
     <?php } ?>
     <?php if($row['monsterResist'] != ''){ ?>
       <div class="property-line">
-				<h3><strong>Damage Resistences:</strong></h3>
+				<h4><strong>Damage Resistences:</strong></h4>
 				<p><?php echo $row['monsterResist']; ?></p>
 			</div> <!-- property line -->
     <?php } ?><?php if($row['monsterVulnerable'] != ''){ ?>
       <div class="property-line">
-				<h3><strong>Damage Vulnerabilities:</strong></h3>
+				<h4><strong>Damage Vulnerabilities:</strong></h4>
 				<p><?php echo $row['monsterVulnerable']; ?></p>
 			</div> <!-- property line -->
   <?php } ?><?php if($row['monsterImmune'] != ''){ ?>
     <div class="property-line">
-      <h3><strong>Damage Immunities:</strong></h3>
+      <h4><strong>Damage Immunities:</strong></h4>
       <p><?php echo $row['monsterImmune']; ?></p>
     </div> <!-- property line -->
 <?php } ?><?php if($row['monsterConditionImmune'] != ''){ ?>
   <div class="property-line">
-    <h3><strong>Condition Immunities:</strong></h3>
+    <h4><strong>Condition Immunities:</strong></h4>
     <p><?php echo $row['monsterConditionImmune']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php if($row['monsterSenses'] != ''){ ?>
   <div class="property-line">
-    <h3><strong>Senses:</strong></h3>
+    <h4><strong>Senses:</strong></h4>
     <p><?php echo $row['monsterSenses']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php if($row['monsterPassive'] != ''){ ?>
   <div class="property-line">
-    <h3><strong>Passive Perception:</strong></h3>
+    <h4><strong>Passive Perception:</strong></h4>
     <p><?php echo $row['monsterPassive']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php if($row['monsterLanguages'] != ''){ ?>
   <div class="property-line">
-    <h3><strong>Languages:</strong></h3>
+    <h4><strong>Languages:</strong></h4>
     <p><?php echo $row['monsterLanguages']; ?></p>
   </div> <!-- property line -->
 <?php } ?><?php
 $cr = $row['monsterCr'];
  if($row['monsterCr'] != ''){ ?>
   <div class="property-line">
-    <h3><strong>Challenge Rating:</strong></h3>
+    <h4><strong>Challenge Rating:</strong></h4>
     <p><?php
 
     if($row['monsterCr'] ==0.125){
