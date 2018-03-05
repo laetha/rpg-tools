@@ -44,6 +44,549 @@
             }
             ?>
           </ul>
+
+          <p><button class="btn btn-info" id="classbutton">Show Class Table</button>
+          <div class="table-responsive" id="classtable" style="display:none;">
+            <form method="post" action="logprocess.php" id="logadd">
+              <table class="table table-striped table-condensed">
+  <thead>
+    <?php
+    if($id == "Artificer") {
+      echo ('<tr>');
+      echo('<th>Level</th>');
+      echo('<th>Proficiency</th>');
+      echo('<th>Features</th>');
+      echo('<th>Spells Known</th>');
+      echo('<th>1st</th>');
+      echo('<th>2nd</th>');
+      echo('<th>3rd</th>');
+      echo('<th>4th</th>');
+      echo('</tr>');
+    echo('</thead>');
+    echo('<tbody>');
+
+
+    $classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+    $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+    while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+      echo ('<tr><td>'.$classtablerow['level'].'</td>');
+      echo ('<td>'.$classtablerow['proficiency'].'</td>');
+      echo ('<td>'.$classtablerow['feature'].'</td>');
+      echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+      echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+      echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+      echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+      echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+
+      }
+}
+
+if($id == "Barbarian") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Rages</th>');
+  echo('<th>Rage Damage</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td></tr>');
+
+  }
+}
+
+if($id == "Bard") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Cantrips</th>');
+  echo('<th>Spells Known</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('<th>6th</th>');
+  echo('<th>7th</th>');
+  echo('<th>8th</th>');
+  echo('<th>9th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl6'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl7'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl8'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
+
+  }
+}
+
+if($id == "Cleric") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Cantrips</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('<th>6th</th>');
+  echo('<th>7th</th>');
+  echo('<th>8th</th>');
+  echo('<th>9th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl6'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl7'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl8'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
+
+  }
+}
+
+if($id == "Druid") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Cantrips</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('<th>6th</th>');
+  echo('<th>7th</th>');
+  echo('<th>8th</th>');
+  echo('<th>9th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl6'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl7'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl8'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
+
+  }
+}
+
+if($id == "Fighter") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td></tr>');
+
+  }
+}
+
+if($id == "Monk") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Martial Arts</th>');
+  echo('<th>Ki Points</th>');
+  echo('<th>Unarmored Movement</th>');
+  echo('<th>Features</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td></tr>');
+
+  }
+}
+
+if($id == "Mystic") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Talents Known</th>');
+  echo('<th>Disciplines Known</th>');
+  echo('<th>Psi Points</th>');
+  echo('<th>Psi Limit</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
+
+  }
+}
+
+if($id == "Paladin") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+
+  }
+}
+
+if($id == "Ranger") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Spells Known</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+
+  }
+}
+
+if($id == "Rogue") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Sneak Attack</th>');
+  echo('<th>Features</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+
+  }
+}
+
+
+if($id == "Sorcerer") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Sorcery Points</th>');
+  echo('<th>Features</th>');
+  echo('<th>Cantrips</th>');
+  echo('<th>Spells Known</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('<th>6th</th>');
+  echo('<th>7th</th>');
+  echo('<th>8th</th>');
+  echo('<th>9th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['resource'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl6'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl7'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl8'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
+
+  }
+}
+
+if($id == "Warlock") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Cantrips</th>');
+  echo('<th>Spells Known</th>');
+  echo('<th>Spell Slots</th>');
+  echo('<th>Slot Level</th>');
+  echo('<th>Invocations Known</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+
+  }
+}
+
+if($id == "Wizard") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Cantrips</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('<th>6th</th>');
+  echo('<th>7th</th>');
+  echo('<th>8th</th>');
+  echo('<th>9th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl6'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl7'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl8'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
+
+  }
+}
+
+if($id == "Blood Hunter") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Crimson Rite</th>');
+  echo('<th>Features</th>');
+  echo('<th>Blood Curses Known</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+
+  }
+}
+
+if($id == "Revised Ranger") {
+  echo ('<tr>');
+  echo('<th>Level</th>');
+  echo('<th>Proficiency</th>');
+  echo('<th>Features</th>');
+  echo('<th>Spells Known</th>');
+  echo('<th>1st</th>');
+  echo('<th>2nd</th>');
+  echo('<th>3rd</th>');
+  echo('<th>4th</th>');
+  echo('<th>5th</th>');
+  echo('</tr>');
+echo('</thead>');
+echo('<tbody>');
+
+
+$classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE '$id'";
+$classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+  echo ('<tr><td>'.$classtablerow['level'].'</td>');
+  echo ('<td>'.$classtablerow['proficiency'].'</td>');
+  echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+  echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+
+  }
+}
+
+
+    ?>
+
+  </tbody>
+</table>
+          </form>
+        </div>
+        <script>
+        $(document).ready(function addLog(){
+            $("#classbutton").click(function addLog(){
+                $("#classtable").slideToggle("slow");
+            });
+        });
+        </script>
+
           <div class="tab-content">
             <?php
               $subtitle = "SELECT * FROM `subclasses` WHERE class LIKE '$id'";
@@ -62,6 +605,7 @@
 
               echo ('<h2>'.$subtemp1.'</h2>');
               echo ('<h4>'.$subrow['source'].'</h4>');
+
 
           for ($counter = 1; $counter <= 19; $counter++) {
           $skillname = 'lvlskill'.$counter.'name';
