@@ -15,7 +15,7 @@
    <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js" type="text/javascript"></script>
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
-   <div class="mainbox col-md-12">
+   <div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
 
      <!-- Page Header -->
      <div class="col-md-12">

@@ -1,6 +1,6 @@
 <?php include('header.php'); ?>
 
-			<div class="mainbox col-md-12">
+<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
 				<h1 class="pagetitle">Brian's RPG Tools</h1>
 				<div class="menu">
 					<a class="menulink" href="/tools/world/world.php"><div class="menuitem">

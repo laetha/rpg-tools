@@ -1,4 +1,4 @@
-<div class="mainbox col-md-12">
+<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
   <h1 class="pagetitle">Compendium</h1>
   <div class="menu">
     <a class="menulink" href="/tools/compendium/backgrounds.php"><div class="menuitem">

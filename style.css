@@ -25,7 +25,6 @@ div.body {
 	padding-bottom:60px;
 	padding-top:0px;
 	border-radius:40px;
-	float:left;
 }
 textarea {
     -webkit-box-sizing: border-box;
@@ -175,9 +174,9 @@ ul {
 	background-color: green;
 }
 .col-centered {
-  float: none;
   margin-right: auto;
   margin-left: auto;
+	float:none;
 }
 .textbox {
     width: 100%;
@@ -306,4 +305,7 @@ p.subentry {
 	text-align:left;
 	margin-bottom:30px;
 
+}
+.nav {
+	margin: 20px;
 }

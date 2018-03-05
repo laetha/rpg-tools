@@ -1,4 +1,4 @@
-<div class="mainbox col-md-9">
+<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
 
   <!-- Page Header -->
   <div class="col-md-12">
@@ -10,10 +10,17 @@
    echo $row['title'];
    $title = $row['title'];
    $deleteid = $row['id'];
+   ?>
+ </div>
+ </div>
+ <div class="nav sidebartext col-md-12">
+ <a href="/index.php">Home</a>  &rarr; <a href="/tools/world/world.php">World Building</a> &rarr;  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
+
+ </div>
+ <?php
  }
   ?>
-</div>
-</div>
+
   <div class="body bodytext col-xs-12" id="body">
 
     <!-- Body Text -->
@@ -166,34 +173,7 @@
 
 
 
-<!-- Sidebar -->
-    <div class="sidebar sidebartext col-xs-2">
-    <p><a href="/tools/world/world.php">Back</a></p>
 
-    <h2><?php
-    if ($sidebartype == "npc" ) {
-      echo "NPC";
-    }
-    else if ($sidebartype == "deity" ) {
-      echo "Dietie";
-    }
-    else {
-    echo ucwords($sidebartype);
-  }
-    echo "s"; ?></h2>
-    <?php
-      $sidebar = "SELECT * FROM world WHERE type LIKE '%{$sidebartype}%'";
-      $sidebardata = mysqli_query($dbcon, $sidebar) or die('error getting data');
-      while($row =  mysqli_fetch_array($sidebardata, MYSQLI_ASSOC)) {
-      $entry = $row['title'];
-      echo "<a href=\"world.php?id=$entry\">";
-      echo $entry;
-      echo "</a>";
-      echo "<br>";
-    }
-      ?>
-
-  </div>
 <!-- Delete Modal -->
 <div class="modal fade" id="myModal" role="dialog">
   <div class="modal-dialog">
