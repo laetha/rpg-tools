@@ -36,7 +36,6 @@
   <?php
   if ($sidebartype == "settlement") {
     ?>
-    <div class="body col-md-12 bodytext">
     <?php
     echo "<h3>Key NPC's:</h3>";
     echo ('<div class="row col-md-12">');
@@ -46,11 +45,11 @@
     while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
       $selectednpc = $titlerow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
-      echo ('<div class="col-md-4">');
+      echo ('<div class="col-md-4 col-sm-5">');
       echo $selectednpc;
       echo "</div>";
     }
-    echo "</div></div>";
+    echo "</div>";
   }
 
   //Faction NPCs
@@ -94,9 +93,9 @@
   <?php
 
     ?>
-    <div class="body sidebartext col-md-12 bodytext">
+    <div class="row col-md-12 sidebartext">
     <?php
-    echo "<h3>Log references:</h3>";
+    echo ('<h3>Log references:</h3>');
     echo ('<ul style="list-style-type: circle;">');
     $temptitle = str_replace("'", "''", $title);
     $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' ORDER BY date DESC";

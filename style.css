@@ -1,5 +1,5 @@
 body {
-	background-color: #4C5471;
+	background-color: #222326;
 	color: #282829;
 	min-width: 350px;
 }
@@ -19,7 +19,7 @@ div.body {
 }
 
 .mainbox {
-	background-color: #37393E;
+	background-color: #313337;
 	text-align:center;
 	margin-top:15px;
 	padding-bottom:60px;
@@ -47,7 +47,7 @@ div.menuitem {
 	margin: 10px;
 	border-radius: 25px;
 	border-style: solid;
-	border-color: #9194B6;
+	border-color: #2f2731;
 }
 
 .menu{
@@ -72,7 +72,7 @@ div.menuitem {
 .bodytext {
 	font-family:arial;
 	font-size: 20px;
-	color: #C8C5C5;
+	color: #b3b3b3;
 	text-align:left;
 }
 .footer {
@@ -117,7 +117,7 @@ h2 {
 .sidebartext {
 	font-family:arial;
 	font-size: 16px;
-	color: #C8C5C5;
+	color: #b3b3b3;
 	text-align:left;
 }
 .toc {
@@ -287,7 +287,7 @@ margin-bottom: 30px;
 font-size: 16px;
 }
 .table-striped > tbody > tr:nth-child(2n+1) > td, .table-striped > tbody > tr:nth-child(2n+1) > th {
-   background-color: #2F3034;
+   background-color: #404145;
 }
 a {
 	color: #94A0CE;
