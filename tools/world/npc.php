@@ -41,7 +41,7 @@
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
                $entry = $row['title'];
-               echo "<a href=\"compendium.php?id=$entry\">";
+               echo "<a href=\"world.php?id=$entry\">";
                echo $entry;
                echo "</a></td></tr>";
 

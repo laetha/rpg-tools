@@ -37,7 +37,7 @@ include_once($headpath);
         </select>
         <script type="text/javascript">
         $('#type').selectize({
-    create: false,
+    create: true,
     sortField: 'text'
 });
         </script>
