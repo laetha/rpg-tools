@@ -19,46 +19,33 @@
 
      <!-- Page Header -->
      <div class="col-md-12">
-     <div class="pagetitle" id="pgtitle">Items</div>
+     <div class="pagetitle" id="pgtitle">Classes</div>
    </div>
      <div class="body sidebartext col-xs-12" id="body">
        <div class="table-responsive">
-   <table id="allspells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+   <table id="class" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
-                   <th scope="col">Type</th>
-                   <th scope="col">Weight (lbs)</th>
-                   <th scope="col">Magic</th>
+
                </tr>
            </thead>
            <tfoot>
                <tr>
                  <th scope="col">Name</th>
-                 <th scope="col">Type</th>
-                 <th scope="col">Weight (lbs)</th>
-                 <th scope="col">Magic</th>
+
                </tr>
            </tfoot>
            <tbody>
              <?php
-               $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'item'";
+               $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'class'";
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
                $entry = $row['title'];
                echo "<a href=\"compendium.php?id=$entry\">";
                echo $entry;
-               echo "</a></td>";
-               echo ('<td>'.$row['itemType'].'</td>');
-               echo ('<td>'.$row['itemWeight'].'</td>');
-               echo ('<td>');
-               if($row['itemMagic'] ==1) {
-                 echo ('YES</td>');
-               }
-               else {
-                 echo ('NO </td>');
-               }
+               echo "</a></td></tr>";
 
              }
                ?>
@@ -68,13 +55,13 @@
 <script>
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
-    $('#allspells tfoot th').each( function () {
+    $('#class tfoot th').each( function () {
         var title = $(this).text();
         $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
     } );
 
     // DataTable
-    var table = $('#allspells').DataTable();
+    var table = $('#class').DataTable();
 
     // Apply the search
     table.columns().every( function () {

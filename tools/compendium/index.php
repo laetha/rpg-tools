@@ -7,15 +7,22 @@
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle"><?php
   $id = addslashes($id);
-  $worldtitle = "SELECT title FROM `compendium` WHERE `title` LIKE '$id'";
+  $worldtitle = "SELECT title, type FROM `compendium` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo htmlspecialchars($row['title']);
    $title = $row['title'];
- }
+
   ?>
 </div>
 </div>
+
+<div class="nav sidebartext col-md-12">
+<a href="/index.php">Home</a>  &rarr; <a href="/tools/compendium/compendium.php">Compendium</a> &rarr;  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
+</div>
+<?php
+}
+?>
   <div class="body sidebartext col-xs-12" id="body">
 
     <!-- Body Text -->

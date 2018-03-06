@@ -6,7 +6,7 @@
 
       <!-- Settlements -->
       <div class="tocitem col-md-3">
-        <h2>Settlements</h2>
+        <a href="settlement.php"><h2>Settlements</h2></a>
       <?php
         $sqlworld = "SELECT * FROM world WHERE type LIKE '%settlement%'";
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
@@ -22,7 +22,7 @@
 
       <!-- Factions -->
       <div class="tocitem col-md-3">
-        <h2>Factions</h2>
+        <a href="faction.php"><h2>Factions</h2></a>
       <?php
         $sqlworld = "SELECT * FROM world WHERE type LIKE '%faction%'";
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
@@ -38,7 +38,7 @@
 
       <!-- NPCs -->
       <div class="tocitem col-md-3">
-        <h2>NPCs</h2>
+        <a href="npc.php"><h2>NPCs</h2></a>
       <?php
         $sqlworld = "SELECT * FROM world WHERE type LIKE '%npc%'";
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
@@ -54,7 +54,7 @@
 
       <!-- Deities -->
       <div class="tocitem col-md-3">
-        <h2>Deities</h2>
+        <a href="deity.php"><h2>Deities</h2></a>
       <?php
         $sqlworld = "SELECT * FROM world WHERE type LIKE '%deity%'";
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');

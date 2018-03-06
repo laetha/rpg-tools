@@ -309,3 +309,9 @@ p.subentry {
 .nav {
 	margin: 20px;
 }
+.tocitem h2{
+	color: #5499c7;
+}
+.tocitem h2:hover{
+	color: #356A8E;
+}
