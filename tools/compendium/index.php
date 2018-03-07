@@ -934,39 +934,44 @@ $cr = $row['monsterCr'];
 		<svg height="5" width="100%" class="tapered-rule">
 	    <polyline points="0,0 400,2.5 0,5"></polyline>
 	  </svg>
+    <?php if($row['monsterTrait1'] != ''){ ?>
+      <div class="property-block">
+        <p><?php echo nl2br($row['monsterTrait1']); ?></p>
+      </div> <!-- property Block -->
+    <?php } ?>
   <?php if($row['monsterTrait2'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait2']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait2']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
   <?php if($row['monsterTrait3'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait3']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait3']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
   <?php if($row['monsterTrait4'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait4']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait4']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
   <?php if($row['monsterTrait5'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait5']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait5']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
   <?php if($row['monsterTrait6'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait6']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait6']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
   <?php if($row['monsterTrait7'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait7']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait7']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
   <?php if($row['monsterTrait8'] != ''){ ?>
     <div class="property-block">
-      <p><?php echo $row['monsterTrait8']; ?></p>
+      <p><?php echo nl2br($row['monsterTrait8']); ?></p>
     </div> <!-- property Block -->
   <?php } ?>
 	</div> <!-- section left -->
@@ -1057,6 +1062,16 @@ $cr = $row['monsterCr'];
           </div> <!-- property Block -->
         <?php } ?>
 		</div> <!-- actions -->
+    <div class="actions">
+     <?php if($row['monsterReaction'] != ''){ ?>
+           <h3>Reactions</h3>
+         <div class="property-block">
+         <p><?php echo $row['monsterReaction']; ?></p>
+       </div> <!-- property Block -->
+     <?php } ?>
+
+   </div>
+
 	</div> <!-- section right -->
 	<hr class="orange-border bottom" />
 </div> <!-- stat block -->

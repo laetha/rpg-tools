@@ -44,12 +44,17 @@
   if ($sidebartype == "settlement") {
     ?>
     <?php
-    echo "<h3>Key NPC's:</h3>";
-    echo ('<div class="row col-md-12">');
+
     $temptitle = str_replace("'", "''", $title);
     $npcs = "SELECT * FROM world WHERE npc_location LIKE '%$temptitle%'";
     $npcdata = mysqli_query($dbcon, $npcs) or die('error getting data');
+    $npcshow = 1;
     while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+      if($npcshow == 1){
+        echo "<h3>Key NPC's:</h3>";
+        echo ('<div class="row col-md-12">');
+        $npcshow++;
+      }
       $selectednpc = $titlerow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo ('<div class="col-md-4 col-sm-5">');
@@ -62,13 +67,17 @@
   //Faction NPCs
   if ($sidebartype == "faction") {
     ?>
-    <div class="body col-md-9 bodytext">
+    <div class="row col-md-12 bodytext">
     <?php
-    echo "<h3>Known Members:</h3>";
     $temptitle = str_replace("'", "''", $title);
     $factionnpcs = "SELECT * FROM world WHERE npc_faction LIKE '%$temptitle%'";
     $factiondata = mysqli_query($dbcon, $factionnpcs) or die('error getting data');
+    $membersshow = 1;
     while($factionrow = mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
+      if($membersshow == 1){
+        echo "<h3>Known Members:</h3>";
+        $membersshow++;
+      }
       $selectednpc = $factionrow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo $selectednpc;
@@ -80,13 +89,17 @@
   //Deity NPC's
   if ($sidebartype == "deity") {
     ?>
-    <div class="body col-md-9 bodytext">
+    <div class="row col-md-12 bodytext">
     <?php
-    echo "<h3>Known Followers:</h3>";
     $temptitle = str_replace("'", "''", $title);
     $deitynpcs = "SELECT * FROM world WHERE npc_deity LIKE '%$temptitle%'";
     $deitydata = mysqli_query($dbcon, $deitynpcs) or die('error getting data');
+    $followersshow = 1;
     while($deityrow = mysqli_fetch_array($deitydata, MYSQLI_ASSOC)) {
+      if($followersshow == 1){
+        echo "<h3>Known Followers:</h3>";
+        $followersshow++;
+      }
       $selectednpc = $deityrow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo $selectednpc;
@@ -102,12 +115,18 @@
     ?>
     <div class="row col-md-12 sidebartext">
     <?php
-    echo ('<h3>Log references:</h3>');
-    echo ('<ul style="list-style-type: circle;">');
     $temptitle = str_replace("'", "''", $title);
     $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' ORDER BY date DESC";
     $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
+    $logshow = 1;
     while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
+      if($logshow == 1){
+        echo ('<h3>Log references:</h3>');
+        echo ('<ul style="list-style-type: circle;">');
+        $logshow++;
+
+      }
+
       echo ('<li>');
       $selecteddate = $logrow['date'];
       $selectedlog = $logrow['entry'];
@@ -116,6 +135,7 @@
       echo (':</strong> ');
       echo $selectedlog;
       echo "</li><p>";
+
     }
 
     echo "</ul></div>";
