@@ -3,7 +3,10 @@
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];
    $sqlpath .= "/sql-connect.php";
    include_once($sqlpath);
-
+   $pgtitle = $_GET['id'].' - ';
+   if(empty($_GET['id'])) {
+     $pgtitle = 'Compendium - ';
+   }
    //Header
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";

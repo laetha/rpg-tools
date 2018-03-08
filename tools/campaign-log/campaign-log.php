@@ -5,6 +5,7 @@
    include_once($sqlpath);
 
    //Header
+   $pgtitle = 'Campaign Log - ';
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);

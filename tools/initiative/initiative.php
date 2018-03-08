@@ -1,12 +1,10 @@
 <?php
   //SQL Connect
+   $pgtitle = 'Initiative - ';
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];
    $sqlpath .= "/sql-connect.php";
    include_once($sqlpath);
-   $pgtitle = $_GET['id'].' - ';
-   if(empty($_GET['id'])) {
-     $pgtitle = 'World Building - ';
-   }
+
    //Header
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";

@@ -16,7 +16,7 @@
 		     });
 		   </script>
 
-		<title>RPG Tools</title>
+		<title><?php echo $pgtitle; ?>RPG Tools</title>
 	</head>
 	<body>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>
