@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-<link href="statblock.css" rel="stylesheet" type="text/css">
+<link href="/tools/compendium/statblock.css" rel="stylesheet" type="text/css">
 <div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
 
   <!-- Page Header -->

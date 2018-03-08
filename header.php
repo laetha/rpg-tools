@@ -5,7 +5,6 @@
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.ss">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/style.css" />
-		<link rel="stylesheet" type="text/css" href="/chosen/chosen.css" />
 		<link rel="stylesheet" type="text/css" href="/selectize/css/selectize.default.css" />
 
 			<!-- This code is to prevent FOUC -->
