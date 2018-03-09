@@ -44,16 +44,13 @@ sortField: 'text'
      var selectIndex=selectObj.selectedIndex;
      var selectValue=selectObj.options[selectIndex].text;
      output.push(selectValue);
-     var selectValueNs = selectValue.replace(/\s/g, '');
+     var selectValueNoBrackets = selectValue.replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "");
+     var selectValueNs = selectValueNoBrackets.replace(/\s/g, '');
      var fullSelect = "show" + selectValueNs;
      document.getElementById(fullSelect).style.display = "block";
 
    }
   </script>
-
-  <div id="test">
-    TEST
-  </div>
 
   <table>
     <?php
@@ -61,9 +58,20 @@ sortField: 'text'
       $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
       while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
         $rowns1 = preg_replace('/\s+/', '', $row1['title']);
+        $rowns1 = preg_replace('/\(|\)/','', $rowns1);
         ?>
 
-        <tr><td> <button class="btn btn-info" id="show<?php echo $rowns1; ?>" style="display:none;">Show <?php echo $row1['title']; ?></button></td></tr>
+        <tr><td>
+          <div class="init-entry sidebartext" id="show<?php echo $rowns1; ?>" style="display:none;">
+          <?php echo $row1['title'];
+          echo('<br /> HP: '.$row1['monsterHp'].'<br /> AC: '.$row1['monsterAc']);
+
+           ?>
+          <button class="btn btn-info" id="<?php echo $rowns1; ?>-btn">></button>
+          <button class="btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
+
+        </div>
+      </td></tr>
 <?php } ?>
 </table></div>
 
@@ -72,6 +80,8 @@ $worldtitle = "SELECT * FROM compendium WHERE type LIKE 'monster'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   $rowns = preg_replace('/\s+/', '', $row['title']);
+  $rowns = preg_replace('/\(|\)/','', $rowns);
+
 
   ?>
   <div class="stat-block col-md-6" id="<?php echo $rowns; ?>" style="display:none; float:right;">
@@ -450,10 +460,17 @@ echo (' (155,000xp)');
 </div> <!-- stat block -->
 <script>
 $(document).ready(function addLog(){
-    $("#show<?php echo $rowns; ?>").click(function addLog(){
+    $("#<?php echo $rowns; ?>-btn").click(function addLog(){
         $("#<?php echo $rowns; ?>").slideToggle("slow");
     });
 });
+$(document).ready(function remLog(){
+  $("#<?php echo $rowns; ?>-remove").click(function remLog(){
+  document.getElementById("show<?php echo $rowns; ?>").style.display = "none";
+  document.getElementById("<?php echo $rowns; ?>").style.display = "none";
+
+    });
+  });
 </script>
 <?php } ?>
 

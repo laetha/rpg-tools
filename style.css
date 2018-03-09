@@ -315,3 +315,11 @@ p.subentry {
 .tocitem h2:hover{
 	color: #356A8E;
 }
+.init-entry {
+	background-color: #222326;
+	text-align:center;
+	margin-top:15px;
+	border-radius:20px;
+	padding:5px;
+	width:100%;
+}
