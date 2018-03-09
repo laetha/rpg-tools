@@ -51,21 +51,8 @@ include_once($headpath);
    var selectIndex=selectObj.selectedIndex;
    var selectValue=selectObj.options[selectIndex].text;
    var output=document.getElementById("output");
-   //alert(output.innerText);
    document.getElementById("npc-form").style.display = "none";
-   //document.getElementById("faction-form").style.display = "none";
-   //document.getElementById("settlement-form").style.display = "none";
-   //document.getElementById("deity-form").style.display = "none";
 
-   /*if (selectValue == "Faction") {
-     document.getElementById("faction-form").style.display = "block";
-  }
-  if (selectValue == "Deity") {
-    document.getElementById("deity-form").style.display = "block";
- }
-  if (selectValue == "Settlement") {
-   document.getElementById("settlement-form").style.display = "block";
-}*/
   if (selectValue == "npc") {
     document.getElementById("npc-form").style.display = "block";
 }

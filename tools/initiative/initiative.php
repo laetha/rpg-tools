@@ -19,7 +19,7 @@
   <h1 class="pagetitle">Initiative Tracker</h1>
 <div class ="body bodytext">
 <div class="col-md-4">
-  <select form="import" name="add-monster" id="add-monster">
+  <select form="import" name="add-monster" id="add-monster" onChange="addMonster(this)">
     <option value="" selected>Add Monster...</option>
     <?php
     $faithdrop = "SELECT title FROM compendium WHERE type LIKE 'monster'";
@@ -36,6 +36,25 @@ create: false,
 sortField: 'text'
 });
   </script>
+
+  <script type="text/javascript">
+  var output = new Array();
+   function addMonster(selectObj) {
+
+     var selectIndex=selectObj.selectedIndex;
+     var selectValue=selectObj.options[selectIndex].text;
+     output.push(selectValue);
+     var selectValueNs = selectValue.replace(/\s/g, '');
+     var fullSelect = "show" + selectValueNs;
+     document.getElementById(fullSelect).style.display = "block";
+
+   }
+  </script>
+
+  <div id="test">
+    TEST
+  </div>
+
   <table>
     <?php
       $worldtitle1 = "SELECT * FROM compendium WHERE type LIKE 'monster'";
@@ -44,7 +63,7 @@ sortField: 'text'
         $rowns1 = preg_replace('/\s+/', '', $row1['title']);
         ?>
 
-        <tr><td> <button class="btn btn-info" id="show<?php echo $rowns1; ?>">Show <?php echo $row1['title']; ?></button></td></tr>
+        <tr><td> <button class="btn btn-info" id="show<?php echo $rowns1; ?>" style="display:none;">Show <?php echo $row1['title']; ?></button></td></tr>
 <?php } ?>
 </table></div>
 
