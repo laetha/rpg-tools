@@ -323,3 +323,7 @@ p.subentry {
 	padding:5px;
 	width:100%;
 }
+.blockframe {
+	width: 100%;
+	height:100%;
+}
