@@ -67,7 +67,7 @@ sortField: 'text'
           echo('<br /> HP: '.$row1['monsterHp'].'<br /> AC: '.$row1['monsterAc']);
 
            ?>
-          <a href="/tools/compendium/compendium.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class="btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
+          <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class="btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
           <button class="btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
 
         </div>
