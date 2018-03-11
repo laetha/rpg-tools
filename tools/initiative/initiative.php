@@ -64,12 +64,13 @@ sortField: 'text'
         <tr><td>
           <div class="init-entry sidebartext" id="show<?php echo $rowns1; ?>" style="display:none;">
           <?php echo $row1['title'];
-          echo('<br /> HP: '.$row1['monsterHp'].'<br /> AC: '.$row1['monsterAc']);
-
+          echo('<br /> HP: <div id="'.$rowns1.'-health">'.$row1['monsterHp'].'</div><br /> AC: '.$row1['monsterAc']);
+          $realHp = $row1['monsterHp'];
+          $realHp = substr($realHp, 0, strpos($realHp, " "));
            ?>
           <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class="btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
           <button class="btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
-
+    <input type ="text" class="hp-track form-control" placeholder="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp" oninput="myFunction()"></input>
         </div>
       </td></tr>
 <?php } ?>
@@ -85,6 +86,11 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   ?>
 
 <script>
+function myFunction() {
+    var x = document.getElementById("<?php echo $rowns; ?>-hp").value;
+    document.getElementById("<?php echo $rowns; ?>-health").innerHTML = "You wrote: " + x;
+}
+
 $(document).ready(function addLog(){
     $("#<?php echo $rowns; ?>-btn").click(function addLog(){
         $("#<?php echo $rowns; ?>").slideToggle("slow");
@@ -97,6 +103,9 @@ $(document).ready(function remLog(){
 
     });
   });
+
+
+
 </script>
 <?php } ?>
 

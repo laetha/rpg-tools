@@ -44,7 +44,7 @@
 
           if($type == 'monster'){
               ?>
-              <div class="stat-block wide">
+              <div class="stat-block wide" style="width:92%;">
     <hr class="orange-border" />
     <div class="section-left">
       <div class="creature-heading">
