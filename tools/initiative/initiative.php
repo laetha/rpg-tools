@@ -64,15 +64,29 @@ sortField: 'text'
         <tr><td>
           <div class="init-entry sidebartext" id="show<?php echo $rowns1; ?>" style="display:none;">
           <?php echo $row1['title'];
-          echo('<br /> HP: <div id="'.$rowns1.'-health">'.$row1['monsterHp'].'</div><br /> AC: '.$row1['monsterAc']);
+          echo('<br /> AC: '.$row1['monsterAc'].'<p></p>');
           $realHp = $row1['monsterHp'];
           $realHp = substr($realHp, 0, strpos($realHp, " "));
            ?>
           <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class="btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
           <button class="btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
-    <input type ="text" class="hp-track form-control" placeholder="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp" oninput="myFunction()"></input>
+          <div class="<?php echo $rowns1; ?>-hptrack" id="<?php echo $rowns1; ?>-hptrack"  onclick="colchange(this)">
+    <input type ="text" class="hp-track form- control" value="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp" oninput="myFunction()"></input>
+    <button class="btn btn-copy btn-info" id="<?php echo $rowns1; ?>-dupe">+</button>
+    <div class="two"></div>
+  </div>
         </div>
       </td></tr>
+      <script>
+      $(function addbar(){
+        $(".btn-copy").on('click', function(){
+          var ele = $(this).closest('.<?php echo $rowns1; ?>-hptrack').clone(true);
+
+          $(this).closest('.<?php echo $rowns1; ?>-hptrack').after(ele);
+        });
+      });
+      </script>
+
 <?php } ?>
 </table></div>
 <?php
@@ -104,6 +118,12 @@ $(document).ready(function remLog(){
     });
   });
 
+  
+  $('.one, .two, .three, .four, .five, .six, .seven').click(function() {
+      this.className = {
+         seven : 'one', one: 'two', two: 'three', three: 'four', four: 'five', five: 'six', six: 'seven'
+      }[this.className];
+  });
 
 
 </script>
