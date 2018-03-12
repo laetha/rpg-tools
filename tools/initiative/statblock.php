@@ -25,7 +25,7 @@
         ?>
 		<title><?php echo $pgtitle; ?>RPG Tools</title>
 	</head>
-	<body>
+	<body style="min-width: 0px;">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>
 		<!--<script src="http://code.jquery.com/jquery-1.8.3.js" tpye="text/javascript"></script>-->
 		<script src="/selectize/js/standalone/selectize.min.js" tpye="text/javascript"></script>
@@ -44,7 +44,7 @@
 
           if($type == 'monster'){
               ?>
-              <div class="stat-block wide" style="width:92%;">
+              <div class="stat-block wide" id="statblock" style="width:92%;">
     <hr class="orange-border" />
     <div class="section-left">
       <div class="creature-heading">
@@ -277,6 +277,7 @@
       <svg height="5" width="100%" class="tapered-rule">
         <polyline points="0,0 400,2.5 0,5"></polyline>
       </svg>
+			<div id="traits">
       <?php if($row['monsterTrait1'] != ''){ ?>
         <div class="property-block">
           <p><?php echo nl2br($row['monsterTrait1']); ?></p>
@@ -317,6 +318,7 @@
         <p><?php echo nl2br($row['monsterTrait8']); ?></p>
       </div> <!-- property Block -->
     <?php } ?>
+	</div> <!-- Traits -->
     </div> <!-- section left -->
     <div class="section-right">
       <div class="actions">
@@ -421,6 +423,32 @@
 <?php }
 }
 ?>
+
+<!-- Search and add hyperlinks -->
+	<?php
+		$sqlworld = "SELECT * FROM compendium WHERE type LIKE 'spell' AND title NOT LIKE 'light'";
+		$worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+		while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+		$temp = $linkrow['title'];
+		?>
+		<script>
+		var foundlink = "<?php echo $temp ?>";
+		function replace (querytext){
+			var queryfix = querytext;
+			var bodytext = document.getElementById("traits").innerHTML;
+			var url = "<a href= \"javascript://\" data-html=\"true\" data-toggle=\"popover\" data-trigger=\"click\" data-content=\"<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/initiative/spell.php?id=" + querytext + "'></iframe>\">" + querytext + "</a>";
+			var regex = new RegExp(queryfix, 'ig');
+			var newtext = bodytext.replace(regex, url)
+			document.getElementById("traits").innerHTML = newtext;
+		}
+		replace(foundlink);
+		$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+		</script>
+		<?php
+	}
+	?>
 
 </body>
 </html>

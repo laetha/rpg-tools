@@ -346,3 +346,6 @@ p.subentry {
     height: 20px;
 		margin-top: 5px;
 }
+.popover{
+    max-width: 100%; /* Max Width of the popover (depending on the container!) */
+}
