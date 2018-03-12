@@ -329,12 +329,19 @@ p.subentry {
 }
 .hp-track {
 	width:200px;
+	color: black;
 }
 
-.one:before  { content: "Token"; color: blue; }
-.two:before  { content: "Token"; color: green; }
-.three:before  { content: "Token"; color: red; }
-.four:before  { content: "Token"; color: yellow; }
-.five:before  { content: "Token"; color: purple; }
-.six:before  { content: "Token"; color: white; }
-.seven:before  { content: "Token"; color: black; }
+.one { background-color: blue; }
+.two { background-color: green; }
+.three { background-color: red; }
+.four { background-color: yellow; }
+.five { background-color: purple; }
+.six { background-color: white; }
+.seven { background-color: black; }
+
+.rectangle {
+    display: inline-block;
+		max-width:50%;
+    height: 20px;
+}

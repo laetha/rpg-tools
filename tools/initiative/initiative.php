@@ -73,20 +73,10 @@ sortField: 'text'
           <div class="<?php echo $rowns1; ?>-hptrack" id="<?php echo $rowns1; ?>-hptrack"  onclick="colchange(this)">
     <input type ="text" class="hp-track form- control" value="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp" oninput="myFunction()"></input>
     <button class="btn btn-copy btn-info" id="<?php echo $rowns1; ?>-dupe">+</button>
-    <div class="two"></div>
+    <div class="two"><div class="rectangle"></div></div>
   </div>
         </div>
       </td></tr>
-      <script>
-      $(function addbar(){
-        $(".btn-copy").on('click', function(){
-          var ele = $(this).closest('.<?php echo $rowns1; ?>-hptrack').clone(true);
-
-          $(this).closest('.<?php echo $rowns1; ?>-hptrack').after(ele);
-        });
-      });
-      </script>
-
 <?php } ?>
 </table></div>
 <?php
@@ -95,47 +85,35 @@ $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   $rowns = preg_replace('/\s+/', '', $row['title']);
   $rowns = preg_replace('/\(|\)/','', $rowns);
-
-
   ?>
 
 <script>
-function myFunction() {
-    var x = document.getElementById("<?php echo $rowns; ?>-hp").value;
-    document.getElementById("<?php echo $rowns; ?>-health").innerHTML = "You wrote: " + x;
-}
-
-$(document).ready(function addLog(){
-    $("#<?php echo $rowns; ?>-btn").click(function addLog(){
-        $("#<?php echo $rowns; ?>").slideToggle("slow");
-    });
-});
 $(document).ready(function remLog(){
   $("#<?php echo $rowns; ?>-remove").click(function remLog(){
   document.getElementById("show<?php echo $rowns; ?>").style.display = "none";
   document.getElementById("<?php echo $rowns; ?>").style.display = "none";
-
     });
   });
 
-  
-  $('.one, .two, .three, .four, .five, .six, .seven').click(function() {
-      this.className = {
-         seven : 'one', one: 'two', two: 'three', three: 'four', four: 'five', five: 'six', six: 'seven'
-      }[this.className];
-  });
-
-
 </script>
 <?php } ?>
+<script>
+$('.one, .two, .three, .four, .five, .six, .seven').click(function() {
+    this.className = {
+       seven : 'one', one: 'two', two: 'three', three: 'four', four: 'five', five: 'six', six: 'seven'
+    }[this.className];
+});
 
+$(function addbar(){
+  $(".btn-copy").on('click', function(){
+    var ele = $(this).closest('div').clone(true);
+    $(this).closest('div').after(ele);
+  });
+});
+</script>
 <div class="col-md-8 col-xs-12" style="float:right;"><iframe class="blockframe" name="statblock"></iframe></div>
 </div> <!--Body -->
 </div> <!-- Mainbox -->
-
-
-
-
 
 <?php
 //Footer
