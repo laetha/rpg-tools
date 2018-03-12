@@ -64,15 +64,15 @@ sortField: 'text'
         <tr><td>
           <div class="init-entry sidebartext" id="show<?php echo $rowns1; ?>" style="display:none;">
           <?php echo $row1['title'];
-          echo('<br /> AC: '.$row1['monsterAc'].'<p></p>');
+          echo('<br /> AC: '.$row1['monsterAc']);
           $realHp = $row1['monsterHp'];
           $realHp = substr($realHp, 0, strpos($realHp, " "));
            ?>
-          <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class="btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
-          <button class="btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
+          <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class=" butsm btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
+          <button class="butsm btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
           <div class="<?php echo $rowns1; ?>-hptrack" id="<?php echo $rowns1; ?>-hptrack"  onclick="colchange(this)">
     <input type ="text" class="hp-track form- control" value="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp" oninput="myFunction()"></input>
-    <button class="btn btn-copy btn-info" id="<?php echo $rowns1; ?>-dupe">+</button>
+    <button class="butsm btn btn-copy btn-success" id="<?php echo $rowns1; ?>-dupe">+</button>
     <div class="two"><div class="rectangle"></div></div>
   </div>
         </div>

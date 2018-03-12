@@ -344,4 +344,5 @@ p.subentry {
     display: inline-block;
 		max-width:50%;
     height: 20px;
+		margin-top: 5px;
 }
