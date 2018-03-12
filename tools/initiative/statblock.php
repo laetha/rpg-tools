@@ -436,7 +436,7 @@
 		function replace (querytext){
 			var queryfix = querytext;
 			var bodytext = document.getElementById("traits").innerHTML;
-			var url = "<a href= \"javascript://\" data-html=\"true\" data-toggle=\"popover\" data-trigger=\"click\" data-content=\"<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/initiative/spell.php?id=" + querytext + "'></iframe>\">" + querytext + "</a>";
+			var url = "<a tabindex=\"0\" href= \"javascript://\" data-html=\"true\" data-toggle=\"popover\" data-trigger=\"focus\" data-content=\"<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/initiative/spell.php?id=" + querytext + "'></iframe>\">" + querytext + "</a>";
 			var regex = new RegExp(queryfix, 'ig');
 			var newtext = bodytext.replace(regex, url)
 			document.getElementById("traits").innerHTML = newtext;
@@ -444,6 +444,10 @@
 		replace(foundlink);
 		$(function () {
   $('[data-toggle="popover"]').popover()
+
+	$('.popover-dismiss').popover({
+  trigger: 'focus'
+})
 })
 		</script>
 		<?php
