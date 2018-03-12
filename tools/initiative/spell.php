@@ -45,7 +45,7 @@
           if($type == 'spell'){
 
 echo ('<div class="spellDetail">');
-echo ($row['title'].'<br />');
+echo ('<h3 style="color: #5499c7;">'.$row['title'].'</h3><br />');
 echo ('<strong>Level:</strong> '.$row['spellLevel'].'<br />');
 echo ('<strong>School:</strong> '.$row['spellSchool'].'<br />');
 echo ('<strong>Casting Time:</strong> '.$row['spellTime'].'<br />');
