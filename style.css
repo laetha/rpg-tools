@@ -328,24 +328,75 @@ p.subentry {
 	height:100%;
 }
 .hp-track {
-	width:200px;
+	width:140px;
 	color: black;
 }
 
-.one { background-color: blue; }
-.two { background-color: green; }
-.three { background-color: red; }
-.four { background-color: yellow; }
-.five { background-color: purple; }
-.six { background-color: white; }
-.seven { background-color: black; }
-
-.rectangle {
-    display: inline-block;
-		max-width:50%;
-    height: 20px;
-		margin-top: 5px;
+.one {
+	background-color: blue;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
 }
+.two {
+	background-color: green;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+ }
+.three {
+	background-color: red;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.four {
+	background-color: yellow;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.five {
+	background-color: purple;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.six {
+	background-color: white;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.seven {
+	background-color: black;
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	vertical-align:middle;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
 .popover{
     max-width: 100%; /* Max Width of the popover (depending on the container!) */
 }

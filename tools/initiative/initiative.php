@@ -53,6 +53,7 @@ sortField: 'text'
   </script>
 
   <table>
+
     <?php
       $worldtitle1 = "SELECT * FROM monsters";
       $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
@@ -70,10 +71,10 @@ sortField: 'text'
            ?>
           <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class=" butsm btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
           <button class="butsm btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
-          <div class="<?php echo $rowns1; ?>-hptrack" id="<?php echo $rowns1; ?>-hptrack"  onclick="colchange(this)">
-    <input type ="text" class="hp-track form- control" value="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp" oninput="myFunction()"></input>
+        <div class="<?php echo $rowns1; ?>-hptrack" id="<?php echo $rowns1; ?>-hptrack">
+    <input type ="text" class="hp-track" value="<?php echo($realHp); ?>" id="<?php echo $rowns1; ?>-hp"></input>
     <button class="butsm btn btn-copy btn-success" id="<?php echo $rowns1; ?>-dupe">+</button>
-    <div class="two"><div class="rectangle"></div></div>
+    <div class="two">
   </div>
         </div>
       </td></tr>
@@ -88,13 +89,13 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   ?>
 
 <script>
+
 $(document).ready(function remLog(){
   $("#<?php echo $rowns; ?>-remove").click(function remLog(){
   document.getElementById("show<?php echo $rowns; ?>").style.display = "none";
   document.getElementById("<?php echo $rowns; ?>").style.display = "none";
     });
   });
-
 </script>
 <?php } ?>
 <script>
@@ -108,8 +109,13 @@ $(function addbar(){
   $(".btn-copy").on('click', function(){
     var ele = $(this).closest('div').clone(true);
     $(this).closest('div').after(ele);
+    $('.hp-track').each(function(){
+      var $this = $(this);
+    $(this).zeninput();
+    });
   });
 });
+
 </script>
 <div class="col-md-8 col-xs-12" style="float:right;"><iframe class="blockframe" name="statblock"></iframe></div>
 </div> <!--Body -->
