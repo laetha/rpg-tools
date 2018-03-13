@@ -167,7 +167,7 @@ return this.each(function(){
 			inObj.blur();
 			return;
 		}
-		
+
 		var res = aripm.test(newVal);
 		if(res){
 			res = aripmSt.test(newVal);
@@ -210,7 +210,7 @@ return this.each(function(){
 		}
 		if(options.oninput) options.oninput(this, e.keyCode);
 	});
-	
+
 	if(options.onready) options.onready(this);
 });
 };

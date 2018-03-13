@@ -400,3 +400,9 @@ p.subentry {
 .popover{
     max-width: 100%; /* Max Width of the popover (depending on the container!) */
 }
+.property-block a{
+	color: #C96543;
+}
+.property-block a:hover{
+	color: #974C32;
+}
