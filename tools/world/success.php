@@ -22,7 +22,7 @@ include_once($headpath);
         </div>
         <div class="modal-footer">
           <a href="world.php?id=<?php echo $name; ?>" class="btn btn-info" href>View <strong><?php echo $name; ?></strong> Page</a>
-          <button type="button" class="btn btn-primary" data-dismiss="modal">Add another page</button>
+          <a href="import.php"><button type="button" class="btn btn-primary">Add another page</button></a>
         </div>
       </div>
 

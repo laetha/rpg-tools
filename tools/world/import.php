@@ -56,6 +56,9 @@ include_once($headpath);
   if (selectValue == "npc") {
     document.getElementById("npc-form").style.display = "block";
 }
+  else if (selectValue == "establishment") {
+  document.getElementById("est-form").style.display = "block";
+}
  }
 </script>
 
@@ -127,7 +130,79 @@ include_once($headpath);
         </script>
       </p>
     </div>
+
+    <!-- 'NPC establishment' Dropbox -->
+    <div class="col-sm-6 typebox col-centered" id="npc-est">
+          <p class="text">Establishment
+            <select form="import" name="npc-establishment" id="establishment-form">
+              <option value="" selected>None...</option>
+              <?php
+              $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'establishment' ORDER BY `world`.`title` ASC";
+              $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
+              while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
+                $faction = $factionrow['title'];
+                echo "<option value=\"$faction\">$faction</option>";
+              }
+              ?>
+            </select>
+            <script type="text/javascript">
+            $('#establishment-form').selectize({
+        create: true,
+        sortField: 'text'
+    });
+            </script>
+          </p>
+        </div>
 </div>
+
+<div id="est-form" style="display:none;">
+
+<!-- 'establishment location' Dropbox -->
+<div class="col-sm-6 typebox col-centered" id="est-location">
+      <p class="text">Location
+        <select form="import" name="est-location" id="est-location-form">
+          <option value="" selected>None...</option>
+          <?php
+          $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' ORDER BY `world`.`title` ASC";
+          $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+          while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+            $location = $locationrow['title'];
+            echo "<option value=\"$location\">$location</option>";
+          }
+          ?>
+        </select>
+        <script type="text/javascript">
+        $('#est-location-form').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
+      </p>
+    </div>
+    <!-- 'establishment type' Dropbox -->
+    <div class="col-sm-6 typebox col-centered" id="est-location">
+          <p class="text">Location
+            <select form="import" name="est-type" id="est-type-form">
+              <option value="" selected>None...</option>
+              <?php
+              $locationdrop = "SELECT est_type FROM `world`";
+              $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+              while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                $location = $locationrow['title'];
+                echo "<option value=\"$location\">$location</option>";
+              }
+              ?>
+            </select>
+            <script type="text/javascript">
+            $('#est-type-form').selectize({
+        create: true,
+        sortField: 'text'
+    });
+            </script>
+          </p>
+        </div>
+
+
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
 <div class="col-centered">
