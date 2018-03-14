@@ -21,7 +21,7 @@
  }
   ?>
 
-  <div class="body bodytext col-xs-12" id="body">
+  <div class="body sidebartext col-xs-12" id="body">
 
     <!-- Body Text -->
       <?php
@@ -29,6 +29,7 @@
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           $sidebartype = $row['type'];
+          $esttype = $row['est_type'];
           if ($sidebartype == "npc") {
               echo('Establishment: '.$row['npc_est'].'<br />');
               echo('Location: '.$row['npc_location'].'<br />');
@@ -116,9 +117,11 @@
     echo "</div>";
   }
   ?>
+
   <div class="row col-md-12 bodytext">
 
 <?php
+if ($sidebartype == "settlement") {
 
   $temptitle = str_replace("'", "''", $title);
   $npcs = "SELECT * FROM world WHERE est_location LIKE '%$temptitle%'";
@@ -138,6 +141,312 @@
   }
   echo ('</div>');
 echo ('</div>');
+}
+
+if ($sidebartype == "establishment") {
+  echo ('Proprietor: ');
+  $sqlcompendium = "SELECT * FROM world WHERE npc_est LIKE '%{$id}%'";
+  $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+  while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+    echo ('<a href="/tools/world/world.php?id='.$row2['title'].'">'.$row2['title'].'</a>');
+  }
+  if ($esttype == "alchemist") {
+
+?>
+  <div class="table-responsive">
+<table id="alch-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">Name</th>
+          </tr>
+      </thead>
+      <tfoot>
+          <tr>
+            <th scope="col">Name</th>
+          </tr>
+      </tfoot>
+      <tbody>
+        <?php
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+          $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+          while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td>');
+          $entry = $row['title'];
+          echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
+          echo $entry;
+          echo "</a></td></tr>";
+
+        }
+          ?>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+// Setup - add a text input to each footer cell
+$('#alch-inventory tfoot th').each( function () {
+   var title = $(this).text();
+   $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+} );
+
+// DataTable
+var table = $('#alch-inventory').DataTable();
+
+// Apply the search
+table.columns().every( function () {
+   var that = this;
+
+   $( 'input', this.footer() ).on( 'keyup change', function () {
+       if ( that.search() !== this.value ) {
+           that
+               .search( this.value )
+               .draw();
+       }
+   } );
+} );
+} );
+</script>
+</div>
+<?php }
+
+if ($esttype == "blacksmith") {
+
+?>
+<div class="table-responsive">
+<table id="blacksmith-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+          <th scope="col">Name</th>
+        </tr>
+    </tfoot>
+    <tbody>
+      <?php
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'blacksmith' ORDER BY rand() LIMIT 10";
+        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+        echo ('<tr><td>');
+        $entry = $row['title'];
+        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
+        echo $entry;
+        echo "</a></td></tr>";
+
+      }
+        ?>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+// Setup - add a text input to each footer cell
+$('#blacksmith-inventory tfoot th').each( function () {
+ var title = $(this).text();
+ $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+} );
+
+// DataTable
+var table = $('#blacksmith-inventory').DataTable();
+
+// Apply the search
+table.columns().every( function () {
+ var that = this;
+
+ $( 'input', this.footer() ).on( 'keyup change', function () {
+     if ( that.search() !== this.value ) {
+         that
+             .search( this.value )
+             .draw();
+     }
+ } );
+} );
+} );
+</script>
+</div>
+<?php }
+
+if ($esttype == "jeweler") {
+
+?>
+<div class="table-responsive">
+<table id="jeweler-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+          <th scope="col">Name</th>
+        </tr>
+    </tfoot>
+    <tbody>
+      <?php
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+        echo ('<tr><td>');
+        $entry = $row['title'];
+        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
+        echo $entry;
+        echo "</a></td></tr>";
+
+      }
+        ?>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+// Setup - add a text input to each footer cell
+$('#jeweler-inventory tfoot th').each( function () {
+ var title = $(this).text();
+ $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+} );
+
+// DataTable
+var table = $('#jeweler-inventory').DataTable();
+
+// Apply the search
+table.columns().every( function () {
+ var that = this;
+
+ $( 'input', this.footer() ).on( 'keyup change', function () {
+     if ( that.search() !== this.value ) {
+         that
+             .search( this.value )
+             .draw();
+     }
+ } );
+} );
+} );
+</script>
+</div>
+<?php }
+
+if ($esttype == "enchanter") {
+
+?>
+<div class="table-responsive">
+<table id="enchanter-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+          <th scope="col">Name</th>
+        </tr>
+    </tfoot>
+    <tbody>
+      <?php
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+        echo ('<tr><td>');
+        $entry = $row['title'];
+        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
+        echo $entry;
+        echo "</a></td></tr>";
+
+      }
+        ?>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+// Setup - add a text input to each footer cell
+$('#enchanter-inventory tfoot th').each( function () {
+ var title = $(this).text();
+ $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+} );
+
+// DataTable
+var table = $('#enchanter-inventory').DataTable();
+
+// Apply the search
+table.columns().every( function () {
+ var that = this;
+
+ $( 'input', this.footer() ).on( 'keyup change', function () {
+     if ( that.search() !== this.value ) {
+         that
+             .search( this.value )
+             .draw();
+     }
+ } );
+} );
+} );
+</script>
+</div>
+<?php }
+
+if ($esttype == "general store") {
+
+?>
+<div class="table-responsive">
+<table id="gstore-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+          <th scope="col">Name</th>
+        </tr>
+    </tfoot>
+    <tbody>
+      <?php
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+        echo ('<tr><td>');
+        $entry = $row['title'];
+        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
+        echo $entry;
+        echo "</a></td></tr>";
+
+      }
+        ?>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+// Setup - add a text input to each footer cell
+$('#gstore-inventory tfoot th').each( function () {
+ var title = $(this).text();
+ $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+} );
+
+// DataTable
+var table = $('#gstore-inventory').DataTable();
+
+// Apply the search
+table.columns().every( function () {
+ var that = this;
+
+ $( 'input', this.footer() ).on( 'keyup change', function () {
+     if ( that.search() !== this.value ) {
+         that
+             .search( this.value )
+             .draw();
+     }
+ } );
+} );
+} );
+</script>
+</div>
+<?php } ?>
+
+<?php
+}
 ?>
 
 
@@ -148,7 +457,7 @@ echo ('</div>');
     <div class="row col-md-12 sidebartext">
     <?php
     $temptitle = str_replace("'", "''", $title);
-    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' ORDER BY date DESC";
+    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 ORDER BY date DESC";
     $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
     $logshow = 1;
     while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
