@@ -75,25 +75,20 @@ display:none;
           var selectIndex=selectObj.selectedIndex;
           var selectValue=selectObj.options[selectIndex].text;
           var output=document.getElementById("output");
-          //alert(output.innerText);
-          //document.getElementById("faction-form").style.display = "none";
-          //document.getElementById("settlement-form").style.display = "none";
-          //document.getElementById("deity-form").style.display = "none";
 
-          /*if (selectValue == "Faction") {
-            document.getElementById("faction-form").style.display = "block";
-         }
-         if (selectValue == "Deity") {
-           document.getElementById("deity-form").style.display = "block";
-        }
-         if (selectValue == "Settlement") {
-          document.getElementById("settlement-form").style.display = "block";
-       }*/
        if (selectValue == "npc") {
          document.getElementById("npc-form").style.display = "block";
+         document.getElementById("est-form").style.display = "none";
+
      }
+     else if (selectValue == "establishment") {
+       document.getElementById("est-form").style.display = "block";
+       document.getElementById("npc-form").style.display = "none";
+   }
      else {
        document.getElementById("npc-form").style.display = "none";
+       document.getElementById("est-form").style.display = "none";
+
      }
         }
        </script>
@@ -169,7 +164,84 @@ display:none;
                </script>
              </p>
            </div>
+
+           <!-- 'NPC establishment' Dropbox -->
+           <div class="col-sm-6 typebox col-centered" id="npc-establishment">
+                 <p class="text">Establishment
+                   <select form="import" name="npc-establishment" id="npc-est-form">
+                     <option value="">None...</option>
+                     <option value="<?php echo $editrow['npc_est']; ?>" selected><?php echo $editrow['npc_est']; ?></option>
+                     <?php
+                     $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'establishment' ORDER BY `world`.`title` ASC";
+                     $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
+                     while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
+                       $faction = $factionrow['title'];
+                       echo "<option value=\"$faction\">$faction</option>";
+                     }
+                     ?>
+                   </select>
+                   <script type="text/javascript">
+                   $('#npc-est-form').selectize({
+               create: true,
+               sortField: 'text'
+           });
+                   </script>
+                 </p>
+               </div>
+
        </div>
+
+       <!--NPC FORM -->
+       <div id="est-form">
+       <!-- 'NPC Diety' Dropbox -->
+       <div class="col-sm-6 typebox col-centered" id="est-location">
+             <p class="text">Location
+               <select form="import" name="est-location" id="est-location-form">
+                 <option value="">None...</option>
+                 <option value="<?php echo $editrow['est_location']; ?>" selected><?php echo $editrow['est_location']; ?></option>
+                 <?php
+                 $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' ORDER BY `world`.`title` ASC";
+                 $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
+                 while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
+                   $deity = $deityrow['title'];
+                   echo "<option value=\"$deity\">$deity</option>";
+                 }
+                 ?>
+               </select>
+               <script type="text/javascript">
+               $('#est-location-form').selectize({
+           create: true,
+           sortField: 'text'
+       });
+               </script>
+             </p>
+       </div>
+       <!-- 'NPC location' Dropbox -->
+       <div class="col-sm-6 typebox col-centered" id="est-type">
+             <p class="text">Type
+               <select form="import" name="est-type" id="est-type-form">
+                 <option value="">None...</option>
+                 <option value="<?php echo $editrow['est_type']; ?>" selected><?php echo $editrow['est_type']; ?></option>
+                 <?php
+                 $locationdrop = "SELECT est_type FROM `world` WHERE `type` LIKE 'establishment' ORDER BY `world`.`est_type` ASC";
+                 $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+                 while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                   $location = $locationrow['est_type'];
+                   echo "<option value=\"$location\">$location</option>";
+                 }
+                 ?>
+               </select>
+               <script type="text/javascript">
+               $('#est-type-form').selectize({
+           create: true,
+           sortField: 'text'
+       });
+               </script>
+             </p>
+           </div>
+       </div>
+
+
            <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body"><?php echo $editrow['body']; ?></textarea></div>
 
        <div class="col-centered">

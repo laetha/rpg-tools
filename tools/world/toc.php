@@ -83,6 +83,24 @@
       }
         ?>
       </div>
+
+      <!-- NPCs -->
+      <div class="tocitem col-md-3">
+        <a href="npc.php"><h2>Establishments</h2></a>
+      <?php
+        $sqlworld = "SELECT * FROM world WHERE type LIKE '%establishment%'";
+        $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+        while($row = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+        $entry = $row['title'];
+        echo "<a href=\"world.php?id=$entry\">";
+        echo $entry;
+        echo "</a>";
+        echo "<br>";
+      }
+        ?>
+      </div>
+
+
       </div>
   </div>
 </div>

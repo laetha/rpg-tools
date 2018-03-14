@@ -181,14 +181,14 @@ include_once($headpath);
     </div>
     <!-- 'establishment type' Dropbox -->
     <div class="col-sm-6 typebox col-centered" id="est-location">
-          <p class="text">Location
+          <p class="text">Type
             <select form="import" name="est-type" id="est-type-form">
               <option value="" selected>None...</option>
               <?php
-              $locationdrop = "SELECT est_type FROM `world`";
+              $locationdrop = "SELECT est_type FROM `world` WHERE `type` LIKE 'establishment' ORDER BY `world`.`est_type` ASC";
               $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
               while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
-                $location = $locationrow['title'];
+                $location = $locationrow['est_type'];
                 echo "<option value=\"$location\">$location</option>";
               }
               ?>

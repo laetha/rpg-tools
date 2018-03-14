@@ -28,8 +28,15 @@
         $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-          echo nl2br($row['body']);
           $sidebartype = $row['type'];
+          if ($sidebartype == "npc") {
+              echo('Establishment: '.$row['npc_est'].'<br />');
+              echo('Location: '.$row['npc_location'].'<br />');
+              echo('Faction: '.$row['npc_faction'].'<br />');
+              echo('Deity: '.$row['npc_deity'].'<br />');
+            }
+
+          echo nl2br($row['body']);
         }
       ?>
       </div>
@@ -63,6 +70,7 @@
     }
     echo "</div>";
   }
+
 
   //Faction NPCs
   if ($sidebartype == "faction") {
@@ -108,6 +116,30 @@
     echo "</div>";
   }
   ?>
+  <div class="row col-md-12 bodytext">
+
+<?php
+
+  $temptitle = str_replace("'", "''", $title);
+  $npcs = "SELECT * FROM world WHERE est_location LIKE '%$temptitle%'";
+  $npcdata = mysqli_query($dbcon, $npcs) or die('error getting data');
+  $npcshow = 1;
+  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+    if($npcshow == 1){
+      echo "<h3>Establishments:</h3>";
+      echo ('<div class="row col-md-12">');
+      $npcshow++;
+    }
+    $selectednpc = $titlerow['title'];
+    //echo "<a href=\"world.php?id=$selectednpc\">";
+    echo ('<div class="col-md-4 col-sm-5">');
+    echo $selectednpc;
+    echo "</div>";
+  }
+  echo ('</div>');
+echo ('</div>');
+?>
+
 
   <!-- campaignlog References -->
   <?php
@@ -139,7 +171,6 @@
     }
 
     echo "</ul></div>";
-
 
   ?>
 <!-- Search and add hyperlinks -->
