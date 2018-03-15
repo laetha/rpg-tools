@@ -115,6 +115,10 @@ $(function addbar(){
     });
   });
 });
+$('.hp-track').each(function(){
+  var $this = $(this);
+$(this).zeninput();
+});
 
 </script>
 <div class="col-md-8 col-xs-12" style="float:right;"><iframe class="blockframe" name="statblock"></iframe></div>
