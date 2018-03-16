@@ -1,8 +1,15 @@
+<script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
+<script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js" type="text/javascript"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
 <div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
 
   <!-- Page Header -->
   <div class="col-md-12">
-  <div class="pagetitle" id="pgtitle"><?php
+  <div class="pagetitle" id="pgtitle">
+    <?php
   $id = addslashes($id);
   $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -148,7 +155,7 @@ if ($sidebartype == "establishment") {
   $sqlcompendium = "SELECT * FROM world WHERE npc_est LIKE '%{$id}%'";
   $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
   while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-    echo ('<a href="/tools/world/world.php?id='.$row2['title'].'">'.$row2['title'].'</a>');
+    echo ($row2['title']);
   }
   if ($esttype == "alchemist") {
 
@@ -158,30 +165,50 @@ if ($sidebartype == "establishment") {
       <thead class="thead-dark">
           <tr>
               <th scope="col">Name</th>
+              <th scope="col">Value</th>
           </tr>
       </thead>
       <tfoot>
           <tr>
             <th scope="col">Name</th>
+            <th scope="col">Value</th>
           </tr>
       </tfoot>
       <tbody>
+
         <?php
-          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' AND itemMagic like '1' ORDER BY rand() LIMIT 10";
           $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
           $entry = $row['title'];
-          echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
-          echo $entry;
-          echo "</a></td></tr>";
+          ?>
+          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <?php
+          echo ('</td>');
+          echo ('<td>'.$row['itemValue'].'</td></tr>');
 
         }
           ?>
+          <?php
+            $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' AND itemMagic NOT LIKE '1'";
+            $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+            while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+            echo ('<tr><td>');
+            $entry = $row['title'];
+            ?>
+            <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+            <?php
+            echo ('</td>');
+            echo ('<td>'.$row['itemValue'].'</td></tr>');
+
+          }
+            ?>
 
 </tbody>
 </table>
 <script>
+
 $(document).ready(function() {
 // Setup - add a text input to each footer cell
 $('#alch-inventory tfoot th').each( function () {
@@ -213,62 +240,62 @@ if ($esttype == "blacksmith") {
 
 ?>
 <div class="table-responsive">
-<table id="blacksmith-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+<table id="bsmith" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
     <thead class="thead-dark">
         <tr>
             <th scope="col">Name</th>
+            <th scope="col">Value</th>
+            <th scope="col">Magic</th>
+
         </tr>
     </thead>
     <tfoot>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Value</th>
+          <th scope="col">Magic</th>
+
         </tr>
     </tfoot>
     <tbody>
+
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'blacksmith' ORDER BY rand() LIMIT 10";
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'blacksmith' AND itemMagic like '1' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 8";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
-        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a></td></tr>";
-
+        ?>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <?php
+        echo ('</td>');
+        echo ('<td>'.$row['itemValue'].'</td><td>');
+          echo ('Yes');
+        echo ('</td></tr>');
       }
         ?>
+        <?php
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'blacksmith' AND itemMagic NOT LIKE '1'";
+          $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+          while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td>');
+          $entry = $row['title'];
+          ?>
+          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <?php
+          echo ('</td>');
+          echo ('<td>'.$row['itemValue'].'</td>');
+          echo ('<td>No</td></tr>');
+        }
+          ?>
 
 </tbody>
 </table>
-<script>
-$(document).ready(function() {
-// Setup - add a text input to each footer cell
-$('#blacksmith-inventory tfoot th').each( function () {
- var title = $(this).text();
- $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-} );
 
-// DataTable
-var table = $('#blacksmith-inventory').DataTable();
-
-// Apply the search
-table.columns().every( function () {
- var that = this;
-
- $( 'input', this.footer() ).on( 'keyup change', function () {
-     if ( that.search() !== this.value ) {
-         that
-             .search( this.value )
-             .draw();
-     }
- } );
-} );
-} );
-</script>
 </div>
 <?php }
 
-if ($esttype == "jeweler") {
+if ($esttype == "Jeweler") {
 
 ?>
 <div class="table-responsive">
@@ -276,23 +303,29 @@ if ($esttype == "jeweler") {
     <thead class="thead-dark">
         <tr>
             <th scope="col">Name</th>
+            <th scope="col">Value</th>
+
         </tr>
     </thead>
     <tfoot>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Value</th>
+
         </tr>
     </tfoot>
     <tbody>
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' ORDER BY rand() LIMIT 5";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
-        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a></td></tr>";
+        ?>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <?php
+        echo ('</td>');
+        echo ('<td>'.$row['itemValue'].'</td></tr>');
 
       }
         ?>
@@ -320,9 +353,9 @@ table.columns().every( function () {
              .search( this.value )
              .draw();
      }
- } );
-} );
-} );
+ });
+});
+});
 </script>
 </div>
 <?php }
@@ -335,23 +368,29 @@ if ($esttype == "enchanter") {
     <thead class="thead-dark">
         <tr>
             <th scope="col">Name</th>
+            <th scope="col">Value</th>
+
         </tr>
     </thead>
     <tfoot>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Value</th>
+
         </tr>
     </tfoot>
     <tbody>
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'enchanter' ORDER BY rand() LIMIT 10";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
-        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a></td></tr>";
+        ?>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <?php
+        echo ('</td>');
+        echo ('<td>'.$row['itemValue'].'</td></tr>');
 
       }
         ?>
@@ -394,23 +433,29 @@ if ($esttype == "general store") {
     <thead class="thead-dark">
         <tr>
             <th scope="col">Name</th>
+            <th scope="col">Value</th>
+
         </tr>
     </thead>
     <tfoot>
         <tr>
           <th scope="col">Name</th>
+          <th scope="col">Value</th>
+
         </tr>
     </tfoot>
     <tbody>
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' ORDER BY rand() LIMIT 10";
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'general store' ORDER BY rand()";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
-        echo "<a href=\"/tools/compendium/compendium.php?id=$entry\">";
-        echo $entry;
-        echo "</a></td></tr>";
+        ?>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <?php
+        echo ('</td>');
+        echo ('<td>'.$row['itemValue'].'</td></tr>');
 
       }
         ?>
@@ -482,6 +527,7 @@ table.columns().every( function () {
     echo "</ul></div>";
 
   ?>
+  </div>
 <!-- Search and add hyperlinks -->
   <?php
     $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '%{$id}%'";
@@ -507,7 +553,7 @@ table.columns().every( function () {
   ?>
   <!-- Search and add hyperlinks -->
     <?php
-      $sqlworld = "SELECT * FROM world";
+      $sqlworld = "SELECT title FROM world";
       $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
       while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
       $temp = $linkrow['title'];
@@ -527,7 +573,44 @@ table.columns().every( function () {
       <?php
     }
     ?>
-</div>
+
+    <script>
+
+    $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#bsmith tfoot th').each( function () {
+       var title = $(this).text();
+       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#bsmith').DataTable(
+      "order": [[ 2, "desc" ]]
+    );
+
+    // Apply the search
+    table.columns().every( function () {
+       var that = this;
+
+       $( 'input', this.footer() ).on( 'keyup change', function () {
+           if ( that.search() !== this.value ) {
+               that
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+    } );
+    } );
+    </script>
+<script>
+$(function () {
+$('[data-toggle="popover"]').popover()
+
+$('.popover-dismiss').popover({
+trigger: 'focus'
+});
+});
+</script>
 
 </div>
 

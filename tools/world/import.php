@@ -55,10 +55,17 @@ include_once($headpath);
 
   if (selectValue == "npc") {
     document.getElementById("npc-form").style.display = "block";
+    document.getElementById("est-form").style.display = "none";
 }
   else if (selectValue == "establishment") {
   document.getElementById("est-form").style.display = "block";
+  document.getElementById("npc-form").style.display = "none";
 }
+  else {
+    document.getElementById("npc-form").style.display = "none";
+    document.getElementById("est-form").style.display = "none";
+  }
+
  }
 </script>
 
@@ -202,14 +209,14 @@ include_once($headpath);
           </p>
         </div>
 
-
+</div>
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
 <div class="col-centered">
 <input form="import" class="btn btn-primary col-centered" type="submit" value="Submit">
 </div>
 </form>
-</div>
+
 </div>
 </div>
 <!-- Footer -->

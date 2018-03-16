@@ -406,3 +406,9 @@ p.subentry {
 .property-block a:hover{
 	color: #974C32;
 }
+.magichref {
+	color: #EEB62C;
+}
+.magichref:hover {
+	color: #AF8520;
+}
