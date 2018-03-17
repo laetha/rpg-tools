@@ -162,18 +162,22 @@ if ($sidebartype == "establishment") {
 ?>
   <div class="table-responsive">
 <table id="alch-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-      <thead class="thead-dark">
-          <tr>
-              <th scope="col">Name</th>
-              <th scope="col">Value</th>
-          </tr>
-      </thead>
-      <tfoot>
-          <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Value</th>
-          </tr>
-      </tfoot>
+  <thead class="thead-dark">
+      <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+          <th scope="col">Magic</th>
+
+      </tr>
+  </thead>
+  <tfoot>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Value</th>
+        <th scope="col">Magic</th>
+
+      </tr>
+  </tfoot>
       <tbody>
 
         <?php
@@ -183,10 +187,11 @@ if ($sidebartype == "establishment") {
           echo ('<tr><td>');
           $entry = $row['title'];
           ?>
-          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
           <?php
           echo ('</td>');
-          echo ('<td>'.$row['itemValue'].'</td></tr>');
+          echo ('<td>'.$row['itemValue'].'</td>');
+          echo ('<td>Yes</td></tr>');
 
         }
           ?>
@@ -197,42 +202,18 @@ if ($sidebartype == "establishment") {
             echo ('<tr><td>');
             $entry = $row['title'];
             ?>
-            <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+            <a tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
             <?php
             echo ('</td>');
-            echo ('<td>'.$row['itemValue'].'</td></tr>');
+            echo ('<td>'.$row['itemValue'].'</td>');
+            echo ('<td>No</td></tr>');
 
           }
             ?>
 
 </tbody>
 </table>
-<script>
 
-$(document).ready(function() {
-// Setup - add a text input to each footer cell
-$('#alch-inventory tfoot th').each( function () {
-   var title = $(this).text();
-   $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-} );
-
-// DataTable
-var table = $('#alch-inventory').DataTable();
-
-// Apply the search
-table.columns().every( function () {
-   var that = this;
-
-   $( 'input', this.footer() ).on( 'keyup change', function () {
-       if ( that.search() !== this.value ) {
-           that
-               .search( this.value )
-               .draw();
-       }
-   } );
-} );
-} );
-</script>
 </div>
 <?php }
 
@@ -266,7 +247,7 @@ if ($esttype == "blacksmith") {
         echo ('<tr><td>');
         $entry = $row['title'];
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-container="body" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td><td>');
@@ -281,7 +262,7 @@ if ($esttype == "blacksmith") {
           echo ('<tr><td>');
           $entry = $row['title'];
           ?>
-          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
           <?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
@@ -300,20 +281,22 @@ if ($esttype == "Jeweler") {
 ?>
 <div class="table-responsive">
 <table id="jeweler-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Value</th>
-
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
+  <thead class="thead-dark">
+      <tr>
           <th scope="col">Name</th>
           <th scope="col">Value</th>
+          <th scope="col">Magic</th>
 
-        </tr>
-    </tfoot>
+      </tr>
+  </thead>
+  <tfoot>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Value</th>
+        <th scope="col">Magic</th>
+
+      </tr>
+  </tfoot>
     <tbody>
       <?php
         $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' ORDER BY rand() LIMIT 5";
@@ -322,41 +305,31 @@ if ($esttype == "Jeweler") {
         echo ('<tr><td>');
         $entry = $row['title'];
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td></tr>');
+        echo ('<td>Yes</td></tr>');
 
       }
         ?>
-
+        <?php
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' AND itemMagic NOT LIKE '1'";
+          $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+          while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td>');
+          $entry = $row['title'];
+          ?>
+          <a tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <?php
+          echo ('</td>');
+          echo ('<td>'.$row['itemValue'].'</td>');
+          echo ('<td>No</td></tr>');
+        }
+          ?>
 </tbody>
 </table>
-<script>
-$(document).ready(function() {
-// Setup - add a text input to each footer cell
-$('#jeweler-inventory tfoot th').each( function () {
- var title = $(this).text();
- $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-} );
 
-// DataTable
-var table = $('#jeweler-inventory').DataTable();
-
-// Apply the search
-table.columns().every( function () {
- var that = this;
-
- $( 'input', this.footer() ).on( 'keyup change', function () {
-     if ( that.search() !== this.value ) {
-         that
-             .search( this.value )
-             .draw();
-     }
- });
-});
-});
-</script>
 </div>
 <?php }
 
@@ -365,20 +338,22 @@ if ($esttype == "enchanter") {
 ?>
 <div class="table-responsive">
 <table id="enchanter-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Value</th>
-
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
+  <thead class="thead-dark">
+      <tr>
           <th scope="col">Name</th>
           <th scope="col">Value</th>
+          <th scope="col">Magic</th>
 
-        </tr>
-    </tfoot>
+      </tr>
+  </thead>
+  <tfoot>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Value</th>
+        <th scope="col">Magic</th>
+
+      </tr>
+  </tfoot>
     <tbody>
       <?php
         $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'enchanter' ORDER BY rand() LIMIT 10";
@@ -387,41 +362,31 @@ if ($esttype == "enchanter") {
         echo ('<tr><td>');
         $entry = $row['title'];
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" tabindex="0" href="javascript://" data-container="body" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td></tr>');
+        echo ('<td>Yes</td></tr>');
 
       }
         ?>
-
+        <?php
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'enchanter' AND itemMagic NOT LIKE '1'";
+          $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+          while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td>');
+          $entry = $row['title'];
+          ?>
+          <a tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <?php
+          echo ('</td>');
+          echo ('<td>'.$row['itemValue'].'</td>');
+          echo ('<td>No</td></tr>');
+        }
+          ?>
 </tbody>
 </table>
-<script>
-$(document).ready(function() {
-// Setup - add a text input to each footer cell
-$('#enchanter-inventory tfoot th').each( function () {
- var title = $(this).text();
- $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-} );
 
-// DataTable
-var table = $('#enchanter-inventory').DataTable();
-
-// Apply the search
-table.columns().every( function () {
- var that = this;
-
- $( 'input', this.footer() ).on( 'keyup change', function () {
-     if ( that.search() !== this.value ) {
-         that
-             .search( this.value )
-             .draw();
-     }
- } );
-} );
-} );
-</script>
 </div>
 <?php }
 
@@ -430,20 +395,22 @@ if ($esttype == "general store") {
 ?>
 <div class="table-responsive">
 <table id="gstore-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Value</th>
-
-        </tr>
-    </thead>
-    <tfoot>
-        <tr>
+  <thead class="thead-dark">
+      <tr>
           <th scope="col">Name</th>
           <th scope="col">Value</th>
+          <th scope="col">Magic</th>
 
-        </tr>
-    </tfoot>
+      </tr>
+  </thead>
+  <tfoot>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Value</th>
+        <th scope="col">Magic</th>
+
+      </tr>
+  </tfoot>
     <tbody>
       <?php
         $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'general store' ORDER BY rand()";
@@ -452,41 +419,31 @@ if ($esttype == "general store") {
         echo ('<tr><td>');
         $entry = $row['title'];
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td></tr>');
+        echo ('<td>Yes</td></tr>');
 
       }
         ?>
-
+        <?php
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'general store' AND itemMagic NOT LIKE '1'";
+          $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+          while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td>');
+          $entry = $row['title'];
+          ?>
+          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <?php
+          echo ('</td>');
+          echo ('<td>'.$row['itemValue'].'</td>');
+          echo ('<td>No</td></tr>');
+        }
+          ?>
 </tbody>
 </table>
-<script>
-$(document).ready(function() {
-// Setup - add a text input to each footer cell
-$('#gstore-inventory tfoot th').each( function () {
- var title = $(this).text();
- $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-} );
 
-// DataTable
-var table = $('#gstore-inventory').DataTable();
-
-// Apply the search
-table.columns().every( function () {
- var that = this;
-
- $( 'input', this.footer() ).on( 'keyup change', function () {
-     if ( that.search() !== this.value ) {
-         that
-             .search( this.value )
-             .draw();
-     }
- } );
-} );
-} );
-</script>
 </div>
 <?php } ?>
 
@@ -584,8 +541,16 @@ table.columns().every( function () {
     } );
 
     // DataTable
-    var table = $('#bsmith').DataTable(
-      "order": [[ 2, "desc" ]]
+    var table = $('#bsmith').DataTable({
+      "drawCallback": function(){
+        $('[data-toggle="popover"]').popover()
+
+        $('.popover-dismiss').popover({
+        trigger: 'focus'
+        });
+      }
+    }
+
     );
 
     // Apply the search
@@ -593,6 +558,7 @@ table.columns().every( function () {
        var that = this;
 
        $( 'input', this.footer() ).on( 'keyup change', function () {
+
            if ( that.search() !== this.value ) {
                that
                    .search( this.value )
@@ -601,6 +567,150 @@ table.columns().every( function () {
        } );
     } );
     } );
+
+    $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#alch-inventory tfoot th').each( function () {
+       var title = $(this).text();
+       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#alch-inventory').DataTable({
+      "drawCallback": function(){
+        $('[data-toggle="popover"]').popover()
+
+        $('.popover-dismiss').popover({
+        trigger: 'focus'
+        });
+      }
+    }
+
+    );
+
+    // Apply the search
+    table.columns().every( function () {
+       var that = this;
+
+       $( 'input', this.footer() ).on( 'keyup change', function () {
+
+           if ( that.search() !== this.value ) {
+               that
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+    } );
+    } );
+
+
+    $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#jeweler-inventory tfoot th').each( function () {
+       var title = $(this).text();
+       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#jeweler-inventory').DataTable({
+      "drawCallback": function(){
+        $('[data-toggle="popover"]').popover()
+
+        $('.popover-dismiss').popover({
+        trigger: 'focus'
+        });
+      }
+    }
+
+    );
+
+    // Apply the search
+    table.columns().every( function () {
+       var that = this;
+
+       $( 'input', this.footer() ).on( 'keyup change', function () {
+
+           if ( that.search() !== this.value ) {
+               that
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+    } );
+    } );
+
+
+    $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#enchanter-inventory tfoot th').each( function () {
+       var title = $(this).text();
+       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#enchanter-inventory').DataTable({
+      "drawCallback": function(){
+        $('[data-toggle="popover"]').popover()
+
+        $('.popover-dismiss').popover({
+        trigger: 'focus'
+        });
+      }
+    }
+
+    );
+
+    // Apply the search
+    table.columns().every( function () {
+       var that = this;
+
+       $( 'input', this.footer() ).on( 'keyup change', function () {
+
+           if ( that.search() !== this.value ) {
+               that
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+    } );
+    } );
+
+
+    $(document).ready(function() {
+    // Setup - add a text input to each footer cell
+    $('#gstore-inventory tfoot th').each( function () {
+       var title = $(this).text();
+       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+    } );
+
+    // DataTable
+    var table = $('#gstore-inventory').DataTable({
+      "drawCallback": function(){
+        $('[data-toggle="popover"]').popover()
+
+        $('.popover-dismiss').popover({
+        trigger: 'focus'
+        });
+      }
+    }
+
+    );
+
+    // Apply the search
+    table.columns().every( function () {
+       var that = this;
+
+       $( 'input', this.footer() ).on( 'keyup change', function () {
+
+           if ( that.search() !== this.value ) {
+               that
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+    } );
+    } );
+
     </script>
 <script>
 $(function () {
