@@ -23,6 +23,10 @@ $pgtitle = '';
 							<img class ="menu-icon" src="/assets/images/initiative.png" />
 							<h3>Initiative Tracker</h3>
 						</div></a>
+            <a class="menulink" href="/tools/resources/resources.php"><div class="menuitem">
+							<img class ="menu-icon" src="/assets/images/initiative.png" />
+							<h3>Resources</h3>
+						</div></a>
 				</div>
 			</div>
 <?php include('footer.php'); ?>

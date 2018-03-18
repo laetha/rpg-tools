@@ -160,7 +160,7 @@ if ($sidebartype == "establishment") {
   if ($esttype == "alchemist") {
 
 ?>
-  <div class="table-responsive">
+  <div class="table-responsive sidebartext">
 <table id="alch-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
   <thead class="thead-dark">
       <tr>
@@ -179,9 +179,23 @@ if ($sidebartype == "establishment") {
       </tr>
   </tfoot>
       <tbody>
-
         <?php
-          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' AND itemMagic like '1' ORDER BY rand() LIMIT 10";
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' AND itemMagic like '1' AND title LIKE '%healing%' AND itemValue NOT LIKE ''";
+          $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+          while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td>');
+          $entry = $row['title'];
+          ?>
+          <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <?php
+          echo ('</td>');
+          echo ('<td>'.$row['itemValue'].'</td>');
+          echo ('<td>Yes</td></tr>');
+
+        }
+          ?>
+        <?php
+          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'alchemist' AND itemMagic like '1' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 10";
           $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
@@ -220,7 +234,7 @@ if ($sidebartype == "establishment") {
 if ($esttype == "blacksmith") {
 
 ?>
-<div class="table-responsive">
+<div class="table-responsive sidebartext">
 <table id="bsmith" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
     <thead class="thead-dark">
         <tr>
@@ -279,7 +293,7 @@ if ($esttype == "blacksmith") {
 if ($esttype == "Jeweler") {
 
 ?>
-<div class="table-responsive">
+<div class="table-responsive sidebartext">
 <table id="jeweler-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
   <thead class="thead-dark">
       <tr>
@@ -299,7 +313,7 @@ if ($esttype == "Jeweler") {
   </tfoot>
     <tbody>
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' ORDER BY rand() LIMIT 5";
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 5";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
@@ -308,7 +322,7 @@ if ($esttype == "Jeweler") {
         <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
-        echo ('<td>'.$row['itemValue'].'</td></tr>');
+        echo ('<td>'.$row['itemValue'].'</td>');
         echo ('<td>Yes</td></tr>');
 
       }
@@ -336,7 +350,7 @@ if ($esttype == "Jeweler") {
 if ($esttype == "enchanter") {
 
 ?>
-<div class="table-responsive">
+<div class="table-responsive sidebartext">
 <table id="enchanter-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
   <thead class="thead-dark">
       <tr>
@@ -356,7 +370,7 @@ if ($esttype == "enchanter") {
   </tfoot>
     <tbody>
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'enchanter' ORDER BY rand() LIMIT 10";
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'enchanter' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 10";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
@@ -365,7 +379,7 @@ if ($esttype == "enchanter") {
         <a class="magichref" tabindex="0" href="javascript://" data-container="body" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
-        echo ('<td>'.$row['itemValue'].'</td></tr>');
+        echo ('<td>'.$row['itemValue'].'</td>');
         echo ('<td>Yes</td></tr>');
 
       }
@@ -393,7 +407,7 @@ if ($esttype == "enchanter") {
 if ($esttype == "general store") {
 
 ?>
-<div class="table-responsive">
+<div class="table-responsive sidebartext">
 <table id="gstore-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
   <thead class="thead-dark">
       <tr>
@@ -422,7 +436,7 @@ if ($esttype == "general store") {
         <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
         <?php
         echo ('</td>');
-        echo ('<td>'.$row['itemValue'].'</td></tr>');
+        echo ('<td>'.$row['itemValue'].'</td>');
         echo ('<td>Yes</td></tr>');
 
       }
