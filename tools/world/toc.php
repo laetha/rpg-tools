@@ -100,6 +100,9 @@
         ?>
       </div>
 
+      <div class="tocitem col-md-3">
+        <a href="map.php"><h2>World Map</h2></a>
+      </div>
 
       </div>
   </div>
