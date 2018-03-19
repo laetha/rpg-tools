@@ -27,6 +27,10 @@ $pgtitle = '';
 							<img class ="menu-icon" src="/assets/images/initiative.png" />
 							<h3>Resources</h3>
 						</div></a>
+            <a class="menulink" href="/tools/questboard/questboard.php"><div class="menuitem">
+							<img class ="menu-icon" src="/assets/images/initiative.png" />
+							<h3>Quest Board</h3>
+						</div></a>
 				</div>
 			</div>
 <?php include('footer.php'); ?>
