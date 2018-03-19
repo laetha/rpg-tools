@@ -11,7 +11,7 @@
   <div class="pagetitle" id="pgtitle">
     <?php
   $id = addslashes($id);
-  $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
+  $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo $row['title'];
@@ -32,7 +32,7 @@
 
     <!-- Body Text -->
       <?php
-        $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
+        $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           $sidebartype = $row['type'];
@@ -184,7 +184,8 @@ if ($sidebartype == "establishment") {
           $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
-          $entry = $row['title'];
+
+          $entry = addslashes($row['title']);
           ?>
           <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
           <?php
@@ -201,7 +202,7 @@ if ($sidebartype == "establishment") {
           echo ('<tr><td>');
           $entry = $row['title'];
           ?>
-          <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo addslashes($entry); ?>'></iframe>"><?php echo $entry; ?></a>
           <?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
@@ -501,7 +502,7 @@ if ($esttype == "general store") {
   </div>
 <!-- Search and add hyperlinks -->
   <?php
-    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '%{$id}%'";
+    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '$id'";
     $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
     while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
     $temp = $linkrow['title'];

@@ -35,8 +35,9 @@
 <?php
     $tmp_action = basename($_GET['id']);
           $id = $tmp_action;
+					$id = addslashes($id);
 
-          $worldtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '$id'";
+          $worldtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '%$id%'";
           $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
           while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
             //echo ('<h2>'.ucwords($row['type']).'</h2>');
