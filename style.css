@@ -416,3 +416,35 @@ p.subentry {
 height: 500px;
 
 }
+
+.quest-text {
+	font-family: 'Aladin', cursive;
+	font-size: 28px;
+	color: black;
+}
+.quest-text h2{
+	font-family: 'Aladin', cursive;
+	font-size: 38px;
+
+	color: black;
+}
+.quest-bg {
+	margin-top:20px;
+	background-image: url("/assets/images/zNwTqVZ.jpg");
+	opacity: 0.7;
+	border-radius: 80px;
+	padding:0px 20px;
+    background-clip:content-box;
+}
+
+.quest-img {
+	max-width:100%;
+	max-height:100%;
+	float: right;
+
+}
+
+.quest-pad {
+	padding-left: 40px;
+	padding-right: 40px;
+}

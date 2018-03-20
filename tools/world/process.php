@@ -18,6 +18,9 @@ $npcesttemp=$_POST['npc-establishment'];
 $npclocationtemp=$_POST['npc-location'];
 $npcdeitytemp=$_POST['npc-deity'];
 $estlocationtemp=$_POST['est-location'];
+$queststatustemp=$_POST['quest-status'];
+$questfactiontemp=$_POST['quest-faction'];
+$questrewardtemp=$_POST['quest-reward'];
 $esttypetemp=$_POST['est-type'];
 $name=htmlentities(trim(addslashes($nametemp)));
 $type=htmlentities(trim(addslashes($typetemp)));
@@ -28,10 +31,13 @@ $npcdeity=htmlentities(trim(addslashes($npcdeitytemp)));
 $npcest=htmlentities(trim(addslashes($npcesttemp)));
 $estlocation=htmlentities(trim(addslashes($estlocationtemp)));
 $esttype=htmlentities(trim(addslashes($esttypetemp)));
+$queststatus=htmlentities(trim(addslashes($queststatustemp)));
+$questfaction=htmlentities(trim(addslashes($questfactiontemp)));
+$questreward=htmlentities(trim(addslashes($questrewardtemp)));
 
 //Execute the query
-$sql = "INSERT INTO world(title,type,body,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location)
-				VALUES('$name','$type','$body','$npclocation','$npcfaction','$npcdeity','$npcest','$esttype','$estlocation')";
+$sql = "INSERT INTO world(title,type,body,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location,quest_status,quest_faction,quest_reward)
+				VALUES('$name','$type','$body','$npclocation','$npcfaction','$npcdeity','$npcest','$esttype','$estlocation','$queststatus','$questfaction','$questreward')";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');
