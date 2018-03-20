@@ -6,7 +6,7 @@ $pgtitle = '';
 <div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
 				<h1 class="pagetitle">Brian's RPG Tools</h1>
 				<div class="menu">
-          <h3>Players</h3>
+          <h3 style="color:LightSteelBlue;">Players</h3>
 
 					<a class="menulink" href="/tools/compendium/compendium.php"><div class="menuitem">
 						<img class ="menu-icon" src="/assets/images/log.png" />
@@ -23,7 +23,7 @@ $pgtitle = '';
           </div></a>
         </div>
 					<div class="menu">
-            <h3>DM</h3>
+            <h3 style="color:LightSteelBlue;">DM</h3>
 						<a class="menulink" href="/tools/initiative/initiative.php"><div class="menuitem">
 							<img class ="menu-icon" src="/assets/images/initiative.png" />
 							<h3>Initiative Tracker</h3>
