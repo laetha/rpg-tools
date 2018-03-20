@@ -124,7 +124,16 @@
   $(document).ready(function() {
   // Setup - add a text input to each footer cell
   // DataTable
-  var table = $('#campaignlog').DataTable();
+  var table = $('#campaignlog').DataTable(
+    {
+      "columnDefs": [
+    { "width": "50px", "targets": 0 },
+    { "width": "15px", "targets": 1 },
+    { "width": "15px", "targets": 2 }
+
+  ]
+    }
+  );
 
 
   } );
