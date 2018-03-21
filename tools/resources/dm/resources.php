@@ -10,8 +10,7 @@ include_once($headpath);
       <div class="toc bodytext">
 
       <!-- Settlements -->
-      <div class="tocitem col-md-3">
-        <h2>Resources</h2>
+      <div class="tocitem col-md-3 col-centered" style="margin-top: 50px;">
         <a href="monsterharvest.php"><p>Monster Harvester's Handbook</p></a>
 
       </div>

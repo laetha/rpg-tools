@@ -11,7 +11,7 @@ include_once($headpath);
 						<img class ="menu-icon" src="/assets/images/resources.png" />
 						<h3>Player Resources</h3>
 					</div></a>
-					<a class="menulink" href="/tools/resources/resources.php"><div class="menuitem">
+					<a class="menulink" href="/tools/resources/dm/resources.php"><div class="menuitem">
 						<img class ="menu-icon" src="/assets/images/resources.png" />
 						<h3>DM Resources</h3>
 					</div></a>
