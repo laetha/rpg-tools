@@ -52,6 +52,8 @@ include_once($headpath);
    var selectValue=selectObj.options[selectIndex].text;
    var output=document.getElementById("output");
    document.getElementById("npc-form").style.display = "none";
+   document.getElementById("est-form").style.display = "none";
+   document.getElementById("npc-form").style.display = "none";
 
   if (selectValue == "npc") {
     document.getElementById("quest-form").style.display = "none";

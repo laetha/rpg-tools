@@ -22,11 +22,52 @@ if (!empty($_GET['id'])) {
 if ($editrow['type'] == "npc"){
   ?><style type="text/css">#npc-form{
   display:block;
-  }</style>  <?php
+  }</style>
+  <style type="text/css">#est-form{
+  display:none;
+  }</style>
+  <style type="text/css">#quest-form{
+  display:none;
+  }</style>
+    <?php
 }
-          else{
+          else if ($editrow['type'] == "establishment") {
 ?>
 <style type="text/css">#npc-form{
+display:none;
+}</style>
+<style type="text/css">#est-form{
+display:block;
+}</style>
+<style type="text/css">#quest-form{
+display:none;
+}</style>
+<?php
+}
+
+  else if ($editrow['quest_status'] !== "") {
+?>
+<style type="text/css">#npc-form{
+display:none;
+}</style>
+<style type="text/css">#est-form{
+display:none;
+}</style>
+<style type="text/css">#quest-form{
+display:block;
+}</style>
+<?php
+}
+
+else {
+?>
+<style type="text/css">#npc-form{
+display:none;
+}</style>
+<style type="text/css">#est-form{
+display:none;
+}</style>
+<style type="text/css">#quest-form{
 display:none;
 }</style>
 <?php
@@ -38,14 +79,14 @@ display:none;
        <div class="col-md-10 col-centered">
          <div class="col-sm-6 typebox col-centered" id="name">
              <form method="post" action="editprocess.php" id="import">
-             <div class="text">Name</div><input class="textbox" type="text" name="name" id="name" value="<?php echo $editrow['title']; ?>">
+             <div class="text">Name</div><input class="textbox" style="text-align:center;" type="text" name="name" id="name" value="<?php echo $editrow['title']; ?>">
        </div>
        <!-- 'Type' Dropbox -->
 
        <div class="col-sm-6 typebox col-centered" id="npc-type">
              <p class="text">Type
                 <select form="import" name="editid" id="editid" style="display:none;" required="yes">
-                  <option value="<?php echo $editrow['id']; ?>" selected></option>
+                  <option id="tmptype" value="<?php echo $editrow['id']; ?>" selected></option>
                   </select>
                <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
                  <option value="">None...</option>
@@ -75,26 +116,62 @@ display:none;
           var selectIndex=selectObj.selectedIndex;
           var selectValue=selectObj.options[selectIndex].text;
           var output=document.getElementById("output");
+          document.getElementById("npc-form").style.display = "none";
+          document.getElementById("est-form").style.display = "none";
+          document.getElementById("quest-form").style.display = "none";
 
-       if (selectValue == "npc") {
-         document.getElementById("npc-form").style.display = "block";
-         document.getElementById("est-form").style.display = "none";
-
-     }
-     else if (selectValue == "establishment") {
-       document.getElementById("est-form").style.display = "block";
-       document.getElementById("npc-form").style.display = "none";
-   }
-     else {
-       document.getElementById("npc-form").style.display = "none";
+         if (selectValue == "npc") {
+           document.getElementById("quest-form").style.display = "none";
+           document.getElementById("npc-form").style.display = "block";
+           document.getElementById("est-form").style.display = "none";
+       }
+         else if (selectValue == "establishment") {
+           document.getElementById("quest-form").style.display = "none";
+         document.getElementById("est-form").style.display = "block";
+         document.getElementById("npc-form").style.display = "none";
+       }
+       else if (selectValue == "public quest") {
+       document.getElementById("quest-form").style.display = "block";
        document.getElementById("est-form").style.display = "none";
+       document.getElementById("npc-form").style.display = "none";
+       }
+         else {
+           document.getElementById("quest-form").style.display = "none";
+           document.getElementById("npc-form").style.display = "none";
+           document.getElementById("est-form").style.display = "none";
+         }
 
-     }
         }
+
        </script>
 
        <!--NPC FORM -->
        <div id="npc-form">
+
+         <!-- 'NPC Race' Dropbox -->
+         <div class="col-sm-6 typebox col-centered" id="npc-race">
+               <p class="text">Race
+                 <select form="import" name="npc-race" id="race-form">
+                   <option value="">None...</option>
+                   <option value="<?php echo $editrow['npc_race']; ?>" selected><?php echo $editrow['npc_race']; ?></option>
+                   <?php
+                   $faithdrop = "SELECT npc_race FROM `world` WHERE `type` LIKE 'npc'";
+                   $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
+                   while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
+                     $deity = $deityrow['npc_race'];
+                     echo "<option value=\"$deity\">$deity</option>";
+                   }
+                   ?>
+                 </select>
+                 <script type="text/javascript">
+                 $('#race-form').selectize({
+             create: true,
+             sortField: 'text'
+         });
+                 </script>
+               </p>
+         </div>
+
        <!-- 'NPC Diety' Dropbox -->
        <div class="col-sm-6 typebox col-centered" id="npc-deity">
              <p class="text">Faith
@@ -191,9 +268,9 @@ display:none;
 
        </div>
 
-       <!--NPC FORM -->
+       <!--Establishment FORM -->
        <div id="est-form">
-       <!-- 'NPC Diety' Dropbox -->
+       <!-- 'Establishment Location' Dropbox -->
        <div class="col-sm-6 typebox col-centered" id="est-location">
              <p class="text">Location
                <select form="import" name="est-location" id="est-location-form">
@@ -216,7 +293,7 @@ display:none;
                </script>
              </p>
        </div>
-       <!-- 'NPC location' Dropbox -->
+       <!-- 'Establishment Type' Dropbox -->
        <div class="col-sm-6 typebox col-centered" id="est-type">
              <p class="text">Type
                <select form="import" name="est-type" id="est-type-form">
@@ -239,6 +316,55 @@ display:none;
                </script>
              </p>
            </div>
+       </div>
+
+
+<!-- Quest Form -->
+       <div id="quest-form">
+
+       <!-- 'Quest Status' Dropbox -->
+       <div class="col-sm-6 typebox col-centered" id="quest-status">
+             <p class="text">Quest Status
+               <select form="import" name="quest-status" id="quest-status-form">
+                 <option value="<?php echo $editrow['quest_status']; ?>" selected><?php echo $editrow['quest_status']; ?></option>
+                 <option value="">None...</option>
+                 <option value="available">Available</option>
+                 <option value="private">Private</option>
+                 <option value="complete">Complete</option>
+               </select>
+               <script type="text/javascript">
+               $('#quest-status-form').selectize({
+           create: true,
+           sortField: 'text'
+       });
+               </script>
+             </p>
+           </div>
+           <!-- 'establishment type' Dropbox -->
+           <div class="col-sm-6 typebox col-centered" id="quest-faction">
+                 <p class="text">Faction
+                   <select form="import" name="quest-faction" id="quest-faction-form">
+                     <option value="<?php echo $editrow['quest_faction']; ?>" selected><?php echo $editrow['quest_faction']; ?></option>
+                     <option value="">None...</option>
+                     <?php
+                     $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction'";
+                     $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+                     while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                       $location = $locationrow['title'];
+                       echo "<option value=\"$location\">$location</option>";
+                     }
+                     ?>
+                   </select>
+                   <script type="text/javascript">
+                   $('#quest-faction-form').selectize({
+               create: true,
+               sortField: 'text'
+           });
+                   </script>
+                 </p>
+               </div>
+               <div class="text col-centered col-md-6"><textarea type="text" name="quest-reward" id="quest-reward" placeholder="Reward...." style="height:100px;"><?php echo $editrow['quest_reward']; ?></textarea></div>
+
        </div>
 
 

@@ -38,6 +38,7 @@
           $sidebartype = $row['type'];
           $esttype = $row['est_type'];
           if ($sidebartype == "npc") {
+            echo('Race: '.$row['npc_race'].'<br />');
               echo('Establishment: '.$row['npc_est'].'<br />');
               echo('Location: '.$row['npc_location'].'<br />');
               echo('Faction: '.$row['npc_faction'].'<br />');
