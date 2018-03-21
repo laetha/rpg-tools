@@ -80,6 +80,28 @@ document.getElementById("npc-form").style.display = "none";
 <!--NPC FORM -->
 <div id="npc-form" style="display:none;">
 <!-- 'NPC Diety' Dropbox -->
+<div class="col-sm-6 typebox col-centered" id="npc-race">
+      <p class="text">Race
+        <select form="import" name="npc-race" id="race-form">
+          <option value="" selected>None...</option>
+          <?php
+          $faithdrop = "SELECT npc_race FROM `world` WHERE `type` LIKE 'npc'";
+          $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
+          while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
+            $deity = $deityrow['npc_race'];
+            echo "<option value=\"$deity\">$deity</option>";
+          }
+          ?>
+        </select>
+        <script type="text/javascript">
+        $('#race-form').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
+      </p>
+</div>
+
 <div class="col-sm-6 typebox col-centered" id="npc-deity">
       <p class="text">Faith
         <select form="import" name="npc-deity" id="deity-form">
