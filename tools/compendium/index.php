@@ -53,6 +53,33 @@
           </ul>
 
           <p><button class="btn btn-info" id="classbutton">Show Class Table</button>
+            <?php if($id == "Mystic") { ?>
+
+            <button class="btn btn-info" id="talentbutton">Talents</button>
+            <button class="btn btn-info" id="discbutton">Disciplines</button>
+
+            <div id="talenttable" style="display:none;" class="sidebartext mystic">
+            <?php  $worldtitle = "SELECT * FROM `mysticabilities` WHERE `type` LIKE 'talent'";
+              $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+              while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+               echo ('<h3>'.$row['name'].'</h3>');
+               echo ('<p>'.$row['text'].'</p>');
+
+            }
+            ?> </div>
+            <div id="disctable" style="display:none;" class="sidebartext mystic">
+            <?php  $worldtitle = "SELECT * FROM `mysticabilities` WHERE `type` LIKE 'discipline'";
+              $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+              while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+               echo ('<h3>'.$row['name'].'</h3>');
+               echo ('<p>'.nl2br($row['text']).'</p>');
+               echo ('<div style="margin-top:70px;"></div>');
+
+            }
+            ?> </div> <?php
+          }
+              ?>
+
           <div class="table-responsive" id="classtable" style="display:none;">
             <form method="post" action="logprocess.php" id="logadd">
               <table class="table table-striped table-condensed">
@@ -590,6 +617,20 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
         $(document).ready(function addLog(){
             $("#classbutton").click(function addLog(){
                 $("#classtable").slideToggle("slow");
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function talentLog(){
+            $("#talentbutton").click(function addLog(){
+                $("#talenttable").slideToggle("slow");
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function discLog(){
+            $("#discbutton").click(function addLog(){
+                $("#disctable").slideToggle("slow");
             });
         });
         </script>
