@@ -55,8 +55,8 @@
           <p><button class="btn btn-info" id="classbutton">Show Class Table</button>
             <?php if($id == "Mystic") { ?>
 
-            <button class="btn btn-info" id="talentbutton">Talents</button>
-            <button class="btn btn-info" id="discbutton">Disciplines</button>
+            <button class="btn btn-primary" id="talentbutton">Talents</button>
+            <button class="btn btn-success" id="discbutton">Disciplines</button>
 
             <div id="talenttable" style="display:none;" class="sidebartext mystic">
             <?php  $worldtitle = "SELECT * FROM `mysticabilities` WHERE `type` LIKE 'talent'";
