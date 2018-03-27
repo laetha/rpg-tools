@@ -5,7 +5,7 @@
       <div class="toc bodytext">
 
       <?php
-        $sqlworld = "SELECT * FROM world WHERE type LIKE 'public quest' AND quest_status LIKE 'available'";
+        $sqlworld = "SELECT * FROM world WHERE type LIKE 'public quest' AND quest_status LIKE 'available' ORDER BY RAND()";
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
         while($row = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
 

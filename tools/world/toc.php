@@ -86,7 +86,7 @@
 
       <!-- NPCs -->
       <div class="tocitem col-md-3">
-        <a href="npc.php"><h2>Establishments</h2></a>
+        <a href="establishment.php"><h2>Establishments</h2></a>
       <?php
         $sqlworld = "SELECT * FROM world WHERE type LIKE '%establishment%'";
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
@@ -101,7 +101,18 @@
       </div>
 
       <div class="tocitem col-md-3">
-        <a href="map.php"><h2>World Map</h2></a>
+        <a href="publicquest.php"><h2>Public Quests</h2></a>
+      <?php
+        $sqlworld = "SELECT * FROM world WHERE type LIKE '%public quest%'";
+        $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+        while($row = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+        $entry = $row['title'];
+        echo "<a href=\"world.php?id=$entry\">";
+        echo $entry;
+        echo "</a>";
+        echo "<br>";
+      }
+        ?>
       </div>
 
       </div>

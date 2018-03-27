@@ -24,18 +24,20 @@ $pgtitle = '';
         </div>
 					<div class="menu">
             <h3 style="color:LightSteelBlue;">DM</h3>
-						<a class="menulink" href="/tools/initiative/initiative.php"><div class="menuitem">
-							<img class ="menu-icon" src="/assets/images/initiative.png" />
-							<h3>Initiative Tracker</h3>
-						</div></a>
-            <a class="menulink" href="/tools/campaign-log/campaign-log.php"><div class="menuitem">
-              <img class ="menu-icon" src="/assets/images/parchment.png" />
-              <h3>Campaign Log</h3>
-            </div></a>
             <a class="menulink" href="/tools/world/world.php"><div class="menuitem">
               <img class ="menu-icon" src="/assets/images/world.png" />
               <h3>World Building</h3>
             </div></a>
+            <a class="menulink" href="/tools/campaign-log/campaign-log.php"><div class="menuitem">
+              <img class ="menu-icon" src="/assets/images/parchment.png" />
+              <h3>Campaign Log</h3>
+            </div></a>
+						<a class="menulink" href="/tools/initiative/initiative.php"><div class="menuitem">
+							<img class ="menu-icon" src="/assets/images/initiative.png" />
+							<h3>Initiative Tracker</h3>
+						</div></a>
+
+
 				</div>
 			</div>
 <?php include('footer.php'); ?>
