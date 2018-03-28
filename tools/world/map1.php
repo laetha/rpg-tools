@@ -1,0 +1,21 @@
+<?php
+$headpath = $_SERVER['DOCUMENT_ROOT'];
+$headpath .= "/header.php";
+include_once($headpath);
+?>
+<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<!-- Page Header -->
+<div class="col-md-12">
+<div class="pagetitle" id="pgtitle">World Map</div>
+</div>
+<div class="body sidebartext col-xs-12" id="body">
+
+<iframe width="100%" height="500px" src="mapimg.php"></iframe>
+</div>
+
+     <?php
+     //Footer
+     $footpath = $_SERVER['DOCUMENT_ROOT'];
+     $footpath .= "/footer.php";
+     include_once($footpath);
+      ?>

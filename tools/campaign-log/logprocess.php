@@ -9,12 +9,14 @@ include_once($sqlpath); ?>
 // Create variables
 $datetemp=$_POST['logdate'];
 $entrytemp=$_POST['logentry'];
+$coordtemp=$_POST['logcoord'];
 $date=htmlentities(trim(addslashes($datetemp)));
 $entry=htmlentities(trim(addslashes($entrytemp)));
+$coord=htmlentities(trim(addslashes($coordtemp)));
 
 //Execute the query
-$sql = "INSERT INTO campaignlog(date,entry,active)
-				VALUES('$date','$entry',1)";
+$sql = "INSERT INTO campaignlog(date,entry,active,coord)
+				VALUES('$date','$entry',1,'$coord')";
 
         if ($dbcon->query($sql) === TRUE) {
 					?>

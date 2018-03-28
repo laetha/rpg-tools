@@ -24,6 +24,7 @@
       <div class="row">
       <form method="post" action="logprocess.php" id="logadd">
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
+        <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
         <div class="col-md-8" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
@@ -44,6 +45,7 @@
               <th scope="col">Day</th>
               <th scope="col"></th>
               <th scope="col"></th>
+              <th scope="col">Coord</th>
               <th scope="col">Entry</th>
           </tr>
       </thead>
@@ -52,6 +54,7 @@
             <th scope="col">Day</th>
             <th scope="col"></th>
             <th scope="col"></th>
+            <th scope="col">Coord</th>
             <th scope="col">Entry</th>
           </tr>
       </tfoot>
@@ -64,6 +67,8 @@
           echo ($row['date'].'</td>');
           echo ('<td><button type="button" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" data-toggle="modal" data-target="#deleteModal'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button></td>');
           echo ('<td><button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#editModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button></td>');
+          echo ('<td>'.$row['coord'].'</td>');
+
           echo ('<td>'.$row['entry'].'</td>');
           echo ('</tr>');
 ?>
@@ -77,6 +82,7 @@
                 <div class="modal-body">
                   <form method="post" action="logedit.php?editid=<?php echo $row['id']; ?>" id="edit<?php echo $row['id']; ?>">
                     <input form="edit<?php echo $row['id']; ?>" type="text" class="logeditdate" name="editdate<?php echo $row['id']; ?>" id="date<?php echo $row['id']; ?>" placeholder="Date..." value="" />
+                    <input form="edit<?php echo $row['id']; ?>" class="logeditcoord" type="text" name="editcoord<?php echo $row['id']; ?>" id="coordentry<?php echo $row['id']; ?>" placeholder="Coord..." value="" />
                     <input form="edit<?php echo $row['id']; ?>" class="logeditentry" type="text" name="editentry<?php echo $row['id']; ?>" id="editentry<?php echo $row['id']; ?>" placeholder="Entry..." value="" />
                     <button form="edit<?php echo $row['id']; ?>"class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save" />
                       <span class="glyphicon glyphicon-ok"></span></button>
@@ -129,7 +135,9 @@
       "columnDefs": [
     { "width": "50px", "targets": 0 },
     { "width": "15px", "targets": 1 },
-    { "width": "15px", "targets": 2 }
+    { "width": "15px", "targets": 2 },
+    { "width": "50px", "targets": 3 }
+
 
   ]
     }
