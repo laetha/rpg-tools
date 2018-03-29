@@ -2,6 +2,7 @@
   <h1 class="pagetitle">World Building</h1>
 <div class ="body bodytext">
   <div class="col-md-12 col-centered"><a href="/tools/world/import.php">Import</a></div>
+  <div class="col-md-12 col-centered"><a href="/tools/world/upload.php">Upload</a></div>
       <div class="toc bodytext">
 
       <!-- Settlements -->
