@@ -66,9 +66,9 @@
 <div class="cell" id="A3BA1A">A3BA1A</div>
 <div class="cell" id="A3BA1B">A3BA1B</div>
 <div class="cell" id="A3BA1C">A3BA1C</div>
-<div class="cell">A3BB1A</div>
-<div class="cell">A3BB1B</div>
-<div class="cell">A3BB1C</div>
+<div class="cell" id="A3BB1A">A3BB1A</div>
+<div class="cell" id="A3BB1B">A3BB1B</div>
+<div class="cell" id="A3BB1C">A3BB1C</div>
 <div class="cell">A</div>
 <div class="cell">B</div>
 <div class="cell">C</div>

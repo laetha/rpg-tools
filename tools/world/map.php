@@ -70,7 +70,44 @@ L.imageOverlay(url, bounds).addTo(map);
 
 // tell leaflet that the map is exactly as big as the image
 map.setMaxBounds(bounds);
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
 </script>
+<?php
+$worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+$mrk = 1;
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  ?>
+  <script>
+  var myIcon = L.icon({
+            iconUrl: 'https://raw.githubusercontent.com/iconic/open-iconic/master/png/map-marker-8x.png',
+            iconSize: [32, 32],
+            iconAnchor: [16,32]
+        });
+  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>, {icon: myIcon}]).addTo(map);
+
+  marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['entry']; ?>");
+  </script>
+  <?php
+    $mrk = $mrk + 1;
+
+}
+ ?>
+<!-- <script>
+ var marker = L.marker([-233.356251, 87.868822]).addTo(map);
+ marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+</script> -->
 
 </div>
 </div>
