@@ -78,7 +78,7 @@ display:none;
          <h1 class="pagetitle">Edit Entry</h1>
        <div class="col-md-10 col-centered">
          <div class="col-sm-6 typebox col-centered" id="name">
-             <form method="post" action="editprocess.php" id="import" enctype="multipart/form-data">>
+             <form method="post" action="editprocess.php" id="import" enctype="multipart/form-data">
              <div class="text">Name</div><input class="textbox" style="text-align:center;" type="text" name="name" id="name" value="<?php echo $editrow['title']; ?>">
        </div>
        <!-- 'Type' Dropbox -->
@@ -369,7 +369,20 @@ display:none;
 
 
            <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body"><?php echo $editrow['body']; ?></textarea></div>
-
+           <div class="col-centered">
+             <?php
+              $jpgurl = 'uploads/'.$id.'.jpg';
+              $pngurl = 'uploads/'.$id.'.png';
+                if (file_exists($jpgurl)){
+                  ?>
+             <img src="uploads/<?php echo $id?>.jpg" style="width:100px;">
+             <?php
+           }
+           else if (file_exists($pngurl)){
+             ?>
+             <img src="uploads/<?php echo $id?>.jpg" style="width:100px;">
+           <?php } ?>
+           </div>
            <input class="col-centered" type="file" name="fileToUpload" id="fileToUpload">
 
 
