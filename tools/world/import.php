@@ -192,6 +192,9 @@ document.getElementById("npc-form").style.display = "none";
             </script>
           </p>
         </div>
+
+        <input class="col-centered" type="file" name="fileToUpload" id="fileToUpload">
+
 </div>
 
 <div id="est-form" style="display:none;">

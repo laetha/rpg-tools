@@ -37,6 +37,10 @@ $queststatus=htmlentities(trim(addslashes($queststatustemp)));
 $questfaction=htmlentities(trim(addslashes($questfactiontemp)));
 $questreward=htmlentities(trim(addslashes($questrewardtemp)));
 
+$temp = explode(".", $_FILES["fileToUpload"]["name"]);
+$newfilename = $name . '.' . end($temp);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename);
+
 //Execute the query
 $sql = "INSERT INTO world(title,type,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location,quest_status,quest_faction,quest_reward)
 				VALUES('$name','$type','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$esttype','$estlocation','$queststatus','$questfaction','$questreward')";

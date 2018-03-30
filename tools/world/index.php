@@ -38,15 +38,12 @@
           $sidebartype = $row['type'];
           $esttype = $row['est_type'];
           if ($sidebartype == "npc") {
+
             $jpgurl = 'uploads/'.$id.'.jpg';
             $pngurl = 'uploads/'.$id.'.png';
-            if (file_exists($jpgurl)){
-            echo ('<img style="float:right; height: 400px;" src="uploads/'.$id.'.jpg" />');
-          }
-          else if (file_exists($pngurl)){
-          echo ('<img style="float:right; height: 400px;" src="uploads/'.$id.'.png" />');
-        }
-            echo('Race: '.$row['npc_race'].'<br />');
+
+        ?><div class="col-md-8"><?php
+              echo('Race: '.$row['npc_race'].'<br />');
               echo('Establishment: '.$row['npc_est'].'<br />');
               echo('Location: '.$row['npc_location'].'<br />');
               echo('Faction: '.$row['npc_faction'].'<br />');
@@ -55,6 +52,19 @@
             }
 
           echo nl2br($row['body']);
+          ?></div><?php
+
+          if (file_exists($jpgurl)){
+            echo('<div class="col-md-4">');
+          echo ('<img class="npcimg" src="uploads/'.$id.'.jpg" />');
+          echo('</div>');
+        }
+
+        else if (file_exists($pngurl)){
+          echo('<div class="col-md-4">');
+        echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
+        echo('</div>');
+      }
         }
       ?>
       </div>

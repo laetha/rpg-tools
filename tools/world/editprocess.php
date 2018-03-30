@@ -38,6 +38,16 @@ $queststatus=htmlentities(trim(addslashes($queststatustemp)));
 $questfaction=htmlentities(trim(addslashes($questfactiontemp)));
 $questreward=htmlentities(trim(addslashes($questrewardtemp)));
 
+/*
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+*/
+$temp = explode(".", $_FILES["fileToUpload"]["name"]);
+$newfilename = $name . '.' . end($temp);
+move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename);
+
 //Execute the query
 $sql = "UPDATE world
 SET title = '$name', type = '$type', body = '$body', npc_race = '$npcrace', npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction', npc_est = '$npcest', est_type = '$esttype', est_location = '$estlocation', quest_status = '$queststatus', quest_faction = '$questfaction', quest_reward = '$questreward'

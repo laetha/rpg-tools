@@ -78,7 +78,7 @@ display:none;
          <h1 class="pagetitle">Edit Entry</h1>
        <div class="col-md-10 col-centered">
          <div class="col-sm-6 typebox col-centered" id="name">
-             <form method="post" action="editprocess.php" id="import">
+             <form method="post" action="editprocess.php" id="import" enctype="multipart/form-data">>
              <div class="text">Name</div><input class="textbox" style="text-align:center;" type="text" name="name" id="name" value="<?php echo $editrow['title']; ?>">
        </div>
        <!-- 'Type' Dropbox -->
@@ -369,6 +369,9 @@ display:none;
 
 
            <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body"><?php echo $editrow['body']; ?></textarea></div>
+
+           <input class="col-centered" type="file" name="fileToUpload" id="fileToUpload">
+
 
        <div class="col-centered">
        <input class="btn btn-primary col-centered inline" type="submit" value="Save">
