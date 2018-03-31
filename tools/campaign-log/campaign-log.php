@@ -16,7 +16,16 @@
 <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js" type="text/javascript"></script>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.1/dist/leaflet.css"
+integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+crossorigin=""/>
+<!-- Make sure you put this AFTER Leaflet's CSS -->
+<script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
+integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
+crossorigin=""></script>
+
 <div class="mainbox col-md-10 col-xs-12 col-centered">
+
   <div class="pagetitle col-xs-12">Campaign Log</div>
     <!-- Add to Log -->
     <p><button class="btn btn-info" id="addbutton">Add to Log</button></p>
@@ -24,11 +33,99 @@
       <div class="row">
       <form method="post" action="logprocess.php" id="logadd">
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
-        <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
-        <div class="col-md-8" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
+        <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
+        <div class="col-md-7" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
+<!-- MAP -->
+
+<style>
+#image-map {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+</style>
+
+<div id="image-map"></div>
+<script>
+// Using leaflet.js to pan and zoom a big image.
+// See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+
+// create the slippy map
+var map = L.map('image-map', {
+minZoom: 1,
+maxZoom: 4,
+center: [0, 0],
+zoom: 1,
+crs: L.CRS.Simple
+});
+
+// dimensions of the image
+var w = 5040,
+h = 3308,
+url = '/assets/images/Starting-Region.jpg';
+
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
+
+// add the image overlay,
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
+
+// tell leaflet that the map is exactly as big as the image
+map.setMaxBounds(bounds);
+
+var popup = L.popup();
+
+function onMapClick(e) {
+popup
+.setLatLng(e.latlng)
+.setContent("You clicked the map at " + e.latlng.toString())
+.openOn(map);
+var newCoord = e.latlng.toString();
+newCoord = newCoord.replace(/LatLng/g, "");
+  newCoord = newCoord.replace(/[{()}]/g, '');
+document.getElementById("logcoord").value = newCoord;
+//.openOn(map);
+}
+
+map.on('click', onMapClick);
+
+</script>
+<?php
+$worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+$mrk = 1;
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+?>
+<script>
+var myIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/iconic/open-iconic/master/png/map-marker-8x.png',
+    iconSize: [32, 32],
+    iconAnchor: [16,32]
+});
+var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>, {icon: myIcon}]).addTo(map);
+
+marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['entry']; ?>");
+</script>
+<?php
+$mrk = $mrk + 1;
+
+}
+?>
+<!-- <script>
+var marker = L.marker([-233.356251, 87.868822]).addTo(map);
+marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+</script> -->
+
+
+<!-- END MAP -->
+
   </div>
   <script>
   $(document).ready(function addLog(){
