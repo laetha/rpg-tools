@@ -164,7 +164,7 @@ marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
           echo ($row['date'].'</td>');
           echo ('<td><button type="button" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" data-toggle="modal" data-target="#deleteModal'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button></td>');
           echo ('<td><button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#editModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button></td>');
-          echo ('<td>'.$row['coord'].'</td>');
+          echo ('<td><a href="/tools/world/map.php#image-map" data-zoom="12" data-position="'.$row['coord'].'">'.$row['coord'].'</a></td>');
 
           echo ('<td>'.$row['entry'].'</td>');
           echo ('</tr>');

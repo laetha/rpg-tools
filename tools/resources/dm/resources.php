@@ -18,6 +18,11 @@ include_once($headpath);
         <a href="http://homebrewery.naturalcrit.com/share/HkMxFdZY" target="_blank"><p>A Guide to Magical Tattoos</p></a>
 
       </div>
+
+      <div class="tocitem col-md-3 col-centered" style="margin-top: 50px;">
+        <a href="/tools/world/map.php" target="_blank"><p>World Map</p></a>
+
+      </div>
   </div>
 </div>
 
