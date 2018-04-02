@@ -1,3 +1,9 @@
+<?php
+$sqlpath = $_SERVER['DOCUMENT_ROOT'];
+$sqlpath .= "/plugins/Parsedown.php";
+include_once($sqlpath);
+ ?>
+ <?php  $Parsedown = new Parsedown(); ?>
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 <link href="/tools/compendium/statblock.css" rel="stylesheet" type="text/css">
@@ -63,7 +69,7 @@
               $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
               while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
                echo ('<h3>'.$row['name'].'</h3>');
-               echo ('<p>'.$row['text'].'</p>');
+               echo ('<p>'.$Parsedown->text(nl2br($row['text'])).'</p>');
 
             }
             ?> </div>
@@ -72,7 +78,7 @@
               $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
               while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
                echo ('<h3>'.$row['name'].'</h3>');
-               echo ('<p>'.nl2br($row['text']).'</p>');
+               echo ('<p>'.$Parsedown->text(nl2br($row['text'])).'</p>');
                echo ('<div style="margin-top:70px;"></div>');
 
             }
@@ -662,7 +668,7 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
           echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
         }
           if(isset($subrow[$skilltext])){
-            echo nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>');
+            echo $Parsedown->text(nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>'));
           }
       }
 

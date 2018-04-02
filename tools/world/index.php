@@ -1,3 +1,10 @@
+<?php
+$sqlpath = $_SERVER['DOCUMENT_ROOT'];
+$sqlpath .= "/plugins/Parsedown.php";
+include_once($sqlpath);
+ ?>
+ <?php  $Parsedown = new Parsedown(); ?>
+
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
@@ -51,8 +58,9 @@
 
             }
 
-          echo nl2br($row['body']);
+          echo $Parsedown->text(nl2br($row['body']));
           ?></div><?php
+          if ($sidebartype == "npc") {
 
           if (file_exists($jpgurl)){
             echo('<div class="col-md-4">');
@@ -65,9 +73,12 @@
         echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
         echo('</div>');
       }
+          echo ('</div>');
+    }
+
         }
       ?>
-      </div>
+
       <p>
       <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
