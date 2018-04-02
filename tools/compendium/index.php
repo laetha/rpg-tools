@@ -668,7 +668,9 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
           echo nl2br('<h3>'.$subrow[$skillname].'</h3>');
         }
           if(isset($subrow[$skilltext])){
-            echo $Parsedown->text(nl2br('<p class="subentry">'.$subrow[$skilltext].'</p>'));
+            echo ('<p class="subentry">');
+            echo $Parsedown->text($subrow[$skilltext]);
+            echo ('</p>');
           }
       }
 
