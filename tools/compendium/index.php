@@ -24,7 +24,7 @@ include_once($sqlpath);
 </div>
 
 <div class="nav sidebartext col-md-12">
-<a href="/index.php">Home</a>  &rarr; <a href="/tools/compendium/compendium.php">Compendium</a> &rarr;  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
+<a href="/index.php">Home</a>  <?php echo ('&rarr;'); ?> <a href="/tools/compendium/compendium.php">Compendium</a> <?php echo ('&rarr;'); ?>  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
 </div>
 <?php
 }
@@ -72,7 +72,9 @@ include_once($sqlpath);
                echo ('<p>'.$Parsedown->text(nl2br($row['text'])).'</p>');
 
             }
-            ?> </div>
+          ?>
+        </div>
+
             <div id="disctable" style="display:none;" class="sidebartext mystic">
             <?php  $worldtitle = "SELECT * FROM `mysticabilities` WHERE `type` LIKE 'discipline'";
               $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -85,6 +87,119 @@ include_once($sqlpath);
             ?> </div> <?php
           }
               ?>
+              <?php  if ($id == "Fighter") {?>
+                  <button class="btn btn-primary" id="EKButton">Eldritch Knight Table</button>
+                  <div class="table-responsive" id="EKTable" style="display:none;">
+                    <form method="post" action="logprocess.php" id="logadd">
+                      <table class="table table-striped table-condensed">
+            <thead>
+            <?php
+                    echo ('<tr>');
+                    echo('<th>Level</th>');
+                    echo('<th>Cantrips</th>');
+                    echo('<th>Spells Known</th>');
+                    echo('<th>1st</th>');
+                    echo('<th>2nd</th>');
+                    echo('<th>3rd</th>');
+                    echo('<th>4th</th>');
+                    echo('</tr>');
+                  echo('</thead>');
+                  echo('<tbody>');
+
+
+                  $classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE 'Knight'";
+                  $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+                  while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+                    echo ('<tr><td>'.$classtablerow['level'].'</td>');
+                    echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+                    echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+                    echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+                    echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+                    echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+                    echo ('<td>'.$classtablerow['spelllvl6'].'</td></tr>');
+                    }
+                    ?>
+                  </tbody>
+                </table>
+                          </form>
+                        </div>
+                      <?php } ?>
+
+                      <?php  if ($id == "Rogue") {?>
+                          <button class="btn btn-primary" id="TricksterButton">Arcane Trickster Table</button>
+                          <div class="table-responsive" id="TricksterTable" style="display:none;">
+                            <form method="post" action="logprocess.php" id="logadd">
+                              <table class="table table-striped table-condensed">
+                    <thead>
+                    <?php
+                            echo ('<tr>');
+                            echo('<th>Level</th>');
+                            echo('<th>Cantrips</th>');
+                            echo('<th>Spells Known</th>');
+                            echo('<th>1st</th>');
+                            echo('<th>2nd</th>');
+                            echo('<th>3rd</th>');
+                            echo('<th>4th</th>');
+                            echo('</tr>');
+                          echo('</thead>');
+                          echo('<tbody>');
+
+
+                          $classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE 'Trickster'";
+                          $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+                          while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+                            echo ('<tr><td>'.$classtablerow['level'].'</td>');
+                            echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+                            echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+                            echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+                            echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+                            echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
+                            echo ('<td>'.$classtablerow['spelllvl6'].'</td></tr>');
+                            }
+                            ?>
+                          </tbody>
+                        </table>
+                                  </form>
+                                </div>
+                              <?php } ?>
+
+                              <?php  if ($id == "Blood Hunter") {?>
+                                  <button class="btn btn-primary" id="ProfaneButton">Profane Soul Table</button>
+                                  <div class="table-responsive" id="ProfaneTable" style="display:none;">
+                                    <form method="post" action="logprocess.php" id="logadd">
+                                      <table class="table table-striped table-condensed">
+                            <thead>
+                            <?php
+                                    echo ('<tr>');
+                                    echo('<th>Level</th>');
+                                    echo('<th>Cantrips</th>');
+                                    echo('<th>Spells Known</th>');
+                                    echo('<th>Spell Slots</th>');
+                                    echo('<th>Slot Level</th>');
+                                    echo('</tr>');
+                                  echo('</thead>');
+                                  echo('<tbody>');
+
+
+                                  $classtabletitle = "SELECT * FROM `classtable` WHERE class LIKE 'Profane'";
+                                  $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
+                                  while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
+
+                                    echo ('<tr><td>'.$classtablerow['level'].'</td>');
+                                    echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+                                    echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+                                    echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
+                                    echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
+
+                                    }
+                                    ?>
+                                  </tbody>
+                                </table>
+                                          </form>
+                                        </div>
+                                      <?php } ?>
 
           <div class="table-responsive" id="classtable" style="display:none;">
             <form method="post" action="logprocess.php" id="logadd">
@@ -634,6 +749,27 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
         });
         </script>
         <script>
+        $(document).ready(function talentLog(){
+            $("#EKButton").click(function addLog(){
+                $("#EKTable").slideToggle("slow");
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function talentLog(){
+            $("#TricksterButton").click(function addLog(){
+                $("#TricksterTable").slideToggle("slow");
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function talentLog(){
+            $("#ProfaneButton").click(function addLog(){
+                $("#ProfaneTable").slideToggle("slow");
+            });
+        });
+        </script>
+        <script>
         $(document).ready(function discLog(){
             $("#discbutton").click(function addLog(){
                 $("#disctable").slideToggle("slow");
@@ -649,6 +785,7 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
                 $subtemp1 = $subrow['name'];
                 if (strpos($subrow['name'], ' core') !== false){
                 $subtemp1 = 'Core '.$id;
+                echo ('<strong>Saving Throw Proficiencies:</strong> '.$subrow['saves']);
                 }
                 $subslashes1 = str_replace(' ', '_', $subtemp1);
                 echo ('<div class="tab-pane fade');
