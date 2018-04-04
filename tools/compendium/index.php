@@ -39,7 +39,7 @@ include_once($sqlpath);
           //echo ('<h2>'.ucwords($row['type']).'</h2>');
           $type = $row['type'];
           if($type == 'background'){
-            echo nl2br('<div class="sidebartext">'.$row['backgroundTraits'].'</div>');
+            echo nl2br('<div class="sidebartext">'.$Parsedown->text($row['backgroundTraits'].'</div>'));
             $sidebartype = $row['type'];
           }
           elseif($type == 'class'){
