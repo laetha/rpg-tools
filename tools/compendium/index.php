@@ -59,6 +59,26 @@ include_once($sqlpath);
           </ul>
 
           <p><button class="btn btn-info" id="classbutton">Show Class Table</button>
+
+            <?php if($id == "Warlock") { ?>
+
+            <button class="btn btn-primary" id="warlockbutton">All Invocations</button>
+
+            <div id="warlocktable" style="display:none;" class="sidebartext mystic">
+            <?php  $worldtitle = "SELECT * FROM `spells` WHERE `title` LIKE '%Invocation:%'";
+              $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+              while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+               echo ('<h3>'.$row['title'].'</h3>');
+               echo ('<p>'.$Parsedown->text(nl2br($row['text'])).'</p>');
+
+            }
+          ?>
+          </div>
+          <?php
+          }
+              ?>
+
+
             <?php if($id == "Mystic") { ?>
 
             <button class="btn btn-primary" id="talentbutton">Talents</button>
@@ -773,6 +793,13 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
         $(document).ready(function discLog(){
             $("#discbutton").click(function addLog(){
                 $("#disctable").slideToggle("slow");
+            });
+        });
+        </script>
+        <script>
+        $(document).ready(function discLog(){
+            $("#warlockbutton").click(function addLog(){
+                $("#warlocktable").slideToggle("slow");
             });
         });
         </script>
