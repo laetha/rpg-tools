@@ -78,6 +78,24 @@ include_once($sqlpath);
           }
               ?>
 
+              <?php if($id == "Monk") { ?>
+
+              <button class="btn btn-primary" id="monkbutton">Way of the Four Elements Spells</button>
+
+              <div id="monktable" style="display:none;" class="sidebartext mystic">
+              <?php  $worldtitle = "SELECT * FROM `spells` WHERE `classes` LIKE '%Monk%'";
+                $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+                while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+                 echo ('<h3>'.$row['title'].'</h3>');
+                 echo ('<p>'.$Parsedown->text(nl2br($row['text'])).'</p>');
+
+              }
+            ?>
+            </div>
+            <?php
+            }
+                ?>
+
 
             <?php if($id == "Mystic") { ?>
 
@@ -803,6 +821,13 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
             });
         });
         </script>
+        <script>
+        $(document).ready(function discLog(){
+            $("#monkbutton").click(function addLog(){
+                $("#monktable").slideToggle("slow");
+            });
+        });
+        </script>
 
           <div class="tab-content">
             <?php
@@ -812,7 +837,6 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
                 $subtemp1 = $subrow['name'];
                 if (strpos($subrow['name'], ' core') !== false){
                 $subtemp1 = 'Core '.$id;
-                echo ('<strong>Saving Throw Proficiencies:</strong> '.$subrow['saves']);
                 }
                 $subslashes1 = str_replace(' ', '_', $subtemp1);
                 echo ('<div class="tab-pane fade');
@@ -823,6 +847,9 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
               echo ('<h2>'.$subtemp1.'</h2>');
               echo ('<h4>'.$subrow['source'].'</h4>');
+              if (strpos($subrow['name'], ' core') !== false){
+              echo ('<strong>Saving Throw Proficiencies:</strong> '.$subrow['saves']);
+              }
 
 
           for ($counter = 1; $counter <= 19; $counter++) {
