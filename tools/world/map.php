@@ -70,7 +70,7 @@ L.imageOverlay(url, bounds).addTo(map);
 
 // tell leaflet that the map is exactly as big as the image
 map.setMaxBounds(bounds);
-
+map.setView(new L.LatLng(-220.925003, 103.017123), 3);
 var popup = L.popup();
 
 /*function onMapClick(e) {
