@@ -14,7 +14,7 @@ include_once($headpath);
   <h1 class="pagetitle">Add to World</h1>
 <div class="col-md-10 col-centered">
   <div class="col-sm-6 typebox col-centered" id="name">
-      <form method="post" action="process.php" id="import">
+      <form method="post" action="process.php" id="import" enctype="multipart/form-data">
       <div class="text">Name</div><input class="textbox" type="text" name="name" id="name" placeholder="Name...">
 </div>
 <!-- 'Type' Dropbox -->
@@ -193,7 +193,7 @@ document.getElementById("npc-form").style.display = "none";
           </p>
         </div>
 
-        <input class="col-centered" type="file" name="fileToUpload" id="fileToUpload">
+        <input class="col-centered" type="file" name="fileToUpload1" id="fileToUpload1">
 
 </div>
 

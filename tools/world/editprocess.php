@@ -38,12 +38,7 @@ $queststatus=htmlentities(trim(addslashes($queststatustemp)));
 $questfaction=htmlentities(trim(addslashes($questfactiontemp)));
 $questreward=htmlentities(trim(addslashes($questrewardtemp)));
 
-/*
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
-$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-*/
+
 $temp = explode(".", $_FILES["fileToUpload"]["name"]);
 $newfilename = $name . '.' . end($temp);
 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename);
