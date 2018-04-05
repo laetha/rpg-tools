@@ -28,7 +28,6 @@ include_once($sqlpath);
  </div>
  </div>
  <div class="nav sidebartext col-md-12">
- <a href="/index.php">Home</a>  &rarr; <a href="/tools/world/world.php">World Building</a> &rarr;  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
 
  </div>
  <?php
@@ -96,7 +95,7 @@ else
           echo('<div class="col-md-4">');
           echo ('<div class="npcimg-container">');
         echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
-        echo('</div>'); ?>
+      ?>
         <form method="post">
           <select name="photoname" id="photoname" style="display:none;" required="yes">
             <option id="tmptype" value="<?php echo $id; ?>.png" selected></option>
@@ -124,9 +123,9 @@ else
     }
     }
 
-        }
+  }
       ?>
-
+</div>
       <p>
       <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
