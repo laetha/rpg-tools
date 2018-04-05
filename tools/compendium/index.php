@@ -909,7 +909,7 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
             echo ('<strong>Speed: </strong>'.ucwords($row['raceSpeed']).'<br />');
             echo ('<strong>Bonus Abilities: </strong>'.ucwords($row['raceAbility']).'<br />');
             echo ('<strong>Spellcasting Ability: </strong>'.ucwords($row['raceSpellAbility']).'<p></p>');
-            echo nl2br('<div class="sidebartext">'.$row['raceTraits'].'</div>');
+            echo nl2br('<div class="sidebartext">'.$Parsedown->text($row['raceTraits'].'</div>'));
             $sidebartype = $row['type'];
           }
           elseif($type == 'spell'){

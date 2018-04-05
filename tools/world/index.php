@@ -64,16 +64,62 @@ include_once($sqlpath);
 
           if (file_exists($jpgurl)){
             echo('<div class="col-md-4">');
-          echo ('<img class="npcimg" src="uploads/'.$id.'.jpg" />');
-          echo('</div>');
+            echo ('<div class="npcimg-container">');
+          echo ('<img class="npcimg" src="uploads/'.$id.'.jpg" />'); ?>
+          <form method="post">
+            <select name="photoname" id="photoname" style="display:none;" required="yes">
+              <option id="tmptype" value="<?php echo $id; ?>.jpg" selected></option>
+              </select>
+          <input class="btn btn-danger" type="submit" name="submit" value="X">
+        </form>
+      </div>
+          </div>
+
+
+<?php
+if (isset($_POST['submit']))
+{
+$photoname = 'uploads/'.$_POST['photoname'];
+if (!unlink($photoname))
+  {
+  echo ("Error deleting $photoname");
+  }
+else
+  {
+  echo ("Deleted $photoname");
+  }
+}
+
         }
 
         else if (file_exists($pngurl)){
           echo('<div class="col-md-4">');
         echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
-        echo('</div>');
-      }
+        echo('</div>'); ?>
+        <form method="post">
+          <select name="photoname" id="photoname" style="display:none;" required="yes">
+            <option id="tmptype" value="<?php echo $id; ?>.png" selected></option>
+            </select>
+        <input type="submit" name="submit" value="Delete">
+        </form>
           echo ('</div>');
+
+
+
+<?php
+if (isset($_POST['submit']))
+{
+$photoname = 'uploads/'.$_POST['photoname'];
+if (!unlink($photoname))
+  {
+  echo ("Error deleting $photoname");
+  }
+else
+  {
+  echo ("Deleted $photoname");
+  }
+}
+    }
     }
 
         }

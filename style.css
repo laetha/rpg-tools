@@ -463,3 +463,14 @@ height: 500px;
 strong {
 	color: #779DC7;
 }
+
+.npcimg-container {
+  position: relative;
+  width: 100%;
+}
+
+.npcimg-container .btn {
+  position: absolute;
+  bottom: 9%;
+  left: 85%;
+}
