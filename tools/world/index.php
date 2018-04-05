@@ -94,15 +94,17 @@ else
 
         else if (file_exists($pngurl)){
           echo('<div class="col-md-4">');
+          echo ('<div class="npcimg-container">');
         echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
         echo('</div>'); ?>
         <form method="post">
           <select name="photoname" id="photoname" style="display:none;" required="yes">
             <option id="tmptype" value="<?php echo $id; ?>.png" selected></option>
             </select>
-        <input type="submit" name="submit" value="Delete">
+            <input class="btn btn-danger" type="submit" name="submit" value="X">
         </form>
-          echo ('</div>');
+          </div>
+        </div>
 
 
 
