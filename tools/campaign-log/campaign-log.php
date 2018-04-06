@@ -34,7 +34,8 @@ crossorigin=""></script>
       <form method="post" action="logprocess.php" id="logadd">
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
         <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
-        <div class="col-md-7" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
+        <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
+        <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?</div>
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
@@ -72,6 +73,8 @@ url = '/assets/images/Starting-Region.jpg';
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);
 var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
 var bounds = new L.LatLngBounds(southWest, northEast);
+map.setView(new L.LatLng(-220.925003, 103.017123), 3);
+
 
 // add the image overlay,
 // so that it covers the entire map
@@ -284,8 +287,21 @@ minZoom: 1,
 maxZoom: 4,
 center: [0, 0],
 zoom: 1,
-crs: L.CRS.Simple
+crs: L.CRS.Simple,
+scrollWheelZoom:'center'
+
 });
+var mapFeatures = L.layerGroup();
+var mapLog = L.layerGroup();
+
+var overlayMaps = {
+  "Map Feautures": mapFeatures,
+  "Campaign Log": mapLog
+
+};
+
+L.control.layers(null, overlayMaps).addTo(map);
+
 
 // dimensions of the image
 var w = 5040,
@@ -304,7 +320,6 @@ L.imageOverlay(url, bounds).addTo(map);
 // tell leaflet that the map is exactly as big as the image
 map.setMaxBounds(bounds);
 map.setView(new L.LatLng(-220.925003, 103.017123), 3);
-
 var popup = L.popup();
 
 /*function onMapClick(e) {
@@ -324,17 +339,35 @@ $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 ?>
 <script>
-var myIcon = L.icon({
-          iconUrl: 'https://raw.githubusercontent.com/iconic/open-iconic/master/png/map-marker-8x.png',
-          iconSize: [32, 32],
-          iconAnchor: [16,32]
-      });
-var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>, {icon: myIcon}]).addTo(map);
-
-marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['entry']; ?>");
+var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
+var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-blue.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+marker<?php echo $mrk; ?>.addTo(mapLog);
 </script>
 <?php
   $mrk = $mrk + 1;
+
+}
+?>
+
+<?php
+$worldtitle = "SELECT * FROM mapfeatures";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+$mrk = 1;
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+ ?>
+ <script>
+ var bmarkerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
+ var bpinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+ var bpin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-red.png", iconAnchor<?php echo $mrk; ?>: bpinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+ var bmarker<?php echo $mrk; ?> = new L.marker(bmarkerPos<?php echo $mrk; ?>, { icon: bpin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['text']; ?>");
+//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['text']; ?>");
+ bmarker<?php echo $mrk; ?>.addTo(mapFeatures);
+ </script>
+ <?php
+   $mrk = $mrk + 1;
 
 }
 ?>
