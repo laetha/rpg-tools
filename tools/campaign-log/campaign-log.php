@@ -332,6 +332,70 @@ var popup = L.popup();
 map.on('click', onMapClick);*/
 
 </script>
+
+<div class="sidebartext">
+  <a href="/tools/world/generator.php" target=""><button class="btn btn-primary">Generate More Encounters</button></a>
+  <a href="/tools/world/gendelete.php" target=""><button class="btn btn-danger">Clear Current Table</button></a>
+  <table id="generator" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+          <thead class="thead-dark">
+              <tr>
+                  <th scope="col">Type</th>
+                  <th scope="col">Text</th>
+                  <th scope="col">Text2</th>
+              </tr>
+
+          </thead>
+          <tfoot>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Text</th>
+                <th scope="col">Text2</th>
+            </tr>
+          </tfoot>
+          <tbody>
+<?php
+$sqlworld = "SELECT * FROM savedencounters LIMIT 20";
+$worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+while($row = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+  echo ('<tr><td>'.$row['type'].'</td>');
+  echo ('<td>'.$row['text1'].'</td>');
+  echo ('<td>'.$row['text2'].'</td></tr>');
+}
+
+?>
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+   // Setup - add a text input to each footer cell
+   $('#generator tfoot th').each( function () {
+       var title = $(this).text();
+       $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+   } );
+
+   // DataTable
+   var table = $('#generator').DataTable(
+         "bSort": false
+   );
+
+   // Apply the search
+   table.columns().every( function () {
+       var that = this;
+
+       $( 'input', this.footer() ).on( 'keyup change', function () {
+           if ( that.search() !== this.value ) {
+               that
+                   .search( this.value )
+                   .draw();
+           }
+       } );
+   } );
+} );
+</script>
+
+</div>
+
+
 <?php
 $worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -375,6 +439,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 var marker = L.marker([-233.356251, 87.868822]).addTo(map);
 marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 </script> -->
+
 
 </div>
 
