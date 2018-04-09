@@ -603,6 +603,38 @@ $found2 = 0;
    if ($type == 'Remarkable Event' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'remarkableevent') {
      $found2 = 1;
      $text1 = $row['text'];
+
+     if ($rand2 >= 15 && $rand2 <= 19) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'glowingpillar') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 20 && $rand2 <= 24) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'blacktree') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+
    }
  }
 
