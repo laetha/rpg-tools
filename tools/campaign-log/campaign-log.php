@@ -31,11 +31,14 @@ crossorigin=""></script>
     <p><button class="btn btn-info" id="addbutton">Add to Log</button></p>
     <div id="adddiv" style="display:none;">
       <div class="row">
+        <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
+          <button class="btn btn-primary" onclick="myGen()">Gen</button></div>
+
       <form method="post" action="logprocess.php" id="logadd">
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
         <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
         <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
-        <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?</div>
+
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
@@ -435,10 +438,6 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
 }
 ?>
-<!-- <script>
-var marker = L.marker([-233.356251, 87.868822]).addTo(map);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-</script> -->
 
 
 </div>
@@ -448,6 +447,128 @@ marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
 </div>
 
 
+<!-- Map Gen -->
+
+<?php
+$rand1 = rand(0,99);
+$type = '';
+$text1 = '';
+$text2 = '';
+$foundOverall = 0;
+$found2 = 0;
+
+?>
+ <?php
+ $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+ $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+ while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+   if ($rand1 <= $row['num'] && $foundOverall == 0 && $row['type'] == 'overallpre') {
+      $foundOverall = 1;
+      $type = $row['text'];
+      $rand2 = rand(0,99);
+   }
+
+
+}
+
+ $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+ $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+ while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+   if ($type == 'lair' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'lair') {
+       $found2 = 1;
+     $text1 = $row['text'];
+   }
+   if ($type == 'Remote Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'remotestructure') {
+     $found2 = 1;
+     $text1 = $row['text'];
+
+     if ($rand2 >= 0 && $rand2 <= 9) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'singlehouse') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 50 && $rand2 <= 54) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'tower') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 63 && $rand2 <= 65) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'woodenpole') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 79 && $rand2 <= 82) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'workingmine') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+   }
+
+
+   if ($type == 'Ruined Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'ruinedstructure') {
+     $found2 = 1;
+     $text1 = $row['text'];
+   }
+
+   if ($type == 'Natural Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'naturalstructure') {
+     $found2 = 1;
+     $text1 = $row['text'];
+   }
+
+   if ($type == 'Remarkable Event' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'remarkableevent') {
+     $found2 = 1;
+     $text1 = $row['text'];
+   }
+ }
+
+$mapgen = $type.' :: '. $text1.' :: '.$text2;
+
+?>
+<script>
+function myGen() {
+  document.getElementById("logentry").value = '<?php echo $mapgen; ?>';
+}
+</script>
 <?php
 //Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
