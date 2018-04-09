@@ -31,14 +31,12 @@ crossorigin=""></script>
     <p><button class="btn btn-info" id="addbutton">Add to Log</button></p>
     <div id="adddiv" style="display:none;">
       <div class="row">
-        <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
-          <button class="btn btn-primary" onclick="myGen()">Gen</button></div>
-
       <form method="post" action="logprocess.php" id="logadd">
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
         <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
         <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
-
+        <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
+          <button type="button" class="btn btn-primary" onclick="myGen()">Gen</button></div>
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
