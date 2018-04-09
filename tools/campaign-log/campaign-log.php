@@ -477,7 +477,54 @@ $found2 = 0;
    if ($type == 'lair' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'lair') {
        $found2 = 1;
      $text1 = $row['text'];
+
+     if ($rand2 >= 0 && $rand2 <= 64) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'commonlair') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+    else if ($rand2 >= 65 && $rand2 <= 94) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'uncommonlair') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 95 && $rand2 <= 99) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'legendarylair') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
    }
+
    if ($type == 'Remote Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'remotestructure') {
      $found2 = 1;
      $text1 = $row['text'];
