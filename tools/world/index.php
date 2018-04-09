@@ -121,11 +121,12 @@ else
   }
 }
     }
+    echo ('</div>');
     }
 
   }
       ?>
-</div>
+
       <p>
       <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
@@ -578,52 +579,8 @@ if ($esttype == "general store") {
 
   ?>
   </div>
-<!-- Search and add hyperlinks -->
-  <?php
-    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '$id'";
-    $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
-    while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
-    $temp = $linkrow['title'];
-    ?>
-    <script>
-    var foundlink = "<?php echo $temp ?>";
-    function replace (querytext){
-      var bodytext = document.getElementById("body").innerHTML;
-      //var pgtitle = document.getElementById("pgtitle").innerHTML;
-      var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
-      var regex = new RegExp(querytext, 'ig');
-      var newtext = bodytext.replace(regex, url)
-      document.getElementById("body").innerHTML = newtext;
-    }
-    replace(foundlink);
 
-    </script>
-    <?php
-  }
-  ?>
-  <!-- Search and add hyperlinks -->
-    <?php
-      $sqlworld = "SELECT title FROM world";
-      $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
-      while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
-      $temp = $linkrow['title'];
-      ?>
-      <script>
-      var foundlink = "<?php echo $temp ?>";
-      function replace (querytext){
-        var bodytext = document.getElementById("body2").innerHTML;
-        var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
-        var regex = new RegExp(querytext, 'ig');
-        var newtext = bodytext.replace(regex, url)
-        document.getElementById("body2").innerHTML = newtext;
-      }
-      replace(foundlink);
-
-      </script>
-      <?php
-    }
-    ?>
-
+</div>
     <script>
 
     $(document).ready(function() {
@@ -815,7 +772,7 @@ trigger: 'focus'
 });
 </script>
 
-</div>
+
 
 
 
@@ -844,3 +801,50 @@ trigger: 'focus'
   </div>
 </div>
 </div>
+
+
+<!-- Search and add hyperlinks -->
+  <?php
+    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '$id'";
+    $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+    while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+    $temp = $linkrow['title'];
+    ?>
+    <script>
+    var foundlink = "<?php echo $temp ?>";
+    function replace (querytext){
+      var bodytext = document.getElementById("body").innerHTML;
+      //var pgtitle = document.getElementById("pgtitle").innerHTML;
+      var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+      var regex = new RegExp(querytext, 'ig');
+      var newtext = bodytext.replace(regex, url)
+      document.getElementById("body").innerHTML = newtext;
+    }
+    replace(foundlink);
+
+    </script>
+    <?php
+  }
+  ?>
+  <!-- Search and add hyperlinks -->
+    <?php
+      $sqlworld = "SELECT title FROM world";
+      $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+      while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+      $temp = $linkrow['title'];
+      ?>
+      <script>
+      var foundlink = "<?php echo $temp ?>";
+      function replace (querytext){
+        var bodytext = document.getElementById("body2").innerHTML;
+        var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+        var regex = new RegExp(querytext, 'ig');
+        var newtext = bodytext.replace(regex, url)
+        document.getElementById("body2").innerHTML = newtext;
+      }
+      replace(foundlink);
+
+      </script>
+      <?php
+    }
+    ?>
