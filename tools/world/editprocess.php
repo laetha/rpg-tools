@@ -24,6 +24,7 @@ $queststatustemp=$_POST['quest-status'];
 $questfactiontemp=$_POST['quest-faction'];
 $questrewardtemp=$_POST['quest-reward'];
 $esttypetemp=$_POST['est-type'];
+$coordtemp=$_POST['coord'];
 $name=htmlentities(trim(addslashes($nametemp)));
 $type=htmlentities(trim(addslashes($typetemp)));
 $body=htmlentities(trim(addslashes($bodytemp)));
@@ -37,6 +38,7 @@ $esttype=htmlentities(trim(addslashes($esttypetemp)));
 $queststatus=htmlentities(trim(addslashes($queststatustemp)));
 $questfaction=htmlentities(trim(addslashes($questfactiontemp)));
 $questreward=htmlentities(trim(addslashes($questrewardtemp)));
+$coord=htmlentities(trim(addslashes($coordtemp)));
 
 
 $temp = explode(".", $_FILES["fileToUpload"]["name"]);
@@ -45,7 +47,7 @@ move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilenam
 
 //Execute the query
 $sql = "UPDATE world
-SET title = '$name', type = '$type', body = '$body', npc_race = '$npcrace', npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction', npc_est = '$npcest', est_type = '$esttype', est_location = '$estlocation', quest_status = '$queststatus', quest_faction = '$questfaction', quest_reward = '$questreward'
+SET title = '$name', type = '$type', body = '$body', npc_race = '$npcrace', npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction', npc_est = '$npcest', est_type = '$esttype', est_location = '$estlocation', quest_status = '$queststatus', quest_faction = '$questfaction', quest_reward = '$questreward', coord = '$coord'
 WHERE id = $id;";
 
         if ($dbcon->query($sql) === TRUE) {

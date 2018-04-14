@@ -294,6 +294,108 @@ document.getElementById("npc-form").style.display = "none";
 
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
 
+    <div id="map" style="display:none;">
+
+    <div class="text">Coord</div><input class="textbox" style="text-align:center;" type="text" name="coord" id="coord" value="<?php echo $editrow['coord']; ?>">
+
+               <style>
+               #image-map {
+                 width: 100%;
+                 height: 600px;
+                 border: 1px solid #ccc;
+                 margin-bottom: 10px;
+               }
+               </style>
+
+               <div id="image-map"></div>
+               <script>
+               // Using leaflet.js to pan and zoom a big image.
+               // See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+
+               // create the slippy map
+               var map = L.map('image-map', {
+               minZoom: 1,
+               maxZoom: 4,
+               center: [0, 0],
+               zoom: 1,
+               crs: L.CRS.Simple
+               });
+
+               // dimensions of the image
+               var w = 5040,
+               h = 3308,
+               url = '/assets/images/Starting-Region.jpg';
+
+               // calculate the edges of the image, in coordinate space
+               var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+               var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+               var bounds = new L.LatLngBounds(southWest, northEast);
+               map.setView(new L.LatLng(-220.925003, 103.017123), 3);
+
+
+               // add the image overlay,
+               // so that it covers the entire map
+               L.imageOverlay(url, bounds).addTo(map);
+
+               // tell leaflet that the map is exactly as big as the image
+               map.setMaxBounds(bounds);
+
+               var popup = L.popup();
+
+               function onMapClick(e) {
+               popup
+               .setLatLng(e.latlng)
+               .setContent("You clicked the map at " + e.latlng.toString())
+               .openOn(map);
+               var newCoord = e.latlng.toString();
+               newCoord = newCoord.replace(/LatLng/g, "");
+                 newCoord = newCoord.replace(/[{()}]/g, '');
+               document.getElementById("coord").value = newCoord;
+               //.openOn(map);
+               }
+
+               map.on('click', onMapClick);
+
+               </script>
+               <?php
+               $worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
+               $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+               $mrk = 1;
+               while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+               ?>
+               <script>
+               var myIcon = L.icon({
+                   iconUrl: 'https://raw.githubusercontent.com/iconic/open-iconic/master/png/map-marker-8x.png',
+                   iconSize: [32, 32],
+                   iconAnchor: [16,32]
+               });
+               var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>, {icon: myIcon}]).addTo(map);
+
+               marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['entry']; ?>");
+               </script>
+               <?php
+               $mrk = $mrk + 1;
+
+               }
+               ?>
+               <!-- <script>
+               var marker = L.marker([-233.356251, 87.868822]).addTo(map);
+               marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
+               </script> -->
+
+
+               <!-- END MAP -->
+
+                 </div>
+                 <script>
+                 $(document).ready(function addLog(){
+                     $("#locbutton").click(function addLog(){
+                         $("#map").slideToggle("slow");
+                     });
+                 });
+                 </script>
+    </div>
+
 <div class="col-centered">
 <input form="import" class="btn btn-primary col-centered" type="submit" value="Submit">
 </div>

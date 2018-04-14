@@ -23,6 +23,7 @@ $queststatustemp=$_POST['quest-status'];
 $questfactiontemp=$_POST['quest-faction'];
 $questrewardtemp=$_POST['quest-reward'];
 $esttypetemp=$_POST['est-type'];
+$coordtemp=$_POST['coord'];
 $name=htmlentities(trim(addslashes($nametemp)));
 $type=htmlentities(trim(addslashes($typetemp)));
 $body=htmlentities(trim(addslashes($bodytemp)));
@@ -36,14 +37,15 @@ $esttype=htmlentities(trim(addslashes($esttypetemp)));
 $queststatus=htmlentities(trim(addslashes($queststatustemp)));
 $questfaction=htmlentities(trim(addslashes($questfactiontemp)));
 $questreward=htmlentities(trim(addslashes($questrewardtemp)));
+$coord=htmlentities(trim(addslashes($coordtemp)));
 
 $temp = explode(".", $_FILES["fileToUpload1"]["name"]);
 $newfilename = $name . '.' . end($temp);
 move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], "uploads/" . $newfilename);
 
 //Execute the query
-$sql = "INSERT INTO world(title,type,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location,quest_status,quest_faction,quest_reward)
-				VALUES('$name','$type','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$esttype','$estlocation','$queststatus','$questfaction','$questreward')";
+$sql = "INSERT INTO world(title,type,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location,quest_status,quest_faction,quest_reward,coord)
+				VALUES('$name','$type','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$esttype','$estlocation','$queststatus','$questfaction','$questreward','$coord')";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');

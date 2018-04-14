@@ -57,10 +57,12 @@ var map = L.map('image-map', {
 });
 var mapFeatures = L.layerGroup();
 var mapLog = L.layerGroup();
+var mapCompendium = L.layerGroup();
 
 var overlayMaps = {
     "Map Feautures": mapFeatures,
-    "Campaign Log": mapLog
+    "Campaign Log": mapLog,
+    "Compendium": mapCompendium
 
 };
 
@@ -86,16 +88,30 @@ map.setMaxBounds(bounds);
 map.setView(new L.LatLng(-220.925003, 103.017123), 3);
 var popup = L.popup();
 
-/*function onMapClick(e) {
-    popup
-        .setLatLng(e.latlng)
-        .setContent("You clicked the map at " + e.latlng.toString())
-        .openOn(map);
-}
-
-map.on('click', onMapClick);*/
 
 </script>
+
+<?php
+$worldtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+$mrk = 1;
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  echo $row['coord'];
+  ?>
+  <script>
+  var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
+  var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-blue.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+  marker<?php echo $mrk; ?>.addTo(mapLog);
+  </script>
+  <?php
+    $mrk = $mrk + 1;
+
+}
+ ?>
+
 <?php
 $worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');

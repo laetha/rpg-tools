@@ -28,12 +28,24 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
+
+                   <th scope="col">Establishment</th>
+
+                   <th scope="col">Location</th>
+
+                   <th scope="col">Faction</th>
                </tr>
            </thead>
            <tfoot>
-               <tr>
-                 <th scope="col">Name</th>
-               </tr>
+             <tr>
+               <th scope="col">Name</th>
+
+               <th scope="col">Establishment</th>
+
+               <th scope="col">Location</th>
+
+               <th scope="col">Faction</th>
+             </tr>
            </tfoot>
            <tbody>
              <?php
@@ -42,9 +54,17 @@
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
                $entry = $row['title'];
+               $entryest = $row['npc_est'];
+               $entryloc = $row['npc_location'];
+               $entryfac = $row['npc_faction'];
+
                echo "<a href=\"world.php?id=$entry\">";
                echo $entry;
-               echo "</a></td></tr>";
+               echo "</a></td>";
+               echo "<td><a href=\"world.php?id=$entryest\">".$entryest."</a></td>";
+               echo "<td><a href=\"world.php?id=$entryloc\">".$entryloc."</a></td>";
+               echo "<td><a href=\"world.php?id=$entryfac\">".$entryfac."</a></td>";
+               echo "</tr>";
 
              }
                ?>
