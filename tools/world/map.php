@@ -10,7 +10,7 @@
    $headpath .= "/header.php";
    include_once($headpath);
 
-   $id = '-160.114584, 100.615889';
+   $id = '-178.229168, 30.510292';
    $disallowed_paths = array('header', 'footer');
    if (!empty($_GET['id'])) {
      $tmp_action = basename($_GET['id']);
@@ -61,7 +61,7 @@ var map = L.map('image-map', {
   minZoom: 1,
   maxZoom: 4,
   center: [0, 0],
-  zoom: 1,
+  zoom: 2,
   crs: L.CRS.Simple,
   scrollWheelZoom:'center'
 
@@ -97,9 +97,9 @@ L.imageOverlay(url, bounds).addTo(map);
 // tell leaflet that the map is exactly as big as the image
 map.setMaxBounds(bounds);
 <?php
-if ($id == '-160.114584, 100.615889') {
+if ($id == '-178.229168, 30.510292') {
  ?>
-map.setView(new L.LatLng(-160.114584, 100.615889), 2);
+map.panTo(new L.LatLng(-178.229168, 30.510292));
 <?php }
 else { ?>
   map.setView(new L.LatLng(<?php echo $id; ?>), 4);
@@ -169,10 +169,6 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
  }
   ?>
-<!-- <script>
- var marker = L.marker([-233.356251, 87.868822]).addTo(map);
- marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-</script> -->
 
 </div>
 </div>

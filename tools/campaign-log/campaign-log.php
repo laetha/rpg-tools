@@ -61,9 +61,23 @@ var map = L.map('image-map', {
 minZoom: 1,
 maxZoom: 4,
 center: [0, 0],
-zoom: 1,
+zoom: 2,
 crs: L.CRS.Simple
 });
+
+var mapFeatures1 = L.layerGroup();
+var mapLog1 = L.layerGroup();
+var mapCompendium1 = L.layerGroup();
+
+var overlayMaps1 = {
+    "Map Feautures": mapFeatures1,
+    "Campaign Log": mapLog1,
+    "Compendium": mapCompendium1
+
+};
+
+L.control.layers(null, overlayMaps1).addTo(map);
+
 
 // dimensions of the image
 var w = 5040,
@@ -74,7 +88,7 @@ url = '/assets/images/Starting-Region.jpg';
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);
 var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
 var bounds = new L.LatLngBounds(southWest, northEast);
-map.setView(new L.LatLng(-220.925003, 103.017123), 3);
+map.panTo(new L.LatLng(-178.229168, 30.510292));
 
 
 // add the image overlay,
@@ -101,32 +115,6 @@ document.getElementById("logcoord").value = newCoord;
 map.on('click', onMapClick);
 
 </script>
-<?php
-$worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-$mrk = 1;
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-?>
-<script>
-var myIcon = L.icon({
-    iconUrl: 'https://raw.githubusercontent.com/iconic/open-iconic/master/png/map-marker-8x.png',
-    iconSize: [32, 32],
-    iconAnchor: [16,32]
-});
-var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>, {icon: myIcon}]).addTo(map);
-
-marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['entry']; ?>");
-</script>
-<?php
-$mrk = $mrk + 1;
-
-}
-?>
-<!-- <script>
-var marker = L.marker([-233.356251, 87.868822]).addTo(map);
-marker.bindPopup("<b>Hello world!</b><br>I am a popup.").openPopup();
-</script> -->
-
 
 <!-- END MAP -->
 
@@ -294,10 +282,12 @@ scrollWheelZoom:'center'
 });
 var mapFeatures = L.layerGroup();
 var mapLog = L.layerGroup();
+var mapCompendium = L.layerGroup();
 
 var overlayMaps = {
   "Map Feautures": mapFeatures,
-  "Campaign Log": mapLog
+  "Campaign Log": mapLog,
+  "Compendium": mapCompendium
 
 };
 
@@ -398,44 +388,71 @@ $(document).ready(function() {
 
 
 <?php
+$worldtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+$mrk = 1;
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  ?>
+  <script>
+  var cmarkerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
+  var cpinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+  var cpin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor<?php echo $mrk; ?>: cpinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  var cmarker<?php echo $mrk; ?> = new L.marker(cmarkerPos<?php echo $mrk; ?>, { icon: cpin<?php echo $mrk; ?> }).addTo(map).bindPopup('<a href="world.php?id=<?php echo $row['title']; ?>" target="_BLANK"><?php echo $row['title']; ?></a>');
+//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+  cmarker<?php echo $mrk; ?>.addTo(mapCompendium);
+  cmarker<?php echo $mrk; ?>.addTo(mapCompendium1);
+
+  </script>
+  <?php
+    $mrk = $mrk + 1;
+
+}
+ ?>
+
+<?php
 $worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-?>
-<script>
-var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
-var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
-var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-blue.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+  ?>
+  <script>
+  var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
+  var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-blue.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
 //  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
-marker<?php echo $mrk; ?>.addTo(mapLog);
-</script>
-<?php
-  $mrk = $mrk + 1;
+  marker<?php echo $mrk; ?>.addTo(mapLog);
+  marker<?php echo $mrk; ?>.addTo(mapLog1);
+
+  </script>
+  <?php
+    $mrk = $mrk + 1;
 
 }
-?>
-
-<?php
-$worldtitle = "SELECT * FROM mapfeatures";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-$mrk = 1;
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
  ?>
- <script>
- var bmarkerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
- var bpinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
- var bpin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-red.png", iconAnchor<?php echo $mrk; ?>: bpinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
- var bmarker<?php echo $mrk; ?> = new L.marker(bmarkerPos<?php echo $mrk; ?>, { icon: bpin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['text']; ?>");
-//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['text']; ?>");
- bmarker<?php echo $mrk; ?>.addTo(mapFeatures);
- </script>
- <?php
-   $mrk = $mrk + 1;
 
-}
-?>
+ <?php
+ $worldtitle = "SELECT * FROM mapfeatures";
+ $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+ $mrk = 1;
+ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+   ?>
+   <script>
+   var bmarkerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
+   var bpinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+   var bpin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-red.png", iconAnchor<?php echo $mrk; ?>: bpinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+   var bmarker<?php echo $mrk; ?> = new L.marker(bmarkerPos<?php echo $mrk; ?>, { icon: bpin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['text']; ?>");
+ //  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['text']; ?>");
+   bmarker<?php echo $mrk; ?>.addTo(mapFeatures);
+   bmarker<?php echo $mrk; ?>.addTo(mapFeatures1);
+
+   </script>
+   <?php
+     $mrk = $mrk + 1;
+
+ }
+  ?>
+
 
 
 </div>

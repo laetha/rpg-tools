@@ -21,7 +21,7 @@ div.body {
 .mainbox {
 	background-color: #313337;
 	text-align:center;
-	margin-top:95px;
+	margin-top:45px;
 	padding-bottom:60px;
 	padding-top:0px;
 	border-radius:40px;
@@ -482,4 +482,9 @@ strong {
 
 .topsearch {
 	min-width: 300px;
+}
+
+.nav {
+	margin: 0px;
+	margin-top: 10px;
 }

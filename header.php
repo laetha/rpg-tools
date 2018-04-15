@@ -41,7 +41,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/index.html">GameRipple D&D Tools</a>
+      <a class="navbar-brand" href="/index.php">GameRipple D&D Tools</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
