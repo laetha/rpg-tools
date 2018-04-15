@@ -21,7 +21,7 @@ div.body {
 .mainbox {
 	background-color: #313337;
 	text-align:center;
-	margin-top:15px;
+	margin-top:95px;
 	padding-bottom:60px;
 	padding-top:0px;
 	border-radius:40px;
@@ -473,4 +473,13 @@ strong {
   position: absolute;
   bottom: 9%;
   left: 5%;
+}
+
+.header li {
+	float:left;
+	padding-right: 40px;
+}
+
+.topsearch {
+	min-width: 300px;
 }

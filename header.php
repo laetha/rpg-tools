@@ -31,37 +31,59 @@
 		 $sqlpath .= "/sql-connect.php";
 		 include_once($sqlpath);
 		 ?>
-		<div class="container-fluid">
-<div class="row">
-			<div class="header">
-				<div class="col-md-2"></div>
-				<div class="col-md-2"><a href="/index.php">Home</a></div>
+		 <nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/index.html">GameRipple D&D Tools</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+				<li class="topsearch">
+					<select id="search">
+					<option value=""></option>
+					<?php
+					$searchdrop = "SELECT title FROM world";
+					$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+					while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+						$search = $searchrow['title'];
+						$searchvalue = $search.'1';
+						echo "<option value=\"$searchvalue\">$search</option>";
+					}
+					?>
+					<?php
+					$searchdrop1 = "SELECT title FROM compendium";
+					$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
+					while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
+						$search1 = $searchrow1['title'];
+						$searchvalue1 = $search1.'2';
+						echo "<option value=\"$searchvalue1\">$search1</option>";
+					}
+					?>
+					</select>
+				</li>
+        <li><a href="/tools/world/world.php">World</a></li>
+        <li><a href="/tools/compendium/compendium.php">Compendium</a></li>
+				<li><a href="/tools/campaign-log/campaign-log.php">Campaign Log</a></li>
+				<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
+				<li><a href="/tools/world/map.php">World Map</a></li>
+
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+
 				<!--<div class="col-md-2"><a href="/tools/world/import.php">Import</a></div>
 				<div class="col-md-2"><a href="/login.php">Signup/Login</a></div>-->
-			</div>
-				<div class="col-md-3">
 					<!--<form method="post" id="searchdiv" action="/tools/world/world.php">-->
-				<select id="search">
-				<option value=""></option>
-				<?php
-				$searchdrop = "SELECT title FROM world";
-				$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
-				while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
-					$search = $searchrow['title'];
-					$searchvalue = $search.'1';
-					echo "<option value=\"$searchvalue\">$search</option>";
-				}
-				?>
-				<?php
-				$searchdrop1 = "SELECT title FROM compendium";
-				$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
-				while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
-					$search1 = $searchrow1['title'];
-					$searchvalue1 = $search1.'2';
-					echo "<option value=\"$searchvalue1\">$search1</option>";
-				}
-				?>
-				</select>
+
 				<!--</form>-->
 
 				<script type="text/javascript">
@@ -81,6 +103,6 @@
 				placeholder: 'search...'
 				},);
 				</script>
-			</div>
-		</div>
-			</nav>
+			</div><!-- /.container-fluid -->
+		</nav>
+		<div class="container-fluid">

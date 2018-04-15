@@ -9,6 +9,17 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
+
+   $id = '-160.114584, 100.615889';
+   $disallowed_paths = array('header', 'footer');
+   if (!empty($_GET['id'])) {
+     $tmp_action = basename($_GET['id']);
+     if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("world/{$tmp_action}.php")*/)
+           $id = $tmp_action;
+     }
+   $id = addslashes($id);
+
+   echo $id;
    ?>
    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
@@ -85,7 +96,15 @@ L.imageOverlay(url, bounds).addTo(map);
 
 // tell leaflet that the map is exactly as big as the image
 map.setMaxBounds(bounds);
-map.setView(new L.LatLng(-220.925003, 103.017123), 3);
+<?php
+if ($id == '-160.114584, 100.615889') {
+ ?>
+map.setView(new L.LatLng(-160.114584, 100.615889), 2);
+<?php }
+else { ?>
+  map.setView(new L.LatLng(<?php echo $id; ?>), 4);
+
+<?php } ?>
 var popup = L.popup();
 
 
@@ -96,15 +115,14 @@ $worldtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  echo $row['coord'];
   ?>
   <script>
   var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
   var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-blue.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup('<a href="world.php?id=<?php echo $row['title']; ?>" target="_BLANK"><?php echo $row['title']; ?></a>');
 //  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
-  marker<?php echo $mrk; ?>.addTo(mapLog);
+  marker<?php echo $mrk; ?>.addTo(mapCompendium);
   </script>
   <?php
     $mrk = $mrk + 1;

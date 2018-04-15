@@ -26,6 +26,12 @@ include_once($sqlpath);
    $deleteid = $row['id'];
    ?>
  </div>
+
+ <?php
+if ($row['coord'] != '') {
+ echo('<a href="/tools/world/map.php?id='.$row['coord'].'" target="_BLANK">View on Map</a>');
+}
+  ?>
  </div>
  <div class="nav sidebartext col-md-12">
 
