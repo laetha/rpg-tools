@@ -397,7 +397,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   var cmarkerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
   var cpinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
   var cpin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor<?php echo $mrk; ?>: cpinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  var cmarker<?php echo $mrk; ?> = new L.marker(cmarkerPos<?php echo $mrk; ?>, { icon: cpin<?php echo $mrk; ?> }).addTo(map).bindPopup('<a href="world.php?id=<?php echo $row['title']; ?>" target="_BLANK"><?php echo $row['title']; ?></a>');
+  var cmarker<?php echo $mrk; ?> = new L.marker(cmarkerPos<?php echo $mrk; ?>, { icon: cpin<?php echo $mrk; ?> }).addTo(map).bindPopup('<a href="/tools/world/world.php?id=<?php echo $row['title']; ?>" target="_BLANK"><?php echo $row['title']; ?></a>');
 //  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
   cmarker<?php echo $mrk; ?>.addTo(mapCompendium);
   cmarker<?php echo $mrk; ?>.addTo(mapCompendium1);

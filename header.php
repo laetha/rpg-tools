@@ -70,8 +70,28 @@
 					?>
 					</select>
 				</li>
-        <li><a href="/tools/world/world.php">World</a></li>
-        <li><a href="/tools/compendium/compendium.php">Compendium</a></li>
+				<li class="dropdown">
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World Building<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a href="/tools/world/settlement.php">Settlements</a></li>
+					<li><a href="/tools/world/npc.php">NPCs</a></li>
+					<li><a href="/tools/world/faction.php">Factions</a></li>
+					<li><a href="/tools/world/deity.php">Deities</a></li>
+					<li><a href="/tools/world/quest.php">Quests</a></li>
+					<li><a href="/tools/world/establishment.php">Establishments</a></li>
+					<li><a href="/tools/world/publicquest.php">Public Quests</a></li>
+				</ul>
+				<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compenium <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+						<li><a href="/tools/compendium/background.php">Backgrounds</a></li>
+						<li><a href="/tools/compendium/class.php">Classes</a></li>
+						<li><a href="/tools/compendium/feat.php">Feats</a></li>
+						<li><a href="/tools/compendium/item.php">Items</a></li>
+						<li><a href="/tools/compendium/monster.php">Monsters</a></li>
+						<li><a href="/tools/compendium/race.php">Races</a></li>
+						<li><a href="/tools/compendium/spell.php">Spells</a></li>
+					</ul>
 				<li><a href="/tools/campaign-log/campaign-log.php">Campaign Log</a></li>
 				<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 				<li><a href="/tools/world/map.php">World Map</a></li>

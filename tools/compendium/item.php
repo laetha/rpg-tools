@@ -28,13 +28,18 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
+                   <th scope="col">Type</th>
+                   <th scope="col">Magic</th>
+                   <th scope="col">Text</th>
 
                </tr>
            </thead>
            <tfoot>
                <tr>
                  <th scope="col">Name</th>
-
+                 <th scope="col">Type</th>
+                 <th scope="col">Magic</th>
+                 <th scope="col">Text</th>
                </tr>
            </tfoot>
            <tbody>
@@ -46,7 +51,18 @@
                $entry = $row['title'];
                echo "<a href=\"compendium.php?id=$entry\">";
                echo $entry;
-               echo "</a></td></tr>";
+               echo "</a></td>";
+               echo ('<td>'.$row['itemType'].'</td>');
+               echo ('<td>');
+               if ($row['itemMagic'] == 1) {
+                 echo ('Yes');
+               }
+               else {
+                 echo ('No');
+               }
+               echo ('<td>'.$row['text']);
+               echo('</td>');
+               echo('</td></tr>');
 
              }
                ?>
