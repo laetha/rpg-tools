@@ -31,7 +31,7 @@
 		 $sqlpath .= "/sql-connect.php";
 		 include_once($sqlpath);
 		 ?>
-		 <nav class="navbar navbar-fixed-top navbar-inverse">
+		 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
