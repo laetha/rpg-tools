@@ -34,6 +34,9 @@
                    <th scope="col">Location</th>
 
                    <th scope="col">Faction</th>
+
+                   <th scope="col">Image</th>
+
                </tr>
            </thead>
            <tfoot>
@@ -45,6 +48,9 @@
                <th scope="col">Location</th>
 
                <th scope="col">Faction</th>
+
+               <th scope="col">Image</th>
+
              </tr>
            </tfoot>
            <tbody>
@@ -57,13 +63,23 @@
                $entryest = $row['npc_est'];
                $entryloc = $row['npc_location'];
                $entryfac = $row['npc_faction'];
-
+               $jpgurl = 'uploads/'.$row['title'].'.jpg';
+               $pngurl = 'uploads/'.$row['title'].'.png';
                echo "<a href=\"world.php?id=$entry\">";
                echo $entry;
                echo "</a></td>";
                echo "<td><a href=\"world.php?id=$entryest\">".$entryest."</a></td>";
                echo "<td><a href=\"world.php?id=$entryloc\">".$entryloc."</a></td>";
                echo "<td><a href=\"world.php?id=$entryfac\">".$entryfac."</a></td>";
+               if (file_exists($jpgurl)){
+                 echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
+               }
+               else if (file_exists($pngurl)){
+                 echo ('<td><img src="'.$pngurl.'"></td>');
+               }
+               else {
+                 echo ('<td></td>');
+               }
                echo "</tr>";
 
              }

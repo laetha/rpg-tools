@@ -488,3 +488,7 @@ strong {
 	margin: 0px;
 	margin-top: 10px;
 }
+
+.tableimg {
+	max-width:100px;
+}
