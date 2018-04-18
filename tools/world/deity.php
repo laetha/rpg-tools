@@ -28,11 +28,15 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
+                   <th scope="col">Image</th>
+
                </tr>
            </thead>
            <tfoot>
                <tr>
                  <th scope="col">Name</th>
+                 <th scope="col">Image</th>
+
                </tr>
            </tfoot>
            <tbody>
@@ -42,10 +46,21 @@
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
                $entry = $row['title'];
+               $jpgurl = 'uploads/'.$row['title'].'.jpg';
+               $pngurl = 'uploads/'.$row['title'].'.png';
                echo "<a href=\"world.php?id=$entry\">";
                echo $entry;
-               echo "</a></td></tr>";
-
+               echo "</a></td>";
+               if (file_exists($jpgurl)){
+                 echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
+               }
+               else if (file_exists($pngurl)){
+                 echo ('<td><img class="tableimg" src="'.$pngurl.'"></td>');
+               }
+               else {
+                 echo ('<td></td>');
+               }
+               echo "</tr>";
              }
                ?>
 
