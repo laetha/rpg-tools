@@ -49,10 +49,11 @@ if ($row['coord'] != '') {
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           $sidebartype = $row['type'];
           $esttype = $row['est_type'];
+          $jpgurl = 'uploads/'.$id.'.jpg';
+          $pngurl = 'uploads/'.$id.'.png';
+
           if ($sidebartype == "npc") {
 
-            $jpgurl = 'uploads/'.$id.'.jpg';
-            $pngurl = 'uploads/'.$id.'.png';
 
         ?><div class="col-md-8"><?php
               echo('Race: '.$row['npc_race'].'<br />');
@@ -60,25 +61,39 @@ if ($row['coord'] != '') {
               echo('Location: '.$row['npc_location'].'<br />');
               echo('Faction: '.$row['npc_faction'].'<br />');
               echo('Deity: '.$row['npc_deity'].'<br />');
-
             }
-
+            if (file_exists($jpgurl)){
+              echo ('<div class="col-md-8">');
+            }
+            else if (file_exists($pngurl)){
+              echo ('<div class="col-md-8">');
+            }
           echo $Parsedown->text(nl2br($row['body']));
-          ?></div><?php
           if ($sidebartype == "npc") {
+            echo ('</div>');
+          }
 
           if (file_exists($jpgurl)){
-            echo('<div class="col-md-4">');
-            echo ('<div class="npcimg-container">');
-          echo ('<img class="npcimg" src="uploads/'.$id.'.jpg" />'); ?>
-          <form method="post">
-            <select name="photoname" id="photoname" style="display:none;" required="yes">
-              <option id="tmptype" value="<?php echo $id; ?>.jpg" selected></option>
-              </select>
-          <input class="btn btn-danger" type="submit" name="submit" value="X">
-        </form>
-      </div>
-          </div>
+            echo ('</div>');
+          }
+          else if (file_exists($pngurl)){
+            echo ('</div>');
+          }
+
+  }
+
+  if (file_exists($jpgurl)){
+    echo('<div class="col-md-4">');
+    echo ('<div class="npcimg-container">');
+  echo ('<img class="npcimg" src="uploads/'.$id.'.jpg" />'); ?>
+  <form method="post">
+    <select name="photoname" id="photoname" style="display:none;" required="yes">
+      <option id="tmptype" value="<?php echo $id; ?>.jpg" selected></option>
+      </select>
+  <input class="btn btn-danger" type="submit" name="submit" value="X">
+</form>
+</div>
+  </div>
 
 
 <?php
@@ -86,30 +101,30 @@ if (isset($_POST['submit']))
 {
 $photoname = 'uploads/'.$_POST['photoname'];
 if (!unlink($photoname))
-  {
-  echo ("Error deleting $photoname");
-  }
+{
+echo ("Error deleting $photoname");
+}
 else
-  {
-  echo ("Deleted $photoname");
-  }
+{
+echo ("Deleted $photoname");
+}
 }
 
-        }
+}
 
-        else if (file_exists($pngurl)){
-          echo('<div class="col-md-4">');
-          echo ('<div class="npcimg-container">');
-        echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
-      ?>
-        <form method="post">
-          <select name="photoname" id="photoname" style="display:none;" required="yes">
-            <option id="tmptype" value="<?php echo $id; ?>.png" selected></option>
-            </select>
-            <input class="btn btn-danger" type="submit" name="submit" value="X">
-        </form>
-          </div>
-        </div>
+else if (file_exists($pngurl)){
+  echo('<div class="col-md-4">');
+  echo ('<div class="npcimg-container">');
+echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
+?>
+<form method="post">
+  <select name="photoname" id="photoname" style="display:none;" required="yes">
+    <option id="tmptype" value="<?php echo $id; ?>.png" selected></option>
+    </select>
+    <input class="btn btn-danger" type="submit" name="submit" value="X">
+</form>
+  </div>
+</div>
 
 
 
@@ -118,20 +133,18 @@ if (isset($_POST['submit']))
 {
 $photoname = 'uploads/'.$_POST['photoname'];
 if (!unlink($photoname))
-  {
-  echo ("Error deleting $photoname");
-  }
-else
-  {
-  echo ("Deleted $photoname");
-  }
+{
+echo ("Error deleting $photoname");
 }
-    }
-    echo ('</div>');
-    }
+else
+{
+echo ("Deleted $photoname");
+}
+}
+}
 
-  }
       ?>
+    </div>
 
       <p>
       <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
@@ -549,6 +562,7 @@ if ($esttype == "general store") {
 
 <?php
 }
+
 ?>
 
 
@@ -586,7 +600,7 @@ if ($esttype == "general store") {
   ?>
   </div>
 
-</div>
+
     <script>
 
     $(document).ready(function() {
@@ -854,3 +868,4 @@ trigger: 'focus'
       <?php
     }
     ?>
+  </div>

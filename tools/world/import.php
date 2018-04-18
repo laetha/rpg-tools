@@ -193,7 +193,6 @@ document.getElementById("npc-form").style.display = "none";
           </p>
         </div>
 
-        <input class="col-centered" type="file" name="fileToUpload1" id="fileToUpload1">
 
 </div>
 
@@ -293,6 +292,7 @@ document.getElementById("npc-form").style.display = "none";
 
 
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
+    <input class="col-centered" type="file" name="fileToUpload1" id="fileToUpload1">
 
     <div id="map" style="display:none;">
 
