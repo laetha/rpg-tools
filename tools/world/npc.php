@@ -75,7 +75,7 @@
                  echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
                }
                else if (file_exists($pngurl)){
-                 echo ('<td><img src="'.$pngurl.'"></td>');
+                 echo ('<td><img class="tableimg" src="'.$pngurl.'"></td>');
                }
                else {
                  echo ('<td></td>');
