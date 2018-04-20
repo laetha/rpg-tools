@@ -17,6 +17,8 @@ include_once($sqlpath);
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle">
     <?php
+  $stripid = str_replace("'", "", $id);
+  $stripid = stripslashes($stripid);
   $id = addslashes($id);
   $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -33,9 +35,7 @@ if ($row['coord'] != '') {
 }
   ?>
  </div>
- <div class="nav sidebartext col-md-12">
 
- </div>
  <?php
  }
   ?>
@@ -49,8 +49,8 @@ if ($row['coord'] != '') {
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           $sidebartype = $row['type'];
           $esttype = $row['est_type'];
-          $jpgurl = 'uploads/'.$id.'.jpg';
-          $pngurl = 'uploads/'.$id.'.png';
+          $jpgurl = 'uploads/'.$stripid.'.jpg';
+          $pngurl = 'uploads/'.$stripid.'.png';
 
           if ($sidebartype == "npc") {
 
@@ -85,10 +85,10 @@ if ($row['coord'] != '') {
   if (file_exists($jpgurl)){
     echo('<div class="col-md-4">');
     echo ('<div class="npcimg-container">');
-  echo ('<img class="npcimg" src="uploads/'.$id.'.jpg" />'); ?>
+  echo ('<img class="npcimg" src="uploads/'.$stripid.'.jpg" />'); ?>
   <form method="post">
     <select name="photoname" id="photoname" style="display:none;" required="yes">
-      <option id="tmptype" value="<?php echo $id; ?>.jpg" selected></option>
+      <option id="tmptype" value="<?php echo $stripid; ?>.jpg" selected></option>
       </select>
   <input class="btn btn-danger" type="submit" name="submit" value="X">
 </form>
@@ -115,11 +115,11 @@ echo ("Deleted $photoname");
 else if (file_exists($pngurl)){
   echo('<div class="col-md-4">');
   echo ('<div class="npcimg-container">');
-echo ('<img class="npcimg" src="uploads/'.$id.'.png" />');
+echo ('<img class="npcimg" src="uploads/'.$stripid.'.png" />');
 ?>
 <form method="post">
   <select name="photoname" id="photoname" style="display:none;" required="yes">
-    <option id="tmptype" value="<?php echo $id; ?>.png" selected></option>
+    <option id="tmptype" value="<?php echo $stripid; ?>.png" selected></option>
     </select>
     <input class="btn btn-danger" type="submit" name="submit" value="X">
 </form>
