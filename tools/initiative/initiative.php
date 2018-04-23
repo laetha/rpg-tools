@@ -68,6 +68,10 @@ sortField: 'text'
           echo('<br /> AC: '.$row1['monsterAc']);
           $realHp = $row1['monsterHp'];
           $realHp = substr($realHp, 0, strpos($realHp, " "));
+          $roll = rand(1,20);
+          $init = floor((($row1['monsterDex']-10)/2));
+          $initroll = $init + $roll;
+          echo('<br /> Initiative: '.$initroll.'('.$roll.' + '.$init.')');
            ?>
           <a href="/tools/initiative/statblock.php?id=<?php echo $row1['title']; ?>" target="statblock"><button class=" butsm btn btn-info" id="<?php echo $rowns1; ?>-btn">></button></a>
           <button class="butsm btn btn-danger" id="<?php echo $rowns1; ?>-remove">-</button>
