@@ -492,3 +492,27 @@ strong {
 .tableimg {
 	max-height:80px;
 }
+
+div.randitem {
+	display: inline-block;
+	text-align: center;
+	background-color: #282E35;
+	padding: 05px;
+	margin: 10px;
+	border-radius: 25px;
+	border-style: solid;
+	border-color: #203543;
+	min-width: 100%;
+}
+
+h3.randitem {
+color: #5499c7;
+}
+
+.randitem a{
+color: #5499c7;
+}
+
+.randitem a:hover{
+color: #3D6D8D;
+}

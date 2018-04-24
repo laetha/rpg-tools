@@ -4,7 +4,7 @@ $doc = new DOMDocument();
 $doc->load('UOitems.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('xml-conv.xsl');
+$xsl->load('xml-conv-UOitems.xsl');
 
 // CONFIGURE TRANSFORMER
 $proc = new XSLTProcessor;
