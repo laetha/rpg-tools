@@ -11,7 +11,7 @@
 
   <xsl:template match="item">
     <xsl:copy>
-      <xsl:apply-templates select="name|type|magic|detail|weight|dmg1|dmg2|dmgType|property|rng|value|roll|ac|strength|stealth"/>
+      <xsl:apply-templates select="title|type|itemType|itemMagic|itemDetail"/>
       <text>
         <xsl:for-each select="text">
             <xsl:value-of select="."/>
@@ -20,6 +20,9 @@
                <!-- REPLACE WITH &#xa; FOR LINE BREAK ENTITY or \n -->
                <xsl:text> &#xa;&#xa;</xsl:text>
             </xsl:if>
+            <xsl:if test="position() = last()">
+              <xsl:text>Source: Unofficial</xsl:text>
+              </xsl:if>
         </xsl:for-each>
       </text>
     </xsl:copy>

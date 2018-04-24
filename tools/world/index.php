@@ -412,7 +412,7 @@ if ($esttype == "Jeweler") {
   </tfoot>
     <tbody>
       <?php
-        $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 5";
+        $sqlcompendium = "SELECT * FROM compendium WHERE lower(itemStock) LIKE 'jeweler' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 5";
         $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
@@ -427,7 +427,7 @@ if ($esttype == "Jeweler") {
       }
         ?>
         <?php
-          $sqlcompendium = "SELECT * FROM compendium WHERE itemStock LIKE 'Jeweler' AND itemMagic NOT LIKE '1'";
+          $sqlcompendium = "SELECT * FROM compendium WHERE lower(itemStock) LIKE 'jeweler' AND itemMagic NOT LIKE '1'";
           $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
