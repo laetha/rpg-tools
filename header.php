@@ -95,7 +95,7 @@
 				<li><a href="/tools/campaign-log/campaign-log.php">Campaign Log</a></li>
 				<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 				<li><a href="/tools/world/map.php">World Map</a></li>
-				<li><a href="/tools/Generator/generator.php">Generator</a></li>
+				<li><a href="/tools/generator/generator.php">Generator</a></li>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
 
       </ul>
