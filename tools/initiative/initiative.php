@@ -17,6 +17,7 @@
 
 <div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
   <h1 class="pagetitle">Initiative Tracker</h1>
+  <p><a href="http://kobold.club/fight/#/encounter-manager" target="_BLANK">Kobold Fight Club Encounters</a></p>
 <div class ="body bodytext">
 <div class="col-md-4">
   <select form="import" name="add-monster" id="add-monster" onChange="addMonster(this)">
