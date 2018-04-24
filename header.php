@@ -71,7 +71,7 @@
 					</select>
 				</li>
 				<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World Building<span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #BB5555;">World Building<span class="caret"></span></a>
 				<ul class="dropdown-menu">
 					<li><a href="/tools/world/settlement.php">Settlements</a></li>
 					<li><a href="/tools/world/npc.php">NPCs</a></li>
@@ -82,7 +82,7 @@
 					<li><a href="/tools/world/publicquest.php">Public Quests</a></li>
 				</ul>
 				<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compenium <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #69B076;">Compenium <span class="caret"></span></a>
           <ul class="dropdown-menu">
 						<li><a href="/tools/compendium/background.php">Backgrounds</a></li>
 						<li><a href="/tools/compendium/class.php">Classes</a></li>
@@ -92,11 +92,11 @@
 						<li><a href="/tools/compendium/race.php">Races</a></li>
 						<li><a href="/tools/compendium/spell.php">Spells</a></li>
 					</ul>
-				<li><a href="/tools/campaign-log/campaign-log.php">Campaign Log</a></li>
-				<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
-				<li><a href="/tools/world/map.php">World Map</a></li>
-				<li><a href="/tools/generator/generator.php">Generator</a></li>
-				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
+				<li><a href="/tools/campaign-log/campaign-log.php" style="color: #BB5555;">Campaign Log</a></li>
+				<li><a href="/tools/initiative/initiative.php" style="color: #BB5555;">Initiative</a></li>
+				<li><a href="/tools/world/map.php" style="color: #BB5555;">World Map</a></li>
+				<li><a href="/tools/generator/generator.php" style="color: #BB5555;">Generator</a></li>
+				<li><a href="/tools/questboard/questboard.php" style="color: #69B076;">Quest Board</a></li>
 
       </ul>
 
