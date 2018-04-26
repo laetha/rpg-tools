@@ -127,134 +127,7 @@ map.on('click', onMapClick);
   });
   </script>
   <!--<div class="padding"></div>-->
-  <div class="table-responsive sidebartext">
-  <table id="campaignlog" class="table table-condensed table-striped table-responsive dt-responsive sidebartext" cellspacing="0" width="100%">
-      <thead class="thead-dark">
-          <tr>
-              <th scope="col">Day</th>
-              <th scope="col"></th>
-              <th scope="col"></th>
-              <th scope="col">Coord</th>
-              <th scope="col">Entry</th>
-          </tr>
-      </thead>
-      <tfoot>
-          <tr>
-            <th scope="col">Day</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
-            <th scope="col">Coord</th>
-            <th scope="col">Entry</th>
-          </tr>
-      </tfoot>
-      <tbody id="thelog">
-        <?php
-        $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
-        $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
-        while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
-          echo ('<tr><td>');
-          echo ($row['date'].'</td>');
-          echo ('<td><button type="button" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" data-toggle="modal" data-target="#deleteModal'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button></td>');
-          echo ('<td><button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#editModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button></td>');
-          echo ('<td><a href="/tools/world/map.php?id='.$row['coord'].'" target="_BLANK">'.$row['coord'].'</a></td>');
 
-          echo ('<td>'.$row['entry'].'</td>');
-          echo ('</tr>');
-?>
-          <!-- EDIT Modal -->
-          <div class="modal fade" id="editModal<?php echo $row['id']; ?>" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content modalstyle bodytext">
-
-                <div class="modal-body">
-                  <form method="post" action="logedit.php?editid=<?php echo $row['id']; ?>" id="edit<?php echo $row['id']; ?>">
-                    <input form="edit<?php echo $row['id']; ?>" type="text" class="logeditdate" name="editdate<?php echo $row['id']; ?>" id="date<?php echo $row['id']; ?>" placeholder="Date..." value="" />
-                    <input form="edit<?php echo $row['id']; ?>" class="logeditcoord" type="text" name="editcoord<?php echo $row['id']; ?>" id="coordentry<?php echo $row['id']; ?>" placeholder="Coord..." value="" />
-                    <input form="edit<?php echo $row['id']; ?>" class="logeditentry" type="text" name="editentry<?php echo $row['id']; ?>" id="editentry<?php echo $row['id']; ?>" placeholder="Entry..." value="" />
-                    <button form="edit<?php echo $row['id']; ?>"class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save" />
-                      <span class="glyphicon glyphicon-ok"></span></button>
-                  </form>
-                  <p></p><p>Old Text:</p>
-                  <p class="sidebartext">
-                  <?php echo $row['entry']; ?></p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-          <!-- DELETE Modal -->
-          <div class="modal fade" id="deleteModal<?php echo $row['id']; ?>" role="dialog">
-            <div class="modal-dialog">
-
-              <!-- Modal content-->
-              <div class="modal-content modalstyle bodytext">
-
-                <div class="modal-body">
-                  <p>Are you sure you want to delete <em>"<?php echo $row['entry']; ?>"</em>?</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-info delform" data-dismiss="modal">Go Back</button>
-                      <a href="logdelete.php?id=<?php echo $row['id']; ?>"><button class="btn btn-danger delform">Delete</button></a>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-<?php
-
-
-        }
-          ?>
-
-  </tbody>
-  </table>
-  <script>
-  $(document).ready(function() {
-  // Setup - add a text input to each footer cell
-  // DataTable
-  var table = $('#campaignlog').DataTable(
-    {
-      "columnDefs": [
-    { "width": "50px", "targets": 0 },
-    { "width": "15px", "targets": 1 },
-    { "width": "15px", "targets": 2 },
-    { "width": "50px", "targets": 3 }
-
-
-  ]
-    }
-  );
-
-
-  } );
-  </script>
-  </div>
-  <?php
-    $sqlworld = "SELECT * FROM world";
-    $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
-    while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
-    $temp = $linkrow['title'];
-    ?>
-    <script>
-    var foundlink = "<?php echo $temp ?>";
-    function replace (querytext){
-      var bodytext = document.getElementById("thelog").innerHTML;
-      var url = "<a href=\"/tools/world/world.php?id=" + querytext + "\">" + querytext + "</a>";
-      var regex = new RegExp(querytext, 'ig');
-      newtext = bodytext.replace(regex, url);
-      document.getElementById("thelog").innerHTML = newtext;
-    }
-    replace(foundlink);
-        </script>
-        <?php
-      } ?>
 
       <style>
       #image-map1 {
@@ -323,6 +196,135 @@ var popup = L.popup();
 map.on('click', onMapClick);*/
 
 </script>
+
+<div class="table-responsive sidebartext">
+<table id="campaignlog" class="table table-condensed table-striped table-responsive dt-responsive sidebartext" cellspacing="0" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Day</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col">Coord</th>
+            <th scope="col">Entry</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+          <th scope="col">Coord</th>
+          <th scope="col">Entry</th>
+        </tr>
+    </tfoot>
+    <tbody id="thelog">
+      <?php
+      $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
+      $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
+      while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
+        echo ('<tr><td>');
+        echo ($row['date'].'</td>');
+        echo ('<td><button type="button" class="logbtn btn btn-danger btn-sq-xs" name="deleteItem" id="delete-log" data-toggle="modal" data-target="#deleteModal'.$row['id'].'"><span class="glyphicon glyphicon-remove"></span></button></td>');
+        echo ('<td><button type="button" class="logbtn btn btn-info btn-sq-xs" id="edit-log" data-toggle="modal" data-target="#editModal'.$row['id'].'"><span class="glyphicon glyphicon-edit"></span></button></td>');
+        echo ('<td><a href="/tools/world/map.php?id='.$row['coord'].'" target="_BLANK">'.$row['coord'].'</a></td>');
+
+        echo ('<td>'.$row['entry'].'</td>');
+        echo ('</tr>');
+?>
+        <!-- EDIT Modal -->
+        <div class="modal fade" id="editModal<?php echo $row['id']; ?>" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content modalstyle bodytext">
+
+              <div class="modal-body">
+                <form method="post" action="logedit.php?editid=<?php echo $row['id']; ?>" id="edit<?php echo $row['id']; ?>">
+                  <input form="edit<?php echo $row['id']; ?>" type="text" class="logeditdate" name="editdate<?php echo $row['id']; ?>" id="date<?php echo $row['id']; ?>" placeholder="Date..." value="" />
+                  <input form="edit<?php echo $row['id']; ?>" class="logeditcoord" type="text" name="editcoord<?php echo $row['id']; ?>" id="coordentry<?php echo $row['id']; ?>" placeholder="Coord..." value="" />
+                  <input form="edit<?php echo $row['id']; ?>" class="logeditentry" type="text" name="editentry<?php echo $row['id']; ?>" id="editentry<?php echo $row['id']; ?>" placeholder="Entry..." value="" />
+                  <button form="edit<?php echo $row['id']; ?>"class="logbtn btn btn-info btn-sq-xs" id="editconfirm" type="submit" value="Save" />
+                    <span class="glyphicon glyphicon-ok"></span></button>
+                </form>
+                <p></p><p>Old Text:</p>
+                <p class="sidebartext">
+                <?php echo $row['entry']; ?></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DELETE Modal -->
+        <div class="modal fade" id="deleteModal<?php echo $row['id']; ?>" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content modalstyle bodytext">
+
+              <div class="modal-body">
+                <p>Are you sure you want to delete <em>"<?php echo $row['entry']; ?>"</em>?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-info delform" data-dismiss="modal">Go Back</button>
+                    <a href="logdelete.php?id=<?php echo $row['id']; ?>"><button class="btn btn-danger delform">Delete</button></a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+<?php
+
+
+      }
+        ?>
+
+</tbody>
+</table>
+<script>
+$(document).ready(function() {
+// Setup - add a text input to each footer cell
+// DataTable
+var table = $('#campaignlog').DataTable(
+  {
+    "columnDefs": [
+  { "width": "50px", "targets": 0 },
+  { "width": "15px", "targets": 1 },
+  { "width": "15px", "targets": 2 },
+  { "width": "50px", "targets": 3 }
+
+
+]
+  }
+);
+
+
+} );
+</script>
+</div>
+<?php
+  $sqlworld = "SELECT * FROM world";
+  $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+  while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+  $temp = $linkrow['title'];
+  ?>
+  <script>
+  var foundlink = "<?php echo $temp ?>";
+  function replace (querytext){
+    var bodytext = document.getElementById("thelog").innerHTML;
+    var url = "<a href=\"/tools/world/world.php?id=" + querytext + "\">" + querytext + "</a>";
+    var regex = new RegExp(querytext, 'ig');
+    newtext = bodytext.replace(regex, url);
+    document.getElementById("thelog").innerHTML = newtext;
+  }
+  replace(foundlink);
+      </script>
+      <?php
+    } ?>
 
 <div class="sidebartext">
   <a href="/tools/world/generator.php" target=""><button class="btn btn-primary">Generate More Encounters</button></a>
