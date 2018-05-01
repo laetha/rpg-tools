@@ -421,7 +421,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
   var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
   var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-blue.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
+  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup("<?php echo 'Day '.$row['date'].': '.$row['entry']; ?>");
 //  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
   marker<?php echo $mrk; ?>.addTo(mapLog);
   marker<?php echo $mrk; ?>.addTo(mapLog1);
