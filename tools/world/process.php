@@ -43,7 +43,7 @@ $temp = explode(".", $_FILES["fileToUpload1"]["name"]);
 $newfilename = $name . '.' . end($temp);
 $newfilename1 = str_replace("'", "", $newfilename);
 $newfilename1 = stripslashes($newfilename1);
-move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename1);
+move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], "uploads/" . $newfilename1);
 
 //Execute the query
 $sql = "INSERT INTO world(title,type,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location,quest_status,quest_faction,quest_reward,coord)
