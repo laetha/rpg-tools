@@ -22,18 +22,144 @@
   <div class="col-md-4 sidebartext">
     <h2 class="col-centered">Magic Items</h2>
     <div class="sidebartext">
+      <?php
+        $itemRarity1 = rand(1,100);
+        $itemRarity2 = rand(1,100);
+        $itemRarity3 = rand(1,100);
+       ?>
+       <div class="randitem">
+       <div id="item1"></div>
+       <div id="item2"></div>
+       <div id="item3"></div>
+     </div>
     <?php
-    $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' ORDER BY rand() LIMIT 3";
+    if ($itemRarity1 <= 70) {
+    $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%legendary%' AND itemDetail NOT LIKE '%very rare%' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
     $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
     while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-      echo ('<div class="randitem">');
+      echo ('<div id ="1stitem" class="randitem">');
       $item = $row['title'];
       echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
       echo ('<p>'.$row['itemDetail'].'</p>');
       echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
       echo ('</div>');
+      $item1 = '<a href="#1stitem">'.$row['title'].'</a>';
     }
+  }
+  elseif ($itemRarity1 <= 90) {
+    $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%legendary%' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+    $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+    while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+      echo ('<div id ="1stitem" class="randitem">');
+      $item = $row['title'];
+      echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+      echo ('<p>'.$row['itemDetail'].'</p>');
+      echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+      echo ('</div>');
+      $item1 = '<a href="#1stitem">'.$row['title'].'</a>';
+    }
+  }
+  else {
+    $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+    $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+    while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+      echo ('<div id ="1stitem" class="randitem">');
+      $item = $row['title'];
+      echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+      echo ('<p>'.$row['itemDetail'].'</p>');
+      echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+      echo ('</div>');
+      $item1 = '<a href="#1stitem">'.$row['title'].'</a>';
+    }
+  }
+
+  if ($itemRarity2 <= 70) {
+  $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%legendary%' AND itemDetail NOT LIKE '%very rare%' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+  $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+  while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+    echo ('<div id ="2nditem" class="randitem">');
+    $item = $row['title'];
+    echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+    echo ('<p>'.$row['itemDetail'].'</p>');
+    echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+    echo ('</div>');
+    $item2 = '<a href="#2nditem">'.$row['title'].'</a>';
+  }
+}
+elseif ($itemRarity2 <= 90) {
+  $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%legendary%' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+  $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+  while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+    echo ('<div id ="2nditem" class="randitem">');
+    $item = $row['title'];
+    echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+    echo ('<p>'.$row['itemDetail'].'</p>');
+    echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+    echo ('</div>');
+    $item2 = '<a href="#2nditem">'.$row['title'].'</a>';
+  }
+}
+else {
+  $worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+  $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+  while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+    echo ('<div id ="2nditem" class="randitem">');
+    $item = $row['title'];
+    echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+    echo ('<p>'.$row['itemDetail'].'</p>');
+    echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+    echo ('</div>');
+    $item2 = '<a href="#2nditem">'.$row['title'].'</a>';
+  }
+}
+
+if ($itemRarity3 <= 70) {
+$worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%legendary%' AND itemDetail NOT LIKE '%very rare%' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  echo ('<div id ="3rditem" class="randitem">');
+  $item = $row['title'];
+  echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+  echo ('<p>'.$row['itemDetail'].'</p>');
+  echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+  echo ('</div>');
+  $item3 = '<a href="#3rditem">'.$row['title'].'</a>';
+}
+}
+elseif ($itemRarity3 <= 90) {
+$worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%legendary%' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  echo ('<div id ="3rditem" class="randitem">');
+  $item = $row['title'];
+  echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+  echo ('<p>'.$row['itemDetail'].'</p>');
+  echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+  echo ('</div>');
+  $item3 = '<a href="#3rditem">'.$row['title'].'</a>';
+}
+}
+else {
+$worldtitle = "SELECT * FROM `compendium` WHERE `itemMagic` LIKE '1' AND itemDetail NOT LIKE '%artifact%' ORDER BY rand() LIMIT 1";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  echo ('<div id ="3rditem" class="randitem">');
+  $item = $row['title'];
+  echo ('<h3 class="randitem"><a href="/tools/compendium/compendium.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></h3>');
+  echo ('<p>'.$row['itemDetail'].'</p>');
+  echo nl2br('<p style="margin-bottom: 40px;">'.$row['text'].'</p>');
+  echo ('</div>');
+  $item3 = '<a href="#3rditem">'.$row['title'].'</a>';
+}
+}
+
     ?>
+<script>
+document.getElementById("item1").innerHTML = '<?php echo $item1 ?>';
+document.getElementById("item2").innerHTML = '<?php echo $item2 ?>';
+document.getElementById("item3").innerHTML = '<?php echo $item3 ?>';
+</script>
+
   </div>
   </div>
 
