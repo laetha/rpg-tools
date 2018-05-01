@@ -93,10 +93,11 @@
 						<li><a href="/tools/compendium/spell.php">Spells</a></li>
 					</ul>
 				<li><a href="/tools/campaign-log/campaign-log.php" style="color: #BB5555;">Campaign Log</a></li>
-				<li><a href="/tools/initiative/initiative.php" style="color: #BB5555;">Initiative</a></li>
+				<li><a href="/tools/initiative/initiative.php" style="color: #69B076;">Initiative</a></li>
 				<li><a href="/tools/world/map.php" style="color: #BB5555;">World Map</a></li>
-				<li><a href="/tools/generator/generator.php" style="color: #BB5555;">Generator</a></li>
+				<li><a href="/tools/generator/generator.php" style="color: #69B076;">Generator</a></li>
 				<li><a href="/tools/questboard/questboard.php" style="color: #69B076;">Quest Board</a></li>
+				<li><a href="/tools/resources/calendar.php" style="color: #69B076;">Calendar</a></li>
 
       </ul>
 
