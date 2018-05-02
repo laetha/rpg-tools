@@ -52,7 +52,50 @@ sortField: 'text'
 
    }
   </script>
+  <script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
+  <div class="sidebartext">
+  <form action="" onsubmit="return roll();">
+      <input type="text" placeholder="Dice roller..." autofocus="" id="input">
+      <button type="submit">Roll</button>
+    </form>
+    <div>
 
+      <div class="row">
+        <table>
+        <tr>
+        <td><textarea rows="1" id="output" readonly="" placeholder="No dice rolled" style="margin-right:5px; height:30px; width:200px;"></textarea></td>
+        <td><button onclick="clearLog()" style="float:right;">Clear</button></td>
+        </tr>
+      </table>
+      </div>
+
+    </div>
+  <script>
+
+      var diceRoller  = new DiceRoller();
+
+      function roll(){
+        var value = document.getElementById('input').value;
+
+        diceRoller.roll(value);
+
+        document.getElementById('output').value = diceRoller.getNotation();
+
+        // stop event propagation
+        return false;
+      }
+
+      function clearLog(){
+        diceRoller.clearLog();
+
+        document.getElementById('output').value = diceRoller.getNotation();
+
+        // stop event propagation
+        return false;
+      }
+
+</script>
+</div>
   <table>
 
     <?php
@@ -84,7 +127,10 @@ sortField: 'text'
         </div>
       </td></tr>
 <?php } ?>
-</table></div>
+
+</table>
+
+</div>
 <?php
 $worldtitle = "SELECT * FROM monsters";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -126,6 +172,7 @@ $(this).zeninput();
 });
 
 </script>
+
 <div class="col-md-8 col-xs-12" style="float:right;"><iframe class="blockframe" name="statblock"></iframe></div>
 </div> <!--Body -->
 </div> <!-- Mainbox -->
