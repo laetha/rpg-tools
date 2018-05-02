@@ -10,7 +10,7 @@
    $headpath .= "/header.php";
    include_once($headpath);
 
-   $id = '-178.229168, 30.510292';
+   $id = 'notset';
    $disallowed_paths = array('header', 'footer');
    if (!empty($_GET['id'])) {
      $tmp_action = basename($_GET['id']);
@@ -18,7 +18,7 @@
            $id = $tmp_action;
      }
    $id = addslashes($id);
-
+   $id = str_replace('%20', ' ', $id);
    echo $id;
    ?>
    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
@@ -96,15 +96,7 @@ L.imageOverlay(url, bounds).addTo(map);
 
 // tell leaflet that the map is exactly as big as the image
 map.setMaxBounds(bounds);
-<?php
-if ($id == '-178.229168, 30.510292') {
- ?>
-map.panTo(new L.LatLng(-178.229168, 30.510292));
-<?php }
-else { ?>
-  map.setView(new L.LatLng(<?php echo $id; ?>), 4);
 
-<?php } ?>
 var popup = L.popup();
 
 
@@ -172,7 +164,17 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
 </div>
 </div>
+<script>
+<?php
+if ($id == 'notset') {
+ ?>
+map.setView(new L.LatLng(-219.375, 0.369713));
+<?php }
+else { ?>
+  map.setView(new L.LatLng(<?php echo $id; ?>), 4);
 
+<?php } ?>
+</script>
 
    <?php
    //Footer
