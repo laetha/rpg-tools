@@ -40,83 +40,6 @@ crossorigin=""></script>
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
-<!-- MAP -->
-
-<style>
-#image-map {
-  width: 100%;
-  height: 600px;
-  border: 1px solid #ccc;
-  margin-bottom: 10px;
-}
-</style>
-
-<div id="image-map"></div>
-<script>
-// Using leaflet.js to pan and zoom a big image.
-// See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
-
-// create the slippy map
-var map = L.map('image-map', {
-minZoom: 1,
-maxZoom: 4,
-center: [0, 0],
-zoom: 2,
-crs: L.CRS.Simple
-});
-
-var mapFeatures1 = L.layerGroup();
-var mapLog1 = L.layerGroup();
-var mapCompendium1 = L.layerGroup();
-
-var overlayMaps1 = {
-    "Map Feautures": mapFeatures1,
-    "Campaign Log": mapLog1,
-    "Compendium": mapCompendium1
-
-};
-
-L.control.layers(null, overlayMaps1).addTo(map);
-
-
-// dimensions of the image
-var w = 5040,
-h = 3308,
-url = '/assets/images/Starting-Region.jpg';
-
-// calculate the edges of the image, in coordinate space
-var southWest = map.unproject([0, h], map.getMaxZoom()-1);
-var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
-var bounds = new L.LatLngBounds(southWest, northEast);
-map.panTo(new L.LatLng(-178.229168, 30.510292));
-
-
-// add the image overlay,
-// so that it covers the entire map
-L.imageOverlay(url, bounds).addTo(map);
-
-// tell leaflet that the map is exactly as big as the image
-map.setMaxBounds(bounds);
-
-var popup = L.popup();
-
-function onMapClick(e) {
-popup
-.setLatLng(e.latlng)
-.setContent("You clicked the map at " + e.latlng.toString())
-.openOn(map);
-var newCoord = e.latlng.toString();
-newCoord = newCoord.replace(/LatLng/g, "");
-  newCoord = newCoord.replace(/[{()}]/g, '');
-document.getElementById("logcoord").value = newCoord;
-//.openOn(map);
-}
-
-map.on('click', onMapClick);
-
-</script>
-
-<!-- END MAP -->
 
   </div>
   <script>
@@ -129,7 +52,7 @@ map.on('click', onMapClick);
   <!--<div class="padding"></div>-->
 
 
-      <style>
+  <!--    <style>
       #image-map1 {
         width: 100%;
         height: 600px;
@@ -195,7 +118,7 @@ var popup = L.popup();
 
 map.on('click', onMapClick);*/
 
-</script>
+</script>-->
 
 <div class="table-responsive sidebartext">
 <table id="campaignlog" class="table table-condensed table-striped table-responsive dt-responsive sidebartext" cellspacing="0" width="100%">
@@ -305,6 +228,85 @@ var table = $('#campaignlog').DataTable(
 
 } );
 </script>
+
+<!-- MAP -->
+
+<style>
+#image-map {
+  width: 100%;
+  height: 600px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+</style>
+
+<div id="image-map"></div>
+<script>
+// Using leaflet.js to pan and zoom a big image.
+// See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+
+// create the slippy map
+var map = L.map('image-map', {
+minZoom: 1,
+maxZoom: 4,
+center: [0, 0],
+zoom: 2,
+crs: L.CRS.Simple
+});
+
+var mapFeatures = L.layerGroup();
+var mapLog = L.layerGroup();
+var mapCompendium = L.layerGroup();
+
+var overlayMaps = {
+    "Map Feautures": mapFeatures,
+    "Campaign Log": mapLog,
+    "Compendium": mapCompendium
+
+};
+
+L.control.layers(null, overlayMaps).addTo(map);
+
+
+// dimensions of the image
+var w = 5040,
+h = 3308,
+url = '/assets/images/Starting-Region.jpg';
+
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
+map.panTo(new L.LatLng(-178.229168, 30.510292));
+
+
+// add the image overlay,
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
+
+// tell leaflet that the map is exactly as big as the image
+map.setMaxBounds(bounds);
+
+var popup = L.popup();
+
+function onMapClick(e) {
+popup
+.setLatLng(e.latlng)
+.setContent("You clicked the map at " + e.latlng.toString())
+.openOn(map);
+var newCoord = e.latlng.toString();
+newCoord = newCoord.replace(/LatLng/g, "");
+  newCoord = newCoord.replace(/[{()}]/g, '');
+document.getElementById("logcoord").value = newCoord;
+//.openOn(map);
+}
+
+map.on('click', onMapClick);
+
+</script>
+
+<!-- END MAP -->
+
 </div>
 <?php
   $sqlworld = "SELECT * FROM world";
