@@ -31,6 +31,7 @@
 		 $sqlpath .= "/sql-connect.php";
 		 include_once($sqlpath);
 		 ?>
+		 <link rel="stylesheet" type="text/css" href="/navbar.css" />
 		 <nav class="navbar navbar-default navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,7 +42,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/index.php">GameRipple D&D Tools</a>
+      <a class="navbar-brand" href="/index.php">RPG Tools</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -71,8 +72,12 @@
 					</select>
 				</li>
 				<li class="dropdown">
-				<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #BB5555;">World Building<span class="caret"></span></a>
+				<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World(DM)<span class="caret"></span></a>
 				<ul class="dropdown-menu">
+					<li><a href="/tools/campaign-log/campaign-log.php">Campaign Log</a></li>
+					<li><a href="/tools/world/map.php">World Map</a></li>
+					<li><a href="/tools/world/import.php">Import</a></li>
+					<li role="separator" class="divider"></li>
 					<li><a href="/tools/world/settlement.php">Settlements</a></li>
 					<li><a href="/tools/world/npc.php">NPCs</a></li>
 					<li><a href="/tools/world/faction.php">Factions</a></li>
@@ -80,9 +85,10 @@
 					<li><a href="/tools/world/quest.php">Quests</a></li>
 					<li><a href="/tools/world/establishment.php">Establishments</a></li>
 					<li><a href="/tools/world/publicquest.php">Public Quests</a></li>
+
 				</ul>
 				<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #69B076;">Compenium <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compenium<span class="caret"></span></a>
           <ul class="dropdown-menu">
 						<li><a href="/tools/compendium/background.php">Backgrounds</a></li>
 						<li><a href="/tools/compendium/class.php">Classes</a></li>
@@ -92,12 +98,17 @@
 						<li><a href="/tools/compendium/race.php">Races</a></li>
 						<li><a href="/tools/compendium/spell.php">Spells</a></li>
 					</ul>
-				<li><a href="/tools/campaign-log/campaign-log.php" style="color: #BB5555;">Campaign Log</a></li>
-				<li><a href="/tools/initiative/initiative.php" style="color: #69B076;">Initiative</a></li>
-				<li><a href="/tools/world/map.php" style="color: #BB5555;">World Map</a></li>
-				<li><a href="/tools/generator/generator.php" style="color: #69B076;">Generator</a></li>
-				<li><a href="/tools/questboard/questboard.php" style="color: #69B076;">Quest Board</a></li>
-				<li><a href="/tools/resources/calendar.php" style="color: #69B076;">Calendar</a></li>
+
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
+							<li><a href="/tools/generator/generator.php">Random Generator</a></li>
+						</ul>
+
+
+				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
+				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
 
       </ul>
 

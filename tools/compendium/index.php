@@ -23,7 +23,7 @@ include_once($sqlpath);
 </div>
 </div>
 
-<div class="nav sidebartext col-md-12">
+<div class="nav sidebartext col-md-12" style="margin-bottom:30px;">
 <a href="/index.php">Home</a>  <?php echo ('&rarr;'); ?> <a href="/tools/compendium/compendium.php">Compendium</a> <?php echo ('&rarr;'); ?>  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
 </div>
 <?php
@@ -38,6 +38,9 @@ include_once($sqlpath);
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           //echo ('<h2>'.ucwords($row['type']).'</h2>');
           $type = $row['type'];
+          if ($type != 'monster' && $type != 'class') {
+            echo ('<p class="bodytext">'.$row['title'].'</p>');
+        }
           if($type == 'background'){
             echo nl2br('<div class="sidebartext">'.$Parsedown->text($row['backgroundTraits'].'</div>'));
             $sidebartype = $row['type'];

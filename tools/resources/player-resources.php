@@ -17,6 +17,7 @@ include_once($headpath);
       </div>
   </div>
 </div>
+</div>
 
    <?php
    //Footer
