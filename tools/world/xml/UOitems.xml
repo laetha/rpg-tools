@@ -1,77 +1,225 @@
 <world version="5" auto_indent="NO">
   
-      <item>
-    <title>Pelarium Shield</title>
-	<type>item</type>
-    <itemType>shield</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (shield), very rare (requires attunement)</itemDetail>
-    <text>This sparkling copper shield captures some of the essence of certain energies that damage you. It gives you a +1 bonus to AC while equipped. In addition, when you take fire or radiant damage, until the end of your next turn, your attacks deal 1d6 extra damage of the type that you took. If you take both fire and radiant damage, your attacks deal an extra 1d6 fire and an extra 1d6 radiant damage until the end of your next turn.
-</text>
-  </item>
-  
         <item>
-    <title>Periapt of Wisdom</title>
+    <title>Potion of Freedom</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>While you wear this periapt around your neck, you gain a +1 bonus to any Wisdom checks you make.
+    <itemDetail>Potion, uncommon</itemDetail>
+    <text>For 1 hour after you drink this potion, you are immune to the paralyzed condition
 </text>
   </item>
   
-        <item>
-    <title>Philter of Persuasiveness</title>
+          <item>
+    <title>Pouch of Fool's Gold</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Potion, very rare</itemDetail>
-    <text>Upon quaffing this potion, you become possessed of incredible powers of persuasion. For the next hour, you have advantage on Persuasion checks
+    <itemDetail>Wondrous item, rare</itemDetail>
+    <text>If you fill this magical pouch with 100 copper coins, at the next dawn they are cloaked by an illusion that makes them seem gold. A creature that actively inspects the coins receives a DC 11 Wisdom saving throw to detect their false nature. Once the coins leave the bag, the illusion remains in place for 4 hours.
 </text>
   </item>
   
-        <item>
-    <title>Phylactery of Long Years</title>
+          <item>
+    <title>Pouch of Security</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>While you wear this phylactery, you age only one-quarter as quickly as normal.
+    <itemDetail>Wondrous item, common (requires attunement)</itemDetail>
+    <text>If anyone removes this pouch from your person, it screams, “I am being stolen!” over and over again for the next hour. Its cries are clearly audible up to 120' away. If you hold it and use a bonus action to command it to be quiet, it ceases its cries.
 </text>
   </item>
   
-        <item>
-    <title>Pipe of Erudite Discourse</title>
+          <item>
+    <title>Precise Weapon</title>
+	<type>item</type>
+    <itemType>ranged weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Weapon (any ranged or thrown), uncommon</itemDetail>
+    <text>This weapon has a +1 bonus to hit and damage. In addition, creatures between you and your target don't provide cover for the target
+</text>
+  </item>
+  
+          <item>
+    <title>Prismatic Burst Weapon</title>
+	<type>item</type>
+    <itemType>melee weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Weapon (any), very rare (requires attunement)</itemDetail>
+    <text>This weapon has a +2 bonus to hit and damage. In addition, if you score a critical hit on a creature, that creature is also subject to the effects of a prismatic spray spell instead of the standard critical effect.
+</text>
+  </item>
+  
+          <item>
+    <title>Quickening Rod</title>
+	<type>item</type>
+    <itemType>rod</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Rod, very rare (requires attunement by a spellcaster)</itemDetail>
+    <text>This rod is graven with magical glyphs and sigils. When you move it about, you can tell that it has a liquid core by the way the weight shifts around. The rod has 3 charges; as long as it is on your person, you can expend one charge to change the casting time of a spell from 1 action to 1 bonus action as you cast it.
+
+	Each morning at dawn, the rod regains 1 charge.
+</text>
+  </item>
+  
+          <item>
+    <title>Quill of Dictation</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, uncommon</itemDetail>
+    <text>This magical quill produces its own ink and never runs dry. If you use an action to speak the command word while touching the quill to a piece or stack of paper, the quill then writes out the words you speak thereafter until you spend a bonus action to deactivate it, you move farther than 20' from it or it runs out of paper. When you activate it, you can decide whether the pen also copies down the speech of other creatures within 20', but you cannot change that decision until you deactivate it.
+</text>
+  </item>
+  
+          <item>
+    <title>Quiver of Flames</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, uncommon</itemDetail>
+    <text>This magical quiver it usually bright yellow, orange or red, and it can hold up to 20 arrows. You can place an arrow in the quiver as an action or a bonus action. When you fire an arrow that is drawn from the quiver, it deals an extra 1 fire damage on a hit.
+</text>
+  </item>
+  
+          <item>
+    <title>Rapidstrike Bracers</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
     <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>When you engage in discussion lasting at least one hour while smoking this pipe, you may use your Intelligence in place of any other ability score when you make any Deception, Insight and Persuasion check made during the discussion.
+    <text>While you wear these bracers, you can make one melee weapon attack as a bonus action on your turn. However, doing so is tiring. You can use it a number of times equal to 2 + your Constitution modifier safely (minimum of 2). If you use it any more than that, you gain one level of exhaustion. For every additional number of times equal to your Constitution bonus (minimum of 1), you gain another level of exhaustion. This number resets when you complete a long rest.
 </text>
   </item>
   
-        <item>
-    <title>Potion of Dreamspeech</title>
+          <item>
+    <title>Raistlin's Cursed Money</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Potion, very rare</itemDetail>
-    <text>For 1 hour after you drink this potion, if you speak to a sleeping or comatose creature, it hears you and can respond, if it chooses. Using this does not wake the creature.
+    <itemDetail>Wondrous item, rare</itemDetail>
+    <text>A bag of coins of this sort might be of any denomination. When it is paid in return for a promise, the coins inflict a terrible price on an oathbreaker. If the promise of the other party is broken, its hands turn black and begin to rot. The creature's hit point maximum falls by 1d10 each day until it either makes good on the promise or receives a remove curse spell, or until it dies when its maximum hit points reach 0. In this case, the creature's body rapidly rots away into a greasy stain.
 </text>
   </item>
   
+          <item>
+    <title>Rat Leathers</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Armor (leather), uncommon (requires attunement)</itemDetail>
+    <text>This magical leather armor looks like it is in terrible shape, being full of holes and showing many frayed areas. When wearing it, you can spend your action to polymorph into a rat, during which time you have all of its statistics except hit points and mental stats. This change lasts for 1 hour or until you lose consciousness or spend a bonus action to resume your normal form. Once you use this ability, you cannot use it again until you complete a long rest.
+</text>
+  </item>
+  
+          <item>
+    <title>Razor Bracers</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, uncommon</itemDetail>
+    <text>These bracers have sharp edges that make creatures that choose to grapple you pay dearly. If a creature grapples you or restrains you with its body, you can use your reaction to deal 1d10 slashing damage to it. In addition, each time it starts its turn, it suffers 1d10 slashing damage. This ends if the grapple or restraint ends.
+</text>
+  </item>
+  
+          <item>
+    <title>Razor Shield</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Armor (shield), rare</itemDetail>
+    <text>When an enemy that you can see within 5' hits you with a melee attack, you can use your reaction to make a melee attack with the razors along this shield's edge. You are considered proficient in the attack. If you hit, you deal 1d4 + your Strength bonus damage. The attack counts as a magic weapon.
+</text>
+  </item>
+  
+          <item>
+    <title>Recoil Shield</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Armor (shield), uncommon (requires attunement)</itemDetail>
+    <text>When an enemy hits you with a melee attack, you can spend your reaction to invoke the shield's power and force the attacker to make a DC 13 Strength saving throw or fall prone. Once you use this ability, you must complete a short or long rest before you can use it again.
+</text>
+  </item>
+  
+          <item>
+    <title>Resounding Weapon</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Weapon (any hammer, flail, mace, sling or staff), rare</itemDetail>
+    <text>This weapon gains a +1 bonus to hit. It also has 3 charges, which it regains each dawn. If you hit a creature, you can spend a charge as part of the attack to cause the weapon to emit a peal of thunder that is audible up to 500' away and deals an extra 1d8 thunder damage to the target. In addition, the target must make a DC 13 Constitution saving throw or be stunned until the end of its next turn.
+</text>
+  </item>
+  
+          <item>
+    <title>Ricochet Shield</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Armor (shield), rare</itemDetail>
+    <text>When a ranged weapon attack misses you, you can use your reaction to deflect the weapon at another creature of your choice. The new target must be within a number of feet of you equal to half the short range of the deflected weapon. The attacker rerolls its attack against the new target.
+	
+	Using this shield's ability is tiring. You can use it a number of times equal to your Strength bonus without penalty (minimum of 1). This number resets when you complete a short or long rest. Each additional time you use it, you gain one level of exhaustion.
+</text>
+  </item>
+  
+          <item>
+    <title>Ring of Antivenom</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Ring, common (requires attunement)</itemDetail>
+    <text>If you are affected by a poison effect, you can use your reaction to neutralize it. In this case, you take no damage or other effect from the poison. Once you use the ring's power, it won't function again until the next dawn.
+</text>
+  </item>
+  
+          <item>
+    <title>Ring of Cantrips</title>
+	<type>item</type>
+    <itemType>ring</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Ring, uncommon (requires attunement)</itemDetail>
+    <text>A ring of this sort contains one cantrip. While you wear it, you can cast that cantrip.
+</text>
+  </item>
+ 
    
   </world>
   
