@@ -80,6 +80,7 @@
 					<li role="separator" class="divider"></li>
 					<li><a href="/tools/world/settlement.php">Settlements</a></li>
 					<li><a href="/tools/world/npc.php">NPCs</a></li>
+					<li><a href="/tools/world/pc.php">Player Characters</a></li>
 					<li><a href="/tools/world/faction.php">Factions</a></li>
 					<li><a href="/tools/world/deity.php">Deities</a></li>
 					<li><a href="/tools/world/quest.php">Quests</a></li>
