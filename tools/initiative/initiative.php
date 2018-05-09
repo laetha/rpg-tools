@@ -162,13 +162,13 @@ $(function addbar(){
     $(this).closest('div').after(ele);
     $('.hp-track').each(function(){
       var $this = $(this);
-    $(this).zeninput();
+    $(this).abacus();
     });
   });
 });
 $('.hp-track').each(function(){
   var $this = $(this);
-$(this).zeninput();
+$(this).abacus();
 });
 
 </script>

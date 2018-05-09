@@ -1,213 +1,77 @@
 <world version="5" auto_indent="NO">
   
-  <item>
-    <title>Darkleaf Armor</title>
-	<type>item</type>
-    <itemType>light armor</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (any light), rare</itemDetail>
-    <text>This +1 armor has dark leaves from the gravetrees of the Shadowfell woven into it, giving it an unusual property. The first time you are attacked in a given encounter, you add 1d4 to your Armor Class
-
-</text>
-  </item>
-  
-    <item>
-    <title>Dart of Biting</title>
-	<type>item</type>
-    <itemType>light armor</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (dart), rare</itemDetail>
-    <text>If you hit a creature with this dart, the dart transforms into a tiny serpent and injects poison into the wound. The target must make a DC 15 Constitution save, taking 2d10 poison damage on a failure or half that on a success.
-
-</text>
-  </item>
-  
-    <item>
-    <title>Dart of Homing</title>
-	<type>item</type>
-    <itemType>ranged weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (dart), rare</itemDetail>
-    <text>A magical dart of this sort is painted bright yellow and green. It has a +2 bonus to hit and damage. However, if you miss with it, instead of falling to the ground, the dart flies around for another attack on your next turn (using your attack bonus). If it misses on this second attack, it falls to the ground.
-
-</text>
-  </item>
-  
-    <item>
-    <title>Death Spike</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (spear), rare (requires attunement)</itemDetail>
-    <text>Crafted from cold-wrought iron, this magical spear has a +1 bonus to hit and damage. In addition, if you kill a hostile creature with it, you gain 10 temporary hit points.
-
-</text>
-  </item>
-  
-    <item>
-    <title>Deck of Prognostications</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>This deck of cards is painted on thin lacquered plaques. There are four suits, but instead of numbered cards, each suit contains a king, queen, prince, knave, merchant, villain, war, journey and jester. You can use it to cast the augury spell, but you must complete a short or long rest before using this ability again
-
-</text>
-  </item>
-  
-    <item>
-    <title>Deepdweller Armor</title>
-	<type>item</type>
-    <itemType>armor</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (any), very rare (requires attunement)</itemDetail>
-    <text>While you wear this armor, you can breathe water and are immune to damage from pressure in extreme depths. In addition, you are immune to cold damage. This armor doesn't weigh you down or otherwise interfere with you when you are swimming. Finally, you can speak with any water-dwelling creature that has a language.
-
-</text>
-  </item>
-  
-    <item>
-    <title>Dense Weapon</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any melee bludgeoning), rare</itemDetail>
-    <text>A dense weapon allows you to reroll 1s and 2s on its weapon damage dice, but you must accept the second result. If you can already reroll 1s and 2s on the damage dice, you can instead reroll 1s, 2s and 3s
-
-</text>
-  </item>
-  
-  <item>
-    <title>Desperation Chain</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement by a sorcerer or wizard)</itemDetail>
-    <text>This thin chain is made of alternating links of ivory and green Baatorian steel. While you wear it as a belt, when you are knocked unconscious, you can use your reaction to cast one spell of up to 3rd level that has a casting time of 1 action. The spell takes effect after you fall unconscious and cannot target yourself.
-
-</text>
-  </item>
-  
-  <item>
-    <title>Dime</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>A dime is an unusually small circular silver coin. You can place it in a location and utter the command word to activate it as an action. When you do so, the dime becomes invisible for one hour or until triggered. Any creature passing over the dime's location while it is invisible must make a DC 15 Strength saving throw or end its movement and be unable to resume moving until the beginning of its next turn. Once a dime has been activated, it cannot be activated again until the next dawn.
-
-</text>
-  </item>
-  
-  <item>
-    <title>Dislocator</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any), very rare (requires attunement)</itemDetail>
-    <text>This weapon has a +2 bonus to hit and damage. In addition, it has 3 charges, which it regains each dawn. If you hit a creature, you can expend a charge to teleport it up to 10' in any direction into an unoccupied space of solid ground if such a space exists.
-
-</text>
-  </item>
-  
-  <item>
-    <title>Direbeast Shield</title>
+      <item>
+    <title>Pelarium Shield</title>
 	<type>item</type>
     <itemType>shield</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Armor (shield), rare (requires attunement)</itemDetail>
-    <text>This shield is decorated with the hides of dire animals and marked with a wolf's head. While you have it equipped, you add 1d4 to any Constitution check or saving throw you make.
-
+    <itemDetail>Armor (shield), very rare (requires attunement)</itemDetail>
+    <text>This sparkling copper shield captures some of the essence of certain energies that damage you. It gives you a +1 bonus to AC while equipped. In addition, when you take fire or radiant damage, until the end of your next turn, your attacks deal 1d6 extra damage of the type that you took. If you take both fire and radiant damage, your attacks deal an extra 1d6 fire and an extra 1d6 radiant damage until the end of your next turn.
 </text>
   </item>
   
-  <item>
-    <title>Divine Retribution Armor</title>
-	<type>item</type>
-    <itemType>armor</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (any), rare (requires attunement by a cleric or paladin)</itemDetail>
-    <text>This magical armor has 2 charges, which it regains each morning at dawn. When you are hit by a melee attack, you can use your reaction to spend a charge and gain a +5 bonus to damage rolls against the creature that hit you. This damage bonus lasts until the end of your next turn.
-</text>
-  </item>
-  
-  <item>
-    <title>Doomwarding Dagger</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (dagger), very rare (requires attunement)</itemDetail>
-    <text>This dagger has a +1 bonus to hit and damage. In addition, it has 7 charges when first created; these charges are never recovered, and when they are all used, the dagger becomes a simple +1 dagger.
-	
-You can use a charge from the dagger at any point, as long as you are carrying it, though never more than once per turn. When you use a charge, you can reroll one attack, save or check.
-
-</text>
-  </item>
-  
-  <item>
-    <title>Dwarfmug</title>
+        <item>
+    <title>Periapt of Wisdom</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Wondrous item, common</itemDetail>
-    <text>Obviously dwarf-made, this heavy drinking vessel is edged with gold. The sides of it are graven with scenes of drinking and merriment. You can use a bonus action to cause it to fill with hearty, dwarf brewed ale. If not consumed within ten minutes or if poured out of the mug, the ale vanishes, and the mug will not function for an hour.
-
+    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
+    <text>While you wear this periapt around your neck, you gain a +1 bonus to any Wisdom checks you make.
 </text>
   </item>
   
-  <item>
-    <title>Eladrin Boots</title>
+        <item>
+    <title>Philter of Persuasiveness</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Boots, rare (requires attunement)</itemDetail>
-    <text>These boots have 2 charges, which refresh each day at dawn. While you are wearing them, you can expend a charge to cast misty step.
-
+    <itemDetail>Potion, very rare</itemDetail>
+    <text>Upon quaffing this potion, you become possessed of incredible powers of persuasion. For the next hour, you have advantage on Persuasion checks
 </text>
   </item>
   
-  <item>
-    <title>Envoy's Veil</title>
+        <item>
+    <title>Phylactery of Long Years</title>
 	<type>item</type>
-    <itemType>melee weapon</itemType>
+    <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement by someone proficient in Persuasion)</itemDetail>
-    <text>This veil is embroidered in cloth-of-gold with abstract patterns that are soothing and pleasant to look upon. While you wear it, you can apply twice your proficiency bonus to Charisma (Persuasion) checks.
-
+    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
+    <text>While you wear this phylactery, you age only one-quarter as quickly as normal.
 </text>
   </item>
   
+        <item>
+    <title>Pipe of Erudite Discourse</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
+    <text>When you engage in discussion lasting at least one hour while smoking this pipe, you may use your Intelligence in place of any other ability score when you make any Deception, Insight and Persuasion check made during the discussion.
+</text>
+  </item>
+  
+        <item>
+    <title>Potion of Dreamspeech</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Potion, very rare</itemDetail>
+    <text>For 1 hour after you drink this potion, if you speak to a sleeping or comatose creature, it hears you and can respond, if it chooses. Using this does not wake the creature.
+</text>
+  </item>
+  
+   
   </world>
   

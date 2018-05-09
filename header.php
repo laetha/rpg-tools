@@ -23,7 +23,7 @@
 		<script src="/selectize/js/list.js" tpye="text/javascript"></script>
 		<!--<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js" tpye="text/javascript"></script>-->
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" tpye="text/javascript"></script>
-		<script src="/plugins/jquery.zeninput.js" tpye="text/javascript"></script>
+		<script src="/plugins/Do-Math-Within-Input-jQuery-Abacus\jquery.abacus.min.js"></script>
 
 		<?php
 		//SQL Connect
