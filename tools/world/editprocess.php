@@ -43,9 +43,11 @@ $coord=htmlentities(trim(addslashes($coordtemp)));
 
 $temp = explode(".", $_FILES["fileToUpload"]["name"]);
 $newfilename = $name . '.' . end($temp);
+if (end($temp) == 'jpg' OR end($temp) == 'png') {
 $newfilename1 = str_replace("'", "", $newfilename);
 $newfilename1 = stripslashes($newfilename1);
 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename1);
+}
 
 //Execute the query
 $sql = "UPDATE world
