@@ -1,225 +1,238 @@
 <world version="5" auto_indent="NO">
   
-        <item>
-    <title>Potion of Freedom</title>
+           <item>
+    <title>Shadowstrike Weapon</title>
 	<type>item</type>
-    <itemType>wondrous item</itemType>
+    <itemType>weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Potion, uncommon</itemDetail>
-    <text>For 1 hour after you drink this potion, you are immune to the paralyzed condition
+    <itemDetail>Weapon (any melee), rare (requires attunement)</itemDetail>
+    <text>This weapon has a +2 bonus to hit and damage. You can use a bonus action to strike through your shadow, adding 5' to your reach with it until the end of your turn. Once you do so, you must complete a short or long rest before this power will function again.
 </text>
-  </item>
+  </item> 
   
-          <item>
-    <title>Pouch of Fool's Gold</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare</itemDetail>
-    <text>If you fill this magical pouch with 100 copper coins, at the next dawn they are cloaked by an illusion that makes them seem gold. A creature that actively inspects the coins receives a DC 11 Wisdom saving throw to detect their false nature. Once the coins leave the bag, the illusion remains in place for 4 hours.
-</text>
-  </item>
-  
-          <item>
-    <title>Pouch of Security</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, common (requires attunement)</itemDetail>
-    <text>If anyone removes this pouch from your person, it screams, “I am being stolen!” over and over again for the next hour. Its cries are clearly audible up to 120' away. If you hold it and use a bonus action to command it to be quiet, it ceases its cries.
-</text>
-  </item>
-  
-          <item>
-    <title>Precise Weapon</title>
-	<type>item</type>
-    <itemType>ranged weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any ranged or thrown), uncommon</itemDetail>
-    <text>This weapon has a +1 bonus to hit and damage. In addition, creatures between you and your target don't provide cover for the target
-</text>
-  </item>
-  
-          <item>
-    <title>Prismatic Burst Weapon</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any), very rare (requires attunement)</itemDetail>
-    <text>This weapon has a +2 bonus to hit and damage. In addition, if you score a critical hit on a creature, that creature is also subject to the effects of a prismatic spray spell instead of the standard critical effect.
-</text>
-  </item>
-  
-          <item>
-    <title>Quickening Rod</title>
-	<type>item</type>
-    <itemType>rod</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Rod, very rare (requires attunement by a spellcaster)</itemDetail>
-    <text>This rod is graven with magical glyphs and sigils. When you move it about, you can tell that it has a liquid core by the way the weight shifts around. The rod has 3 charges; as long as it is on your person, you can expend one charge to change the casting time of a spell from 1 action to 1 bonus action as you cast it.
-
-	Each morning at dawn, the rod regains 1 charge.
-</text>
-  </item>
-  
-          <item>
-    <title>Quill of Dictation</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>This magical quill produces its own ink and never runs dry. If you use an action to speak the command word while touching the quill to a piece or stack of paper, the quill then writes out the words you speak thereafter until you spend a bonus action to deactivate it, you move farther than 20' from it or it runs out of paper. When you activate it, you can decide whether the pen also copies down the speech of other creatures within 20', but you cannot change that decision until you deactivate it.
-</text>
-  </item>
-  
-          <item>
-    <title>Quiver of Flames</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>This magical quiver it usually bright yellow, orange or red, and it can hold up to 20 arrows. You can place an arrow in the quiver as an action or a bonus action. When you fire an arrow that is drawn from the quiver, it deals an extra 1 fire damage on a hit.
-</text>
-  </item>
-  
-          <item>
-    <title>Rapidstrike Bracers</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>While you wear these bracers, you can make one melee weapon attack as a bonus action on your turn. However, doing so is tiring. You can use it a number of times equal to 2 + your Constitution modifier safely (minimum of 2). If you use it any more than that, you gain one level of exhaustion. For every additional number of times equal to your Constitution bonus (minimum of 1), you gain another level of exhaustion. This number resets when you complete a long rest.
-</text>
-  </item>
-  
-          <item>
-    <title>Raistlin's Cursed Money</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare</itemDetail>
-    <text>A bag of coins of this sort might be of any denomination. When it is paid in return for a promise, the coins inflict a terrible price on an oathbreaker. If the promise of the other party is broken, its hands turn black and begin to rot. The creature's hit point maximum falls by 1d10 each day until it either makes good on the promise or receives a remove curse spell, or until it dies when its maximum hit points reach 0. In this case, the creature's body rapidly rots away into a greasy stain.
-</text>
-  </item>
-  
-          <item>
-    <title>Rat Leathers</title>
-	<type>item</type>
-    <itemType>armor</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (leather), uncommon (requires attunement)</itemDetail>
-    <text>This magical leather armor looks like it is in terrible shape, being full of holes and showing many frayed areas. When wearing it, you can spend your action to polymorph into a rat, during which time you have all of its statistics except hit points and mental stats. This change lasts for 1 hour or until you lose consciousness or spend a bonus action to resume your normal form. Once you use this ability, you cannot use it again until you complete a long rest.
-</text>
-  </item>
-  
-          <item>
-    <title>Razor Bracers</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>These bracers have sharp edges that make creatures that choose to grapple you pay dearly. If a creature grapples you or restrains you with its body, you can use your reaction to deal 1d10 slashing damage to it. In addition, each time it starts its turn, it suffers 1d10 slashing damage. This ends if the grapple or restraint ends.
-</text>
-  </item>
-  
-          <item>
-    <title>Razor Shield</title>
+     <item>
+    <title>Shield of Defiance</title>
 	<type>item</type>
     <itemType>shield</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Armor (shield), rare</itemDetail>
-    <text>When an enemy that you can see within 5' hits you with a melee attack, you can use your reaction to make a melee attack with the razors along this shield's edge. You are considered proficient in the attack. If you hit, you deal 1d4 + your Strength bonus damage. The attack counts as a magic weapon.
+    <itemDetail>Armor (shield), common</itemDetail>
+    <text>This shield has 7 charges, and it loses its magic when the last charge is expended but remains a normal, well-wrought shield. When you suffer a critical hit, you can use your reaction to spend a charge to reduce it to a normal hit.
 </text>
-  </item>
+  </item> 
   
-          <item>
-    <title>Recoil Shield</title>
+     <item>
+    <title>Shield of Haste</title>
 	<type>item</type>
     <itemType>shield</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
     <itemDetail>Armor (shield), uncommon (requires attunement)</itemDetail>
-    <text>When an enemy hits you with a melee attack, you can spend your reaction to invoke the shield's power and force the attacker to make a DC 13 Strength saving throw or fall prone. Once you use this ability, you must complete a short or long rest before you can use it again.
+    <text>This shield allows you to cast haste on yourself. Once you do so, it won't function again until the next dawn.
 </text>
-  </item>
+  </item> 
   
-          <item>
-    <title>Resounding Weapon</title>
-	<type>item</type>
-    <itemType>weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any hammer, flail, mace, sling or staff), rare</itemDetail>
-    <text>This weapon gains a +1 bonus to hit. It also has 3 charges, which it regains each dawn. If you hit a creature, you can spend a charge as part of the attack to cause the weapon to emit a peal of thunder that is audible up to 500' away and deals an extra 1d8 thunder damage to the target. In addition, the target must make a DC 13 Constitution saving throw or be stunned until the end of its next turn.
-</text>
-  </item>
-  
-          <item>
-    <title>Ricochet Shield</title>
-	<type>item</type>
-    <itemType>shield</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (shield), rare</itemDetail>
-    <text>When a ranged weapon attack misses you, you can use your reaction to deflect the weapon at another creature of your choice. The new target must be within a number of feet of you equal to half the short range of the deflected weapon. The attacker rerolls its attack against the new target.
-	
-	Using this shield's ability is tiring. You can use it a number of times equal to your Strength bonus without penalty (minimum of 1). This number resets when you complete a short or long rest. Each additional time you use it, you gain one level of exhaustion.
-</text>
-  </item>
-  
-          <item>
-    <title>Ring of Antivenom</title>
+     <item>
+    <title>Silver Seeker's Symbol</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Ring, common (requires attunement)</itemDetail>
-    <text>If you are affected by a poison effect, you can use your reaction to neutralize it. In this case, you take no damage or other effect from the poison. Once you use the ring's power, it won't function again until the next dawn.
+    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
+    <text>While you bear this symbol, which resembles an open book, you gain a +1 bonus on Arcana and Religion checks.
 </text>
-  </item>
+  </item> 
   
-          <item>
-    <title>Ring of Cantrips</title>
+     <item>
+    <title>Shock Weapon</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Weapon (any), rare</itemDetail>
+    <text>This magical weapon has no attack bonus, but when it hits, it deals an extra 1d6 lightning damage. Such a weapon is often chased with copper, set with studs of amber, made of wood taken from a tree that was struck by lightning, inscribed with lightning bolts, etc.
+</text>
+  </item> 
+  
+     <item>
+    <title>Silver Spoon</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, rare</itemDetail>
+    <text>If you use an action to place this silver spoon in the mouth of an infant not more than a day old, then ensure that the spoon remains in the baby's dwelling until its birthday, the baby will inherit a fortune from a long-lost forgotten relative. This fortune will be worth from 1,000 to 50,000 gp.
+	
+	If the spoon is removed before the baby's first birthday, a curse falls upon the baby, and it loses all its money and possessions.
+</text>
+  </item> 
+  
+     <item>
+    <title>Skald's Armor</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Armor (leather), rare (requires attunement by a bard)</itemDetail>
+    <text>Favored by wandering minstrels who often need to talk their way out of hairy situations, this magical armor allows you to add +1d4 to any Charisma (Deception or Persuasion) check you make
+</text>
+  </item> 
+  
+     <item>
+    <title>Skirmisher Boots</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
+    <text>While you wear these boots, you gain a +2 bonus on damage on opportunity attacks.
+</text>
+  </item> 
+  
+     <item>
+    <title>Spellguard Rings</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Ring, very rare (requires attunement)</itemDetail>
+    <text>These magical rings come in pairs. One is worn by a spellcaster, and is considered the 'master' ring. The other- the 'bonded' ring- can be worn by any creature. The creature wearing the bonded ring is immune to the effects of any spell cast by the wearer of the master ring.
+</text>
+  </item> 
+  
+     <item>
+    <title>Sphere of Awakening</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, common (requires attunement)</itemDetail>
+    <text>While you hold this fist-sized crystal sphere in hand, you can use a bonus action to cause all sleeping creatures within 60' to awaken. Once you have used it, it won't function until the next dawn.
+</text>
+  </item> 
+     
+	      <item>
+    <title>Spring Renewal Totem</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
+    <text>This carved length of green wood has blossoms and fresh growth coming out of it, as if it were still alive. It has 3 charges, which it regains each dawn. You can use a bonus action to spend a charge. If you do so, choose one creature you can see within 30'. For the next minute, whenever that creature starts its turn with 1 hit point or more, it regains 3 hit points.
+</text>
+  </item> 
+  
+       <item>
+    <title>Squire's Sword</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Weapon (any sword), uncommon (requires attunement)</itemDetail>
+    <text>While you wield this sword, allies within 5' of you gain a +1 bonus to AC.
+</text>
+  </item> 
+  
+       <item>
+    <title>Staff of Fiery Might</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Staff, uncommon (requires attunement by a spellcaster)</itemDetail>
+    <text>You can use this staff as a spellcasting focus. In addition, when you use it to cast a fire spell, you can reroll any 1s on the damage dice, but you must accept the second result.
+</text>
+  </item> 
+  
+       <item>
+    <title>Silver Seeker's Symbol</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
+    <text>While you bear this symbol, which resembles an open book, you gain a +1 bonus on Arcana and Religion checks.
+</text>
+  </item> 
+  
+       <item>
+    <title>Staff of Spell Focusing</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Staff, very rare (requires attunement by a spellcaster)</itemDetail>
+    <text>This staff functions as a spellcasting focus. In addition, it has 3 charges, which it regains each day at dawn. When you cast a spell, you can expend a charge to cause one creature affected to have disadvantage on its saving throw. If you spend the last charge, you gain a level of exhaustion.
+</text>
+  </item> 
+  
+       <item>
+    <title>Staff of the Shark</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Staff, very rare (requires attunement)</itemDetail>
+    <text>This driftwood staff is studded with shark teeth and smells of the sea. Its surface is remarkably rough for driftwood. You can use it as a quarterstaff, in which case it deals an extra 1d4 points of piercing damage on a hit and scores a critical hit on a 19 or 20.
+	
+	In addition, you can use it as an arcane, divine or druidic spellcasting focus. If you do so, any spell attacks you make also score a critical hit on a 19 or 20.
+</text>
+  </item> 
+  
+       <item>
+    <title>Star Opal Ring</title>
 	<type>item</type>
     <itemType>ring</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock></itemstock>
-    <itemDetail>Ring, uncommon (requires attunement)</itemDetail>
-    <text>A ring of this sort contains one cantrip. While you wear it, you can cast that cantrip.
+    <itemDetail>Ring, very rare (requires attunement)</itemDetail>
+    <text>While you wear this ring, you gain a +10' bonus to your walking speed. In addition, the ring has 3 charges, regaining 1 each morning at dawn. You can use an action to spend a charge and teleport to a placethat you can see within 100' of you. Immediately after you do, the ring also produces a brilliant explosion in a 15' radius sphere centered on the space you teleported out of. Each creature in the sphere must make a DC 15 Dexterity saving throw, suffering 8d8 radiant damage on a failure and half that on a success.
 </text>
-  </item>
- 
+  </item> 
+  
+       <item>
+    <title>Storm Gauntlets</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
+    <text>These blue metal gauntlets have 4 charges, which they regain each dawn. You can expend one or more charges to cast the following spells: lightning bolt (2 charges), chain lightning (4 charges), shocking grasp (1 charge). The DC for these spells is 15.
+</text>
+  </item> 
+  
+       <item>
+    <title>Storm Pendant</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock></itemstock>
+    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
+    <text>When you take lightning damage, you can use your reaction to fire a line of lightning 5' wide and 30' long, extending from your body. Each creature caught in this line must make a DC 15 Dexterity saving throw, suffering 3d6 lightning damage on a failure or half that on a success.
+	
+	When you take thunder damage, you can use your reaction to emit a peal of thunder in a 10' radius sphere centered on you. Each creature other than you in this sphere must make a DC 15 Constitution saving throw, suffering 1d10 thunder damage or half that on a success. In addition, a creature that fails this saving throw is deafened for 1 minute. It can repeat the saving throw at the end of each of its turns, ending the effect on a success.
+</text>
+  </item> 
    
   </world>
   
