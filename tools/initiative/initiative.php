@@ -52,24 +52,17 @@ sortField: 'text'
 
    }
   </script>
+  <div id="dice">
   <script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
   <div class="sidebartext">
   <form action="" onsubmit="return roll();">
-      <input type="text" placeholder="Dice roller..." autofocus="" id="input">
+      <input type="text" placeholder="Dice roller..." autofocus="" id="input" style="color:black; font-size: 14px; width:220px;">
       <button type="submit">Roll</button>
     </form>
     <div>
 
-      <div class="row">
-        <table>
-        <tr>
-        <td><textarea rows="1" id="output" readonly="" placeholder="No dice rolled" style="margin-right:5px; height:30px; width:200px;"></textarea></td>
-        <td><button onclick="clearLog()" style="float:right;">Clear</button></td>
-        </tr>
-      </table>
-      </div>
-
     </div>
+  </div>
   <script>
 
       var diceRoller  = new DiceRoller();
@@ -79,19 +72,23 @@ sortField: 'text'
 
         diceRoller.roll(value);
 
-        document.getElementById('output').value = diceRoller.getNotation();
+        document.getElementById('input').value = diceRoller.getLog().shift();
 
         // stop event propagation
         return false;
+
+
       }
 
       function clearLog(){
+
         diceRoller.clearLog();
 
-        document.getElementById('output').value = diceRoller.getNotation();
+        document.getElementById('input').value = diceRoller.getNotation();
 
         // stop event propagation
         return false;
+
       }
 
 </script>
