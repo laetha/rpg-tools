@@ -1,10 +1,10 @@
 <?php
 // LOAD XML AND XSLT
 $doc = new DOMDocument();
-$doc->load('UOitems.xml');
+$doc->load('addmonsters.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('xml-conv-UOitems.xsl');
+$xsl->load('xml-conv-monsters.xsl');
 
 // CONFIGURE TRANSFORMER
 $proc = new XSLTProcessor;

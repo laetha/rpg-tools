@@ -11,7 +11,7 @@
 
   <xsl:template match="monster">
     <xsl:copy>
-      <xsl:apply-templates select="name|size|type|alignment|ac|hp|speed|str|dex|con|intel|wis|cha|save|skill|resist|vulnerable|immune|conditionImmune|senses|passive|languages|cr"/>
+      <xsl:apply-templates select="name|size|type|alignment|ac|hp|speed|str|dex|con|intel|wis|cha|save|skill|resist|vulnerable|immune|conditionImmune|senses|passive|languages|cr|reaction"/>
         <xsl:for-each select="trait">
           <xsl:variable name="pos" select="position()"/>
           <xsl:element name="trait{$pos}">

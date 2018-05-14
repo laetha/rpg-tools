@@ -1,0 +1,55 @@
+<monster>
+<name>Taka-onna</name>
+<size>M</size>
+<type>fey</type>
+<alignment>neutral</alignment>
+<ac>12</ac>
+<hp>33 (6d8 + 6)</hp>
+<speed>30 ft., fly 40 ft.</speed>
+<str>11</str>
+    <dex>15</dex>
+    <con>12</con>
+    <intel>10</intel>
+    <wis>14</wis>
+    <cha>10</cha>
+<skill>Acrobatics +6 </skill>
+
+<senses>darkvision 60 ft.</senses>
+<passive>11</passive>
+<languages>Kami, Oriental (common), Sylvan</languages>
+<cr>1</cr>
+<trait><text>
+Dive Attack. If the taka-onna is flying and dives at least 30 feet straight toward a target
+and then hits it with a melee weapon attack, the attack deals an extra 9 (2d8) damage
+to the target.</text></trait>
+<trait>Keen Sight. The taka-onna has advantage on Wisdom (perception) checks that rely on
+sight.</trait>
+<trait>Rampage. When the taka-onna reduces a creature to 0 hit points with a melee attack
+on its turn, the taka-onna can take a bonus action to move up to half its speed and
+make a bite attack.</trait>
+Actionss
+<action>Multiattack. The taka-onna makes two attacks: one with its bite and one with its hair.
+While flying, it can replace one or both attacks with claw attacks.</action>
+<action>Bite. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (1d4 + 2) piercing
+damage. If the target is a creature, it must succeed a DC 11 Constitution saving throw
+or take 2 (1d4) slashing damage at the start of each of its turns do to the festering
+wound. Each time the taka-onna hits the wounded target with this attack, the damage
+dealt by the wound increases by 2 (1d4). Any creature can take an action to stanch the
+wound with a successful DC 10 Wisdom (medicine) check. The wound also closes if
+the target receives magical healing.</action>
+<action>Claws. Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (1d8 + 2) slashing
+damage.</action>
+<action>Grasping Hair. Melee Weapon Attack: +4 to hit, reach 10 ft., one target. Hit: 7 (1d6 +
+4) bludgeoning damage, and the target is grappled (escape DC 10). Until this grapple
+ends, the target is restrained and the taka-onna cannot grapple another target with its
+grasping hair.</action>
+<action>Ballade of Jealousy (Recharge 5-6). The taka-onna sings a magical song, directed at a
+creature within 30 feet of the taka-onna that can hear it. The target must succeed a DC
+12 Intelligence saving throw or be cursed for 1 hour. While cursed, the target creature
+spends its turns unequipping any as many items as it can, starting with whatever it is
+holding, laying everything at its feet in an orderly fashion. It cannot move, talk or do
+anything else while afflicted with this curse. The creature can repeat the saving throw
+at the end of each of its turns and each time it takes damage, ending the curse on a
+successful save. The curse also ends if the taka-onna or its allies attack the target, or if
+removed by a remove curse spell or similar magic.</action>
+</monster>
