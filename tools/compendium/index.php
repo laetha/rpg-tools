@@ -887,14 +887,16 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
           elseif($type == 'item'){
             echo ('<strong>Type: '.ucwords($row['itemType']).'</strong><br />');
             if($row['itemMagic'] == 1){
-              echo ('Magic Item, '.$row['itemDetail'].'<br />');
+              echo ($row['itemDetail'].'<br />');
             }
             if($row['itemWeight'] != ''){
               echo ('Weight: '.$row['itemWeight'].'lbs.<br />');
             }
+            /*
             if($row['itemValue'] != ''){
               echo ('Cost: '.$row['itemValue'].'gp<br />');
             }
+
             if($row['itemRange'] != ''){
               echo ('Range: '.$row['itemRange'].'<br />');
             }
@@ -904,9 +906,11 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
             if($row['itemStealth'] != ''){
               echo ('Stealth: Disadvantage<br />');
             }
+            */
             echo nl2br('<p></p><div class="sidebartext">'.$row['text'].'</div>');
             $sidebartype = $row['type'];
           }
+
           elseif($type == 'race'){
             echo ('<strong>Size: </strong>'.ucwords($row['raceSize']).'<br />');
             echo ('<strong>Speed: </strong>'.ucwords($row['raceSpeed']).'<br />');
