@@ -22,14 +22,18 @@
      <div class="pagetitle" id="pgtitle">GM Notes</div>
 
      <form method="post" action="gmprocess.php" id="import" enctype="multipart/form-data">
-       <?php
-       $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
-       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
-       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
-?>
-         <div class="text col-centered col-md-12"><textarea type="text" name="gmnote" id="gmnote"><?php echo $row['note']; ?></textarea></div>
-         <?php
-       } ?>
+
+
+
+         <div class="text col-centered col-md-12"><textarea type="text" name="gmnote" id="gmnote" placeholder="Enter notes here...">
+           <?php
+           $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
+           $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+           while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+           echo $row['note'];
+}
+?></textarea></div>
+
      </div>
    </form>
    <input form="import" class="btn btn-primary col-centered" type="submit" value="Save">
