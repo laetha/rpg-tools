@@ -52,6 +52,13 @@ if ($row['coord'] != '') {
           $jpgurl = 'uploads/'.$stripid.'.jpg';
           $pngurl = 'uploads/'.$stripid.'.png';
 
+          if ($sidebartype == "player character") {
+            echo('Level: '.$row['pc_lvl'].'<br />');
+            echo('XP: '.$row['pc_xp'].'<br />');
+
+          }
+
+
           if ($sidebartype == "npc") {
 
 
