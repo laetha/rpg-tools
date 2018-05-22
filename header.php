@@ -78,6 +78,8 @@
 					<li><a href="/tools/world/map.php">World Map</a></li>
 					<li><a href="/tools/world/import.php">Import</a></li>
 					<li><a href="/tools/world/gmnotes.php">GM Notes</a></li>
+					<li><a href="/tools/world/xp.php">Award XP</a></li>
+
 
 					<li role="separator" class="divider"></li>
 					<li><a href="/tools/world/settlement.php">Settlements</a></li>
