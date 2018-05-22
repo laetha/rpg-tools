@@ -23,7 +23,13 @@ include_once($headpath);
         <a href="/tools/world/map.php" target="_blank"><p>World Map</p></a>
 
       </div>
+
+      <div class="tocitem col-md-3 col-centered" style="margin-top: 50px;">
+        <a href="https://noblecrumpet-dorkvision.tumblr.com/post/171143898431/random-jewelry-generator" target="_blank"><p>Jewelry Generator</p></a>
+
+      </div>
   </div>
+</div>
 </div>
 
    <?php

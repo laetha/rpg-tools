@@ -59,26 +59,25 @@ if ($row['coord'] != '') {
           }
 
 
-          if ($sidebartype == "npc") {
 
-
-        ?><div class="col-md-8"><?php
-              echo('Race: '.$row['npc_race'].'<br />');
-              echo('Establishment: '.$row['npc_est'].'<br />');
-              echo('Location: '.$row['npc_location'].'<br />');
-              echo('Faction: '.$row['npc_faction'].'<br />');
-              echo('Deity: '.$row['npc_deity'].'<br />');
-            }
             if (file_exists($jpgurl)){
               echo ('<div class="col-md-8">');
             }
             else if (file_exists($pngurl)){
               echo ('<div class="col-md-8">');
             }
+            if ($sidebartype == "npc") {
+
+              echo('Race: '.$row['npc_race'].'<br />');
+              echo('Establishment: '.$row['npc_est'].'<br />');
+              echo('Location: '.$row['npc_location'].'<br />');
+              echo('Faction: '.$row['npc_faction'].'<br />');
+              echo('Deity: '.$row['npc_deity'].'<br />');
+
+              }
+
           echo $Parsedown->text(nl2br($row['body']));
-          if ($sidebartype == "npc") {
-            echo ('</div>');
-          }
+
 
           if (file_exists($jpgurl)){
             echo ('</div>');
@@ -256,11 +255,11 @@ echo ('</div>');
 }
 
 if ($sidebartype == "establishment") {
-  echo ('Proprietor: ');
+  echo ('Inhabitants: ');
   $sqlcompendium = "SELECT * FROM world WHERE npc_est LIKE '%{$id}%'";
   $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
   while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-    echo ($row2['title']);
+    echo ('<p>'.$row2['title'].'</p>');
   }
   if ($esttype == "alchemist") {
 

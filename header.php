@@ -109,6 +109,8 @@
 						<ul class="dropdown-menu">
 							<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 							<li><a href="/tools/generator/generator.php">Random Generator</a></li>
+							<li><a href="/tools/resources/toc.php">Resources</a></li>
+
 						</ul>
 
 
