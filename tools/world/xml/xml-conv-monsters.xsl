@@ -11,10 +11,14 @@
 
   <xsl:template match="monster">
     <xsl:copy>
-      <xsl:apply-templates select="name|size|type|alignment|ac|hp|speed|str|dex|con|intel|wis|cha|save|skill|resist|vulnerable|immune|conditionImmune|senses|passive|languages|cr|reaction"/>
+      <xsl:apply-templates select="title|monsterSize|monsterType|monsterAlignment|monsterAc|monsterHp|monsterSpeed|monsterStr|monsterDex|monsterCon|monsterIntel|monsterWis|monsterCha|monsterSave|monsterSkill|monsterResist|monsterVulnerable|monsterImmune|monsterConditionImmune|monsterSenses|monsterPassive|monsterLanguages|monsterCr|monsterReaction"/>
+        <xsl:element name="type">
+          <xsl:text>monster</xsl:text>
+        </xsl:element>
+
         <xsl:for-each select="trait">
           <xsl:variable name="pos" select="position()"/>
-          <xsl:element name="trait{$pos}">
+          <xsl:element name="monsterTrait{$pos}">
             <xsl:value-of select="name" />
             <xsl:text> &#xa;</xsl:text>
             <xsl:for-each select="text">
@@ -29,7 +33,7 @@
         </xsl:for-each>
         <xsl:for-each select="action">
           <xsl:variable name="pos" select="position()"/>
-        <xsl:element name="action{$pos}">
+        <xsl:element name="monsterAction{$pos}">
           <xsl:value-of select="name" />
           <xsl:text> &#xa;</xsl:text>
           <xsl:for-each select="text">
@@ -45,7 +49,7 @@
 
       <xsl:for-each select="legendary">
         <xsl:variable name="pos" select="position()"/>
-      <xsl:element name="legendary{$pos}">
+      <xsl:element name="monsterLegendary{$pos}">
         <xsl:value-of select="name" />
         <xsl:text> &#xa;</xsl:text>
         <xsl:for-each select="text">
