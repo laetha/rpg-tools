@@ -31,6 +31,7 @@
                    <th scope="col">Size</th>
                    <th scope="col">Type</th>
                    <th scope="col">CR</th>
+                   <th scope="col">Source</th>
                </tr>
            </thead>
            <tfoot>
@@ -39,6 +40,7 @@
                  <th scope="col">Size</th>
                  <th scope="col">Type</th>
                  <th scope="col">CR</th>
+                 <th scope="col">Source</th>
                </tr>
            </tfoot>
            <tbody>
@@ -68,6 +70,8 @@
                else{
                echo ('<td>'.number_format((float)$row['monsterCr'], 0, '.', '').'</td>');
              }
+             echo ('<td>'.$row['monsterTrait1'].'</td>');
+             echo ('</tr>');
 
              }
                ?>
