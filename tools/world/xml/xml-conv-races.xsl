@@ -19,8 +19,10 @@
         <xsl:for-each select="trait">
             <xsl:value-of select="name" />
             <xsl:text> &#xa;</xsl:text>
-            <xsl:value-of select="text" />
+            <xsl:for-each select="text">
+            <xsl:value-of select="."/>
             <xsl:text>&#xa;&#xa;</xsl:text>
+          </xsl:for-each>
         </xsl:for-each>
       </raceTraits>
     </xsl:copy>

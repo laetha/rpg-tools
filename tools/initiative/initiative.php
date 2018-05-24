@@ -64,7 +64,7 @@ sortField: 'text'
     </div>
   </div>
 
-  <?php  $worldtitle = "SELECT monsterCr, title FROM compendium WHERE type LIKE 'monster'";
+  <?php /* $worldtitle = "SELECT monsterCr, title FROM compendium WHERE type LIKE 'monster'";
     $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
     while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
@@ -178,7 +178,7 @@ sortField: 'text'
       if($cr == 30){
         ${$titletemp . $xp} = 155000;
       }
-    }
+    } */
     ?>
 
   <script>
@@ -214,7 +214,7 @@ sortField: 'text'
   <table>
 
     <?php
-      $worldtitle1 = "SELECT * FROM monsters";
+      $worldtitle1 = "SELECT * FROM compendium WHERE type LIKE 'monster'";
       $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
       while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
         $rowns1 = preg_replace('/\s+/', '', $row1['title']);
@@ -247,7 +247,7 @@ sortField: 'text'
 
 </div>
 <?php
-$worldtitle = "SELECT * FROM monsters";
+$worldtitle = "SELECT * FROM compendium WHERE type LIKE 'monster'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   $rowns = preg_replace('/\s+/', '', $row['title']);
