@@ -1603,7 +1603,7 @@
 		<monsterPassive>9
 </monsterPassive>
 		<monsterLanguages>understands Abyssal but can&#8217;t speak</monsterLanguages>
-		<monsterCr>1/4</monsterCr>
+		<monsterCr>0.25</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 136</text>
@@ -2466,7 +2466,7 @@
 		<monsterSenses>blindsight 10 ft. (blind beyond this radius)</monsterSenses>
 		<monsterPassive>11</monsterPassive>
 		<monsterLanguages>understands Infernal but can&#8217;t speak</monsterLanguages>
-		<monsterCr>1/2</monsterCr>
+		<monsterCr>0.5</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 168</text>
@@ -5268,7 +5268,7 @@
 		<monsterSenses>darkvision 30 ft., tremorsense 60 ft.</monsterSenses>
 		<monsterPassive>10</monsterPassive>
 		<monsterLanguages>Kruthik</monsterLanguages>
-		<monsterCr>1/8</monsterCr>
+		<monsterCr>0.125</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 211</text>
@@ -5674,7 +5674,7 @@
 		<monsterSenses>blindsight 60 ft. (blind beyond this distance)</monsterSenses>
 		<monsterPassive>12</monsterPassive>
 		<monsterLanguages></monsterLanguages>
-		<monsterCr>1/4</monsterCr>
+		<monsterCr>0.25</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 217</text>
@@ -6440,7 +6440,7 @@
 		<monsterPassive>8
 </monsterPassive>
 		<monsterLanguages>understands Common but can&#8217;t speak</monsterLanguages>
-		<monsterCr>1/2</monsterCr>
+		<monsterCr>0.5</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 227</text>
@@ -6800,7 +6800,7 @@
 		<monsterPassive>8
 </monsterPassive>
 		<monsterLanguages></monsterLanguages>
-		<monsterCr>1/4</monsterCr>
+		<monsterCr>0.25</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 233</text>
@@ -6836,7 +6836,7 @@
 		<monsterSenses>darkvision 60 ft.</monsterSenses>
 		<monsterPassive>10</monsterPassive>
 		<monsterLanguages>Deep Speech</monsterLanguages>
-		<monsterCr>1/4</monsterCr>
+		<monsterCr>0.25</monsterCr>
 		<trait>
 			<name>Source</name>
 			<text>Mordenkainen's Tome of Foes, p. 234</text>
