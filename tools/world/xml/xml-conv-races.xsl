@@ -11,15 +11,18 @@
 
   <xsl:template match="race">
     <xsl:copy>
-      <xsl:apply-templates select="name|size|speed|ability|spellAbility|proficiency"/>
-        <traits>
+      <xsl:apply-templates select="title|raceSize|raceSpeed|raceAbility|raceSpellAbility|raceProficiency"/>
+      <xsl:element name="type">
+        <xsl:text>race</xsl:text>
+      </xsl:element>
+        <raceTraits>
         <xsl:for-each select="trait">
             <xsl:value-of select="name" />
             <xsl:text> &#xa;</xsl:text>
             <xsl:value-of select="text" />
             <xsl:text>&#xa;&#xa;</xsl:text>
         </xsl:for-each>
-      </traits>
+      </raceTraits>
     </xsl:copy>
   </xsl:template>
 
