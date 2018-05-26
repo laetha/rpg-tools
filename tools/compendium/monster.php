@@ -28,6 +28,7 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
+                   <th scope="col">Image</th>
                    <th scope="col">Size</th>
                    <th scope="col">Type</th>
                    <th scope="col">CR</th>
@@ -37,6 +38,7 @@
            <tfoot>
                <tr>
                  <th scope="col">Name</th>
+                 <th scope="col">Image</th>
                  <th scope="col">Size</th>
                  <th scope="col">Type</th>
                  <th scope="col">CR</th>
@@ -48,11 +50,22 @@
                $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'monster'";
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+                 $jpgurl = 'bestiary/'.$row['title'].'.jpg';
+                 $pngurl = 'bestiary/'.$row['title'].'.png';
                echo ('<tr><td>');
                $entry = $row['title'];
                echo "<a href=\"compendium.php?id=$entry\">";
                echo $entry;
                echo "</a></td>";
+               if (file_exists($jpgurl)){
+                 echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
+               }
+               else if (file_exists($pngurl)){
+                 echo ('<td><img class="tableimg" src="'.$pngurl.'"></td>');
+               }
+               else {
+                 echo ('<td></td>');
+               }
                echo ('<td>'.$row['monsterSize'].'</td>');
                echo ('<td>'.$row['monsterType'].'</td>');
                if($row['monsterCr'] ==0.125){
