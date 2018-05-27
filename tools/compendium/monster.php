@@ -64,7 +64,7 @@
                  echo ('<td><img class="tableimg" src="'.$pngurl.'"></td>');
                }
                else {
-                 echo ('<td></td>');
+                 echo ('<td>n/a</td>');
                }
                echo ('<td>'.$row['monsterSize'].'</td>');
                echo ('<td>'.$row['monsterType'].'</td>');
