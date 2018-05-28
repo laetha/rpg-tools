@@ -39,6 +39,7 @@ sortField: 'text'
   </script>
 
   <script type="text/javascript">
+  var totalxp = 0;
   var output = new Array();
    function addMonster(selectObj) {
 
@@ -47,8 +48,17 @@ sortField: 'text'
      output.push(selectValue);
      var selectValueNoBrackets = selectValue.replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "");
      var selectValueNs = selectValueNoBrackets.replace(/\s/g, '');
+     var xpname = selectValueNs + "xp";
+     var tempname = selectValueNs + "calc";
+
+     var newxp1 = document.getElementById(xpname).innerHTML;
+     var newxp = parseInt(newxp1);
+     totalxp = totalxp + newxp;
      var fullSelect = "show" + selectValueNs;
      document.getElementById(fullSelect).style.display = "block";
+     document.getElementById("totalxp").innerHTML = "Total XP = " + totalxp;
+     var newhref = "/tools/world/xp.php?id=" + totalxp;
+     document.getElementById("xphref").href = newhref;
 
    }
   </script>
@@ -60,16 +70,26 @@ sortField: 'text'
       <button type="submit">Roll</button>
     </form>
     <div>
+      <div id="awardbutton"><a id="xphref" href="/tools/world/xp.php?id=0"><button>Award XP</button></a></div>
+      <div id="totalxp"></div>
+      <script>
 
+      function showxp() {
+        document.getElementById("totalxp").innerHTML = totalxp;
+        var newhref = "/tools/world/xp.php?id=" + totalxp;
+        document.getElementById("xphref").href = newhref;
+      }
+
+      </script>
     </div>
   </div>
 
-  <?php /* $worldtitle = "SELECT monsterCr, title FROM compendium WHERE type LIKE 'monster'";
+  <?php  $worldtitle = "SELECT monsterCr, title FROM compendium WHERE type LIKE 'monster'";
     $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
     while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
       $title1 = preg_replace('/\s+/', '', $row['title']);
-      $title1 = str_replace("(monster)", '', $title1);
+      $title1 = preg_replace('/\(|\)/','', $title1);
 //      $title1 = preg_replace('/\(|\)/','', $title1);
     //  $title1 = $row['title'];
       $cr = $row['monsterCr'];
@@ -178,7 +198,7 @@ sortField: 'text'
       if($cr == 30){
         ${$titletemp . $xp} = 155000;
       }
-    } */
+    }
     ?>
 
   <script>
@@ -241,6 +261,9 @@ sortField: 'text'
   </div>
         </div>
       </td></tr>
+<?php      echo ('<div id="'.$rowns1.'xp" style="display:none;">'.${$rowns1 . $xp}.'</div>');
+            echo ('<div id="'.$rowns1.'monnum" style="display:none;">1</div>'); ?>
+
 <?php } ?>
 
 </table>
@@ -255,13 +278,21 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   ?>
 
 <script>
-
 $(document).ready(function remLog(){
   $("#<?php echo $rowns; ?>-remove").click(function remLog(){
+    var remxp = parseInt(<?php echo ${$rowns . $xp}; ?>);
+    var remmult = document.getElementById("<?php echo $rowns; ?>monnum").innerHTML;
+    var remmultint = parseInt(remmult);
+    var remtotal = remxp * remmultint;
+    totalxp = totalxp - remtotal;
+    document.getElementById("totalxp").innerHTML = "Total XP = " + totalxp;
+    var newhref = "/tools/world/xp.php?id=" + totalxp;
+    document.getElementById("xphref").href = newhref;
   document.getElementById("show<?php echo $rowns; ?>").style.display = "none";
   document.getElementById("<?php echo $rowns; ?>").style.display = "none";
     });
   });
+
 </script>
 <?php } ?>
 <script>
@@ -274,11 +305,27 @@ $('.one, .two, .three, .four, .five, .six, .seven').click(function() {
 $(function addbar(){
   $(".btn-copy").on('click', function(){
     var ele = $(this).closest('div').clone(true);
+    var dupeid = $(this).closest('[id]').attr('id');
+    var dupexp = dupeid.replace('-dupe', 'xp');
+    var addingxp = document.getElementById(dupexp).innerHTML;
+    var addxpint = parseInt(addingxp);
+    var basename = dupeid.replace('-dupe', '');
+    var numtrack = basename + "monnum";
+    var numadd = document.getElementById(numtrack).innerHTML;
+    var numaddint = parseInt(numadd);
+    addednum = numaddint + 1;
+    document.getElementById(numtrack).innerHTML = addednum;
+    totalxp = totalxp + addxpint;
+    var newhref = "/tools/world/xp.php?id=" + totalxp;
+    document.getElementById("xphref").href = newhref;
+    document.getElementById("totalxp").innerHTML = "Total XP = " + totalxp;
     $(this).closest('div').after(ele);
     $('.hp-track').each(function(){
       var $this = $(this);
     $(this).abacus();
+
     });
+
   });
 });
 $('.hp-track').each(function(){
@@ -287,7 +334,6 @@ $(this).abacus();
 });
 
 </script>
-
 <div class="col-md-8 col-xs-12" style="float:right;"><iframe class="blockframe" name="statblock"></iframe></div>
 </div> <!--Body -->
 </div> <!-- Mainbox -->

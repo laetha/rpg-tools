@@ -8,6 +8,7 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
+   $id = $_GET['id'];
 ?>
    <div class="mainbox col-md-12">
 
@@ -22,7 +23,7 @@
        <div class="col-centered">
          <div class="row">
          <form method="post" action="xpprocess.php" id="xp">
-           <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="xp-award" id="xp-award" placeholder="Total XP..."></div>
+           <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="xp-award" id="xp-award" value="<?php echo $id ?>"></div>
            <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="numplayers" id="numplayers" placeholder="# of players..."></div>
 
          </div>
