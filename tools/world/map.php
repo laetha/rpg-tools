@@ -161,7 +161,66 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
  }
   ?>
+  <div class="table-responsive">
+ <table id="faction" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+      <thead class="thead-dark">
+          <tr>
+              <th scope="col">Coord</th>
+             <th scope="col">Text</th>
+          </tr>
+      </thead>
+      <tfoot>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Text</th>
+          </tr>
+      </tfoot>
+      <tbody>
+        <?php
+        $logtitle = "SELECT * FROM mapfeatures";
+        $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
+        while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
+          echo ('<tr>');
+          echo ('<td><a onclick="movemap'.$row['id'].'()">'.$row['coord'].'</a></td>'); ?>
+          <script>
+          function movemap<?php echo $row['id'] ?>() {
+              map.setView(new L.LatLng(<?php echo $row['coord']; ?>), 4);
+          }
+          </script>
+          <?php
+          echo ('<td>'.$row['text'].'</td>');
+          echo ('</tr>');
+         }
+          ?>
 
+ </tbody>
+ </table>
+ <script>
+ $(document).ready(function() {
+ // Setup - add a text input to each footer cell
+ $('#faction tfoot th').each( function () {
+   var title = $(this).text();
+   $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+ } );
+
+ // DataTable
+ var table = $('#faction').DataTable();
+
+ // Apply the search
+ table.columns().every( function () {
+   var that = this;
+
+   $( 'input', this.footer() ).on( 'keyup change', function () {
+       if ( that.search() !== this.value ) {
+           that
+               .search( this.value )
+               .draw();
+       }
+   } );
+ } );
+ } );
+ </script>
+ </div>
 </div>
 </div>
 <script>
