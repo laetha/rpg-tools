@@ -215,6 +215,7 @@ $(document).ready(function() {
 // DataTable
 var table = $('#campaignlog').DataTable(
   {
+    "order": [[ 0, "desc" ]],
     "columnDefs": [
   { "width": "50px", "targets": 0 },
   { "width": "15px", "targets": 1 },
