@@ -12,7 +12,7 @@
         echo ('<div class="col-lg-8 col-centered col-sm-12 quest-text quest-bg style="float:left;"">');
         echo ('<div class="quest-pad">');
         echo ('<h2>'.$row['title'].'</h3>');
-        echo ('<p style="text-align:left;">'.$row['body'].'</p>');
+        echo ('<p style="text-align:left;">'.nl2br($row['body']).'</p>');
         echo ('<div class="row" style="margin-top:30px;">');
         echo ('<div class="col-xs-9">');
         echo ('<p>Reward: '.$row['quest_reward']);

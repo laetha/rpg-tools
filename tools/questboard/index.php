@@ -10,7 +10,7 @@
   $worldtitle = "SELECT title, type FROM `compendium` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-   echo htmlspecialchars($row['title']);
+   echo nl2br(htmlspecialchars($row['title']));
    $title = $row['title'];
 
   ?>
