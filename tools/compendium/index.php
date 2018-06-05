@@ -13,6 +13,8 @@ include_once($sqlpath);
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle"><?php
   $id = addslashes($id);
+  $stripid = str_replace("'", "", $id);
+  $stripid = stripslashes($stripid);
   $worldtitle = "SELECT title, type FROM `compendium` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
@@ -947,6 +949,7 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
             $sidebartype = $row['type'];
           }
           elseif($type == 'monster'){
+
             ?>
             <div class="stat-block wide">
 	<hr class="orange-border" />
@@ -1318,6 +1321,61 @@ $cr = $row['monsterCr'];
      <?php } ?>
 
    </div>
+<?php
+   $jpgurl = 'bestiary/'.$stripid.'.jpg';
+   $pngurl = 'bestiary/'.$stripid.'.png';
+
+   if (file_exists($jpgurl)){
+     echo('<div class="col-md-12">');
+     echo ('<div class="npcimg-container">');
+   echo ('<img class="monsterimg" src="bestiary/'.$stripid.'.jpg" />'); ?>
+
+ </div>
+   </div>
+
+
+ <?php
+ if (isset($_POST['submit']))
+ {
+ $photoname = 'bestiary/'.$_POST['photoname'];
+ if (!unlink($photoname))
+ {
+ echo ("Error deleting $photoname");
+ }
+ else
+ {
+ echo ("Deleted $photoname");
+ }
+ }
+
+ }
+
+ else if (file_exists($pngurl)){
+   echo('<div class="col-md-12">');
+   echo ('<div class="npcimg-container">');
+ echo ('<img class="monsterimg" src="bestiary/'.$stripid.'.png" />');
+ ?>
+
+   </div>
+ </div>
+
+
+
+ <?php
+ if (isset($_POST['submit']))
+ {
+ $photoname = 'uploads/'.$_POST['photoname'];
+ if (!unlink($photoname))
+ {
+ echo ("Error deleting $photoname");
+ }
+ else
+ {
+ echo ("Deleted $photoname");
+ }
+ }
+ }
+?>
 
 	</div> <!-- section right -->
 	<hr class="orange-border bottom" />
