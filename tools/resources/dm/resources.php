@@ -4,7 +4,7 @@ $headpath .= "/header.php";
 include_once($headpath);
 ?>
 
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">DM Resources</h1>
 <div class ="body bodytext">
       <div class="toc bodytext">

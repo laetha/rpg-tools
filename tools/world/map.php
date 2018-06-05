@@ -34,7 +34,7 @@
 <script src="https://unpkg.com/leaflet@1.3.1/dist/leaflet.js"
   integrity="sha512-/Nsx9X4HebavoBvEBuyp3I7od5tA0UzAxs+j83KgC8PU0kgB4XiK4Lfe4y4cgBtaRJQEIFCW+oC506aPT2L1zw=="
   crossorigin=""></script>
-    <div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+    <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
 
       <!-- Page Header -->
       <div class="col-md-12">

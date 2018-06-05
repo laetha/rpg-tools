@@ -1,4 +1,4 @@
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">World Building</h1>
 <div class ="body bodytext">
   <div class="row">

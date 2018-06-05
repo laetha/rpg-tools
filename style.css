@@ -1,18 +1,18 @@
 body {
 	color: #282829;
 	min-width: 350px;
-	  background: url(assets/images/bg.jpg) no-repeat center center fixed;
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
-		opacity:0.9;
 }
 div.body {
 	padding-left:3%;
 	padding-right:3%;
 	padding-bottom:30px;
 }
+
+.container-fluid {
+		padding-left: 1%;
+		padding-right: 1%;
+}
+
 .pagetitle {
 	font-family: 'Helvetica', sans-serif;
 	text-align: center;
@@ -427,17 +427,33 @@ height: 500px;
 
 }
 
-.quest-text {
-	font-family: 'Aladin', cursive;
-	font-size: 28px;
-	color: black;
+@media screen and (min-width: 601px) {
+  div.quest-text {
+		font-family: 'Aladin', cursive;
+		font-size: 30px;
+		color: black;
+  }
+	.quest-text h2{
+		font-family: 'Aladin', cursive;
+		font-size: 40px;
+		color: black;
+	}
 }
-.quest-text h2{
-	font-family: 'Aladin', cursive;
-	font-size: 38px;
 
-	color: black;
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .quest-text {
+		font-family: 'Aladin', cursive;
+		font-size: 6vw;
+		color: black;
+  }
+	.quest-text h2{
+		font-family: 'Aladin', cursive;
+		font-size: 10vw;
+		color: black;
+	}
 }
+
 .quest-bg {
 	margin-top:20px;
 	background-image: url("/assets/images/zNwTqVZ.jpg");
@@ -456,8 +472,8 @@ height: 500px;
 }
 
 .quest-pad {
-	padding-left: 40px;
-	padding-right: 40px;
+	padding-left: 2%;
+	padding-right: 2%x;
 }
 
 .npcimg {

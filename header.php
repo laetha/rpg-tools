@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		
+
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<link rel="stylesheet" type="text/css" href="/selectize/css/selectize.default.css" />
@@ -16,9 +16,14 @@
 		   </script>
 
 		<title><?php echo $pgtitle; ?>RPG Tools</title>
+		<?php
+		  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg' ); // array of filenames
 
+		  $i = rand(0, count($bg)-1); // generate random number size of the array
+		  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+		?>
 	</head>
-	<body>
+	<body style="background: url(/assets/images/<?php echo $selectedBg; ?>) no-repeat center center fixed;	-webkit-background-size: cover;	-moz-background-size: cover;	-o-background-size: cover;	background-size: cover;	opacity:0.9;">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>
 		<!--<script src="http://code.jquery.com/jquery-1.8.3.js" tpye="text/javascript"></script>-->
 		<script src="/selectize/js/standalone/selectize.min.js" tpye="text/javascript"></script>

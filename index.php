@@ -3,7 +3,7 @@ $pgtitle = '';
  include('header.php');
  ?>
 
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
 				<h1 class="pagetitle">Brian's RPG Tools</h1>
 				<div class="menu">
           <h3 style="color:LightSteelBlue;">Players</h3>

@@ -1,5 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Aladin" rel="stylesheet">
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">Quest Board</h1>
 <div class ="body bodytext">
       <div class="toc bodytext">
@@ -9,7 +9,7 @@
         $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
         while($row = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
 
-        echo ('<div class="col-lg-8 col-centered col-sm-12 quest-text quest-bg style="float:left;"">');
+        echo ('<div class="col-lg-8 col-md-12 col-centered col-sm-12 quest-text quest-bg style="float:left;"">');
         echo ('<div class="quest-pad">');
         echo ('<h2>'.$row['title'].'</h3>');
         echo ('<p style="text-align:left;">'.nl2br($row['body']).'</p>');

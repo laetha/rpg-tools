@@ -3,7 +3,7 @@ $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
 ?>
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
 <!-- Page Header -->
 <div class="col-md-12">
 <div class="pagetitle" id="pgtitle">World Map</div>

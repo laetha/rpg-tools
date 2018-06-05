@@ -9,7 +9,7 @@ $headpath .= "/header.php";
 include_once($headpath);
 ?>
 <!-- Import Form -->
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
     <div class ="body bodytext">
   <h1 class="pagetitle">Add to World</h1>
 <div class="col-md-10 col-centered">

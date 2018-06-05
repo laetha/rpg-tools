@@ -15,7 +15,7 @@
 ?>
 
 
-<div class="mainbox col-sm-10 col-xs-12 col-sm-offset-1">
+<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">Generator</h1>
   <button class="btn btn-info col-centered" onclick="window.location.reload()">Re-generate</button>
 <div class="row">
