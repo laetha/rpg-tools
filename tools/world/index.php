@@ -3,7 +3,8 @@ $sqlpath = $_SERVER['DOCUMENT_ROOT'];
 $sqlpath .= "/plugins/Parsedown.php";
 include_once($sqlpath);
  ?>
- <?php  $Parsedown = new Parsedown(); ?>
+ <?php  $Parsedown = new Parsedown();
+ ?>
 
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
@@ -75,8 +76,7 @@ if ($row['coord'] != '') {
               echo('Deity: '.$row['npc_deity'].'<br />');
 
               }
-
-          echo $Parsedown->text(nl2br($row['body']));
+              echo $Parsedown->text(nl2br($row['body']));
 
 
           if (file_exists($jpgurl)){
