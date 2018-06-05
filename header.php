@@ -17,13 +17,24 @@
 
 		<title><?php echo $pgtitle; ?>RPG Tools</title>
 		<?php
-		  $bg = array('bg-01.jpg', 'bg-02.jpg', 'bg-03.jpg', 'bg-04.jpg', 'bg-05.jpg', 'bg-06.jpg', 'bg-07.jpg' ); // array of filenames
+		$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');
+		while( $entry = readdir($handle) )
+		{
+		    if( $entry != '.' && $entry != '..' )
+		    {
+		        $files[] = $entry;
+		    }
+		}
 
-		  $i = rand(0, count($bg)-1); // generate random number size of the array
-		  $selectedBg = "$bg[$i]"; // set variable equal to which random filename was chosen
+		closedir($handle);
+
+		sort($files);
+
+		  $i = rand(0, count($files)-1); // generate random number size of the array
+		  $selectedBg = "$files[$i]"; // set variable equal to which random filename was chosen
 		?>
 	</head>
-	<body style="background: url(/assets/images/<?php echo $selectedBg; ?>) no-repeat center center fixed;	-webkit-background-size: cover;	-moz-background-size: cover;	-o-background-size: cover;	background-size: cover;	opacity:0.9;">
+	<body style="background: url(/assets/images/bg/<?php echo $selectedBg; ?>) no-repeat center center fixed;	-webkit-background-size: cover;	-moz-background-size: cover;	-o-background-size: cover;	background-size: cover;	opacity:0.9;">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>
 		<!--<script src="http://code.jquery.com/jquery-1.8.3.js" tpye="text/javascript"></script>-->
 		<script src="/selectize/js/standalone/selectize.min.js" tpye="text/javascript"></script>
