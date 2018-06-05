@@ -26,6 +26,8 @@
 		<title><?php echo $pgtitle; ?>RPG Tools</title>
 	</head>
 	<body style="min-width: 0px;">
+		<div style="background-color: #222326;">
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>
 		<!--<script src="http://code.jquery.com/jquery-1.8.3.js" tpye="text/javascript"></script>-->
 		<script src="/selectize/js/standalone/selectize.min.js" tpye="text/javascript"></script>
@@ -453,6 +455,6 @@
 		<?php
 	}
 	?>
-
+</div>
 </body>
 </html>
