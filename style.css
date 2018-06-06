@@ -547,3 +547,19 @@ color: #5499c7;
 .randitem a:hover{
 color: #3D6D8D;
 }
+
+.srd td {
+	border: 1px solid white;
+	padding:10px;
+
+}
+
+.srd th {
+	border: 1px solid white;
+	padding:10px;
+
+}
+.srd table {
+	margin-bottom: 50px;
+
+}

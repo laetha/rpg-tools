@@ -87,6 +87,15 @@
 						echo "<option value=\"$searchvalue1\">$search1</option>";
 					}
 					?>
+					<?php
+					$searchdrop2 = "SELECT title FROM srd";
+					$searchdata2 = mysqli_query($dbcon, $searchdrop2) or die('error getting data');
+					while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
+						$search2 = $searchrow2['title'];
+						$searchvalue2 = $search2.'3';
+						echo "<option value=\"$searchvalue2\">Rules: $search2</option>";
+					}
+					?>
 					</select>
 				</li>
 				<li class="dropdown">
@@ -131,7 +140,7 @@
 
 						</ul>
 
-
+						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
 				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
 
@@ -151,8 +160,13 @@
 					if(value.slice(-1) == 1) {
 					window.location.href = '/tools/world/world.php?id=' + value.slice(0, -1);
 				}
-				else {
+				else if(value.slice(-1) == 2) {
+
 					window.location.href = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
+				}
+				else {
+
+					window.location.href = '/tools/srd/rules.php?id=' + value.slice(0, -1);
 				}
 				},
 				create: false,
