@@ -16,23 +16,7 @@
 		   </script>
 
 		<title><?php echo $pgtitle; ?>RPG Tools</title>
-		<?php
-		$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');
-		while( $entry = readdir($handle) )
-		{
-		    if( $entry != '.' && $entry != '..' )
-		    {
-		        $files[] = $entry;
-		    }
-		}
-
-		closedir($handle);
-
-		sort($files);
-
-		  $i = rand(0, count($files)-1); // generate random number size of the array
-		  $selectedBg = "$files[$i]"; // set variable equal to which random filename was chosen
-		?>
+	
 	</head>
 	<body style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(/assets/images/bg/<?php echo $selectedBg; ?>) no-repeat center center fixed;	-webkit-background-size: cover;	-moz-background-size: cover;	-o-background-size: cover;	background-size: cover;	opacity:0.9;">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>

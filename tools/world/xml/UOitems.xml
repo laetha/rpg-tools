@@ -1,741 +1,169 @@
 <world version="5" auto_indent="NO">
   
        <item>
-    <title>Storm Shield</title>
+    <title>Black Phial</title>
 	<type>item</type>
-    <itemType>shield</itemType>
+    <itemType>potion</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (shield), very rare (requires attunement)</itemDetail>
-    <text>While you wield this shield, you gain resistance to lightning and thunder damage
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Storm Star</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (morning star), very rare (requires attunement)</itemDetail>
-    <text>This magical morning star is made of electrum plated steel. It has a +1 bonus to hit and damage, but its greatest power allows it to add a devastating electrical blast to a blow.
-	
-	When you hit a creature, you can use a bonus action to cause a bolt of lightning to jump from the storm star at the target, forcing it to make a DC 17 Dexterity save, taking 8d6 lightning damage on a failure or half that on a success. In addition, the bolt leaps from the target to another three creatures of your choice within 70' of the initial target. Each of these targets must make a DC 17 Dexterity save, suffering 6d6 lightning damage on a failure or half that on a success.
-	
-	Once the storm star has unleashed its lightning, it cannot do so again until you complete a short or long rest.
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Stormrider Boots</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare</itemDetail>
-    <text>Stormrider boots are supple leather boots with gold lightning bolts embroidered down the outside edge. They give you a +5' bonus to your walking speed.
-	
-	In addition, if you take the Attack action, you can use a bonus action to activate the boots, transforming you into living lightning until the end of your turn. While you are living lightning, you can move through other creatures' spaces, and opportunity attacks against you have disadvantage. If you move through a creature's space, that creature must make a DC 15 Dexterity saving throw, suffering 9d6 lightning damage on a failure or half that on a success. Once you have used this power, it won't function again until the next dawn
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Stormrider Cloak</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare</itemDetail>
-    <text>A stormrider cloak grant you resistance to lightning damage. In addition, it has 3 charges, which it regains at dawn. You can use an action to expend a charge to gain a flying speed of 60' for 5 minutes.
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Strongbox of Immobility</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This metal box is of very strong construction, and the lock can't be picked through nonmagical means. If the box is locked and you use an action to speak the command word while touching it, the strongbox stays exactly where it is currently located, even in midair. No force will move it without first destroying it.
-
-	You do not lose attunement to this item unless you have not touched it for a year and a day. If you lose attunement to it, it can be moved.
-</text>
-  </item> 
-  
-    <item>
-    <title>Sunleaf Mantle</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This item incorporates leaves from a rare Feywild tree called a sun tree into its design. While you wear it, you gain resistance to radiant damage. In addition, when an enemy hits you with an opportunity attack, you can use your reaction to cause your mantle to erupt with light. The attacker must make a DC 13 Dexterity save, suffering 3d8 radiant damage on a failure or half that on a success.
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Sword of Black Flame</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any sword), rare (requires attunement)</itemDetail>
-    <text>This +1 sword detects the presence of undead within 10' and bursts into cold black flames when it senses them. Against undead, its bonus rises to +3.
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Sword of Chopping</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>This magical sword has a +2 bonus to hit and damage and ignores the damage threshold of objects.	
-</text>
-  </item> 
-  
-    <item>
-    <title>Sword of Insanity</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any sword), uncommon (requires attunement)</itemDetail>
-    <text>This sword has a +1 bonus to hit and damage. If you roll a natural 20, the target must make a DC 13 Intelligence save or contract a random short-term madness (DMG 259).
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Sylvan Armor</title>
-	<type>item</type>
-    <itemType>armor</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (leather or hide), uncommon (requires attunement)</itemDetail>
-    <text>While you wear this armor, you gain a +2 bonus on Athletics and Stealth checks. While you are in a woodland, this bonus increases to +4.
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Symbol of Delayed Doom</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>This symbol shows an image of a man with his arms crossed before him, with flames, arrows and mystical energies deflecting away from him. It has 3 charges, which it renews each dawn. When you fail your save against a spell, you can use your reaction to spend a charge to delay the effects of that spell on you until the end of your next turn.
-	
-</text>
-  </item> 
-  
-    <item>
-    <title>Symbol of Imperial Authority</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
+	<itemstock>alchemist</itemstock>
     <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>This badge shows the symbol of the old Sword Empire. While you wear it, you gain a +1 bonus to Intimidation and Persuasion checks against civilized creatures familiar with the empire.
+    <text>This black stone phial has a tightly-fitting stopper. The phial has 3 charges. As an action, you can fill the phial with blood taken from a living humanoid, or one that’s been dead no longer than 1 minute, and expend 1 charge. When you do so, the black phial transforms the blood into a potion of greater healing. A creature who drinks this potion must succeed on a DC 12 Constitution saving throw or be poisoned for 1 hour.
 	
-</text>
-  </item> 
-  
-    <item>
-    <title>Talisman of the Chimera</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>This talisman is the actual dragon head of a chimera, shrunken to the size of a walnut and hung on a silver chain. While you bear it on your person, you can use an action to breathe forth a 30' cone of energy of the type that the dead chimera breathed. Any creature in the cone must make a DC 13 Dexterity save, taking 3d6 damage of the appropriate type on a failure or half that on a success.
+	The phial regains 1d3 expended charges daily at midnight. If you expend the phial’s last charge, roll a d20. On a 1, the phial crumbles into dust and is destroyed.
 	
-</text>
-  </item> 
-  
-    <item>
-    <title>Talking Skull</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare</itemDetail>
-    <text>This polished human skull allows you to cast speak with dead even on corpses with barely any bits remaining, as long as they are a year old or less. You must place a piece of the corpse's bone in the talking skull's mouth; the skull noisily chews the bone up, then answers up to four questions as if it were the corpse being interrogated.
-	
-	The talking skull, once employed, won't work again until the next dawn. If you attempt to interrogate the same corpse twice, the skull chews the bone offering, but then spits it out violently in a 5' cone; each creature in the cone must make a DC 15 Dexterity save, taking 2d4 piercing damage on a failure. This also happens if you feed it a bone from a creature with an Intelligence of less than 3 or from a corpse over a year old.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Tallin's Tightrope</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement by a rogue)</itemDetail>
-    <text>This rope is 50' long. You can use a bonus action to command it to snake forward at an angle of up to 45 degrees upward or downward. It will knot itself at the far end on command.
-	
-	In addition, you and up to five other creatures that you verbally designate gain advantage on Dexterity (Acrobatics) checks to walk across the tightrope.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Tauran Shield</title>
-	<type>item</type>
-    <itemType>Armor (shield), uncommon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare</itemDetail>
-    <text>This shield bears the face of a bull upon it. While you wield it, you gain advantage on shove attacks, and if you choose to shove a creature back, you can push it an additional 5'.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Third Eye Aware</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>This item appears as a small hemisphere of crystal. Before you can attune to it, you must press the flat side against the middle of your forehead for 1 minute, at which point it adheres to you until a creature uses an action to remove it. A third eye is actually powered by psionics.
-	
-	While you wear the third eye aware, you gain advantage on any Wisdom (Perception) checks involving sight.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Third Eye Clarity</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>This item appears as a small hemisphere of crystal. Before you can attune to it, you must press the flat side against the middle of your forehead for 1 minute, at which point it adheres to you until a creature uses an action to remove it. A third eye is actually powered by psionics.
-	
-	While you wear the third eye clarity, you can't be stunned or magically confused. In addition, you gain advantage on saves against effects that include the charmed condition.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Third Eye Concentrate</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This item appears as a small hemisphere of crystal. Before you can attune to it, you must press the flat side against the middle of your forehead for 1 minute, at which point it adheres to you until a creature uses an action to remove it. A third eye is actually powered by psionics.
-	
-	While you wear the third eye concentrate, you gain advantage on any saving throws you must make to maintain concentration on a spell or effect.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Third Eye Dominate</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This item appears as a small hemisphere of crystal. Before you can attune to it, you must press the flat side against the middle of your forehead for 1 minute, at which point it adheres to you until a creature uses an action to remove it. A third eye is actually powered by psionics.
-	
-	While you wear this third eye, you can cast dominate monster with a save DC of 17. Once you have used this power, it won't function again until the next dawn.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Third Eye Freedom</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>This item appears as a small hemisphere of crystal. Before you can attune to it, you must press the flat side against the middle of your forehead for 1 minute, at which point it adheres to you until a creature uses an action to remove it. A third eye is actually powered by psionics.
-	
-	With this item properly in place and attuned, you can cast freedom of movement on yourself, except that it lasts only 1 round. Once you have used this power, the third eye freedom goes dormant until the next dawn.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Third Eye Improvisation</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This item appears as a small hemisphere of crystal. Before you can attune to it, you must press the flat side against the middle of your forehead for 1 minute, at which point it adheres to you until a creature uses an action to remove it. A third eye is actually powered by psionics.
-	
-	While you wear the third eye improvisation, you can gain advantage on any ability check for which you cannot apply your proficiency bonus. Once you use this power, it won't function again until the next dawn.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Throwing Shield</title>
-	<type>item</type>
-    <itemType>shield</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Armor (shield), very rare</itemDetail>
-    <text>While you wield this round shield, you gain a +1 bonus to AC. While it is equipped, you can throw this shield as a ranged weapon attack, making an attack using either Strength or Dexterity. The shield deals 2d8 + your Strength or Dexterity bonus bludgeoning damage on a hit. It has a range of 40'/80'.
+</text></item>
 
-		If your attack hits by 5 or more, the shield ricochets off the target and back into your hand. Otherwise it clatters to the ground at the feet of the target. You can only throw this shield once per turn.
-</text>
-  </item> 
-  
-     <item>
-    <title>Tome of Arcane Breadth</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>It takes a week of study to attune to this tome. When you do so, choose one wizard spell of a level that you can cast. You gain access to that spell as if it was one of your spells known, and you can cast it with your spell slots. If you lose your attunement to this tome, you immediately lose your knowledge of this spell.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Tome of Arrest</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>While you bear this tome, whenever you paralyze a creature or reduce its speed to 0, the tome deals 2d6 psychic damage to that creature. (You can't paralyze a creature that is already paralyzed or reduce a creature's speed to 0 if it is already 0.)
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Tome of Study</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, very rare (requires attunement)</itemDetail>
-    <text>Each of these magical tomes contains a wealth of lore about a specific skill, tool or language. If you study it for no less than 8 hours per day for 30 consecutive days, you gain proficiency in that skill, tool or language, and the tome vanishes. Once it does so, your attunement to it is broken.
-	
-</text>
-  </item> 
-  
-     <item>
-    <title>Tome of the Replenishing Flame</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement by a Wizard)</itemDetail>
-    <text>A tome of this sort is warm to the touch in even the coldest conditions. It is bound in copper. It contains the spells fireball and wall of fire, which magically copy themselves into your spellbook if you don't already know them as soon as you attune to this tome.
-	
-	In addition, whenever you cast a spell that deals fire damage, you regain hit points equal to the level of the slot you used to cast it.
-	
-</text>
-  </item> 
-   
        <item>
-    <title>Transposer Cloak</title>
+    <title>Clockwork Rogue Ring</title>
+	<type>item</type>
+    <itemType>ring</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>jeweler</itemstock>
+    <itemDetail>Ring, uncommon (requires attunement)</itemDetail>
+    <text>This brass clockwork ring is formed to look like a coiled dragon. When you speak or whisper the draconic command word etched on the inside of the ring, the brass dragon uncoils and attempts to pick any lock within 10 feet of you. The dragon picks the lock using your proficiency bonus but with advantage. It is treated as having thieves’ tools when attempting to pick locks. It uses your Dexterity (Stealth) bonus for purposes of not being spotted but with advantage due to its extremely small size. Whether successful or not, once you have used the ring to attempt to pick a lock, it can’t be used again until the next sunset.
+	
+</text></item>
+
+       <item>
+    <title>Clockwork Spider Cloak</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
+	<itemstock>enchanter</itemstock>
     <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This cloak has 3 charges, which it regains at dawn. You can expend a charge to cast dimension door, but you must be one of the targets.
+    <text>This hooded cloak is made from black spider silk and has thin brass ribbing stitched on the inside. It has 3 charges. While wearing the cloak, you gain a +2 proficiency bonus to all Dexterity (Stealth) checks. As an action, you can expend a charge to animate the brass ribs into articulated spider legs 1 inch thick and 6 feet long for 1 minute. You can use the charges in succession. The spider legs allow you to climb at your normal walking speed, and you double your proficiency bonus and gain advantage on any Strength (Athletics) checks made for slippery or difficult surfaces. The cloak regains 1d3 charges each day at sunset.
 	
-</text>
-  </item> 
-  
-      <item>
-    <title>Trident of Festering Wounds</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (trident), very rare</itemDetail>
-    <text>A trident of this sort is +1 to hit and damage. In addition, damage inflicted by it can only be healed via magic.
-	
-</text>
-  </item> 
-  
-      <item>
-    <title>Trident of Submission</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (trident), very rare (requires attunement)</itemDetail>
-    <text>This trident is +1 to hit and damage. When you hit a creature with it, you can use a bonus action to attempt to force it to surrender. The creature must make a DC 13 Wisdom save or yield, though this effect ends after 1 hour or as soon as you treat the surrendered creature poorly. (Poor treatment is relative to the creature; a kobold would probably submit to a beating, while a proud knight might not even give up his sword.)
-</text>
-  </item> 
-  
-      <item>
-    <title>Turban of Multiplication</title>
+</text></item>
+
+       <item>
+    <title>Corpsehunter’s Medallion</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, common</itemDetail>
-    <text>While you wear this turban, you can cast mirror image. Once you have done so, the turban ceases to function until the next dawn.
-	
-</text>
-  </item> 
-  
-      <item>
-    <title>Unseen Listener</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>This item appears to be a normal stone, albeit a polished and semiprecious one. However, you can set the stone in a location and activate it. For the next week, you can hear through the stone as if you were present. At the end of the week, the stone goes dead until it spends 24 hours in your presence or someone else attunes to it.
-	
-</text>
-  </item> 
-  
-      <item>
-    <title>Vanishing Weapon</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any), uncommon (requires attunement)</itemDetail>
-    <text>This weapon has a +1 bonus to hit and damage. In addition, it allows you to cast misty step as a bonus action, but once you do so, you can't do so again until the next dawn.
-	
-</text>
-  </item> 
-  
-      <item>
-    <title>Veil of Fire</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>This crimson and yellow veil allows you to cast fireball. Once you use this power, it will not function again until the next dawn.
-	
-	If you have naturally red hair, the veil of fire will function twice before becoming nonfunctional.
-	
-</text>
-  </item> 
-  
-      <item>
-    <title>Vigorous Resolve Vestments</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
+	<itemstock>jeweler</itemstock>
     <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>These vestments fit over armor. While you wear them and you are at half your hit points or fewer, you gain advantage on Constitution saves
+    <text>These amulets tend to be made from the skulls of grave rats or from scrimshawed bones of the ignoble dead. While wearing this amulet, you have resistance to necrotic damage.
 	
-</text>
-  </item> 
-  
-      <item>
-    <title>Velvet Crown</title>
+</text></item>
+
+       <item>
+    <title>Earrings of the Agent</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
+	<itemstock>jeweler</itemstock>
     <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This item appears to be a circlet or garter of velvet, but only functions if wrapped around the head like a crown. While you wear it properly, it gives you several powers.
+    <text>Aside from a minor difference in size, these simple golden hoops are identical to one another. Each hoop has 1 charge and provides a different magical effect. While wearing both hoops, you can use an action to expend a charge and cause one of the following effects:
+
+	Small Hoop. Choose a 10 foot by 10 foot area you can see. For 10 minutes, you can hear all sounds as though you were standing within that area. You may end this effect at any time.
 	
-	Spells. You can use the velvet crown to cast darkness, feather fall or silence. Once you use one of these spells, the crown can't cast that spell again until you complete a short rest.
+	Large Hoop. For 1 minute, while you are hidden, all creatures within a 10 foot by 10 foot area you can see receive disadvantage on Wisdom (Perception) checks to see, hear, and smell you. If you become unhidden, this effect ends immediately.
 	
-	Freedom of Movement. By using a bonus action to issue a mental command to the crown, you can cast freedom of movement on yourself, but it lasts only until the end of your next turn. Once you use this power, you can't use it again until you complete a long rest.
+	Each hoop regains 1 expended charge daily at dawn.	
+</text></item>
+
+       <item>
+    <title>Gale Javelin</title>
+	<type>item</type>
+    <itemType>ranged weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (javelin), uncommon</itemDetail>
+    <text>The metallic head of this javelin is embellished with three small wings. When you speak a command word while making a ranged weapon attack with this magic weapon, a swirling vortex of wind follows its path through the air. Draw a line between you and the target of your attack; each creature within 10 feet of this line must make a DC 12 Strength saving throw. On a failed save, the creature is pushed backward 10 feet and falls prone.
 	
-</text>
-  </item> 
-  
-      <item>
-    <title>Venom Lance</title>
+Additionally, if this ranged weapon attack hits, the target must make a DC 13 Strength saving throw. On a failed save, the target is pushed backward 15 feet and falls prone.
+
+The javelin’s property can’t be used again until the next dawn. In the meantime, it can still be used as a magic weapon.	
+</text></item>
+
+       <item>
+    <title>Meteoric Plate</title>
+	<type>item</type>
+    <itemType>heavy armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (plate), rare (requires attunement)</itemDetail>
+    <text>This plate armor was magically crafted from plates of interlocking stone. Tiny rubies inlaid in the chest create a glittering mosaic of flames. When you fall while wearing this armor, you can tuck your knees against your chest and curl into a ball. While falling in this way, flames form around your body.
+	
+	You take half the usual falling damage when you hit the ground, and fire explodes from your form in a 20-foot-radius sphere. Each creature in this area must make a DC 13 Dexterity saving throw. On a failed save, a target takes fire damage equal to the falling damage you took, or half as much on a successful saving throw.
+	
+The fire spreads around corners and ignites flammable objects in the area that aren’t being worn or carried.	
+</text></item>
+
+       <item>
+    <title>Slimeblade</title>
 	<type>item</type>
     <itemType>melee weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (lance), very rare</itemDetail>
-    <text>A lance of this sort is +1 to hit and damage. If you hit a creature with it, that creature must make a DC 17 Constitution save or take an extra 3d6 poison damage
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon [any sword], rare (requires attunement)</itemDetail>
+    <text>You gain a +1 bonus to attack and damage rolls made with this magic weapon. The blade of the sword is coated in an endless supply of violet-colored slime. Despite the sword’s tendency to drip, the slime does not flow over the pommel, regardless of the angle at which it is held. You are entirely immune to the effect of the slime while attuned to this sword. You may communicate telepathically with ooze creatures while wielding this weapon, and you gain advantage on Charisma (Deception, Intimidation, and Persuasion) checks against oozes.
 	
-</text>
-  </item> 
-  
-        <item>
-    <title>Vigorous Resolve Vestments</title>
+Once each combat, you may use an action to make a ranged attack (Dexterity modifier + Proficiency bonus to hit, range 20/40 ft., one target. Hit: 11 (2d8+2) poison damage) with the sword by flinging the slime towards any creature you can see. Creatures damaged by this attack must make a DC 14 Constitution saving throw or be poisoned until the end of their next turn.	
+</text></item>
+
+       <item>
+    <title>Soldra’s Staff</title>
 	<type>item</type>
-    <itemType>wondrous item</itemType>
+    <itemType>staff</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>These vestments fit over armor. While you wear them and you are at half your hit points or fewer, you gain advantage on Constitution saves
+	<itemstock>enchanter</itemstock>
+    <itemDetail>Staff, uncommon (requires attunement by a wizard)</itemDetail>
+    <text>Crafted by a skilled wizard and meant to be a spellcaster’s last defense, this staff is 5 feet long, made of yew wood that curves at its top, is iron shod at its mid-section, and capped with a silver dragon’s claw that holds a lustrous, though rough and uneven, black pearl.
 	
-</text>
-  </item> 
-  
-        <item>
-    <title>Wand of Feathers</title>
-	<type>item</type>
-    <itemType>wand</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wand, uncommon (requires attunement)</itemDetail>
-    <text>This 18” long wand is carved from rune-graven wood and tipped with a cluster of multicolored feathers. It has 6 charges and regains 1d4+1 charges each morning at dawn. If you spend the last charge, there is a 1 in 20 chance that the wand loses its magic forevermore.
-	
-	You can use the wand to cast the following spells: gust of wind (2 charges), Tasha's hideous laughter (1 charge), unseen servant (1 charge).
-	
-</text>
-  </item> 
-  
-        <item>
-    <title>Wand of Melf</title>
-	<type>item</type>
-    <itemType>wand</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wand, uncommon (requires attunement)</itemDetail>
-    <text>This wand has 6 charges, and regains 1d4+1 charges each morning at dawn. When you expend the last charge, roll 1d20. On a 1, the wand loses its magic. You can use an action while holding a spell to cast any of the following spells by expending the indicated number of charges: Melf's acid arrow (2 charges), Melf's minute meteors (3 charges).
-</text>
-  </item> 
-  
-        <item>
-    <title>Wand of Missile Enhancement</title>
-	<type>item</type>
-    <itemType>wand</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wand, rare (requires attunement by a sorcerer or wizard)</itemDetail>
-    <text>You can use this wand as an arcane spellcasting implement. If you cast magic missile while doing so, each missile deals 1d6+1 damage instead of the normal 1d4+1.
-	
-</text>
-  </item> 
-  
-        <item>
-    <title>Wand of Ritual Conduction</title>
-	<type>item</type>
-    <itemType>wand</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wand, rare</itemDetail>
-    <text>You can use this wand as a spellcasting focus for any ritual you perform. If you do, the ritual spell is cast as if using a spell slot one level higher than you actually use
-	
-</text>
-  </item> 
-  
-        <item>
-    <title>Wand of Storms</title>
-	<type>item</type>
-    <itemType>wand</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wand, very rare (requires attunement by a spellcaster)</itemDetail>
-    <text>A wand of this sort is usually made of copper, and is often shaped like a lightning bolt. This wand has 10 charges and regains 1d6+2 charges each morning at dawn. If you spend the last charge, there is a 1 in 20 chance that the wand loses its magic.
-	
-	While you hold the wand, you can use it to cast the following spells by expending charges: chain lightning (4 charges), fog cloud (1 charge) or gust of wind (2 charges).
-	
-	You can also use an action to expend 3 charges to activate an effect like control weather, except it doesn't require concentration, and you can only make the weather stormy with it.
-	
-</text>
-  </item> 
-  
-        <item>
-    <title>Wand of the Pyromancer</title>
-	<type>item</type>
-    <itemType>wand</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wand, uncommon (requires attunement by a spellcaster)</itemDetail>
-    <text>This wand has 10 charges, and regains 1d6+2 charges each morning at dawn. While you use it as a spellcasting focus, whenever you roll a 1 on a damage die for a spell that deals fire damage, you can spend one charge to reroll that die (no action required). You can reroll as many 1s as you spend charges.
-	
-</text>
-  </item> 
-  
-        <item>
-    <title>Warden's Amulet</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>This amulet gives you a +1 bonus to saving throws. In addition, you gain a +2 bonus to each Hit Die that you spend to heal.
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Warlock's Bracers</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement by a warlock)</itemDetail>
-    <text>Any creature under the effect of your hex spell takes a -1 penalty on attack rolls against you.
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Wavestriders</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>While wearing these magical boots, you can stand on and move across any liquid as if it were solid
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Weapon of Deception</title>
-	<type>item</type>
-    <itemType>weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any), rare (requires attunement)</itemDetail>
-    <text>While you bear this weapon, you can use an action to magically disguise yourself. Make a Charisma and add your proficiency bonus to set the DC for creatures to penetrate your disguise
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Weapon of Swiftness</title>
-	<type>item</type>
-    <itemType>weapon</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any), uncommon</itemDetail>
-    <text>When you wield this weapon, your speed increases by 10'.
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Whetstone of Keening</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, common</itemDetail>
-    <text>This whetstone can be used 1d6+2 times before it is expended. You draw a piercing or slashing weapon across it as an action, and the next time an attack is made with that weapon, it adds 1d4 to the attack roll and 1d4 to the damage.
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Whirlwind Weapon</title>
+This staff can be wielded as a magic quarterstaff that grants a +1 to attack and damage rolls made with it. It has 4 charges and regains 1d3 expended charges daily at dawn. Once daily, it can regain 1 expended charge by exposing the pearl to direct moonlight for 1 turn.
+
+When used as a weapon, the staff howls and whistles hauntingly like the wind. When its spells are employed, the staff chirps like insects on a hot summer night.
+
+**Spells.** While holding the staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: faerie fire (3 charges), gust of wind (1 charge).
+</text></item>
+
+       <item>
+    <title>Spear of the Western Whale</title>
 	<type>item</type>
     <itemType>melee weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Weapon (any melee), very rare (requires attunement)</itemDetail>
-    <text>This weapon is +2 to hit and damage. It has 2 charges, which renew at dawn. You can use an action and expend a charge to make one attack with this weapon against each creature within 5' of you.
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (spear), very rare (requires attunement)</itemDetail>
+    <text>You gain a +1 bonus to attack and damage rolls made with this magic weapon. Fashioned in the style of a whaling spear, this long, barbed weapon is made from bone and heavy, yet pliant, ash wood. Its point is lined with decorative engravings of fish, clam shells, and waves. While you carry this spear, you receive advantage on any Wisdom (Survival) checks to acquire food via fishing, and you gain advantage on all Strength (Athletics) checks to swim. When set on the ground, the spear always spins to point west.
 	
-</text>
-  </item> 
-  
-   <item>
-    <title>White Cloak of the Spider</title>
+When thrown in a westerly direction, the spear does an additional 2d6 cold damage to any creature it strikes.
+</text></item>
+
+       <item>
+    <title>Talking Torches</title>
 	<type>item</type>
     <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon (requires attunement)</itemDetail>
-    <text>While you wear this white spider silk cloak, you gain a +2 bonus to any saving throws you must make against poison. In addition, you can cast the following spells: hold person (save DC 13), spider climb. Once you cast one of them, you can't cast that spell from the cloak again until the next dawn.
-	
-</text>
-  </item> 
-  
-   <item>
-    <title>Window of Peeping</title>
+	<itemstock>enchanter</itemstock>
+    <itemDetail>Wondrous item, rare</itemDetail>
+    <text>While you are holding this heavy iron and wood torch, you may speak a command word and cause it to produce a magical, heatless, unending source of light that provides light identical to a mundane torch. You may light or extinguish the torch at will. The torches are created in sets of two, four, or six. Any creature carrying a torch from a set may communicate telepathically up to five miles with any other creature carrying a torch from the same set as long as both torches are lit.	
+</text></item>
+ 
+     <item>
+    <title>Umbral Chopper</title>
 	<type>item</type>
-    <itemType>wondrous item</itemType>
+    <itemType>melee weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>When you hold this 1' square window frame to a wall or door, it allows creatures to see through the wall or door, provided that the wall or door is no more than 2' thick. The vision is two-way.
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon [any axe], very rare (requires attunement)</itemDetail>
+    <text>This simple axe looks no different from a standard forester’s tool. A single-edged head is set into a slot in the haft and bound with strong cord. The axe was found by a timber-hauling crew who disappeared into the shadows of a cave deep in an old forest. Retrieved in the dark of the cave, the axe was found to possess disturbing magical properties. 
 	
-</text>
-  </item> 
-  
-   <item>
-    <title>Zymurgist's Mug</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock></itemstock>
-    <itemDetail>Wondrous item, common</itemDetail>
-    <text>This mug transforms any nonmagical liquid poured in it into high-quality beer.
-	
-</text>
-  </item> 
+	You gain a +1 bonus to attack and damage rolls made with this weapon, which deals necrotic damage instead of slashing damage. When you hit a plant creature with it, the target must make a DC 14 Constitution saving throw or take 4d6 extra damage and have its speed halved until the end of its next turn. On a successful save, the target takes half of the extra damage and its speed is not halved. While you carry this axe, you may use an action to cast darkness (DC 14 to dispel, no concentration required). Once this property is used, it can’t be used again until the next sunset.	
+</text></item>
+
    
   </world>
   

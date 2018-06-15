@@ -143,6 +143,8 @@
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
 				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
+				<li><a href="/tools/world/workspace.php">Workspace</a></li>
+
 
       </ul>
 

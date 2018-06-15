@@ -119,6 +119,111 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
 </div>
 
+<div class="col-md-4">
+<select id="search4">
+<option value=""></option>
+<?php
+$searchdrop = "SELECT title FROM world";
+$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+  $search = $searchrow['title'];
+  $searchvalue = $search.'1';
+  echo "<option value=\"$searchvalue\">$search</option>";
+}
+?>
+<?php
+$searchdrop1 = "SELECT title FROM compendium";
+$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
+while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
+  $search1 = $searchrow1['title'];
+  $searchvalue1 = $search1.'2';
+  echo "<option value=\"$searchvalue1\">$search1</option>";
+}
+?>
+<?php
+$searchdrop2 = "SELECT title FROM srd";
+$searchdata2 = mysqli_query($dbcon, $searchdrop2) or die('error getting data');
+while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
+  $search2 = $searchrow2['title'];
+  $searchvalue2 = $search2.'3';
+  echo "<option value=\"$searchvalue2\">Rules: $search2</option>";
+}
+?>
+</select>
+<div id="box4"><iframe class="blockframe" id="frame4"></iframe></div>
+
+</div>
+
+<div class="col-md-4">
+<select id="search5">
+<option value=""></option>
+<?php
+$searchdrop = "SELECT title FROM world";
+$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+  $search = $searchrow['title'];
+  $searchvalue = $search.'1';
+  echo "<option value=\"$searchvalue\">$search</option>";
+}
+?>
+<?php
+$searchdrop1 = "SELECT title FROM compendium";
+$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
+while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
+  $search1 = $searchrow1['title'];
+  $searchvalue1 = $search1.'2';
+  echo "<option value=\"$searchvalue1\">$search1</option>";
+}
+?>
+<?php
+$searchdrop2 = "SELECT title FROM srd";
+$searchdata2 = mysqli_query($dbcon, $searchdrop2) or die('error getting data');
+while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
+  $search2 = $searchrow2['title'];
+  $searchvalue2 = $search2.'3';
+  echo "<option value=\"$searchvalue2\">Rules: $search2</option>";
+}
+?>
+</select>
+<div id="box5"><iframe class="blockframe" id="frame5"></iframe></div>
+
+</div>
+
+<div class="col-md-4">
+<select id="search6">
+<option value=""></option>
+<?php
+$searchdrop = "SELECT title FROM world";
+$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+  $search = $searchrow['title'];
+  $searchvalue = $search.'1';
+  echo "<option value=\"$searchvalue\">$search</option>";
+}
+?>
+<?php
+$searchdrop1 = "SELECT title FROM compendium";
+$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
+while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
+  $search1 = $searchrow1['title'];
+  $searchvalue1 = $search1.'2';
+  echo "<option value=\"$searchvalue1\">$search1</option>";
+}
+?>
+<?php
+$searchdrop2 = "SELECT title FROM srd";
+$searchdata2 = mysqli_query($dbcon, $searchdrop2) or die('error getting data');
+while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
+  $search2 = $searchrow2['title'];
+  $searchvalue2 = $search2.'3';
+  echo "<option value=\"$searchvalue2\">Rules: $search2</option>";
+}
+?>
+</select>
+<div id="box6"><iframe class="blockframe" id="frame6"></iframe></div>
+
+</div>
+
 
 
   <script type="text/javascript">
@@ -180,6 +285,75 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   else {
 
     document.getElementById("frame3").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  },
+  create: false,
+  openOnFocus: false,
+  maxOpions: 4,
+  sortField: 'text',
+  placeholder: 'search...'
+  },);
+  </script>
+
+  <script type="text/javascript">
+  $('#search4').selectize({
+  onChange: function(value){
+    if(value.slice(-1) == 1) {
+    document.getElementById("frame4").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 2) {
+
+    document.getElementById("frame4").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+  }
+  else {
+
+    document.getElementById("frame4").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  },
+  create: false,
+  openOnFocus: false,
+  maxOpions: 4,
+  sortField: 'text',
+  placeholder: 'search...'
+  },);
+  </script>
+
+  <script type="text/javascript">
+  $('#search5').selectize({
+  onChange: function(value){
+    if(value.slice(-1) == 1) {
+    document.getElementById("frame5").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 2) {
+
+    document.getElementById("frame5").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+  }
+  else {
+
+    document.getElementById("frame5").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  },
+  create: false,
+  openOnFocus: false,
+  maxOpions: 4,
+  sortField: 'text',
+  placeholder: 'search...'
+  },);
+  </script>
+
+  <script type="text/javascript">
+  $('#search6').selectize({
+  onChange: function(value){
+    if(value.slice(-1) == 1) {
+    document.getElementById("frame6").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 2) {
+
+    document.getElementById("frame6").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+  }
+  else {
+
+    document.getElementById("frame6").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
   }
   },
   create: false,
