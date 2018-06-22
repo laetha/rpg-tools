@@ -13,6 +13,12 @@
 
 ?>
 <div class="mainbox">
+  <style>
+  .col-md-4 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  </style>
 
   <div class="col-md-4">
   <select id="search1">
@@ -363,7 +369,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   placeholder: 'search...'
   },);
   </script>
-
+a
 </div>
 <?php
 //Footer

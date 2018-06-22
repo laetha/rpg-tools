@@ -134,6 +134,7 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Tools<span class="caret"></span></a>
 						<ul class="dropdown-menu">
+							<li><a href="/tools/world/workspace.php">Workspace</a></li>
 							<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 							<li><a href="/tools/generator/generator.php">Random Generator</a></li>
 							<li><a href="/tools/resources/toc.php">Resources</a></li>
@@ -143,7 +144,6 @@
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
 				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
-				<li><a href="/tools/world/workspace.php">Workspace</a></li>
 
 
       </ul>

@@ -7,6 +7,7 @@
    if(empty($_GET['id'])) {
      $pgtitle = 'Calendar - ';
    }
+   $pgtitle = 'Calendar - ';
    //Header
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
