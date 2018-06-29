@@ -31,9 +31,10 @@
                    <th scope="col">Level</th>
                    <th scope="col">School</th>
                    <th scope="col">Casting Time</th>
-                   <th scope="col">Range</th>
-                   <th scope="col">Duration</th>
+
                    <th scope="col">Classes</th>
+                   <th scope="col">Description</th>
+
                </tr>
            </thead>
            <tfoot>
@@ -42,9 +43,9 @@
                  <th>Level</th>
                  <th>School</th>
                  <th>Casting Time</th>
-                 <th>Range</th>
-                 <th>Duration</th>
+
                  <th>Classes</th>
+                 <th scope="col">Description</th>
                </tr>
            </tfoot>
            <tbody>
@@ -60,9 +61,9 @@
                echo ('<td>'.$row['spellLevel'].'</td>');
                echo ('<td>'.$row['spellSchool'].'</td>');
                echo ('<td>'.$row['spellTime'].'</td>');
-               echo ('<td>'.$row['spellRange'].'</td>');
-               echo ('<td>'.$row['spellDuration'].'</td>');
+
                echo ('<td>'.$row['spellClasses'].'</td>');
+               echo ('<td>'.$row['text'].'</td>');
              }
                ?>
 
@@ -71,26 +72,29 @@
 <script>
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
-    $('#allspells tfoot th').each( function () {
-        var title = $(this).text();
-        $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-    } );
+
 
     // DataTable
-    var table = $('#allspells').DataTable();
+    var table = $('#allspells').DataTable(
 
-    // Apply the search
-    table.columns().every( function () {
-        var that = this;
+        {
 
-        $( 'input', this.footer() ).on( 'keyup change', function () {
-            if ( that.search() !== this.value ) {
-                that
-                    .search( this.value )
-                    .draw();
-            }
-        } );
-    } );
+          "columnDefs": [ {
+                "targets": [0,1],
+                "width": "20px"
+            },
+            {
+                "targets": 2,
+                "width": "50px"
+            },
+            {
+                "targets": [3,4,5],
+                "width": "auto"
+            }]
+        }
+    );
+
+
 } );
 </script>
 </div>
