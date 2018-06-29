@@ -109,6 +109,7 @@
 
 
 					<li role="separator" class="divider"></li>
+					<li><a href="/tools/world/gallery.php">Gallery</a></li>
 					<li><a href="/tools/world/settlement.php">Settlements</a></li>
 					<li><a href="/tools/world/npc.php">NPCs</a></li>
 					<li><a href="/tools/world/pc.php">Player Characters</a></li>
