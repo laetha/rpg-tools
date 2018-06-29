@@ -35,16 +35,31 @@
      $pngurl = 'uploads/'.$stripid.'.png';
 
      if (file_exists($jpgurl)){
-       echo ('<div class="grid-item">');
+       echo ('<a href="world.php?id='.$row['title'].'"><div class="grid-item imgbox">');
        echo ('<img src="uploads/'.$stripid.'.jpg" />');
-       echo ('</div>');
+       echo ('<div class="overlay">');
+       echo ('<div class="imgtext">'.$row['title']);
+       if ($row['type'] = 'npc') {
+         echo ('<p>--------</p>');
+         echo ('<p>'.$row['npc_est'].'</p>');
+         echo ('<p>--------</p>');
+         echo ('<p>'.$row['npc_location'].'</p>');
+       }
+       echo ('</div></div></div></a>');
      }
 
      else if (file_exists($pngurl)){
 
-       echo ('<div class="grid-item">');
+       echo ('<div class="grid-item imgbox">');
        echo ('<img src="uploads/'.$stripid.'.png" />');
-       echo ('</div>');
+       echo ('<div class="overlay">');
+       echo ('<div class="imgtext">'.$row['title']);
+       if ($row['type'] = 'npc') {
+         echo ('<p>'.$row['npc_est'].'</p>');
+         echo ('<p>'.$row['npc_location'].'</p>');
+       }
+
+       echo ('</div></div></div>');
      }
      else {
 

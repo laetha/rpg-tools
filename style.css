@@ -614,3 +614,37 @@ color: #3D6D8D;
 
 .grid-item { width: 200px; }
 .grid-item--width2 { width: 400px; }
+
+.imgbox {
+	position: relative;
+    text-align: center;
+    color: white;
+}
+
+.imgtext {
+	color: white;
+  font-size: 16px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #5F6694;
+}
+
+.imgbox:hover .overlay {
+  opacity: 0.8;
+}
