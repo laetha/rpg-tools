@@ -9,6 +9,8 @@
    $headpath .= "/header.php";
    include_once($headpath);
    $id = $_GET['id'];
+   $pgtitle = 'Award XP - ';
+
 ?>
    <div class="mainbox col-md-12">
 
