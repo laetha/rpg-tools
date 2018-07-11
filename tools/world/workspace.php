@@ -22,8 +22,11 @@
 
   <div class="col-md-4">
   <select id="search1">
-  <option value=""></option>
-  <?php
+    <option value=""></option>
+<option value="awardxp4">Award XP</option>
+<option value="gmnotes5">GM Notes</option>
+<option value="campaignlog6">Campaign Log</option>
+<option value="generator7">Random Generator</option>   <?php
   $searchdrop = "SELECT title FROM world";
   $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
   while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -58,7 +61,10 @@
 <div class="col-md-4">
 <select id="search2">
 <option value=""></option>
-<?php
+<option value="awardxp4">Award XP</option>
+<option value="gmnotes5">GM Notes</option>
+<option value="campaignlog6">Campaign Log</option>
+<option value="generator7">Random Generator</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -93,7 +99,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <div class="col-md-4">
 <select id="search3">
 <option value=""></option>
-<?php
+<option value="awardxp4">Award XP</option>
+<option value="gmnotes5">GM Notes</option>
+<option value="campaignlog6">Campaign Log</option>
+<option value="generator7">Random Generator</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -128,7 +137,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <div class="col-md-4">
 <select id="search4">
 <option value=""></option>
-<?php
+<option value="awardxp4">Award XP</option>
+<option value="gmnotes5">GM Notes</option>
+<option value="campaignlog6">Campaign Log</option>
+<option value="generator7">Random Generator</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -163,7 +175,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <div class="col-md-4">
 <select id="search5">
 <option value=""></option>
-<?php
+<option value="awardxp4">Award XP</option>
+<option value="gmnotes5">GM Notes</option>
+<option value="campaignlog6">Campaign Log</option>
+<option value="generator7">Random Generator</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -198,7 +213,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <div class="col-md-4">
 <select id="search6">
 <option value=""></option>
-<?php
+<option value="awardxp4">Award XP</option>
+<option value="gmnotes5">GM Notes</option>
+<option value="campaignlog6">Campaign Log</option>
+<option value="generator7">Random Generator</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -242,9 +260,25 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame1").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
   }
-  else {
+  else if(value.slice(-1) == 3) {
 
     document.getElementById("frame1").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 4) {
+
+    document.getElementById("frame1").src = '/tools/world/xp.php';
+  }
+  else if(value.slice(-1) == 5) {
+
+    document.getElementById("frame1").src = '/tools/world/gmnotes.php';
+  }
+  else if(value.slice(-1) == 6) {
+
+    document.getElementById("frame1").src = '/tools/campaign-log/campaign-log.php';
+  }
+  else if(value.slice(-1) == 7) {
+
+    document.getElementById("frame1").src = '/tools/generator/generator.php';
   }
   },
   create: false,
@@ -265,9 +299,25 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame2").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
   }
-  else {
+  else if(value.slice(-1) == 3) {
 
     document.getElementById("frame2").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 4) {
+
+    document.getElementById("frame2").src = '/tools/world/xp.php';
+  }
+  else if(value.slice(-1) == 5) {
+
+    document.getElementById("frame2").src = '/tools/world/gmnotes.php';
+  }
+  else if(value.slice(-1) == 6) {
+
+    document.getElementById("frame2").src = '/tools/campaign-log/campaign-log.php';
+  }
+  else if(value.slice(-1) == 7) {
+
+    document.getElementById("frame2").src = '/tools/generator/generator.php';
   }
   },
   create: false,
@@ -288,9 +338,25 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame3").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
   }
-  else {
+  else if(value.slice(-1) == 3) {
 
     document.getElementById("frame3").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 4) {
+
+    document.getElementById("frame3").src = '/tools/world/xp.php';
+  }
+  else if(value.slice(-1) == 5) {
+
+    document.getElementById("frame3").src = '/tools/world/gmnotes.php';
+  }
+  else if(value.slice(-1) == 6) {
+
+    document.getElementById("frame3").src = '/tools/campaign-log/campaign-log.php';
+  }
+  else if(value.slice(-1) == 7) {
+
+    document.getElementById("frame3").src = '/tools/generator/generator.php';
   }
   },
   create: false,
@@ -311,9 +377,25 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame4").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
   }
-  else {
+  else if(value.slice(-1) == 3) {
 
     document.getElementById("frame4").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 4) {
+
+    document.getElementById("frame4").src = '/tools/world/xp.php';
+  }
+  else if(value.slice(-1) == 5) {
+
+    document.getElementById("frame4").src = '/tools/world/gmnotes.php';
+  }
+  else if(value.slice(-1) == 6) {
+
+    document.getElementById("frame4").src = '/tools/campaign-log/campaign-log.php';
+  }
+  else if(value.slice(-1) == 7) {
+
+    document.getElementById("frame4").src = '/tools/generator/generator.php';
   }
   },
   create: false,
@@ -334,9 +416,25 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame5").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
   }
-  else {
+  else if(value.slice(-1) == 3) {
 
     document.getElementById("frame5").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 4) {
+
+    document.getElementById("frame5").src = '/tools/world/xp.php';
+  }
+  else if(value.slice(-1) == 5) {
+
+    document.getElementById("frame5").src = '/tools/world/gmnotes.php';
+  }
+  else if(value.slice(-1) == 6) {
+
+    document.getElementById("frame5").src = '/tools/campaign-log/campaign-log.php';
+  }
+  else if(value.slice(-1) == 7) {
+
+    document.getElementById("frame5").src = '/tools/generator/generator.php';
   }
   },
   create: false,
@@ -357,9 +455,25 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame6").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
   }
-  else {
+  else if(value.slice(-1) == 3) {
 
     document.getElementById("frame6").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+  }
+  else if(value.slice(-1) == 4) {
+
+    document.getElementById("frame6").src = '/tools/world/xp.php';
+  }
+  else if(value.slice(-1) == 5) {
+
+    document.getElementById("frame6").src = '/tools/world/gmnotes.php';
+  }
+  else if(value.slice(-1) == 6) {
+
+    document.getElementById("frame6").src = '/tools/campaign-log/campaign-log.php';
+  }
+  else if(value.slice(-1) == 7) {
+
+    document.getElementById("frame6").src = '/tools/generator/generator.php';
   }
   },
   create: false,

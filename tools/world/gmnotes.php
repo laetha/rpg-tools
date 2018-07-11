@@ -25,7 +25,7 @@
 
 
 
-         <div class="text col-centered col-md-12"><textarea type="text" name="gmnote" id="gmnote" placeholder="Enter notes here...">
+         <div class="text col-centered col-md-12" style="padding-left:2%; padding-right:2%;"><textarea type="text" name="gmnote" id="gmnote" placeholder="Enter notes here..." style="width:100%;">
            <?php
            $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
            $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
