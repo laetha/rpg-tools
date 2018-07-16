@@ -24,7 +24,7 @@ if (!empty($_GET['id'])) {
   if (!in_array($tmp_action, $disallowed_paths) /*&& file_exists("world/{$tmp_action}.php")*/)
         $id = $tmp_action;
         $id = addslashes($id);
-        $worldedit = "SELECT * FROM `world` WHERE `title` LIKE '%{$id}%'";
+        $worldedit = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
         $editdata = mysqli_query($dbcon, $worldedit) or die('error getting data');
         while($editrow =  mysqli_fetch_array($editdata, MYSQLI_ASSOC)) {
           $editid = $editrow['id'];
