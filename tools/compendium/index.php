@@ -1230,42 +1230,42 @@ $cr = $row['monsterCr'];
 			<h3>Actions</h3>
       <?php if($row['monsterAction1'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction1']; ?></p>
+          <p><?php echo nl2br($row['monsterAction1']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction2'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction2']; ?></p>
+          <p><?php echo nl2br($row['monsterAction2']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction3'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction3']; ?></p>
+          <p><?php echo nl2br($row['monsterAction3']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction4'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction4']; ?></p>
+          <p><?php echo nl2br($row['monsterAction4']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction5'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction5']; ?></p>
+          <p><?php echo nl2br($row['monsterAction5']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction6'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction6']; ?></p>
+          <p><?php echo nl2br($row['monsterAction6']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction7'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction7']; ?></p>
+          <p><?php echo nl2br($row['monsterAction7']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
       <?php if($row['monsterAction8'] != ''){ ?>
         <div class="property-block">
-          <p><?php echo $row['monsterAction8']; ?></p>
+          <p><?php echo nl2br($row['monsterAction8']); ?></p>
         </div> <!-- property Block -->
       <?php } ?>
 		</div> <!-- actions -->
@@ -1273,42 +1273,42 @@ $cr = $row['monsterCr'];
         <?php if($row['monsterLegendary1'] != ''){ ?>
           <h3>Legendary Actions</h3>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary1']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary1']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary2'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary2']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary2']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary3'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary3']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary3']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary4'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary4']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary4']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary5'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary5']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary5']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary6'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary6']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary6']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary7'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary7']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary7']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
         <?php if($row['monsterLegendary8'] != ''){ ?>
           <div class="property-block">
-            <p><?php echo $row['monsterLegendary8']; ?></p>
+            <p><?php echo nl2br($row['monsterLegendary8']); ?></p>
           </div> <!-- property Block -->
         <?php } ?>
 		</div> <!-- actions -->
@@ -1316,7 +1316,7 @@ $cr = $row['monsterCr'];
      <?php if($row['monsterReaction'] != ''){ ?>
            <h3>Reactions</h3>
          <div class="property-block">
-         <p><?php echo $row['monsterReaction']; ?></p>
+         <p><?php echo nl2br($row['monsterReaction']); ?></p>
        </div> <!-- property Block -->
      <?php } ?>
 
