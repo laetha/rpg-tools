@@ -130,6 +130,8 @@
 						<li><a href="/tools/compendium/monster.php">Monsters</a></li>
 						<li><a href="/tools/compendium/race.php">Races</a></li>
 						<li><a href="/tools/compendium/spell.php">Spells</a></li>
+						<li><a href="/tools/compendium/monster-all.php">Monsters(Lookup)</a></li>
+
 					</ul>
 
 					<li class="dropdown">
