@@ -17,7 +17,9 @@
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
    <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
-
+     <style>
+     th, td { white-space: nowrap; }
+     </style>
      <!-- Page Header -->
      <div class="col-md-12">
      <div class="pagetitle" id="pgtitle">Monsters</div>
@@ -228,7 +230,12 @@ $(document).ready(function() {
     } );
 
     // DataTable
-    var table = $('#allspells').DataTable();
+    var table = $('#allspells').DataTable(
+      {
+         "scrollX": true,
+         "responsive": false
+     }
+    );
 
     // Apply the search
     table.columns().every( function () {
