@@ -20,7 +20,8 @@
 
      <div class="col-md-12">
      <div class="pagetitle" id="pgtitle">GM Notes</div>
-
+     <p><button class="btn btn-info" id="addbutton">Add Notes</button></p>
+     <div id="adddiv" style="display:none;">
      <form method="post" action="gmprocess.php" id="import" enctype="multipart/form-data">
 
 
@@ -34,10 +35,10 @@
 }
 ?></textarea></div>
 
-     </div>
+
    </form>
    <input form="import" class="btn btn-primary col-centered" type="submit" value="Save" />
-
+</div>
    <div class="body sidebartext col-xs-12" id="body">
      <?php
      $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
@@ -76,8 +77,14 @@
    ?>
 
 </div>
-
-
+<script>
+$(document).ready(function addLog(){
+    $("#addbutton").click(function addLog(){
+        $("#adddiv").slideToggle("slow");
+    });
+});
+</script>
+</div>
    <?php
    //Footer
    $footpath = $_SERVER['DOCUMENT_ROOT'];
