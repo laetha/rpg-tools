@@ -36,12 +36,45 @@
 
      </div>
    </form>
-   <input form="import" class="btn btn-primary col-centered" type="submit" value="Save">
+   <input form="import" class="btn btn-primary col-centered" type="submit" value="Save" />
+
+   <div class="body sidebartext col-xs-12" id="body">
+     <?php
+     $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
+     $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+     while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+     echo nl2br($row['note']);
+}
+?>
+   </div>
 <?php
 
  ?>
 
-  </div>
+ <!-- Search and add hyperlinks -->
+   <?php
+     $sqlworld = "SELECT * FROM world";
+     $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+     while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+     $temp = $linkrow['title'];
+     ?>
+     <script>
+     var foundlink = "<?php echo $temp ?>";
+     function replace (querytext){
+       var bodytext = document.getElementById("body").innerHTML;
+       //var pgtitle = document.getElementById("pgtitle").innerHTML;
+       var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+       var regex = new RegExp(querytext, 'ig');
+       var newtext = bodytext.replace(regex, url)
+       document.getElementById("body").innerHTML = newtext;
+     }
+     replace(foundlink);
+
+     </script>
+     <?php
+   }
+   ?>
+
 </div>
 
 
