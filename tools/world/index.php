@@ -76,7 +76,8 @@ if ($row['coord'] != '') {
               echo('Deity: '.$row['npc_deity'].'<br />');
 
               }
-              echo $Parsedown->text(nl2br($row['body']));
+
+              echo ('<p>'.$Parsedown->text(nl2br($row['body'])).'</p>');
 
 
           if (file_exists($jpgurl)){

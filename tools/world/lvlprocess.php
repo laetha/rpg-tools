@@ -28,7 +28,8 @@ CASE
               WHEN pc_xp BETWEEN 265000 AND 304999 THEN 18
               WHEN pc_xp BETWEEN 305000 AND 354999 THEN 19
               WHEN pc_xp BETWEEN 355000 AND 9999999999999 THEN 20
-         END";
+         END
+              WHERE type LIKE 'player character'";
 
 if ($dbcon->query($sql) === TRUE) {
 	?>
