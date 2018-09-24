@@ -248,6 +248,21 @@ if ($sidebartype == "settlement") {
     $selectednpc = $titlerow['title'];
     //echo "<a href=\"world.php?id=$selectednpc\">";
     echo ('<div class="col-md-4 col-sm-5">');
+    if ($titlerow['est_type'] == 'alchemist') {
+      echo ('<img class="txtimg" src="/assets/images/icon-alchemist.png" />');
+    }
+    else if ($titlerow['est_type'] == 'inn') {
+      echo ('<img class="txtimg" src="/assets/images/icon-inn.png" />');
+    }
+    else if ($titlerow['est_type'] == 'blacksmith') {
+      echo ('<img class="txtimg" src="/assets/images/icon-blacksmith.png" />');
+    }
+    else if ($titlerow['est_type'] == 'enchanter') {
+      echo ('<img class="txtimg" src="/assets/images/icon-enchanter.png" />');
+    }
+    else if ($titlerow['est_type'] == 'Jeweler') {
+      echo ('<img class="txtimg" src="/assets/images/icon-jeweler.png" />');
+    }
     echo $selectednpc;
     echo "</div>";
   }

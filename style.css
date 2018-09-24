@@ -648,3 +648,7 @@ color: #3D6D8D;
 .imgbox:hover .overlay {
   opacity: 0.8;
 }
+
+.txtimg {
+	height:1em;
+}
