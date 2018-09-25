@@ -267,7 +267,7 @@ if ($sidebartype == "settlement") {
     echo "</div>";
   }
   echo ('</div>');
-echo ('</div>');
+//echo ('</div>');
 }
 
 if ($sidebartype == "establishment") {
