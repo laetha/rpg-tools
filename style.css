@@ -673,3 +673,11 @@ color: #3D6D8D;
   }
 
 }
+
+
+@media screen and (max-width: 600px) {
+  .fp-img {
+		display: none;
+  }
+
+}
