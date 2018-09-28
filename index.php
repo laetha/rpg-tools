@@ -24,7 +24,7 @@ $pgtitle = '';
         </div>
         <div class="fp-img">
           <?php
-      		$handle = opendir(dirname(realpath(__FILE__)).'/tools/world/uploads/');
+      		$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/hp/');
       		while( $entry = readdir($handle) )
       		{
       		    if( $entry != '.' && $entry != '..' )
@@ -40,7 +40,7 @@ $pgtitle = '';
       		  $i = rand(0, count($files)-1); // generate random number size of the array
       		  $selectedBg = "$files[$i]"; // set variable equal to which random filename was chosen
       		?>
-          <img style="max-width: 90%; height: auto;" src="/tools/world/uploads/<?php echo $selectedBg; ?>" />
+          <img style="max-width: 90%; height: auto;" src="/assets/images/hp/<?php echo $selectedBg; ?>" />
         </div>
 			</div>
 <?php include('footer.php'); ?>
