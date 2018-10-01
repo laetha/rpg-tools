@@ -24,23 +24,23 @@ $pgtitle = '';
         </div>
         <div class="fp-img">
           <?php
-      		$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/hp/');
-      		while( $entry = readdir($handle) )
+      		$handle1 = opendir(dirname(realpath(__FILE__)).'/assets/images/hp/');
+      		while( $entry1 = readdir($handle1) )
       		{
-      		    if( $entry != '.' && $entry != '..' )
+      		    if( $entry1 != '.' && $entry1 != '..' )
       		    {
-      		        $files[] = $entry;
+      		        $files1[] = $entry1;
       		    }
       		}
 
-      		closedir($handle);
+      		closedir($handle1);
 
-      		sort($files);
+      		sort($files1);
 
-      		  $i = rand(0, count($files)-1); // generate random number size of the array
-      		  $selectedBg = "$files[$i]"; // set variable equal to which random filename was chosen
+      		  $i1 = rand(0, count($files1)-1); // generate random number size of the array
+      		  $selectedBg1 = "$files1[$i1]"; // set variable equal to which random filename was chosen
       		?>
-          <img style="max-width: 90%; height: auto;" src="/assets/images/hp/<?php echo $selectedBg; ?>" />
+          <img style="max-width: 90%; height: auto;" src="/assets/images/hp/<?php echo $selectedBg1; ?>" />
         </div>
 			</div>
 <?php include('footer.php'); ?>
