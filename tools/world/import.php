@@ -193,6 +193,12 @@ document.getElementById("npc-form").style.display = "none";
           </p>
         </div>
 
+        <!-- 'NPC title' Dropbox -->
+        <div class="col-sm-6 typebox col-centered" id="npc-title">
+              <div class="text">Title</div>
+                <div class="text"><input form="import" class="textbox" type="text" name="npc-title" id="title-form" placeholder="Title..."></div>
+            </div>
+
 
 </div>
 

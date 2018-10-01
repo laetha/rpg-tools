@@ -74,6 +74,8 @@ if ($row['coord'] != '') {
               echo('Location: '.$row['npc_location'].'<br />');
               echo('Faction: '.$row['npc_faction'].'<br />');
               echo('Deity: '.$row['npc_deity'].'<br />');
+              echo('Title: '.$row['npc_title'].'<br />');
+
 
               }
 
@@ -179,6 +181,9 @@ echo ("Deleted $photoname");
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo ('<div class="col-md-4 col-sm-5">');
       echo $selectednpc;
+      if ($titlerow['npc_title'] != '') {
+      echo (' :: '.$titlerow['npc_title']);
+    }
       echo "</div>";
     }
     echo "</div>";

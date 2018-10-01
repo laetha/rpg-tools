@@ -18,6 +18,7 @@ $npcfactiontemp=$_POST['npc-faction'];
 $npcesttemp=$_POST['npc-establishment'];
 $npclocationtemp=$_POST['npc-location'];
 $npcdeitytemp=$_POST['npc-deity'];
+$npctitletemp=$_POST['npc-title'];
 $estlocationtemp=$_POST['est-location'];
 $queststatustemp=$_POST['quest-status'];
 $questfactiontemp=$_POST['quest-faction'];
@@ -32,6 +33,7 @@ $npclocation=htmlentities(trim(addslashes($npclocationtemp)));
 $npcfaction=htmlentities(trim(addslashes($npcfactiontemp)));
 $npcdeity=htmlentities(trim(addslashes($npcdeitytemp)));
 $npcest=htmlentities(trim(addslashes($npcesttemp)));
+$npctitle=htmlentities(trim(addslashes($npctitletemp)));
 $estlocation=htmlentities(trim(addslashes($estlocationtemp)));
 $esttype=htmlentities(trim(addslashes($esttypetemp)));
 $queststatus=htmlentities(trim(addslashes($queststatustemp)));
@@ -49,8 +51,8 @@ if (end($temp) == 'jpg' OR end($temp) == 'png') {
 }
 
 //Execute the query
-$sql = "INSERT INTO world(title,type,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,est_type,est_location,quest_status,quest_faction,quest_reward,coord)
-				VALUES('$name','$type','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$esttype','$estlocation','$queststatus','$questfaction','$questreward','$coord')";
+$sql = "INSERT INTO world(title,type,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,npc_title,est_type,est_location,quest_status,quest_faction,quest_reward,coord)
+				VALUES('$name','$type','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$npctitle','$esttype','$estlocation','$queststatus','$questfaction','$questreward','$coord')";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');
