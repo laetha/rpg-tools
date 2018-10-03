@@ -209,6 +209,8 @@ echo ("Deleted $photoname");
       echo $selectednpc;
       if ($factionrow['npc_title'] != '') {
       echo (' :: '.$factionrow['npc_title']);
+      echo (' :: '.$factionrow['npc_location']);
+
     }
       echo "</a><br />";
     }
