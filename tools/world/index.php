@@ -207,6 +207,9 @@ echo ("Deleted $photoname");
       $selectednpc = $factionrow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo $selectednpc;
+      if ($factionrow['npc_title'] != '') {
+      echo (' :: '.$factionrow['npc_title']);
+    }
       echo "</a><br />";
     }
     echo "</div>";
