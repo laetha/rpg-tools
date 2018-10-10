@@ -628,6 +628,32 @@ if ($esttype == "general store") {
     }
 
     echo "</ul></div>";
+?>
+    <!-- Other References -->
+    <?php
+
+      ?>
+      <div class="row col-md-12 sidebartext">
+      <?php
+      $temptitle = str_replace("'", "''", $title);
+      $logs = "SELECT * FROM world WHERE body LIKE '%$temptitle%'";
+      $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
+      $logshow = 1;
+      while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
+        if($logshow == 1){
+          echo ('<h3>World References:</h3>');
+          echo ('<ul style="list-style-type: circle;">');
+          $logshow++;
+
+        }
+
+        echo ('<li>');
+        echo ($logrow['title']);
+        echo "</li><p>";
+
+      }
+
+      echo "</ul></div>";
 
   ?>
   </div>
