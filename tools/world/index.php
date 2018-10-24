@@ -17,6 +17,7 @@ include_once($sqlpath);
   <!-- Page Header -->
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle">
+
     <?php
   $stripid = str_replace("'", "", $id);
   $stripid = stripslashes($stripid);
@@ -29,7 +30,6 @@ include_once($sqlpath);
    $deleteid = $row['id'];
    ?>
  </div>
-
  <?php
 if ($row['coord'] != '') {
  echo('<a href="/tools/world/map.php?id='.$row['coord'].'" target="_BLANK">View on Map</a>');
@@ -913,12 +913,20 @@ trigger: 'focus'
       ?>
       <script>
       var foundlink = "<?php echo $temp ?>";
+
       function replace (querytext){
         var bodytext = document.getElementById("body2").innerHTML;
-        var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+        var noquotes = querytext + "\">";
+        var quotesreg = new RegExp(noquotes, 'ig');
+        var quotestest = quotesreg.test(bodytext);
         var regex = new RegExp(querytext, 'ig');
-        var newtext = bodytext.replace(regex, url)
-        document.getElementById("body2").innerHTML = newtext;
+        var regtest = regex.test(bodytext);
+       if (quotestest == false){
+          var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+          var newtext = bodytext.replace(regex, url);
+          document.getElementById("body2").innerHTML = newtext;
+      }
+
       }
       replace(foundlink);
 
