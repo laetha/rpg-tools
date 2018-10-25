@@ -180,7 +180,7 @@ echo ("Deleted $photoname");
       $selectednpc = $titlerow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo ('<div class="col-md-4 col-sm-5">');
-      echo $selectednpc;
+      echo ('<a href="world.php?id='.$selectednpc.'">'.$selectednpc.'</a>');
       if ($titlerow['npc_title'] != '') {
       echo (' :: '.$titlerow['npc_title']);
     }
@@ -206,7 +206,7 @@ echo ("Deleted $photoname");
       }
       $selectednpc = $factionrow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
-      echo $selectednpc;
+      echo ('<a href="world.php?id='.$selectednpc.'">'.$selectednpc.'</a>');
       if ($factionrow['npc_title'] != '') {
       echo (' :: '.$factionrow['npc_title']);
       echo (' :: '.$factionrow['npc_location']);
@@ -233,7 +233,7 @@ echo ("Deleted $photoname");
       }
       $selectednpc = $deityrow['title'];
       //echo "<a href=\"world.php?id=$selectednpc\">";
-      echo $selectednpc;
+      echo ('<a href="world.php?id='.$selectednpc.'">'.$selectednpc.'</a>');
       echo "</a><br />";
     }
     echo "</div>";
@@ -273,7 +273,7 @@ if ($sidebartype == "settlement") {
     else if ($titlerow['est_type'] == 'Jeweler') {
       echo ('<img class="txtimg" src="/assets/images/icon-jeweler.png" />');
     }
-    echo $selectednpc;
+    echo ('<a href="world.php?id=').$selectednpc.'">'.$selectednpc.'<a/>';
     echo "</div>";
   }
   echo ('</div>');
@@ -285,7 +285,7 @@ if ($sidebartype == "establishment") {
   $sqlcompendium = "SELECT * FROM world WHERE npc_est LIKE '%{$id}%'";
   $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
   while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-    echo ('<p>'.$row2['title'].'</p>');
+    echo ('<p><a href="world.php?id='.$row2['title'].'">'.$row2['title'].'</a></p>');
   }
   if ($esttype == "alchemist") {
 
@@ -602,7 +602,7 @@ if ($esttype == "general store") {
   <?php
 
     ?>
-    <div class="row col-md-12 sidebartext">
+    <div class="row col-md-12 sidebartext" id="logref">
     <?php
     $temptitle = str_replace("'", "''", $title);
     $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 ORDER BY date DESC";
@@ -648,7 +648,7 @@ if ($esttype == "general store") {
         }
 
         echo ('<li>');
-        echo ($logrow['title']);
+        echo ('<a href="world.php?id='.$logrow['title'].'">'.$logrow['title'].'</a>');
         echo "</li><p>";
 
       }
@@ -915,7 +915,7 @@ trigger: 'focus'
       var foundlink = "<?php echo $temp ?>";
 
       function replace (querytext){
-        var bodytext = document.getElementById("body2").innerHTML;
+        var bodytext = document.getElementById("logref").innerHTML;
         var noquotes = querytext + "\">";
         var quotesreg = new RegExp(noquotes, 'ig');
         var quotestest = quotesreg.test(bodytext);
@@ -924,7 +924,7 @@ trigger: 'focus'
        if (quotestest == false){
           var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
           var newtext = bodytext.replace(regex, url);
-          document.getElementById("body2").innerHTML = newtext;
+          document.getElementById("logref").innerHTML = newtext;
       }
 
       }
@@ -934,4 +934,5 @@ trigger: 'focus'
       <?php
     }
     ?>
+
   </div>
