@@ -18,15 +18,18 @@
     padding-left: 0px;
     padding-right: 0px;
   }
+  .navbar {
+    margin-bottom: 0px;
+  }
   </style>
-
   <div class="col-md-4">
   <select id="search1">
     <option value=""></option>
 <option value="awardxp4">Award XP</option>
 <option value="gmnotes5">GM Notes</option>
 <option value="campaignlog6">Campaign Log</option>
-<option value="generator7">Random Generator</option>   <?php
+<option value="generator7">Random Generator</option>
+<option value="Initiative8">Initiative</option>   <?php
   $searchdrop = "SELECT title FROM world";
   $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
   while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -54,7 +57,7 @@
   }
   ?>
   </select>
-  <div id="box1"><iframe class="blockframe" id="frame1"></iframe></div>
+  <div id="box1"><iframe class="blockframetall" id="frame1"></iframe></div>
 </div>
 
 
@@ -64,7 +67,8 @@
 <option value="awardxp4">Award XP</option>
 <option value="gmnotes5">GM Notes</option>
 <option value="campaignlog6">Campaign Log</option>
-<option value="generator7">Random Generator</option><?php
+<option value="generator7">Random Generator</option>
+<option value="Initiative8">Initiative</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -94,15 +98,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 </select>
 <div id="box2"><iframe class="blockframe" id="frame2"></iframe></div>
 
-</div>
 
-<div class="col-md-4">
+
 <select id="search3">
 <option value=""></option>
 <option value="awardxp4">Award XP</option>
 <option value="gmnotes5">GM Notes</option>
 <option value="campaignlog6">Campaign Log</option>
-<option value="generator7">Random Generator</option><?php
+<option value="generator7">Random Generator</option>
+<option value="Initiative8">Initiative</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -140,7 +144,8 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <option value="awardxp4">Award XP</option>
 <option value="gmnotes5">GM Notes</option>
 <option value="campaignlog6">Campaign Log</option>
-<option value="generator7">Random Generator</option><?php
+<option value="generator7">Random Generator</option>
+<option value="Initiative8">Initiative</option><?php
 $searchdrop = "SELECT title FROM world";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -168,10 +173,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 }
 ?>
 </select>
-<div id="box4"><iframe class="blockframe" id="frame4"></iframe></div>
+<div id="box4"><iframe class="blockframetall" id="frame4"></iframe></div>
 
 </div>
-
+<?php /*
 <div class="col-md-4">
 <select id="search5">
 <option value=""></option>
@@ -247,10 +252,16 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <div id="box6"><iframe class="blockframe" id="frame6"></iframe></div>
 
 </div>
-
+*/ ?>
 
 
   <script type="text/javascript">
+    function nonav() {
+      document.getElementById('frame1').contentWindow.document.getElementById('nonav').style.display = "none";
+      document.getElementById('frame2').contentWindow.document.getElementById('nonav').style.display = "none";
+      document.getElementById('frame3').contentWindow.document.getElementById('nonav').style.display = "none";
+      document.getElementById('frame4').contentWindow.document.getElementById('nonav').style.display = "none";
+    }
   $('#search1').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
@@ -280,16 +291,28 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame1").src = '/tools/generator/generator.php';
   }
+  else if(value.slice(-1) == 8) {
+
+    document.getElementById("frame1").src = '/tools/initiative/initiative.php';
+  }
+  window.setTimeout(nonav,2000);
   },
   create: false,
   openOnFocus: false,
-  maxOpions: 4,
+  maxOptions: 4,
   sortField: 'text',
   placeholder: 'search...'
-  },);
+},);
+
   </script>
 
   <script type="text/javascript">
+  function nonav() {
+    document.getElementById('frame1').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame2').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame3').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame4').contentWindow.document.getElementById('nonav').style.display = "none";
+  }
   $('#search2').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
@@ -319,16 +342,27 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame2").src = '/tools/generator/generator.php';
   }
+  else if(value.slice(-1) == 8) {
+
+    document.getElementById("frame2").src = '/tools/initiative/initiative.php';
+  }
+  window.setTimeout(nonav,2000);
   },
   create: false,
   openOnFocus: false,
-  maxOpions: 4,
+  maxOptions: 4,
   sortField: 'text',
   placeholder: 'search...'
   },);
   </script>
 
   <script type="text/javascript">
+  function nonav() {
+    document.getElementById('frame1').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame2').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame3').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame4').contentWindow.document.getElementById('nonav').style.display = "none";
+  }
   $('#search3').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
@@ -358,16 +392,28 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame3").src = '/tools/generator/generator.php';
   }
+  else if(value.slice(-1) == 8) {
+
+    document.getElementById("frame3").src = '/tools/initiative/initiative.php';
+  }
+  window.setTimeout(nonav,2000);
+
   },
   create: false,
   openOnFocus: false,
-  maxOpions: 4,
+  maxOptions: 4,
   sortField: 'text',
   placeholder: 'search...'
   },);
   </script>
 
   <script type="text/javascript">
+  function nonav() {
+    document.getElementById('frame1').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame2').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame3').contentWindow.document.getElementById('nonav').style.display = "none";
+    document.getElementById('frame4').contentWindow.document.getElementById('nonav').style.display = "none";
+  }
   $('#search4').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
@@ -397,15 +443,21 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame4").src = '/tools/generator/generator.php';
   }
+  else if(value.slice(-1) == 8) {
+
+    document.getElementById("frame4").src = '/tools/initiative/initiative.php';
+  }
+  window.setTimeout(nonav,2000);
+
   },
   create: false,
   openOnFocus: false,
-  maxOpions: 4,
+  maxOptions: 4,
   sortField: 'text',
   placeholder: 'search...'
   },);
   </script>
-
+<?php /*
   <script type="text/javascript">
   $('#search5').selectize({
   onChange: function(value){
@@ -435,6 +487,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   else if(value.slice(-1) == 7) {
 
     document.getElementById("frame5").src = '/tools/generator/generator.php';
+  }
+  else if(value.slice(-1) == 8) {
+
+    document.getElementById("frame5").src = '/tools/initiative/initiative.php';
   }
   },
   create: false,
@@ -475,6 +531,10 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame6").src = '/tools/generator/generator.php';
   }
+  else if(value.slice(-1) == 8) {
+
+    document.getElementById("frame6").src = '/tools/initiative/initiative.php';
+  }
   },
   create: false,
   openOnFocus: false,
@@ -483,7 +543,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   placeholder: 'search...'
   },);
   </script>
-a
+*/ ?>
 </div>
 <?php
 //Footer

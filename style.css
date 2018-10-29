@@ -336,7 +336,12 @@ p.subentry {
 .blockframe {
 	width: 100%;
 	height:100%;
-	min-height:800px;
+	min-height:426px;
+}
+.blockframetall {
+	width: 100%;
+	height:100%;
+	min-height:900px;
 }
 .hp-track {
 	width:140px;
@@ -647,4 +652,48 @@ color: #3D6D8D;
 
 .imgbox:hover .overlay {
   opacity: 0.8;
+}
+
+.txtimg {
+	height:1em;
+}
+
+@media screen and (min-width: 601px) {
+  .quote {
+		font-size: 30px;
+		color: #9fa3a2;
+		margin-right: 5%;
+		margin-left: 5%;
+  }
+
+}
+
+/* If the screen size is 600px wide or less, set the font-size of <div> to 30px */
+@media screen and (max-width: 600px) {
+  .quote {
+		font-size: 6vw;
+		color: #9fa3a2;
+		margin-right: 5%;
+		margin-left: 5%;
+  }
+
+}
+
+
+@media screen and (max-width: 600px) {
+  .fp-img {
+		display: none;
+  }
+
+}
+
+#musiclist.dropdown-menu{
+margin-right:-1000px;
+margin-left:-600px;
+background: #000;
+
+}
+
+#musiclist.dropdown-menu > li {
+    display: inline-block;
 }
