@@ -50,7 +50,7 @@
 		 include_once($sqlpath);
 		 ?>
 		 <link rel="stylesheet" type="text/css" href="/navbar.css" />
-		 <nav class="navbar navbar-default navbar-inverse">
+		 <nav class="navbar navbar-default navbar-inverse" id="nonav">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -147,6 +147,18 @@
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
 				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
+				<li><a class="navbar-toggler" type="button" data-toggle="collapse" href="#" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Music</a></li>
+					<div class="collapse" id="navbarToggleExternalContent" style="margin-top:50px;">
+						<div class="row">
+
+						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/5htGO0OUB7SsFMT3kwjBn3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/60gbvdwgY25KcXsj0uc2qb" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/0oYKtwS7RH8qmFNmUg1GPp" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/0nWXBUnIWBTcGjnQ9f1Qqy" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+    </div>
+	</div>
+  </div>
+
 
 
       </ul>
