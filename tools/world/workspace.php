@@ -295,7 +295,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame1").src = '/tools/initiative/initiative.php';
   }
-  window.setTimeout(nonav,1000);
+  window.setTimeout(nonav,2000);
   },
   create: false,
   openOnFocus: false,
@@ -346,7 +346,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame2").src = '/tools/initiative/initiative.php';
   }
-  window.setTimeout(nonav,1000);
+  window.setTimeout(nonav,2000);
   },
   create: false,
   openOnFocus: false,
@@ -396,7 +396,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame3").src = '/tools/initiative/initiative.php';
   }
-  window.setTimeout(nonav,1000);
+  window.setTimeout(nonav,2000);
 
   },
   create: false,
@@ -447,7 +447,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
     document.getElementById("frame4").src = '/tools/initiative/initiative.php';
   }
-  window.setTimeout(nonav,1000);
+  window.setTimeout(nonav,2000);
 
   },
   create: false,
