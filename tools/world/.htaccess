@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "World"
-AuthUserFile "/home/gameripp/.htpasswds/public_html/tools/world/passwd"
-require valid-user

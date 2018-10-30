@@ -178,14 +178,26 @@ echo ("Deleted $photoname");
         $npcshow++;
       }
       $selectednpc = $titlerow['title'];
+      $npcModal = addslashes($titlerow['title']);
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo ('<div class="col-md-4 col-sm-5">');
-      echo ('<a href="world.php?id='.$selectednpc.'">'.$selectednpc.'</a>');
+      ?><a onclick="NPCModalChange('<?php echo $npcModal; ?>')"><?php echo $selectednpc; ?></a><?php
       if ($titlerow['npc_title'] != '') {
       echo (' :: '.$titlerow['npc_title']);
     }
       echo "</div>";
     }
+    ?>
+    <script>
+    function NPCModalChange(value) {
+      document.getElementById("itemModalBody").innerHTML = '<div class="iframe-container"><iframe frameBorder="0" src="popout.php?id=' + value + '" /></div>';
+      function showModal() {
+        $("#itemModal").modal();
+      }
+      showModal();
+    }
+    </script>
+    <?php
     echo "</div>";
   }
 
@@ -610,7 +622,7 @@ if ($esttype == "general store") {
 
 <script>
 function modalChange(value) {
-  document.getElementById("itemModalBody").innerHTML = '<iframe height="550"  width="550" frameBorder="0" src="popout.php?id=' + value + '" />';
+  document.getElementById("itemModalBody").innerHTML = '<iframe frameBorder="0" src="popout.php?id=' + value + '" />';
   function showModal() {
     $("#itemModal").modal();
   }
@@ -901,13 +913,17 @@ trigger: 'focus'
 
 <!-- Item Modal -->
 <div class="modal fade bd-example-modal-lg" id="itemModal" role="dialog">
-  <div class="modal-dialog">
+  <div class="modal-dialog" style="width: 80%; max-width:1200px; height: 90%;">
 
     <!-- Modal content-->
-    <div class="modal-content modalstyle bodytext" style="height:80%;">
-
-      <div class="modal-body" id="itemModalBody">
-        <iframe height="550"  width="550" frameBorder="0" src="popout.php?id=Potion of Gaseous Form" />
+    <div class="modal-content modalstyle bodytext" style="height:100%;">
+      <div class="modal-header" style="padding-bottom: 0px;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+      <div class="modal-body" id="itemModalBody" style="height:100%; padding-top: 0px;">
+        <iframe frameBorder="0" src="popout.php?id=Potion of Gaseous Form" />
       </div>
 
     </div>

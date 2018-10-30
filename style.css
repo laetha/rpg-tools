@@ -697,3 +697,19 @@ background: #000;
 #musiclist.dropdown-menu > li {
     display: inline-block;
 }
+
+.iframe-container {
+  overflow: hidden;
+  padding-top: 56.25%;
+  position: relative;
+	height: 100%;
+}
+
+.iframe-container iframe {
+   border: 0;
+   height: 100%;
+   left: 0;
+   position: absolute;
+   top: 0;
+   width: 100%;
+}

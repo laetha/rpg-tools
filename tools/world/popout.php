@@ -1,7 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+		<?php
+		$sqlpath = $_SERVER['DOCUMENT_ROOT'];
+		$sqlpath .= "/plugins/Parsedown.php";
+		include_once($sqlpath);
+		 ?>
+		 <?php  $Parsedown = new Parsedown();
+		 ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.ss">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/style.css" />
@@ -71,7 +79,69 @@
             $sidebartype = $row['type'];
             }
 
+
 }
+
+$worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%$id%'";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+	$stripid = str_replace("'", "", $id);
+  $stripid = stripslashes($stripid);
+	$jpgurl = 'uploads/'.$stripid.'.jpg';
+	$pngurl = 'uploads/'.$stripid.'.png';
+	if (file_exists($jpgurl)){
+		echo ('<div class="col-md-6">');
+	}
+	else if (file_exists($pngurl)){
+		echo ('<div class="col-md-6">');
+	}
+	echo ('<h3 style="color: #5499c7;">'.$row['title'].'</h3><br />');
+
+	echo('Race: '.$row['npc_race'].'<br />');
+	echo('Establishment: '.$row['npc_est'].'<br />');
+	echo('Location: '.$row['npc_location'].'<br />');
+	echo('Faction: '.$row['npc_faction'].'<br />');
+	echo('Deity: '.$row['npc_deity'].'<br />');
+	echo('Title: '.$row['npc_title'].'<br />');
+	echo ('<p>'.$Parsedown->text(nl2br($row['body'])).'</p>');
+	echo ('</div>');
+
+if (file_exists($jpgurl)){
+echo ('</div>');
+}
+else if (file_exists($pngurl)){
+echo ('</div>');
+}
+
+}
+
+if (file_exists($jpgurl)){
+echo('<div class="col-md-6">');
+echo ('<div class="npcimg-container">');
+echo ('<img class="npcimg" src="uploads/'.$stripid.'.jpg" />'); ?>
+</div>
+</div>
+
+
+<?php
+}
+
+else if (file_exists($pngurl)){
+echo('<div class="col-md-6">');
+echo ('<div class="npcimg-container">');
+echo ('<img class="npcimg" src="uploads/'.$stripid.'.png" />');
+?>
+
+</div>
+</div>
+
+
+
+<?php
+
+}
+
+
 ?>
 </div>
 </body>
