@@ -16,7 +16,7 @@ include_once($sqlpath);
 
   <!-- Page Header -->
   <div class="col-md-12">
-  <div class="pagetitle" id="pgtitle">
+  <div class="pagetitle" id="pgtitle" style="visibility: visible;">
 
     <?php
   $stripid = str_replace("'", "", $id);
@@ -173,7 +173,7 @@ echo ("Deleted $photoname");
     $npcshow = 1;
     while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
       if($npcshow == 1){
-        echo "<h3>Key NPC's:</h3>";
+        echo "<h3>Key NPCs:</h3>";
         echo ('<div class="row col-md-12">');
         $npcshow++;
       }
@@ -290,6 +290,8 @@ if ($sidebartype == "establishment") {
   if ($esttype == "alchemist") {
 
 ?>
+
+
   <div class="table-responsive sidebartext">
 <table id="alch-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
   <thead class="thead-dark">
@@ -316,8 +318,10 @@ if ($sidebartype == "establishment") {
           echo ('<tr><td>');
 
           $entry = addslashes($row['title']);
+          $entry1 = addslashes($entry);
           ?>
-          <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
+
           <?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
@@ -331,8 +335,9 @@ if ($sidebartype == "establishment") {
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
           $entry = $row['title'];
+          $entry1 = addslashes($entry);
           ?>
-          <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo addslashes($entry); ?>'></iframe>"><?php echo $entry; ?></a>
+          <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
           <?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
@@ -346,8 +351,9 @@ if ($sidebartype == "establishment") {
             while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
             echo ('<tr><td>');
             $entry = $row['title'];
+            $entry1 = addslashes($entry);
             ?>
-            <a tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+            <a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
             <?php
             echo ('</td>');
             echo ('<td>'.$row['itemValue'].'</td>');
@@ -391,8 +397,9 @@ if ($esttype == "blacksmith") {
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
+        $entry1 = addslashes($entry);
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-container="body" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td><td>');
@@ -406,8 +413,9 @@ if ($esttype == "blacksmith") {
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
           $entry = $row['title'];
+          $entry1 = addslashes($entry);
           ?>
-          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+          <a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
           <?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
@@ -449,8 +457,9 @@ if ($esttype == "Jeweler") {
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
+        $entry1 = addslashes($entry);
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td>');
@@ -464,9 +473,9 @@ if ($esttype == "Jeweler") {
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
           $entry = $row['title'];
+          $entry1 = addslashes($entry);
           ?>
-          <a tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
-          <?php
+          <a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a><?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
           echo ('<td>No</td></tr>');
@@ -506,8 +515,9 @@ if ($esttype == "enchanter") {
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
+        $entry1 = addslashes($entry);
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-container="body" data-html="true" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td>');
@@ -521,9 +531,9 @@ if ($esttype == "enchanter") {
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
           $entry = $row['title'];
+          $entry1 = addslashes($entry);
           ?>
-          <a tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
-          <?php
+          <a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a><?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
           echo ('<td>No</td></tr>');
@@ -563,8 +573,9 @@ if ($esttype == "general store") {
         while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
         $entry = $row['title'];
+        $entry1 = addslashes($entry);
         ?>
-        <a class="magichref" tabindex="0" href="javascript://" data-html="true" data-container="body" data-toggle="popover" data-trigger="focus" data-placement="right" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
+        <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
         <?php
         echo ('</td>');
         echo ('<td>'.$row['itemValue'].'</td>');
@@ -578,9 +589,9 @@ if ($esttype == "general store") {
           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
           echo ('<tr><td>');
           $entry = $row['title'];
+          $entry1 = addslashes($entry);
           ?>
-          <a tabindex="0" href="javascript://" data-html="true" data-toggle="popover" data-container="body" data-trigger="focus" data-placement="right" data-container="body" data-content="<iframe style='width: 400px; height: 400px;' class='blockframe' name='spellblock' src='/tools/world/popout.php?id=<?php echo $entry; ?>'></iframe>"><?php echo $entry; ?></a>
-          <?php
+          <a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a><?php
           echo ('</td>');
           echo ('<td>'.$row['itemValue'].'</td>');
           echo ('<td>No</td></tr>');
@@ -597,7 +608,15 @@ if ($esttype == "general store") {
 
 ?>
 
-
+<script>
+function modalChange(value) {
+  document.getElementById("itemModalBody").innerHTML = '<iframe height="550"  width="550" frameBorder="0" src="popout.php?id=' + value + '" />';
+  function showModal() {
+    $("#itemModal").modal();
+  }
+  showModal();
+}
+</script>
   <!-- campaignlog References -->
   <?php
 
@@ -878,6 +897,26 @@ trigger: 'focus'
 
   </div>
 </div>
+
+
+<!-- Item Modal -->
+<div class="modal fade bd-example-modal-lg" id="itemModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content modalstyle bodytext" style="height:80%;">
+
+      <div class="modal-body" id="itemModalBody">
+        <iframe height="550"  width="550" frameBorder="0" src="popout.php?id=Potion of Gaseous Form" />
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
 </div>
 
 
@@ -936,3 +975,11 @@ trigger: 'focus'
     ?>
 
   </div>
+
+
+  <?php
+  //Footer
+  $footpath = $_SERVER['DOCUMENT_ROOT'];
+  $footpath .= "/footer.php";
+  include_once($footpath);
+   ?>
