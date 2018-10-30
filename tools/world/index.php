@@ -297,12 +297,24 @@ if ($sidebartype == "establishment") {
   $sqlcompendium = "SELECT * FROM world WHERE npc_est LIKE '%{$id}%'";
   $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
   while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
-    echo ('<p><a href="world.php?id='.$row2['title'].'">'.$row2['title'].'</a></p>');
+    $entry1 = addslashes($row2['title']);
+    ?><p><a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $row2['title']; ?></a></p><?php
+
   }
+  ?>
+  <script>
+  function modalChange(value) {
+    document.getElementById("itemModalBody").innerHTML = '<div class="iframe-container"><iframe frameBorder="0" src="popout.php?id=' + value + '" /></div>';
+    function showModal() {
+      $("#itemModal").modal();
+    }
+    showModal();
+  }
+  </script>
+  <?php
   if ($esttype == "alchemist") {
 
 ?>
-
 
   <div class="table-responsive sidebartext">
 <table id="alch-inventory" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
@@ -622,7 +634,7 @@ if ($esttype == "general store") {
 
 <script>
 function modalChange(value) {
-  document.getElementById("itemModalBody").innerHTML = '<iframe frameBorder="0" src="popout.php?id=' + value + '" />';
+  document.getElementById("itemModalBody").innerHTML = '<div class="iframe-container"><iframe frameBorder="0" src="popout.php?id=' + value + '" /></div>';
   function showModal() {
     $("#itemModal").modal();
   }
@@ -913,7 +925,7 @@ trigger: 'focus'
 
 <!-- Item Modal -->
 <div class="modal fade bd-example-modal-lg" id="itemModal" role="dialog">
-  <div class="modal-dialog" style="width: 80%; max-width:1200px; height: 90%;">
+  <div class="modal-dialog" style="width: 80%; max-width:1200px;">
 
     <!-- Modal content-->
     <div class="modal-content modalstyle bodytext" style="height:100%;">
