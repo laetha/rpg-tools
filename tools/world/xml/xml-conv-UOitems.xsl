@@ -21,7 +21,7 @@
                <xsl:text> &#xa;&#xa;</xsl:text>
             </xsl:if>
             <xsl:if test="position() = last()">
-              <xsl:text>Source: Unofficial</xsl:text>
+              <xsl:text>Source: Xanathar's Extraordinary Vault</xsl:text>
               </xsl:if>
         </xsl:for-each>
       </text>

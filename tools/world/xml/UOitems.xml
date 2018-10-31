@@ -1,167 +1,425 @@
 <world version="5" auto_indent="NO">
   
        <item>
-    <title>Black Phial</title>
+    <title>Addergrease Armor</title>
 	<type>item</type>
-    <itemType>potion</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock>alchemist</itemstock>
-    <itemDetail>Wondrous item, uncommon</itemDetail>
-    <text>This black stone phial has a tightly-fitting stopper. The phial has 3 charges. As an action, you can fill the phial with blood taken from a living humanoid, or one that’s been dead no longer than 1 minute, and expend 1 charge. When you do so, the black phial transforms the blood into a potion of greater healing. A creature who drinks this potion must succeed on a DC 12 Constitution saving throw or be poisoned for 1 hour.
-	
-	The phial regains 1d3 expended charges daily at midnight. If you expend the phial’s last charge, roll a d20. On a 1, the phial crumbles into dust and is destroyed.
-	
-</text></item>
-
-       <item>
-    <title>Clockwork Rogue Ring</title>
-	<type>item</type>
-    <itemType>ring</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock>jeweler</itemstock>
-    <itemDetail>Ring, uncommon (requires attunement)</itemDetail>
-    <text>This brass clockwork ring is formed to look like a coiled dragon. When you speak or whisper the draconic command word etched on the inside of the ring, the brass dragon uncoils and attempts to pick any lock within 10 feet of you. The dragon picks the lock using your proficiency bonus but with advantage. It is treated as having thieves’ tools when attempting to pick locks. It uses your Dexterity (Stealth) bonus for purposes of not being spotted but with advantage due to its extremely small size. Whether successful or not, once you have used the ring to attempt to pick a lock, it can’t be used again until the next sunset.
-	
-</text></item>
-
-       <item>
-    <title>Clockwork Spider Cloak</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock>enchanter</itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>This hooded cloak is made from black spider silk and has thin brass ribbing stitched on the inside. It has 3 charges. While wearing the cloak, you gain a +2 proficiency bonus to all Dexterity (Stealth) checks. As an action, you can expend a charge to animate the brass ribs into articulated spider legs 1 inch thick and 6 feet long for 1 minute. You can use the charges in succession. The spider legs allow you to climb at your normal walking speed, and you double your proficiency bonus and gain advantage on any Strength (Athletics) checks made for slippery or difficult surfaces. The cloak regains 1d3 charges each day at sunset.
-	
-</text></item>
-
-       <item>
-    <title>Corpsehunter’s Medallion</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock>jeweler</itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>These amulets tend to be made from the skulls of grave rats or from scrimshawed bones of the ignoble dead. While wearing this amulet, you have resistance to necrotic damage.
-	
-</text></item>
-
-       <item>
-    <title>Earrings of the Agent</title>
-	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock>jeweler</itemstock>
-    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
-    <text>Aside from a minor difference in size, these simple golden hoops are identical to one another. Each hoop has 1 charge and provides a different magical effect. While wearing both hoops, you can use an action to expend a charge and cause one of the following effects:
-
-	Small Hoop. Choose a 10 foot by 10 foot area you can see. For 10 minutes, you can hear all sounds as though you were standing within that area. You may end this effect at any time.
-	
-	Large Hoop. For 1 minute, while you are hidden, all creatures within a 10 foot by 10 foot area you can see receive disadvantage on Wisdom (Perception) checks to see, hear, and smell you. If you become unhidden, this effect ends immediately.
-	
-	Each hoop regains 1 expended charge daily at dawn.	
-</text></item>
-
-       <item>
-    <title>Gale Javelin</title>
-	<type>item</type>
-    <itemType>ranged weapon</itemType>
+    <itemType>armor</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock>blacksmith</itemstock>
-    <itemDetail>Weapon (javelin), uncommon</itemDetail>
-    <text>The metallic head of this javelin is embellished with three small wings. When you speak a command word while making a ranged weapon attack with this magic weapon, a swirling vortex of wind follows its path through the air. Draw a line between you and the target of your attack; each creature within 10 feet of this line must make a DC 12 Strength saving throw. On a failed save, the creature is pushed backward 10 feet and falls prone.
-	
-Additionally, if this ranged weapon attack hits, the target must make a DC 13 Strength saving throw. On a failed save, the target is pushed backward 15 feet and falls prone.
-
-The javelin’s property can’t be used again until the next dawn. In the meantime, it can still be used as a magic weapon.	
+    <itemDetail>Armor (leather), uncommon (requires attunement)</itemDetail>
+    <text>Made for yuan-ti assassins of Najara, the worn leather of this armor gleams with toxic grease. When a creature misses you with a melee attack, you can use your reaction to activate the addergrease armor. The creature must make a successful DC 12 Dexterity saving throw or take 1d8 poison damage. As an additional part of your reaction, you may use the Disengage action. Once you use this power, you can’t do so again until you finish a short or long rest.
 </text></item>
 
        <item>
-    <title>Meteoric Plate</title>
+    <title>Armor of Burning</title>
 	<type>item</type>
-    <itemType>heavy armor</itemType>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (any medium or heavy, except hide), very rare (requires attunement)</itemDetail>
+    <text>This armor has a fire elemental bound to it. While wearing this armor, you can expend a charge as an action to cast the burning hands spell. Whenever you expend a charge you also gain resistance to cold damage for 1 minute. This armor has 3 charges and regains all spent charges at dawn.
+</text></item>
+
+       <item>
+    <title>Armor of the Deep Void</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (any medium), very rare (requires attunement)</itemDetail>
+    <text>Created in an environment where it was bathed in the radiance of distant stars, this armor protects against light that would harm you, and the stars’ light also shields you from attack. While wearing the armor, you gain a +1 bonus to AC and resistance to radiant damage. In addition, when you are struck by a melee attack, the armor’s light flares; the creature which struck you must succeed on a DC 14 Constitution saving throw or be blinded until the start of its next turn.
+</text></item>
+
+       <item>
+    <title>Antlered Helm</title>
+	<type>item</type>
+    <itemType>wondrous item</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Wondrous item, uncommon</itemDetail>
+    <text>While you wear this metal-reinforced leather helm, which is adorned with a stag’s antlers, you can run like a deer; your movement increases to 50 feet. Moreover, stags and deer see, hear, and smell you as if you were a stag, and react accordingly.
+</text></item>
+
+           <item>
+    <title>Bearskin Armor</title>
+	<type>item</type>
+    <itemType>armor</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock>blacksmith</itemstock>
     <itemDetail>Armor (plate), rare (requires attunement)</itemDetail>
-    <text>This plate armor was magically crafted from plates of interlocking stone. Tiny rubies inlaid in the chest create a glittering mosaic of flames. When you fall while wearing this armor, you can tuck your knees against your chest and curl into a ball. While falling in this way, flames form around your body.
+    <text>While wearing this armor, which is a metal breastplate covered with shaggy black fur, you gain a +1 bonus to AC. In addition, you gain advantage on grapple checks. Finally, as a bonus action you can use the armor to grow a pair of rending claws, which you can use to attack with your unarmed attack proficiency. The claws deal 1d6 points of slashing damage plus your Strength bonus and have the Reach property. The claws last for 1 minute or until you dismiss them as a bonus action. 
 	
-	You take half the usual falling damage when you hit the ground, and fire explodes from your form in a 20-foot-radius sphere. Each creature in this area must make a DC 13 Dexterity saving throw. On a failed save, a target takes fire damage equal to the falling damage you took, or half as much on a successful saving throw.
-	
-The fire spreads around corners and ignites flammable objects in the area that aren’t being worn or carried.	
-</text></item>
-
-       <item>
-    <title>Slimeblade</title>
+	Once you use this power, you can’t do so again until you finish a short or long rest. </text></item>
+   
+          <item>
+    <title>Beastlord Armor</title>
 	<type>item</type>
-    <itemType>melee weapon</itemType>
+    <itemType>armor</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock>blacksmith</itemstock>
-    <itemDetail>Weapon [any sword], rare (requires attunement)</itemDetail>
-    <text>You gain a +1 bonus to attack and damage rolls made with this magic weapon. The blade of the sword is coated in an endless supply of violet-colored slime. Despite the sword’s tendency to drip, the slime does not flow over the pommel, regardless of the angle at which it is held. You are entirely immune to the effect of the slime while attuned to this sword. You may communicate telepathically with ooze creatures while wielding this weapon, and you gain advantage on Charisma (Deception, Intimidation, and Persuasion) checks against oozes.
-	
-Once each combat, you may use an action to make a ranged attack (Dexterity modifier + Proficiency bonus to hit, range 20/40 ft., one target. Hit: 11 (2d8+2) poison damage) with the sword by flinging the slime towards any creature you can see. Creatures damaged by this attack must make a DC 14 Constitution saving throw or be poisoned until the end of their next turn.	
+    <itemDetail>Armor (hide), rare (requires attunement by a barbarian, druid, or ranger)</itemDetail>
+    <text>Stitched together from an assortment of animal skins, this armor is adorned with horns, teeth, and claws, which makes any beast wary of attacking you. While wearing the armor, you gain a +1 bonus to AC and have advantage on Wisdom (Animal Handling) checks. In addition, beasts must make a successful DC 12 Wisdom saving throw to attack you. Once a beast has made a save, it can attack you normally.
 </text></item>
 
        <item>
-    <title>Soldra’s Staff</title>
+    <title>Bloodtheft Mail</title>
 	<type>item</type>
-    <itemType>staff</itemType>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (chain mail), uncommon (requires attunement)</itemDetail>
+    <text>What at first glance appears to be rust on the surface of this armor’s mail links is actually dried blood. Every time an attack reduces you to half your hit point total or less, you can use your reaction to gain temporary hit points equal to your Constitution modifier (minimum 1), and cause that amount of necrotic damage to the creature that struck you.
+</text></item>
+
+       <item>
+    <title>Bloodthirsty Plate Armor</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (plate), uncommon (requires attunement)</itemDetail>
+    <text>While wearing this armor, as an action you may choose to take damage equal to one of your hit dice, after which the Bloodthirsty Plate becomes +1 armor for 10 minutes. Once you use this power, you can’t do so again until you finish a long rest.
+</text></item>
+
+       <item>
+    <title>Earthplate</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (Plate), very rare (requires attunement)</itemDetail>
+    <text>At first glance, this suit of plate armor looks illmaintained, covered with dirt and soil. On closer examination, you find it is expertly crafted, and what appears to be dirt is actually the metal itself. Runes of power mark its various pieces, and the aroma of fresh earth seems to emanate from it. 
+	
+	While wearing earthplate, you gain a +1 bonus to AC. In addition, as an action you can cast the stoneskin spell on yourself, which lasts for 90 minutes or until the effect has reduced 90 points of nonmagical bludgeoning, piercing, or slashing damage. Once you use this power, you can’t do so again until you finish a long rest.
+</text></item>
+
+       <item>
+    <title>Eelskin</title>
+	<type>item</type>
+    <itemType>armro</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (leather), rare (requires attunement)</itemDetail>
+    <text>Eelskin looks like a suit of clothes, doublet and hosen, cut to fit like a second skin. It can easily be hidden under clothing. While wearing eelskin, you gain a +1 bonus to AC, and any creature that touches you, whether peacefully or as part of an attack with natural weapons, unarmed attack, or metal melee weapon, must make a successful DC 16 Constitution saving throw or take 1d6 points of lightning damage.
+	
+In addition, as an action you can activate the eelskin’s power and make an unarmed attack. On a hit, the target must make a successful DC 16 Constitution saving throw, taking 5d6 lightning damage on a failed save, or half as much damage on a successful one, in addition to your unarmed attack damage. Once you use this power, you can’t do so again until you finish a short or long rest.
+</text></item>
+
+       <item>
+    <title>Flickersight Leather</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (leather), uncommon (requires attunement)</itemDetail>
+    <text>Prized by spies and rogues in the employ of the Calishite pashas, flickersight armor causes you to become indistinct and hazy to onlookers, who must now squint to see you clearly, and lets you see like a cat.
+	
+While wearing flickersight, you gain a +1 bonus to AC, as well as darkvision out to a range of 30 feet. In addition, as a bonus action you can use the armor to cast the blur spell on yourself. Once you use this power, you can’t do so again until you finish a short or long rest.
+</text></item>
+
+       <item>
+    <title>Gallant Armor</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (any), rare (requires attunement)</itemDetail>
+    <text>While wearing gallant armor, you gain a +1 bonus to AC. In addition, when you use a healing power that benefits an ally, you regain hit points equal to one-half the hit points that ally regains
+</text></item>
+
+       <item>
+    <title>Ghoulskin</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (hide), uncommon (requires attunement)</itemDetail>
+    <text>Ghoulskin looks like what it is: patches of foul, rotting ghoul’s skin sewn into a jerkin. While wearing ghoulskin, you gain a +1 bonus to AC. In addition, you gain access to the Chill Touch cantrip with a +5 to hit.
+</text></item>
+
+       <item>
+    <title>Giantdodging Chain</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (chain mail), uncommon (requires attunement)</itemDetail>
+    <text>Said to be the work of dwarf artificers whose clan was in a territorial dispute with a band of ogres, this armor protects against the attacks of larger creatures. As a reaction, when a creature of a size category larger than you misses you with a melee attack, you can take the Disengage action. In addition, when a creature of a size category larger than you misses you with a ranged attack, you can use your reaction to move up to your speed toward that creature. Once you use either power, you can’t do so again until you finish a short or long rest.
+</text></item>
+
+       <item>
+    <title>Owlhide</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (leather), rare (requires attunement)</itemDetail>
+    <text>Owlhide armor is a jacket, complete with a hood, all covered in giant owl feathers. While wearing owlhide, you gain a +1 bonus to AC, as well as advantage on Wisdom (Perception) checks. In addition, as an action you can raise the hood on the jacket to cause wings to sprout from its back, giving you a flying speed of 40 feet for 1 minute. Once you use this power, you can’t do so again until you finish a short or long rest.
+</text></item>
+
+       <item>
+    <title>Razorvine Scale Mail</title>
+	<type>item</type>
+    <itemType>armor</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (scale mail), rare</itemDetail>
+    <text>The eladrin are said to be the makers of razorvine scale, which both protects and exacts revenge. While wearing razorvine scale, you gain a +1 bonus to AC. In addition, when you are struck by a melee attack, the razorvine scale lashes out, causing the creature which attacked you to take 1d4 slashing damage.
+</text></item>
+
+       <item>
+    <title>Barricade Buckler</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (buckler), very rare (requires attunement)</itemDetail>
+    <text>Set with numerous polished stones on its front, the barricade buckler has a very powerful ability. (For the properties of bucklers, see the Mundane Armor section of this book.) As an action, you can magically transform the buckler into a small wall of force, sufficiently large to fill a 5-foot by 10-foot portal or doorway. The wall persists until you dismiss it as a bonus action or 1 minute passes, whichever comes first. Once you use this power, you can’t do so again until you finish a short or long rest.
+</text></item>
+
+       <item>
+    <title>Corpsman’s Shield</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (shield), rare (requires attunement)</itemDetail>
+    <text>Covered in runes, this shield was developed by dwarves of the Coppersmelt clan in their wars against goblinoids; it helps you aid wounded allies. When you use a spell or item to help an ally adjacent to you regain hit points, that ally regains 1d8 additional hit points. 
+	</text></item>
+
+       <item>
+    <title>Portable Bunker</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (tower shield), uncommon (requires 14 strength)</itemDetail>
+    <text>This massive tower shield gives extra magical protection against ranged attacks. This shield gives you a +1 bonus to AC against ranged weapon attacks. This bonus is in addition to the shield’s normal bonus to AC. 
+	</text></item>
+
+       <item>
+    <title>Shield of Defiance</title>
+	<type>item</type>
+    <itemType>shield</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Armor (shield), uncommon</itemDetail>
+    <text>This looks like the well-maintained equipment of a veteran soldier, which is precisely what it is. When you suffer a critical hit, while wearing this shield, you can use your reaction to reduce it to a normal hit. Once you use this power, you can’t do so again until you finish a long rest.
+</text></item>
+
+       <item>
+    <title>Arrow of Venom</title>
+	<type>item</type>
+    <itemType>ammunition</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (arrow), rare</itemDetail>
+    <text>This +1 arrow is painted with alternating bands of black, red, and yellow, and its steel head is hammered into the shape of a serpent’s fang. When you make a ranged attack and score a hit with it, the target must make a successful DC 12 Constitution saving throw or be poisoned for one minute. At the end of each of its turns it can make another saving throw to end the poisoned condition.
+</text></item>
+
+       <item>
+    <title>Artificer's Hatchet</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (handaxe), rare</itemDetail>
+    <text>A complex clockwork mechanism is housed within the hatchet that never configures the same way twice. Once per long rest you can attempt a DC 15 Intelligence (Investigation) check to configure the device. If the check is successful, the hatchet becomes a +1 weapon until the end of your next long rest. In addition, if the check is successful the hatchet also gains the ability to deal an additional 1d6 fire, acid, lightning, cold, radiant, or force damage per successful critical hit; the type of damage is determined randomly by rolling a d6 when a hit is scored.
+</text></item>
+
+       <item>
+    <title>Baton of Guardianship</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (club), uncommon (requires attunement)</itemDetail>
+    <text>When you attune to the baton you must choose a specific ally. Henceforth, whenever you are within 30 feet of that ally you may use your reaction to impose disadvantage on an attack roll against that ally. Whenever you use the baton in this way, the baton becomes a +1 weapon until the end of your next turn. Once you use this power, you can’t use it again until you finish a short or long rest.
+</text></item>
+
+<item>
+    <title>Earthquake Tetsubo</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (greatclub), rare (requires attunement)</itemDetail>
+    <text>This iron-shod staff acts as a +1 weapon when used against melee targets but has a special power when hammered against the ground or floor: it causes a very strong but localized earthquake which affects every creature within a 60-foot radius. Every creature in the area of effect must make a successful DC 12 Strength saving throw or fall prone, taking 1d6 bludgeoning damage from the fall. Once you use this power, you can’t use it again until you finish a short or long rest.
+</text></item>
+
+<item>
+    <title>Fey Darts</title>
+	<type>item</type>
+    <itemType>ammunition</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (dart), uncommon</itemDetail>
+    <text>Found in glades which legend tells are often portals to the Feywild, always in a bundle containing 1d6 missiles, these darts are favored by small fey creatures to help them fight larger foes. When a fey dart strikes a creature, that creature must make a successful DC 13 Dexterity saving throw or be affected by the faerie fire spell for 1 minute.
+</text></item>
+
+<item>
+    <title>Flaming Spear</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (spear), rare (requires attunement)</itemDetail>
+    <text>The head of this +1 spear always appears to be glowing red from the heat of the forge. Successful attacks made with the flaming spear deal 1d8 fire damage in addition to its regular damage. In addition, as an action you can call upon the spear’s magic to cast the burning hands spell. Once you use this power, you can’t use it again until you finish a long rest.
+</text></item>
+
+<item>
+    <title>The Fist</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (cestus), very rare (requires attunement)</itemDetail>
+    <text>This black iron cestus is a +1 weapon. While wearing The Fist, you are immune to the heat metal spell. In addition, as part of your Attack action you can use The Fist to make the following special attack.
+
+	On a hit, you deal an extra 2d6 bludgeoning damage and your target must make a successful Constitution saving throw (DC equal to 10 + your melee attack bonus) or be knocked prone. Once you use this power, you can’t use it again until you finish a short or long rest.
+</text></item>
+
+<item>
+    <title>Hunting Shuriken</title>
+	<type>item</type>
+    <itemType>ammunition</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (shuriken), rare</itemDetail>
+    <text>This magical throwing star has a +1 bonus to hit and damage and a much-improved range. It has a maximum range of 300 feet, all of which is treated as short range. In addition, if a hunting shuriken is touched to an object belonging to a creature just before it is thrown, and that creature is within range, the shuriken will fly unerringly to that creature and strike it with no to hit roll needed.
+</text></item>
+
+<item>
+    <title>Longsword of Desperation</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (longsword), uncommon (requires attunement)</itemDetail>
+    <text>When you have less than half of your maximum hit points, the longsword becomes a +1 weapon. It is otherwise non-magical. The bonus provided increases to +2 at level 8, and +3 at level 14.
+</text></item>
+
+<item>
+    <title>Lunar Sickle</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (sickle), rare</itemDetail>
+    <text>This weapon, a sickle crafted from silver and bound to the moon, is said to have been forged for druids as a symbol of the cyclic nature of time. The sickle’s bonus changes depending on the phase of the moon. It has a +1 bonus from the new moon to half moon, a +2 bonus from the half moon to full moon, and +3 during the full moon. When the moon begins to wane, the lunar sickle’s bonuses drop in the same way they rose. During the dark of the new moon it loses all its magical properties.
+</text></item>
+   
+   <item>
+    <title>Rogue’s Blade</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (rapier), rare (requires attunement)</itemDetail>
+    <text>When you look closely at the rogue’s blade, it seems the edges blur and twitch, even when you know they’re perfectly still. While wielding the rogue’s blade, as a bonus action you can use it to cast the blink spell. Once you use this power you can’t do so again until you finish a short or long rest.
+</text></item>
+   
+   <item>
+    <title>Slicing Longbow</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (longbow), very rare (requires attunement)</itemDetail>
+    <text>The limbs of this longbow, though wooden, appear to be very sharp, as if the bow had been crafted from two wooden swords. As part of your Attack action, you can cause the slicing longbow to change from a +1 longbow to a +1 longsword; if you can make multiple attacks during your Attack action, you can make one attack with the weapon in its bow form and one in its sword form. In addition, as a bonus action you can cause the slicing longbow to separate into two +1 longswords. Each of these longswords has the light and finesse properties and loses the versatile property. To rejoin them you must use another bonus action.
+</text></item>
+   
+   <item>
+    <title>Staff of the Weave</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock>enchanter</itemstock>
-    <itemDetail>Staff, uncommon (requires attunement by a wizard)</itemDetail>
-    <text>Crafted by a skilled wizard and meant to be a spellcaster’s last defense, this staff is 5 feet long, made of yew wood that curves at its top, is iron shod at its mid-section, and capped with a silver dragon’s claw that holds a lustrous, though rough and uneven, black pearl.
-	
-This staff can be wielded as a magic quarterstaff that grants a +1 to attack and damage rolls made with it. It has 4 charges and regains 1d3 expended charges daily at dawn. Once daily, it can regain 1 expended charge by exposing the pearl to direct moonlight for 1 turn.
-
-When used as a weapon, the staff howls and whistles hauntingly like the wind. When its spells are employed, the staff chirps like insects on a hot summer night.
-
-**Spells.** While holding the staff, you can use an action to expend 1 or more of its charges to cast one of the following spells from it, using your spell save DC: faerie fire (3 charges), gust of wind (1 charge).
+    <itemDetail>Weapon (quarterstaff), very rare (requires attunement)</itemDetail>
+    <text>Whenever you cast a spell, the staff gains charges equal to the spell's level. You may use a bonus action to expend10 charges and regain 2 levels of spell slots. All charges are lost at the end of a long rest.
 </text></item>
-
-       <item>
-    <title>Spear of the Western Whale</title>
+   
+   <item>
+    <title>Starry Knife</title>
 	<type>item</type>
-    <itemType>melee weapon</itemType>
+    <itemType>weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock>blacksmith</itemstock>
-    <itemDetail>Weapon (spear), very rare (requires attunement)</itemDetail>
-    <text>You gain a +1 bonus to attack and damage rolls made with this magic weapon. Fashioned in the style of a whaling spear, this long, barbed weapon is made from bone and heavy, yet pliant, ash wood. Its point is lined with decorative engravings of fish, clam shells, and waves. While you carry this spear, you receive advantage on any Wisdom (Survival) checks to acquire food via fishing, and you gain advantage on all Strength (Athletics) checks to swim. When set on the ground, the spear always spins to point west.
+    <itemDetail>Weapon (dagger), very rare (requires attunement)</itemDetail>
+    <text>Forged from a seamless piece of meteoric star iron, this +1 dagger is specially weighted for throwing. In addition, a starry knife has 3 charges which are renewed each day at dawn. As part of your Attack action with the knife, you can spend charges to activate one of the following powers: 
 	
-When thrown in a westerly direction, the spear does an additional 2d6 cold damage to any creature it strikes.
+	1 charge: The knife magically returns to your hand, whether you hit with it or not.
+	
+	2 charges: The knife returns as above, and on a hit deals normal damage plus an additional 1d6 fire damage.
+	
+	3 charges: The knife returns as above, and on a hit creates an explosion of fire that deals an extra 3d6 points of fire damage to the target and all creatures directly adjacent to it.
 </text></item>
-
-       <item>
-    <title>Talking Torches</title>
+   
+   <item>
+    <title>Voltaic Dagger</title>
 	<type>item</type>
-    <itemType>wondrous item</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemstock>enchanter</itemstock>
-    <itemDetail>Wondrous item, rare</itemDetail>
-    <text>While you are holding this heavy iron and wood torch, you may speak a command word and cause it to produce a magical, heatless, unending source of light that provides light identical to a mundane torch. You may light or extinguish the torch at will. The torches are created in sets of two, four, or six. Any creature carrying a torch from a set may communicate telepathically up to five miles with any other creature carrying a torch from the same set as long as both torches are lit.	
-</text></item>
- 
-     <item>
-    <title>Umbral Chopper</title>
-	<type>item</type>
-    <itemType>melee weapon</itemType>
+    <itemType>weapon</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemstock>blacksmith</itemstock>
-    <itemDetail>Weapon [any axe], very rare (requires attunement)</itemDetail>
-    <text>This simple axe looks no different from a standard forester’s tool. A single-edged head is set into a slot in the haft and bound with strong cord. The axe was found by a timber-hauling crew who disappeared into the shadows of a cave deep in an old forest. Retrieved in the dark of the cave, the axe was found to possess disturbing magical properties. 
-	
-	You gain a +1 bonus to attack and damage rolls made with this weapon, which deals necrotic damage instead of slashing damage. When you hit a plant creature with it, the target must make a DC 14 Constitution saving throw or take 4d6 extra damage and have its speed halved until the end of its next turn. On a successful save, the target takes half of the extra damage and its speed is not halved. While you carry this axe, you may use an action to cast darkness (DC 14 to dispel, no concentration required). Once this property is used, it can’t be used again until the next sunset.	
+    <itemDetail>Weapon (dagger), uncommon (requires attunement)</itemDetail>
+    <text>Whenever you deal damage to a creature with the dagger, it gains a charge. When you hit with an attack with the Voltaic Dagger, you may use any number of charges to deal that many points of lightning damage in addition to the weapon damage. The dagger loses all charges when you finish a long rest. As long as it holds at least one charge, the dagger is considered magical for the purposes of overcoming resistance and immunity.
+</text></item>
+
+   <item>
+    <title>War Axe of Slaughter</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (greataxe), uncommon (requires attunement)</itemDetail>
+    <text>When you reduce a creature to 0 hit points with the war axe, you may use a bonus action to move up to your speed toward another hostile creature.
+</text></item>
+
+   <item>
+    <title>Warding Dagger</title>
+	<type>item</type>
+    <itemType>weapon</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemstock>blacksmith</itemstock>
+    <itemDetail>Weapon (Dagger), rare</itemDetail>
+    <text>As an action, you can draw a line up to 20 feet long upon the ground with this weapon. The line lasts for 1 minute. Undead must make a successful DC 12 Wisdom saving throw to move across this line. Once you use this power you can’t do so again until you finish a short or long rest.
 </text></item>
 
    
