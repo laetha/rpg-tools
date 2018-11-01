@@ -40,7 +40,7 @@ $pgtitle = '';
       		  $i1 = rand(0, count($files1)-1); // generate random number size of the array
       		  $selectedBg1 = "$files1[$i1]"; // set variable equal to which random filename was chosen
       		?>
-          <img style="max-width: 90%; height: auto;" src="/assets/images/hp/<?php echo $selectedBg1; ?>" />
+          <img style="max-width: 90%; height: auto; max-width: 600px;" src="/assets/images/hp/<?php echo $selectedBg1; ?>" />
         </div>
 			</div>
 <?php include('footer.php'); ?>
