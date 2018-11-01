@@ -893,58 +893,6 @@ trigger: 'focus'
 });
 </script>
 
-
-
-
-
-
-<!-- Delete Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-  <div class="modal-dialog">
-
-    <!-- Modal content-->
-    <div class="modal-content modalstyle bodytext">
-
-      <div class="modal-body">
-        <p>Are you sure you want to delete <?php echo $title; ?>?</p>
-      </div>
-      <div class="modal-footer">
-      <form class="delform" method="post" id="delform" action="delete.php">
-        <select form="delform" name="delete" id="deleteid" style="display:none;" required="yes">
-          <option value="<?php echo $deleteid; ?>" selected></option></select>
-<button type="button" class="btn btn-info delform" data-dismiss="modal">Go Back</button>
-          <input class="btn btn-danger" type="submit" value="Delete"></Input>
-
-      </form>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
-<!-- Item Modal -->
-<div class="modal fade bd-example-modal-lg" id="itemModal" role="dialog">
-  <div class="modal-dialog" style="width: 80%; max-width:1200px;">
-
-    <!-- Modal content-->
-    <div class="modal-content modalstyle bodytext" style="height:100%;">
-      <div class="modal-header" style="padding-bottom: 0px;">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-      <div class="modal-body" id="itemModalBody" style="height:100%; padding-top: 0px;">
-        <iframe frameBorder="0" src="popout.php?id=Potion of Gaseous Form" />
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-
-
 </div>
 
 
@@ -1004,6 +952,50 @@ trigger: 'focus'
 
   </div>
 
+  <!-- Delete Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content modalstyle bodytext">
+
+        <div class="modal-body">
+          <p>Are you sure you want to delete <?php echo $title; ?>?</p>
+        </div>
+        <div class="modal-footer">
+        <form class="delform" method="post" id="delform" action="delete.php">
+          <select form="delform" name="delete" id="deleteid" style="display:none;" required="yes">
+            <option value="<?php echo $deleteid; ?>" selected></option></select>
+  <button type="button" class="btn btn-info delform" data-dismiss="modal">Go Back</button>
+            <input class="btn btn-danger" type="submit" value="Delete"></Input>
+
+        </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Item Modal -->
+  <div class="modal fade bd-example-modal-lg" id="itemModal" role="dialog">
+    <div class="modal-dialog" style="width: 80%; max-width:1200px;">
+
+      <!-- Modal content-->
+      <div class="modal-content modalstyle bodytext" style="height:100%;">
+        <div class="modal-header" style="padding-bottom: 0px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+        <div class="modal-body" id="itemModalBody" style="height:100%; padding-top: 0px;">
+          <iframe frameBorder="0" src="popout.php?id=Potion of Gaseous Form" />
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
   <?php
   //Footer
