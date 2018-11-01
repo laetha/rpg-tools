@@ -13,6 +13,39 @@
 
 ?>
 <div class="mainbox">
+<div class="row">
+  <!-- Add to Log -->
+  <button class="btn btn-info" id="logbutton">Campaign Log</button>
+  <!-- Add to Log -->
+<button class="btn btn-info" id="notesbutton">GM Notes</button>
+<div id="logdiv" style="display:none;">
+  <div class="row">
+<iframe class="blockframetall" id="notesframe" src="/tools/campaign-log/campaign-log.php"></iframe></div>
+
+</div>
+<div id="notesdiv" style="display:none;">
+  <div class="row">
+<iframe class="blockframetall" id="logframe" src="/tools/world/gmnotes.php"></iframe></div>
+
+</div>
+<script>
+
+$(document).ready(function addLog(){
+    $("#logbutton").click(function addLog(){
+        $("#logdiv").slideToggle("slow");
+        window.setTimeout(nonav,2000);
+    });
+});
+
+$(document).ready(function addLog(){
+  $("#notesbutton").click(function addLog(){
+      $("#notesdiv").slideToggle("slow");
+      window.setTimeout(nonav,2000);
+
+  });
+});
+</script>
+</div>
   <style>
   .col-md-4 {
     padding-left: 0px;
@@ -261,6 +294,9 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
       document.getElementById('frame2').contentWindow.document.getElementById('nonav').style.display = "none";
       document.getElementById('frame3').contentWindow.document.getElementById('nonav').style.display = "none";
       document.getElementById('frame4').contentWindow.document.getElementById('nonav').style.display = "none";
+      document.getElementById('logframe').contentWindow.document.getElementById('nonav').style.display = "none";
+      document.getElementById('notesframe').contentWindow.document.getElementById('nonav').style.display = "none";
+
     }
   $('#search1').selectize({
   onChange: function(value){
