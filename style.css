@@ -713,3 +713,22 @@ background: #000;
    top: 0;
    width: 100%;
 }
+
+.init {
+	padding: 10px;
+	display:inline-block;
+	color:white;
+	display:none;
+}
+.textbox1 {
+	width: 35%;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	color:black;
+	text-align: left;
+}
+
+.initcontainer {
+	display:inline-block;
+}
