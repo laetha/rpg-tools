@@ -18,6 +18,7 @@
   <button class="btn btn-info" id="logbutton">Campaign Log</button>
   <!-- Add to Log -->
 <button class="btn btn-info" id="notesbutton">GM Notes</button>
+<button class="btn btn-info" id="notesbutton" onclick ="displayToggle()">Toggle Display</button>
 <div id="logdiv" style="display:none;">
   <div class="row">
 <iframe class="blockframetall" id="notesframe" src="/tools/campaign-log/campaign-log.php"></iframe></div>
@@ -44,6 +45,19 @@ $(document).ready(function addLog(){
 
   });
 });
+
+function displayToggle() {
+  document.getElementById('area4');
+  if (area4.style.display === 'none') {
+    area4.style.display = "block";
+    document.getElementById('area1').className = "col-md-4";
+
+  }
+  else {
+  area4.style.display = "none";
+  document.getElementById('area1').className = "col-md-8";
+}
+}
 </script>
 </div>
   <style>
@@ -55,7 +69,7 @@ $(document).ready(function addLog(){
     margin-bottom: 0px;
   }
   </style>
-  <div class="col-md-4">
+  <div class="col-md-4" id="area1">
   <select id="search1">
     <option value=""></option>
 <option value="awardxp4">Award XP</option>
@@ -171,7 +185,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4" id="area4">
 <select id="search4">
 <option value=""></option>
 <option value="awardxp4">Award XP</option>
