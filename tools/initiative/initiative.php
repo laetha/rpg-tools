@@ -36,12 +36,29 @@
   <button onclick="nextUp()">>>></button>
 
   <script>
+  function nextUp(){
+    var active = $(".active-init").removeClass('active-init');
+  if(active.next() && active.next().length){
+     active .next().addClass('active-init');
+   }
+   else{
+     active.siblings(":first").addClass('active-init');
+   }
 
+   if(active.next().data('initiativevalue')){
+   }
+   else {
+     active.siblings(":first").addClass('active-init');
+   }
+}
 
   function sortInit(){
     $('#initiative-order').append($('#initiative-order .initcontainer').sort(function(a,b){
      return b.getAttribute('data-initiativevalue')-a.getAttribute('data-initiativevalue');
   }));
+  // $('.initcontainer').nextAll('.initcontainer:first').addClass('active');
+  $(".initcontainer").removeClass('active-init');
+  $(".initcontainer").first().addClass('active-init');
 }
   </script>
 <div class ="body bodytext">
@@ -183,7 +200,7 @@ else if (initDiv11 === "-5"){
      var initDiv11 = document.getElementById("initValue11").innerHTML;
      var initVal = initPlayer1;
      var selectValue = namePlayer1;
-     if (initPlayer1 != "initiative") {
+     if (initPlayer1 != "") {
        if (initDiv1 === "-5") {
               document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
               document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
@@ -270,7 +287,7 @@ else if (initDiv11 === "-5"){
      var initDiv11 = document.getElementById("initValue11").innerHTML;
      var initVal = initPlayer2;
      var selectValue = namePlayer2;
-     if (initPlayer2 != "initiative") {
+     if (initPlayer2 != "") {
        if (initDiv1 === "-5") {
               document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
               document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
@@ -358,7 +375,7 @@ else if (initDiv11 === "-5"){
      var initDiv11 = document.getElementById("initValue11").innerHTML;
      var initVal = initPlayer3;
      var selectValue = namePlayer3;
-     if (initPlayer3 != "initiative") {
+     if (initPlayer3 != "") {
        if (initDiv1 === "-5") {
               document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
               document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
@@ -446,7 +463,7 @@ else if (initDiv11 === "-5"){
      var initDiv11 = document.getElementById("initValue11").innerHTML;
      var initVal = initPlayer4;
      var selectValue = namePlayer4;
-     if (initPlayer4 != "initiative") {
+     if (initPlayer4 != "") {
        if (initDiv1 === "-5") {
               document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
               document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
@@ -534,7 +551,7 @@ else if (initDiv11 === "-5"){
      var initDiv11 = document.getElementById("initValue11").innerHTML;
      var initVal = initPlayer5;
      var selectValue = namePlayer5;
-     if (initPlayer5 != "initiative") {
+     if (initPlayer5 != "") {
        if (initDiv1 === "-5") {
               document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
               document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
@@ -623,19 +640,19 @@ else if (initDiv11 === "-5"){
 
 
       <div id="playeradd" style="display:none;">
-        <input class="textbox1" name="namePlayer1" id="namePlayer1" value="Ciara"><input class="textbox1" type="text" name="initPlayer1" id="initPlayer1" value="initiative">
+        <input class="textbox1" name="namePlayer1" id="namePlayer1" value="Ciara"><input class="textbox1" type="text" name="initPlayer1" id="initPlayer1" value="">
         <button class="btn btn-info" onclick="addPlayer1()">Add</button>
 
-        <input class="textbox1" name="namePlayer2" id="namePlayer2" value="Frukas"><input class="textbox1" type="text" name="initPlayer2" id="initPlayer2" value="initiative">
+        <input class="textbox1" name="namePlayer2" id="namePlayer2" value="Frukas"><input class="textbox1" type="text" name="initPlayer2" id="initPlayer2" value="">
         <button class="btn btn-info" onclick="addPlayer2()">Add</button>
 
-        <input class="textbox1" name="namePlayer3" id="namePlayer3" value="Quynn"><input class="textbox1" type="text" name="initPlayer3" id="initPlayer3" value="initiative">
+        <input class="textbox1" name="namePlayer3" id="namePlayer3" value="Quynn"><input class="textbox1" type="text" name="initPlayer3" id="initPlayer3" value="">
         <button class="btn btn-info" onclick="addPlayer3()">Add</button>
 
-        <input class="textbox1" name="namePlayer4" id="namePlayer4" value="Riordan"><input class="textbox1" type="text" name="initPlayer4" id="initPlayer4" value="initiative">
+        <input class="textbox1" name="namePlayer4" id="namePlayer4" value="Riordan"><input class="textbox1" type="text" name="initPlayer4" id="initPlayer4" value="">
         <button class="btn btn-info" onclick="addPlayer4()">Add</button>
 
-        <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Threads"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="initiative">
+        <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Threads"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="">
         <button class="btn btn-info" onclick="addPlayer5()">Add</button>
 
 
