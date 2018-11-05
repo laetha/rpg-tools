@@ -17,7 +17,7 @@
 
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">Initiative Tracker</h1>
-  <p><a href="http://kobold.club/fight/#/encounter-manager" target="_BLANK">Kobold Fight Club Encounters</a></p>
+  <!-- <p><a href="http://kobold.club/fight/#/encounter-manager" target="_BLANK">Kobold Fight Club Encounters</a></p> -->
   <div class="col-md-12" id="initiative-order" style="text-align:center;">
     <div class="initcontainer" id="initcontainer1"><div class="init" id="init1"><div class="initval" id="initValue1">-5</div></div></div>
     <div class="initcontainer" id="initcontainer2"><div class="init" id="init2"><div class="initval" id="initValue2">-5</div></div></div>
@@ -32,7 +32,7 @@
     <div class="initcontainer" id="initcontainer11"><div class="init" id="init11"><div class="initval" id="initValue11">-5</div></div></div>
   </div>
   <button onclick="sortInit()">Sort</button>
-  <button onclick="lastUp()"><<<</button>
+<!--  <button onclick="lastUp()"><<<</button> -->
   <button onclick="nextUp()">>>></button>
 
   <script>
@@ -52,6 +52,17 @@
    }
 }
 
+/* function lastUp(){
+  var active = $(".active-init").removeClass('active-init');
+if(active.prev() && active.prev().length){
+   active .prev().addClass('active-init');
+ }
+ else{
+   active.data('initiativevalue').last().addClass('active-init');
+ }
+
+}
+*/
   function sortInit(){
     $('#initiative-order').append($('#initiative-order .initcontainer').sort(function(a,b){
      return b.getAttribute('data-initiativevalue')-a.getAttribute('data-initiativevalue');
@@ -638,7 +649,7 @@ else if (initDiv11 === "-5"){
      var initDiv11 = document.getElementById("initValue11").innerHTML;
      var initVal = initPlayer6;
      var selectValue = namePlayer6;
-     if (initPlayer1 != "initiative") {
+     if (initPlayer6 != "") {
        if (initDiv1 === "-5") {
               document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
               document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
@@ -710,7 +721,6 @@ else if (initDiv11 === "-5"){
    }
 
 
-
   </script>
   <div id="dice">
   <script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
@@ -742,7 +752,7 @@ else if (initDiv11 === "-5"){
         <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Threads"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="">
         <button class="btn btn-info" onclick="addPlayer5()">Add</button>
 
-        <input class="textbox1" name="namePlayer6" id="namePlayer6" value=""><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="initiative">
+        <input class="textbox1" name="namePlayer6" id="namePlayer6" value=""><input class="textbox1" type="text" name="initPlayer6" id="initPlayer6" value="">
         <button class="btn btn-info" onclick="addPlayer6()">Add</button>
 
 
