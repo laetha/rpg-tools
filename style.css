@@ -731,4 +731,9 @@ background: #000;
 
 .initcontainer {
 	display:inline-block;
+	border-radius: 10px;
+}
+
+.active-init {
+	background-color:rgba(148, 160, 206, 0.5);
 }
