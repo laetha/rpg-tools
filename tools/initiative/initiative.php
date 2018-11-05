@@ -605,6 +605,93 @@ else if (initDiv11 === "-5"){
 
    }
 
+   function addPlayer6() {
+     var initPlayer6 = document.getElementById("initPlayer6").value;
+     var namePlayer6 = document.getElementById("namePlayer6").value;
+     var initDiv1 = document.getElementById("initValue1").innerHTML;
+     var initDiv2 = document.getElementById("initValue2").innerHTML;
+     var initDiv3 = document.getElementById("initValue3").innerHTML;
+     var initDiv4 = document.getElementById("initValue4").innerHTML;
+     var initDiv5 = document.getElementById("initValue5").innerHTML;
+     var initDiv6 = document.getElementById("initValue6").innerHTML;
+     var initDiv7 = document.getElementById("initValue7").innerHTML;
+     var initDiv8 = document.getElementById("initValue8").innerHTML;
+     var initDiv9 = document.getElementById("initValue9").innerHTML;
+     var initDiv10 = document.getElementById("initValue10").innerHTML;
+     var initDiv11 = document.getElementById("initValue11").innerHTML;
+     var initVal = initPlayer6;
+     var selectValue = namePlayer6;
+     if (initPlayer1 != "initiative") {
+       if (initDiv1 === "-5") {
+              document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + selectValue;
+              document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
+              document.getElementById("init1").style = "display:block";
+       }
+       else if (initDiv2 === "-5"){
+         document.getElementById("init2").innerHTML = "<div id=\"initValue2\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer2").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init2").style = "display:block";
+
+       }
+       else if (initDiv3 === "-5"){
+         document.getElementById("init3").innerHTML = "<div id=\"initValue3\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer3").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init3").style = "display:block";
+
+       }
+       else if (initDiv4 === "-5"){
+         document.getElementById("init4").innerHTML = "<div id=\"initValue4\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer4").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init4").style = "display:block";
+
+       }
+       else if (initDiv5 === "-5"){
+         document.getElementById("init5").innerHTML = "<div id=\"initValue5\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer5").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init5").style = "display:block";
+
+       }
+       else if (initDiv6 === "-5"){
+         document.getElementById("init6").innerHTML = "<div id=\"initValue6\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer6").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init6").style = "display:block";
+
+       }
+       else if (initDiv7 === "-5"){
+         document.getElementById("init7").innerHTML = "<div id=\"initValue7\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer7").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init7").style = "display:block";
+
+       }
+       else if (initDiv8 === "-5"){
+         document.getElementById("init8").innerHTML = "<div id=\"initValue8\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer8").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init8").style = "display:block";
+
+       }
+       else if (initDiv9 === "-5"){
+         document.getElementById("init9").innerHTML = "<div id=\"initValue9\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer9").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init9").style = "display:block";
+
+       }
+       else if (initDiv10 === "-5"){
+         document.getElementById("init10").innerHTML = "<div id=\"initValue10\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer10").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init10").style = "display:block";
+
+       }
+       else if (initDiv11 === "-5"){
+         document.getElementById("init11").innerHTML = "<div id=\"initValue11\">" + initVal + "</div>" + selectValue;
+         document.getElementById("initcontainer11").setAttribute("data-initiativevalue", initVal);
+         document.getElementById("init11").style = "display:block";
+
+       }
+
+     }
+
+   }
+
 
 
   </script>
@@ -637,6 +724,9 @@ else if (initDiv11 === "-5"){
 
         <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Threads"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="initiative">
         <button class="btn btn-info" onclick="addPlayer5()">Add</button>
+
+        <input class="textbox1" name="namePlayer6" id="namePlayer6" value=""><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="initiative">
+        <button class="btn btn-info" onclick="addPlayer6()">Add</button>
 
 
     </div>
