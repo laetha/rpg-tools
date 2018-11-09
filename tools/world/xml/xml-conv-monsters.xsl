@@ -11,7 +11,7 @@
 
   <xsl:template match="monster">
     <xsl:copy>
-      <xsl:apply-templates select="title|monsterSize|monsterType|monsterAlignment|monsterAc|monsterHp|monsterSpeed|monsterStr|monsterDex|monsterCon|monsterIntel|monsterWis|monsterCha|monsterSave|monsterSkill|monsterResist|monsterVulnerable|monsterImmune|monsterConditionImmune|monsterSenses|monsterPassive|monsterLanguages|monsterCr|monsterReaction"/>
+      <xsl:apply-templates select="title|monsterSize|monsterType|monsterAlignment|monsterAc|monsterHp|monsterSpeed|monsterStr|monsterDex|monsterCon|monsterInt|monsterWis|monsterCha|monsterSave|monsterSkill|monsterResist|monsterVulnerable|monsterImmune|monsterConditionImmune|monsterSenses|monsterPassive|monsterLanguages|monsterCr|monsterReaction"/>
         <xsl:element name="type">
           <xsl:text>monster</xsl:text>
         </xsl:element>

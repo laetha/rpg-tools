@@ -1,141 +1,63 @@
 <world version="5" auto_indent="NO">
   
        <item>
-    <title>Potion of Bear’s Endurance</title>
+    <title>Bracer of Flying Daggers</title>
 	<type>item</type>
-    <itemType>potion</itemType>
+    <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
-	<itemStock>alchemist</itemStock>
-    <itemDetail>Potion, uncommon</itemDetail>
-    <text>When you drink this potion, you gain advantage on Constitution checks. You also gain 2d6 temporary hit points, which are lost when the effect ends. The effect lasts for 1 hour.
+	<itemStock>blacksmith</itemStock>
+    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
+    <text>This armband appears to have thin daggers strapped to it. As a n action, you can pull up to two magic daggers from the bracer and immediately hurl them, making a ranged attack with each dagger. A dagger vanishes if you don't hurl it right away, and the daggers disappear right after they hit or miss. The bracer never runs out of daggers.
+	
+	Source: Waterdeep: Dragon Heist
 </text></item>
 
-      <item>
-    <title>Potion of Cat’s Grace</title>
+       <item>
+    <title>Knave's Eye Patch</title>
 	<type>item</type>
-    <itemType>potion</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>alchemist</itemStock>
-    <itemDetail>Potion, uncommon</itemDetail>
-    <text>When you drink this potion, you have advantage on Dexterity checks. You don't take damage from falling 20 feet or less if you aren't incapacitated. The effect lasts for 1 hour.
-</text></item>
-
-      <item>
-    <title>Potion of Fox's Cunning</title>
-	<type>item</type>
-    <itemType>potion</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>alchemist</itemStock>
-    <itemDetail>Potion, uncommon</itemDetail>
-    <text>When you drink this potion, you have advantage on Intelligence checks for 1 hour.
-</text></item>
-
-      <item>
-    <title>Potion of Owl’s Wisdom</title>
-	<type>item</type>
-    <itemType>potion</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>alchemist</itemStock>
-    <itemDetail>Potion, uncommon</itemDetail>
-    <text>When you drink this potion, you have advantage on Wisdom checks for 1 hour.
-</text></item>
-
-      <item>
-    <title>Circle of Sound</title>
-	<type>item</type>
-    <itemType>ring</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>jeweler</itemStock>
-    <itemDetail>Ring, uncommon</itemDetail>
-    <text>These silver rings are made in sets of two to six and appear utterly plain apart from minute rune etchings on the inside of the band. These etchings are unique to each matching set of rings. By whispering into one of the rings, the wearer can send a message to everyone wearing a ring from the same set within range. The range of this effect is 220 feet and it functions as if a message spell had been cast targeting each of the other ring wearers.
-	
-Once a set of rings has been forged, there is no way to add additional rings to the circuit short of a wish spell.
-	</text></item>
-	
-	      <item>
-    <title>Ring of Arming</title>
-	<type>item</type>
-    <itemType>ring</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>jeweler</itemStock>
-    <itemDetail>Ring, rare</itemDetail>
-    <text>This adamantine ring is set with a large turquoise which is carved to resemble an armored knight. If you activate this ring by speaking the command word while wearing it, any armor or weapons you currently wear or are carrying disappear and are magically stored within the ring. Any armor or weapons currently stored within the ring appear in the appropriate places on your body. If the ring has items stored within it when a new user activates it, the items within are resized to the new wearer upon activation. This process does not break the attunement of any magic items stored within the ring.
-	</text></item>
-	
-		      <item>
-    <title>Ring of Brief Blessing</title>
-	<type>item</type>
-    <itemType>ring</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>jeweler</itemStock>
-    <itemDetail>Ring, rare</itemDetail>
-    <text>This silver ring has a clear crystal setting, which glows faintly with holy radiance. While wearing this ring you may use an action to expend a charge. When you do so, the ring's glow becomes more pronounced, casting dim light in a five-foot radius. You gain advantage on your next melee weapon attack roll against any target who is a celestial, fey, fiend, or undead.
-	
-The ring holds three charges. It regains all expended charges daily at dawn.
-	</text></item>
-	
-		      <item>
-    <title>Ring of Healing</title>
-	<type>item</type>
-    <itemType>ring</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>jeweler</itemStock>
-    <itemDetail>Ring, common</itemDetail>
-    <text>These bronze rings are commonly created early in a spellcaster's studies as a means of learning the basics of item construction as well as a method of surviving misadventure. If the wearer is ever brought to 0 hit points, the ring automatically expends its charge, healing the wearer for 1d8+2 hit points. Once used, the ring cannot be used by the same person ever again.
-	
-The ring holds one charge. It regains all expended charges daily at dawn.
-	</text></item>
-	
-		      <item>
-    <title>Rings of Shared Suffering</title>
-	<type>item</type>
-    <itemType>ring</itemType>
-    <itemMagic>1</itemMagic>
-	<itemValue>Unofficial</itemValue>
-	<itemStock>jeweler</itemStock>
-    <itemDetail>Ring, very rare (requires attunement)</itemDetail>
-    <text>As with a standard ring of protection, you gain a +1 bonus to AC and saving throws while wearing this ring. However, this ring is bound to a paired ring, which must be worn and attuned by another creature in order to utilize its full capabilities.
-	
-If both attuned creatures are wearing their rings, and are on the same plane, they will both receive the benefit of any magical effect that increases their AC. Furthermore, any magical effect that heals hit point loss or grants temporary hit points will be divided evenly between both ringbearers. If the amount of hit points healed, or temporary hit points gained cannot be divided evenly, the creature who was the original target of the effect gains the remainder of the hit points.
-
-However, this effect does come at a price, as any damage dealt to either creature is divided evenly between both creatures. If the damage cannot be divided evenly, the creature who actually suffered the attack takes the extra damage.
-
-If one of the ringbearers dies while the other survives, the survivor must make a DC 15 Wisdom saving throw, suffering 4d8 psychic damage on a failed save and half as much on a successful save. If at any point one of the rings is not attuned to a creature or is destroyed, the other ring simply acts as a ring of protection.
-	</text></item>
-	
-		      <item>
-    <title>Harrow Rod</title>
-	<type>item</type>
-    <itemType>rod</itemType>
+    <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemStock>enchanter</itemStock>
-    <itemDetail>Rod, very rare</itemDetail>
-    <text>While holding this blackened, twisted metallic rod, you can use your action to spray forth a 30-ft. cone of acid. Each creature in the cone must make a DC 17 Dexterity saving throw. A creature takes 9d6 acid damage on a failed save, or half as much on a successful one.
+    <itemDetail>Wondrous item, rare (requires attunement)</itemDetail>
+    <text>While wearing this eye patch, you gain these benefits:
 	
-One you use this feature you can not use it again until the next dawn.
+You have advantage on Wisdom (Perception) checks that rely on sight.
+
+If you have the Sunlight Sensitivity trait, you are unaffected by the trait.
+
+You are immune to magic that allows other creatures to read your thoughts or determine whether you are lying. Creatures can communicate telepathically with you only if you allow it.
+	
+	Source: Waterdeep: Dragon Heist
 </text></item>
-	
-		      <item>
-    <title>Rod of Sure Striking</title>
+
+       <item>
+    <title>Paper Bird</title>
 	<type>item</type>
-    <itemType>rod</itemType>
+    <itemType>wondrous item</itemType>
     <itemMagic>1</itemMagic>
 	<itemValue>Unofficial</itemValue>
 	<itemStock>enchanter</itemStock>
-    <itemDetail>Rod, rare</itemDetail>
-    <text>This silvery rod has a pale blue crystal set on each end. While holding this rod, you can use an action to spend 1 charge, giving all allies within 10 feet of you advantage on their next attack roll made before your next turn.
+    <itemDetail>Wondrous item. uncommon</itemDetail>
+    <text>After you write a message of fifty words or fewer on this magic sheet of parchment and speak a creature's name, the parchment magicaJly folds into a Tiny paper bird and Hies to the recipient whose name you uttered. The recipient must be on the same plane of existence as you, otherwise the bird turns into ash as it takes flight. The bird is an object that has 1 hit point, an Armor Class of 13, and flying speed of 60 feet. 	
+
+	Source: Waterdeep: Dragon Heist
+</text></item>
+
+
+       <item>
+    <title>Ring of Truth Telling</title>
+	<type>item</type>
+    <itemType>ring</itemType>
+    <itemMagic>1</itemMagic>
+	<itemValue>Unofficial</itemValue>
+	<itemStock>jeweler</itemStock>
+    <itemDetail>Ring, uncommon (requires attuncment)</itemDetail>
+    <text>While wearing this ring, you have advantage on Wisdom (Insight) checks to determine whether someone is lying to you.
 	
-	One you use this feature you can not use it again until the next dawn.
-	</text></item>
+	Source: Waterdeep: Dragon Heist
+</text></item>
 	        
   </world>
   
