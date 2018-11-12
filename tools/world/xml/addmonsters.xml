@@ -1,623 +1,302 @@
 <world version="5" auto_indent="NO">
 	<monster>
-		<title>Ahmaergo</title>
+		<title>Jarlaxle Baenre</title>
 		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (dwarf)</monsterType>
-		<monsterAlignment>lawful evil</monsterAlignment>
-		<monsterAc>18 (plate)</monsterAc>
-		<monsterHp>143 (22d8 + 44)</monsterHp>
-		<monsterSpeed>25 ft.</monsterSpeed>
-		<monsterStr>20</monsterStr><monsterDex>15</monsterDex><monsterCon>14</monsterCon><monsterInt>15</monsterInt><monsterWis>14</monsterWis><monsterCha>12</monsterCha>
-		<monsterSave>Str +9, Con +6</monsterSave>
-		<monsterSkill>Athletics +9, Intimidation +5, Perception +6</monsterSkill>
-		<monsterResist>poison</monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses>darkvision 60 ft.</monsterSenses>
-		<monsterPassive>16</monsterPassive>
-		<monsterLanguages>Common, Dwarvish, Undercommon</monsterLanguages>
-		<monsterCr>9</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.193</text>
-		</trait>		<trait>
-			<name>Dwarven Resilience.</name>
-			<text>Ahmaergo has advantage on saving throws against being poisoned.</text>
-		</trait>
-		<trait>
-			<name>Indomitable (2/Day).</name>
-			<text>Ahmaergo can reroll a saving throw that he fails. He must use the new roll.</text>
-		</trait>
-		<trait>
-			<name>Second Wind (Recharges after a Short or Long Rest)</name>
-			<text>As a bonus action, Ahmaergo can regain 20 hit points.</text>
-		</trait>
-		<action>
-			<name>Maddening Touch</name>
-			<text>Melee Spell Attack: +6 to hit, reach 5 ft., one target. Hit: 17 (4d6 + 3) psychic damage.</text>
-			<attack>Maddening Touch|6|4d6+3</attack>
-		</action>
-		<action>
-			<name>Whispers of Madness</name>
-			<text>The allip chooses up to three creatures it can see within 60 feet of it. Each target must succeed on a DC 14 Wisdom saving throw, or it takes 7 (1d8 + 3) psychic damage and must use its reaction to make a melee weapon attack against one creature of the allip's choice that the allip can see. Constructs and undead are immune to this effect.</text>
-		</action>
-		<action>
-			<name>Multiattack</name>
-			<text>Ahmaergo makes three attacks with his greataxe.</text>
-		</action>
-		<action>
-			<name>Creataxe.</name>
-			<text>Melee Weapon Attack: +9 to hit, reach S ft., one target. Hit: 11 (ldl2 + 5) slashing damage, plus 7 (2d6) slashing damage if Ahmaergo has more than half his hit points remaining.</text>
-		</action>
-		<action>
-			<name>Heavy Crossbow.</name>
-			<text>Ranged Weapon Attack: +6 to hit, range 100/400 ft., one target. Hit: 7 (ldlO + 2) piercing damage</text>
-		</action>
-		<spells></spells>
-		<slots></slots>
-	</monster>
-	
-	<monster>
-		<title>Ammalia Cassalanter</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (human)</monsterType>
-		<monsterAlignment>lawful evil</monsterAlignment>
-		<monsterAc>12 (15 with mage armor)</monsterAc>
-		<monsterHp>45 (10d8)</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>9</monsterStr><monsterDex>14</monsterDex><monsterCon>11</monsterCon><monsterInt>17</monsterInt><monsterWis>12</monsterWis><monsterCha>15</monsterCha>
-		<monsterSave>Int +6, Wis +4</monsterSave>
-		<monsterSkill>Arcana +6, History +6, Insight +4, Persuasion +5</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune>poison</monsterImmune>
-		<monsterConditionImmune>poisoned</monsterConditionImmune>
-		<monsterSenses></monsterSenses>
-		<monsterPassive>11</monsterPassive>
-		<monsterLanguages>Common, Draconic, Elvish, Infernal</monsterLanguages>
-		<monsterCr>5</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.193</text>
-		</trait>		<trait>
-			<name>Spellcasting.</name>
-			<text>Ammalia is a 9th-level spellcaster. Her spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). She has the following wizard spells prepared:
-			
-Cantri ps (at will): friends, mage hand, mending, message
-
-lst level (4 slots): charm person, mage armor, magic missile
-
-2nd level (3 slots): hold person, invisibility, suggestion
-
-3rd level (3 slots): fireball, haste, tongues
-
-4th level (3 slots): confusion, stoneskin
-
-5th level (1 slot): hold monster</text>
-		</trait>
-		
-		<action>
-			<name>Quarterstaff.</name>
-			<text>Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (ld6 - l) bludgeoning damage, or 3 (ld8 - 1) bludgeoning damage if used with two hands.</text>
-		</action>
-
-	</monster>
-	
-		<monster>
-		<title>Barnibus Blastwind</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (human)</monsterType>
-		<monsterAlignment>lawful good</monsterAlignment>
-		<monsterAc>10 (13 with mage armor)</monsterAc>
-		<monsterHp>24 (7d8 - 7}</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>9</monsterStr><monsterDex>10</monsterDex><monsterCon>9</monsterCon><monsterInt>17</monsterInt><monsterWis>15</monsterWis><monsterCha>11</monsterCha>
-		<monsterSave>Int +5, Wis +4</monsterSave>
-		<monsterSkill>Arcana +S, Insight +6, Investigation +7, Perception +4</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses></monsterSenses>
-		<monsterPassive>14</monsterPassive>
-		<monsterLanguages>Common, Draconic, Elvish, Halfling</monsterLanguages>
-		<monsterCr>2</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.195</text>
-		</trait>		
-		<trait>
-			<name>Special Equipment.</name>
-			<text>Barnibus carries a wand of magic detection.</text>
-		</trait>
-		<trait>
-			<name>Spellcasting.</name>
-			<text>Barnibus is a 7th-level spellcaster. His spellcasting ability is In telligence (spell save DC 13, +5 to hit with spell attacks). He has the fol lowing wizard spells prepared:
-			
-Cantrips (at will}: blade ward, light, mage hand, message
-
-lst level (4 slots) : comprehend languages, identify, mage armor, shield
-
-2nd level (3 slots): detect thoughts, suggestion
-
-3rd level (3 slots): clairvoyance, sending
-
-4th level (1 slot): locate creature, Otiluke's resilient sphere</text>
-		</trait>
-		
-		<action>
-			<name>Dagger.</name>
-			<text>Melee or Ranged Weapon Attack: +2 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 2 (ld4) piercing damage</text>
-			</action>
-	</monster>
-	
-	<monster>
-		<title>Black Viper</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (human)</monsterType>
+		<monsterType>humanoid (elf)</monsterType>
 		<monsterAlignment>chaotic neutral</monsterAlignment>
-		<monsterAc>16 (studded leather)</monsterAc>
-		<monsterHp>84 (13d8 + 26)</monsterHp>
+		<monsterAc>24 (+3 leather armor, Suave Defense)</monsterAc>
+		<monsterHp>123 (19d8 + 38)</monsterHp>
 		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>11</monsterStr><monsterDex>18</monsterDex><monsterCon>14</monsterCon><monsterInt>11</monsterInt><monsterWis>11</monsterWis><monsterCha>12</monsterCha>
-		<monsterSave>Dex +7, Int +3</monsterSave>
-		<monsterSkill>Acrobatics +7, Athletics +3, Perception +3, Sleight of Hand +7, Stealth +7</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses></monsterSenses>
-		<monsterPassive>13</monsterPassive>
-		<monsterLanguages>Common. thieves' cant</monsterLanguages>
-		<monsterCr>5</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.196</text>
-		</trait>		
-		<trait>
-			<name>Cunning Action.</name>
-			<text>On each of her turns, the Black Viper can use a bonus action to take the Dash, Disengage, or Hide action</text>
-		</trait>
-		<trait>
-			<name>Evasion.</name>
-			<text>If the Black Viper is subjected to an effect that allows her to make a Dexterity saving throw to take only half damage, she instead takes no damage if she succeeds on the saving throw, and only half damage If she fails. She can't use this trait if she's incapacitated.</text>
-		</trait>
-		
-		<trait>
-			<name>Sneak Attack (1/Turn).</name>
-			<text>The Black Viper deals an extra 14 (4d6) damage when she hits a target with a weapon attack and has advantage on the attack roll, or when the target is with in S feet of an ally of the Black Viper that isn't incapacitated and the Black Viper doesn't have disadvantage on the attack roll.</text>
-			</trait>
-			
-			<action>
-			<name>Multiattack.</name>
-			<text>The Black Viper makes three attacks with her rapier.</text>
-			</action>
-			
-			<action>
-			<name>Rapier.</name>
-			<text>Melee Weapon Attack: +7 to hit, reach S ft., one target. Hit: 7 (ld6 + 4) piercing damage.</text>
-			</action>
-			
-					<action>
-			<name>Hand Crossbow.</name>
-			<text>Ranged Weapon Attack: +7 to hit, range 30/120 ft., one target. Hit: 7 (ld6 + 4) piercing damage.</text>
-			</action>
-			
-			<monsterReaction>
-			<name>Uncanny Dodge.</name>
-			<text>The Black Viper halves the damage that she takes from an attack that hits her. She must be able to see the attacker.</text>
-			</monsterReaction>
-	</monster>
-	
-		<monster>
-		<title>Griffon Cavalry Rider</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (any race)</monsterType>
-		<monsterAlignment>any alignment</monsterAlignment>
-		<monsterAc>17 (half plate)</monsterAc>
-		<monsterHp>58 (9d8 + 18)</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>14</monsterStr><monsterDex>15</monsterDex><monsterCon>14</monsterCon><monsterInt>10</monsterInt><monsterWis>12</monsterWis><monsterCha>10</monsterCha>
-		<monsterSave></monsterSave>
-		<monsterSkill>Animal Handling +3, Athletics +4, Perception +3</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses></monsterSenses>
-		<monsterPassive>13</monsterPassive>
-		<monsterLanguages>any one language (usually Common)</monsterLanguages>
-		<monsterCr>2</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.197</text>
-		</trait>		
-					
-			<action>
-			<name>Lance.</name>
-			<text>Melee Weapon Attack: +4 to hit (with disadvantage against a target within 5 ft .), reach 10 ft., one target. Hit: 8 (l dl2 + 2) piercing damage, or 11 (ldl2 + 5) piercing damage while mounted.</text>
-			</action>
-			
-			<action>
-			<name>Dagger.</name>
-			<text>Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (ld4 + 2) piercing damage.</text>
-			</action>
-			
-					<action>
-			<name>Light Crossbow.</name>
-			<text>Ranged Weapon Attack: +4 to hit, range 80/320 ft., one target. Hit: 6 (ld8 + 2) piercing damage.</text>
-			</action>
-			
-				<monsterReaction>
-			<name>Feather Fall.</name>
-			<text>The rider wears a magic ring with which it can cast the feather fall spell on itself once as a reaction to falling. After the spell is cast, the ring becomes nonmagical.</text>
-			</monsterReaction>
-	</monster>
-	
-	<monster>
-		<title>Davil Starsong</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (elf)</monsterType>
-		<monsterAlignment>neutral</monsterAlignment>
-		<monsterAc>15 (chain shirt)</monsterAc>
-		<monsterHp>82 (1Sd8 + 15)</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>10</monsterStr><monsterDex>14</monsterDex><monsterCon>12</monsterCon><monsterInt>16</monsterInt><monsterWis>12</monsterWis><monsterCha>17</monsterCha>
-		<monsterSave>Dex +5, Cha +6</monsterSave>
-		<monsterSkill>Arcana +6, History +6, Ins ight +4, Perception +4, Performance +6</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses>darkvision 60 ft.,</monsterSenses>
-		<monsterPassive>14</monsterPassive>
-		<monsterLanguages>Common, Draconic, Dwarvish, Elvish</monsterLanguages>
-		<monsterCr>6</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.199</text>
-		</trait>	
-
-<trait>
-			<name>Fey Ancestry</name>
-			<text>Davil has advantage on saving throws against being charmed, and magic can't put him to sleep.</text>
-		</trait>
-
-<trait>
-			<name>Spellcasting.</name>
-			<text>Davil is a 12th-level spellcaster. His spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). He has the following bard spells prepared:
-			
-Cantrips (at will): mage hand, mending, minor illusion, vicious mockery
-
-1st level (4 slots): cure wounds, disguise self, sleep
-
-2rid level (3 slots): crown of madness, invisibility, suggestion
-
-3rd level (3 slots): nondetection, sending, tongues
-
-4th level (3 slots): compulsion,freedom of movement, polymorph
-
-5th level (2 slots): dominate person, greater restoration
-
-6th level (1 slot): Otto's irresistible dance</text>
-		</trait>		
-					
-			<action>
-			<name>Dagger.</name>
-			<text>Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) piercing damage.</text>
-			</action>
-			
-	</monster>
-	
-		<monster>
-		<title>Istrid Horn</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (dwarf)</monsterType>
-		<monsterAlignment>neutral evil</monsterAlignment>
-		<monsterAc>18 (plate)</monsterAc>
-		<monsterHp>117 (18d8 + 36)</monsterHp>
-		<monsterSpeed>25 ft.</monsterSpeed>
-		<monsterStr>12</monsterStr><monsterDex>10</monsterDex><monsterCon>14</monsterCon><monsterInt>11</monsterInt><monsterWis>17</monsterWis><monsterCha>13</monsterCha>
-		<monsterSave>Con +S, Wis +6</monsterSave>
-		<monsterSkill>Intimidation +4, Religion +3</monsterSkill>
-		<monsterResist>poison</monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses>darkvision 60 ft.,</monsterSenses>
-		<monsterPassive>13</monsterPassive>
-		<monsterLanguages>Common, Dwarvish</monsterLanguages>
-		<monsterCr>8</monsterCr>
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.199</text>
-		</trait>	
-
-<trait>
-			<name>Dwarven Resilience</name>
-			<text>Istrid has advantage on saving throws against being poisoned.</text>
-		</trait>
-
-<trait>
-			<name>Spellcasting.</name>
-			<text>Istrid is a 9th-level spellcaster. Her spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). She has the following cleric spells prepared:
-			
-Cantnps (at will): light, mending, sacred flame, spare the dying
-
-1st level (4 slots}: divine favor, guiding bolt, healing word, shield of faith
-
-2nd level (3 slots): lesser restoration, magic weapon, hold person, silence, spiritual weapon
-
-3rd level (3 slots): beacon_ of hope, crusader's mantle, dispel magic, revivify, spirit guardians, water walk
-
-4th level (3 slots): banishment.freedom of movement, guardian of faith, stoneskin
-
-5th level (1 slot): flame strike, mass cure wounds, hold monster</text>
-		</trait>		
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>Istrid makes two melee attacks.</text>
-			</action>
-			
-				<action>
-			<name>Maul.</name>
-			<text>Melee Weapon Attack: +4 to hit, reach 5 ft ., one target. Hit: 8 (2d6 + 1) bludgeoning damage.</text>
-			</action>
-			
-				<action>
-			<name>Treasure Sense (3/Day).</name>
-			<text>Istrid magically pinpoints precious metals and stones, such as coins and gems, within 60 feet of her.</text>
-			</action>
-			
-	</monster>
-	
-			<monster>
-		<title>Skeemo Weirdbottle</title>
-		<monsterSize>small</monsterSize>
-		<monsterType>humanoid (gnome)</monsterType>
-		<monsterAlignment>neutral evil</monsterAlignment>
-		<monsterAc>12 (15 with mage armor)</monsterAc>
-		<monsterHp>72 (16d6 + 16)</monsterHp>
-		<monsterSpeed>25 ft.</monsterSpeed>
-		<monsterStr>9</monsterStr><monsterDex>14</monsterDex><monsterCon>12</monsterCon><monsterInt>17</monsterInt><monsterWis>12</monsterWis><monsterCha>15</monsterCha>
-		<monsterSave>Int +6, Wis +4</monsterSave>
-		<monsterSkill>Arcana +6 , History +6, Perception +4, Performance +S</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses>darkvision 60 ft.,</monsterSenses>
-		<monsterPassive>14</monsterPassive>
-		<monsterLanguages>Abyssal, Common , Gnomish, Undercommon</monsterLanguages>
-		<monsterCr>6</monsterCr>
-		
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.200</text>
-		</trait>	
-
-<trait>
-			<name>Gnome Cunning.</name>
-			<text>Skeemo has advantage on Intelligence , Wisdom, and Charisma saving throws against magic.</text>
-		</trait>
-
-<trait>
-			<name>Spellcasting.</name>
-			<text>Skeemo is a 9th -level spellcaster. His spellcasting ability is Intelligence (spell save DC 14 , +6 to hit with spell attacks) . He has the following wizard spells prepared:
-			
-Can t rips (at will): fire bolt , light , mage hand, prestidigitation
-
-1st level (4 slots): detect magic, mage armor, magic missile, shield
-
-2nd level (3 s lots) : misty step, suggestion
-
-3rd level (3 slots): counterspell ,fireball,fly
-
-4th level (3 slots): greater invisibility, ice storm
-
-Sth level (1 slot): cone of cold</text>
-		</trait>		
-					
-			<action>
-			<name>Dagger.</name>
-			<text>Melee or Ranged Weapon At tack: + S to hit, reach S ft. or range 20/ 60 ft., one target. Hit: 4 (ld4 + 2) piercing damage .</text>
-			</action>
-						
-	</monster>
-	
-			<monster>
-		<title>Tashlyn Yafeera</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (human)</monsterType>
-		<monsterAlignment>neutral</monsterAlignment>
-		<monsterAc>18 (plate)</monsterAc>
-		<monsterHp>149 (23d8 + 46)</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>18</monsterStr><monsterDex>15</monsterDex><monsterCon>14</monsterCon><monsterInt>10</monsterInt><monsterWis>14</monsterWis><monsterCha>12</monsterCha>
-		<monsterSave>Str +8, Con +6</monsterSave>
-		<monsterSkill>Athletics +8 , Intimidation +5, Perception +6</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses></monsterSenses>
-		<monsterPassive>16</monsterPassive>
-		<monsterLanguages>Common</monsterLanguages>
-		<monsterCr>9</monsterCr>
-		
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.200</text>
-		</trait>	
-
-<trait>
-			<name>Indomitable (2/Day).</name>
-			<text>Tashlyn can reroll a saving throw that she fails . She must use the new roll.</text>
-		</trait>
-
-<trait>
-			<name>Second Wind (Recharges after a Short or Long Rest).</name>
-			<text>As a bonus action, Tashlyn can regain 20 hit points.</text>
-		</trait>		
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>Tashlyn makes three attacks with her greatsword or her shortbow</text>
-			</action>
-			
-			<action>
-			<name>Greatsword</name>
-			<text>Melee Weapon Attack: +8 to h it, reach S ft., one target . Hit: 11 (2d6 + 4) slashing damage, plus 7 (2d6) slashing damage ifTashlyn has more t han ha lf her hit points remaining</text>
-			</action>
-			
-			<action>
-			<name>Shortbow.</name>
-			<text>Ranged Weapon Attack: +6 to hit , range 80/320 ft., one target. Hit : 5 (ld6 + 2) piercing damage, plus 7 (2d6) piercing damage if Tashlyn has more than half her hit points remaining.</text>
-			</action>
-						
-	</monster>
-	
-			<monster>
-		<title>Ziraj the Hunter</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (half-orc)</monsterType>
-		<monsterAlignment>neutral evil</monsterAlignment>
-		<monsterAc>17 (+2 leather armor)</monsterAc>
-		<monsterHp>153 (l 8d8 + 72)</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>18</monsterStr><monsterDex>18</monsterDex><monsterCon>18</monsterCon><monsterInt>11</monsterInt><monsterWis>14</monsterWis><monsterCha>15</monsterCha>
-		<monsterSave>Wis +S, Cha +5</monsterSave>
-		<monsterSkill>Athletics +7, Intimidation +5, Stealth +7, Survival +S</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune></monsterImmune>
-		<monsterConditionImmune></monsterConditionImmune>
-		<monsterSenses>darkvision 60 ft</monsterSenses>
-		<monsterPassive>12</monsterPassive>
-		<monsterLanguages>Common, Orc</monsterLanguages>
-		<monsterCr>8</monsterCr>
-		
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.201</text>
-		</trait>	
-
-<trait>
-			<name>Spellcasting.</name>
-			<text>Ziraj is a lOth level spell caster. His spellcasting ability is Charisma (spell save DC 13, +5 to hit wit h spell attacks). He has the following paladin spells prepared:
-			
-lst level (4 slots): command, protection from evil and good, thunderous smite
-
-2nd level (3 slots): branding smite, find steed
-
-3rd level (2 slots): blinding smite, dispel magic</text>
-		</trait>
-
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>Ziraj makes three attacks with his glaive or with his oversized longbow.</text>
-			</action>
-			
-			<action>
-			<name>Glaive</name>
-			<text>Melee Weapon Attack: +7 to hit, reach S ft., one target. Hit: 9 (ldlO + 4) slashing damage.</text>
-			</action>
-			
-			<action>
-			<name>Oversized Longbow.</name>
-			<text>Ranged Weapon Attack: +7 to hi t, range 150/600 ft., one target. Hit: 11 (2d6 + 4) piercing damage</text>
-			</action>
-			
-			<action>
-			<name>Dreadful Aspect (Recharges after a Sho rt or Long Rest).</name>
-			<text>Ziraj exudes magical menace. Each enemy within 30 feet of him must succeed on a DC 13 Wisdom saving throw or be frightened of Ziraj for l minute. If a frightened enemy ends its turn more than 30 feet away from Ziraj, the enemy can repeat the saving throw, ending the effect on itself on a success.</text>
-			</action>
-						
-	</monster>
-	
-			<monster>
-		<title>Drow Gunslinger</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (elf)</monsterType>
-		<monsterAlignment>any alignment</monsterAlignment>
-		<monsterAc>18 (studded leather, shield)</monsterAc>
-		<monsterHp>84 (13d8 + 26)</monsterHp>
-		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>13</monsterStr><monsterDex>18</monsterDex><monsterCon>14</monsterCon><monsterInt>11</monsterInt><monsterWis>13</monsterWis><monsterCha>14</monsterCha>
-		<monsterSave>Dex +6 , Con +4, Wis +3</monsterSave>
-		<monsterSkill>Perception +3, Stealth +8</monsterSkill>
+		<monsterStr>12</monsterStr><monsterDex>22</monsterDex><monsterCon>14</monsterCon><monsterInt>20</monsterInt><monsterWis>16</monsterWis><monsterCha>19</monsterCha>
+		<monsterSave>Dex+ ll, Wis +8</monsterSave>
+		<monsterSkill>Acrobatics +11, Athletics +6, Deception +14, Perception +8, Sleight of Hand +11, Stealth +16</monsterSkill>
 		<monsterResist></monsterResist>
 		<monsterVulnerable></monsterVulnerable>
 		<monsterImmune></monsterImmune>
 		<monsterConditionImmune></monsterConditionImmune>
 		<monsterSenses>darkvision 120 ft.</monsterSenses>
-		<monsterPassive>13</monsterPassive>
-		<monsterLanguages>Elvish, Undercommon</monsterLanguages>
-		<monsterCr>4</monsterCr>
-		
+		<monsterPassive>18</monsterPassive>
+		<monsterLanguages>Abyssal, Common, Draconic, Dwarvish , Elvish, Undercommon</monsterLanguages>
+		<monsterCr>15</monsterCr>
 		<trait>
 			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.201</text>
-		</trait>	
+			<text>Waterdeep: Dragon Heist, p.206</text>
+		</trait>		<trait>
+			<name>Special Equipment.</name>
+			<text>jarlaxle wears +3 leather armor, a hat of disguise, a bracer of flying daggers (see appendix A), a cloak of invisibility, a knave's eye patch (see appendix A), and a ring of truth telling (see append ix A). He wields a +3 rapier and carries a portable hole and a wand of web . His hat is adorned with a feather of diatryma summoning (see appendix A).</text>
+		</trait>
+		<trait>
+			<name>Evasion</name>
+			<text>If he is subjected to an effect that allows him to make a Dexterity saving throw to take only half damage, Jarlaxle instead takes no damage if he succeeds on the saving throw, and only half damage if he fails. He can't use this trait if he's incapacitated.</text>
+		</trait>
+		<trait>
+			<name>Fey Ancestry</name>
+			<text>jarlaxle has advantage on saving throws against being charmed, and magic can't put him to sleep</text>
+		</trait>
+		<trait>
+			<name>Innate Spellcasting</name>
+			<text>Jarlaxle's innate spellcasting ability is Charisma (spell save DC 17, +9 to hit with spell attacks). He can innately cast t he following spells, requiring no material components:
+			
+At will: dancing lights
 
-<trait>
-			<name>Fey Ancestry.</name>
-			<text>The drow has advantage on saving throws against being charmed, and magic can't put the drow to sleep.</text>
+1/day each: darkness, faerie fire, levitate (self only)</text>
 		</trait>
-		
-		<trait>
-			<name>Gunslinger.</name>
-			<text>Being within 5 feet of a hostile creature or attacking at long range doesn't impose disadvantage on the drow's ranged attack rolls wit h a pistol. In addition, the drow ignores half cover and three quarters cover when ma king ranged attacks with a pistol.</text>
+				<trait>
+			<name>Legendary Resistance (1/ Day)</name>
+			<text>If Jarlaxle fails a saving throw, he can choose to succeed instead</text>
 		</trait>
-		
-		<trait>
-			<name>Innate Spellcasting.</name>
-			<text>The drow's spellcasting ability is Charisma (spell save DC 12). It can innately cast the following spells, requiring no material components:
-			
-			At will: dancing lights
-			
-			1/day each: darkness.faerie fire, levitate (self only)</text>
+				<trait>
+			<name>Sneak Attack (1/Turn).</name>
+			<text>Jarlaxle deals an extra 24 (7d6) damage when he hits a target with a weapon attack and has advantage on the attack roll, or when the target is within 5 feet of an ally of jarlaxle's that isn't incapacitated and jarlaxle doesn't have disadvantage on the attack roll.</text>
 		</trait>
-		
-		<trait>
+				<trait>
+			<name>Suave Defense</name>
+			<text>While jarlaxle is wearing light or no armor and wielding no shield, his AC includes his Charisma modifier.</text>
+		</trait>
+				<trait>
 			<name>Sunlight Sensitivity.</name>
-			<text>While in sunlight, the drow has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</text>
+			<text>When not wearing his knave's eye patch, jarlaxle has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</text>
 		</trait>
-
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>The drow makes two shortsword attacks</text>
-			</action>
-			
-			<action>
-			<name>Shortsword.</name>
-			<text>Melee Weapon Attack: +6 to hit, reach S ft., one target. Hit: 7 (ld6 + 4) piercing damage</text>
-			</action>
-			
-			<action>
-			<name>Poisonous Pistol.</name>
-			<text>Ranged Weapon Attack: +6 to hit, range 30/90 ft., one target. Hit: 9 (ldlO + 4) piercing damage plus 11 (2dl0) poison damage.</text>
-			</action>
-		
-						
+	
+		<action>
+			<name>Multiattack</name>
+			<text>jarlaxle makes three attacks with his +3 rapier or two attacks with daggers created by his bracer of flying daggers.</text>
+		</action>
+		<action>
+			<name>+3 Rapier</name>
+			<text>Melee Weapon Attack: +1 4 to hit, reach 5 ft., one target. Hit: 13 (1d8 + 9) piercing damage .</text>
+		</action>
+		<action>
+			<name>Flying Dagger</name>
+			<text>Ranged Weapon Attack: +11 to hit, range 20/60 ft., one target. Hit: 8 (ld4 + 6) piercing damage.</text>
+		</action>
+		<monsterLegendary>
+		<name></name>
+		<text>Jarlaxle can take 3 legendary actions, choosing from the options below. Only one legendary action option can be used at a time and only at the end of another creature's turn. jarlaxle regains spent legendary actions at the start of his turn.</text>
+		</monsterLegendary>
+		<monsterLegendary>
+		<name>Quick Step.</name>
+		<text>jarlaxle moves up to his speed without provoking opportunity attacks.</text>
+		</monsterLegendary>
+		<monsterLegendary>
+		<name>Attack (Costs 2 Actions).</name>
+		<text>jarlaxle makes one attack with his +3 rapier or two attacks with daggers created by his bracer of flying daggers.</text>
+		</monsterLegendary>
 	</monster>
 	
-	
-			<monster>
-		<title>Durnan</title>
+	<monster>
+		<title>Laeral Silverhand</title>
 		<monsterSize>medium</monsterSize>
 		<monsterType>humanoid (human)</monsterType>
-		<monsterAlignment>neutral</monsterAlignment>
-		<monsterAc>16 (elven chain)</monsterAc>
-		<monsterHp>144 (17d8 + 68)</monsterHp>
+		<monsterAlignment>chaotic good</monsterAlignment>
+		<monsterAc>18 (robe of the archmagi)</monsterAc>
+		<monsterHp>228 (24d8 + 120)</monsterHp>
 		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>18</monsterStr><monsterDex>15</monsterDex><monsterCon>18</monsterCon><monsterInt>13</monsterInt><monsterWis>12</monsterWis><monsterCha>10</monsterCha>
-		<monsterSave>Str +8, Con +8</monsterSave>
-		<monsterSkill>Athletics +8, Perception +5</monsterSkill>
+		<monsterStr>13</monsterStr><monsterDex>17</monsterDex><monsterCon>20</monsterCon><monsterInt>20</monsterInt><monsterWis>20</monsterWis><monsterCha>19</monsterCha>
+		<monsterSave>Int +11 , Wis +11</monsterSave>
+		<monsterSkill>Arcana +17, History +17, Insight +11, Perception +11, Persuasion +10</monsterSkill>
+		<monsterResist>fire</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>poison</monsterImmune>
+		<monsterConditionImmune>poisoned</monsterConditionImmune>
+		<monsterSenses>trues1ght 60 ft .</monsterSenses>
+		<monsterPassive>18</monsterPassive>
+		<monsterLanguages>Common, Draconic, Dwarvish, Elvish, Giant, Infernal</monsterLanguages>
+		<monsterCr>17</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.207</text>
+		</trait>		<trait>
+			<name>Special Equipment.</name>
+			<text>laeral wears a white robe of the arch magi(accounted for in her statistics). She wields a flame tongue longsword.</text>
+		</trait>
+		<trait>
+			<name>Magic Resistance</name>
+			<text>While wearing her robe of the archmagi, laeral has advantage on saving throws against spells and other magical effects.</text>
+		</trait>
+		<trait>
+			<name>Spellcasting.</name>
+			<text>Laeral is a 19th-level spellcaster. Her spellcasting ability is Intelligence (s pell save DC 21, + 13 to hit with spell attacks). Laeral has the following wizard spells prepared:
+			
+Cantrips (at will) : light , mage hand, minor illusion, prestidigitation, ray of frost
+
+1st level (at will): detect magic , disguise self. magic missile, shield
+
+2nd level (at will): detect thoughts, invisibility, misty step
+
+3rd level (3 slots): counterspell,fly, sending, tongues
+
+4th level (3 slots) : banishment, greater invisibility, Otiluke's resilient sphere
+
+5th level (3 slots): cone of cold, geas , Rory's telepathic bond
+
+6th level (2 slots): globe of inv11lnerobility, mass suggestion
+
+7th level (1 slot): prismatic spray, teleport
+
+8th level (1 slot): feeblemind, power word stun
+
+9th level (1 slot): time stop</text>
+		</trait>
+		
+		<action>
+			<name>Multiattack.</name>
+			<text>Laeral makes three attacks with her silver hair and flame tongue, in any combination. She can cast one of her cantrips or lst-level spells before or after ma king these attacks.</text>
+		</action>
+		<action>
+			<name>Silver Hair.</name>
+			<text>Melee Weapon Attack: +11 to hi t , reach 5 ft ., one target. Hit: 7 (2d6) force damage, and the target must succeed on a DC 19 Constitution saving throw or be paralyzed for l minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</text>
+		</action>
+		<action>
+			<name>Flame Tongue.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: S (l d 8 + 1) slashing damage plus 7 (2d 6) fire damage, or 6 (1d l 0 + 1) slashing damage plus 7 (2 d6) fire damage when used with two hands.</text>
+		</action>
+		<action>
+			<name>+3 Rapier</name>
+			<text>Magical, heat-less, silver fire harmlessly erupts from Laeral and surrounds her until she is incapacitated or until she uses an action to quench it. She gains one of the following benefits of her choice, which lasts until the silver fire ends:
+			
+She can breathe underwater.
+
+She can survive without food and water.
+
+She is immune to magic that would ascertain her thoughts, truthfulness, alignment, or creature type.
+
+She gains resistance to cold damage, and she is unharmed by temperatures as low as -50 degrees Fahrenheit.
+
+While the silver fire is present, she has the following additional action options:
+
+Cast the cure wounds spell. The target regains 1d8 + 5 hit points. After Laeral takes this action, roll a d6. On a roll of l , the silver fire disappears.
+
+Cast the revivify spell without material components. After Laeral takes this action , roll a d6. On a roll of 1- 2, the silver fire disappears.
+
+Release a 60-foot line of silver fire that is 5 feet wide or a 30-foot cone of silver fire. Objects in the area that aren't being worn or carried take 26 (4dl 2) fire damage. Each creature in the area must succeed on a DC 21 Dexterity saving throw, taking 26 (4d12) fire damage on a failed save, or half as much damage on a successful one. After laeral takes this action, roll a d6 . On a roll of 1-3, the silver fire disappears.</text>
+		</action>
+		
+	</monster>
+	
+		<monster>
+		<title>Manshoon</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>humanoid (human)</monsterType>
+		<monsterAlignment>lawful evil</monsterAlignment>
+		<monsterAc>19 (robe of the arch magi, staff of power)</monsterAc>
+		<monsterHp>126 (23d8 + 23)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>10</monsterStr><monsterDex>14</monsterDex><monsterCon>12</monsterCon><monsterInt>23</monsterInt><monsterWis>15</monsterWis><monsterCha>16</monsterCha>
+		<monsterSave>Str +2, Dex +4, Con +3, Int +13, Wis +9, Cha +5</monsterSave>
+		<monsterSkill>Arcana +11. History +11</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.</monsterSenses>
+		<monsterPassive>12</monsterPassive>
+		<monsterLanguages>Common, Draconic, Goblin, Infernal, Orc, Undercommon</monsterLanguages>
+		<monsterCr>13</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.209</text>
+		</trait>		<trait>
+			<name>Special Equipment.</name>
+			<text>Manshoon wears a black robe of the arch· magi and wields a staff of power (both accounted for in his statistics). Roll 2dl0 to determine how many charges the staff has remaining.</text>
+		</trait>
+		<trait>
+			<name>Magic Resistance</name>
+			<text>While wearing his robe of the arch magi, Manshoon has advantage on saving throws against spells and other magical effects.</text>
+		</trait>
+		<trait>
+			<name>Spellcasting.</name>
+			<text>Manshoon is an 18th-level spellcaster. His spellcasting ability is Intelligence (spell save DC 21, +15 to hit with spell attacks). He has the following wizard spell s prepared:
+			
+Cantrips (at will) : fire bolt, light, mage hand, prestidigitation, shocking grasp
+
+1st level (4 slots): detect magic, mage armor, magic missile, shield
+
+2nd level (3 slots): detect thoughts, mirror image, misty step
+
+3rd level (3 slots): counterspell, lightning bolt, sending
+
+4th level (3 slots): fire shield, greater invisibility, polymorph
+
+5th level (3 slots): Bigby's hand, scrying, wall of force
+
+6th level (1 slot):flesh to stone, globe of invulnerability
+
+7th level (1 slot):finger of death, simulacrum
+
+8th level (1 slot):feeblemind, mind blank
+
+9th level (1 slot): imprisonment, power word kill</text>
+		</trait>
+		
+		<action>
+			<name>Metal Fist.</name>
+			<text>Melee Weapon Attack: +6 to hit, reach S ft., one target. Hit: 4 (ld4 + 2) bludgeoning damage</text>
+		</action>
+		<action>
+			<name>Staff of Power</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: S (1d6 + 2) bludgeoning damage. or 6 (ld8 + 2) bludgeoning damage when used with two hands. Manshoon can expend 1 of the staff's charges to deal an extra 3 (ld6) fo rce damage on a hit.</text>
+		</action>
+				
+	</monster>
+	
+		<monster>
+		<title>Meloon Wardragon</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>humanoid (human)</monsterType>
+		<monsterAlignment>neutral evil</monsterAlignment>
+		<monsterAc>18 (plate)</monsterAc>
+		<monsterHp>143 (22d8 + 44)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>20</monsterStr><monsterDex>15</monsterDex><monsterCon>14</monsterCon><monsterInt>10</monsterInt><monsterWis>14</monsterWis><monsterCha>15</monsterCha>
+		<monsterSave>Str +9, Con +6</monsterSave>
+		<monsterSkill>Athletics +9, Survival +6</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.</monsterSenses>
+		<monsterPassive>12</monsterPassive>
+		<monsterLanguages>Common, Deep Speech, telepathy 60 ft</monsterLanguages>
+		<monsterCr>9</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.210</text>
+		</trait>		<trait>
+			<name>Special Equipment.</name>
+			<text>Meloon wields Azuredge (see appendix A) but can't attune to it, and thus gains none of its benefits</text>
+		</trait>
+		<trait>
+			<name>Indomitable (2/Day).</name>
+			<text>Meloon can reroll a saving throw that he fails. He must use the new roll.</text>
+		</trait>
+		<trait>
+			<name>Second Wind (Recharges after a Short or Long Rest).</name>
+			<text>As a bonus action, Meloon can regain 20 hit points.</text>
+		</trait>
+		
+		<action>
+			<name>Multiattack.</name>
+			<text>Meloon makes four attacks with Azuredge</text>
+		</action>
+		<action>
+			<name>Azuredge.</name>
+			<text>Melee Attack: +9 to hit, reach 5 ft., one target. Hit: 11 (1dl2 + 5) slashing damage</text>
+		</action>
+				
+	</monster>
+	
+			<monster>
+		<title>Mirt</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>humanoid (human)</monsterType>
+		<monsterAlignment>chaotic good</monsterAlignment>
+		<monsterAc>16 (bracers of defense)</monsterAc>
+		<monsterHp>153 (18d8 ± 72)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>18</monsterStr><monsterDex>18</monsterDex><monsterCon>18</monsterCon><monsterInt>15</monsterInt><monsterWis>12</monsterWis><monsterCha>15</monsterCha>
+		<monsterSave>Dex +8, Wis +S</monsterSave>
+		<monsterSkill>Acrobatics +8, Athletics +8, Perception +S, Persuasion + 6, Stealth +8</monsterSkill>
 		<monsterResist></monsterResist>
 		<monsterVulnerable></monsterVulnerable>
 		<monsterImmune></monsterImmune>
@@ -626,237 +305,393 @@ lst level (4 slots): command, protection from evil and good, thunderous smite
 		<monsterPassive>15</monsterPassive>
 		<monsterLanguages>Common, Dwarvish</monsterLanguages>
 		<monsterCr>9</monsterCr>
-		
 		<trait>
 			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.203</text>
-		</trait>	
-
-<trait>
+			<text>Waterdeep: Dragon Heist, p.211</text>
+		</trait>		<trait>
 			<name>Special Equipment.</name>
-			<text>Durnan wields a sword of sharpness (greatsword) called Grimvault. He wears boots of striding and springing, elven chain, and a ring of spell turning.</text>
+			<text>Mirt wears bracers of defense and a ring of regeneration. He wields a +I longsword and a +1 dagger.</text>
 		</trait>
-		
 		<trait>
-			<name>Indomitable (Recharges after a Long Rest) .</name>
-			<text>Durnan can reroll a saving throw that he fails. He must use the new roll.</text>
+			<name>Brute.</name>
+			<text>A melee weapon deals one extra die of its damage when Mirt hits with it (included in the attacks below</text>
 		</trait>
-		
-		<trait>
-			<name>Spell Turning.</name>
-			<text>While wearing his ring of spell turning, Durnan has advantage on saving throws against any spell that targets only him (not in an area of effect). If Durnan rolls a 20 for the save and the spell is 7th level or lower, the spell has no effect on him and instead targets the caster, using the slot level, spell save DC, attack bonus, an d spell casting ability of the caster.</text>
-		</trait>
-
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>Durnan makes four melee weapon attacks</text>
-			</action>
-			
-			<action>
-			<name>Grimvault.</name>
-			<text>Melee Weapon Attack: +8 to hit, reach 5 ft. , one target. Hit: 11 (2d6 + 4) slashing damage. If the target is an object, the h it instead deals 16 s lashing damage. If the target is a creature and Durnan rolls a 20 on the d20 for the attack roll, the target takes an extra 14 slashing damage, and Durnan rolls another d20. On a roll of 20, he lops off one of the target' s limbs, or some other part of its body if it is limbless.</text>
-			</action>
-			
-			<action>
-			<name>Double Crossbow</name>
-			<text>Ranged Weapon Attack: +6 to h it , range 60/240 ft., one target. Hit: 13 (2dl0 + 2) piercing damage.</text>
-			</action>
-		
-						
-	</monster>
-	
-			<monster>
-		<title>Hlam</title>
-		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (human)</monsterType>
-		<monsterAlignment>lawful good</monsterAlignment>
-		<monsterAc>22 (Unarmored Defense)</monsterAc>
-		<monsterHp>137 (25d8 + 25)</monsterHp>
-		<monsterSpeed>60 ft.</monsterSpeed>
-		<monsterStr>11</monsterStr><monsterDex>24</monsterDex><monsterCon>13</monsterCon><monsterInt>14</monsterInt><monsterWis>21</monsterWis><monsterCha>14</monsterCha>
-		<monsterSave>Str +5, Dex +12</monsterSave>
-		<monsterSkill>Athletics +5, Religion +7</monsterSkill>
-		<monsterResist></monsterResist>
-		<monsterVulnerable></monsterVulnerable>
-		<monsterImmune>poison</monsterImmune>
-		<monsterConditionImmune>charmed, frightened, poisoned</monsterConditionImmune>
-		<monsterSenses></monsterSenses>
-		<monsterPassive>15</monsterPassive>
-		<monsterLanguages>all spoken languages</monsterLanguages>
-		<monsterCr>16</monsterCr>
-		
-		<trait>
-			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.204</text>
-		</trait>	
-
-<trait>
-			<name>Spellcasting.</name>
-			<text>Hlam is a 5th-level spellcaster. His spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). He has the following cleric spells prepared:
-			
-Cantrips (at will): guidance, light, sacred flame, spare the dying
-
-1st level (4 slots): detect evil and good, healing word, sanctuary, shield of faith
-
-2nd level (3 slots): calm emotions, prayer of healing, silence
-
-3rd level (2 slots): protection from energy. remove curse, sending</text>
-		</trait>
-		
 		<trait>
 			<name>Evasion.</name>
-			<text>If Hlam is subjected to an effect that allows him to make a Dexterity saving throw to take only half damage, he instead takes no damage if he succeeds on the saving throw, and only half damage if he fails. He can't use this trait if he's incapacitated.</text>
+			<text>If he is subjected to an effect that allows him to make a Dexterity saving throw to take only half damage, Mirt instead takes no damage if he succeeds on the saving throw, and only half damage if he fails. He can't use this trait if he's incapacitated.</text>
 		</trait>
-		
 		<trait>
-			<name>Magic Unarmed Strikes.</name>
-			<text>While Hlam is wearing no armor and wielding no shield, his AC includes his Wisdom modifier.</text>
+			<name>Sneak Attack (1/Turn).</name>
+			<text>Mirt deals an extra 14 (4 d6) damage when he hits a target with a weapon a t tack and has advantage on the attack roll . or when the target is within 5 feet of an ally of Mirt's that isn't incapacitated and Mirt doesn't have disadvantage on the attack roll.</text>
 		</trait>
 		
-			<trait>
-			<name>Unarmored Defense</name>
-			<text>Hlam's unarmed strikes are magical</text>
-		</trait>
-					
-			<action>
+		<action>
 			<name>Multiattack.</name>
-			<text>Hlam attacks three times using' his unarmed strike, darts, or both.</text>
-			</action>
-			
-			<action>
-			<name>Unarmed Strike.</name>
-			<text>Melee Weapon Attack: +12 to hit, reach 5 ft., one target. Hit: 12 (ldlO + 7) bludgeoning damage. If the target is a creature, Hlam can choose one of the following additional effects:
-			
-The target must succeed on a DC 18 Strength saving throw or drop one item it is holding (Hlam's choice).
-
-The target must succeed on a DC 18 Dexterity saving throw or be knocked prone.
-
-The target must succeed on a DC 18 Constitution saving throw or be stunned until the end of Hlam's next turn.</text>
-			</action>
-			
-			<action>
-			<name>Dart.</name>
-			<text>Ranged Weapon Attack: +12 to hit, range 20/60 ft., one target. Hit: 9 (ld4 + 7) piercing damage.</text>
-			</action>
-			
-				<action>
-			<name>Quivering Palm (Recharge 6).</name>
-			<text>Melee Weapon Attack:+ 12 to hit, reach 5 ft., one creature. Hit: The target must make a DC 18 Constitution saving throw. On a failed save, the target is reduced to 0 hit points. On a successful save, the target takes 55 (lOdlO) necrotic damage.</text>
-			</action>
-			
-				<action>
-			<name>Wholeness of Body (Recharges after a Long Rest).</name>
-			<text>Hlam regains 60 hit points.</text>
-			</action>
-		
-						
+			<text>Mirt makes three attacks: two w it h his +7 longsword and one with his +7 dagger.</text>
+		</action>
+		<action>
+			<name>+1 Longsword.</name>
+			<text>Melee Weapon Attack: +9 to hit, reach 5 ft. onetarget. Hit: 14 C2d8 + 5) slashing damage, or 16 (2d10 + 5) slashing damage when used with two hands.</text>
+		</action>
+		<action>
+			<name>+1 Dagger.</name>
+			<text>Melee or Ranged Weapon Attack: +9 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 10 (2d4 + 5) piercing damage when used as a melee weapon, or 7 (ld4 + 5) piercing damage when used as a ranged weapon.</text>
+		</action>
+				
+				<monsterReaction>
+			<name>Parry.</name>
+			<text>Mirt adds 2 to his AC against one melee attack that would hit him. To do so, Mirt must see the attacker and be wielding a me lee weapon.</text>
+		</monsterReaction>
 	</monster>
 	
-				<monster>
-		<title>Hrabbaz</title>
+		<monster>
+		<title>Nimblewright</title>
 		<monsterSize>medium</monsterSize>
-		<monsterType>humanoid (half-orc)</monsterType>
-		<monsterAlignment>neutral evil</monsterAlignment>
-		<monsterAc>12</monsterAc>
-		<monsterHp>112 (15d8 45)</monsterHp>
+		<monsterType>construct</monsterType>
+		<monsterAlignment>unaligned</monsterAlignment>
+		<monsterAc>18 (natural armor)</monsterAc>
+		<monsterHp>45 (6d8 + 18)</monsterHp>
+		<monsterSpeed>60 ft.</monsterSpeed>
+		<monsterStr>12</monsterStr><monsterDex>18</monsterDex><monsterCon>17</monsterCon><monsterInt>8</monsterInt><monsterWis>10</monsterWis><monsterCha>6</monsterCha>
+		<monsterSave>Dex +6</monsterSave>
+		<monsterSkill>Acrobatics +8, Perception +2</monsterSkill>
+		<monsterResist>bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune>exhaustion, frightened, petrified, poisoned</monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.</monsterSenses>
+		<monsterPassive>15</monsterPassive>
+		<monsterLanguages>understands one language known to its creator but can't speak</monsterLanguages>
+		<monsterCr>4</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.212</text>
+		</trait>		<trait>
+			<name>Magic Resistance</name>
+			<text>The nimblewright has advantage on saving throws against spells and other magical effects</text>
+		</trait>
+		<trait>
+			<name>Magic Weapons.</name>
+			<text>The nimblewright's weapon attacks are magical.</text>
+		</trait>
+		<trait>
+			<name>Repairable.</name>
+			<text>As long as it has at least l hit point remaining, the nimblewright regains l hit point when a mending spell is cast on it.</text>
+		</trait>
+		<trait>
+			<name>Sure-Footed.</name>
+			<text>The nimblewright has advantage on Strength and Dexterity saving throws made against effects that would knock it prone.</text>
+		</trait>
+		
+		<action>
+			<name>Multiattack.</name>
+			<text>The nimblewright makes three attacks: two with its rapier and one with its dagger.</text>
+		</action>
+		<action>
+			<name>Rapier.</name>
+			<text>Melee Weapon Attack: +6 to hiti reach S ft., one target. Hit: 8 (ld8 + 4) piercing damage.</text>
+		</action>
+		<action>
+			<name>Dagger.</name>
+			<text>Melee or Ranged Weapon Attack~ +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 6 (1d4 + 4) piercing damage</text>
+		</action>
+				
+				<monsterReaction>
+			<name>Parry.</name>
+			<text>The nimblewright adds 2 to Its AC against one melee attack that would hit it. To do so, the nimblewright must see the attacker and be wielding a melee weapon.</text>
+		</monsterReaction>
+	</monster>
+	
+		<monster>
+		<title>Remallia Haventree</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>humanoid (elf)</monsterType>
+		<monsterAlignment>chaotic good</monsterAlignment>
+		<monsterAc>12 (15 with mage armor)</monsterAc>
+		<monsterHp>66 (12d8 + 12)</monsterHp>
 		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>20</monsterStr><monsterDex>15</monsterDex><monsterCon>17</monsterCon><monsterInt>10</monsterInt><monsterWis>14</monsterWis><monsterCha>12</monsterCha>
-		<monsterSave>Str +8, Con +6</monsterSave>
-		<monsterSkill>Athletics +8, Intimidation +4, Perception +5</monsterSkill>
+		<monsterStr>10</monsterStr><monsterDex>14</monsterDex><monsterCon>13</monsterCon><monsterInt>18</monsterInt><monsterWis>15</monsterWis><monsterCha>17</monsterCha>
+		<monsterSave>Int +8, Wis +6</monsterSave>
+		<monsterSkill>Arcana +8, Deception +7, History +8, Persuasion +7</monsterSkill>
 		<monsterResist></monsterResist>
 		<monsterVulnerable></monsterVulnerable>
 		<monsterImmune></monsterImmune>
 		<monsterConditionImmune></monsterConditionImmune>
 		<monsterSenses>darkvision 60 ft.</monsterSenses>
-		<monsterPassive>15</monsterPassive>
-		<monsterLanguages>Common, Ore</monsterLanguages>
-		<monsterCr>5</monsterCr>
-		
+		<monsterPassive>12</monsterPassive>
+		<monsterLanguages>Common, Draconic, Dwarvish, Elvish, Halfling</monsterLanguages>
+		<monsterCr>9</monsterCr>
 		<trait>
 			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.205</text>
-		</trait>	
+			<text>Waterdeep: Dragon Heist, p.214</text>
+		</trait>		<trait>
+			<name>Special Equipment</name>
+			<text>Remallia has a figurine of wondrous power(silver raven).</text>
+		</trait>
+		<trait>
+			<name>Fey Ancestry</name>
+			<text>Rema Ilia has advantage on saving throws against being charmed, and magic can't put her to sleep.</text>
+		</trait>
+		<trait>
+			<name>Spellcasting.</name>
+			<text>Remallia is a 13th-level spellcaster. Her spellcasting ability is Intelligence (spell save DC 16, +8 to hit with spell attacks). She has the following wizard spells prepared:
+			
+Cantrips (at will): dancing lights, mage hand, mending, message, ray of frost
 
-<trait>
-			<name>Indomitable (2/Day).</name>
-			<text>Hrabbaz can rerol l a saving throw that he fails. He must use the new roll.</text>
+1st level (4 slots): alarm,* mage armor,* magic missile, shield*
+
+2nd level (3 slots): arcane lock,* invisibility
+
+3rd level (3 slots): counterspell, dispel magic,* fireball
+
+4th level (3 slots): banishment,* stoneskin*
+
+Sth level (2 slots): cone of cold, wall of force
+
+6th level (1 slot): flesh to stone, globe of invulnerability*
+
+7th level (1 slot): symbol,* teleport
+
+*Abjuration spell of 1st level or higher</text>
+		</trait>
+		<trait>
+			<name>Arcane Ward.</name>
+			<text>Remallia has a magical ward that has 30 hit points. Whenever she takes damage, the ward takes the damage instead. If the ward is reduced to 0 hit points, Remallia takes any remaining damage. When Remallia casts an abjuration spell of 1st level or higher, the ward regains a number of hit points equal to twice the level of the spell.</text>
 		</trait>
 		
-		<trait>
-			<name>Relentless Endurance (Recharges after a Long Rest).</name>
-			<text>When Hrabbaz is reduced to 0 hit points but not killed outright, he drops to 1 hit point instead.</text>
-		</trait>
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>Hrabbaz makes three attacks with his morningstar.</text>
-			</action>
-			
-			<action>
-			<name>Morningstar.</name>
-			<text>Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 9 (ld8 + 5) piercing damage, plus 3 (ld6) piercing damage if Hrabbaz has more than half his hit points remaining</text>
-			</action>
-					
-						
+		<action>
+			<name>Dagger.</name>
+			<text>Melee Weapon Attack: +6 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (ld4 + 2) piercing damage.</text>
+		</action>
+		
 	</monster>
 	
-					<monster>
-		<title>Jalester Silvermane</title>
+		<monster>
+		<title>Vajra Safahr</title>
 		<monsterSize>medium</monsterSize>
 		<monsterType>humanoid (human)</monsterType>
-		<monsterAlignment>lawful good</monsterAlignment>
-		<monsterAc>18 (chain mail, badge of the Watch)</monsterAc>
-		<monsterHp>71 (13d8 + 13)</monsterHp>
+		<monsterAlignment>lawful neutral</monsterAlignment>
+		<monsterAc>14 (Blackstaff; 17 with mage armor)</monsterAc>
+		<monsterHp>126 (23d8 + 23)</monsterHp>
 		<monsterSpeed>30 ft.</monsterSpeed>
-		<monsterStr>14</monsterStr><monsterDex>14</monsterDex><monsterCon>13</monsterCon><monsterInt>12</monsterInt><monsterWis>14</monsterWis><monsterCha>13</monsterCha>
-		<monsterSave>Str +4, Con +3</monsterSave>
-		<monsterSkill>Athletics +4, Survival +4</monsterSkill>
+		<monsterStr>10</monsterStr><monsterDex>14</monsterDex><monsterCon>12</monsterCon><monsterInt>20</monsterInt><monsterWis>11</monsterWis><monsterCha>16</monsterCha>
+		<monsterSave>Str +2, Dex +4, Con +3, Int +12, Wis +7, Cha +5</monsterSave>
+		<monsterSkill>Arcana +10, History +10</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses></monsterSenses>
+		<monsterPassive>10</monsterPassive>
+		<monsterLanguages>Common, Dwarvish, Elvish, Giant, Halfling, Undercommon</monsterLanguages>
+		<monsterCr>13</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.217</text>
+		</trait>		<trait>
+			<name>Special Equipment</name>
+			<text>Vajra wields the Blackstaff (see appendix A), accounted for in her statistics. Roll 2dl0 to determine how many charges the staff has remaining.</text>
+		</trait>
+		<trait>
+			<name>Magic Resistance</name>
+			<text>Vajra has advantage on saving throws against spells and other magical effects</text>
+		</trait>
+		<trait>
+			<name>Spellcasting.</name>
+			<text>Vajra is an 18th-level spellcaster. Her spell casting ability is Intelligence (spell save DC 18, + 12 to hit with spell attacks). She has the following wizard spells prepared:
+			
+Cantr ips (at will): fire bolt, light, mage hand, message, prestidigitation
+
+lst level (4 slots): detect magic, identify, mage armor, thunderwave
+
+2nd level (3 slots): invisibility, misty step, web
+
+3rd level (3 slots): counterspell,fly, sending
+
+4th level (3 slots): banishment, fire shield, stoneskin
+
+5th level (3 slots): Bigby's hand, geas, telekinesis
+
+6th level (1 slot): chain lightning, globe of invulnerability
+
+7th level (1 slot):forcecage, prismatic spray
+
+8th level ( 1 slot): antimagic field, power word stun
+
+9 t h level (l slot): imprisonment</text>
+		</trait>
+		
+		<action>
+			<name>Blackstaff.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 5 (ld6 + 2) bludgeon ing damage, or 6 (l d8 + 2) bludgeoning damage when used with two hands. Vajra can expend l of the staff's charges to deal an extra 3 (ld6) force damage on a hit.</text>
+		</action>
+		
+	</monster>
+	
+		<monster>
+		<title>Victoro Cassalanter</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>humanoid (half-elf)</monsterType>
+		<monsterAlignment>lawful evil</monsterAlignment>
+		<monsterAc>15 (glamoured studded leather, ring of protection)</monsterAc>
+		<monsterHp>97 (15d8 + 30)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>13</monsterStr><monsterDex>13</monsterDex><monsterCon>14</monsterCon><monsterInt>16</monsterInt><monsterWis>17</monsterWis><monsterCha>18</monsterCha>
+		<monsterSave>Con +6, Wis +7</monsterSave>
+		<monsterSkill>History +7, Insight +7, Persuasion +8, Religion +7</monsterSkill>
+		<monsterResist>poison</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune>poisoned</monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft</monsterSenses>
+		<monsterPassive>13</monsterPassive>
+		<monsterLanguages>Common, Draconic, Elvish, Infernal</monsterLanguages>
+		<monsterCr>13</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.218</text>
+		</trait>		<trait>
+			<name>Special Equipment</name>
+			<text>Victoro wears a ring of protection and glamoured studded leather disguised to look like fine clothing. He carries a rod of rulership shaped like a ruby-tipped cane.</text>
+		</trait>
+		<trait>
+			<name>Fey Ancestry</name>
+			<text>Victoro has advantage on saving throws against being charmed, and magic can't put him to sleep.</text>
+		</trait>
+		<trait>
+			<name>Spellcasting.</name>
+			<text>Victoro is a 15th-level spellcaster. His spellcasting ability is Wisdom (spell save DC 15, +7 to hit with spell attacks). Victoro has the following cleric spells prepared:
+			
+Cantrips {at will): guidance, light, mending, spare the dying, thaumaturgy
+
+lst level (4 slots): charm person, command, detect magic, disguise self, protection from evil and good, sanctuary
+
+2nd level {3 slots): augury, lesser restoration, mirror image, pass without trace, spiritual weapon
+
+3rd level (3 slots): blink, clairvoyance, dispel magic, magic circle, protection from energy
+
+4th level (3 slots): banishment, dimension door, divination, freedom of movement, polymorph
+
+5th level (2 slots): dominate person, flame strike, modify memory, insect plague
+
+6th level (l slot): heal
+
+7th level {l slot): divine word
+
+8th level (l slot): earthquake</text>
+		</trait>
+		
+		<action>
+			<name>Multiattack.</name>
+			<text>Victoro makes two attacks with his rapier.</text>
+		</action>
+			<action>
+			<name>Rapier.</name>
+			<text>Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (ld8 + l ) piercing damage.</text>
+		</action>
+			<action>
+			<name>Cloak of Shadows (2/Day).</name>
+			<text>Victoro becomes invisible until the end of his next turn. He becomes visible early immediately after he attacks or casts a spell.</text>
+		</action>
+			<action>
+			<name>Summon Devil (Recharges after 9 Days).</name>
+			<text>Victoro summons a barbed devil. The devil appears in an unoccupied space within 30 feet ofVictoro, acts as Victoro's ally, and can't summon ~ other devils. It remains for l minute, until it or Victoro dies, or until Victoro dismisses it as an action.</text>
+		</action>
+		
+	</monster>
+	
+			<monster>
+		<title>Volothamp "Volo" Geddarm</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>humanoid (human)</monsterType>
+		<monsterAlignment>chaotic good</monsterAlignment>
+		<monsterAc>11</monsterAc>
+		<monsterHp>31 (7d8)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>9</monsterStr><monsterDex>12</monsterDex><monsterCon>10</monsterCon><monsterInt>15</monsterInt><monsterWis>11</monsterWis><monsterCha>16</monsterCha>
+		<monsterSave>Con +2, Wis +2</monsterSave>
+		<monsterSkill>Animal Handling +4, Arcana +4, peception +5, History +4, Insight +2, Investigation +4, Perception +2, Performance +7, Persuasion +7, Sleight of Hand +3, Survival +2</monsterSkill>
 		<monsterResist></monsterResist>
 		<monsterVulnerable></monsterVulnerable>
 		<monsterImmune></monsterImmune>
 		<monsterConditionImmune></monsterConditionImmune>
 		<monsterSenses></monsterSenses>
 		<monsterPassive>12</monsterPassive>
-		<monsterLanguages>Common, Elvish</monsterLanguages>
-		<monsterCr>4</monsterCr>
-		
+		<monsterLanguages>Common, Dwarvish, Elvish</monsterLanguages>
+		<monsterCr>0.125</monsterCr>
 		<trait>
 			<name>Source</name>
-			<text>Waterdeep: Dragon Heist, p.205</text>
-		</trait>	
+			<text>Waterdeep: Dragon Heist, p.218</text>
+		</trait>		<trait>
+			<name>Spellcasting.</name>
+			<text>Volo is a 1st- level spellcaster. His spellcasting ability is Intelligence {spell save DC 12, +4 to hit with spell attacks). He has the following wizard spells prepared:
+			
+Cantrips (at will): friends, mending, prestidigitation
 
-<trait>
-			<name>Special Equipment</name>
-			<text>Jalester carries a badge of the Watch.</text>
+1st level (2 slots): comprehend languages, detect magic, disguise self</text>
 		</trait>
-		
-		<trait>
-			<name>Second Wind (Recharges after a Short or Long Rest) .</name>
-			<text>As a bonus action, jalester can regain 16 (ldlO + 11) hit points.</text>
-		</trait>
-					
-			<action>
-			<name>Multiattack.</name>
-			<text>jalester makes two weapon attacks</text>
-			</action>
-			
-			<action>
-			<name>Longsword.</name>
-			<text>Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (ld8 + 2) slashing damage. or 7 (ldlO + 2) slashing damage when used with two hands.</text>
-			</action>
-			
-				<action>
+				
+		<action>
 			<name>Dagger.</name>
-			<text>Melee or Ra{lged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (ld4 + 2) piercing damage</text>
-			</action>
-			
-					<monsterReaction>
-			<name>Riposte.</name>
-			<text>When a creature that jalester can see misses him with a melee attack, he can use his reaction to make a melee weapon attack against that creature. On a hit, the target takes an extra 4 damage from the weapon.</text>
-			</monsterReaction>
-					
-						
+			<text>Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 3 (ld4 + l) piercing damage</text>
+		</action>
+		
+		
+	</monster>
+	
+			<monster>
+		<title>Walking Statue of Waterdeep</title>
+		<monsterSize>gargantuan</monsterSize>
+		<monsterType>construct</monsterType>
+		<monsterAlignment>unaligned</monsterAlignment>
+		<monsterAc>17</monsterAc>
+		<monsterHp>314 (17d20 + 136)</monsterHp>
+		<monsterSpeed>60 ft.</monsterSpeed>
+		<monsterStr>30</monsterStr><monsterDex>8</monsterDex><monsterCon>27</monsterCon><monsterInt>1</monsterInt><monsterWis>10</monsterWis><monsterCha>1</monsterCha>
+		<monsterSave>Con +14</monsterSave>
+		<monsterSkill></monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>cold, fire, poison , psychic; bludgeoning, piercing, and slashing from nonmagical attacks not made with adamantine weapons</monsterImmune>
+		<monsterConditionImmune>charmed, exhaustion, frightened, paralyzed, petrified, poisoned, stunned</monsterConditionImmune>
+		<monsterSenses>truesight 120 ft.</monsterSenses>
+		<monsterPassive>10</monsterPassive>
+		<monsterLanguages>---</monsterLanguages>
+		<monsterCr>18</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Waterdeep: Dragon Heist, p.219</text>
+		</trait>		<trait>
+			<name>Crumbling Colossus</name>
+			<text>When the statue drops to 0 hit points, It crumbles and is destroyed. Any creature on the ground within 30 feet of the crumbling statue must make a DC 22 Dexterity saving throw, taking 22 (4dl0) bludgeoning damage on a failed save, or half as much damage on a successful one.</text>
+		</trait>
+				<trait>
+			<name>Immutable Form.</name>
+			<text>The statue is immune to any spell or effect that would alter its form.</text>
+		</trait>
+				<trait>
+			<name>Magic Resistance .</name>
+			<text>The statue has advantage on saving throws against spells and other magical effects.</text>
+		</trait>
+				<trait>
+			<name>Siege Monster</name>
+			<text>The statue deals double damage to objects and structures.</text>
+		</trait>
+				
+		<action>
+			<name>Multiattack.</name>
+			<text>The statue makes two melee attacks</text>
+		</action>
+		<action>
+			<name>Slam.</name>
+			<text>Melee Weapon Attack: +16 to hit, reach 5 ft., one target. Hit: 29 (3d12 + 10) bludgeoning damage</text>
+		</action>
+		<action>
+			<name>Hurled Stone.</name>
+			<text>Ranged Weapon Aitack: + 16 to hit, range 200/800 ft., one target. Hit: 43 ( 6d10 + 10) bludgeoning damage.</text>
+		</action>
+		
+		
 	</monster>
 
 </world>
