@@ -10,6 +10,13 @@
    $headpath .= "/header.php";
    include_once($headpath);
    ?>
+   <?php
+   $sqlpath = $_SERVER['DOCUMENT_ROOT'];
+   $sqlpath .= "/plugins/Parsedown.php";
+   include_once($sqlpath);
+    ?>
+    <?php  $Parsedown = new Parsedown();
+    ?>
    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
@@ -44,7 +51,7 @@
      $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
      $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
      while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
-     echo nl2br($row['note']);
+     echo $Parsedown->text(nl2br($row['note']));
 }
 ?>
    </div>
