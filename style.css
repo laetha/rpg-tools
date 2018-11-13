@@ -737,3 +737,7 @@ background: #000;
 .active-init {
 	background-color:rgba(148, 160, 206, 0.5);
 }
+
+.loctable {
+	padding-right: 20px;
+}

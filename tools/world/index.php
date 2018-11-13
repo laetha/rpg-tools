@@ -293,14 +293,22 @@ if ($sidebartype == "settlement") {
 }
 
 if ($sidebartype == "establishment") {
-  echo ('Inhabitants: ');
+  echo ('<table><tr><td class="loctable">Inhabitants:</td>');
+  echo ('<td class="loctable">Location:</td></tr><tr><td class="loctable">');
   $sqlcompendium = "SELECT * FROM world WHERE npc_est LIKE '%{$id}%'";
   $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
   while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
     $entry1 = addslashes($row2['title']);
     ?><p><a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $row2['title']; ?></a></p><?php
-
   }
+  echo ('</td><td class="loctable">');
+  $sqlcompendium = "SELECT * FROM world WHERE title LIKE '%{$id}%'";
+  $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+  while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+  $entry1 = addslashes($row2['est_location']);
+  ?><p><a href="world.php?id=<?php echo $row2['est_location']; ?>"> <?php echo $row2['est_location']; ?></a></p><?php
+}
+echo ('</td></tr></table>');
   ?>
   <script>
   function modalChange(value) {

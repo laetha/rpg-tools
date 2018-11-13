@@ -13,20 +13,35 @@
 
 ?>
 <div class="mainbox">
-<div class="row">
-  <!-- Add to Log -->
+  <div class="row">
+  <button class="btn btn-info" id="notesbutton" onclick ="displayToggle()">Toggle Display</button>
+  <script>
+  function displayToggle() {
+    document.getElementById('area4');
+    if (area4.style.display === 'none') {
+      area4.style.display = "block";
+      document.getElementById('area1').className = "col-md-4";
+
+    }
+    else {
+    area4.style.display = "none";
+    document.getElementById('area1').className = "col-md-8";
+  }
+  }
+  </script>
+</div>
+<!-- <div class="row">
   <button class="btn btn-info" id="logbutton">Campaign Log</button>
-  <!-- Add to Log -->
 <button class="btn btn-info" id="notesbutton">GM Notes</button>
 <button class="btn btn-info" id="notesbutton" onclick ="displayToggle()">Toggle Display</button>
 <div id="logdiv" style="display:none;">
   <div class="row">
-<iframe class="blockframetall" id="notesframe" src="/tools/campaign-log/campaign-log.php"></iframe></div>
+<iframe class="blockframetall" id="logframe" data-src="/tools/campaign-log/campaign-log.php"></iframe></div>
 
 </div>
 <div id="notesdiv" style="display:none;">
   <div class="row">
-<iframe class="blockframetall" id="logframe" src="/tools/world/gmnotes.php"></iframe></div>
+<iframe class="blockframetall" id="notesframe" data-src="/tools/world/gmnotes.php"></iframe></div>
 
 </div>
 <script>
@@ -34,6 +49,8 @@
 $(document).ready(function addLog(){
     $("#logbutton").click(function addLog(){
         $("#logdiv").slideToggle("slow");
+        var iframe = $("#logframe");
+        iframe.attr("src", iframe.data("src"));
         window.setTimeout(nonav,2000);
     });
 });
@@ -41,6 +58,8 @@ $(document).ready(function addLog(){
 $(document).ready(function addLog(){
   $("#notesbutton").click(function addLog(){
       $("#notesdiv").slideToggle("slow");
+      var iframe = $("#notesframe");
+      iframe.attr("src", iframe.data("src"));
       window.setTimeout(nonav,2000);
 
   });
@@ -59,7 +78,7 @@ function displayToggle() {
 }
 }
 </script>
-</div>
+</div> -->
   <style>
   .col-md-4 {
     padding-left: 0px;
