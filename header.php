@@ -78,6 +78,7 @@ $loguser = $_SESSION["newsession"];
 					<select id="search">
 					<option value=""></option>
 					<?php
+					if ($loguser == 'tarfuin') {
 					$searchdrop = "SELECT title FROM world";
 					$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 					while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
@@ -85,6 +86,7 @@ $loguser = $_SESSION["newsession"];
 						$searchvalue = $search.'1';
 						echo "<option value=\"$searchvalue\">$search</option>";
 					}
+				}
 					?>
 					<?php
 					$searchdrop1 = "SELECT title FROM compendium";
@@ -106,6 +108,7 @@ $loguser = $_SESSION["newsession"];
 					?>
 					</select>
 				</li>
+				<?php if ($loguser == 'tarfuin') { ?>
 				<li class="dropdown">
 				<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World(DM)<span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -114,6 +117,7 @@ $loguser = $_SESSION["newsession"];
 					<li><a href="/tools/world/import.php">Import</a></li>
 					<li><a href="/tools/world/gmnotes.php">GM Notes</a></li>
 					<li><a href="/tools/world/xp.php">Award XP</a></li>
+					<li><a href="/tools/resources/calendar.php">Calendar</a></li>
 
 
 					<li role="separator" class="divider"></li>
@@ -128,6 +132,7 @@ $loguser = $_SESSION["newsession"];
 					<li><a href="/tools/world/publicquest.php">Public Quests</a></li>
 
 				</ul>
+			<?php } ?>
 				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compenium<span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -148,30 +153,39 @@ $loguser = $_SESSION["newsession"];
 							<li><a href="/tools/world/workspace.php">Workspace</a></li>
 							<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 							<li><a href="/tools/generator/generator.php">Random Generator</a></li>
-							<li><a href="/tools/resources/toc.php">Resources</a></li>
+							<li>
+<?php if ($loguser == 'tarfuin') {
+							echo ('<a href="/tools/resources/toc.php">Resources</a>');
+}
+	else {
+		echo ('<a href="/tools/resources/player-resources.php">Resources</a>');
+	}
+	?>
+							</li>
 
 						</ul>
 
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
-				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
-				<li><a class="navbar-toggler" type="button" data-toggle="collapse" href="#" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Music</a></li>
+				<!-- <li><a class="navbar-toggler" type="button" data-toggle="collapse" href="#" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Music</a></li> -->
 				<?php
 				if ($loguser == 'null'){
 
 				echo ('<li><a href="/tools/login/login.php">Login</a></li>');
 			}
 			else {
-			echo ('<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$loguser.'<span class="caret"></span></a>');
+
+			echo ('<li class="dropdown"><a href="#" class="dropdown-toggle" style="color: #42f486;" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.ucfirst($loguser).'<span class="caret"></span></a>');
 			?>
 			<ul class="dropdown-menu">
 				<li><a href="/tools/users/characters.php">Characters</a></li>
+				<li><a href="/tools/users/characters.php">Favourites</a></li>
 				<li><a href="/tools/login/logout.php">Logout</a></li>
 			</ul>
 			<?php
 			}
 			?>
-					<div class="collapse" id="navbarToggleExternalContent" style="margin-top:50px;">
+		<!--			<div class="collapse" id="navbarToggleExternalContent" style="margin-top:50px;">
 						<div class="row">
 
 						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/5htGO0OUB7SsFMT3kwjBn3" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
@@ -179,13 +193,20 @@ $loguser = $_SESSION["newsession"];
 						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/0oYKtwS7RH8qmFNmUg1GPp" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
 						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/0nWXBUnIWBTcGjnQ9f1Qqy" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
-	</div>
+	</div> -->
 
 
   </div>
 
 
       </ul>
+
+<?php			$path = 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+if (strpos ($path, '/world') !== false && $loguser !== 'tarfuin') {
+	echo ('<script> window.location.replace("/oops.php"); </script>');
+}
+ ?>
+
 
 			<!-- Delete Modal -->
 		  <div class="modal fade" id="myModal" role="dialog">
