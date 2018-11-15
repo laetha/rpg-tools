@@ -1,4 +1,12 @@
 <!DOCTYPE HTML>
+<?php session_start();
+if (!isset($_SESSION["newsession"])){
+	$loguser = 'null';
+}
+else {
+$loguser = $_SESSION["newsession"];
+}
+?>
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,6 +156,21 @@
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
 				<li><a href="/tools/resources/calendar.php">Calendar</a></li>
 				<li><a class="navbar-toggler" type="button" data-toggle="collapse" href="#" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Music</a></li>
+				<?php
+				if ($loguser == 'null'){
+
+				echo ('<li><a href="/tools/login/login.php">Login</a></li>');
+			}
+			else {
+			echo ('<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'.$loguser.'<span class="caret"></span></a>');
+			?>
+			<ul class="dropdown-menu">
+				<li><a href="/tools/users/characters.php">Characters</a></li>
+				<li><a href="/tools/login/logout.php">Logout</a></li>
+			</ul>
+			<?php
+			}
+			?>
 					<div class="collapse" id="navbarToggleExternalContent" style="margin-top:50px;">
 						<div class="row">
 
@@ -157,11 +180,34 @@
 						<iframe src="https://open.spotify.com/embed/user/1276319948/playlist/0nWXBUnIWBTcGjnQ9f1Qqy" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
 	</div>
+
+
   </div>
 
 
-
       </ul>
+
+			<!-- Delete Modal -->
+		  <div class="modal fade" id="myModal" role="dialog">
+		    <div class="modal-dialog">
+
+		      <!-- Modal content-->
+		      <div class="modal-content modalstyle bodytext">
+
+		        <div class="modal-body">
+							<form action="" method="post">
+    <input type="text" name="username" placeholder="Enter your username" required>
+    <input type="password" name="password" placeholder="Enter your password" required>
+    <input type="submit" value="Submit">
+		<input type="submit" value="Register">
+
+</form>
+		        </div>
+		      </div>
+
+		    </div>
+		  </div>
+
 
     </div><!-- /.navbar-collapse -->
 
