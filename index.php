@@ -1,12 +1,14 @@
 <?php
 $pgtitle = '';
 
+ include('header.php');
+
 //SQL Connect
  $sqlpath = $_SERVER['DOCUMENT_ROOT'];
  $sqlpath .= "/sql-connect.php";
  include_once($sqlpath);
 
- include('header.php');
+
  ?>
 
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
