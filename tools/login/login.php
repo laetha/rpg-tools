@@ -43,7 +43,7 @@ include_once($headpath);
 <form method="post" action="registerprocess.php" id="registerform" enctype="multipart/form-data">
 <div class="text">Userame</div><input class="textbox" type="text" name="username" id="username" placeholder="username" required>
 <div class="text">Password</div><input class="textbox" type="password" name="password" id="password" required>
-<div class="text">Confirm Password</div><input class="textbox" type="text" name="passwordconfirm" id="passwordconfirm" required>
+<div class="text">Confirm Password</div><input class="textbox" type="password" name="passwordconfirm" id="passwordconfirm" required>
 
 </div>
 

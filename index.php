@@ -1,13 +1,11 @@
 <?php
 $pgtitle = '';
-
- include('header.php');
+include('header.php');
 
 //SQL Connect
  $sqlpath = $_SERVER['DOCUMENT_ROOT'];
  $sqlpath .= "/sql-connect.php";
  include_once($sqlpath);
-
 
  ?>
 
