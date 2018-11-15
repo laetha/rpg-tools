@@ -1,5 +1,4 @@
 <?php
-$pgtitle = '';
 include('header.php');
 
 //SQL Connect
@@ -16,7 +15,7 @@ include('header.php');
           $sqlworld = "SELECT * FROM quotes ORDER BY RAND() LIMIT 1";
           $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
           while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
-            echo ('<em>"'.$linkrow['quote'].'"</em>');
+            echo ('<em>"'.utf8_encode($linkrow['quote']).'"</em>');
             echo ('<br>');
             echo ('<div style="text-align: right;">- '.$linkrow['source'].'</div>');
           }
