@@ -1,4 +1,3 @@
-<!DOCTYPE HTML>
 <?php session_start();
 if (!isset($_SESSION["newsession"])){
 	$loguser = 'null';
@@ -7,6 +6,8 @@ else {
 $loguser = $_SESSION["newsession"];
 }
 ?>
+<!DOCTYPE HTML>
+
 <html>
 	<head>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
