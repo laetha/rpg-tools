@@ -208,27 +208,6 @@ if (strpos ($path, '/world') !== false && $loguser !== 'tarfuin' && strpos($path
  ?>
 
 
-			<!-- Delete Modal -->
-		  <div class="modal fade" id="myModal" role="dialog">
-		    <div class="modal-dialog">
-
-		      <!-- Modal content-->
-		      <div class="modal-content modalstyle bodytext">
-
-		        <div class="modal-body">
-							<form action="" method="post">
-    <input type="text" name="username" placeholder="Enter your username" required>
-    <input type="password" name="password" placeholder="Enter your password" required>
-    <input type="submit" value="Submit">
-		<input type="submit" value="Register">
-
-</form>
-		        </div>
-		      </div>
-
-		    </div>
-		  </div>
-
 
     </div><!-- /.navbar-collapse -->
 
