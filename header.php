@@ -203,7 +203,10 @@ $loguser = $_SESSION["newsession"];
 
 <?php			$path = 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
 if (strpos ($path, '/world') !== false && $loguser !== 'tarfuin' && strpos($path, 'process') !== true) {
-	echo ('<script> window.location.replace("/oops.php"); </script>');
+
+	echo ('<script>
+	window.setTimeout(nonav,2000);
+	window.location.replace("/oops.php"); </script>');
 }
  ?>
 
