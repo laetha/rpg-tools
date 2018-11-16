@@ -1,4 +1,3 @@
-
 <?php
 $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";

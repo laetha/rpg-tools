@@ -1,5 +1,5 @@
-
 <?php
+unset($_SESSION["newsession"]);
 $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);

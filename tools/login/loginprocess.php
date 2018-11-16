@@ -1,13 +1,13 @@
-<!-- SQL Connect -->
-<?php $sqlpath = $_SERVER['DOCUMENT_ROOT'];
-$sqlpath .= "/sql-connect.php";
-include_once($sqlpath); ?>
-
-<!-- Header -->
 <?php
 $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
+
+$sqlpath = $_SERVER['DOCUMENT_ROOT'];
+$sqlpath .= "/sql-connect.php";
+include_once($sqlpath);
+
+
 
 // Create variables
 $username=$_POST['username'];
