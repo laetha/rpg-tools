@@ -12,6 +12,7 @@ $player2 = 'null';
 $player3 = 'null';
 $player4 = 'null';
 $player5 = 'null';
+$player6 = 'null';
 $xptemp=$_POST['xp-award'];
 $numplayerstemp=$_POST['numplayers'];
 $ciaratemp=$_POST['ciara'];
@@ -19,6 +20,7 @@ $riordantemp=$_POST['riordan'];
 $frukastemp=$_POST['frukas'];
 $quynntemp=$_POST['quynn'];
 $threadstemp=$_POST['threads'];
+$sirknighttemp=$_POST['sirknight'];
 $alltemp=$_POST['all'];
 $xp=htmlentities(trim(addslashes($xptemp)));
 $numplayers=htmlentities(trim(addslashes($numplayerstemp)));
@@ -27,6 +29,7 @@ $riordan=htmlentities(trim(addslashes($riordantemp)));
 $frukas=htmlentities(trim(addslashes($frukastemp)));
 $quynn=htmlentities(trim(addslashes($quynntemp)));
 $threads=htmlentities(trim(addslashes($threadstemp)));
+$sirknight=htmlentities(trim(addslashes($sirknighttemp)));
 $all=htmlentities(trim(addslashes($alltemp)));
 $xp = round($xp / $numplayers);
 //Execute the query
@@ -51,6 +54,11 @@ $player5 = 'Threads';
 
 }
 
+if ($sirknight == 1){
+$player5 = 'Sir Knight';
+
+}
+
 if ($all == 1){
 
 $sql = "UPDATE world SET pc_xp = pc_xp + $xp WHERE type LIKE 'player character'";
@@ -69,7 +77,7 @@ else {
 
 }
 else {
-	$sql = "UPDATE world SET pc_xp = pc_xp + $xp WHERE title LIKE '$player1' OR title LIKE '$player2' OR title LIKE '$player3' OR title LIKE '$player4' OR title LIKE '$player5'";
+	$sql = "UPDATE world SET pc_xp = pc_xp + $xp WHERE title LIKE '$player1' OR title LIKE '$player2' OR title LIKE '$player3' OR title LIKE '$player4' OR title LIKE '$player5' OR title LIKE '$player6'";
 	if ($dbcon->query($sql) === TRUE) {
 		?>
 	<script type="text/javascript">
