@@ -156,7 +156,7 @@ echo ("Deleted $photoname");
     </div>
 
       <p>
-      <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
+      <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#delModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
 
     <div class="body bodytext col-xs-12" id="body2">
@@ -961,7 +961,7 @@ trigger: 'focus'
   </div>
 
   <!-- Delete Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade" id="delModal" role="dialog">
     <div class="modal-dialog">
 
       <!-- Modal content-->

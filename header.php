@@ -179,7 +179,7 @@ $loguser = $_SESSION["newsession"];
 			?>
 			<ul class="dropdown-menu">
 				<li><a href="/tools/users/characters.php">Characters</a></li>
-				<li><a href="/tools/users/characters.php">Favourites</a></li>
+				<li><a href="/tools/users/favourites.php">Bookmarks</a></li>
 				<li><a href="/tools/login/logout.php">Logout</a></li>
 			</ul>
 			<?php
@@ -202,7 +202,7 @@ $loguser = $_SESSION["newsession"];
       </ul>
 
 <?php			$path = 'http://'. $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
-if (strpos ($path, '/world') !== false && $loguser !== 'tarfuin') {
+if (strpos ($path, '/world') !== false && $loguser !== 'tarfuin' && strpos($path, 'process') !== true) {
 	echo ('<script> window.location.replace("/oops.php"); </script>');
 }
  ?>
