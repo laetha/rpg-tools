@@ -9,6 +9,9 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
+   if ($loguser !== 'tarfuin') {
+   echo ('<script>window.location.replace("/oops.php"); </script>');
+   }
    ?>
    <?php
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];

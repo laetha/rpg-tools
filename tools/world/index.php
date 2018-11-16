@@ -2,7 +2,11 @@
 $sqlpath = $_SERVER['DOCUMENT_ROOT'];
 $sqlpath .= "/plugins/Parsedown.php";
 include_once($sqlpath);
+if ($loguser !== 'tarfuin') {
+echo ('<script>window.location.replace("/oops.php"); </script>');
+}
  ?>
+
  <?php  $Parsedown = new Parsedown();
  ?>
 

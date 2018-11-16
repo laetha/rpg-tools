@@ -16,6 +16,9 @@ include_once($sqlpath);
 $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
+if ($loguser !== 'tarfuin') {
+echo ('<script>window.location.replace("/oops.php"); </script>');
+}
 
 $id = "index";
 $disallowed_paths = array('header', 'footer');
