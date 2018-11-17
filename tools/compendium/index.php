@@ -20,15 +20,69 @@ include_once($sqlpath);
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo htmlspecialchars($row['title']);
    $title = $row['title'];
+   if ($loguser !== 'null') {
+     $favtitle = "SELECT * FROM favourites WHERE user LIKE '$loguser'";
+     $favdata = mysqli_query($dbcon, $favtitle) or die('error getting data');
+     while($favrow =  mysqli_fetch_array($favdata, MYSQLI_ASSOC)) {
+       if ($id == $favrow['title']) {
+         ?>
+          <script>
+          $( document ).ready(function() {
+          $("#favButton").addClass('disabled');
+          $('#favButton').html('In Favourites');
+        });
+          </script>
+
+         <?php
+       }
+     }
 
   ?>
-</div>
-</div>
-
-<div class="nav sidebartext col-md-12" style="margin-bottom:30px;">
-<a href="/index.php">Home</a>  <?php echo ('&rarr;'); ?> <a href="/tools/compendium/compendium.php">Compendium</a> <?php echo ('&rarr;'); ?>  <a href="<?php echo ($row['type'].'.php">'.ucwords($row['type']).'</a>  &rarr; '.ucwords($row['title'])); ?>
-</div>
+<form onSubmit="return false" id='favForm' style="display:inline-block; margin-left: 20px;">
+  <?php
+    echo ('<input type="hidden" name="title" id="favtitle" value="'.$title.'">');
+    echo ('<input type="hidden" name="type" id="favtype" value="'.$row['type'].'">');
+    echo ('<input type="hidden" name="user" id="favuser" value="'.$loguser.'">');
+    ?>
+    <button type="submit" id="favButton" name="favButton" class="btn btn-success">Add to Favourites</button>
+</form>
 <?php
+} ?>
+</div>
+</div>
+<script>
+//on the click of the submit button
+$("#favButton").click(function(){
+ //get the form values
+ var ftitle = $('#favtitle').val();
+ var ftype = $('#favtype').val();
+ var fuser = $('#favuser').val();
+
+ //make the postdata
+ //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)
+
+ $.ajax({
+    url : 'favprocess.php',
+    type: 'POST',
+    data : { "title" : ftitle, "type" : ftype, "user" : fuser },
+    success: function()
+    {
+        //if success then just output the text to the status div then clear the form inputs to prepare for new data
+        $("#favButton").addClass('disabled');
+        $('#favButton').html('In Favourites');
+    },
+    error: function (jqXHR, status, errorThrown)
+    {
+        //if fail show error and server status
+        $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+    }
+});
+});
+</script>
+<?php
+
+
+
 }
 ?>
   <div class="body sidebartext col-xs-12" id="body">

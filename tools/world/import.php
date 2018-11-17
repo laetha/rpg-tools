@@ -7,9 +7,7 @@ include_once($sqlpath);
 $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
-if ($loguser !== 'tarfuin') {
-echo ('<script>window.location.replace("/oops.php"); </script>');
-}
+
 ?>
 <!-- Import Form -->
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
