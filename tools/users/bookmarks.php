@@ -15,7 +15,7 @@
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <div class ="body bodytext">
 
-    <h1 class="pagetitle"><?php echo $loguser; ?>'s Bookmarks</h1>
+    <h1 class="pagetitle"><?php echo ucwords($loguser); ?>'s Bookmarks</h1>
 
 			</div>
       <div class="body sidebartext col-xs-12" id="body">
