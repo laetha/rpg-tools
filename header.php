@@ -58,7 +58,7 @@ $loguser = $_SESSION["newsession"];
 		 include_once($sqlpath);
 		 ?>
 		 <link rel="stylesheet" type="text/css" href="/navbar.css" />
-		 <nav class="navbar navbar-default navbar-inverse" id="nonav">
+		 <nav class="navbar navbar-default navbar-inverse" id="nonav" style="display:block;">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -179,8 +179,8 @@ $loguser = $_SESSION["newsession"];
 			?>
 			<ul class="dropdown-menu">
 				<li><a href="/tools/users/characters.php">Characters</a></li>
-				<li><a href="/tools/users/favourites.php">Bookmarks</a></li>
-				<li><a href="/tools/login/logout.php">Logout</a></li>
+				<li><a href="/tools/users/bookmarks.php">Bookmarks</a></li>
+				<li><a href="/tools/users/logout.php">Logout</a></li>
 			</ul>
 			<?php
 			}
