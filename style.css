@@ -835,3 +835,15 @@ a:hover {
 	margin: 0px 10px 0px 0px;
 	line-height: normal;
 }
+
+.rollnumber {
+	font-size: 60px;
+}
+
+.nat20 {
+	color: green;
+}
+
+.nat1 {
+	color: red;
+}
