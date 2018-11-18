@@ -828,3 +828,10 @@ a:hover {
 	border-color: grey;
 	border-radius: 10px;
 }
+
+.prof {
+	width: 24px;
+	color: black;
+	margin: 0px 10px 0px 0px;
+	line-height: normal;
+}
