@@ -171,7 +171,7 @@ $loguser = $_SESSION["newsession"];
 				<?php
 				if ($loguser == 'null'){
 
-				echo ('<li><a href="/tools/login/login.php">Login</a></li>');
+				echo ('<li><a href="/tools/users/login.php">Login</a></li>');
 			}
 			else {
 
