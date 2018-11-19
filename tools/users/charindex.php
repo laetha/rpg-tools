@@ -15,6 +15,29 @@ include_once($sqlpath);
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
 
+<script>
+//DISABLE ALL INPUTS
+$(document).ready(function lockSheet() {
+var inputs = document.getElementsByTagName("input");
+for (var i = 0; i < inputs.length; i++) {
+    inputs[i].disabled = true;
+  }
+});
+
+//EDIT SHEET, ENABLE ALL INPUTS
+function editSheet() {
+  var inputs = document.getElementsByTagName("input");
+  for (var i = 0; i < inputs.length; i++) {
+      inputs[i].disabled = false;
+    }
+    document.getElementById("editSheet").style = "display:none";
+    document.getElementById("saveSheet").style = "display:inline-block";
+    document.getElementById("cancelSheet").style = "display:inline-block";
+};
+
+</script>
+
+
   <!-- Page Header -->
   <div class="col-md-12">
   <div class="pagetitle" id="pgtitle" style="visibility: visible;">
@@ -29,6 +52,10 @@ include_once($sqlpath);
    $title = $row['title'];
    $deleteid = $row['id'];
    ?>
+   <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
+   <button class="btn btn-success" id="saveSheet" style="display:none;" disabled>Save</button>
+   <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
+
  </div>
  </div>
 
@@ -68,16 +95,16 @@ include_once($sqlpath);
           }
 
           ?>
-          <div class="char-left-col col-sm-6 col-xs-12">
+          <div class="char-left-col col-md-4 col-sm-6 col-xs-12">
 
             <div class="row fullStatBox">
-            <div class="statBox col-xs-4" id="strBox">
+            <div class="statBox col-xs-5" id="strBox">
               <div class="statScore" id="strScore"><?php echo $row['str']; ?></div>
               <div class="statMod" id="strMod"><?php echo $strmod; ?></div>
-              <div class="statName" id="strName">Strength</div>
+              <div class="statName" id="strName" onclick="abilityCheck('str<?php echo $strmod; ?>')">Strength</div>
             </div>
 
-          <div class="statProfs col-xs-8">
+          <div class="statProfs col-xs-7">
             <div class="statProf"><input class="profRadio" id="strSaveProf" type="checkbox" onclick="addStrProf('strSave')"></input>
               <input type="checkbox" class="expertRadio" id="strSaveExpert" onclick="addStrProf('strSave')"></input><input class="prof" id="strSaveVal" value="<?php echo $strmod; ?>" disabled></input><span class="profName" id="strSaveName" onclick="profRoll('strSaveVal')"><b>Saving Throw</b></div>
 
@@ -86,13 +113,13 @@ include_once($sqlpath);
           </div>
         </div>
             <div class="row fullStatBox">
-            <div class="statBox col-xs-4" id="dexBox">
+            <div class="statBox col-xs-5" id="dexBox">
               <div class="statScore" id="dexScore"><?php echo $row['dex']; ?></div>
               <div class="statMod" id="dexMod"><?php echo $dexmod; ?></div>
-              <div class="statName" id="dexName">Dexterity</div>
+              <div class="statName" id="dexName" onclick="abilityCheck('dex<?php echo $dexmod; ?>')">Dexterity</div>
             </div>
 
-          <div class="statProfs col-xs-8">
+          <div class="statProfs col-xs-7">
             <div class="statProf"><input class="profRadio" id="dexSaveProf" type="checkbox" onclick="addDexProf('dexSave')"></input>
               <input type="checkbox" class="expertRadio" id="dexSaveExpert" onclick="addDexProf('dexSave')"></input><input class="prof" id="dexSaveVal" value="<?php echo $dexmod; ?>" disabled></input><span class="profName" id="dexSaveName" onclick="profRoll('dexSaveVal')"><b>Saving Throw</b></div>
 
@@ -108,26 +135,26 @@ include_once($sqlpath);
           </div>
           </div>
             <div class="row fullStatBox">
-            <div class="statBox col-xs-4" id="conBox">
+            <div class="statBox col-xs-5" id="conBox">
               <div class="statScore" id="conScore"><?php echo $row['con']; ?></div>
               <div class="statMod" id="conMod"><?php echo $conmod; ?></div>
-              <div class="statName" id="conName">Constitution</div>
+              <div class="statName" id="conName" onclick="abilityCheck('con<?php echo $conmod; ?>')">Constitution</div>
             </div>
 
-          <div class="statProfs col-xs-8">
+          <div class="statProfs col-xs-7">
             <div class="statProf"><input class="profRadio" id="conSaveProf" type="checkbox" onclick="addConProf('conSave')"></input>
               <input type="checkbox" class="expertRadio" id="conSaveExpert" onclick="addConProf('conSave')"></input><input class="prof" id="conSaveVal" value="<?php echo $conmod; ?>" disabled></input><span class="profName" id="conSaveName" onclick="profRoll('conSaveVal')"><b>Saving Throw</b></div>
           </div>
         </div>
 
             <div class="row fullStatBox">
-            <div class="statBox col-xs-4" id="intBox">
+            <div class="statBox col-xs-5" id="intBox">
               <div class="statScore" id="intScore"><?php echo $row['intel']; ?></div>
               <div class="statMod" id="intMod"><?php echo $intelmod; ?></div>
-              <div class="statName" id="intName">Intelligence</div>
+              <div class="statName" id="intName" onclick="abilityCheck('int<?php echo $intelmod; ?>')">Intelligence</div>
             </div>
 
-          <div class="statProfs col-xs-8">
+          <div class="statProfs col-xs-7">
             <div class="statProf"><input class="profRadio" id="intelSaveProf" type="checkbox" onclick="addIntelProf('intelSave')"></input>
               <input type="checkbox" class="expertRadio" id="intelSaveExpert" onclick="addIntelProf('intelSave')"></input><input class="prof" id="intelSaveVal" value="<?php echo $intelmod; ?>" disabled></input><span class="profName" id="intelSaveName" onclick="profRoll('intelSaveVal')"><b>Saving Throw</b></div>
 
@@ -149,13 +176,13 @@ include_once($sqlpath);
         </div>
 
             <div class="row fullStatBox">
-            <div class="statBox col-xs-4" id="wisBox">
+            <div class="statBox col-xs-5" id="wisBox">
               <div class="statScore" id="wisScore"><?php echo $row['wis']; ?></div>
               <div class="statMod" id="wisMod"><?php echo $wismod; ?></div>
-              <div class="statName" id="wisName">Wisdom</div>
+              <div class="statName" id="wisName" onclick="abilityCheck('wis<?php echo $wismod; ?>')">Wisdom</div>
             </div>
 
-          <div class="statProfs col-xs-8">
+          <div class="statProfs col-xs-7">
             <div class="statProf"><input class="profRadio" id="wisSaveProf" type="checkbox" onclick="addWisProf('wisSave')"></input>
               <input type="checkbox" class="expertRadio" id="wisSaveExpert" onclick="addWisProf('wisSave')"></input><input class="prof" id="wisSaveVal" value="<?php echo $wismod; ?>" disabled></input><span class="profName" id="wisSaveName" onclick="profRoll('wisSaveVal')"><b>Saving Throw</b></span></div>
 
@@ -177,13 +204,13 @@ include_once($sqlpath);
         </div>
 
             <div class="row fullStatBox">
-            <div class="statBox col-xs-4" id="chaBox">
+            <div class="statBox col-xs-5" id="chaBox">
               <div class="statScore" id="chaScore"><?php echo $row['cha']; ?></div>
               <div class="statMod" id="chaMod"><?php echo $chamod; ?></div>
-              <div class="statName" id="chaName">Charisma</div>
+              <div class="statName" id="chaName" onclick="abilityCheck('cha<?php echo $chamod; ?>')">Charisma</div>
             </div>
 
-          <div class="statProfs col-xs-8">
+          <div class="statProfs col-xs-7">
             <div class="statProf"><input class="profRadio" id="chaSaveProf" type="checkbox" onclick="addChaProf('chaSave');"></input>
               <input type="checkbox" class="expertRadio" id="chaSaveExpert" onclick="addChaProf('chaSave');"></input><input class="prof" id="chaSaveVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="chaSaveName" onclick="profRoll('chaSaveVal')"><b>Saving Throw</b></div>
 
@@ -356,6 +383,46 @@ function profRoll(value) {
   showRollModal();
 }
 
+function abilityCheck(value) {
+  var modifier = parseInt(value.substring(3), 10);
+  var roll = Math.floor(Math.random() * 20) + 1;
+  var result = roll + modifier;
+  var typeID = value.substring(0,3);
+  var typeName = document.getElementById(typeID + 'Name').innerHTML;
+  document.getElementById('rollResult').innerHTML = result;
+  document.getElementById('rollFormula').innerHTML = roll + ' + (' + modifier + ')';
+
+  if (roll == 20) {
+    document.getElementById('nat20').innerHTML = 'Natural 20!';
+    document.getElementById('rollResult').classList.add('nat20');
+    document.getElementById('rollFormula').classList.add('nat20');
+    document.getElementById('rollType').classList.add('nat20');
+
+  }
+  else if (roll == 1) {
+    document.getElementById('nat1').innerHTML = 'Natural 1!';
+    document.getElementById('rollResult').classList.add('nat1');
+    document.getElementById('rollFormula').classList.add('nat1');
+    document.getElementById('rollType').classList.add('nat1');
+  }
+  else {
+    document.getElementById('rollResult').classList.remove('nat1');
+    document.getElementById('rollFormula').classList.remove('nat1');
+    document.getElementById('rollType').classList.remove('nat1');
+    document.getElementById('rollResult').classList.remove('nat20');
+    document.getElementById('rollFormula').classList.remove('nat20');
+    document.getElementById('rollType').classList.remove('nat20');
+    document.getElementById('nat20').innerHTML = '';
+    document.getElementById('nat1').innerHTML = '';
+  }
+  document.getElementById('rollType').innerHTML = typeName;
+
+  function showRollModal() {
+    $("#rollModal").modal();
+  }
+  showRollModal();
+}
+
     </script>
 <?php
   }
@@ -389,7 +456,6 @@ function profRoll(value) {
 
 </div>
 </div>
-
 
 
   <?php

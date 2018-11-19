@@ -774,6 +774,10 @@ a:hover {
 		width: 100%;
 	}
 
+	.statName:hover {
+		cursor:pointer;
+	}
+
 	.statMod {
 	position:absolute; /*it can be fixed too*/
 	top:10%;
@@ -807,6 +811,10 @@ a:hover {
 		font-size: 12px;
 		text-align: center;
 		width:100%;
+	}
+
+	.statName:hover {
+		cursor:pointer;
 	}
 
 	.statMod {
