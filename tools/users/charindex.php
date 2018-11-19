@@ -50,12 +50,11 @@ function editSheet() {
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
    echo $row['title'];
    $title = $row['title'];
-   $deleteid = $row['id'];
+   $charID = $row['id'];
    ?>
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
-   <button class="btn btn-success" id="saveSheet" style="display:none;" disabled>Save</button>
+   <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
-
  </div>
  </div>
 
@@ -99,7 +98,7 @@ function editSheet() {
 
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="strBox">
-              <div class="statScore" id="strScore"><?php echo $row['str']; ?></div>
+              <input class="statScore" id="strScore" value="<?php echo $row['str']; ?>"></input>
               <div class="statMod" id="strMod"><?php echo $strmod; ?></div>
               <div class="statName" id="strName" onclick="abilityCheck('str<?php echo $strmod; ?>')">Strength</div>
             </div>
@@ -114,7 +113,7 @@ function editSheet() {
         </div>
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="dexBox">
-              <div class="statScore" id="dexScore"><?php echo $row['dex']; ?></div>
+              <input class="statScore" id="dexScore" value="<?php echo $row['dex']; ?>"></input>
               <div class="statMod" id="dexMod"><?php echo $dexmod; ?></div>
               <div class="statName" id="dexName" onclick="abilityCheck('dex<?php echo $dexmod; ?>')">Dexterity</div>
             </div>
@@ -136,7 +135,7 @@ function editSheet() {
           </div>
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="conBox">
-              <div class="statScore" id="conScore"><?php echo $row['con']; ?></div>
+              <input class="statScore" id="conScore" value="<?php echo $row['con']; ?>"></input>
               <div class="statMod" id="conMod"><?php echo $conmod; ?></div>
               <div class="statName" id="conName" onclick="abilityCheck('con<?php echo $conmod; ?>')">Constitution</div>
             </div>
@@ -149,7 +148,7 @@ function editSheet() {
 
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="intBox">
-              <div class="statScore" id="intScore"><?php echo $row['intel']; ?></div>
+              <input class="statScore" id="intScore" value="<?php echo $row['intel']; ?>"></input>
               <div class="statMod" id="intMod"><?php echo $intelmod; ?></div>
               <div class="statName" id="intName" onclick="abilityCheck('int<?php echo $intelmod; ?>')">Intelligence</div>
             </div>
@@ -177,7 +176,7 @@ function editSheet() {
 
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="wisBox">
-              <div class="statScore" id="wisScore"><?php echo $row['wis']; ?></div>
+              <input class="statScore" id="wisScore" value="<?php echo $row['wis']; ?>"></input>
               <div class="statMod" id="wisMod"><?php echo $wismod; ?></div>
               <div class="statName" id="wisName" onclick="abilityCheck('wis<?php echo $wismod; ?>')">Wisdom</div>
             </div>
@@ -205,7 +204,7 @@ function editSheet() {
 
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="chaBox">
-              <div class="statScore" id="chaScore"><?php echo $row['cha']; ?></div>
+              <input class="statScore" id="chaScore" value="<?php echo $row['cha']; ?>"></input>
               <div class="statMod" id="chaMod"><?php echo $chamod; ?></div>
               <div class="statName" id="chaName" onclick="abilityCheck('cha<?php echo $chamod; ?>')">Charisma</div>
             </div>
@@ -215,20 +214,446 @@ function editSheet() {
               <input type="checkbox" class="expertRadio" id="chaSaveExpert" onclick="addChaProf('chaSave');"></input><input class="prof" id="chaSaveVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="chaSaveName" onclick="profRoll('chaSaveVal')"><b>Saving Throw</b></div>
 
             <div class="statProf"><input class="profRadio" id="deceptionProf" type="checkbox" onclick="addChaProf('deception');"></input>
-              <input type="checkbox" class="expertRadio" id="deceptionExpert" onclick="addChaProf('deception');"></input><input class="prof" id="deceptionVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="deceptionName" onclick="profRoll('deceptionVal')">deception</div>
+              <input type="checkbox" class="expertRadio" id="deceptionExpert" onclick="addChaProf('deception');"></input><input class="prof" id="deceptionVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="deceptionName" onclick="profRoll('deceptionVal')">Deception</div>
 
             <div class="statProf"><input class="profRadio" id="intimidationProf" type="checkbox" onclick="addChaProf('intimidation');"></input>
-              <input type="checkbox" class="expertRadio" id="intimidationExpert" onclick="addChaProf('intimidation');"></input><input class="prof" id="intimidationVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="intimidationName" onclick="profRoll('intimidationVal')">intimidation</div>
+              <input type="checkbox" class="expertRadio" id="intimidationExpert" onclick="addChaProf('intimidation');"></input><input class="prof" id="intimidationVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="intimidationName" onclick="profRoll('intimidationVal')">Intimidation</div>
 
             <div class="statProf"><input class="profRadio" id="performanceProf" type="checkbox" onclick="addChaProf('performance');"></input>
-              <input type="checkbox" class="expertRadio" id="performanceExpert" onclick="addChaProf('performance');"></input><input class="prof" id="performanceVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="performanceName" onclick="profRoll('performanceVal')">performance</div>
+              <input type="checkbox" class="expertRadio" id="performanceExpert" onclick="addChaProf('performance');"></input><input class="prof" id="performanceVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="performanceName" onclick="profRoll('performanceVal')">Performance</div>
 
             <div class="statProf"><input class="profRadio" id="persuasionProf" type="checkbox" onclick="addChaProf('persuasion');"></input>
-              <input type="checkbox" class="expertRadio" id="persuasionExpert" onclick="addChaProf('persuasion');"></input><input class="prof" id="persuasionVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="persuasionName" onclick="profRoll('persuasionVal')">persuasion</div>
+              <input type="checkbox" class="expertRadio" id="persuasionExpert" onclick="addChaProf('persuasion');"></input><input class="prof" id="persuasionVal" value="<?php echo $chamod; ?>" disabled></input><span class="profName" id="persuasionName" onclick="profRoll('persuasionVal')">Persuasion</div>
           </div>
         </div>
         </div>
           <?php
+//CHECK EXISTING PROFICIENCIES
+if (strpos($row['saves'], 'Strength') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#strSaveProf').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['saves'], 'Dexterity') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#dexSaveProf').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['saves'], 'Constitution') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#conSaveProf').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['saves'], 'Intelligence') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#intelSaveProf').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['saves'], 'Wisdom') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#wisSaveProf').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['saves'], 'Charisma') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#chaSaveProf').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+
+  if (strpos($row['proficiencies'], 'Athletics') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#athleticsProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Acrobatics') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#acrobaticsProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Sleight of Hand') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#sleightProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Stealth') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#stealthProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Arcana') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#arcanaProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'History') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#historyProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Investigation') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#investigationProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Nature') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#natureProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Religion') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#religionProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Animal Handling') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#animalProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Insight') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#insightProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Medicine') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#medicineProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Perception') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#perceptionProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Survival') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#survivalProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Deception') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#deceptionProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Intimidation') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#intimidationProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Persuasion') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#persuasionProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+  if (strpos($row['proficiencies'], 'Performance') !== false) {
+    ?><script>
+    $(document).ready(function() {
+      $('#performanceProf').prop('checked', true);
+
+    });
+
+    </script>
+  <?php
+  }
+
+
+
+//EXPERTISE CHECKBOXES
+if (strpos($row['expertise'], 'Athletics') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#athleticsExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Acrobatics') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#acrobaticsExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Sleight of Hand') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#sleightExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Stealth') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#stealthExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Arcana') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#arcanaExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'History') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#historyExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Investigation') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#investigationExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Nature') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#natureExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Religion') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#religionExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Animal Handling') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#animalExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Insight') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#insightExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Medicine') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#medicineExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Perception') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#perceptionExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Survival') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#survivalExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Deception') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#deceptionExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Intimidation') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#intimidationExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Persuasion') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#persuasionExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
+if (strpos($row['expertise'], 'Performance') !== false) {
+  ?><script>
+  $(document).ready(function() {
+    $('#performanceExpert').prop('checked', true);
+
+  });
+
+  </script>
+<?php
+}
 
 // PROFICIENCIES
     ?>
@@ -397,6 +822,9 @@ function abilityCheck(value) {
     document.getElementById('rollResult').classList.add('nat20');
     document.getElementById('rollFormula').classList.add('nat20');
     document.getElementById('rollType').classList.add('nat20');
+    document.getElementById('rollResult').classList.remove('nat1');
+    document.getElementById('rollFormula').classList.remove('nat1');
+    document.getElementById('rollType').classList.remove('nat1');
 
   }
   else if (roll == 1) {
@@ -404,6 +832,9 @@ function abilityCheck(value) {
     document.getElementById('rollResult').classList.add('nat1');
     document.getElementById('rollFormula').classList.add('nat1');
     document.getElementById('rollType').classList.add('nat1');
+    document.getElementById('rollResult').classList.remove('nat20');
+    document.getElementById('rollFormula').classList.remove('nat20');
+    document.getElementById('rollType').classList.remove('nat20');
   }
   else {
     document.getElementById('rollResult').classList.remove('nat1');
@@ -422,6 +853,214 @@ function abilityCheck(value) {
   }
   showRollModal();
 }
+
+//INITIALIZE VALUES ON PAGE LOAD
+$(document).ready(function lockSheet() {
+  addStrProf('strSave');
+  addStrProf('athletics');
+
+  addDexProf('dexSave');
+  addDexProf('acrobatics');
+  addDexProf('sleight');
+  addDexProf('stealth');
+
+  addConProf('conSave');
+
+  addIntelProf('intelSave');
+  addIntelProf('arcana');
+  addIntelProf('history');
+  addIntelProf('investigation');
+  addIntelProf('nature');
+  addIntelProf('religion');
+
+  addWisProf('wisSave');
+  addWisProf('animal');
+  addWisProf('insight');
+  addWisProf('medicine');
+  addWisProf('perception');
+  addWisProf('survival');
+
+  addChaProf('chaSave');
+  addChaProf('deception');
+  addChaProf('intimidation');
+  addChaProf('performance');
+  addChaProf('persuasion');
+});
+</script>
+
+<script>
+
+//SAVE CHARACTER
+//on the click of the submit button
+function saveSheet(){
+      var newProf = '';
+      var newSaves = '';
+      var newExpert = '';
+      var charName = '<?php echo $title; ?>';
+      var charID = '<?php echo $charID; ?>';
+  if ($('#athleticsProf').prop('checked')) {
+      newProf = newProf + 'Athletics' + ' ';
+  }
+  if ($('#acrobaticsProf').prop('checked')) {
+      newProf = newProf + 'Acrobatics' + ' ';
+  }
+  if ($('#sleightProf').prop('checked')) {
+      newProf = newProf + 'Sleight of Hand' + ' ';
+  }
+  if ($('#stealthProf').prop('checked')) {
+      newProf = newProf + 'Stealth' + ' ';
+  }
+  if ($('#arcanaProf').prop('checked')) {
+      newProf = newProf + 'Arcana' + ' ';
+  }
+  if ($('#historyProf').prop('checked')) {
+      newProf = newProf + 'History' + ' ';
+  }
+  if ($('#investigationProf').prop('checked')) {
+      newProf = newProf + 'Investigation' + ' ';
+  }
+  if ($('#natureProf').prop('checked')) {
+      newProf = newProf + 'Nature' + ' ';
+  }
+  if ($('#religionProf').prop('checked')) {
+      newProf = newProf + 'Religion' + ' ';
+  }
+  if ($('#animalProf').prop('checked')) {
+      newProf = newProf + 'Animal Handling' + ' ';
+  }
+  if ($('#insightProf').prop('checked')) {
+      newProf = newProf + 'Insight' + ' ';
+  }
+  if ($('#medicineProf').prop('checked')) {
+      newProf = newProf + 'Medicine' + ' ';
+  }
+  if ($('#perceptionProf').prop('checked')) {
+      newProf = newProf + 'Perception' + ' ';
+  }
+  if ($('#survivalProf').prop('checked')) {
+      newProf = newProf + 'Survival' + ' ';
+  }
+  if ($('#deceptionProf').prop('checked')) {
+      newProf = newProf + 'Deception' + ' ';
+  }
+  if ($('#intimidationProf').prop('checked')) {
+      newProf = newProf + 'Intimidation' + ' ';
+  }
+  if ($('#performanceProf').prop('checked')) {
+      newProf = newProf + 'Performance' + ' ';
+   }
+  if ($('#persuasionProf').prop('checked')) {
+      newProf = newProf + 'Persuasion' + ' ';
+  }
+
+
+//EXPERTISE
+if ($('#athleticsExpert').prop('checked')) {
+    newExpert = newExpert + 'Athletics' + ' ';
+}
+if ($('#acrobaticsExpert').prop('checked')) {
+    newExpert = newExpert + 'Acrobatics' + ' ';
+}
+if ($('#sleightExpert').prop('checked')) {
+    newExpert = newExpert + 'Sleight of Hand' + ' ';
+}
+if ($('#stealthExpert').prop('checked')) {
+    newExpert = newExpert + 'Stealth' + ' ';
+}
+if ($('#arcanaExpert').prop('checked')) {
+    newExpert = newExpert + 'Arcana' + ' ';
+}
+if ($('#historyExpert').prop('checked')) {
+    newExpert = newExpert + 'History' + ' ';
+}
+if ($('#investigationExpert').prop('checked')) {
+    newExpert = newExpert + 'Investigation' + ' ';
+}
+if ($('#natureExpert').prop('checked')) {
+    newExpert = newExpert + 'Nature' + ' ';
+}
+if ($('#religionExpert').prop('checked')) {
+    newExpert = newExpert + 'Religion' + ' ';
+}
+if ($('#animalExpert').prop('checked')) {
+    newExpert = newExpert + 'Animal Handling' + ' ';
+}
+if ($('#insightExpert').prop('checked')) {
+    newExpert = newExpert + 'Insight' + ' ';
+}
+if ($('#medicineExpert').prop('checked')) {
+    newExpert = newExpert + 'Medicine' + ' ';
+}
+if ($('#perceptionExpert').prop('checked')) {
+    newExpert = newExpert + 'Perception' + ' ';
+}
+if ($('#survivalExpert').prop('checked')) {
+    newExpert = newExpert + 'Survival' + ' ';
+}
+if ($('#deceptionExpert').prop('checked')) {
+    newExpert = newExpert + 'Deception' + ' ';
+}
+if ($('#intimidationExpert').prop('checked')) {
+    newExpert = newExpert + 'Intimidation' + ' ';
+}
+if ($('#performanceExpert').prop('checked')) {
+    newExpert = newExpert + 'Performance' + ' ';
+ }
+if ($('#persuasionExpert').prop('checked')) {
+    newExpert = newExpert + 'Persuasion' + ' ';
+}
+
+
+//SAVE SAVING THROW PROFICIENCIES
+  if ($('#strSaveProf').prop('checked')) {
+      newSaves = newSaves + 'Strength' + ' ';
+  }
+  if ($('#dexSaveProf').prop('checked')) {
+      newSaves = newSaves + 'Dexterity' + ' ';
+  }
+  if ($('#conSaveProf').prop('checked')) {
+      newSaves = newSaves + 'Constitution' + ' ';
+  }
+  if ($('#intelSaveProf').prop('checked')) {
+      newSaves = newSaves + 'Intelligence' + ' ';
+  }
+  if ($('#wisSaveProf').prop('checked')) {
+      newSaves = newSaves + 'Wisdom' + ' ';
+  }
+  if ($('#chaSaveProf').prop('checked')) {
+      newSaves = newSaves + 'Charisma' + ' ';
+  }
+
+ //get the form values
+ var strScore = $('#strScore').val();
+ var dexScore = $('#dexScore').val();
+ var conScore = $('#conScore').val();
+ var intelScore = $('#intScore').val();
+ var wisScore = $('#wisScore').val();
+ var chaScore = $('#chaScore').val();
+
+
+ //make the postdata
+ //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)
+
+ $.ajax({
+    url : 'charprocess.php',
+    type: 'POST',
+    data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore },
+    success: function()
+    {
+        //if success then just output the text to the status div then clear the form inputs to prepare for new data
+      //  $("#favButton").addClass('disabled');
+        //$('#favButton').html('In Favourites');
+        window.location.reload();
+    },
+    error: function (jqXHR, status, errorThrown)
+    {
+        //if fail show error and server status
+        $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+    }
+});
+};
 
     </script>
 <?php

@@ -5,7 +5,7 @@
    include_once($sqlpath);
 
    //Header
-   $pgtitle = 'Bookmarks - ';
+   $pgtitle = 'Characters - ';
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
@@ -43,7 +43,7 @@ if (empty($_GET['id'])) {
         </form>
 
           <?php // echo('<a onclick="charModalChange(\''.$charmodal.'\')">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);
-              echo('<a href="/tools/users/characters.php?id='.$charmodal.'">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);  
+              echo('<a href="/tools/users/characters.php?id='.$charmodal.'">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);
             if ($charrow['class2'] !== '') {
               echo ('/'.$charrow['class2']);
             }

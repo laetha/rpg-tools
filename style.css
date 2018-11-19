@@ -783,6 +783,8 @@ a:hover {
 	top:10%;
 	font-size: 54px;
 	width: 100%;
+	z-index: 1;
+	padding:0px;
 	}
 
 	.statProf {
@@ -822,6 +824,7 @@ a:hover {
 	top:27%;
 	width:100%;
 	font-size: 29px;
+	z-index: 1;
 	}
 
 	.statProf {
@@ -859,4 +862,14 @@ a:hover {
 .profName:hover {
 	cursor:pointer;
 
+}
+
+.statScore {
+	background: none;
+	margin-top: 0px;
+	border-radius: 10px;
+	width:40%;
+	border: 0px;
+	z-index: 5;
+	position:relative;
 }
