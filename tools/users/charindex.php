@@ -266,16 +266,16 @@ function editSheet() {
           <table class="vitalsTable">
             <tr>
               <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
-              <td rowspan="3"><input class="vitals bigVital" id="hitPoints" value="44"></td>
-              <td><input class="vitals" id="hitDice" value="d8"></td>
+              <td rowspan="3"><input class="vitals bigVital" id="maxHP" value="<?php echo $row['maxhp']; ?>"></td>
+              <td><input class="vitals" id="hitDice" value="d<?php echo $row['hitdice']; ?>"></td>
             </tr>
             <tr>
-              <td><div class="charDeet">Initiative</div></td>
+              <td><div class="charDeet profName" id="initiativeName" onclick="profRoll('initiative')">Initiative</div></td>
               <td><div class="charDeet">Hit Dice</div></td>
             </tr>
             <tr>
-              <td><input class="vitals" id="speed" value="30"></td>
-              <td><input class="vitals" id="armorClass" value="16"></td>
+              <td><input class="vitals" id="speed" value="<?php echo $row['speed']; ?>"></td>
+              <td><input class="vitals" id="armorClass" value="<?php echo $row['armorclass']; ?>"></td>
             </tr>
             <tr>
               <td><div class="charDeet">Speed</div></td>
@@ -832,6 +832,7 @@ function profRoll(value) {
   var typeName = document.getElementById(typeID + 'Name').innerHTML;
   document.getElementById('rollResult').innerHTML = result;
   document.getElementById('rollFormula').innerHTML = roll + ' + (' + modifier + ')';
+
   if (typeName == '<b>Saving Throw</b>') {
     saveType = typeID.replace('Save', '');
     saveType = saveType.toUpperCase();
@@ -957,7 +958,8 @@ function saveSheet(){
       var newSaves = '';
       var newExpert = '';
       var charName = '<?php echo $title; ?>';
-      var charID = '<?php echo $charID; ?>';
+      var charID = <?php echo $charID; ?>
+
   if ($('#athleticsProf').prop('checked')) {
       newProf = newProf + 'Athletics' + ' ';
   }
@@ -1098,7 +1100,14 @@ if ($('#persuasionExpert').prop('checked')) {
  var intelScore = $('#intScore').val();
  var wisScore = $('#wisScore').val();
  var chaScore = $('#chaScore').val();
-
+ var initiative = $('#initiative').val();
+ var maxhp = $('#maxHP').val();
+ var hitdice = $('#hitDice').val();
+ var speed = $('#speed').val();
+ var armorclass = $('#armorClass').val();
+ if (hitdice.indexOf('d') > -1) {
+  hitdice = hitdice.replace('d', '');
+}
 
  //make the postdata
  //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)
@@ -1106,7 +1115,7 @@ if ($('#persuasionExpert').prop('checked')) {
  $.ajax({
     url : 'charprocess.php',
     type: 'POST',
-    data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore },
+    data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data

@@ -14,11 +14,16 @@ $con = $_REQUEST['constitution'];
 $intel = $_REQUEST['intelligence'];
 $wis = $_REQUEST['wisdom'];
 $cha = $_REQUEST['charisma'];
+$maxhp = $_REQUEST['maxhp'];
+$hitdice = $_REQUEST['hitdice'];
+$speed = $_REQUEST['speed'];
+$initiative = $_REQUEST['initiative'];
+$armorclass = $_REQUEST['armorclass'];
 
 
 
 $sql = "UPDATE characters
-SET proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha'
+SET proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {
