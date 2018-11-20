@@ -284,7 +284,7 @@ function editSheet() {
             </tr>
           </table>
         </div>
-
+<div id="status_text"></div>
 
           <?php
 
@@ -957,8 +957,7 @@ function saveSheet(){
       var newProf = '';
       var newSaves = '';
       var newExpert = '';
-      var charName = '<?php echo $title; ?>';
-      var charID = <?php echo $charID; ?>
+      var charID = <?php echo $charID; ?>;
 
   if ($('#athleticsProf').prop('checked')) {
       newProf = newProf + 'Athletics' + ' ';
@@ -1105,6 +1104,13 @@ if ($('#persuasionExpert').prop('checked')) {
  var hitdice = $('#hitDice').val();
  var speed = $('#speed').val();
  var armorclass = $('#armorClass').val();
+ var charName = $('#charName').val();
+ var charClass = $('#charClass').val();
+ var charLevel = $('#charLevel').val();
+ var charRace = $('#charRace').val();
+ var charBackground = $('#charBackground').val();
+ var charAlignment = $('#charAlignment').val();
+
  if (hitdice.indexOf('d') > -1) {
   hitdice = hitdice.replace('d', '');
 }
@@ -1115,13 +1121,15 @@ if ($('#persuasionExpert').prop('checked')) {
  $.ajax({
     url : 'charprocess.php',
     type: 'POST',
-    data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass },
+    data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data
       //  $("#favButton").addClass('disabled');
         //$('#favButton').html('In Favourites');
-        window.location.reload();
+        var newURL = '/tools/users/characters.php?id=' + charName;
+        $(location).attr('href', newURL)
     },
     error: function (jqXHR, status, errorThrown)
     {

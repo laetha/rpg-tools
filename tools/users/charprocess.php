@@ -19,11 +19,17 @@ $hitdice = $_REQUEST['hitdice'];
 $speed = $_REQUEST['speed'];
 $initiative = $_REQUEST['initiative'];
 $armorclass = $_REQUEST['armorclass'];
+$charClass = $_REQUEST['charClass'];
+$charRace = $_REQUEST['charRace'];
+$charLevel = $_REQUEST['charLevel'];
+$charBackground = $_REQUEST['charBackground'];
+$charAlignment = $_REQUEST['charAlignment'];
 
 
 
 $sql = "UPDATE characters
-SET proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass'
+SET title = '$title', proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass',
+ race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {
