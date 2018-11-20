@@ -29,6 +29,8 @@ function editSheet() {
   var inputs = document.getElementsByTagName("input");
   for (var i = 0; i < inputs.length; i++) {
       inputs[i].disabled = false;
+      inputs[i].style = "background-color: #717782;";
+
     }
     document.getElementById("editSheet").style = "display:none";
     document.getElementById("saveSheet").style = "display:inline-block";
@@ -40,7 +42,7 @@ function editSheet() {
 
   <!-- Page Header -->
   <div class="col-md-12">
-  <div class="pagetitle" id="pgtitle" style="visibility: visible;">
+  <!-- <div class="pagetitle" id="pgtitle" style="visibility: visible;"> -->
     <?php
   $stripid = str_replace("'", "", $id);
   $stripid = stripslashes($stripid);
@@ -48,15 +50,44 @@ function editSheet() {
   $worldtitle = "SELECT * FROM `characters` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-   echo $row['title'];
+   //echo $row['title'];
    $title = $row['title'];
    $charID = $row['id'];
+   $dexmod = floor((($row['dex']-10)/2));
    ?>
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
  </div>
+
+<div class=" col-md-4 col-sm-6 col-xs-12">
+  <input class="charName" id="charName" value="<?php echo $title; ?>">
  </div>
+
+<div class="col-md-8 col-sm-6 col-xs-12 sidebartext">
+  <table style="width: 100%;">
+    <tr>
+      <td><input class="charDetails" id="charClass" value="<?php echo $row['class1']; ?>"></td>
+      <td><input class="charDetails" id="charLevel" value="<?php echo $row['level']; ?>"></td>
+      <td><input class="charDetails" id="charAlignment" value="<?php echo $row['alignment']; ?>"></td>
+    <tr>
+
+    <tr style="border-top: 1px solid white;">
+      <td><div class="charDeet">Class</div></td>
+      <td><div class="charDeet">Level</div></td>
+      <td><div class="charDeet">Alignment</div></td>
+    </tr>
+    <tr>
+      <td><input class="charDetails" id="charRace" value="<?php echo $row['race']; ?>"></td>
+      <td><input class="charDetails" id="charBackground" value="<?php echo $row['background']; ?>"></td>
+    </tr>
+    <tr  style="border-top: 1px solid white;">
+      <td><div class="charDeet">Race</div></td>
+      <td><div class="charDeet">Background</div></td>
+    </tr>
+  </table>
+
+</div>
 
  <?php
  }
@@ -227,7 +258,36 @@ function editSheet() {
           </div>
         </div>
         </div>
+
+
+        <!-- VITALS BLOCKS -->
+
+        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext">
+          <table class="vitalsTable">
+            <tr>
+              <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
+              <td rowspan="3"><input class="vitals bigVital" id="hitPoints" value="44"></td>
+              <td><input class="vitals" id="hitDice" value="d8"></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">Initiative</div></td>
+              <td><div class="charDeet">Hit Dice</div></td>
+            </tr>
+            <tr>
+              <td><input class="vitals" id="speed" value="30"></td>
+              <td><input class="vitals" id="armorClass" value="16"></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">Speed</div></td>
+              <td><div class="charDeet">Hit Points</div></td>
+              <td><div class="charDeet">AC</div></td>
+            </tr>
+          </table>
+        </div>
+
+
           <?php
+
 //CHECK EXISTING PROFICIENCIES
 if (strpos($row['saves'], 'Strength') !== false) {
   ?><script>

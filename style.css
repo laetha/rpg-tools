@@ -873,3 +873,45 @@ a:hover {
 	z-index: 5;
 	position:relative;
 }
+
+
+.charName {
+	font-size: 40px;
+	color: #b3b3b3;
+	padding: 5px;
+	width: 70%;
+	border: 0px;
+	background: none;
+}
+
+.charDetails {
+	color: #b3b3b3;
+	width: 80%;
+	padding: 5px;
+	border: 0px;
+	text-align: left;
+	background: none;
+	margin-top: 10px;
+}
+
+.charDeet {
+	width:100%;
+	text-align: center;
+	font-size: 12px;
+	color: #717782;
+}
+
+.vitals {
+	height: 100%;
+	width:100%;
+	background: none;
+	border: 0px;
+}
+
+.bigVital {
+	font-size: 55px;
+}
+
+.vitalsTable {
+	border: 1px solid white;
+}
