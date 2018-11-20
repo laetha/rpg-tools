@@ -53,6 +53,7 @@ function editSheet() {
    //echo $row['title'];
    $title = $row['title'];
    $charID = $row['id'];
+   $fullclass = $row['class1'];
    $dexmod = floor((($row['dex']-10)/2));
    ?>
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
@@ -93,7 +94,7 @@ function editSheet() {
  }
   ?>
 
-  <div class="body sidebartext col-xs-12" id="body">
+  <div class="body sidebartext col-xs-12" id="body" style="margin-top: 10px;">
 
     <!-- Body Text -->
       <?php
@@ -284,7 +285,48 @@ function editSheet() {
             </tr>
           </table>
         </div>
-<div id="status_text"></div>
+
+
+      <!-- CLASS FEATURES -->
+      <div class="col-md-4 col-sm-6 col-xs-12 sidebartext" style="border: 1px solid white;">
+
+        <?php
+        $coreclass = substr($fullclass, 0, strpos($fullclass, " "));
+        $subclasstemp = substr($fullclass, strpos($fullclass, "(") +1);
+        $subclass = trim($subclasstemp, ')');
+        $coreclass = $coreclass.' core';
+
+          $worldtitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$coreclass'";
+          $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+          while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+            ?>
+
+              <div class="featureName"><?php echo $Parsedown->text(nl2br($row['lvlskill2name'])); ?></div>
+              <div class="featureDetails"><?php echo $Parsedown->text(nl2br($row['lvlskill2text'])); ?></div>
+
+              <div class="featureName"><?php echo $Parsedown->text(nl2br($row['lvlskill3name'])); ?></div>
+              <div class="featureDetails"><?php echo $Parsedown->text(nl2br($row['lvlskill3text'])); ?></div>
+
+              <div class="featureName"><?php echo $Parsedown->text(nl2br($row['lvlskill4name'])); ?></div>
+              <div class="featureDetails"><?php echo $Parsedown->text(nl2br($row['lvlskill4text'])); ?></div>
+
+            <?php
+          }
+
+          $worldtitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$subclass'";
+          $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+          while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+            ?>
+
+              <div class="featureName"><?php echo $row['lvlskill3name']; ?></div>
+              <div class="featureDetails"><?php echo $row['lvlskill3text']; ?></div>
+
+            <?php
+          }
+         ?>
+
+        </div>
+
 
           <?php
 

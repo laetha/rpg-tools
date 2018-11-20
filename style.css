@@ -915,3 +915,12 @@ a:hover {
 .vitalsTable {
 	border: 1px solid white;
 }
+
+.featureName {
+	color: #5499c7;
+}
+
+.featureDetails {
+	font-size: 14px;
+	margin-bottom: 10px;
+}
