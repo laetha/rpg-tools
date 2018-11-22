@@ -113,7 +113,7 @@ function editSheet() {
         }
       foreach ($storeArray as $item) {
         $itemNS = str_replace(' ', '', $item);
-        echo ('<select class="subclassSelect sheetDrop" name="'.strtolower($itemNS).'SubList" id="'.strtolower($itemNS).'SubList">');
+        echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList" id="'.strtolower($itemNS).'SubList">');
         //echo ('<option name="currentSubclass" value="'.$subclass.'">'.$subclass);
         $classtitle = "SELECT name, class FROM `subclasses`";
         $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
@@ -136,8 +136,43 @@ function editSheet() {
 }
       ?>
 </td>
-      <td><input class="charDetails" id="charLevel" value="<?php echo $row['level']; ?>"></td>
-      <td><input class="charDetails" id="charAlignment" value="<?php echo $row['alignment']; ?>"></td>
+      <td><select class="charClassSelect sheetDrop" name="charLevel" id="charLevel">
+          <option value="<?php echo $row['level']; ?>" selected><?php echo $row['level']; ?>
+          <option value="1">1
+          <option value="2">2
+          <option value="3">3
+          <option value="4">4
+          <option value="5">5
+          <option value="6">6
+          <option value="7">7
+          <option value="8">8
+          <option value="9">9
+          <option value="10">10
+          <option value="11">11
+          <option value="12">12
+          <option value="13">13
+          <option value="14">14
+          <option value="15">15
+          <option value="16">16
+          <option value="17">17
+          <option value="18">18
+          <option value="19">19
+          <option value="20">20
+      </select>
+</td>
+      <td><select class="charClassSelect sheetDrop" name="charAlignment" id="charAlignment">
+          <option value="<?php echo $row['alignment']; ?>" selected><?php echo $row['alignment']; ?>
+          <option value="Lawful Good">Lawful Good
+          <option value="Neutral Good">Neutral Good
+          <option value="Chaotic Good">Chaotic Good
+          <option value="Lawful Neutral">Lawful Neutral
+          <option value="True Neutral">True Neutral
+          <option value="Chaotic Neutral">Chaotic Neutral
+          <option value="Lawful Evil">Lawful Evil
+          <option value="Neutral Evil">Neutral Evil
+          <option value="Chaotic Evil">Chaotic Evil
+          </select>
+          </td>
     <tr>
 
     <tr style="border-top: 1px solid white;">
@@ -194,6 +229,7 @@ $(document).ready(function (){
 }
 //  document.getElementById('test').innerHTML = hideAll;
   document.getElementById(subID).style = "display:inline-block";
+  document.getElementById(subID).disabled = "true";
 
 });
 
