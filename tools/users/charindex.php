@@ -70,6 +70,7 @@ function editSheet() {
    $subclass = trim($subclasstemp, ')');
    $coreclassbare = ucwords($coreclass);
    $background = $row['background'];
+   $race = $row['race'];
    $bgbare = ucwords($row['background']);
    $coreclass = $coreclass.' core';
    $checkprofs = $row['proficiencies'];
@@ -144,8 +145,20 @@ function editSheet() {
       <td><div class="charDeet">Alignment</div></td>
     </tr>
     <tr>
-      <td><input class="charDetails" id="charRace" value="<?php echo $row['race']; ?>"></td>
-      <td><select class="charClassSelect sheetDrop selector" name="charBackgroundSelect" id="charBackground" onchange="bgSelect()">
+      <td><select class="charClassSelect sheetDrop selector" name="charRace" id="charRace">
+          <?php
+          echo ('<option value="'.$row['race'].'" selected>'.$row['race']);
+          $racetitle = "SELECT title FROM `compendium` WHERE `type` LIKE 'race'";
+          $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+          while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+            $raceNameNoR = str_replace('(race)', '', $row1['title']);
+            $raceNameClean = preg_replace('/[^a-z\d]+/i', '', $raceNameNoR);
+              echo ('<option value="'.$raceNameNoR.'">'.$raceNameNoR);
+            }
+            ?>
+    </select>
+      </td>
+      <td><select class="charClassSelect sheetDrop selector" name="charBackgroundSelect" id="charBackground">
         <?php
         echo ('<option value="'.$bgbare.'" selected>'.$bgbare);
         $bgtitle = "SELECT title FROM `compendium` WHERE `type` LIKE 'background'";
@@ -374,7 +387,7 @@ function classSelect(){
 
         <!-- VITALS BLOCKS -->
 
-        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext">
+        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock">
           <table class="vitalsTable">
             <tr>
               <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
@@ -399,7 +412,7 @@ function classSelect(){
 
 
       <!-- CLASS FEATURES -->
-      <div class="col-md-4 col-sm-6 col-xs-12 sidebartext" style="border: 1px solid white;">
+      <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock">
 
         <?php
         $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
@@ -1116,7 +1129,23 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
           $bgTemp = substr($bgTemp, 0, strpos($bgTemp, "**Personality"));
           echo ('<div class="featureDetails collapse" id="backgroundshow" name="backgroundshow">'.$Parsedown->text(nl2br($bgTemp)).'</div>');
           }
-         ?>
+
+
+         //RACIAL TRAITS
+         $racetitle = "SELECT title, raceTraits FROM `compendium` WHERE `title` LIKE '$race' OR `title` LIKE '$race(race)'";
+         $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+         while($racerow =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+           if (strpos($racerow['title'], '(race)') !== false) {
+           $raceName = substr($racerow['title'], 0, strpos($racerow['title'], "("));
+         }
+           else {
+             $raceName = $racerow['title'];
+           }
+         echo ('<a class="featureName" data-toggle="collapse" href="#raceshow">'.$raceName.' (Race)</a><br />');
+         $raceTemp = $racerow['raceTraits'];
+         echo ('<div class="featureDetails collapse" id="raceshow" name="raceshow">'.$Parsedown->text(nl2br($raceTemp)).'</div>');
+         }
+        ?>
 
         </div>
 
