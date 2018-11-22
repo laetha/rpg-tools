@@ -22,7 +22,7 @@ var inputs = document.getElementsByTagName("input");
 for (var i = 0; i < inputs.length; i++) {
     inputs[i].disabled = true;
   }
-  var selects = document.querySelectorAll('.subclassSelect, .charClassSelect');
+  var selects = document.querySelectorAll('.selector .subclassSelect, .charClassSelect');
   for (var i = 0; i < selects.length; i++) {
       selects[i].disabled = true;
     }
@@ -69,8 +69,12 @@ function editSheet() {
    $subclasstemp = substr($fullclass, strpos($fullclass, "(") +1);
    $subclass = trim($subclasstemp, ')');
    $coreclassbare = ucwords($coreclass);
+   $background = $row['background'];
+   $bgbare = ucwords($row['background']);
    $coreclass = $coreclass.' core';
-
+   $checkprofs = $row['proficiencies'];
+   $checksaves = $row['saves'];
+   $checkexperts = $row['expertise'];
    ?>
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
@@ -141,7 +145,19 @@ function editSheet() {
     </tr>
     <tr>
       <td><input class="charDetails" id="charRace" value="<?php echo $row['race']; ?>"></td>
-      <td><input class="charDetails" id="charBackground" value="<?php echo $row['background']; ?>"></td>
+      <td><select class="charClassSelect sheetDrop selector" name="charBackgroundSelect" id="charBackground" onchange="bgSelect()">
+        <?php
+        echo ('<option value="'.$bgbare.'" selected>'.$bgbare);
+        $bgtitle = "SELECT title FROM `compendium` WHERE `type` LIKE 'background'";
+        $bgdata = mysqli_query($dbcon, $bgtitle) or die('error getting data');
+        while($row1 =  mysqli_fetch_array($bgdata, MYSQLI_ASSOC)) {
+          $bgNameNoBG = str_replace('(background)', '', $row1['title']);
+          $bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
+            echo ('<option value="'.$bgNameNoBG.'">'.$bgNameNoBG);
+          }
+          ?>
+  </select>
+      </td>
     </tr>
     <tr  style="border-top: 1px solid white;">
       <td><div class="charDeet">Race</div></td>
@@ -1075,8 +1091,6 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
     $featuretitle = str_replace('text', 'name', $column);
     $featuretitlens = str_replace(' ', '', $row[$featuretitle]);
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
-
-
     echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
   }
@@ -1087,7 +1101,21 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
   ?>
             <?php
           }
-
+          //BACKGROUND TRAITS
+          $bgtitle = "SELECT title, backgroundTraits FROM `compendium` WHERE `title` LIKE '$background' OR `title` LIKE '$background(background)'";
+          $bgdata = mysqli_query($dbcon, $bgtitle) or die('error getting data');
+          while($bgrow =  mysqli_fetch_array($bgdata, MYSQLI_ASSOC)) {
+            if (strpos($bgrow['title'], '(background)') !== false) {
+            $bgName = substr($bgrow['title'], 0, strpos($bgrow['title'], "("));
+          }
+            else {
+              $bgName = $bgrow['title'];
+            }
+          echo ('<a class="featureName" data-toggle="collapse" href="#backgroundshow">'.$bgName.' (Background)</a><br />');
+          $bgTemp = substr($bgrow['backgroundTraits'], strpos($bgrow['backgroundTraits'], "*") -1);
+          $bgTemp = substr($bgTemp, 0, strpos($bgTemp, "**Personality"));
+          echo ('<div class="featureDetails collapse" id="backgroundshow" name="backgroundshow">'.$Parsedown->text(nl2br($bgTemp)).'</div>');
+          }
          ?>
 
         </div>
@@ -1096,7 +1124,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
           <?php
 
 //CHECK EXISTING PROFICIENCIES
-if (strpos($row['saves'], 'Strength') !== false) {
+if (strpos($checksaves, 'Strength') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#strSaveProf').prop('checked', true);
@@ -1106,7 +1134,7 @@ if (strpos($row['saves'], 'Strength') !== false) {
   </script>
 <?php
 }
-if (strpos($row['saves'], 'Dexterity') !== false) {
+if (strpos($checksaves, 'Dexterity') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#dexSaveProf').prop('checked', true);
@@ -1116,7 +1144,7 @@ if (strpos($row['saves'], 'Dexterity') !== false) {
   </script>
 <?php
 }
-if (strpos($row['saves'], 'Constitution') !== false) {
+if (strpos($checksaves, 'Constitution') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#conSaveProf').prop('checked', true);
@@ -1126,7 +1154,7 @@ if (strpos($row['saves'], 'Constitution') !== false) {
   </script>
 <?php
 }
-if (strpos($row['saves'], 'Intelligence') !== false) {
+if (strpos($checksaves, 'Intelligence') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#intelSaveProf').prop('checked', true);
@@ -1136,7 +1164,7 @@ if (strpos($row['saves'], 'Intelligence') !== false) {
   </script>
 <?php
 }
-if (strpos($row['saves'], 'Wisdom') !== false) {
+if (strpos($checksaves, 'Wisdom') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#wisSaveProf').prop('checked', true);
@@ -1146,7 +1174,7 @@ if (strpos($row['saves'], 'Wisdom') !== false) {
   </script>
 <?php
 }
-if (strpos($row['saves'], 'Charisma') !== false) {
+if (strpos($checksaves, 'Charisma') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#chaSaveProf').prop('checked', true);
@@ -1157,7 +1185,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
 <?php
 }
 
-  if (strpos($row['proficiencies'], 'Athletics') !== false) {
+  if (strpos($checkprofs, 'Athletics') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#athleticsProf').prop('checked', true);
@@ -1167,7 +1195,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Acrobatics') !== false) {
+  if (strpos($checkprofs, 'Acrobatics') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#acrobaticsProf').prop('checked', true);
@@ -1177,7 +1205,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Sleight of Hand') !== false) {
+  if (strpos($checkprofs, 'Sleight of Hand') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#sleightProf').prop('checked', true);
@@ -1187,7 +1215,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Stealth') !== false) {
+  if (strpos($checkprofs, 'Stealth') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#stealthProf').prop('checked', true);
@@ -1197,7 +1225,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Arcana') !== false) {
+  if (strpos($checkprofs, 'Arcana') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#arcanaProf').prop('checked', true);
@@ -1207,7 +1235,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'History') !== false) {
+  if (strpos($checkprofs, 'History') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#historyProf').prop('checked', true);
@@ -1217,7 +1245,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Investigation') !== false) {
+  if (strpos($checkprofs, 'Investigation') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#investigationProf').prop('checked', true);
@@ -1227,7 +1255,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Nature') !== false) {
+  if (strpos($checkprofs, 'Nature') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#natureProf').prop('checked', true);
@@ -1237,7 +1265,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Religion') !== false) {
+  if (strpos($checkprofs, 'Religion') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#religionProf').prop('checked', true);
@@ -1247,7 +1275,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Animal Handling') !== false) {
+  if (strpos($checkprofs, 'Animal Handling') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#animalProf').prop('checked', true);
@@ -1257,7 +1285,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Insight') !== false) {
+  if (strpos($checkprofs, 'Insight') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#insightProf').prop('checked', true);
@@ -1267,7 +1295,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Medicine') !== false) {
+  if (strpos($checkprofs, 'Medicine') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#medicineProf').prop('checked', true);
@@ -1277,7 +1305,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Perception') !== false) {
+  if (strpos($checkprofs, 'Perception') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#perceptionProf').prop('checked', true);
@@ -1287,7 +1315,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Survival') !== false) {
+  if (strpos($checkprofs, 'Survival') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#survivalProf').prop('checked', true);
@@ -1297,7 +1325,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Deception') !== false) {
+  if (strpos($checkprofs, 'Deception') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#deceptionProf').prop('checked', true);
@@ -1307,7 +1335,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Intimidation') !== false) {
+  if (strpos($checkprofs, 'Intimidation') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#intimidationProf').prop('checked', true);
@@ -1317,7 +1345,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Persuasion') !== false) {
+  if (strpos($checkprofs, 'Persuasion') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#persuasionProf').prop('checked', true);
@@ -1327,7 +1355,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
     </script>
   <?php
   }
-  if (strpos($row['proficiencies'], 'Performance') !== false) {
+  if (strpos($checkprofs, 'Performance') !== false) {
     ?><script>
     $(document).ready(function() {
       $('#performanceProf').prop('checked', true);
@@ -1341,7 +1369,7 @@ if (strpos($row['saves'], 'Charisma') !== false) {
 
 
 //EXPERTISE CHECKBOXES
-if (strpos($row['expertise'], 'Athletics') !== false) {
+if (strpos($checkexperts, 'Athletics') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#athleticsExpert').prop('checked', true);
@@ -1351,7 +1379,7 @@ if (strpos($row['expertise'], 'Athletics') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Acrobatics') !== false) {
+if (strpos($checkexperts, 'Acrobatics') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#acrobaticsExpert').prop('checked', true);
@@ -1361,7 +1389,7 @@ if (strpos($row['expertise'], 'Acrobatics') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Sleight of Hand') !== false) {
+if (strpos($checkexperts, 'Sleight of Hand') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#sleightExpert').prop('checked', true);
@@ -1371,7 +1399,7 @@ if (strpos($row['expertise'], 'Sleight of Hand') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Stealth') !== false) {
+if (strpos($checkexperts, 'Stealth') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#stealthExpert').prop('checked', true);
@@ -1381,7 +1409,7 @@ if (strpos($row['expertise'], 'Stealth') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Arcana') !== false) {
+if (strpos($checkexperts, 'Arcana') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#arcanaExpert').prop('checked', true);
@@ -1391,7 +1419,7 @@ if (strpos($row['expertise'], 'Arcana') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'History') !== false) {
+if (strpos($checkexperts, 'History') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#historyExpert').prop('checked', true);
@@ -1401,7 +1429,7 @@ if (strpos($row['expertise'], 'History') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Investigation') !== false) {
+if (strpos($checkexperts, 'Investigation') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#investigationExpert').prop('checked', true);
@@ -1411,7 +1439,7 @@ if (strpos($row['expertise'], 'Investigation') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Nature') !== false) {
+if (strpos($checkexperts, 'Nature') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#natureExpert').prop('checked', true);
@@ -1421,7 +1449,7 @@ if (strpos($row['expertise'], 'Nature') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Religion') !== false) {
+if (strpos($checkexperts, 'Religion') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#religionExpert').prop('checked', true);
@@ -1431,7 +1459,7 @@ if (strpos($row['expertise'], 'Religion') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Animal Handling') !== false) {
+if (strpos($checkexperts, 'Animal Handling') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#animalExpert').prop('checked', true);
@@ -1441,7 +1469,7 @@ if (strpos($row['expertise'], 'Animal Handling') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Insight') !== false) {
+if (strpos($checkexperts, 'Insight') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#insightExpert').prop('checked', true);
@@ -1451,7 +1479,7 @@ if (strpos($row['expertise'], 'Insight') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Medicine') !== false) {
+if (strpos($checkexperts, 'Medicine') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#medicineExpert').prop('checked', true);
@@ -1461,7 +1489,7 @@ if (strpos($row['expertise'], 'Medicine') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Perception') !== false) {
+if (strpos($checkexperts, 'Perception') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#perceptionExpert').prop('checked', true);
@@ -1471,7 +1499,7 @@ if (strpos($row['expertise'], 'Perception') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Survival') !== false) {
+if (strpos($checkexperts, 'Survival') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#survivalExpert').prop('checked', true);
@@ -1481,7 +1509,7 @@ if (strpos($row['expertise'], 'Survival') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Deception') !== false) {
+if (strpos($checkexperts, 'Deception') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#deceptionExpert').prop('checked', true);
@@ -1491,7 +1519,7 @@ if (strpos($row['expertise'], 'Deception') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Intimidation') !== false) {
+if (strpos($checkexperts, 'Intimidation') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#intimidationExpert').prop('checked', true);
@@ -1501,7 +1529,7 @@ if (strpos($row['expertise'], 'Intimidation') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Persuasion') !== false) {
+if (strpos($checkexperts, 'Persuasion') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#persuasionExpert').prop('checked', true);
@@ -1511,7 +1539,7 @@ if (strpos($row['expertise'], 'Persuasion') !== false) {
   </script>
 <?php
 }
-if (strpos($row['expertise'], 'Performance') !== false) {
+if (strpos($checkexperts, 'Performance') !== false) {
   ?><script>
   $(document).ready(function() {
     $('#performanceExpert').prop('checked', true);
