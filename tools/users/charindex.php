@@ -1317,6 +1317,36 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 <div class="hide" id="attack3">null</div>
         </div>
 
+        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;" style="float:left;">
+          Spells<br />
+          <?php
+          $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
+          $ucClass = ucwords($coreclass);
+          //$coreclass = $coreclass.' core';
+            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%'";
+            $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
+            while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
+
+              ?>
+              <!-- LEVEL 1 -->
+              <?php
+                  //$featuretitle = str_replace('text', 'name', $column);
+                $spelltitlens = str_replace(' ', '', $spellrow['title']);
+                $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
+
+                  echo ('<a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a><br />');
+                  echo ('<div class="featureDetails collapse" id="'.$spelltitlens.'show" name="'.$spelltitlens.'show">');
+                  echo ('Casting Time: '.$spellrow['spellTime']);
+                  echo ('<br />Duration: '.$spellrow['spellDuration']);
+                  echo ('<br />Range: '.$spellrow['spellRange']);
+                  echo ('<br />Components: '.$spellrow['spellComponents']);
+                  echo ('<br />'.nl2br($spellrow['text']).'</div>');
+                }
+
+
+        ?>
+</div>
+
 
 <!-- FILL ATTACK FIELDS -->
 <script>
