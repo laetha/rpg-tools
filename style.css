@@ -935,3 +935,32 @@ a:hover {
 	border: 0px;
 	width:100%;
 }
+
+.attackDrop {
+	width:100%;
+}
+
+.lightBox {
+	background-color: #717782;
+	opacity: 0.6;
+	color: white;
+	width: 100%;
+}
+
+.attackLabel {
+	font-size: 12px;
+	margin-bottom: 8px;
+}
+
+.wideCell {
+	width: 70%;
+}
+
+.narrowCell {
+	width: 30%;
+}
+
+.attackTable {
+	border-bottom: 1px solid white;
+	margin-bottom: 10px;
+}

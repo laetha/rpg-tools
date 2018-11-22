@@ -16,16 +16,21 @@ include_once($sqlpath);
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
 
 <script>
+
+
 //DISABLE ALL INPUTS
 $(document).ready(function lockSheet() {
 var inputs = document.getElementsByTagName("input");
 for (var i = 0; i < inputs.length; i++) {
+    if(inputs[i].id.indexOf("search") > -1 == false){
     inputs[i].disabled = true;
+  }
   }
   var selects = document.querySelectorAll('.selector .subclassSelect, .charClassSelect');
   for (var i = 0; i < selects.length; i++) {
       selects[i].disabled = true;
     }
+
 });
 
 //EDIT SHEET, ENABLE ALL INPUTS
@@ -77,6 +82,8 @@ function editSheet() {
    $checkprofs = $row['proficiencies'];
    $checksaves = $row['saves'];
    $checkexperts = $row['expertise'];
+   $allattacks = $row['attacks'];
+
    ?>
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
@@ -449,7 +456,7 @@ function classSelect(){
 
 
       <!-- CLASS FEATURES -->
-      <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock">
+      <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="float:right;">
 
         <?php
         $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
@@ -1186,8 +1193,191 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
         </div>
 
+        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;">
+          <div style="margin-bottom: 10px; border-bottom:1px solid white;">Weapons</div>
+          <table class="attackTable">
 
-          <?php
+        <tr>
+          <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack1Select" id="attack1Select" onchange="attack(1)">
+            <?php
+            list($attack1, $attack2, $attack3) = explode(',', $allattacks);
+
+            $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack1'";
+            $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
+            while($at1 =  mysqli_fetch_array($at1data, MYSQLI_ASSOC)) {
+              echo ('<option value="'.$at1['title'].'['.$at1['itemRange'].']'.$at1['itemDmg1'].'{'.$at1['itemProperty'].'">'.$at1['title']);
+            }
+
+
+            echo ('<option value="null">');
+            $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
+            $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
+            while($at1 =  mysqli_fetch_array($at1data, MYSQLI_ASSOC)) {
+              //$bgNameNoBG = str_replace('(background)', '', $row1['title']);
+              //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
+                echo ('<option value="'.$at1['title'].'['.$at1['itemRange'].']'.$at1['itemDmg1'].'{'.$at1['itemProperty'].'">'.$at1['title']);
+              }
+              ?>
+      </select></td>
+        <td class="narrowCell"><input class="statScore lightBox" id="at1Range" value="<?php echo $row['str']; ?>"></input></td>
+      </tr>
+      <tr>
+    <td><div class="attackLabel">Attack</div></td>
+    <td><div class="attackLabel">Range</div></td>
+  </tr>
+  <tr>
+    <td><input class="statScore lightBox" id="at1Damage" value="<?php echo $row['str']; ?>"></input>
+    </td>
+    <td><input class="statScore lightBox" id="at1ToHit" value="<?php echo $row['str']; ?>"></input></td>
+  </tr>
+  <tr>
+<td><div class="attackLabel">Damage</div></td>
+<td><div class="attackLabel">To Hit</div></td>
+</tr>
+    </table>
+    <table class="attackTable">
+
+  <tr>
+    <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack2Select" id="attack2Select" onchange="attack(2)">
+      <?php
+      $at2title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack2'";
+      $at2data = mysqli_query($dbcon, $at2title) or die('error getting data');
+      while($at2 =  mysqli_fetch_array($at2data, MYSQLI_ASSOC)) {
+        echo ('<option value="'.$at2['title'].'['.$at2['itemRange'].']'.$at2['itemDmg1'].'{'.$at2['itemProperty'].'">'.$at2['title']);
+      }
+
+
+      echo ('<option value="null">');
+      $at2title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
+      $at2data = mysqli_query($dbcon, $at2title) or die('error getting data');
+      while($at2 =  mysqli_fetch_array($at2data, MYSQLI_ASSOC)) {
+        //$bgNameNoBG = str_replace('(background)', '', $row2['title']);
+        //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
+        echo ('<option value="'.$at2['title'].'['.$at2['itemRange'].']'.$at2['itemDmg1'].'{'.$at2['itemProperty'].'">'.$at2['title']);
+        }
+        ?>
+</select></td>
+  <td class="narrowCell"><input class="statScore lightBox" id="at2Range" value="<?php echo $row['str']; ?>"></input></td>
+</tr>
+<tr>
+<td><div class="attackLabel">Attack</div></td>
+<td><div class="attackLabel">Range</div></td>
+</tr>
+<tr>
+<td><input class="statScore lightBox" id="at2Damage" value="<?php echo $row['str']; ?>"></input>
+</td>
+<td><input class="statScore lightBox" id="at2ToHit" value="<?php echo $row['str']; ?>"></input></td>
+</tr>
+<tr>
+<td><div class="attackLabel">Damage</div></td>
+<td><div class="attackLabel">To Hit</div></td>
+</tr>
+</table>
+
+<table class="attackTable">
+
+<tr>
+<td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack3Select" id="attack3Select" onchange="attack(3)">
+  <?php
+  $at3title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack3'";
+  $at3data = mysqli_query($dbcon, $at3title) or die('error getting data');
+  while($at3 =  mysqli_fetch_array($at3data, MYSQLI_ASSOC)) {
+    echo ('<option value="'.$at3['title'].'['.$at3['itemRange'].']'.$at3['itemDmg1'].'{'.$at3['itemProperty'].'">'.$at3['title']);
+  }
+
+
+  echo ('<option value="null">');
+  $at3title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
+  $at3data = mysqli_query($dbcon, $at3title) or die('error getting data');
+  while($at3 =  mysqli_fetch_array($at3data, MYSQLI_ASSOC)) {
+    //$bgNameNoBG = str_replace('(background)', '', $row3['title']);
+    //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
+    echo ('<option value="'.$at3['title'].'['.$at3['itemRange'].']'.$at3['itemDmg1'].'{'.$at3['itemProperty'].'">'.$at3['title']);
+    }
+    ?>
+</select></td>
+<td class="narrowCell"><input class="statScore lightBox" id="at3Range" value="<?php echo $row['str']; ?>"></input></td>
+</tr>
+<tr>
+<td><div class="attackLabel">Attack</div></td>
+<td><div class="attackLabel">Range</div></td>
+</tr>
+<tr>
+<td><input class="statScore lightBox" id="at3Damage" value="<?php echo $row['str']; ?>"></input>
+</td>
+<td><input class="statScore lightBox" id="at3ToHit" value="<?php echo $row['str']; ?>"></input></td>
+</tr>
+<tr>
+<td><div class="attackLabel">Damage</div></td>
+<td><div class="attackLabel">To Hit</div></td>
+</tr>
+</table>
+<div class="hide" id="attack1">null</div>
+<div class="hide" id="attack2">null</div>
+<div class="hide" id="attack3">null</div>
+        </div>
+
+
+<!-- FILL ATTACK FIELDS -->
+<script>
+  function attack(value) {
+      var selectName = "attack" + value + "Select";
+      var damageName = "at" + value + "Damage";
+      var rangeName = "at" + value + "Range";
+      var toHitName = "at" + value + "ToHit";
+      var damageValTemp = "at" + value + "DamageVal";
+      var mainString = document.getElementById(selectName).value;
+      if (mainString == "null") {
+        document.getElementById(damageName).value = "";
+        document.getElementById(rangeName).value = "";
+        document.getElementById(toHitName).value = "";
+        document.getElementById(attack + "value").innerHTML = "null";
+      }
+      else {
+      var attackName = mainString.substr(0, mainString.indexOf('['));
+      document.getElementById('attack' + value).innerHTML = attackName;
+      var attackRange = mainString.match(/\[(.*)\]/).pop();
+      var attackDamage = mainString.match(/\](.*)\{/).pop();
+      var attackType = mainString.split('{')[1];
+      var profBonus = <?php echo $profbonus; ?>;
+      var toHitDex = <?php echo $dexmod; ?>;
+      var toHitStr = <?php echo $strmod; ?>;
+      var toHit = profBonus;
+      if (attackType.includes("F") == true) {
+          if (toHitStr >= toHitDex) {
+            toHit = profBonus + toHitStr;
+          }
+          else {
+            toHit = profBonus + toHitStr;
+          }
+        }
+        else if (attackType.includes("T") == true) {
+          toHit = profBonus + toHitStr;
+        }
+        else if (attackType.includes("T") == false && attackRange !== '') {
+            toHit = profBonus + toHitDex;
+        }
+        else {
+          toHit = profBonus + toHitStr;
+        }
+
+      finalDamage = toHit - profBonus;
+      attackDamage = attackDamage + " + " + finalDamage;
+      var toHitVal = "+" + toHit;
+      document.getElementById(damageName).value = attackDamage;
+      document.getElementById(rangeName).value = attackRange;
+      document.getElementById(toHitName).value = toHitVal;
+    }
+  }
+
+  $(document).ready(function() {
+    attack("1");
+    attack("2");
+    attack("3");
+  });
+
+</script>
+<?php
 
 //CHECK EXISTING PROFICIENCIES
 if (strpos($checksaves, 'Strength') !== false) {
@@ -2010,7 +2200,19 @@ if ($('#persuasionExpert').prop('checked')) {
  var charRace = $('#charRace').val();
  var charBackground = $('#charBackground').val();
  var charAlignment = $('#charAlignment').val();
-
+ var attack1 = $('#attack1').html();
+ var attack2 = $('#attack2').html();
+ var attack3 = $('#attack3').html();
+ var charAttacks = "";
+  if (attack1 !== "null") {
+    charAttacks = charAttacks + attack1;
+    if (attack2 !== "null") {
+      charAttacks = charAttacks + "," + attack2;
+      if (attack3 !== "null") {
+        charAttacks = charAttacks + "," + attack3;
+      }
+    }
+  }
 
  var charClassTemp = $('#charClass').val();
  var charClassLower = charClassTemp.toLowerCase();
@@ -2030,7 +2232,7 @@ if ($('#persuasionExpert').prop('checked')) {
     url : 'charprocess.php',
     type: 'POST',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data
