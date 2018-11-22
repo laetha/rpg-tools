@@ -37,6 +37,7 @@ function editSheet() {
 
       var selects = document.querySelectorAll('.subclassSelect, .charClassSelect');
       for (var s = 0; s < selects.length; s++) {
+          //selects[s].style = "background-color: #717782;";
           selects[s].disabled = false;
         }
 
