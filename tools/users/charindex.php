@@ -51,6 +51,9 @@ function editSheet() {
     document.getElementById("saveSheet").style = "display:inline-block";
     document.getElementById("cancelSheet").style = "display:inline-block";
     document.getElementById("spells").style = "display:block";
+    /*document.getElementById("mystics").style = "display:block";
+    document.getElementById("mySpells").style = "display:none;";
+    document.getElementById("mymystics").style = "display:none;";*/
 };
 
 </script>
@@ -85,7 +88,9 @@ function editSheet() {
    $allattacks = $row['attacks'];
    $allspells = $row['spells'];
    $spellsarray = explode(',', $allspells);
+   echo $coreclassbare;
    ?>
+
    <script>
     $(document).ready(function() {
       var allSpells = '<?php echo $allspells; ?>';
@@ -99,7 +104,6 @@ function editSheet() {
 
     });
  </script>
-
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
@@ -235,7 +239,6 @@ function editSheet() {
       <td><div class="charDeet">Background</div></td>
     </tr>
   </table>
-<div class="sidebartext" id="test"></div>
 </div>
 
 <script>
@@ -265,6 +268,9 @@ function classSelect(){
     hideAll[i].style.display = "none";
 }
   document.getElementById(subID).style = "display:inline-block";
+  document.getElementById('currentSpells').innerHTML = "";
+  document.getElementById('spellsShow').style = "display:none";
+  document.getElementById('spellWarning').style = "display:block";
 
 };
 
@@ -307,7 +313,7 @@ function classSelect(){
           }
 
           ?>
-          <div class="char-left-col col-md-4 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12">
 
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="strBox">
@@ -444,7 +450,7 @@ function classSelect(){
 
         <!-- VITALS BLOCKS -->
 
-        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock">
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock">
           <table class="vitalsTable">
             <tr>
               <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
@@ -469,7 +475,7 @@ function classSelect(){
 
 
       <!-- CLASS FEATURES -->
-      <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="float:right;">
+      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="float:right;">
         <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
 
 
@@ -1208,7 +1214,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
         </div>
 
-        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;">
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;">
           <div style="margin-bottom: 10px; border-bottom:1px solid white;">Weapons</div>
           <table class="attackTable">
 
@@ -1332,8 +1338,9 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 <div class="hide" id="attack3">null</div>
         </div>
 
-        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
           <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
+          <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
 
 
           <?php
@@ -1354,14 +1361,35 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
           //$coreclass = $coreclass.' core';
 
           echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
-            ?>
 
-              <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+            ?>
+<div id="spellsShow">
+
+            <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col"></th>
-                        <th scope="col">Spell</th>
-                        <th scope="col">Level</th>
+                        <th scope="col">
+                          <?php
+                          if ($ucClass == 'Mystic') {
+                            echo ('Ability');
+                          }
+                          else {
+                            echo ('Spell');
+                          }
+                          ?>
+                        </th>
+                        <th scope="col">
+                          <?php
+                          if ($ucClass == 'Mystic') {
+                            echo ('Type');
+                          }
+                          else {
+                            echo ('Level');
+                          }
+                          ?>
+
+                        </th>
 
                     </tr>
                 </thead>
@@ -1380,7 +1408,14 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
                 $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
                   echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spellrow['title'].'\')"></input></td>');
                   echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
+
+                  if ($ucClass == 'Mystic') {
+                    echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
+
+                  }
+                  else {
                   echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
+                }
                   echo ('<tr></tr>');
                   echo ('<tr><td colspan="3"><div class="featureDetails collapse" id="'.$spelltitlens.'show" name="'.$spelltitlens.'show">');
                   echo ('Casting Time: '.$spellrow['spellTime']);
@@ -1398,8 +1433,27 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
       <table id="mySpells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
         <thead class="thead-dark">
             <tr>
-                <th scope="col">Spell</th>
-                <th scope="col">Level</th>
+              <th scope="col">
+                <?php
+                if ($ucClass == 'Mystic') {
+                  echo ('Ability');
+                }
+                else {
+                  echo ('Spell');
+                }
+                ?>
+              </th>
+              <th scope="col">
+                <?php
+                if ($ucClass == 'Mystic') {
+                  echo ('Type');
+                }
+                else {
+                  echo ('Level');
+                }
+                ?>
+
+              </th>
 
             </tr>
         </thead>
@@ -1419,8 +1473,13 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         if (strpos($allspells, ','.$spellrow['title'].',') !== false) {
           echo ('<tr>');
           echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
+          if ($ucClass == 'Mystic') {
+            echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
+
+          }
+          else {
           echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
-          echo ('<tr></tr>');
+        }          echo ('<tr></tr>');
           echo ('<tr><td colspan="2"><div class="featureDetails collapse" id="'.$spelltitlens.'myshow" name="'.$spelltitlens.'show">');
           echo ('Casting Time: '.$spellrow['spellTime']);
           echo ('<br />Duration: '.$spellrow['spellDuration']);
@@ -1433,6 +1492,8 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 ?>
 </tbody>
 </table>
+</div>
+
 
 </div>
         <script>
@@ -1493,7 +1554,6 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         document.getElementById('currentSpells').innerHTML = spellList;
       };
         </script>
-
 
 
 <!-- FILL ATTACK FIELDS -->

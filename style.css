@@ -750,10 +750,6 @@ a:hover {
  cursor:pointer;
 }
 
-.char-left-col {
-	/*background: blue;*/
-}
-
 @media screen and (min-width: 601px) {
 	.statBox {
 		position: relative;
@@ -913,8 +909,10 @@ a:hover {
 }
 
 .sheetBlock {
-	border: 1px solid white;
+	border: 2px solid grey;
 	border-radius: 10px;
+	box-sizing: border-box;
+	padding:1%;
 }
 
 .featureName {
@@ -968,6 +966,9 @@ a:hover {
 #spells {
 	display:none;
 }
+#mystics {
+	display:none;
+}
 
 #spells td {
 	padding: 0px;
@@ -976,4 +977,17 @@ a:hover {
 #mySpells td {
 	padding: 0px;
 	border: 0px;
+}
+
+#mystics td {
+	padding: 0px;
+	border: 0px;
+}
+#mymystics td {
+	padding: 0px;
+	border: 0px;
+}
+
+.roundBorder {
+
 }
