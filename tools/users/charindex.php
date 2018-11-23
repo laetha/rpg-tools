@@ -51,6 +51,7 @@ function editSheet() {
     document.getElementsByName("currentSubclass").style = "display:none";
     document.getElementById("saveSheet").style = "display:inline-block";
     document.getElementById("cancelSheet").style = "display:inline-block";
+    document.getElementById("spells").style = "display:block";
 };
 
 </script>
@@ -457,6 +458,8 @@ function classSelect(){
 
       <!-- CLASS FEATURES -->
       <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="float:right;">
+        <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
+
 
         <?php
         $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
@@ -1318,34 +1321,79 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         </div>
 
         <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;" style="float:left;">
-          Spells<br />
+          <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
+
+
           <?php
           $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
+          $coreTemp = $coreclass.' core';
           $ucClass = ucwords($coreclass);
+          $subclass = trim($subclasstemp, ')');
+          /*$spellstitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$subclass' OR `name` LIKE '$coreTemp'";
+          $spellsdata = mysqli_query($dbcon, $spellstitle) or die('error getting data');
+          while($spellsrow =  mysqli_fetch_array($spellsdata, MYSQLI_ASSOC)) {
+          foreach($spellsrow as $column=>$field) {
+            if (strpos($spellsrow[$column], "Spellcasting") == true){
+            echo ('<button class="btn btn-info" onclick="addSpells()">Select Spells</button>');
+            }
+          }
+        }
+*/
           //$coreclass = $coreclass.' core';
-            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%'";
+            ?>
+              <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Spell</th>
+                        <th scope="col">Level</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+            <?php
+            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' ORDER BY spellLevel, title";
             $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
             while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
-
               ?>
               <!-- LEVEL 1 -->
               <?php
                   //$featuretitle = str_replace('text', 'name', $column);
                 $spelltitlens = str_replace(' ', '', $spellrow['title']);
                 $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-
-                  echo ('<a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a><br />');
-                  echo ('<div class="featureDetails collapse" id="'.$spelltitlens.'show" name="'.$spelltitlens.'show">');
+                  echo ('<td><input type="checkbox"></input></td>');
+                  echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
+                  echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
+                  echo ('<tr></tr>');
+                  echo ('<tr><td colspan="3"><div class="featureDetails collapse" id="'.$spelltitlens.'show" name="'.$spelltitlens.'show">');
                   echo ('Casting Time: '.$spellrow['spellTime']);
                   echo ('<br />Duration: '.$spellrow['spellDuration']);
                   echo ('<br />Range: '.$spellrow['spellRange']);
                   echo ('<br />Components: '.$spellrow['spellComponents']);
-                  echo ('<br />'.nl2br($spellrow['text']).'</div>');
+                  echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
+
                 }
 
 
         ?>
+        </tbody>
+      </table>
 </div>
+        <script>
+        $(document).ready(function() {
+
+            // DataTable
+            var table = $('#spells').DataTable(
+              {
+                "paging": false,
+                "order": [[ 2, "asc" ]],
+                "searching": false
+              }
+            );
+
+        } );
+        </script>
+
 
 
 <!-- FILL ATTACK FIELDS -->

@@ -964,3 +964,12 @@ a:hover {
 	border-bottom: 1px solid white;
 	margin-bottom: 10px;
 }
+
+#spells {
+	display:none;
+}
+
+#spells td {
+	padding: 0px;
+	border: 0px;
+}
