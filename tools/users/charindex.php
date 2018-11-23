@@ -30,7 +30,6 @@ for (var i = 0; i < inputs.length; i++) {
   for (var i = 0; i < selects.length; i++) {
       selects[i].disabled = true;
     }
-
 });
 
 //EDIT SHEET, ENABLE ALL INPUTS
@@ -84,8 +83,23 @@ function editSheet() {
    $checksaves = $row['saves'];
    $checkexperts = $row['expertise'];
    $allattacks = $row['attacks'];
-
+   $allspells = $row['spells'];
+   $spellsarray = explode(',', $allspells);
    ?>
+   <script>
+    $(document).ready(function() {
+      var allSpells = '<?php echo $allspells; ?>';
+       var spellArray = allSpells.split(',');
+       var index = 0;
+       var entryNS = '';
+       for (index = 0; index < allSpells.length; ++index) {
+         entryNS = spellArray[index].replace(' ', '');
+         $('#' + entryNS + 'Box').prop('checked', true);
+       }
+
+    });
+ </script>
+
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
@@ -235,7 +249,6 @@ $(document).ready(function (){
  for (var i = 0; i < hideAll.length; i++ ) {
     hideAll[i].style.display = "none";
 }
-//  document.getElementById('test').innerHTML = hideAll;
   document.getElementById(subID).style = "display:inline-block";
   document.getElementById(subID).disabled = "true";
 
@@ -251,7 +264,6 @@ function classSelect(){
  for (var i = 0; i < hideAll.length; i++ ) {
     hideAll[i].style.display = "none";
 }
-//  document.getElementById('test').innerHTML = hideAll;
   document.getElementById(subID).style = "display:inline-block";
 
 };
@@ -1320,7 +1332,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 <div class="hide" id="attack3">null</div>
         </div>
 
-        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;" style="float:left;">
+        <div class="col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
           <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
 
 
@@ -1340,7 +1352,10 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         }
 */
           //$coreclass = $coreclass.' core';
+
+          echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
             ?>
+
               <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr>
@@ -1352,16 +1367,18 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
                 </thead>
                 <tbody>
             <?php
+// SPELLS Section
+
             $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' ORDER BY spellLevel, title";
             $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
             while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
               ?>
-              <!-- LEVEL 1 -->
+
               <?php
                   //$featuretitle = str_replace('text', 'name', $column);
                 $spelltitlens = str_replace(' ', '', $spellrow['title']);
                 $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-                  echo ('<td><input type="checkbox"></input></td>');
+                  echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spellrow['title'].'\')"></input></td>');
                   echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
                   echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
                   echo ('<tr></tr>');
@@ -1372,16 +1389,54 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
                   echo ('<br />Components: '.$spellrow['spellComponents']);
                   echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
 
-                }
-
+              }
 
         ?>
         </tbody>
       </table>
+
+      <table id="mySpells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Spell</th>
+                <th scope="col">Level</th>
+
+            </tr>
+        </thead>
+        <tbody>
+    <?php
+// SPELLS Section
+
+    $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' ORDER BY spellLevel, title";
+    $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
+    while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
+      ?>
+
+      <?php
+          //$featuretitle = str_replace('text', 'name', $column);
+        $spelltitlens = str_replace(' ', '', $spellrow['title']);
+        $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
+        if (strpos($allspells, ','.$spellrow['title'].',') !== false) {
+          echo ('<tr>');
+          echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
+          echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
+          echo ('<tr></tr>');
+          echo ('<tr><td colspan="2"><div class="featureDetails collapse" id="'.$spelltitlens.'myshow" name="'.$spelltitlens.'show">');
+          echo ('Casting Time: '.$spellrow['spellTime']);
+          echo ('<br />Duration: '.$spellrow['spellDuration']);
+          echo ('<br />Range: '.$spellrow['spellRange']);
+          echo ('<br />Components: '.$spellrow['spellComponents']);
+          echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
+        }
+      }
+
+?>
+</tbody>
+</table>
+
 </div>
         <script>
         $(document).ready(function() {
-
             // DataTable
             var table = $('#spells').DataTable(
               {
@@ -1392,6 +1447,51 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
             );
 
         } );
+        $(document).ready(function() {
+
+            // DataTable
+            var table = $('#mySpells').DataTable(
+              {
+                "paging": false,
+                "order": [[ 1, "asc" ]],
+                "searching": false
+              }
+            );
+
+        } );
+
+        function spellList(value) {
+          var spellList = document.getElementById('currentSpells').innerHTML;
+          var valueNS = value.replace(' ', '');
+          var spellBoxID = valueNS + 'Box';
+          if (document.getElementById(spellBoxID).checked) {
+            spellList = spellList + value + ',';
+        }
+        else {
+          if (spellList.includes(value + ',') == true){
+        /*   if (spellList.startsWith(value)){
+             if (spellList.includes(value + ',')) {*/
+             spellList = spellList.replace(value + ',', '');
+             }
+             /*else {
+              spellList = spellList.replace(value , '');
+            }*/
+          }
+            //else {
+              //spellList = spellList.replace(',' + value, '');
+            //}
+
+          //}
+
+       if (spellList.startsWith(',') == false){
+          spellList = ',' + spellList;
+        }
+        if (spellList.endsWith(',') == false){
+          spellList = spellList + ',';
+        }
+
+        document.getElementById('currentSpells').innerHTML = spellList;
+      };
         </script>
 
 
@@ -2298,6 +2398,8 @@ if ($('#persuasionExpert').prop('checked')) {
  var charSubTemp = "#" + charClassNs + "SubList";
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
+ var charSpells = $('#currentSpells').html();
+
 
  if (hitdice.indexOf('d') > -1) {
   hitdice = hitdice.replace('d', '');
@@ -2310,7 +2412,7 @@ if ($('#persuasionExpert').prop('checked')) {
     url : 'charprocess.php',
     type: 'POST',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data

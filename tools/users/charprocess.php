@@ -25,13 +25,15 @@ $charLevel = $_REQUEST['charLevel'];
 $charBackground = $_REQUEST['charBackground'];
 $charAlignment = $_REQUEST['charAlignment'];
 $charAttacks = $_REQUEST['attacks'];
+$charSpells = $_REQUEST['spells'];
+
 
 
 
 
 $sql = "UPDATE characters
 SET title = '$title', proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass',
- race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks'
+ race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {
