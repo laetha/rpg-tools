@@ -1243,7 +1243,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         <td class="narrowCell"><input class="statScore lightBox" id="at1Range" value="<?php echo $row['str']; ?>"></input></td>
       </tr>
       <tr>
-    <td><div class="attackLabel">Attack</div></td>
+    <td><div class="attackLabel" onclick="attackRoll('1')">Attack</div></td>
     <td><div class="attackLabel">Range</div></td>
   </tr>
   <tr>
@@ -1281,7 +1281,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
   <td class="narrowCell"><input class="statScore lightBox" id="at2Range" value="<?php echo $row['str']; ?>"></input></td>
 </tr>
 <tr>
-<td><div class="attackLabel">Attack</div></td>
+<td><div class="attackLabel" onclick="attackRoll('2')">Attack</div></td>
 <td><div class="attackLabel">Range</div></td>
 </tr>
 <tr>
@@ -1320,7 +1320,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 <td class="narrowCell"><input class="statScore lightBox" id="at3Range" value="<?php echo $row['str']; ?>"></input></td>
 </tr>
 <tr>
-<td><div class="attackLabel">Attack</div></td>
+<td><div class="attackLabel" onclick="attackRoll('3')">Attack</div></td>
 <td><div class="attackLabel">Range</div></td>
 </tr>
 <tr>
@@ -2167,6 +2167,48 @@ function profRoll(value) {
     saveType = saveType.toUpperCase();
     typeName = '<b>' + saveType + ' Saving Throw</b>';
   }
+  if (roll == 20) {
+    document.getElementById('nat20').innerHTML = 'Natural 20!';
+    document.getElementById('rollResult').classList.add('nat20');
+    document.getElementById('rollFormula').classList.add('nat20');
+    document.getElementById('rollType').classList.add('nat20');
+
+  }
+  else if (roll == 1) {
+    document.getElementById('nat1').innerHTML = 'Natural 1!';
+    document.getElementById('rollResult').classList.add('nat1');
+    document.getElementById('rollFormula').classList.add('nat1');
+    document.getElementById('rollType').classList.add('nat1');
+  }
+  else {
+    document.getElementById('rollResult').classList.remove('nat1');
+    document.getElementById('rollFormula').classList.remove('nat1');
+    document.getElementById('rollType').classList.remove('nat1');
+    document.getElementById('rollResult').classList.remove('nat20');
+    document.getElementById('rollFormula').classList.remove('nat20');
+    document.getElementById('rollType').classList.remove('nat20');
+    document.getElementById('nat20').innerHTML = '';
+    document.getElementById('nat1').innerHTML = '';
+  }
+  document.getElementById('rollType').innerHTML = typeName;
+
+  function showRollModal() {
+    $("#rollModal").modal();
+  }
+  showRollModal();
+}
+
+function attackRoll(value) {
+  var cleanModifier = document.getElementById('at' + value + 'ToHit').value;
+  var modifier = parseInt(cleanModifier.replace('+', ''), 10);
+  var roll = Math.floor(Math.random() * 20) + 1;
+  var result = roll + modifier;
+  //var typeID = value.replace('Val', '');
+  var typeName = document.getElementById('attack' + value + 'Select').value;
+  typeName = typeName.substr(0, typeName.indexOf('[')); 
+  document.getElementById('rollResult').innerHTML = result;
+  document.getElementById('rollFormula').innerHTML = roll + ' + (' + modifier + ')';
+
   if (roll == 20) {
     document.getElementById('nat20').innerHTML = 'Natural 20!';
     document.getElementById('rollResult').classList.add('nat20');
