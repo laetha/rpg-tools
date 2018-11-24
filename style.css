@@ -1016,3 +1016,7 @@ a:hover {
 .charCreateFrame {
 	overflow: auto;
 }
+
+.popout h3 {
+	color: #5499c7;
+}

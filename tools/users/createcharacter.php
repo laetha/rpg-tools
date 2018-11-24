@@ -93,7 +93,7 @@ jQuery.fn.toggleOption = function( show ) {
 
         <div id="charSubclassShow" style="display:none;">
           <div class="col-centered">Subclass</div>
-          <div class="col-xs-12"><select class="charSubclassSelect sheetDrop" name="charSubClassAdd" id="charClassAdd"  onchange="showSubclassDetails()">
+          <div class="col-xs-12"><select class="charSubclassSelect sheetDrop" name="charSubClassAdd" id="charSubclassAdd"  onchange="showSubclassDetails()">
             <option value="">Select Subclass...
             <?php
             $racetitle = "SELECT name, class FROM `subclasses` WHERE `name` NOT LIKE '%core%'";
@@ -105,28 +105,7 @@ jQuery.fn.toggleOption = function( show ) {
              ?>
           </select>
         </div>
-        <?php
-        $subclasstitle = "SELECT * FROM `subclasses` WHERE `name` NOT LIKE '%core%'";
-        $subclassdata = mysqli_query($dbcon, $subclasstitle) or die('error getting data');
-        while($subrow =  mysqli_fetch_array($subclassdata, MYSQLI_ASSOC)) {
-          $namens = str_replace(' ', '', $subrow['name']);
-          ?>
-          <div class="col-xs-12"><div class="hide" id="<?php echo $namens; ?>">
-            <?php
-            foreach($subrow as $column=>$field) {
-              if (strpos($field, ' 1st level') !== false) {
-                $featuretitle = str_replace('text', 'name', $column);
-                $featuretitlens = str_replace(' ', '', $subrow[$featuretitle]);
-                $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
-
-                echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$subrow[$featuretitle].'</a><br />');
-                echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
-              }
-            }
-            ?>
-
-          </div></div>
-        <?php } ?>
+          <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="subclassDetails" seamless></iframe></div>
           <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addSubclass()">Next</button></div>
       </div>
 
@@ -196,14 +175,13 @@ function showClassDetails(){
 
 function showSubclassDetails(){
   var selectedSubclass = document.getElementById('charSubclassAdd').value;
-  var subclassNS = selectedSubclass.replace(' ', '');
-  document.getElementById(subclassNS).style = "display:block";
-  //var subclassFrame = document.getElementById('subclassDetails');
-  //subclassFrame.addEventListener("load", function() {
-  //this.contentWindow.document.getElementById('nonav').style = "display:none";
-  //this.contentWindow.document.getElementById('body').style = "background:none";
+  var subclassFrame = document.getElementById('subclassDetails');
+  subclassFrame.addEventListener("load", function() {
+  this.contentWindow.document.getElementById('nonav').style = "display:none";
+  this.contentWindow.document.getElementById('body').style = "background:none";
+});
+  subclassFrame.src= "/tools/compendium/popout.php?id=" + selectedSubclass;
 };
-  //subclassFrame.src= "/tools/compendium/compendium.php?id=" + selectedClass;
 </script>
 
          <?php
