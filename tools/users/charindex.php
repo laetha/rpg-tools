@@ -139,7 +139,7 @@ function editSheet() {
         }
       foreach ($storeArray as $item) {
         $itemNS = str_replace(' ', '', $item);
-        echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList" id="'.strtolower($itemNS).'SubList">');
+        echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList" id="'.strtolower($itemNS).'SubList" onchange="classSelect()">');
         //echo ('<option name="currentSubclass" value="'.$subclass.'">'.$subclass);
         $classtitle = "SELECT name, class FROM `subclasses`";
         $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
@@ -277,7 +277,7 @@ function classSelect(){
 </script>
 
  <?php
- }
+}
   ?>
 
   <div class="body sidebartext col-xs-12" id="body" style="margin-top: 10px;">
@@ -1397,7 +1397,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
             <?php
 // SPELLS Section
 
-            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' ORDER BY spellLevel, title";
+            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
             $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
             while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
               ?>
@@ -1461,7 +1461,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
     <?php
 // SPELLS Section
 
-    $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' ORDER BY spellLevel, title";
+    $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
     $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
     while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
       ?>
@@ -2205,7 +2205,7 @@ function attackRoll(value) {
   var result = roll + modifier;
   //var typeID = value.replace('Val', '');
   var typeName = document.getElementById('attack' + value + 'Select').value;
-  typeName = typeName.substr(0, typeName.indexOf('[')); 
+  typeName = typeName.substr(0, typeName.indexOf('['));
   document.getElementById('rollResult').innerHTML = result;
   document.getElementById('rollFormula').innerHTML = roll + ' + (' + modifier + ')';
 
