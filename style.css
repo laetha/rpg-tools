@@ -991,3 +991,24 @@ a:hover {
 .roundBorder {
 
 }
+
+.bigInput {
+	width: 80%;
+	display: block;
+  margin : 0 auto;
+}
+
+.nextButton {
+	display: flex;
+ justify-content: center;
+}
+
+.charDrop {
+
+}
+
+.createModal {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}

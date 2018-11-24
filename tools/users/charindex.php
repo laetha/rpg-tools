@@ -209,8 +209,7 @@ function editSheet() {
     <tr>
       <td><select class="charClassSelect sheetDrop selector" name="charRace" id="charRace">
           <?php
-          echo ('<option value="'.$row['race'].'" selected>'.$row['race']);
-          $racetitle = "SELECT title FROM `compendium` WHERE `type` LIKE 'race'";
+          $racetitle = "SELECT * FROM `compendium` WHERE `type` LIKE 'race'";
           $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
           while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
             $raceNameNoR = str_replace('(race)', '', $row1['title']);

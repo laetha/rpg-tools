@@ -25,6 +25,7 @@ if (empty($_GET['id'])) {
   <div class ="body bodytext">
 
     <h1 class="pagetitle"><?php echo ucwords($loguser); ?>'s Characters</h1>
+    <button class="btn btn-info" onclick="window.location.href='createcharacter.php'">Create New Character</button>
 
 			</div>
       <div class="body sidebartext col-xs-12" id="body">
