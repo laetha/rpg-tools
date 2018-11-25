@@ -1020,3 +1020,14 @@ a:hover {
 .popout h3 {
 	color: #5499c7;
 }
+
+.statInput {
+	margin-top: 0px;
+	margin-bottom: 6px;
+	width: 20%;
+	color: black;
+}
+
+.classSelect {
+	color:black;
+}
