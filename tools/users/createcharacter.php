@@ -75,7 +75,7 @@ jQuery.fn.toggleOption = function( show ) {
                   $raceNameNoR = str_replace('(race)', '', $row2['title']);
                   $raceNameClean = preg_replace('/[^a-z\d]+/i', '', $raceNameNoR);
                   $raceNameNS = str_replace(' ', '', $raceNameClean);
-                echo ('<div id="'.$raceNameNS.'stats">'.$row2['raceAbility'].'</div>');
+                echo ('<div class="hide" id="'.$raceNameNS.'stats">'.$row2['raceAbility'].'</div>');
               }
                 ?>
               </div>
@@ -143,80 +143,80 @@ jQuery.fn.toggleOption = function( show ) {
         <div class="col-md-12">
           <div class="col-centered"><button class="btn btn-primary" style="margin-bottom: 8px;" onclick="rollStats()">Roll An Array For Me</button></div>
           <div class="col-sm-4 sidebartext">Stat 1
-          <input class="statInput" name="stat1" id="stat1" value=""></input>
-          <select class="classSelect" id="stat1drop">
-            <option id="stat1null" value="null">
-            <option id="stat1str" value="str" selected>STR
+          <input class="statInput" name="stat1" id="stat1" value="" onkeyup="calcStats()"></input>
+          <select class="classSelect" id="stat1drop" onchange="calcStats()">
+            <option id="stat1null" value="null" selected>
+            <option id="stat1str" value="str">STR
             <option id="stat1dex" value="dex">DEX
             <option id="stat1con" value="con">CON
-            <option id="stat1intel" value="intel">INT
+            <option id="stat1intel" value="int">INT
             <option id="stat1wis" value="wis">WIS
             <option id="stat1cha" value="cha">CHA
           </select>
           </div>
           <div class="col-sm-4 sidebartext">Stat 2
-          <input class="statInput" name="stat2" id="stat2" value=""></input>
-          <select class="classSelect" id="stat2drop">
-            <option id="stat2null" value="null">
+          <input class="statInput" name="stat2" id="stat2" value="" onkeyup="calcStats()"></input>
+          <select class="classSelect" id="stat2drop" onchange="calcStats()">
+            <option id="stat2null" value="null" selected>
             <option id="stat2str" value="str">STR
-            <option id="stat2dex" value="dex" selected>DEX
+            <option id="stat2dex" value="dex">DEX
             <option id="stat2con" value="con">CON
-            <option id="stat2intel" value="intel">INT
+            <option id="stat2intel" value="int">INT
             <option id="stat2wis" value="wis">WIS
             <option id="stat2cha" value="cha">CHA
           </select>
           </div>
           <div class="col-sm-4 sidebartext">Stat 3
-          <input class="statInput" name="stat3" id="stat3" value=""></input>
-          <select class="classSelect" id="stat3drop">
-            <option id="stat3null" value="null">
+          <input class="statInput" name="stat3" id="stat3" value="" onkeyup="calcStats()"></input>
+          <select class="classSelect" id="stat3drop" onchange="calcStats()">
+            <option id="stat3null" value="null" selected>
             <option id="stat3str" value="str">STR
             <option id="stat3dex" value="dex">DEX
-            <option id="stat3con" value="con" selected>CON
-            <option id="stat3intel" value="intel">INT
+            <option id="stat3con" value="con">CON
+            <option id="stat3intel" value="int">INT
             <option id="stat3wis" value="wis">WIS
             <option id="stat3cha" value="cha">CHA
           </select>
           </div>
           <div class="col-sm-4 sidebartext">Stat 4
-          <input class="statInput" name="stat4" id="stat4" value=""></input>
-          <select class="classSelect" id="stat4drop">
-            <option id="stat4null" value="null">
+          <input class="statInput" name="stat4" id="stat4" value="" onkeyup="calcStats()"></input>
+          <select class="classSelect" id="stat4drop" onchange="calcStats()">
+            <option id="stat4null" value="null" selected>
             <option id="stat4str" value="str">STR
             <option id="stat4dex" value="dex">DEX
             <option id="stat4con" value="con">CON
-            <option id="stat4intel" value="intel" selected>INT
+            <option id="stat4intel" value="int">INT
             <option id="stat4wis" value="wis">WIS
             <option id="stat4cha" value="cha">CHA
           </select>
           </div>
           <div class="col-sm-4 sidebartext">Stat 5
-          <input class="statInput" name="stat5" id="stat5" value=""></input>
-          <select class="classSelect" id="stat5drop">
-            <option id="stat5null" value="null">
+          <input class="statInput" name="stat5" id="stat5" value="" onkeyup="calcStats()"></input>
+          <select class="classSelect" id="stat5drop" onchange="calcStats()">
+            <option id="stat5null" value="null" selected>
             <option id="stat5str" value="str">STR
             <option id="stat5dex" value="dex">DEX
             <option id="stat5con" value="con">CON
-            <option id="stat5intel" value="intel">INT
-            <option id="stat5wis" value="wis" selected>WIS
+            <option id="stat5intel" value="int">INT
+            <option id="stat5wis" value="wis">WIS
             <option id="stat5cha" value="cha">CHA
           </select>
           </div>
           <div class="col-sm-4 sidebartext">Stat 6
-          <input class="statInput" name="stat6" id="stat6" value=""></input>
-          <select class="classSelect" id="stat6drop">
-            <option id="stat6null" value="null">
+          <input class="statInput" name="stat6" id="stat6" value="" onkeyup="calcStats()"></input>
+          <select class="classSelect" id="stat6drop" onchange="calcStats()">
+            <option id="stat6null" value="null" selected>
             <option id="stat6str" value="str">STR
             <option id="stat6dex" value="dex">DEX
             <option id="stat6con" value="con">CON
-            <option id="stat6intel" value="intel">INT
+            <option id="stat6intel" value="int">INT
             <option id="stat6wis" value="wis">WIS
-            <option id="stat6cha" value="cha" selected>CHA
+            <option id="stat6cha" value="cha">CHA
           </select>
           </div>
           <div style="color:red; display:none;" id="statError">ERROR: You must select each stat type once.</div>
       </div>
-      <table>
+      <table style="width:100%;">
         <tr>
           <td>STR</td>
           <td>DEX</td>
@@ -225,16 +225,17 @@ jQuery.fn.toggleOption = function( show ) {
           <td>WIS</td>
           <td>CHA</td>
         </tr>
-          <td id="Strtotal"></td>
-          <td id="Dextotal"></td>
-          <td id="Contotal"></td>
-          <td id="Inttotal"></td>
-          <td id="Wistotal"></td>
-          <td id="Chatotal"></td>
+          <td><div id="Strtotal"></div><div class="smallertext" id="strStat"></div><div class="smallertext" id="StrBonus"></div></td>
+          <td><div id="Dextotal"></div><div class="smallertext" id="dexStat"></div><div class="smallertext" id="DexBonus"></div></td>
+          <td><div id="Contotal"></div><div class="smallertext" id="conStat"></div><div class="smallertext" id="ConBonus"></div></td>
+          <td><div id="Inttotal"></div><div class="smallertext" id="intStat"></div><div class="smallertext" id="IntBonus"></div></td>
+          <td><div id="Wistotal"></div><div class="smallertext" id="wisStat"></div><div class="smallertext" id="WisBonus"></div></td>
+          <td><div id="Chatotal"></div><div class="smallertext" id="chaStat"></div><div class="smallertext" id="ChaBonus"></div></td>
         </tr>
       </table>
         <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addStats()">Next</button></div>
       </div>
+
 
         </div>
       </div>
@@ -249,7 +250,7 @@ jQuery.fn.toggleOption = function( show ) {
 <div class="sidebartext" id="charstr">1</div>
 <div class="sidebartext" id="chardex">1</div>
 <div class="sidebartext" id="charcon">1</div>
-<div class="sidebartext" id="charintel">1</div>
+<div class="sidebartext" id="charint">1</div>
 <div class="sidebartext" id="charwis">1</div>
 <div class="sidebartext" id="charcha">1</div>
 <div class="sidebartext" id="test"></div>
@@ -295,11 +296,197 @@ function addBackground() {
   var stat2type = raceStatsArray[1].slice(0,3);
   var stat1 = raceStatsArray[0].slice(4);
   var stat2 = raceStatsArray[1].slice(4);
-  //document.getElementById('test').innerHTML = stat1type + stat2type + stat1 + stat2;
-  document.getElementById(stat1type + 'total').innerHTML = stat1;
-  document.getElementById(stat2type + 'total').innerHTML = stat2;
+  document.getElementById(stat1type + 'Bonus').innerHTML =  "+" + stat1;
+  document.getElementById(stat2type + 'Bonus').innerHTML = "+" + stat2;
   $('#charBackgroundShow').fadeOut(500);
   $('#charStatsShow').delay(400).fadeIn(300);
+};
+
+function calcStats() {
+  var strBonus = $('#StrBonus').html();
+  var dexBonus = $('#DexBonus').html();
+  var conBonus = $('#ConBonus').html();
+  var intBonus = $('#IntBonus').html();
+  var wisBonus = $('#WisBonus').html();
+  var chaBonus = $('#ChaBonus').html();
+  strBonus = strBonus.replace(/[+]/g, '');
+  dexBonus = dexBonus.replace(/[+]/g, '');
+  conBonus = conBonus.replace(/[+]/g, '');
+  intBonus = intBonus.replace(/[+]/g, '');
+  wisBonus = wisBonus.replace(/[+]/g, '');
+  chaBonus = chaBonus.replace(/[+]/g, '');
+  var stat1Val = $('#stat1').val();
+  var stat1Type = $('#stat1drop').val();
+  var stat1 = stat1Type + ',' + stat1Val;
+  var stat2Val = $('#stat2').val();
+  var stat2Type = $('#stat2drop').val();
+  var stat2 = stat2Type + ',' + stat2Val;
+  var stat3Val = $('#stat3').val();
+  var stat3Type = $('#stat3drop').val();
+  var stat3 = stat3Type + ',' + stat3Val;
+  var stat4Val = $('#stat4').val();
+  var stat4Type = $('#stat4drop').val();
+  var stat4 = stat4Type + ',' + stat4Val;
+  var stat5Val = $('#stat5').val();
+  var stat5Type = $('#stat5drop').val();
+  var stat5 = stat5Type + ',' + stat5Val;
+  var stat6Val = $('#stat6').val();
+  var stat6Type = $('#stat6drop').val();
+  var stat6 = stat6Type + ',' + stat6Val;
+  var stat1Final = 0;
+  var stat2Final = 0;
+  var stat3Final = 0;
+  var stat4Final = 0;
+  var stat5Final = 0;
+  var stat6Final = 0;
+  //document.getElementById('test').innerHTML = stat6;
+  if (stat1.includes('null') == false){
+    var st1 = stat1.substring(0, stat1.indexOf(","));
+    var stat1ID = st1.charAt(0).toUpperCase() + st1.slice(1) + 'total';
+    var stat1stat = st1 + 'Stat';
+    var stat1Bonus = st1.charAt(0).toUpperCase() + st1.slice(1) + 'Bonus';
+    if (st1.includes('str') == true) {
+      stat1Final = Number(strBonus) + Number(stat1Val);
+    }
+    if (st1.includes('dex') == true) {
+      stat1Final = Number(dexBonus) + Number(stat1Val);
+    }
+    if (st1.includes('con') == true) {
+      stat1Final = Number(conBonus) + Number(stat1Val);
+    }
+    if (st1.includes('int') == true) {
+      stat1Final = Number(intBonus) + Number(stat1Val);
+    }
+    if (st1.includes('wis') == true) {
+      stat1Final = Number(wisBonus) + Number(stat1Val);
+    }
+    if (st1.includes('cha') == true) {
+      stat1Final = Number(chaBonus) + Number(stat1Val);
+    }
+    //document.getElementById(stat1stat).innerHTML = stat1Val;
+    document.getElementById(stat1ID).innerHTML = stat1Final;
+  }
+  if (stat2.includes('null') == false){
+    var st2 = stat2.substring(0, stat2.indexOf(","));
+    var stat2ID = st2.charAt(0).toUpperCase() + st2.slice(1) + 'total';
+    var stat2stat = st2.charAt(0).toUpperCase() + st2.slice(1) + 'Stat';
+    if (st2.includes('str') == true) {
+      stat2Final = Number(strBonus) + Number(stat2Val);
+    }
+    if (st2.includes('dex') == true) {
+      stat2Final = Number(dexBonus) + Number(stat2Val);
+    }
+    if (st2.includes('con') == true) {
+      stat2Final = Number(conBonus) + Number(stat2Val);
+    }
+    if (st2.includes('int') == true) {
+      stat2Final = Number(intBonus) + Number(stat2Val);
+    }
+    if (st2.includes('wis') == true) {
+      stat2Final = Number(wisBonus) + Number(stat2Val);
+    }
+    if (st2.includes('cha') == true) {
+      stat2Final = Number(chaBonus) + Number(stat2Val);
+    }
+    document.getElementById(stat2ID).innerHTML = stat2Final;
+  }
+  if (stat3.includes('null') == false){
+    var st3 = stat3.substring(0, stat3.indexOf(","));
+    var stat3ID = st3.charAt(0).toUpperCase() + st3.slice(1) + 'total';
+    var stat3stat = st3.charAt(0).toUpperCase() + st3.slice(1) + 'Stat';
+    if (st3.includes('str') == true) {
+      stat3Final = Number(strBonus) + Number(stat3Val);
+    }
+    if (st3.includes('dex') == true) {
+      stat3Final = Number(dexBonus) + Number(stat3Val);
+    }
+    if (st3.includes('con') == true) {
+      stat3Final = Number(conBonus) + Number(stat3Val);
+    }
+    if (st3.includes('int') == true) {
+      stat3Final = Number(intBonus) + Number(stat3Val);
+    }
+    if (st3.includes('wis') == true) {
+      stat3Final = Number(wisBonus) + Number(stat3Val);
+    }
+    if (st3.includes('cha') == true) {
+      stat3Final = Number(chaBonus) + Number(stat3Val);
+    }
+    document.getElementById(stat3ID).innerHTML = stat3Final;
+  }
+  if (stat4.includes('null') == false){
+    var st4 = stat4.substring(0, stat4.indexOf(","));
+    var stat4ID = st4.charAt(0).toUpperCase() + st4.slice(1) + 'total';
+    var stat4stat = st4.charAt(0).toUpperCase() + st4.slice(1) + 'Stat';
+    if (st4.includes('str') == true) {
+      stat4Final = Number(strBonus) + Number(stat4Val);
+    }
+    if (st4.includes('dex') == true) {
+      stat4Final = Number(dexBonus) + Number(stat4Val);
+    }
+    if (st4.includes('con') == true) {
+      stat4Final = Number(conBonus) + Number(stat4Val);
+    }
+    if (st4.includes('int') == true) {
+      stat4Final = Number(intBonus) + Number(stat4Val);
+    }
+    if (st4.includes('wis') == true) {
+      stat4Final = Number(wisBonus) + Number(stat4Val);
+    }
+    if (st4.includes('cha') == true) {
+      stat4Final = Number(chaBonus) + Number(stat4Val);
+    }
+    document.getElementById(stat4ID).innerHTML = stat4Final;
+  }
+  if (stat5.includes('null') == false){
+    var st5 = stat5.substring(0, stat5.indexOf(","));
+    var stat5ID = st5.charAt(0).toUpperCase() + st5.slice(1) + 'total';
+    var stat5stat = st5.charAt(0).toUpperCase() + st5.slice(1) + 'Stat';
+    if (st5.includes('str') == true) {
+      stat5Final = Number(strBonus) + Number(stat5Val);
+    }
+    if (st5.includes('dex') == true) {
+      stat5Final = Number(dexBonus) + Number(stat5Val);
+    }
+    if (st5.includes('con') == true) {
+      stat5Final = Number(conBonus) + Number(stat5Val);
+    }
+    if (st5.includes('int') == true) {
+      stat5Final = Number(intBonus) + Number(stat5Val);
+    }
+    if (st5.includes('wis') == true) {
+      stat5Final = Number(wisBonus) + Number(stat5Val);
+    }
+    if (st5.includes('cha') == true) {
+      stat5Final = Number(chaBonus) + Number(stat5Val);
+    }
+    document.getElementById(stat5ID).innerHTML = stat5Final;
+  }
+  if (stat6.includes('null') == false){
+    var st6 = stat6.substring(0, stat6.indexOf(","));
+    var stat6ID = st6.charAt(0).toUpperCase() + st6.slice(1) + 'total';
+    var stat6stat = st6.charAt(0).toUpperCase() + st6.slice(1) + 'Stat';
+    if (st6.includes('str') == true) {
+      stat6Final = Number(strBonus) + Number(stat6Val);
+    }
+    if (st6.includes('dex') == true) {
+      stat6Final = Number(dexBonus) + Number(stat6Val);
+    }
+    if (st6.includes('con') == true) {
+      stat6Final = Number(conBonus) + Number(stat6Val);
+    }
+    if (st6.includes('int') == true) {
+      stat6Final = Number(intBonus) + Number(stat6Val);
+    }
+    if (st6.includes('wis') == true) {
+      stat6Final = Number(wisBonus) + Number(stat6Val);
+    }
+    if (st6.includes('cha') == true) {
+      stat6Final = Number(chaBonus) + Number(stat6Val);
+    }
+    document.getElementById(stat6ID).innerHTML = stat6Final;
+  }
+  //strTotal = parseInt(strBonus) + parseInt()
 };
 
 function addStats() {
@@ -328,23 +515,23 @@ for(var i = 0; i < a.length; ++i){
         countstr++;
 }
 for(var i = 0; i < a.length; ++i){
-    if(a[i] == 'str')
+    if(a[i] == 'dex')
         countdex++;
 }
 for(var i = 0; i < a.length; ++i){
-    if(a[i] == 'str')
+    if(a[i] == 'con')
         countcon++;
 }
 for(var i = 0; i < a.length; ++i){
-    if(a[i] == 'str')
+    if(a[i] == 'int')
         countintel++;
 }
 for(var i = 0; i < a.length; ++i){
-    if(a[i] == 'str')
+    if(a[i] == 'wis')
         countwis++;
 }
 for(var i = 0; i < a.length; ++i){
-    if(a[i] == 'str')
+    if(a[i] == 'cha')
         countcha++;
 }
   if (countstr != 1 || countdex != 1 || countcon != 1 || countintel != 1 || countwis != 1 || countcha != 1) {
@@ -358,7 +545,7 @@ for(var i = 0; i < a.length; ++i){
     document.getElementById('char' + charStat5Type).innerHTML = charStat5;
     document.getElementById('char' + charStat6Type).innerHTML = charStat6;
     $('#charStatsShow').fadeOut(500);
-    $('#charHpShow').delay(400).fadeIn(300);
+    $('#charProfShow').delay(400).fadeIn(300);
   }
 };
 
@@ -393,7 +580,7 @@ function rollStats(){
   roll6string = roll6temp.toString();
   var roll6 = roll6string.split('= ')[1];
   document.getElementById('stat6').value = roll6;
-
+  calcStats();
 };
 
 function showRaceDetails(){
@@ -442,6 +629,10 @@ function showBackgroundDetails(){
   backgroundFrame.src= "/tools/compendium/compendium.php?id=" + selectedBackground;
 };
 
+
+function saveChar(){
+
+}
 </script>
 
          <?php

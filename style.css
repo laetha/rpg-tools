@@ -1031,3 +1031,7 @@ a:hover {
 .classSelect {
 	color:black;
 }
+
+.smallertext {
+	font-size: 12px;
+}
