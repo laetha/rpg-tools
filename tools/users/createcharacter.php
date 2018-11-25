@@ -57,15 +57,27 @@ jQuery.fn.toggleOption = function( show ) {
                 <div class="col-xs-12"><select class="charClassSelect sheetDrop" name="charRaceAdd" id="charRaceAdd"  onchange="showRaceDetails()">
                   <option value="">Select Race...
                   <?php
-                  $racetitle = "SELECT title FROM `compendium` WHERE `type` LIKE 'race'";
+                  $racetitle = "SELECT title, raceAbility FROM `compendium` WHERE `type` LIKE 'race'";
                   $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
                   while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
                     $raceNameNoR = str_replace('(race)', '', $row1['title']);
                     $raceNameClean = preg_replace('/[^a-z\d]+/i', '', $raceNameNoR);
-                      echo ('<option value="'.$raceNameNoR.'">'.$raceNameNoR);
+                    $raceNameNS = str_replace(' ', '', $raceNameClean);
+                      echo ('<option value="'.$raceNameNoR.'">'.$raceNameNoR.'</option>');
                   }
+
                    ?>
                 </select>
+                <?php
+                $racetitle = "SELECT title, raceAbility FROM `compendium` WHERE `type` LIKE 'race'";
+                $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+                while($row2 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+                  $raceNameNoR = str_replace('(race)', '', $row2['title']);
+                  $raceNameClean = preg_replace('/[^a-z\d]+/i', '', $raceNameNoR);
+                  $raceNameNS = str_replace(' ', '', $raceNameClean);
+                echo ('<div id="'.$raceNameNS.'stats">'.$row2['raceAbility'].'</div>');
+              }
+                ?>
               </div>
                 <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="raceDetails" seamless></iframe></div>
                 <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addRace()">Next</button></div>
@@ -204,6 +216,23 @@ jQuery.fn.toggleOption = function( show ) {
           </div>
           <div style="color:red; display:none;" id="statError">ERROR: You must select each stat type once.</div>
       </div>
+      <table>
+        <tr>
+          <td>STR</td>
+          <td>DEX</td>
+          <td>CON</td>
+          <td>INT</td>
+          <td>WIS</td>
+          <td>CHA</td>
+        </tr>
+          <td id="Strtotal"></td>
+          <td id="Dextotal"></td>
+          <td id="Contotal"></td>
+          <td id="Inttotal"></td>
+          <td id="Wistotal"></td>
+          <td id="Chatotal"></td>
+        </tr>
+      </table>
         <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addStats()">Next</button></div>
       </div>
 
@@ -224,6 +253,7 @@ jQuery.fn.toggleOption = function( show ) {
 <div class="sidebartext" id="charwis">1</div>
 <div class="sidebartext" id="charcha">1</div>
 <div class="sidebartext" id="test"></div>
+
 <script>
 function addName() {
   var charName = document.getElementById('charNameAdd').value;
@@ -257,6 +287,17 @@ function addSubclass() {
 function addBackground() {
   var charBackground = document.getElementById('charBackgroundAdd').value;
   document.getElementById('charBackground').innerHTML = charBackground;
+  var currentRace = document.getElementById('charRace').innerHTML;
+  var currentRaceNS = currentRace.replace(' ', '');
+  var racialStats = document.getElementById(currentRaceNS + 'stats').innerHTML;
+  var raceStatsArray = racialStats.split(", ");
+  var stat1type = raceStatsArray[0].slice(0,3);
+  var stat2type = raceStatsArray[1].slice(0,3);
+  var stat1 = raceStatsArray[0].slice(4);
+  var stat2 = raceStatsArray[1].slice(4);
+  //document.getElementById('test').innerHTML = stat1type + stat2type + stat1 + stat2;
+  document.getElementById(stat1type + 'total').innerHTML = stat1;
+  document.getElementById(stat2type + 'total').innerHTML = stat2;
   $('#charBackgroundShow').fadeOut(500);
   $('#charStatsShow').delay(400).fadeIn(300);
 };
@@ -398,7 +439,7 @@ function showBackgroundDetails(){
   var mainBox = this.contentWindow.document.getElementsByClassName('mainbox');
   mainBox[0].style = "background:none";
 });
-  classFrame.src= "/tools/compendium/compendium.php?id=" + selectedBackground;
+  backgroundFrame.src= "/tools/compendium/compendium.php?id=" + selectedBackground;
 };
 
 </script>
