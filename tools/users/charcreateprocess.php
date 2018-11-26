@@ -14,7 +14,7 @@ $charint = $_REQUEST['charint'];
 $charwis = $_REQUEST['charwis'];
 $charcha = $_REQUEST['charcha'];
 $charUser = $_REQUEST['charUser'];
-$charLevel = 1;
+$charLevel = $_REQUEST['charLevel'];
 
 $sql = "INSERT INTO characters(title,user,race,class1,background,level,str,dex,con,intel,wis,cha)
 				VALUES('$title','$charUser','$charRace','$charClass','$charBackground','$charLevel','$charstr','$chardex','$charcon','$charint','$charwis','$charcha')";
@@ -23,6 +23,7 @@ $sql = "INSERT INTO characters(title,user,race,class1,background,level,str,dex,c
 
         }
 				else {
+					echo "Error: " . $sql . "<br>" . $dbcon->error;
         }
 
 //Footer

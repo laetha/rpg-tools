@@ -63,7 +63,7 @@ $("#favButton").click(function(){
 
  $.ajax({
     url : 'favprocess.php',
-    type: 'POST',
+    type: 'GET',
     data : { "title" : ftitle, "type" : ftype, "user" : fuser },
     success: function()
     {

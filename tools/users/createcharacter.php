@@ -649,11 +649,12 @@ function saveChar(){
   var charcha = $('#charcha').html();
   var fullClass = charClass + ' (' + charSubclass + ')';
   var charUser = '<?php echo $loguser; ?>';
+  var charLevel = 1;
 
    $.ajax({
       url : 'charcreateprocess.php',
-      type: 'POST',
-      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser },
+      type: 'GET',
+      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel },
       success: function()
       {
           var newURL = '/tools/users/characters.php?id=' + charName;
