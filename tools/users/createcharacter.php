@@ -53,6 +53,7 @@ jQuery.fn.toggleOption = function( show ) {
               </div>
 
               <div id="charRaceShow" style="display:none;">
+                <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addRace()">Next</button></div>
                 <div class="col-centered">Race</div>
                 <div class="col-xs-12"><select class="charClassSelect sheetDrop" name="charRaceAdd" id="charRaceAdd"  onchange="showRaceDetails()">
                   <option value="">Select Race...
@@ -80,11 +81,11 @@ jQuery.fn.toggleOption = function( show ) {
                 ?>
               </div>
                 <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="raceDetails" seamless></iframe></div>
-                <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addRace()">Next</button></div>
               </div>
 
 
               <div id="charClassShow" style="display:none;">
+                <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addClass()">Next</button></div>
                 <div class="col-centered">Class</div>
                 <div class="col-xs-12"><select class="charClassSelect sheetDrop" name="charClasseAdd" id="charClassAdd"  onchange="showClassDetails()">
                   <option value="">Select Class...
@@ -99,11 +100,11 @@ jQuery.fn.toggleOption = function( show ) {
                 </select>
               </div>
                 <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="classDetails" seamless></iframe></div>
-                <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addClass()">Next</button></div>
               </div>
 
 
               <div id="charSubclassShow" style="display:none;">
+                <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addSubclass()">Next</button></div>
                 <div class="col-centered">Subclass</div>
                 <div class="col-xs-12"><select class="charSubclassSelect sheetDrop" name="charSubClassAdd" id="charSubclassAdd"  onchange="showSubclassDetails()">
                   <option value="">Select Subclass...
@@ -118,10 +119,10 @@ jQuery.fn.toggleOption = function( show ) {
                 </select>
               </div>
                 <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="subclassDetails" seamless></iframe></div>
-                <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addSubclass()">Next</button></div>
             </div>
 
             <div id="charBackgroundShow" style="display:none;">
+              <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addBackground()">Next</button></div>
               <div class="col-centered">Background</div>
               <div class="col-xs-12"><select class="charBackgroundSelect sheetDrop" name="charBackgroundAdd" id="charBackgroundAdd"  onchange="showBackgroundDetails()">
                 <option value="">Select Background...
@@ -135,7 +136,6 @@ jQuery.fn.toggleOption = function( show ) {
               </select>
             </div>
               <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="backgroundDetails" seamless></iframe></div>
-              <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addBackground()">Next</button></div>
             </div>
 
       <div id="charStatsShow"  style="display:none;">
@@ -233,7 +233,7 @@ jQuery.fn.toggleOption = function( show ) {
           <td><div id="Chatotal"></div><div class="smallertext" id="chaStat"></div><div class="smallertext" id="ChaBonus"></div></td>
         </tr>
       </table>
-        <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addStats()">Next</button></div>
+        <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addStats()">Create Character</button></div>
       </div>
 
 
@@ -253,7 +253,6 @@ jQuery.fn.toggleOption = function( show ) {
 <div class="sidebartext" id="charint">1</div>
 <div class="sidebartext" id="charwis">1</div>
 <div class="sidebartext" id="charcha">1</div>
-<div class="sidebartext" id="test"></div>
 
 <script>
 function addName() {
@@ -496,6 +495,12 @@ function addStats() {
   var charStat4 = $('#stat4').val();
   var charStat5 = $('#stat5').val();
   var charStat6 = $('#stat6').val();
+  var charstr = $('#Strtotal').html();
+  var chardex = $('#Dextotal').html();
+  var charcon = $('#Contotal').html();
+  var charint = $('#Inttotal').html();
+  var charwis = $('#Wistotal').html();
+  var charcha = $('#Chatotal').html();
   var charStat1Type = $('#stat1drop').val();
   var charStat2Type = $('#stat2drop').val();
   var charStat3Type = $('#stat3drop').val();
@@ -538,14 +543,15 @@ for(var i = 0; i < a.length; ++i){
       document.getElementById('statError').style = "display:block";
   }
   else {
-    document.getElementById('char' + charStat1Type).innerHTML = charStat1;
-    document.getElementById('char' + charStat2Type).innerHTML = charStat2;
-    document.getElementById('char' + charStat3Type).innerHTML = charStat3;
-    document.getElementById('char' + charStat4Type).innerHTML = charStat4;
-    document.getElementById('char' + charStat5Type).innerHTML = charStat5;
-    document.getElementById('char' + charStat6Type).innerHTML = charStat6;
+    document.getElementById('charstr').innerHTML = charstr;
+    document.getElementById('chardex').innerHTML = chardex;
+    document.getElementById('charcon').innerHTML = charcon;
+    document.getElementById('charint').innerHTML = charint;
+    document.getElementById('charwis').innerHTML = charwis;
+    document.getElementById('charcha').innerHTML = charcha;
     $('#charStatsShow').fadeOut(500);
-    $('#charProfShow').delay(400).fadeIn(300);
+    //$('#charProfShow').delay(400).fadeIn(300);
+    saveChar();
   }
 };
 
@@ -629,10 +635,37 @@ function showBackgroundDetails(){
   backgroundFrame.src= "/tools/compendium/compendium.php?id=" + selectedBackground;
 };
 
-
 function saveChar(){
+  var charName = $('#charName').html();
+  var charRace = $('#charRace').html();
+  var charClass = $('#charClass').html();
+  var charSubclass = $('#charSubclass').html();
+  var charBackground = $('#charBackground').html();
+  var charstr = $('#charstr').html();
+  var chardex = $('#chardex').html();
+  var charcon = $('#charcon').html();
+  var charint = $('#charint').html();
+  var charwis = $('#charwis').html();
+  var charcha = $('#charcha').html();
+  var fullClass = charClass + ' (' + charSubclass + ')';
+  var charUser = '<?php echo $loguser; ?>';
 
-}
+   $.ajax({
+      url : 'charcreateprocess.php',
+      type: 'POST',
+      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser },
+      success: function()
+      {
+          var newURL = '/tools/users/characters.php?id=' + charName;
+          $(location).attr('href', newURL)
+      },
+      error: function (jqXHR, status, errorThrown)
+      {
+          //if fail show error and server status
+          $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+      }
+  });
+};
 </script>
 
          <?php

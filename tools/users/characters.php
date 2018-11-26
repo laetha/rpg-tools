@@ -56,7 +56,6 @@ if (empty($_GET['id'])) {
 
           <script>
           $("#charButton<?php echo $charid; ?>").click(function(){
-           //get the form values
            var ftitle = '<?php echo $charrow['title']; ?>';
            var fid = '<?php echo $charid; ?>';
 
