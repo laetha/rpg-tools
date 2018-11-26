@@ -64,7 +64,7 @@ jQuery.fn.toggleOption = function( show ) {
                     $raceNameNoR = str_replace('(race)', '', $row1['title']);
                     $raceNameClean = preg_replace('/[^a-z\d]+/i', '', $raceNameNoR);
                     $raceNameNS = str_replace(' ', '', $raceNameClean);
-                      echo ('<option value="'.$raceNameNoR.'">'.$raceNameNoR.'</option>');
+                      echo ('<option value="'.$row1['title'].'">'.$raceNameNoR.'</option>');
                   }
 
                    ?>
@@ -112,8 +112,9 @@ jQuery.fn.toggleOption = function( show ) {
                   $racetitle = "SELECT name, class FROM `subclasses` WHERE `name` NOT LIKE '%core%'";
                   $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
                   while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+                    $classns = str_replace(' ', '', $row1['class']);
                     //$classNameClean = ucwords(substr($row1['name'], 0, strpos($row1['name'], " core")));
-                    echo ('<option class="'.$row1['class'].'" style="display:none;" value="'.$row1['name'].'">'.$row1['name']);
+                    echo ('<option class="'.$classns.'" style="display:none;" value="'.$row1['name'].'">'.$row1['name']);
                   }
                    ?>
                 </select>
@@ -253,42 +254,70 @@ jQuery.fn.toggleOption = function( show ) {
 <div class="sidebartext" id="charint">1</div>
 <div class="sidebartext" id="charwis">1</div>
 <div class="sidebartext" id="charcha">1</div>
+<div class="sidebartext" id="test">1</div>
+
 
 <script>
 function addName() {
   var charName = document.getElementById('charNameAdd').value;
+  if (charName == ''){
+  }
+  else {
   document.getElementById('charName').innerHTML = charName;
   $('#charNameShow').fadeOut(500);
   $('#charRaceShow').delay(400).fadeIn(300);
+}
 };
 
 function addRace() {
   var charRace = document.getElementById('charRaceAdd').value;
+  if (charRace == ''){
+  }
+  else {
   document.getElementById('charRace').innerHTML = charRace;
   $('#charRaceShow').fadeOut(500);
   $('#charClassShow').delay(400).fadeIn(300);
+}
 };
 
 function addClass() {
   var charClass = document.getElementById('charClassAdd').value;
+  var charClassns = charClass.replace(' ', '');
+  if (charClass == ''){
+  }
+  else {
   document.getElementById('charClass').innerHTML = charClass;
-  jQuery('.' + charClass).toggleOption(true); // show option
+  jQuery('.' + charClassns).toggleOption(true); // show option
   $('#charClassShow').fadeOut(500);
   $('#charSubclassShow').delay(400).fadeIn(300);
+}
 };
 
 function addSubclass() {
   var charSubclass = document.getElementById('charSubclassAdd').value;
+  if (charSubclass == ''){
+  }
+  else {
   document.getElementById('charSubclass').innerHTML = charSubclass;
   $('#charSubclassShow').fadeOut(500);
   $('#charBackgroundShow').delay(400).fadeIn(300);
+}
 };
 
 function addBackground() {
   var charBackground = document.getElementById('charBackgroundAdd').value;
+  if (charBackground == ''){
+  }
+    else {
   document.getElementById('charBackground').innerHTML = charBackground;
   var currentRace = document.getElementById('charRace').innerHTML;
-  var currentRaceNS = currentRace.replace(' ', '');
+  var currentRaceStrip = currentRace.replace('(', '');
+  currentRaceStrip = currentRaceStrip.replace(')', '');
+  if (currentRaceStrip.endsWith("race") == true) {
+      currentRaceStrip = currentRaceStrip.substring(0, currentRaceStrip.length-4);
+      document.getElementById('test').innerHTML = currentRaceStrip;
+  }
+  var currentRaceNS = currentRaceStrip.replace(' ', '');
   var racialStats = document.getElementById(currentRaceNS + 'stats').innerHTML;
   var raceStatsArray = racialStats.split(", ");
   var stat1type = raceStatsArray[0].slice(0,3);
@@ -299,6 +328,7 @@ function addBackground() {
   document.getElementById(stat2type + 'Bonus').innerHTML = "+" + stat2;
   $('#charBackgroundShow').fadeOut(500);
   $('#charStatsShow').delay(400).fadeIn(300);
+  }
 };
 
 function calcStats() {
@@ -650,11 +680,26 @@ function saveChar(){
   var fullClass = charClass + ' (' + charSubclass + ')';
   var charUser = '<?php echo $loguser; ?>';
   var charLevel = 1;
+  var charHitdie = 0;
+  if (charClass == 'Artificer' || charClass == 'Bard' || charClass == 'Cleric' || charClass == 'Druid' || charClass == 'Monk' || charClass == 'Mystic' || charClass == 'Rogue'){
+    charHitdie = 8;
+  }
+  else if (charClass == 'Blood Hunter' || charClass == 'Fighter' || charClass == 'Ranger' || charClass == 'Revised Ranger') {
+    charHitdie = 10;
+  }
+  else if (charClass == 'Barbarian'){
+    charHitdie = 12;
+  }
+  else {
+    charHitdie = 6;
+  }
+  var conmod = Math.floor((parseInt(charcon)-10) / 2);
+  var maxhp = charHitdie + conmod;
 
    $.ajax({
       url : 'charcreateprocess.php',
       type: 'GET',
-      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel },
+      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel, "charHitdie" : charHitdie, "maxhp" : maxhp },
       success: function()
       {
           var newURL = '/tools/users/characters.php?id=' + charName;
