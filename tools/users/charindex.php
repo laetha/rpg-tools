@@ -21,9 +21,13 @@ include_once($sqlpath);
 //DISABLE ALL INPUTS
 $(document).ready(function lockSheet() {
 var inputs = document.getElementsByTagName("input");
+var textareas = document.getElementsByTagName("textarea");
+textareas[0].disabled = true;
 for (var i = 0; i < inputs.length; i++) {
     if(inputs[i].id.indexOf("search") > -1 == false){
+      if(inputs[i].id.indexOf("itemSearch") > -1 == false){
     inputs[i].disabled = true;
+  }
   }
   }
   var selects = document.querySelectorAll('.selector .subclassSelect, .charClassSelect');
@@ -35,9 +39,12 @@ for (var i = 0; i < inputs.length; i++) {
 //EDIT SHEET, ENABLE ALL INPUTS
 function editSheet() {
   var inputs = document.getElementsByTagName("input");
+  var textareas = document.getElementsByTagName("textarea");
+  textareas[0].style = "background-color: #717782; opacity: 0.6; color:white;";
+  textareas[0].disabled = false;
   for (var i = 0; i < inputs.length; i++) {
       inputs[i].disabled = false;
-      inputs[i].style = "background-color: #717782;";
+      inputs[i].style = "background-color: #717782; opacity: 0.6;";
 
       var selects = document.querySelectorAll('.subclassSelect, .charClassSelect');
       for (var s = 0; s < selects.length; s++) {
@@ -51,6 +58,14 @@ function editSheet() {
     document.getElementById("saveSheet").style = "display:inline-block";
     document.getElementById("cancelSheet").style = "display:inline-block";
     document.getElementById("spells").style = "display:block";
+    document.getElementById("itemSearchBox").style = "display:block";
+    var dels = document.getElementsByName("delitem");
+    var d = 0;
+
+    for (d = 0; d < dels.length; d++) {
+      dels[d].style = "display:inline-block"
+    }
+//    document.getElementById('test').innerHTML = dels[0];
     /*document.getElementById("mystics").style = "display:block";
     document.getElementById("mySpells").style = "display:none;";
     document.getElementById("mymystics").style = "display:none;";*/
@@ -93,6 +108,8 @@ function editSheet() {
    $allspells = $row['spells'];
    $spellsarray = explode(',', $allspells);
    $customattacks = $row['customattacks'];
+   $charNotes = $row['notes'];
+   $charItems = $row['items'];
    ?>
 
    <script>
@@ -105,8 +122,27 @@ function editSheet() {
          entryNS = spellArray[index].replace(' ', '');
          $('#' + entryNS + 'Box').prop('checked', true);
        }
-
+       var itemsDirty = '<?php echo $charItems; ?>';
+       var currentItems = itemsDirty.split('_');
+       var itemTable = $('#itemTable').html();
+       var item = 0;
+       for (item = 0; item < currentItems.length; ++item) {
+         itemTable = itemTable + '<tr id="delrow' + item + '" style="display:block;"><td><form onSubmit="return false" name="delitem" style="display:none;"><button type="submit" class="logbtn btn btn-danger btn-sq-xs delitem" style="margin-right:15px;"  onclick="delItem(\'' + item + '\')"><span class="glyphicon glyphicon-remove"></span></button></form></td><td id ="deltd' + item + '"><a class="featureName" id="delitem' + item + '" data-toggle="collapse" href="#' + item + 'show">' + currentItems[item] + '</a></td></tr><tr><td colspan="2"><div class="featureDetails collapse" id="' + item + 'show">';
+         itemTable = itemTable + '<iframe class="charCreateFrame" src="/tools/world/popout.php?id=' + currentItems[item] + '" style="width: 100%; height: 300px;" seamless></iframe></td></tr>';
+       }
+       document.getElementById('itemTable').innerHTML = itemTable;
     });
+
+    function delItem(value){
+        var itemsRaw = $('#currentItemsRaw').html();
+        var toDelete = $('#delitem' + value).html();
+        if (itemsRaw.includes("_" + toDelete) == true){
+          itemsRaw = itemsRaw.replace('_' + toDelete, '');
+        }
+        itemsRaw = itemsRaw.replace(toDelete, '');
+        document.getElementById('currentItemsRaw').innerHTML = itemsRaw;
+        document.getElementById('delrow' + value).style = "display:none;";
+    };
  </script>
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
@@ -1493,8 +1529,64 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 </div>
 </div>
+<div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="notesBlock" style="margin-top:10px;" style="float:left;">
+  <div style="margin-bottom: 5px; border-bottom:1px solid white;">Notes</div>
+    <textarea type="text" class="notestext" id="charNotes" value="<?php echo $charNotes; ?>"><?php echo $charNotes; ?></textarea>
 
-        <script>
+</div>
+
+<div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="itemsBlock" style="margin-top:10px;" style="float:left;">
+  <div style="margin-bottom: 5px; border-bottom:1px solid white;">Items</div>
+  <div id="itemSearchBox" style="display:none;">
+  <select id="itemSearch">
+  <option value=""></option>
+  <?php
+
+  $searchdrop = "SELECT title FROM compendium WHERE type LIKE 'item'";
+  $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+  while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+    $search = $searchrow['title'];
+    echo "<option value=\"$search\">$search</option>";
+  }
+?>
+</select>
+</div>
+<div id="currentItemsClean"></div>
+<div id="currentItemsRaw" style="display:none;"><?php echo $charItems; ?></div>
+<table id="itemTable">
+</table>
+
+</div>
+
+
+        <script type="text/javascript">
+				$('#itemSearch').selectize({
+				onChange: function(value){
+          if (value !== ""){
+          var currentItems = $('#currentItemsRaw').html();
+          var currentItemsClean = $('#currentItemsClean').html();
+          var newItemsArray = '';
+          if (currentItems !== '' && currentItems.includes('_') == false){
+          newItemsArray = currentItems + '_' + value;
+        }
+          else if (currentItems == ''){
+            newItemsArray = value;
+          }
+          else {
+            newItemsArray = currentItems + '_' + value;
+          }
+          document.getElementById('currentItemsRaw').innerHTML = newItemsArray;
+          document.getElementById('currentItemsClean').innerHTML = newItemsArray;
+          }
+				},
+				create: false,
+				openOnFocus: false,
+				maxOpions: 4,
+				sortField: 'text',
+				placeholder: 'search...'
+				},);
+
+
         $(document).ready(function() {
             // DataTable
             var table = $('#spells').DataTable(
@@ -2521,7 +2613,8 @@ if ($('#persuasionExpert').prop('checked')) {
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
  var charSpells = $('#currentSpells').html();
-
+ var charNotes = $('#charNotes').val();
+ var charItems = $('#currentItemsRaw').html();
 
 
  if (hitdice.indexOf('d') > -1) {
@@ -2535,7 +2628,7 @@ if ($('#persuasionExpert').prop('checked')) {
     url : 'charprocess.php',
     type: 'GET',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data

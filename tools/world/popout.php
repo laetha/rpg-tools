@@ -63,9 +63,9 @@
             if($row['itemWeight'] != ''){
               echo ('Weight: '.$row['itemWeight'].'lbs.<br />');
             }
-            if($row['itemValue'] != ''){
+            /*if($row['itemValue'] != ''){
               echo ('Cost: '.$row['itemValue'].'gp<br />');
-            }
+            }*/
             if($row['itemRange'] != ''){
               echo ('Range: '.$row['itemRange'].'<br />');
             }
@@ -86,7 +86,7 @@ $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%$id%'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 	if ($row['type'] == 'npc') {
-		
+
 	$stripid = str_replace("'", "", $id);
   $stripid = stripslashes($stripid);
 	$jpgurl = 'uploads/'.$stripid.'.jpg';
