@@ -1568,15 +1568,18 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
           var newItemsArray = '';
           if (currentItems !== '' && currentItems.includes('_') == false){
           newItemsArray = currentItems + '_' + value;
+          cleaItemsArray = currentItems + ', ' + value;
         }
           else if (currentItems == ''){
             newItemsArray = value;
+            cleanItemsArray = value;
           }
           else {
             newItemsArray = currentItems + '_' + value;
+            cleanItemsArray = currentItems + '_' + value;
           }
           document.getElementById('currentItemsRaw').innerHTML = newItemsArray;
-          document.getElementById('currentItemsClean').innerHTML = newItemsArray;
+          document.getElementById('currentItemsClean').innerHTML = cleanItemsArray;
           }
 				},
 				create: false,
