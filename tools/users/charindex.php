@@ -92,7 +92,7 @@ function editSheet() {
    $allattacks = $row['attacks'];
    $allspells = $row['spells'];
    $spellsarray = explode(',', $allspells);
-   echo $coreclassbare;
+   $customattacks = $row['customattacks'];
    ?>
 
    <script>
@@ -1226,7 +1226,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         <tr>
           <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack1Select" id="attack1Select" onchange="attack(1)">
             <?php
-            list($attack1, $attack2, $attack3) = explode(',', $allattacks);
+            list($attack1, $attack2) = explode(',', $allattacks);
 
             $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack1'";
             $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
@@ -1260,6 +1260,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 <td><div class="attackLabel">Damage</div></td>
 <td><div class="attackLabel">To Hit</div></td>
 </tr>
+
     </table>
     <table class="attackTable">
 
@@ -1301,43 +1302,46 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 </table>
 
 <table class="attackTable">
-
 <tr>
-<td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack3Select" id="attack3Select" onchange="attack(3)">
-  <?php
-  $at3title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack3'";
-  $at3data = mysqli_query($dbcon, $at3title) or die('error getting data');
-  while($at3 =  mysqli_fetch_array($at3data, MYSQLI_ASSOC)) {
-    echo ('<option value="'.$at3['title'].'['.$at3['itemRange'].']'.$at3['itemDmg1'].'{'.$at3['itemProperty'].'">'.$at3['title']);
-  }
-
-
-  echo ('<option value="null">');
-  $at3title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
-  $at3data = mysqli_query($dbcon, $at3title) or die('error getting data');
-  while($at3 =  mysqli_fetch_array($at3data, MYSQLI_ASSOC)) {
-    //$bgNameNoBG = str_replace('(background)', '', $row3['title']);
-    //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
-    echo ('<option value="'.$at3['title'].'['.$at3['itemRange'].']'.$at3['itemDmg1'].'{'.$at3['itemProperty'].'">'.$at3['title']);
-    }
-    ?>
-</select></td>
-<td class="narrowCell"><input class="statScore lightBox" id="at3Range" value="<?php echo $row['str']; ?>"></input></td>
+<td class="wideCell"><input class="statScore lightBox" name="attack3Select" id="attack3Select"></td>
+<td class="narrowCell"><input class="statScore lightBox" id="at3Range" value=""></input></td>
 </tr>
 <tr>
 <td><div class="attackLabel" onclick="attackRoll('3')">Attack</div></td>
 <td><div class="attackLabel">Range</div></td>
 </tr>
 <tr>
-<td><input class="statScore lightBox" id="at3Damage" value="<?php echo $row['str']; ?>"></input>
+<td><input class="statScore lightBox" id="at3Damage" value=""></input>
 </td>
-<td><input class="statScore lightBox" id="at3ToHit" value="<?php echo $row['str']; ?>"></input></td>
+<td><input class="statScore lightBox" id="at3ToHit" value=""></input></td>
 </tr>
 <tr>
 <td><div class="attackLabel">Damage</div></td>
 <td><div class="attackLabel">To Hit</div></td>
 </tr>
 </table>
+
+<table class="attackTable">
+<tr>
+<td class="wideCell"><input class="statScore lightBox" name="attack4Select" id="attack4Select"></td>
+<td class="narrowCell"><input class="statScore lightBox" id="at4Range" value=""></input></td>
+</tr>
+<tr>
+<td><div class="attackLabel" onclick="attackRoll('4')">Attack</div></td>
+<td><div class="attackLabel">Range</div></td>
+</tr>
+<tr>
+<td><input class="statScore lightBox" id="at4Damage" value=""></input>
+</td>
+<td><input class="statScore lightBox" id="at4ToHit" value=""></input></td>
+</tr>
+<tr>
+<td><div class="attackLabel">Damage</div></td>
+<td><div class="attackLabel">To Hit</div></td>
+</tr>
+</table>
+
+
 <div class="hide" id="attack1">null</div>
 <div class="hide" id="attack2">null</div>
 <div class="hide" id="attack3">null</div>
@@ -1353,17 +1357,6 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
           $coreTemp = $coreclass.' core';
           $ucClass = ucwords($coreclass);
           $subclass = trim($subclasstemp, ')');
-          /*$spellstitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$subclass' OR `name` LIKE '$coreTemp'";
-          $spellsdata = mysqli_query($dbcon, $spellstitle) or die('error getting data');
-          while($spellsrow =  mysqli_fetch_array($spellsdata, MYSQLI_ASSOC)) {
-          foreach($spellsrow as $column=>$field) {
-            if (strpos($spellsrow[$column], "Spellcasting") == true){
-            echo ('<button class="btn btn-info" onclick="addSpells()">Select Spells</button>');
-            }
-          }
-        }
-*/
-          //$coreclass = $coreclass.' core';
 
           echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
 
@@ -1497,10 +1490,10 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 ?>
 </tbody>
 </table>
-</div>
-
 
 </div>
+</div>
+
         <script>
         $(document).ready(function() {
             // DataTable
@@ -1614,14 +1607,26 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
   }
 
   $(document).ready(function() {
+        var allCustomAttacks = '<?php echo $customattacks; ?>';
+        var attackArray = allCustomAttacks.split('_');
+       document.getElementById('attack3Select').value = attackArray[0];
+        document.getElementById('at3Range').value = attackArray[1];
+        document.getElementById('at3Damage').value = attackArray[2];
+        document.getElementById('at3ToHit').value = attackArray[3];
+        document.getElementById('attack4Select').value = attackArray[4];
+        document.getElementById('at4Range').value = attackArray[5];
+        document.getElementById('at4Damage').value = attackArray[6];
+        document.getElementById('at4ToHit').value = attackArray[7];
+  });
+
+  $(document).ready(function() {
     attack("1");
     attack("2");
-    attack("3");
+    customAttack();
   });
 
 </script>
 <?php
-
 //CHECK EXISTING PROFICIENCIES
 if (strpos($checksaves, 'Strength') !== false) {
   ?><script>
@@ -2487,17 +2492,27 @@ if ($('#persuasionExpert').prop('checked')) {
  var charAlignment = $('#charAlignment').val();
  var attack1 = $('#attack1').html();
  var attack2 = $('#attack2').html();
- var attack3 = $('#attack3').html();
  var charAttacks = "";
   if (attack1 !== "null") {
     charAttacks = charAttacks + attack1;
     if (attack2 !== "null") {
       charAttacks = charAttacks + "," + attack2;
-      if (attack3 !== "null") {
-        charAttacks = charAttacks + "," + attack3;
-      }
     }
   }
+
+ var at3Select = $('#attack3Select').val();
+ var at3Range = $('#at3Range').val();
+ var at3Damage = $('#at3Damage').val();
+ var at3ToHit = $('#at3ToHit').val();
+ var at4Select = $('#attack4Select').val();
+ var at4Range = $('#at4Range').val();
+ var at4Damage = $('#at4Damage').val();
+ var at4ToHit = $('#at4ToHit').val();
+ var at3Array = [at3Select, at3Range, at3Damage, at3ToHit];
+ var at4Array = [at4Select, at4Range, at4Damage, at4ToHit];
+ at3Array = at3Array.join('_');
+ at4Array = at4Array.join('_');
+ var customAttacks = at3Array + '_' + at4Array;
 
  var charClassTemp = $('#charClass').val();
  var charClassLower = charClassTemp.toLowerCase();
@@ -2506,6 +2521,7 @@ if ($('#persuasionExpert').prop('checked')) {
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
  var charSpells = $('#currentSpells').html();
+
 
 
  if (hitdice.indexOf('d') > -1) {
@@ -2519,7 +2535,7 @@ if ($('#persuasionExpert').prop('checked')) {
     url : 'charprocess.php',
     type: 'GET',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data

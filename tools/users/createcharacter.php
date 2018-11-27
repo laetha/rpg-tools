@@ -35,7 +35,7 @@ jQuery.fn.toggleOption = function( show ) {
 
   <!-- Item Modal -->
   <div class="modal fade bd-example-modal-lg" id="charModal" role="dialog">
-    <div class="modal-dialog" style="width: 80%; max-width:1200px;">
+    <div class="modal-dialog" style="max-width:1200px;">
 
       <!-- Modal content-->
       <div class="modal-content modalstyle bodytext" style="height:100%;">
