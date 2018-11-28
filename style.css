@@ -1050,3 +1050,7 @@ a:hover {
 .delitem {
 	padding: 0px 3px 0px 3px;
 }
+
+.floatright {
+	float:right;
+}

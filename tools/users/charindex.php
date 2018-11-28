@@ -542,7 +542,7 @@ function classSelect(){
 
 
       <!-- CLASS FEATURES -->
-      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="abilitiesBlock" style="float:right;">
+      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="abilitiesBlock" style="float:right;">
         <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
 
 
@@ -1438,7 +1438,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
 
-        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
           <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
           <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
 
