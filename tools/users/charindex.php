@@ -147,6 +147,32 @@ function editSheet() {
    <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
+   <div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-primary active">
+    <input type="radio" name="options" id="option1" autocomplete="off" onchange="showBlock('all')" checked> Show All
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option2" autocomplete="off" onchange="showBlock('statsBlock')"> Stats
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option3" autocomplete="off" onchange="showBlock('vitalsBlock')"> Vitals
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option4" autocomplete="off" onchange="showBlock('abilitiesBlock')"> Abilities
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option5" autocomplete="off" onchange="showBlock('attacksBlock')"> Attacks
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option6" autocomplete="off" onchange="showBlock('spellsBlock')"> Spells
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option7" autocomplete="off" onchange="showBlock('itemsBlock')"> Items
+  </label>
+  <label class="btn btn-primary">
+    <input type="radio" name="options" id="option8" autocomplete="off" onchange="showBlock('notesBlock')"> Notes
+  </label>
+</div>
  </div>
 
 <div class=" col-md-4 col-sm-6 col-xs-12">
@@ -354,7 +380,7 @@ function classSelect(){
           }
 
           ?>
-          <div class="col-md-4 col-sm-6 col-xs-12">
+          <div class="col-md-4 col-sm-6 col-xs-12" name="mainBlock" id="statsBlock">
 
             <div class="row fullStatBox">
             <div class="statBox col-xs-5" id="strBox">
@@ -491,7 +517,7 @@ function classSelect(){
 
         <!-- VITALS BLOCKS -->
 
-        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock">
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="vitalsBlock">
           <table class="vitalsTable">
             <tr>
               <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
@@ -516,7 +542,7 @@ function classSelect(){
 
 
       <!-- CLASS FEATURES -->
-      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="float:right;">
+      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="abilitiesBlock" style="float:right;">
         <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
 
 
@@ -1255,30 +1281,164 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
         </div>
 
-        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="itemsBlock" style="margin-top:10px;" style="float:right;">
-          <div style="margin-bottom: 5px; border-bottom:1px solid white;">Items</div>
-          <div id="itemSearchBox" style="display:none;">
-          <select id="itemSearch">
-          <option value=""></option>
-          <?php
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="padding:0px; border:0px;">
 
-          $searchdrop = "SELECT title FROM compendium WHERE type LIKE 'item'";
-          $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
-          while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
-            $search = $searchrow['title'];
-            echo "<option value=\"$search\">$search</option>";
+          <div class="roundBorder col-xs-12 sidebartext sheetBlock" name="mainBlock" id="itemsBlock" style="margin-top:10px;" style="float:right;">
+            <div style="margin-bottom: 5px; border-bottom:1px solid white;">Items</div>
+            <div id="itemSearchBox" style="display:none;">
+            <select id="itemSearch">
+            <option value=""></option>
+            <?php
+
+            $searchdrop = "SELECT title FROM compendium WHERE type LIKE 'item'";
+            $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+            while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+              $search = $searchrow['title'];
+              echo "<option value=\"$search\">$search</option>";
+            }
+          ?>
+          </select>
+          </div>
+          <div id="currentItemsClean"></div>
+          <div id="currentItemsRaw" style="display:none;"><?php echo $charItems; ?></div>
+          <table id="itemTable">
+          </table>
+
+          </div>
+
+          <div class="col-xs-12 sidebartext sheetBlock" name="mainBlock" id="attacksBlock" style="margin-top:10px;">
+            <div style="margin-bottom: 10px; border-bottom:1px solid white;">Attacks</div>
+            <table class="attackTable">
+
+          <tr>
+            <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack1Select" id="attack1Select" onchange="attack(1)">
+              <?php
+              list($attack1, $attack2) = explode(',', $allattacks);
+
+              $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack1'";
+              $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
+              while($at1 =  mysqli_fetch_array($at1data, MYSQLI_ASSOC)) {
+                echo ('<option value="'.$at1['title'].'['.$at1['itemRange'].']'.$at1['itemDmg1'].'{'.$at1['itemProperty'].'">'.$at1['title']);
+              }
+
+
+              echo ('<option value="null">');
+              $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
+              $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
+              while($at1 =  mysqli_fetch_array($at1data, MYSQLI_ASSOC)) {
+                //$bgNameNoBG = str_replace('(background)', '', $row1['title']);
+                //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
+                  echo ('<option value="'.$at1['title'].'['.$at1['itemRange'].']'.$at1['itemDmg1'].'{'.$at1['itemProperty'].'">'.$at1['title']);
+                }
+                ?>
+        </select></td>
+          <td class="narrowCell"><input class="statScore lightBox" id="at1Range" value="<?php echo $row['str']; ?>"></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel" onclick="attackRoll('1')">Attack</div></td>
+        <td><div class="attackLabel">Range</div></td>
+        </tr>
+        <tr>
+        <td><input class="statScore lightBox" id="at1Damage" value="<?php echo $row['str']; ?>"></input>
+        </td>
+        <td><input class="statScore lightBox" id="at1ToHit" value="<?php echo $row['str']; ?>"></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel">Damage</div></td>
+        <td><div class="attackLabel">To Hit</div></td>
+        </tr>
+
+        </table>
+        <table class="attackTable">
+
+        <tr>
+        <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack2Select" id="attack2Select" onchange="attack(2)">
+        <?php
+        $at2title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack2'";
+        $at2data = mysqli_query($dbcon, $at2title) or die('error getting data');
+        while($at2 =  mysqli_fetch_array($at2data, MYSQLI_ASSOC)) {
+          echo ('<option value="'.$at2['title'].'['.$at2['itemRange'].']'.$at2['itemDmg1'].'{'.$at2['itemProperty'].'">'.$at2['title']);
+        }
+
+
+        echo ('<option value="null">');
+        $at2title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
+        $at2data = mysqli_query($dbcon, $at2title) or die('error getting data');
+        while($at2 =  mysqli_fetch_array($at2data, MYSQLI_ASSOC)) {
+          //$bgNameNoBG = str_replace('(background)', '', $row2['title']);
+          //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
+          echo ('<option value="'.$at2['title'].'['.$at2['itemRange'].']'.$at2['itemDmg1'].'{'.$at2['itemProperty'].'">'.$at2['title']);
           }
-        ?>
-        </select>
-        </div>
-        <div id="currentItemsClean"></div>
-        <div id="currentItemsRaw" style="display:none;"><?php echo $charItems; ?></div>
-        <table id="itemTable">
+          ?>
+        </select></td>
+        <td class="narrowCell"><input class="statScore lightBox" id="at2Range" value="<?php echo $row['str']; ?>"></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel" onclick="attackRoll('2')">Attack</div></td>
+        <td><div class="attackLabel">Range</div></td>
+        </tr>
+        <tr>
+        <td><input class="statScore lightBox" id="at2Damage" value="<?php echo $row['str']; ?>"></input>
+        </td>
+        <td><input class="statScore lightBox" id="at2ToHit" value="<?php echo $row['str']; ?>"></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel">Damage</div></td>
+        <td><div class="attackLabel">To Hit</div></td>
+        </tr>
         </table>
 
+        <table class="attackTable">
+        <tr>
+        <td class="wideCell"><input class="statScore lightBox" name="attack3Select" id="attack3Select"></td>
+        <td class="narrowCell"><input class="statScore lightBox" id="at3Range" value=""></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel" onclick="attackRoll('3')">Attack</div></td>
+        <td><div class="attackLabel">Range</div></td>
+        </tr>
+        <tr>
+        <td><input class="statScore lightBox" id="at3Damage" value=""></input>
+        </td>
+        <td><input class="statScore lightBox" id="at3ToHit" value=""></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel">Damage</div></td>
+        <td><div class="attackLabel">To Hit</div></td>
+        </tr>
+        </table>
+
+        <table class="attackTable">
+        <tr>
+        <td class="wideCell"><input class="statScore lightBox" name="attack4Select" id="attack4Select"></td>
+        <td class="narrowCell"><input class="statScore lightBox" id="at4Range" value=""></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel" onclick="attackRoll('4')">Attack</div></td>
+        <td><div class="attackLabel">Range</div></td>
+        </tr>
+        <tr>
+        <td><input class="statScore lightBox" id="at4Damage" value=""></input>
+        </td>
+        <td><input class="statScore lightBox" id="at4ToHit" value=""></input></td>
+        </tr>
+        <tr>
+        <td><div class="attackLabel">Damage</div></td>
+        <td><div class="attackLabel">To Hit</div></td>
+        </tr>
+        </table>
+
+
+        <div class="hide" id="attack1">null</div>
+        <div class="hide" id="attack2">null</div>
+        <div class="hide" id="attack3">null</div>
+          </div>
+
         </div>
 
-        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
+
+
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
           <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
           <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
 
@@ -1426,135 +1586,9 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         </div>
 
 
-        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;">
-          <div style="margin-bottom: 10px; border-bottom:1px solid white;">Weapons</div>
-          <table class="attackTable">
-
-        <tr>
-          <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack1Select" id="attack1Select" onchange="attack(1)">
-            <?php
-            list($attack1, $attack2) = explode(',', $allattacks);
-
-            $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack1'";
-            $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
-            while($at1 =  mysqli_fetch_array($at1data, MYSQLI_ASSOC)) {
-              echo ('<option value="'.$at1['title'].'['.$at1['itemRange'].']'.$at1['itemDmg1'].'{'.$at1['itemProperty'].'">'.$at1['title']);
-            }
 
 
-            echo ('<option value="null">');
-            $at1title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
-            $at1data = mysqli_query($dbcon, $at1title) or die('error getting data');
-            while($at1 =  mysqli_fetch_array($at1data, MYSQLI_ASSOC)) {
-              //$bgNameNoBG = str_replace('(background)', '', $row1['title']);
-              //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
-                echo ('<option value="'.$at1['title'].'['.$at1['itemRange'].']'.$at1['itemDmg1'].'{'.$at1['itemProperty'].'">'.$at1['title']);
-              }
-              ?>
-      </select></td>
-        <td class="narrowCell"><input class="statScore lightBox" id="at1Range" value="<?php echo $row['str']; ?>"></input></td>
-      </tr>
-      <tr>
-    <td><div class="attackLabel" onclick="attackRoll('1')">Attack</div></td>
-    <td><div class="attackLabel">Range</div></td>
-  </tr>
-  <tr>
-    <td><input class="statScore lightBox" id="at1Damage" value="<?php echo $row['str']; ?>"></input>
-    </td>
-    <td><input class="statScore lightBox" id="at1ToHit" value="<?php echo $row['str']; ?>"></input></td>
-  </tr>
-  <tr>
-<td><div class="attackLabel">Damage</div></td>
-<td><div class="attackLabel">To Hit</div></td>
-</tr>
-
-    </table>
-    <table class="attackTable">
-
-  <tr>
-    <td class="wideCell"><select class="charClassSelect attackDrop sheetDrop selector" name="attack2Select" id="attack2Select" onchange="attack(2)">
-      <?php
-      $at2title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND title LIKE '$attack2'";
-      $at2data = mysqli_query($dbcon, $at2title) or die('error getting data');
-      while($at2 =  mysqli_fetch_array($at2data, MYSQLI_ASSOC)) {
-        echo ('<option value="'.$at2['title'].'['.$at2['itemRange'].']'.$at2['itemDmg1'].'{'.$at2['itemProperty'].'">'.$at2['title']);
-      }
-
-
-      echo ('<option value="null">');
-      $at2title = "SELECT * FROM `compendium` WHERE `itemType` LIKE '%weapon%' AND itemMagic NOT LIKE '1'";
-      $at2data = mysqli_query($dbcon, $at2title) or die('error getting data');
-      while($at2 =  mysqli_fetch_array($at2data, MYSQLI_ASSOC)) {
-        //$bgNameNoBG = str_replace('(background)', '', $row2['title']);
-        //$bgNameClean = preg_replace('/[^a-z\d]+/i', '', $bgNameNoBG);
-        echo ('<option value="'.$at2['title'].'['.$at2['itemRange'].']'.$at2['itemDmg1'].'{'.$at2['itemProperty'].'">'.$at2['title']);
-        }
-        ?>
-</select></td>
-  <td class="narrowCell"><input class="statScore lightBox" id="at2Range" value="<?php echo $row['str']; ?>"></input></td>
-</tr>
-<tr>
-<td><div class="attackLabel" onclick="attackRoll('2')">Attack</div></td>
-<td><div class="attackLabel">Range</div></td>
-</tr>
-<tr>
-<td><input class="statScore lightBox" id="at2Damage" value="<?php echo $row['str']; ?>"></input>
-</td>
-<td><input class="statScore lightBox" id="at2ToHit" value="<?php echo $row['str']; ?>"></input></td>
-</tr>
-<tr>
-<td><div class="attackLabel">Damage</div></td>
-<td><div class="attackLabel">To Hit</div></td>
-</tr>
-</table>
-
-<table class="attackTable">
-<tr>
-<td class="wideCell"><input class="statScore lightBox" name="attack3Select" id="attack3Select"></td>
-<td class="narrowCell"><input class="statScore lightBox" id="at3Range" value=""></input></td>
-</tr>
-<tr>
-<td><div class="attackLabel" onclick="attackRoll('3')">Attack</div></td>
-<td><div class="attackLabel">Range</div></td>
-</tr>
-<tr>
-<td><input class="statScore lightBox" id="at3Damage" value=""></input>
-</td>
-<td><input class="statScore lightBox" id="at3ToHit" value=""></input></td>
-</tr>
-<tr>
-<td><div class="attackLabel">Damage</div></td>
-<td><div class="attackLabel">To Hit</div></td>
-</tr>
-</table>
-
-<table class="attackTable">
-<tr>
-<td class="wideCell"><input class="statScore lightBox" name="attack4Select" id="attack4Select"></td>
-<td class="narrowCell"><input class="statScore lightBox" id="at4Range" value=""></input></td>
-</tr>
-<tr>
-<td><div class="attackLabel" onclick="attackRoll('4')">Attack</div></td>
-<td><div class="attackLabel">Range</div></td>
-</tr>
-<tr>
-<td><input class="statScore lightBox" id="at4Damage" value=""></input>
-</td>
-<td><input class="statScore lightBox" id="at4ToHit" value=""></input></td>
-</tr>
-<tr>
-<td><div class="attackLabel">Damage</div></td>
-<td><div class="attackLabel">To Hit</div></td>
-</tr>
-</table>
-
-
-<div class="hide" id="attack1">null</div>
-<div class="hide" id="attack2">null</div>
-<div class="hide" id="attack3">null</div>
-        </div>
-
-<div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="notesBlock" style="margin-top:10px;" style="float:left;">
+<div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="notesBlock" style="margin-top:10px;" style="float:left;">
   <div style="margin-bottom: 5px; border-bottom:1px solid white;">Notes</div>
     <textarea type="text" class="notestext" id="charNotes" value="<?php echo $charNotes; ?>"><?php echo $charNotes; ?></textarea>
 
@@ -2391,6 +2425,24 @@ function abilityCheck(value) {
   }
   showRollModal();
 }
+
+function showBlock(value) {
+  var selectedBlock = value;
+  var allBlocks = document.getElementsByName('mainBlock');
+  if (value == 'all'){
+    for (var i = 0; i < allBlocks.length; i++) {
+      allBlocks[i].style = "display:block";
+    }
+  }
+  else {
+    for (var i = 0; i < allBlocks.length; i++) {
+      allBlocks[i].style = "display:none";
+    }
+    document.getElementById(value).style = "display:block";
+  }
+};
+
+
 
 //INITIALIZE VALUES ON PAGE LOAD
 $(document).ready(function lockSheet() {
