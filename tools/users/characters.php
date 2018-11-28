@@ -50,7 +50,11 @@ if (empty($_GET['id'])) {
         </form>
 
           <?php // echo('<a onclick="charModalChange(\''.$charmodal.'\')">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);
-              echo('<a href="/tools/users/characters.php?id='.$charmodal.'">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1'].' :: '.$charrow['user']);
+              echo('<a href="/tools/users/characters.php?id='.$charmodal.'">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);
+              if ($loguser == 'tarfuin') {
+                  echo (' :: '.$charrow['user']);');
+              }
+
             if ($charrow['class2'] !== '') {
               echo ('/'.$charrow['class2']);
             }
