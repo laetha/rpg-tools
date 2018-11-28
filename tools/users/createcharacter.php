@@ -139,6 +139,34 @@ jQuery.fn.toggleOption = function( show ) {
               <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="backgroundDetails" seamless></iframe></div>
             </div>
 
+<!-- BRIAN -->
+            <div id="charProfsShow" style="display:none;">
+              <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addClassProfs()">Next</button></div>
+              <div class="col-centered">Proficiency</div>
+              <div id="profWarning"></div>
+                <?php
+                $racetitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '%core%'";
+                $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+                while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+                  $classns = str_replace(' ', '', $row1['class']);
+                  $profnum = $row1['numSkills'];
+                  echo ('<div id="'.$classns.'prof" style="display:none;">');
+                  echo ('<div>You may now choose '.$profnum.' additional proficiencies.</div>');
+                  $profarray = explode(", ", $row1['proficiency']);
+                  for ($i=0; $i < $profnum; $i++) {
+                    echo ('<select id="'.$classns.'prof'.$i.'" onchange="prof'.$i.'(\''.$classns.'\')">');
+                    echo ('<option value="" selected>');
+                    foreach ($profarray as $item) {
+                      echo ('<option value="'.$item.'">'.$item);
+                    }
+                    echo ('</select>');
+                  }
+                  echo ('</div>');
+                }
+                 ?>
+            </div>
+
+
       <div id="charStatsShow"  style="display:none;">
         <div class="col-centered">Stats</div>
         <div class="col-md-12">
@@ -263,13 +291,11 @@ jQuery.fn.toggleOption = function( show ) {
          ?>
       </div>
 
-
-
         </div>
       </div>
     </div>
   </div>
-
+<div class="hide">
 <div class="sidebartext" id="charName"></div>
 <div class="sidebartext" id="charRace"></div>
 <div class="sidebartext" id="charClass"></div>
@@ -283,6 +309,13 @@ jQuery.fn.toggleOption = function( show ) {
 <div class="sidebartext" id="charcha">1</div>
 <div class="sidebartext" id="test">1</div>
 <div class="sidebartext" id="charSaves"></div>
+<div id="classprof1"></div>
+<div id="classprof2"></div>
+<div id="classprof3"></div>
+<div id="classprof0"></div>
+<div id="classprofs"></div>
+</div>
+
 
 
 <script>
@@ -311,6 +344,7 @@ function addRace() {
 function addClass() {
   var charClass = document.getElementById('charClassAdd').value;
   var charClassns = charClass.replace(' ', '');
+  document.getElementById(charClassns + 'prof').style = "display:block";
   if (charClass == ''){
   }
   else {
@@ -334,6 +368,9 @@ function addSubclass() {
 
 function addBackground() {
   var charBackground = document.getElementById('charBackgroundAdd').value;
+  var charBackgroundNs = charBackground.replace(' ', '');
+  var charBackgroundClean = charBackgroundNs.replace('(', '');
+  charBackgroundClean = charBackgroundClean.replace(')', '');
   if (charBackground == ''){
   }
     else {
@@ -354,9 +391,54 @@ function addBackground() {
   var stat2 = raceStatsArray[1].slice(4);
   document.getElementById(stat1type + 'Bonus').innerHTML =  "+" + stat1;
   document.getElementById(stat2type + 'Bonus').innerHTML = "+" + stat2;
+  var profs = document.getElementById(charBackgroundClean + 'profs').innerHTML;
+  document.getElementById('profWarning').innerHTML = "From your background choice you are already proficient in: " + profs;
   $('#charBackgroundShow').fadeOut(500);
-  $('#charStatsShow').delay(400).fadeIn(300);
+  $('#charProfsShow').delay(400).fadeIn(300);
   }
+};
+
+function prof1(value){
+  var prof1 = $('#' + value + 'prof1').val();
+  document.getElementById('classprof1').innerHTML = prof1;
+};
+
+function prof2(value){
+  var prof2 = $('#' + value + 'prof2').val();
+  document.getElementById('classprof2').innerHTML = prof2;
+};
+
+function prof3(value){
+  var prof3 = $('#' + value + 'prof3').val();
+  document.getElementById('classprof3').innerHTML = prof3;
+};
+
+function prof0(value){
+  var prof0 = $('#' + value + 'prof0').val();
+  document.getElementById('classprof0').innerHTML = prof0;
+};
+
+function addClassProfs(){
+  var prof1 = $('#classprof1').html();
+  var prof2 = $('#classprof2').html();
+  var prof3 = $('#classprof3').html();
+  var prof0 = $('#classprof0').html();
+  var classprofs = '';
+  if (prof0 !== ''){
+    classprofs = prof0;
+  }
+  if (prof1 !== ''){
+    classprofs = classprofs + ' ' + prof1;
+  }
+  if (prof2 !== ''){
+    classprofs = classprofs + ' ' + prof2;
+  }
+  if (prof3 !== ''){
+    classprofs = classprofs + ' ' + prof3;
+  }
+  document.getElementById('classprofs').innerHTML = classprofs;
+  $('#charProfsShow').fadeOut(500);
+  $('#charStatsShow').delay(400).fadeIn(300);
 };
 
 function calcStats() {
@@ -717,6 +799,8 @@ function saveChar(){
   charSaves = charSaves.replace(',', '');
   var charProfs = $('#' + charBgNs + 'profs').html();
   charProfs = charProfs.replace(',', '');
+  var charClassProfs = $('#classprofs').html();
+  charProfs = charProfs + ' ' + charClassProfs;
   if (charClass == 'Artificer' || charClass == 'Bard' || charClass == 'Cleric' || charClass == 'Druid' || charClass == 'Monk' || charClass == 'Mystic' || charClass == 'Rogue'){
     charHitdie = 8;
   }

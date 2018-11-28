@@ -1255,6 +1255,177 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
         </div>
 
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="itemsBlock" style="margin-top:10px;" style="float:right;">
+          <div style="margin-bottom: 5px; border-bottom:1px solid white;">Items</div>
+          <div id="itemSearchBox" style="display:none;">
+          <select id="itemSearch">
+          <option value=""></option>
+          <?php
+
+          $searchdrop = "SELECT title FROM compendium WHERE type LIKE 'item'";
+          $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
+          while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
+            $search = $searchrow['title'];
+            echo "<option value=\"$search\">$search</option>";
+          }
+        ?>
+        </select>
+        </div>
+        <div id="currentItemsClean"></div>
+        <div id="currentItemsRaw" style="display:none;"><?php echo $charItems; ?></div>
+        <table id="itemTable">
+        </table>
+
+        </div>
+
+        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
+          <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
+          <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
+
+
+          <?php
+          $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
+          $coreTemp = $coreclass.' core';
+          $ucClass = ucwords($coreclass);
+          $subclass = trim($subclasstemp, ')');
+
+          echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
+
+            ?>
+        <div id="spellsShow">
+
+            <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">
+                          <?php
+                          if ($ucClass == 'Mystic') {
+                            echo ('Ability');
+                          }
+                          else {
+                            echo ('Spell');
+                          }
+                          ?>
+                        </th>
+                        <th scope="col">
+                          <?php
+                          if ($ucClass == 'Mystic') {
+                            echo ('Type');
+                          }
+                          else {
+                            echo ('Level');
+                          }
+                          ?>
+
+                        </th>
+
+                    </tr>
+                </thead>
+                <tbody>
+            <?php
+        // SPELLS Section
+
+            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
+            $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
+            while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
+              ?>
+
+              <?php
+                  //$featuretitle = str_replace('text', 'name', $column);
+                $spelltitlens = str_replace(' ', '', $spellrow['title']);
+                $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
+                  echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spellrow['title'].'\')"></input></td>');
+                  echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
+
+                  if ($ucClass == 'Mystic') {
+                    echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
+
+                  }
+                  else {
+                  echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
+                }
+                  echo ('<tr></tr>');
+                  echo ('<tr><td colspan="3"><div class="featureDetails collapse" id="'.$spelltitlens.'show" name="'.$spelltitlens.'show">');
+                  echo ('Casting Time: '.$spellrow['spellTime']);
+                  echo ('<br />Duration: '.$spellrow['spellDuration']);
+                  echo ('<br />Range: '.$spellrow['spellRange']);
+                  echo ('<br />Components: '.$spellrow['spellComponents']);
+                  echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
+
+              }
+
+        ?>
+        </tbody>
+        </table>
+
+        <table id="mySpells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+        <thead class="thead-dark">
+            <tr>
+              <th scope="col">
+                <?php
+                if ($ucClass == 'Mystic') {
+                  echo ('Ability');
+                }
+                else {
+                  echo ('Spell');
+                }
+                ?>
+              </th>
+              <th scope="col">
+                <?php
+                if ($ucClass == 'Mystic') {
+                  echo ('Type');
+                }
+                else {
+                  echo ('Level');
+                }
+                ?>
+
+              </th>
+
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+        // SPELLS Section
+
+        $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
+        $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
+        while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
+        ?>
+
+        <?php
+          //$featuretitle = str_replace('text', 'name', $column);
+        $spelltitlens = str_replace(' ', '', $spellrow['title']);
+        $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
+        if (strpos($allspells, ','.$spellrow['title'].',') !== false) {
+          echo ('<tr>');
+          echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
+          if ($ucClass == 'Mystic') {
+            echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
+
+          }
+          else {
+          echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
+        }          echo ('<tr></tr>');
+          echo ('<tr><td colspan="2"><div class="featureDetails collapse" id="'.$spelltitlens.'myshow" name="'.$spelltitlens.'show">');
+          echo ('Casting Time: '.$spellrow['spellTime']);
+          echo ('<br />Duration: '.$spellrow['spellDuration']);
+          echo ('<br />Range: '.$spellrow['spellRange']);
+          echo ('<br />Components: '.$spellrow['spellComponents']);
+          echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
+        }
+        }
+
+        ?>
+        </tbody>
+        </table>
+
+        </div>
+        </div>
+
+
         <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" style="margin-top:10px;">
           <div style="margin-bottom: 10px; border-bottom:1px solid white;">Weapons</div>
           <table class="attackTable">
@@ -1383,181 +1554,11 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 <div class="hide" id="attack3">null</div>
         </div>
 
-        <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
-          <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
-          <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
-
-
-          <?php
-          $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
-          $coreTemp = $coreclass.' core';
-          $ucClass = ucwords($coreclass);
-          $subclass = trim($subclasstemp, ')');
-
-          echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
-
-            ?>
-<div id="spellsShow">
-
-            <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-                <thead class="thead-dark">
-                    <tr>
-                        <th scope="col"></th>
-                        <th scope="col">
-                          <?php
-                          if ($ucClass == 'Mystic') {
-                            echo ('Ability');
-                          }
-                          else {
-                            echo ('Spell');
-                          }
-                          ?>
-                        </th>
-                        <th scope="col">
-                          <?php
-                          if ($ucClass == 'Mystic') {
-                            echo ('Type');
-                          }
-                          else {
-                            echo ('Level');
-                          }
-                          ?>
-
-                        </th>
-
-                    </tr>
-                </thead>
-                <tbody>
-            <?php
-// SPELLS Section
-
-            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
-            $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
-            while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
-              ?>
-
-              <?php
-                  //$featuretitle = str_replace('text', 'name', $column);
-                $spelltitlens = str_replace(' ', '', $spellrow['title']);
-                $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-                  echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spellrow['title'].'\')"></input></td>');
-                  echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
-
-                  if ($ucClass == 'Mystic') {
-                    echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
-
-                  }
-                  else {
-                  echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
-                }
-                  echo ('<tr></tr>');
-                  echo ('<tr><td colspan="3"><div class="featureDetails collapse" id="'.$spelltitlens.'show" name="'.$spelltitlens.'show">');
-                  echo ('Casting Time: '.$spellrow['spellTime']);
-                  echo ('<br />Duration: '.$spellrow['spellDuration']);
-                  echo ('<br />Range: '.$spellrow['spellRange']);
-                  echo ('<br />Components: '.$spellrow['spellComponents']);
-                  echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
-
-              }
-
-        ?>
-        </tbody>
-      </table>
-
-      <table id="mySpells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-        <thead class="thead-dark">
-            <tr>
-              <th scope="col">
-                <?php
-                if ($ucClass == 'Mystic') {
-                  echo ('Ability');
-                }
-                else {
-                  echo ('Spell');
-                }
-                ?>
-              </th>
-              <th scope="col">
-                <?php
-                if ($ucClass == 'Mystic') {
-                  echo ('Type');
-                }
-                else {
-                  echo ('Level');
-                }
-                ?>
-
-              </th>
-
-            </tr>
-        </thead>
-        <tbody>
-    <?php
-// SPELLS Section
-
-    $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
-    $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
-    while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
-      ?>
-
-      <?php
-          //$featuretitle = str_replace('text', 'name', $column);
-        $spelltitlens = str_replace(' ', '', $spellrow['title']);
-        $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-        if (strpos($allspells, ','.$spellrow['title'].',') !== false) {
-          echo ('<tr>');
-          echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
-          if ($ucClass == 'Mystic') {
-            echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
-
-          }
-          else {
-          echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
-        }          echo ('<tr></tr>');
-          echo ('<tr><td colspan="2"><div class="featureDetails collapse" id="'.$spelltitlens.'myshow" name="'.$spelltitlens.'show">');
-          echo ('Casting Time: '.$spellrow['spellTime']);
-          echo ('<br />Duration: '.$spellrow['spellDuration']);
-          echo ('<br />Range: '.$spellrow['spellRange']);
-          echo ('<br />Components: '.$spellrow['spellComponents']);
-          echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
-        }
-      }
-
-?>
-</tbody>
-</table>
-
-</div>
-</div>
 <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="notesBlock" style="margin-top:10px;" style="float:left;">
   <div style="margin-bottom: 5px; border-bottom:1px solid white;">Notes</div>
     <textarea type="text" class="notestext" id="charNotes" value="<?php echo $charNotes; ?>"><?php echo $charNotes; ?></textarea>
 
 </div>
-
-<div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" id="itemsBlock" style="margin-top:10px;" style="float:left;">
-  <div style="margin-bottom: 5px; border-bottom:1px solid white;">Items</div>
-  <div id="itemSearchBox" style="display:none;">
-  <select id="itemSearch">
-  <option value=""></option>
-  <?php
-
-  $searchdrop = "SELECT title FROM compendium WHERE type LIKE 'item'";
-  $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
-  while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
-    $search = $searchrow['title'];
-    echo "<option value=\"$search\">$search</option>";
-  }
-?>
-</select>
-</div>
-<div id="currentItemsClean"></div>
-<div id="currentItemsRaw" style="display:none;"><?php echo $charItems; ?></div>
-<table id="itemTable">
-</table>
-
-</div>
-
 
         <script type="text/javascript">
 				$('#itemSearch').selectize({
