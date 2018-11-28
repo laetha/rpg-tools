@@ -1,2 +1,0 @@
-AuthName "questboard"
-AuthUserFile "/home/gameripp/.htpasswds/public_html/tools/questboard/passwd"

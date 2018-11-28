@@ -1,4 +1,0 @@
-AuthType Basic
-AuthName "Campaign Log"
-AuthUserFile "/home/gameripp/.htpasswds/public_html/tools/campaign-log/passwd"
-require valid-user
