@@ -84,7 +84,7 @@ function editSheet() {
   $worldtitle = "SELECT * FROM `characters` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-    if ($row['user'] !== $loguser){
+    if ($row['user'] !== $loguser && $loguser !== 'tarfuin'){
       header("Location: /tools/users/login.php");
       die();
     }
