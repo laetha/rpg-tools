@@ -237,6 +237,33 @@ jQuery.fn.toggleOption = function( show ) {
         <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="addStats()">Create Character</button></div>
       </div>
 
+      <div class="hide" id="applySaves">
+        <?php
+        $racetitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '%core%'";
+        $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+        while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+          $nameClean = ucwords(substr($row1['name'], 0, strpos($row1['name'], " core")));
+          $namens = str_replace(' ', '', $nameClean);
+          echo ('<div id="'.$namens.'saves">'.$row1['saves'].'</div>');
+        }
+         ?>
+      </div>
+
+      <div class="hide" id="applyProfs">
+        <?php
+        $racetitle = "SELECT title, backgroundProficiency FROM `compendium` WHERE `type` LIKE 'background'";
+        $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+        while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+          $nameClean = $row1['title'];
+          $namens = str_replace(' ', '', $nameClean);
+          $namens = str_replace('(', '', $namens);
+          $namens = str_replace(')', '', $namens);
+          echo ('<div id="'.$namens.'profs">'.$row1['backgroundProficiency'].'</div>');
+        }
+         ?>
+      </div>
+
+
 
         </div>
       </div>
@@ -255,6 +282,7 @@ jQuery.fn.toggleOption = function( show ) {
 <div class="sidebartext" id="charwis">1</div>
 <div class="sidebartext" id="charcha">1</div>
 <div class="sidebartext" id="test">1</div>
+<div class="sidebartext" id="charSaves"></div>
 
 
 <script>
@@ -681,6 +709,14 @@ function saveChar(){
   var charUser = '<?php echo $loguser; ?>';
   var charLevel = 1;
   var charHitdie = 0;
+  var charClassNs = charClass.replace(' ', '');
+  var charBgNs = charBackground.replace(' ', '');
+  charBgNs = charBgNs.replace("(","").replace(")","");
+  var customAttacks = "_______";
+  var charSaves = $('#' + charClassNs + 'saves').html();
+  charSaves = charSaves.replace(',', '');
+  var charProfs = $('#' + charBgNs + 'profs').html();
+  charProfs = charProfs.replace(',', '');
   if (charClass == 'Artificer' || charClass == 'Bard' || charClass == 'Cleric' || charClass == 'Druid' || charClass == 'Monk' || charClass == 'Mystic' || charClass == 'Rogue'){
     charHitdie = 8;
   }
@@ -699,7 +735,7 @@ function saveChar(){
    $.ajax({
       url : 'charcreateprocess.php',
       type: 'GET',
-      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel, "charHitdie" : charHitdie, "maxhp" : maxhp },
+      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel, "charHitdie" : charHitdie, "maxhp" : maxhp, "charSaves" : charSaves, "customAttacks" : customAttacks, "charProfs" : charProfs },
       success: function()
       {
           var newURL = '/tools/users/characters.php?id=' + charName;

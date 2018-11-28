@@ -17,10 +17,13 @@ $charUser = $_REQUEST['charUser'];
 $charLevel = $_REQUEST['charLevel'];
 $hitdice = $_REQUEST['charHitdie'];
 $maxhp = $_REQUEST['maxhp'];
+$charSaves = $_REQUEST['charSaves'];
+$customAttacks = $_REQUEST['customAttacks'];
+$charProfs = $_REQUEST['charProfs'];
 
 
-$sql = "INSERT INTO characters(title,user,race,class1,background,level,str,dex,con,intel,wis,cha,hitdice,maxhp)
-				VALUES('$title','$charUser','$charRace','$charClass','$charBackground','$charLevel','$charstr','$chardex','$charcon','$charint','$charwis','$charcha','$hitdice','$maxhp')";
+$sql = "INSERT INTO characters(title,user,race,class1,background,level,str,dex,con,intel,wis,cha,hitdice,maxhp,saves,customattacks,proficiencies)
+				VALUES('$title','$charUser','$charRace','$charClass','$charBackground','$charLevel','$charstr','$chardex','$charcon','$charint','$charwis','$charcha','$hitdice','$maxhp','$charSaves','$customAttacks','$charProfs')";
 
         if ($dbcon->query($sql) === TRUE) {
 
