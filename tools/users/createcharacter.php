@@ -734,7 +734,7 @@ function showRaceDetails(){
   var raceFrame = document.getElementById('raceDetails');
   raceFrame.addEventListener("load", function() {
   this.contentWindow.document.getElementById('nonav').style = "display:none";
-  this.contentWindow.document.getElementById('body').style = "background:none";
+  this.contentWindow.document.getElementById('headbody').style = "background:none";
   var mainBox = this.contentWindow.document.getElementsByClassName('mainbox');
   mainBox[0].style = "background:none";
 });
@@ -746,7 +746,7 @@ function showClassDetails(){
   var classFrame = document.getElementById('classDetails');
   classFrame.addEventListener("load", function() {
   this.contentWindow.document.getElementById('nonav').style = "display:none";
-  this.contentWindow.document.getElementById('body').style = "background:none";
+  this.contentWindow.document.getElementById('headbody').style = "background:none";
   var mainBox = this.contentWindow.document.getElementsByClassName('mainbox');
   mainBox[0].style = "background:none";
 });
@@ -768,7 +768,7 @@ function showBackgroundDetails(){
   var backgroundFrame = document.getElementById('backgroundDetails');
   backgroundFrame.addEventListener("load", function() {
   this.contentWindow.document.getElementById('nonav').style = "display:none";
-  this.contentWindow.document.getElementById('body').style = "background:none";
+  this.contentWindow.document.getElementById('headbody').style = "background:none";
   var mainBox = this.contentWindow.document.getElementsByClassName('mainbox');
   mainBox[0].style = "background:none";
 });
