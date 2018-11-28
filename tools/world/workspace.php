@@ -337,15 +337,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   $('#search1').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
-    document.getElementById("frame1").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame1").src = '/tools/world/world.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame1").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame1").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 3) {
 
-    document.getElementById("frame1").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame1").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 4) {
 
@@ -388,15 +388,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   $('#search2').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
-    document.getElementById("frame2").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame2").src = '/tools/world/world.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame2").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame2").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 3) {
 
-    document.getElementById("frame2").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame2").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 4) {
 
@@ -438,15 +438,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   $('#search3').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
-    document.getElementById("frame3").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame3").src = '/tools/world/world.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame3").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame3").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 3) {
 
-    document.getElementById("frame3").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame3").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 4) {
 
@@ -489,15 +489,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   $('#search4').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
-    document.getElementById("frame4").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame4").src = '/tools/world/world.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame4").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame4").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 3) {
 
-    document.getElementById("frame4").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame4").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 4) {
 
@@ -534,15 +534,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   $('#search5').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
-    document.getElementById("frame5").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame5").src = '/tools/world/world.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame5").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame5").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 3) {
 
-    document.getElementById("frame5").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame5").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 4) {
 
@@ -577,15 +577,15 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   $('#search6').selectize({
   onChange: function(value){
     if(value.slice(-1) == 1) {
-    document.getElementById("frame6").src = '/tools/world/world1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame6").src = '/tools/world/world.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame6").src = '/tools/compendium/compendium1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame6").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 3) {
 
-    document.getElementById("frame6").src = '/tools/srd/rules1.php?id=' + value.slice(0, -1);
+    document.getElementById("frame6").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
   }
   else if(value.slice(-1) == 4) {
 
