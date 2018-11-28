@@ -32,8 +32,14 @@ if (empty($_GET['id'])) {
         <div class="col-md-12">
         <ul>
       <?php
+      if ($loguser !== 'tarfuin'){
       $chartitle = "SELECT * FROM `characters` WHERE `user` LIKE '$loguser'";
       $chardata = mysqli_query($dbcon, $chartitle) or die('error getting data');
+    }
+    else {
+      $chartitle = "SELECT * FROM `characters`";
+      $chardata = mysqli_query($dbcon, $chartitle) or die('error getting data');
+    }
       while($charrow =  mysqli_fetch_array($chardata, MYSQLI_ASSOC)) {
           $charmodal = addslashes($charrow['title']);
           $charid = addslashes($charrow['id']);
@@ -44,7 +50,7 @@ if (empty($_GET['id'])) {
         </form>
 
           <?php // echo('<a onclick="charModalChange(\''.$charmodal.'\')">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);
-              echo('<a href="/tools/users/characters.php?id='.$charmodal.'">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1']);
+              echo('<a href="/tools/users/characters.php?id='.$charmodal.'">'.$charrow['title'].' (Level '.$charrow['level'].' '.$charrow['class1'].' :: '.$charrow['user']);
             if ($charrow['class2'] !== '') {
               echo ('/'.$charrow['class2']);
             }
