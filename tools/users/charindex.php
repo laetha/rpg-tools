@@ -562,7 +562,7 @@ function classSelect(){
 
 
       <!-- CLASS FEATURES -->
-      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="abilitiesBlock" style="float:right;">
+      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="abilitiesBlock" style="float:right; min-height:125px;">
         <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
 
 
