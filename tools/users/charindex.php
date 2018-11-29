@@ -128,29 +128,34 @@ function editSheet() {
        $('#' + entryFeatNS + 'Box').prop('checked', true);
      }
    });
-    $(document).ready(function() {
-      var allSpells = '<?php echo $allspells; ?>';
-       var spellArray = allSpells.split(',');
-       var index = 0;
-       var entryNS = '';
-       for (index = 0; index < allSpells.length; ++index) {
-         entryNS = spellArray[index].replace(/ /g,'');
-         $('#' + entryNS + 'Box').prop('checked', true);
-       }
-       var itemsDirty = '<?php echo $charItems; ?>';
-       var currentItems = itemsDirty.split('_');
-       var itemTable = $('#itemTable').html();
-       var item = 0;
-       for (item = 0; item < currentItems.length; ++item) {
-         itemTable = itemTable + '<tr id="delrow' + item + '" style="display:block;"><td><form onSubmit="return false" name="delitem" style="display:none;"><button type="submit" class="logbtn btn btn-danger btn-sq-xs delitem" style="margin-right:15px;"  onclick="delItem(\'' + item + '\')"><span class="glyphicon glyphicon-remove"></span></button></form></td><td id ="deltd' + item + '"><a class="featureName" id="delitem' + item + '" data-toggle="collapse" href="#' + item + 'show">' + currentItems[item] + '</a></td></tr><tr><td colspan="2"><div class="featureDetails collapse" id="' + item + 'show">';
-         itemTable = itemTable + '<iframe class="charCreateFrame" src="/tools/world/popout.php?id=' + currentItems[item] + '" style="width: 100%; height: 300px;" seamless></iframe></td></tr>';
-       }
-       document.getElementById('itemTable').innerHTML = itemTable;
-    });
+   $(document).ready(function() {
+     var allSpells = '<?php echo $allspells; ?>';
+      var spellArray = allSpells.split(',');
+      var index = 0;
+      var entryNS = '';
+      for (index = 0; index < allSpells.length; ++index) {
+        entryNS = spellArray[index].replace(/ /g,'');
+        $('#' + entryNS + 'Box').prop('checked', true);
+      }
+      });
+
+ $(document).ready(function () {
+      var itemsDirty = '<?php echo $charItems; ?>';
+      var currentItems = itemsDirty.split('_');
+      var itemTable = $('#itemTable').html();
+      var item = 0;
+      for (item = 0; item < currentItems.length; ++item) {
+        currentItems[item] = currentItems[item].replace('?', '\'');
+        itemTable = itemTable + '<tr id="delrow' + item + '" style="display:block;"><td><form onSubmit="return false" name="delitem" style="display:none;"><button type="submit" class="logbtn btn btn-danger btn-sq-xs delitem" style="margin-right:15px;"  onclick="delItem(\'' + item + '\')"><span class="glyphicon glyphicon-remove"></span></button></form></td><td id ="deltd' + item + '"><a class="featureName" id="delitem' + item + '" data-toggle="collapse" href="#' + item + 'show">' + currentItems[item] + '</a></td></tr><tr><td colspan="2"><div class="featureDetails collapse" id="' + item + 'show">';
+        itemTable = itemTable + '<iframe class="charCreateFrame" src="/tools/world/popout.php?id=' + currentItems[item] + '" style="width: 100%; height: 300px;" seamless></iframe></td></tr>';
+      }
+      document.getElementById('itemTable').innerHTML = itemTable;
+   });
 
     function delItem(value){
         var itemsRaw = $('#currentItemsRaw').html();
         var toDelete = $('#delitem' + value).html();
+        var toDelete = toDelete.replace('\'', '?');
         if (itemsRaw.includes("_" + toDelete) == true){
           itemsRaw = itemsRaw.replace('_' + toDelete, '');
         }
@@ -159,7 +164,7 @@ function editSheet() {
         document.getElementById('delrow' + value).style = "display:none;";
     };
  </script>
-   <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button><div class="sidebartext" id="test">TEST</div>
+   <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -1299,8 +1304,10 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
          $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
          while($racerow =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
            $featarray = explode(",", $allfeats);
+           $feattitlespec = str_replace('\'', '_', $racerow['title']);
            foreach ($featarray as $feat) {
-             if ($racerow['title'] == $feat){
+             $feattitlespec = str_replace('\'', '_', $feat);
+             if ($racerow['title'] == $feattitlespec){
                echo ('<a class="featureName" data-toggle="collapse" href="#raceshow'.$featcount.'">'.$racerow['title'].' (Feat)</a><br />');
                echo ('<div class="featureDetails collapse" id="raceshow'.$featcount.'" name="raceshow">'.$Parsedown->text(nl2br($racerow['text'])).'</div>');
                $featcount = $featcount + 1;
@@ -1335,8 +1342,9 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
                 while($featrow =  mysqli_fetch_array($featdata, MYSQLI_ASSOC)) {
                     //$featuretitle = str_replace('text', 'name', $column);
                     $feattitlens = str_replace(' ', '', $featrow['title']);
+                    $feattitlespec = str_replace('\'', '_', $featrow['title']);
                     $feattitlens = preg_replace('/[^a-z\d]+/i', '_', $feattitlens);
-                      echo ('<tr><td><input type="checkbox" id="'.$feattitlens.'Box" onclick="featList(\''.$featrow['title'].'\')"></input></td>');
+                      echo ('<tr><td><input type="checkbox" id="'.$feattitlens.'Box" onclick="featList(\''.$feattitlespec.'\')"></input></td>');
                       echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$feattitlens.'show">'.$featrow['title'].'</a></td>');
                       echo ('</tr><tr></tr>');
                       echo ('<tr><td colspan="3"><div class="featureDetails collapse" id="'.$feattitlens.'show" name="'.$feattitlens.'show">');
@@ -1367,7 +1375,8 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
             $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
             while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
               $search = $searchrow['title'];
-              echo "<option value=\"$search\">$search</option>";
+              $searchspec = str_replace('\'', '?', $search);
+              echo "<option value=\"$searchspec\">$search</option>";
             }
           ?>
           </select>
@@ -1570,8 +1579,9 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
               <?php
                   //$featuretitle = str_replace('text', 'name', $column);
                 $spelltitlens = str_replace(' ', '', $spellrow['title']);
+                $spelltitlespec = str_replace('\'', '_', $spellrow['title']);
                 $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-                  echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spellrow['title'].'\')"></input></td>');
+                  echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spelltitlespec.'\')"></input></td>');
                   echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
 
                   if ($ucClass == 'Mystic') {
@@ -1634,8 +1644,9 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
         <?php
           //$featuretitle = str_replace('text', 'name', $column);
         $spelltitlens = str_replace(' ', '', $spellrow['title']);
+        $spelltitlespec = str_replace('\'', '_', $spellrow['title']);
         $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-        if (strpos($allspells, ','.$spellrow['title'].',') !== false) {
+        if (strpos($allspells, ','.$spelltitlespec.',') !== false) {
           echo ('<tr>');
           echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
           if ($ucClass == 'Mystic') {
