@@ -963,9 +963,7 @@ a:hover {
 	margin-bottom: 10px;
 }
 
-#spells {
-	display:none;
-}
+
 #mystics {
 	display:none;
 }
@@ -975,6 +973,15 @@ a:hover {
 	border: 0px;
 }
 #mySpells td {
+	padding: 0px;
+	border: 0px;
+}
+
+#feats td {
+	padding: 0px;
+	border: 0px;
+}
+#myFeats td {
 	padding: 0px;
 	border: 0px;
 }

@@ -29,11 +29,12 @@ $charSpells = $_REQUEST['spells'];
 $customAttacks = $_REQUEST['customAttacks'];
 $charNotes = $_REQUEST['charNotes'];
 $charItems = $_REQUEST['charItems'];
+$charFeats = $_REQUEST['charFeats'];
 
 
 $sql = "UPDATE characters
 SET title = '$title', proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass',
- race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells', customattacks = '$customAttacks', notes = '$charNotes', items = '$charItems'
+ race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells', customattacks = '$customAttacks', notes = '$charNotes', items = '$charItems', feats = '$charFeats'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {

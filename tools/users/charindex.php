@@ -57,8 +57,10 @@ function editSheet() {
     document.getElementsByName("currentSubclass").style = "display:none";
     document.getElementById("saveSheet").style = "display:inline-block";
     document.getElementById("cancelSheet").style = "display:inline-block";
-    document.getElementById("spells").style = "display:block";
+    document.getElementById("spellsButton").style = "display:block";
     document.getElementById("itemSearchBox").style = "display:block";
+    document.getElementById("featButton").style = "display:block";
+
     var dels = document.getElementsByName("delitem");
     var d = 0;
 
@@ -106,20 +108,33 @@ function editSheet() {
    $checkexperts = $row['expertise'];
    $allattacks = $row['attacks'];
    $allspells = $row['spells'];
+   $allfeats = $row['feats'];
    $spellsarray = explode(',', $allspells);
    $customattacks = $row['customattacks'];
    $charNotes = $row['notes'];
    $charItems = $row['items'];
+
    ?>
 
    <script>
+
+   $(document).ready(function() {
+     var allFeats = '<?php echo $allfeats; ?>';
+     var featArray = allFeats.split(',');
+     var index1 = 0;
+     var entryFeatNS = '';
+     for (index1 = 0; index1 < allFeats.length; ++index1) {
+       entryFeatNS = featArray[index1].replace(/ /g,'');
+       $('#' + entryFeatNS + 'Box').prop('checked', true);
+     }
+   });
     $(document).ready(function() {
       var allSpells = '<?php echo $allspells; ?>';
        var spellArray = allSpells.split(',');
        var index = 0;
        var entryNS = '';
        for (index = 0; index < allSpells.length; ++index) {
-         entryNS = spellArray[index].replace(' ', '');
+         entryNS = spellArray[index].replace(/ /g,'');
          $('#' + entryNS + 'Box').prop('checked', true);
        }
        var itemsDirty = '<?php echo $charItems; ?>';
@@ -144,7 +159,7 @@ function editSheet() {
         document.getElementById('delrow' + value).style = "display:none;";
     };
  </script>
-   <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
+   <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button><div class="sidebartext" id="test">TEST</div>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -1277,7 +1292,65 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
          $raceTemp = $racerow['raceTraits'];
          echo ('<div class="featureDetails collapse" id="raceshow" name="raceshow">'.$Parsedown->text(nl2br($raceTemp)).'</div>');
          }
+
+         //FEATS
+         $featcount = 0;
+         $racetitle = "SELECT title, text FROM `compendium` WHERE `type` LIKE 'feat'";
+         $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+         while($racerow =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+           $featarray = explode(",", $allfeats);
+           foreach ($featarray as $feat) {
+             if ($racerow['title'] == $feat){
+               echo ('<a class="featureName" data-toggle="collapse" href="#raceshow'.$featcount.'">'.$racerow['title'].' (Feat)</a><br />');
+               echo ('<div class="featureDetails collapse" id="raceshow'.$featcount.'" name="raceshow">'.$Parsedown->text(nl2br($racerow['text'])).'</div>');
+               $featcount = $featcount + 1;
+             }
+           }
+           /*if (strpos($racerow['title'], '(race)') !== false) {
+           $raceName = substr($racerow['title'], 0, strpos($racerow['title'], "("));
+         }
+           else {
+             $raceName = $racerow['title'];
+           }*/
+
+         }
         ?>
+
+        <button id="featButton" style="display:none;" class="btn btn-info" data-toggle="collapse" href="#addFeat">Feats</button>
+
+          <div class="featureDetails collapse" id="addFeat">
+
+                <table id="feats" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                <?php
+
+//FEATS
+                $feattitle = "SELECT * FROM `compendium` WHERE `type` LIKE 'feat'";
+                $featdata = mysqli_query($dbcon, $feattitle) or die('error getting data');
+                while($featrow =  mysqli_fetch_array($featdata, MYSQLI_ASSOC)) {
+                    //$featuretitle = str_replace('text', 'name', $column);
+                    $feattitlens = str_replace(' ', '', $featrow['title']);
+                    $feattitlens = preg_replace('/[^a-z\d]+/i', '_', $feattitlens);
+                      echo ('<tr><td><input type="checkbox" id="'.$feattitlens.'Box" onclick="featList(\''.$featrow['title'].'\')"></input></td>');
+                      echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$feattitlens.'show">'.$featrow['title'].'</a></td>');
+                      echo ('</tr><tr></tr>');
+                      echo ('<tr><td colspan="3"><div class="featureDetails collapse" id="'.$feattitlens.'show" name="'.$feattitlens.'show">');
+                      echo (nl2br($featrow['text']).'</div></tr>');
+                  }
+
+            ?>
+            </tbody>
+            </table>
+
+            </div>
+
+
+
 
         </div>
 
@@ -1450,11 +1523,14 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
           $subclass = trim($subclasstemp, ')');
 
           echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
+          echo ('<div class="hide" id="currentFeats">'.$allfeats.'</div>');
+
 
             ?>
-        <div id="spellsShow">
+            <button id="spellsButton" style="display:none;" class="btn btn-info" href="#spells" data-toggle="collapse">Spells</button>
+        <div id="spellsShow" >
 
-            <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+            <table id="spells" class="table table-condensed table-striped table-responsive dt-responsive featureDetails collapse" cellspacing="0" width="100%">
                 <thead class="thead-dark">
                     <tr>
                         <th scope="col"></th>
@@ -1649,9 +1725,33 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
         } );
 
+        $(document).ready(function() {
+            // DataTable
+            var table = $('#feats').DataTable(
+              {
+                "paging": false,
+                "order": [[ 2, "asc" ]],
+                "searching": false
+              }
+            );
+
+        } );
+        $(document).ready(function() {
+
+            // DataTable
+            var table = $('#myFeats').DataTable(
+              {
+                "paging": false,
+                "order": [[ 1, "asc" ]],
+                "searching": false
+              }
+            );
+
+        } );
+
         function spellList(value) {
           var spellList = document.getElementById('currentSpells').innerHTML;
-          var valueNS = value.replace(' ', '');
+          var valueNS = value.replace(/[() ]/g,'');
           var spellBoxID = valueNS + 'Box';
           if (document.getElementById(spellBoxID).checked) {
             spellList = spellList + value + ',';
@@ -1681,6 +1781,30 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
         document.getElementById('currentSpells').innerHTML = spellList;
       };
+
+      function featList(value) {
+        var featList = document.getElementById('currentFeats').innerHTML;
+        var featvalueNS = value.replace(/[() ]/g,'');
+        var featBoxID = featvalueNS + 'Box';
+        if (document.getElementById(featBoxID).checked) {
+          featList = featList + value + ',';
+      }
+      else {
+        if (featList.includes(value + ',') == true){
+
+          featList = featList.replace(value + ',', '');
+           }
+        }
+
+     if (featList.startsWith(',') == false){
+        featList = ',' + featList;
+      }
+      if (featList.endsWith(',') == false){
+        featList = featList + ',';
+      }
+
+      document.getElementById('currentFeats').innerHTML = featList;
+    };s
         </script>
 
 
@@ -2669,10 +2793,10 @@ if ($('#persuasionExpert').prop('checked')) {
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
  var charSpells = $('#currentSpells').html();
+ var charFeats = $('#currentFeats').html();
  var charNotes = $('#charNotes').val();
  var charItems = $('#currentItemsRaw').html();
-
-
+ charSpells = charSpells.replace('\'', '_');
  if (hitdice.indexOf('d') > -1) {
   hitdice = hitdice.replace('d', '');
 }
@@ -2684,7 +2808,7 @@ if ($('#persuasionExpert').prop('checked')) {
     url : 'charprocess.php',
     type: 'GET',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems, "charFeats" : charFeats },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data
