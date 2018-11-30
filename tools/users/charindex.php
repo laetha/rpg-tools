@@ -38,6 +38,10 @@ for (var i = 0; i < inputs.length; i++) {
 
 //EDIT SHEET, ENABLE ALL INPUTS
 function editSheet() {
+  classSelect();
+  multiSelect();
+  document.getElementById('spellsShow').style = "display:block";
+  document.getElementById('spellWarning').style = "display:none";
   var inputs = document.getElementsByTagName("input");
   var textareas = document.getElementsByTagName("textarea");
   textareas[0].style = "background-color: #717782; opacity: 0.6; color:white;";
@@ -63,6 +67,9 @@ function editSheet() {
     document.getElementById("itemSearchBox").style = "display:block";
     document.getElementById("featButton").style = "display:block";
     document.getElementById("multiButton").style = "display:block";
+    document.getElementById("charClasses").style = "display:none;";
+    document.getElementById("charClass").style = "display:inline-block";
+    document.getElementById("charSubclass").style = "display:inline-block";
 
 
     var dels = document.getElementsByName("delitem");
@@ -71,6 +78,7 @@ function editSheet() {
     for (d = 0; d < dels.length; d++) {
       dels[d].style = "display:inline-block"
     }
+
 //    document.getElementById('test').innerHTML = dels[0];
     /*document.getElementById("mystics").style = "display:block";
     document.getElementById("mySpells").style = "display:none;";
@@ -107,6 +115,7 @@ function editSheet() {
    $subclass = trim($subclasstemp, ')');
    $multisubclass = trim($multisubclasstemp, ')');
    $coreclassbare = ucwords($coreclass);
+   $coremultibare = ucwords($coremulticlass);
    $coremulticlassbare = ucwords($coremulticlass);
    $background = $row['background'];
    $race = $row['race'];
@@ -122,6 +131,9 @@ function editSheet() {
    $customattacks = $row['customattacks'];
    $charNotes = $row['notes'];
    $charItems = $row['items'];
+   $level = $row['level'];
+   $multiclasslevel = (int)$row['class2lvl'];
+   $mainclasslevel = (int)$level - $multiclasslevel;
 
    ?>
 
@@ -212,7 +224,8 @@ function editSheet() {
   <table style="width: 100%;">
     <tr>
       <td>
-        <select class="charClassSelect sheetDrop" name="charClass" id="charClass" onchange="classSelect()">
+        <?php echo ('<div id="charClasses">'.ucwords($fullclass).' '.$mainclasslevel.'/<br />'.ucwords($fullmulticlass).' '.$multiclasslevel.'</div>'); ?>
+        <select class="charClassSelect sheetDrop" name="charClass" id="charClass" onchange="classSelect()" style="display:none;">
         <?php
         echo ('<option value="'.$coreclassbare.'" selected>'.$coreclassbare);
         $classtitle = "SELECT name FROM `subclasses` WHERE `name` LIKE '%core%'";
@@ -234,8 +247,8 @@ function editSheet() {
         }
       foreach ($storeArray as $item) {
         $itemNS = str_replace(' ', '', $item);
-        echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList" id="'.strtolower($itemNS).'SubList" onchange="classSelect()">');
-        //echo ('<option name="currentSubclass" value="'.$subclass.'">'.$subclass);
+        echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList" id="'.strtolower($itemNS).'SubList" onchange="classSelect()>');
+        echo ('<option name="currentSubclass" value="'.$subclass.'">'.$subclass);
         $classtitle = "SELECT name, class FROM `subclasses`";
         $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
         while($row1 =  mysqli_fetch_array($classdata, MYSQLI_ASSOC)) {
@@ -280,7 +293,7 @@ function editSheet() {
   }
 foreach ($multiArray as $item) {
   $itemNS = str_replace(' ', '', $item);
-  echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList1" id="'.strtolower($itemNS).'SubList1" onchange="multiSelect()">');
+  echo ('<select class="multisubclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList1" id="'.strtolower($itemNS).'SubList1" onchange="multiSelect()">');
   //echo ('<option name="currentSubclass" value="'.$subclass.'">'.$subclass);
   $classtitle = "SELECT name, class FROM `subclasses`";
   $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
@@ -301,10 +314,11 @@ foreach ($multiArray as $item) {
 }
 echo ('</select>');
 }
-echo ('<select class="subclassSelect sheetDrop selector" name="multiLevel" id="multiLevel" onchange="multiSelect()">');
+echo ('<select class="sheetDrop selector" name="multiLevel" id="multiLevel" onchange="multiSelect()">');
 $mltitle = "SELECT level FROM `characters` WHERE title LIKE '$title'";
 $mldata = mysqli_query($dbcon, $mltitle) or die('error getting data');
 while($mlrow1 =  mysqli_fetch_array($mldata, MYSQLI_ASSOC)) {
+  echo ('<option value="'.$multiclasslevel.'">'.$multiclasslevel);
   $totalLevel = (int)$mlrow1['level'];
   $totalLeveltemp = $totalLevel - 1;
   for ($i=1; $i < $totalLevel; $i++) {
@@ -409,7 +423,7 @@ $(document).ready(function (){
  for (var i = 0; i < hideAll.length; i++ ) {
     hideAll[i].style.display = "none";
 }
-  document.getElementById(subID).style = "display:inline-block";
+  //document.getElementById(subID).style = "display:inline-block";
   document.getElementById(subID).disabled = "true";
 
 });
@@ -668,6 +682,7 @@ function multiSelect(){
         $multisubclass = trim($multisubclasstemp, ')');
         $coremulticlass = $coremulticlass.' core';
 
+//ABILITIES
 //CLASS ABILITIES
           $worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coreclass'";
           $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -1015,6 +1030,7 @@ if (strpos($field, ' 20th level') !== false && strpos($field, ' 1st level') == f
 
             <?php
           }
+          echo ('<hr>');
           $worldtitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$subclass'";
           $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
           while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
@@ -1367,6 +1383,9 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
 //MULTICLASS ABILITIES
+if ($fullmulticlass !== '') {
+  echo ('<hr>');
+}
 $worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coremulticlass'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
@@ -1712,6 +1731,9 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
 ?>
 
   <?php
+}
+if ($fullmulticlass !== '') {
+  echo ('<hr>');
 }
 $worldtitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$multisubclass'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
@@ -2066,6 +2088,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
 
 
           //BACKGROUND TRAITS
+          echo ('<hr>');
           $bgtitle = "SELECT title, backgroundTraits FROM `compendium` WHERE `title` LIKE '$background' OR `title` LIKE '$background(background)'";
           $bgdata = mysqli_query($dbcon, $bgtitle) or die('error getting data');
           while($bgrow =  mysqli_fetch_array($bgdata, MYSQLI_ASSOC)) {
@@ -2083,6 +2106,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
 
 
          //RACIAL TRAITS
+         echo ('<hr>');
          $racetitle = "SELECT title, raceTraits FROM `compendium` WHERE `title` LIKE '$race' OR `title` LIKE '$race(race)'";
          $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
          while($racerow =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
@@ -2099,6 +2123,12 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
 
          //FEATS
          $featcount = 0;
+         if ($allfeats == '' || $allfeats == ','){
+
+         }
+         else {
+           echo ('<hr>');
+         }
          $racetitle = "SELECT title, text FROM `compendium` WHERE `type` LIKE 'feat'";
          $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
          while($racerow =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
@@ -2329,6 +2359,10 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
           $coreTemp = $coreclass.' core';
           $ucClass = ucwords($coreclass);
           $subclass = trim($subclasstemp, ')');
+          $coremulticlass = substr($fullmulticlass, 0, strpos($fullmulticlass, "(") -1);
+          $multicoreTemp = $coremulticlass.' core';
+          $ucmultiClass = ucwords($coremulticlass);
+          $multisubclass = trim($multisubclasstemp, ')');
 
           echo ('<div class="hide" id="currentSpells">'.$allspells.'</div>');
           echo ('<div class="hide" id="currentFeats">'.$allfeats.'</div>');
@@ -2370,7 +2404,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
             <?php
         // SPELLS Section
 
-            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
+            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' OR `spellClasses` LIKE '%$ucmultiClass%' OR `spellClasses` LIKE '%$multisubclass%' ORDER BY spellLevel, title";
             $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
             while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
               ?>

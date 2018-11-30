@@ -1061,3 +1061,9 @@ a:hover {
 .floatright {
 	float:right;
 }
+
+hr {
+	margin-top:3px;
+	margin-bottom:3px;
+	border-color:grey;
+}
