@@ -20,6 +20,8 @@ $speed = $_REQUEST['speed'];
 $initiative = $_REQUEST['initiative'];
 $armorclass = $_REQUEST['armorclass'];
 $charClass = $_REQUEST['charClass'];
+$charMultiClass = $_REQUEST['charMultiClass'];
+$charMultiLevel = $_REQUEST['charMultiLevel'];
 $charRace = $_REQUEST['charRace'];
 $charLevel = $_REQUEST['charLevel'];
 $charBackground = $_REQUEST['charBackground'];
@@ -32,9 +34,10 @@ $charItems = $_REQUEST['charItems'];
 $charFeats = $_REQUEST['charFeats'];
 
 
+
 $sql = "UPDATE characters
 SET title = '$title', proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass',
- race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells', customattacks = '$customAttacks', notes = '$charNotes', items = '$charItems', feats = '$charFeats'
+ race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells', customattacks = '$customAttacks', notes = '$charNotes', items = '$charItems', feats = '$charFeats', class2 = '$charMultiClass', class2lvl = '$charMultiLevel'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {

@@ -50,6 +50,8 @@ function editSheet() {
       for (var s = 0; s < selects.length; s++) {
           //selects[s].style = "background-color: #717782;";
           selects[s].disabled = false;
+        //  selects[s].style = "background-color: #717782;";
+
         }
 
     }
@@ -60,6 +62,8 @@ function editSheet() {
     document.getElementById("spellsButton").style = "display:block";
     document.getElementById("itemSearchBox").style = "display:block";
     document.getElementById("featButton").style = "display:block";
+    document.getElementById("multiButton").style = "display:block";
+
 
     var dels = document.getElementsByName("delitem");
     var d = 0;
@@ -94,11 +98,16 @@ function editSheet() {
    $title = $row['title'];
    $charID = $row['id'];
    $fullclass = $row['class1'];
+   $fullmulticlass = $row['class2'];
    $dexmod = floor((($row['dex']-10)/2));
    $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
+   $coremulticlass = substr($fullmulticlass, 0, strpos($fullmulticlass, "(") -1);
    $subclasstemp = substr($fullclass, strpos($fullclass, "(") +1);
+   $multisubclasstemp = substr($fullmulticlass, strpos($fullmulticlass, "(") +1);
    $subclass = trim($subclasstemp, ')');
+   $multisubclass = trim($multisubclasstemp, ')');
    $coreclassbare = ucwords($coreclass);
+   $coremulticlassbare = ucwords($coremulticlass);
    $background = $row['background'];
    $race = $row['race'];
    $bgbare = ucwords($row['background']);
@@ -247,7 +256,68 @@ function editSheet() {
       echo ('</select>');
 }
       ?>
+      <button id="multiButton" class="btn btn-primary" href="#multis" data-toggle="collapse" style="display:none;">Multiclass</button>
+<div class="featureDetails collapse" id="multis">
+  <select class="charClassSelect sheetDrop" name="charMulti" id="charMulti" onchange="multiSelect()">
+  <?php
+  echo ('<option value="'.$coremultibare.'" selected>'.$coremultibare);
+  $classtitle = "SELECT name FROM `subclasses` WHERE `name` LIKE '%core%'";
+  $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
+  while($row1 =  mysqli_fetch_array($classdata, MYSQLI_ASSOC)) {
+    $multiNameClean = ucwords(substr($row1['name'], 0, strpos($row1['name'], " core")));
+      echo ('<option value="'.$multiNameClean.'">'.$multiNameClean);
+    }
+    ?>
+</select>
+<?php
+  $multiArray = Array();
+  $classtitle = "SELECT class FROM `subclasses`";
+  $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
+  while($row1 =  mysqli_fetch_array($classdata, MYSQLI_ASSOC)) {
+    if (!in_array($row1['class'], $multiArray, true)){
+      array_push($multiArray, $row1['class']);
+    }
+  }
+foreach ($multiArray as $item) {
+  $itemNS = str_replace(' ', '', $item);
+  echo ('<select class="subclassSelect sheetDrop selector" name="'.strtolower($itemNS).'SubList1" id="'.strtolower($itemNS).'SubList1" onchange="multiSelect()">');
+  //echo ('<option name="currentSubclass" value="'.$subclass.'">'.$subclass);
+  $classtitle = "SELECT name, class FROM `subclasses`";
+  $classdata = mysqli_query($dbcon, $classtitle) or die('error getting data');
+  while($row1 =  mysqli_fetch_array($classdata, MYSQLI_ASSOC)) {
+    if ($row1['class'] == $item) {
+    $multisubclassNameClean = ucwords($row1['name']);
+    $multisubclassNameCleanns = str_replace(' ', '', $multisubclassNameClean);
+    if (strPos($multisubclassNameClean, " Core") === false){
+      echo ('<option value="'.$multisubclassNameClean);
+      if ($multisubclassNameClean === $multisubclass){
+        echo ('" selected>'.$multisubclassNameClean);
+      }
+      else {
+          echo ('">'.$multisubclassNameClean);
+      }
+    }
+    }
+}
+echo ('</select>');
+}
+echo ('<select class="subclassSelect sheetDrop selector" name="multiLevel" id="multiLevel" onchange="multiSelect()">');
+$mltitle = "SELECT level FROM `characters` WHERE title LIKE '$title'";
+$mldata = mysqli_query($dbcon, $mltitle) or die('error getting data');
+while($mlrow1 =  mysqli_fetch_array($mldata, MYSQLI_ASSOC)) {
+  $totalLevel = (int)$mlrow1['level'];
+  $totalLeveltemp = $totalLevel - 1;
+  for ($i=1; $i < $totalLevel; $i++) {
+    echo ('<option value="'.$i.'">'.$i);
+  }
+}
+?>
+</select>
+</div>
 </td>
+
+
+
       <td><select class="charClassSelect sheetDrop" name="charLevel" id="charLevel">
           <option value="<?php echo $row['level']; ?>" selected><?php echo $row['level']; ?>
           <option value="1">1
@@ -360,6 +430,25 @@ function classSelect(){
   document.getElementById('spellWarning').style = "display:block";
 
 };
+</script>
+<script>
+function multiSelect(){
+  var selectedClass = $('#charMulti').val();
+  classPrep = selectedClass.toLowerCase();
+  classPrep = classPrep.replace(/ +/g, "");
+
+  var subID = classPrep + 'SubList1';
+  var hideAll = document.getElementsByClassName('multisubclassSelect');
+ for (var i = 0; i < hideAll.length; i++ ) {
+    hideAll[i].style.display = "none";
+}
+  document.getElementById(subID).style = "display:inline-block";
+  document.getElementById('multiLevel').style = "display:inline-block";
+  document.getElementById('currentSpells').innerHTML = "";
+  document.getElementById('spellsShow').style = "display:none";
+  document.getElementById('spellWarning').style = "display:block";
+
+};
 
 </script>
 
@@ -382,6 +471,9 @@ function classSelect(){
           $wismod = floor((($row['wis']-10)/2));
           $chamod = floor((($row['cha']-10)/2));
           $level = $row['level'];
+          $multiclasslevel = (int)$row['class2lvl'];
+          $mainclasslevel = (int)$level - $multiclasslevel;
+
 
           if ($row['level'] >= 1 && $row['level'] <= 4) {
             $profbonus = 2;
@@ -565,20 +657,26 @@ function classSelect(){
       <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="abilitiesBlock" style="float:right; min-height:125px;">
         <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
 
-
         <?php
+        //BRIAN
         $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
         $subclasstemp = substr($fullclass, strpos($fullclass, "(") +1);
+        $coremulticlass = substr($fullmulticlass, 0, strpos($fullmulticlass, "(") -1);
+        $multisubclasstemp = substr($fullmulticlass, strpos($fullmulticlass, "(") +1);
         $subclass = trim($subclasstemp, ')');
         $coreclass = $coreclass.' core';
-          $worldtitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$coreclass'";
+        $multisubclass = trim($multisubclasstemp, ')');
+        $coremulticlass = $coremulticlass.' core';
+
+//CLASS ABILITIES
+          $worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coreclass'";
           $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
           while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
             ?>
 
             <!-- LEVEL 1 -->
             <?php
-            if ($level >= 1) {
+            if ($mainclasslevel >= 1) {
             foreach($row as $column=>$field) {
               if (strpos($field, ' 1st level') !== false) {
                 $featuretitle = str_replace('text', 'name', $column);
@@ -586,7 +684,7 @@ function classSelect(){
                 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-                echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+                echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
                 echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
               }
             }
@@ -595,7 +693,7 @@ function classSelect(){
 
       <!-- LEVEL 2 -->
       <?php
-      if ($level >= 2) {
+      if ($mainclasslevel >= 2) {
       foreach($row as $column=>$field) {
         if (strpos($field, ' 2nd level') !== false && strpos($field, ' 1st level') == false) {
           $featuretitle = str_replace('text', 'name', $column);
@@ -603,7 +701,7 @@ function classSelect(){
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-          echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+          echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
           echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
       }
     }
@@ -612,7 +710,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 3) {
+if ($mainclasslevel >= 3) {
 foreach($row as $column=>$field) {
   if (strpos($field, ' 3rd level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -620,7 +718,7 @@ foreach($row as $column=>$field) {
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -629,7 +727,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 4) {
+if ($mainclasslevel >= 4) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 4th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -637,7 +735,7 @@ if (strpos($field, ' 4th level') !== false && strpos($field, ' 1st level') == fa
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -646,7 +744,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 5) {
+if ($mainclasslevel >= 5) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 5th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -654,7 +752,7 @@ if (strpos($field, ' 5th level') !== false && strpos($field, ' 1st level') == fa
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -663,7 +761,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 6) {
+if ($mainclasslevel >= 6) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 6th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -671,7 +769,7 @@ if (strpos($field, ' 6th level') !== false && strpos($field, ' 1st level') == fa
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 
 }
@@ -681,7 +779,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 7) {
+if ($mainclasslevel >= 7) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 7th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -689,7 +787,7 @@ if (strpos($field, ' 7th level') !== false && strpos($field, ' 1st level') == fa
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -698,7 +796,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 8) {
+if ($mainclasslevel >= 8) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 8th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -706,7 +804,7 @@ if (strpos($field, ' 8th level') !== false && strpos($field, ' 1st level') == fa
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -715,7 +813,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 9) {
+if ($mainclasslevel >= 9) {
 foreach($row as $column=>$field) {
   if (strpos($field, ' 9th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -723,7 +821,7 @@ foreach($row as $column=>$field) {
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -732,7 +830,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 10) {
+if ($mainclasslevel >= 10) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 10th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -740,7 +838,7 @@ if (strpos($field, ' 10th level') !== false && strpos($field, ' 1st level') == f
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -749,7 +847,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 11) {
+if ($mainclasslevel >= 11) {
 foreach($row as $column=>$field) {
   if (strpos($field, ' 11th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -757,7 +855,7 @@ foreach($row as $column=>$field) {
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -766,7 +864,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 12) {
+if ($mainclasslevel >= 12) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 12th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -774,7 +872,7 @@ if (strpos($field, ' 12th level') !== false && strpos($field, ' 1st level') == f
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -783,7 +881,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 13) {
+if ($mainclasslevel >= 13) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 13th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -791,7 +889,7 @@ if (strpos($field, ' 13th level') !== false && strpos($field, ' 1st level') == f
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -800,7 +898,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 14) {
+if ($mainclasslevel >= 14) {
 foreach($row as $column=>$field) {
   if (strpos($field, ' 14th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -808,7 +906,7 @@ foreach($row as $column=>$field) {
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -817,7 +915,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 15) {
+if ($mainclasslevel >= 15) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 15th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -825,7 +923,7 @@ if (strpos($field, ' 15th level') !== false && strpos($field, ' 1st level') == f
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -834,7 +932,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 16) {
+if ($mainclasslevel >= 16) {
 foreach($row as $column=>$field) {
   if (strpos($field, ' 16th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -842,7 +940,7 @@ foreach($row as $column=>$field) {
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -851,7 +949,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 17) {
+if ($mainclasslevel >= 17) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 17th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -859,7 +957,7 @@ if (strpos($field, ' 17th level') !== false && strpos($field, ' 1st level') == f
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -868,7 +966,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 18) {
+if ($mainclasslevel >= 18) {
 foreach($row as $column=>$field) {
   if (strpos($field, ' 18th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -876,7 +974,7 @@ foreach($row as $column=>$field) {
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -885,7 +983,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 19) {
+if ($mainclasslevel >= 19) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 19th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -893,7 +991,7 @@ if (strpos($field, ' 19th level') !== false && strpos($field, ' 1st level') == f
 $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -902,11 +1000,11 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
 <!-- LEVEL 3 -->
 <?php
-if ($level >= 20) {
+if ($mainclasslevel >= 20) {
 foreach($row as $column=>$field) {
 if (strpos($field, ' 20th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false && strpos($field, ' 19th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
-    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+    echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
     echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
 }
 }
@@ -924,7 +1022,7 @@ if (strpos($field, ' 20th level') !== false && strpos($field, ' 1st level') == f
 
             <!-- LEVEL 1 -->
             <?php
-            if ($level >= 1) {
+            if ($mainclasslevel >= 1) {
             foreach($row as $column=>$field) {
               if (strpos($field, ' 1st level') !== false) {
                 $featuretitle = str_replace('text', 'name', $column);
@@ -941,7 +1039,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
       <!-- LEVEL 2 -->
       <?php
-      if ($level >= 2) {
+      if ($mainclasslevel >= 2) {
       foreach($row as $column=>$field) {
         if (strpos($field, ' 2nd level') !== false && strpos($field, ' 1st level') == false) {
           $featuretitle = str_replace('text', 'name', $column);
@@ -958,7 +1056,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 3) {
+  if ($mainclasslevel >= 3) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 3rd level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -975,7 +1073,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 4) {
+  if ($mainclasslevel >= 4) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 4th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -992,7 +1090,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 5) {
+  if ($mainclasslevel >= 5) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 5th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1009,7 +1107,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 6) {
+  if ($mainclasslevel >= 6) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 6th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1027,7 +1125,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 7) {
+  if ($mainclasslevel >= 7) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 7th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1046,7 +1144,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 8) {
+  if ($mainclasslevel >= 8) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 8th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1063,7 +1161,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 9) {
+  if ($mainclasslevel >= 9) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 9th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1080,7 +1178,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 10) {
+  if ($mainclasslevel >= 10) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 10th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1097,7 +1195,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 11) {
+  if ($mainclasslevel >= 11) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 11th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1114,7 +1212,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 12) {
+  if ($mainclasslevel >= 12) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 12th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1131,7 +1229,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 13) {
+  if ($mainclasslevel >= 13) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 13th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1148,7 +1246,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 14) {
+  if ($mainclasslevel >= 14) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 14th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1165,7 +1263,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 15) {
+  if ($mainclasslevel >= 15) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 15th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1182,7 +1280,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 16) {
+  if ($mainclasslevel >= 16) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 16th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1199,7 +1297,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 17) {
+  if ($mainclasslevel >= 17) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 17th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1216,7 +1314,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 18) {
+  if ($mainclasslevel >= 18) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 18th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1233,7 +1331,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 19) {
+  if ($mainclasslevel >= 19) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 19th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1250,7 +1348,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
   <!-- LEVEL 3 -->
   <?php
-  if ($level >= 20) {
+  if ($mainclasslevel >= 20) {
   foreach($row as $column=>$field) {
   if (strpos($field, ' 20th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false && strpos($field, ' 19th level') == false) {
     $featuretitle = str_replace('text', 'name', $column);
@@ -1266,6 +1364,707 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
   ?>
             <?php
           }
+
+
+//MULTICLASS ABILITIES
+$worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coremulticlass'";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  ?>
+
+  <!-- LEVEL 1 -->
+  <?php
+  if ($multiclasslevel >= 1) {
+  foreach($row as $column=>$field) {
+    if (strpos($field, ' 1st level') !== false) {
+      $featuretitle = str_replace('text', 'name', $column);
+      $featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+      $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+    }
+  }
+}
+?>
+
+<!-- LEVEL 2 -->
+<?php
+if ($multiclasslevel >= 2) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 2nd level') !== false && strpos($field, ' 1st level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 3) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 3rd level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 4) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 4th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 5) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 5th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 6) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 6th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 7) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 7th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 8) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 8th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 9) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 9th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 10) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 10th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 11) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 11th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 12) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 12th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 13) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 13th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 14) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 14th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 15) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 15th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 16) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 16th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 17) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 17th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 18) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 18th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 19) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 19th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 20) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 20th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false && strpos($field, ' 19th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].' ('.$row['class'].')</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+
+
+?>
+
+  <?php
+}
+$worldtitle = "SELECT * FROM `subclasses` WHERE `name` LIKE '$multisubclass'";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  ?>
+
+  <!-- LEVEL 1 -->
+  <?php
+  if ($multiclasslevel >= 1) {
+  foreach($row as $column=>$field) {
+    if (strpos($field, ' 1st level') !== false) {
+      $featuretitle = str_replace('text', 'name', $column);
+      $featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+    }
+  }
+}
+?>
+
+<!-- LEVEL 2 -->
+<?php
+if ($multiclasslevel >= 2) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 2nd level') !== false && strpos($field, ' 1st level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 3) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 3rd level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 4) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 4th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 5) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 5th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 6) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 6th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 7) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 7th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+$featuretitlens = str_replace('(', '', $featuretitlens);
+$featuretitlens = str_replace(')', '', $featuretitlens);
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 8) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 8th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 9) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 9th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 10) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 10th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 11) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 11th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 12) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 12th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 13) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 13th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 14) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 14th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 15) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 15th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 16) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 16th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 17) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 17th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 18) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 18th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 19) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 19th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+?>
+
+<!-- LEVEL 3 -->
+<?php
+if ($multiclasslevel >= 20) {
+foreach($row as $column=>$field) {
+if (strpos($field, ' 20th level') !== false && strpos($field, ' 1st level') == false && strpos($field, ' 2nd level') == false && strpos($field, ' 3rd level') == false && strpos($field, ' 4th level') == false && strpos($field, ' 5th level') == false && strpos($field, ' 6th level') == false && strpos($field, ' 7th level') == false && strpos($field, ' 8th level') == false && strpos($field, ' 9th level') == false && strpos($field, ' 10th level') == false && strpos($field, ' 11th level') == false && strpos($field, ' 12th level') == false && strpos($field, ' 13th level') == false && strpos($field, ' 14th level') == false && strpos($field, ' 15th level') == false && strpos($field, ' 16th level') == false && strpos($field, ' 17th level') == false && strpos($field, ' 18th level') == false && strpos($field, ' 19th level') == false) {
+$featuretitle = str_replace('text', 'name', $column);
+$featuretitlens = str_replace(' ', '', $row[$featuretitle]);
+$featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row[$featuretitle].'</a><br />');
+echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+}
+}
+}
+
+
+?>
+  <?php
+}
+
+
+
           //BACKGROUND TRAITS
           $bgtitle = "SELECT title, backgroundTraits FROM `compendium` WHERE `title` LIKE '$background' OR `title` LIKE '$background(background)'";
           $bgdata = mysqli_query($dbcon, $bgtitle) or die('error getting data');
@@ -1815,7 +2614,7 @@ $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
       }
 
       document.getElementById('currentFeats').innerHTML = featList;
-    };s
+    };
         </script>
 
 
@@ -2791,6 +3590,8 @@ if ($('#persuasionExpert').prop('checked')) {
  var at4Range = $('#at4Range').val();
  var at4Damage = $('#at4Damage').val();
  var at4ToHit = $('#at4ToHit').val();
+ var charMultiLevel = $('#multiLevel').val();
+
  var at3Array = [at3Select, at3Range, at3Damage, at3ToHit];
  var at4Array = [at4Select, at4Range, at4Damage, at4ToHit];
  at3Array = at3Array.join('_');
@@ -2801,8 +3602,18 @@ if ($('#persuasionExpert').prop('checked')) {
  var charClassLower = charClassTemp.toLowerCase();
  var charClassNs = charClassLower.replace(/ +/g, "");
  var charSubTemp = "#" + charClassNs + "SubList";
+
+ var charMultiClassTemp = $('#charMulti').val();
+ var charMultiClassLower = charMultiClassTemp.toLowerCase();
+ var charMultiClassNs = charMultiClassLower.replace(/ +/g, "");
+ var charMultiSubTemp = "#" + charMultiClassNs + "SubList1";
+
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
+
+ var charMultiSubClass = $(charMultiSubTemp).val();
+ var charMultiClass = charMultiClassLower + " (" + charMultiSubClass + ")";
+
  var charSpells = $('#currentSpells').html();
  var charFeats = $('#currentFeats').html();
  var charNotes = $('#charNotes').val();
@@ -2819,7 +3630,7 @@ if ($('#persuasionExpert').prop('checked')) {
     url : 'charprocess.php',
     type: 'GET',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems, "charFeats" : charFeats },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems, "charFeats" : charFeats, "charMultiClass" : charMultiClass, "charMultiLevel" : charMultiLevel },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data
