@@ -224,7 +224,14 @@ function editSheet() {
   <table style="width: 100%;">
     <tr>
       <td>
-        <?php echo ('<div id="charClasses">'.ucwords($fullclass).' '.$mainclasslevel.'/<br />'.ucwords($fullmulticlass).' '.$multiclasslevel.'</div>'); ?>
+        <?php echo ('<div id="charClasses">'.ucwords($fullclass).' '.$mainclasslevel);
+        if ($multiclasslevel != 0){
+        echo ('/<br />'.ucwords($fullmulticlass).' '.$multiclasslevel.'</div>');
+      }
+      else {
+        echo ('</div>');
+      }
+        ?>
         <select class="charClassSelect sheetDrop" name="charClass" id="charClass" onchange="classSelect()" style="display:none;">
         <?php
         echo ('<option value="'.$coreclassbare.'" selected>'.$coreclassbare);
@@ -315,10 +322,13 @@ foreach ($multiArray as $item) {
 echo ('</select>');
 }
 echo ('<select class="sheetDrop selector" name="multiLevel" id="multiLevel" onchange="multiSelect()">');
+echo ('<option value="'.$multiclasslevel.'" selected>'.$multiclasslevel);
+echo ('<option value="0">Remove Multiclass');
+
 $mltitle = "SELECT level FROM `characters` WHERE title LIKE '$title'";
 $mldata = mysqli_query($dbcon, $mltitle) or die('error getting data');
 while($mlrow1 =  mysqli_fetch_array($mldata, MYSQLI_ASSOC)) {
-  echo ('<option value="'.$multiclasslevel.'">'.$multiclasslevel);
+  //echo ('<option value="'.$multiclasslevel.'">'.$multiclasslevel);
   $totalLevel = (int)$mlrow1['level'];
   $totalLeveltemp = $totalLevel - 1;
   for ($i=1; $i < $totalLevel; $i++) {
@@ -2415,7 +2425,20 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
                 $spelltitlespec = str_replace('\'', '_', $spellrow['title']);
                 $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
                   echo ('<tr><td><input type="checkbox" id="'.$spelltitlens.'Box" onclick="spellList(\''.$spelltitlespec.'\')"></input></td>');
-                  echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].'</a></td>');
+                  echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'show">'.$spellrow['title'].' (');
+                  if (strpos($spellrow['spellClasses'], $ucClass) !== false) {
+                    echo $ucClass;
+                  }
+                  if (strpos($spellrow['spellClasses'], $subclass) !== false) {
+                    echo $subclass;
+                  }
+                  if (strpos($spellrow['spellClasses'], $ucmultiClass) !== false) {
+                    echo $ucmultiClass;
+                  }
+                  if (strpos($spellrow['spellClasses'], $multisubclass) !== false) {
+                    echo $multisubclass;
+                  }
+                  echo (')</a></td>');
 
                   if ($ucClass == 'Mystic') {
                     echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
@@ -2469,7 +2492,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         <?php
         // SPELLS Section
 
-        $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
+$spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' OR `spellClasses` LIKE '%$ucmultiClass%' OR `spellClasses` LIKE '%$multisubclass%' ORDER BY spellLevel, title";
         $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
         while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
         ?>
@@ -2482,6 +2505,12 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         if (strpos($allspells, ','.$spelltitlespec.',') !== false) {
           echo ('<tr>');
           echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
+          if (strpos($spellrow['spellClasses'], $ucClass) !== false) {
+            echo $ucClass;
+          }
+          if (strpos($spellrow['spellClasses'], $subclass) !== false) {
+            echo $subclass;
+          }
           if ($ucClass == 'Mystic') {
             echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
 
@@ -3636,8 +3665,15 @@ if ($('#persuasionExpert').prop('checked')) {
  var charClassLower = charClassTemp.toLowerCase();
  var charClassNs = charClassLower.replace(/ +/g, "");
  var charSubTemp = "#" + charClassNs + "SubList";
+ var charSubClass = $(charSubTemp).val();
+ var charClass = charClassLower + " (" + charSubClass + ")";
 
  var charMultiClassTemp = $('#charMulti').val();
+ if  (charMultiClassTemp == 'remove'){
+   var charMultiClass = 'Ranger (Gloom Stalker)';
+   charMultiLevel = '0';
+ }
+else {
  var charMultiClassLower = charMultiClassTemp.toLowerCase();
  var charMultiClassNs = charMultiClassLower.replace(/ +/g, "");
  var charMultiSubTemp = "#" + charMultiClassNs + "SubList1";
@@ -3647,6 +3683,7 @@ if ($('#persuasionExpert').prop('checked')) {
 
  var charMultiSubClass = $(charMultiSubTemp).val();
  var charMultiClass = charMultiClassLower + " (" + charMultiSubClass + ")";
+}
 
  var charSpells = $('#currentSpells').html();
  var charFeats = $('#currentFeats').html();
