@@ -11,6 +11,7 @@
    include_once($headpath);
 
 
+
 $id = "index";
 $disallowed_paths = array('header', 'footer');
 if (!empty($_GET['id'])) {
@@ -21,6 +22,8 @@ if (!empty($_GET['id'])) {
   }
 if (empty($_GET['id'])) {
 ?>
+<script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
+
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <div class ="body bodytext">
 
