@@ -58,12 +58,10 @@ if (empty($_GET['id'])) {
                   echo (' :: '.$charrow['user']);
               }
 
-            if ($charrow['class2'] !== '') {
+            if ($charrow['class2lvl'] !== '0') {
               echo ('/'.$charrow['class2']);
             }
-            if ($charrow['class3'] !== '') {
-              echo ('/'.$charrow['class3']);
-            }
+
             echo (')</a></li>');
             ?>
 
