@@ -816,11 +816,14 @@ function saveChar(){
   }
   var conmod = Math.floor((parseInt(charcon)-10) / 2);
   var maxhp = charHitdie + conmod;
+  var charMulti = 'ranger (Gloom Stalker)';
+  var multiLevel = 0;
+
 
    $.ajax({
       url : 'charcreateprocess.php',
       type: 'GET',
-      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel, "charHitdie" : charHitdie, "maxhp" : maxhp, "charSaves" : charSaves, "customAttacks" : customAttacks, "charProfs" : charProfs },
+      data : { "charName" : charName, "charRace" : charRace, "fullClass" : fullClass, "charBackground" : charBackground, "charstr" : charstr, "chardex" : chardex, "charcon" : charcon, "charint" : charint, "charwis" : charwis, "charcha" : charcha, "charUser" : charUser, "charLevel" : charLevel, "charHitdie" : charHitdie, "maxhp" : maxhp, "charSaves" : charSaves, "customAttacks" : customAttacks, "charProfs" : charProfs, "charMulti" : charMulti, "multiLevel" : multiLevel },
       success: function()
       {
           var newURL = '/tools/users/characters.php?id=' + charName;
