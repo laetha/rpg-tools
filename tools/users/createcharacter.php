@@ -10,6 +10,7 @@
    $headpath .= "/header.php";
    include_once($headpath);
 ?>
+<script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
 <script>
 $(document).ready(function (){
   showCharModal();
