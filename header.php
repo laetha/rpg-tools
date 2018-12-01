@@ -25,7 +25,7 @@ $loguser = $_SESSION["newsession"];
 
 		<title><?php echo $pgtitle; ?>RPG Tools</title>
 		<?php
-		$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');
+		/*$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');
 		while( $entry = readdir($handle) )
 		{
 		    if( $entry != '.' && $entry != '..' )
@@ -40,9 +40,10 @@ $loguser = $_SESSION["newsession"];
 
 		  $i = rand(0, count($files)-1); // generate random number size of the array
 		  $selectedBg = "$files[$i]"; // set variable equal to which random filename was chosen
-		?>
+	*/	?>
 	</head>
-	<body id="headbody" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(/assets/images/bg/<?php echo $selectedBg; ?>) no-repeat center center fixed;	-webkit-background-size: cover;	-moz-background-size: cover;	-o-background-size: cover;	background-size: cover;	opacity:0.9;">
+	<!--<body id="headbody" style="background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),  url(/assets/images/bg/<?php echo $selectedBg; ?>) no-repeat center center fixed;	-webkit-background-size: cover;	-moz-background-size: cover;	-o-background-size: cover;	background-size: cover;	opacity:0.9;"> -->
+	<body id="headbody" style="background-color: #2d2d2d; opacity: 0.8;">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" tpye="text/javascript"></script>
 		<!--<script src="http://code.jquery.com/jquery-1.8.3.js" tpye="text/javascript"></script>-->
 		<script src="/selectize/js/standalone/selectize.min.js" tpye="text/javascript"></script>
@@ -51,7 +52,6 @@ $loguser = $_SESSION["newsession"];
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" tpye="text/javascript"></script>
 		<script src="/plugins/Do-Math-Within-Input-jQuery-Abacus\jquery.abacus.min.js"></script>
 		<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.js"></script>
-		<script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
 		<?php
 		//SQL Connect
 		 $sqlpath = $_SERVER['DOCUMENT_ROOT'];

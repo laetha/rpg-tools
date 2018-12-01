@@ -14,6 +14,7 @@
    include_once($headpath);
 ?>
 
+<script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
 
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">Initiative Tracker</h1>
