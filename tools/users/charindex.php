@@ -449,7 +449,7 @@ function classSelect(){
     hideAll[i].style.display = "none";
 }
   document.getElementById(subID).style = "display:inline-block";
-  document.getElementById('currentSpells').innerHTML = "";
+  //document.getElementById('currentSpells').innerHTML = "";
   document.getElementById('spellsShow').style = "display:none";
   document.getElementById('spellWarning').style = "display:block";
 
@@ -468,7 +468,7 @@ function multiSelect(){
 }
   document.getElementById(subID).style = "display:inline-block";
   document.getElementById('multiLevel').style = "display:inline-block";
-  document.getElementById('currentSpells').innerHTML = "";
+  //document.getElementById('currentSpells').innerHTML = "";
   document.getElementById('spellsShow').style = "display:none";
   document.getElementById('spellWarning').style = "display:block";
 
@@ -2412,10 +2412,10 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
                 </thead>
                 <tbody>
             <?php
-        // SPELLS Section
+        //  SPELLS Section
+  $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' ORDER BY spellLevel, title";
+  $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
 
-            $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' OR `spellClasses` LIKE '%$ucmultiClass%' OR `spellClasses` LIKE '%$multisubclass%' ORDER BY spellLevel, title";
-            $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
             while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
               ?>
 
@@ -2432,12 +2432,14 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
                   if (strpos($spellrow['spellClasses'], $subclass) !== false) {
                     echo $subclass;
                   }
+                  if ($multiclasslevel !== 0){
                   if (strpos($spellrow['spellClasses'], $ucmultiClass) !== false) {
                     echo $ucmultiClass;
                   }
                   if (strpos($spellrow['spellClasses'], $multisubclass) !== false) {
                     echo $multisubclass;
                   }
+                }
                   echo (')</a></td>');
 
                   if ($ucClass == 'Mystic') {
@@ -2453,7 +2455,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
                   echo ('<br />Duration: '.$spellrow['spellDuration']);
                   echo ('<br />Range: '.$spellrow['spellRange']);
                   echo ('<br />Components: '.$spellrow['spellComponents']);
-                  echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
+                  echo ('<br />'.nl2br($spellrow['text']).'</div></td></tr>');
 
               }
 
@@ -2492,7 +2494,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         <?php
         // SPELLS Section
 
-$spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' OR `spellClasses` LIKE '%$ucmultiClass%' OR `spellClasses` LIKE '%$multisubclass%' ORDER BY spellLevel, title";
+        $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' OR `spellClasses` LIKE '%$ucmultiClass%' OR `spellClasses` LIKE '%$multisubclass%' ORDER BY spellLevel, title";
         $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
         while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
         ?>
@@ -2504,13 +2506,14 @@ $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%'
         $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
         if (strpos($allspells, ','.$spelltitlespec.',') !== false) {
           echo ('<tr>');
-          echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].'</a></td>');
+          echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].' (');
           if (strpos($spellrow['spellClasses'], $ucClass) !== false) {
             echo $ucClass;
           }
           if (strpos($spellrow['spellClasses'], $subclass) !== false) {
             echo $subclass;
           }
+          echo (')</a></td>');
           if ($ucClass == 'Mystic') {
             echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
 
@@ -2523,7 +2526,7 @@ $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%'
           echo ('<br />Duration: '.$spellrow['spellDuration']);
           echo ('<br />Range: '.$spellrow['spellRange']);
           echo ('<br />Components: '.$spellrow['spellComponents']);
-          echo ('<br />'.nl2br($spellrow['text']).'</div></tr>');
+          echo ('<br />'.nl2br($spellrow['text']).'</div></td></tr>');
         }
         }
 
