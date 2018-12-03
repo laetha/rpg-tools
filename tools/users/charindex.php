@@ -213,8 +213,118 @@ function editSheet() {
   <label class="btn btn-primary">
     <input type="radio" name="options" id="option8" autocomplete="off" onchange="showBlock('notesBlock')"> Notes
   </label>
+
 </div>
+<button class="btn btn-success" data-toggle="modal" href="#levelModal">Level Up!</button>
  </div>
+
+<!-- LEVEL UP MODAL -->
+<!-- Item Modal -->
+<div class="modal fade bd-example-modal-lg" id="levelModal" role="dialog">
+  <div class="modal-dialog" style="max-width:1200px;">
+
+    <!-- Modal content-->
+    <div class="modal-content modalstyle bodytext" style="height:100%;">
+      <div class="modal-header" style="padding-bottom: 0px;">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+      <div class="modal-body createModal" id="charModalBody" style="height:100%; padding-top: 0px;">
+
+        <div id="lvlupLP">
+<?php
+        $newlevel = (int)$row['level'] + 1;
+        $oldLP = (int)$row['level'] * 3;
+        $newLP = $newlevel * 3;
+        echo ('<div class="sidebartext col-centered">Ding! This will help you level up to Level '.$newlevel.'</div>');
+        echo ('<div class="sidebartext col-centered">You old Life Points: '.$oldLP.'</div>');
+        echo ('<div class="sidebartext col-centered">You NEW Life Points: '.$newLP.'</div>');
+        echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="startLevelUp()">Next</button></div>');
+?>
+</div>
+
+<div id="lvlupAbilities" style="display:none;">
+  <div class="sidebartext col-centered">At this level you gain the following new abilities (if any):</div>
+<?php
+$worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coreclass'";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row1 =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  ?>
+
+  <?php
+  foreach($row1 as $column=>$field) {
+    if ($newlevel == 1) {
+      $lvlcheck = (' '.$newlevel.'st level');
+    }
+    if ($newlevel == 2) {
+      $lvlcheck = (' '.$newlevel.'nd level');
+    }
+    if ($newlevel == 3) {
+      $lvlcheck = (' '.$newlevel.'rd level');
+    }
+    else {
+      $lvlcheck = (' '.$newlevel.'th level');
+    }
+
+    if (strpos($field, $newlevel) !== false) {
+      $featuretitle = str_replace('text', 'name', $column);
+      $featuretitlens = str_replace(' ', '', $row1[$featuretitle]);
+      $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row1[$featuretitle].' ('.$row1['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+    }
+  }
+}
+
+$worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$subclass'";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row1 =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  ?>
+
+  <?php
+  foreach($row1 as $column=>$field) {
+    if ($newlevel == 1) {
+      $lvlcheck = (' '.$newlevel.'st level');
+    }
+    if ($newlevel == 2) {
+      $lvlcheck = (' '.$newlevel.'nd level');
+    }
+    if ($newlevel == 3) {
+      $lvlcheck = (' '.$newlevel.'rd level');
+    }
+    else {
+      $lvlcheck = (' '.$newlevel.'th level');
+    }
+    if (strpos($field, $lvlcheck) !== false) {
+      $featuretitle = str_replace('text', 'name', $column);
+      $featuretitlens = str_replace(' ', '', $row1[$featuretitle]);
+      $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row1[$featuretitle].' ('.$row1['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+    }
+  }
+}
+
+echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="levelupHP()">Next</button></div>');
+?>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+
+<script>
+function startLevelUp() {
+  $('#lvlupLP').fadeOut(500);
+  $('#lvlupAbilities').delay(400).fadeIn(300);
+};
+
+
+</script>
 
 <div class=" col-md-4 col-sm-6 col-xs-12">
   <input class="charName" id="charName" value="<?php echo $title; ?>">
