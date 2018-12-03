@@ -805,7 +805,7 @@ function saveChar(){
   if (charClass == 'Artificer' || charClass == 'Bard' || charClass == 'Cleric' || charClass == 'Druid' || charClass == 'Monk' || charClass == 'Mystic' || charClass == 'Rogue'){
     charHitdie = 8;
   }
-  else if (charClass == 'Blood Hunter' || charClass == 'Fighter' || charClass == 'Ranger' || charClass == 'Revised Ranger') {
+  else if (charClass == 'Blood Hunter' || charClass == 'Fighter' || charClass == 'Ranger' || charClass == 'Revised Ranger' || charClass == 'Paladin') {
     charHitdie = 10;
   }
   else if (charClass == 'Barbarian'){
