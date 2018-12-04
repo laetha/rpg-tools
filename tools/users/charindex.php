@@ -247,62 +247,60 @@ function editSheet() {
 <div id="lvlupAbilities" style="display:none;">
   <div class="sidebartext col-centered">At this level you gain the following new abilities (if any):</div>
 <?php
-$worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coreclass'";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row1 =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  ?>
-
-  <?php
-  foreach($row1 as $column=>$field) {
+$lvltitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coreclass'";
+$lvldata = mysqli_query($dbcon, $lvltitle) or die('error getting data');
+while($row2 =  mysqli_fetch_array($lvldata, MYSQLI_ASSOC)) {
+  foreach($row2 as $column1=>$field1) {
     if ($newlevel == 1) {
       $lvlcheck = (' '.$newlevel.'st level');
     }
-    if ($newlevel == 2) {
+    else if ($newlevel == 2) {
       $lvlcheck = (' '.$newlevel.'nd level');
     }
-    if ($newlevel == 3) {
+    else if ($newlevel == 3) {
       $lvlcheck = (' '.$newlevel.'rd level');
     }
     else {
       $lvlcheck = (' '.$newlevel.'th level');
     }
 
-    if (strpos($field, $newlevel) !== false) {
-      $featuretitle = str_replace('text', 'name', $column);
-      $featuretitlens = str_replace(' ', '', $row1[$featuretitle]);
-      $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
+    if (strpos($field1, $lvlcheck) !== false) {
+      $featuretitle1 = str_replace('text', 'name', $column1);
+      $featuretitlens1 = str_replace(' ', '', $row2[$featuretitle1]);
+      $featuretitlens1 = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens1);
 
-      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row1[$featuretitle].' ('.$row1['class'].')</a><br />');
-      echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens1.'show">'.$row2[$featuretitle1].' ('.$row2['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens1.'show" name="'.$featuretitlens1.'show">'.nl2br($field1).'</div>');
     }
   }
 }
 
-$worldtitle = "SELECT * FROM `subclasses` WHERE name LIKE '$subclass'";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row1 =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+$lvl1title = "SELECT * FROM `subclasses` WHERE name LIKE '$subclass'";
+$lvl1data = mysqli_query($dbcon, $lvl1title) or die('error getting data');
+while($row3 =  mysqli_fetch_array($lvl1data, MYSQLI_ASSOC)) {
   ?>
 
   <?php
-  foreach($row1 as $column=>$field) {
+  foreach($row3 as $column=>$field) {
     if ($newlevel == 1) {
-      $lvlcheck = (' '.$newlevel.'st level');
+      $lvlcheck1 = (' '.$newlevel.'st level');
     }
-    if ($newlevel == 2) {
-      $lvlcheck = (' '.$newlevel.'nd level');
+    else if ($newlevel == 2) {
+      $lvlcheck1 = (' '.$newlevel.'nd level');
     }
-    if ($newlevel == 3) {
-      $lvlcheck = (' '.$newlevel.'rd level');
+    else if ($newlevel == 3) {
+      $lvlcheck1 = (' '.$newlevel.'rd level');
     }
     else {
-      $lvlcheck = (' '.$newlevel.'th level');
+      $lvlcheck1 = (' '.$newlevel.'th level');
     }
-    if (strpos($field, $lvlcheck) !== false) {
+
+    if (strpos($field, $lvlcheck1) !== false) {
       $featuretitle = str_replace('text', 'name', $column);
-      $featuretitlens = str_replace(' ', '', $row1[$featuretitle]);
+      $featuretitlens = str_replace(' ', '', $row3[$featuretitle]);
       $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
-      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row1[$featuretitle].' ('.$row1['class'].')</a><br />');
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row3[$featuretitle].' ('.$row3['class'].')</a><br />');
       echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
     }
   }
