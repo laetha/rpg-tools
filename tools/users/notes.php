@@ -25,7 +25,7 @@
    </div>
      <div class="body sidebartext col-xs-12" id="body">
        <div class="table-responsive">
-   <table id="notes" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+   <table id="notes" class="table table-condensed table-striped table-responsive dt-responsive sidebartext" cellspacing="0" width="100%">
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Note</th>

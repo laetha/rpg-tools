@@ -1,10 +1,23 @@
 <?php session_start();
-if (!isset($_SESSION["newsession"])){
-	$loguser = 'null';
+if(!isset($_COOKIE['user'])) {
+	if (!isset($_SESSION["newsession"])){
+		$loguser = 'null';
+		//echo ('No Logged in user');
+	}
+	else {
+	$loguser = $_SESSION["newsession"];
+	$cookie_name = "user";
+	$cookie_value = $loguser;
+	setcookie($cookie_name, $cookie_value, time() + (86400 * 90), "/"); // 86400 = 1 day
+	//echo ('Logged in user is '.$loguser);
+}
 }
 else {
-$loguser = $_SESSION["newsession"];
+	$loguser = $_COOKIE['user'];
+	$cookiestatus = 'There was a cookie!';
+
 }
+
 ?>
 <!DOCTYPE HTML>
 <html>

@@ -1,4 +1,7 @@
 <?php
+$cookie_name = "user";
+$cookie_value = '';
+setcookie($cookie_name, $cookie_value, time() - 700000, "/"); // 86400 = 1 dayunset($_SESSION["newsession"]);
 $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
@@ -6,7 +9,7 @@ include_once($headpath);
 <?php
 /*session is started if you don't write this line can't use $_Session  global variable*/
 $_SESSION["newsession"]=$loggedinuser;
-unset($_SESSION["newsession"]);
+
 ?>
 <script type="text/javascript">
   /*  $(window).on('load',function(){
