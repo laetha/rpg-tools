@@ -369,7 +369,7 @@ function addSubclass() {
 
 function addBackground() {
   var charBackground = document.getElementById('charBackgroundAdd').value;
-  var charBackgroundNs = charBackground.replace(' ', '');
+  var charBackgroundNs = charBackground.replace(/ /g, '');
   var charBackgroundClean = charBackgroundNs.replace('(', '');
   charBackgroundClean = charBackgroundClean.replace(')', '');
   if (charBackground == ''){
@@ -812,7 +812,7 @@ function saveChar(){
   var charLevel = 1;
   var charHitdie = 0;
   var charClassNs = charClass.replace(' ', '');
-  var charBgNs = charBackground.replace(' ', '');
+  var charBgNs = charBackground.replace(/ /g, '');
   charBgNs = charBgNs.replace("(","").replace(")","");
   var customAttacks = "_______";
   var charSaves = $('#' + charClassNs + 'saves').html();
