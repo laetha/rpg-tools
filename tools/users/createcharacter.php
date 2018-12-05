@@ -388,10 +388,24 @@ function addBackground() {
   var raceStatsArray = racialStats.split(", ");
   var stat1type = raceStatsArray[0].slice(0,3);
   var stat2type = raceStatsArray[1].slice(0,3);
+  var stat3type = raceStatsArray[2].slice(0,3);
+  var stat4type = raceStatsArray[3].slice(0,3);
+  var stat5type = raceStatsArray[4].slice(0,3);
+  var stat6type = raceStatsArray[5].slice(0,3);
   var stat1 = raceStatsArray[0].slice(4);
   var stat2 = raceStatsArray[1].slice(4);
+  var stat3 = raceStatsArray[2].slice(4);
+  var stat4 = raceStatsArray[3].slice(4);
+  var stat5 = raceStatsArray[4].slice(4);
+  var stat6 = raceStatsArray[5].slice(4);
+
   document.getElementById(stat1type + 'Bonus').innerHTML =  "+" + stat1;
   document.getElementById(stat2type + 'Bonus').innerHTML = "+" + stat2;
+  document.getElementById(stat3type + 'Bonus').innerHTML = "+" + stat3;
+  document.getElementById(stat4type + 'Bonus').innerHTML = "+" + stat4;
+  document.getElementById(stat5type + 'Bonus').innerHTML = "+" + stat5;
+  document.getElementById(stat6type + 'Bonus').innerHTML = "+" + stat6;
+
   var profs = document.getElementById(charBackgroundClean + 'profs').innerHTML;
   document.getElementById('profWarning').innerHTML = "From your background choice you are already proficient in: " + profs;
   $('#charBackgroundShow').fadeOut(500);
