@@ -386,7 +386,13 @@ function addBackground() {
   var currentRaceNS = currentRaceStrip.replace(' ', '');
   var racialStats = document.getElementById(currentRaceNS + 'stats').innerHTML;
   var raceStatsArray = racialStats.split(", ");
-  var stat1type = raceStatsArray[0].slice(0,3);
+  for (var i = 0; i < raceStatsArray.length; i++) {
+    var stattype = raceStatsArray[i].slice(0,3);
+    var stat = raceStatsArray[i].slice(4);
+    document.getElementById(stattype + 'Bonus').innerHTML =  "+" + stat;
+
+  }
+  /*var stat1type = raceStatsArray[0].slice(0,3);
   var stat2type = raceStatsArray[1].slice(0,3);
   var stat3type = raceStatsArray[2].slice(0,3);
   var stat4type = raceStatsArray[3].slice(0,3);
@@ -398,13 +404,12 @@ function addBackground() {
   var stat4 = raceStatsArray[3].slice(4);
   var stat5 = raceStatsArray[4].slice(4);
   var stat6 = raceStatsArray[5].slice(4);
-
   document.getElementById(stat1type + 'Bonus').innerHTML =  "+" + stat1;
   document.getElementById(stat2type + 'Bonus').innerHTML = "+" + stat2;
   document.getElementById(stat3type + 'Bonus').innerHTML = "+" + stat3;
   document.getElementById(stat4type + 'Bonus').innerHTML = "+" + stat4;
   document.getElementById(stat5type + 'Bonus').innerHTML = "+" + stat5;
-  document.getElementById(stat6type + 'Bonus').innerHTML = "+" + stat6;
+  document.getElementById(stat6type + 'Bonus').innerHTML = "+" + stat6;*/
 
   var profs = document.getElementById(charBackgroundClean + 'profs').innerHTML;
   document.getElementById('profWarning').innerHTML = "From your background choice you are already proficient in: " + profs;
