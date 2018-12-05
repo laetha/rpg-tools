@@ -11,6 +11,8 @@ include_once($sqlpath);
 <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
 <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js" type="text/javascript"></script>
+<script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
+
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
 <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
@@ -215,7 +217,7 @@ function editSheet() {
   </label>
 
 </div>
-<button class="btn btn-success" data-toggle="modal" href="#levelModal">Level Up!</button>
+<button class="btn btn-success hide" data-toggle="modal" href="#levelModal">Level Up!</button>
  </div>
 
 <!-- LEVEL UP MODAL -->
@@ -310,6 +312,22 @@ echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton"
 ?>
 </div>
 
+<div id="lvlupHP" style="display:none;">
+  <div class="sidebartext col-centered">Roll for Max HP!</div>
+<?php
+
+  echo ('<div class="col-centered">Current Max HP: '.$row['maxhp'].'</div>');
+  echo ('<div class="col-centered"><button class="btn btn-success" onclick="rollHP(\''.$row['hitdice'].'\')">Roll!</button></div>');
+  echo ('<div style="display:none;" class="col-centered" id="hpRoll"></div>');
+  echo ('<div style="display:none;" class="col-centered" id="hpMod"></div>');
+  echo ('<div class="col-centered">New Max HP: <div id="newmaxhp">'.$row['maxhp'].'</div></div>');
+  echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="levelupStats()">Next</button></div>');
+?>
+</div>
+
+
+
+
 </div>
 </div>
 </div>
@@ -321,6 +339,30 @@ function startLevelUp() {
   $('#lvlupAbilities').delay(400).fadeIn(300);
 };
 
+function levelupHP() {
+  $('#lvlupAbilities').fadeOut(500);
+  $('#lvlupHP').delay(400).fadeIn(300);
+};
+
+function rollHP(value){
+  const roller = new DiceRoller();
+  var rolltemp = roller.roll('1d' + value);
+  var rollstring = rolltemp.toString();
+  var roll = rollstring.split('= ')[1];
+  if (roll == 1){
+    document.getElementById('hpRoll').innerHTML = "you rolled a 1. Go ahead and roll again.";
+  }
+  else{
+  document.getElementById('hpRoll').innerHTML = "You rolled a " + roll;
+  var conMod = parseInt(document.getElementById('conMod').innerHTML);
+  document.getElementById('hpMod').innerHTML = "Plus your CON mod of " + conMod;
+  document.getElementById('hpMod').style = "display:block";
+  document.getElementById('hpRoll').style = "display:block";
+  var newmax =  parseInt(<?php echo $row['maxhp']; ?>) + parseInt(roll) + conMod;
+  document.getElementById('newmaxhp').innerHTML = newmax;
+}
+  document.getElementById('hpRoll').style = "display:block";
+}
 
 </script>
 

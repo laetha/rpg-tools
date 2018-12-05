@@ -17,7 +17,6 @@ else {
 	$cookiestatus = 'There was a cookie!';
 
 }
-echo $cookiestatus;
 ?>
 <!DOCTYPE HTML>
 <html>
