@@ -180,6 +180,7 @@ $loguser = $_SESSION["newsession"];
 			?>
 			<ul class="dropdown-menu">
 				<li><a href="/tools/users/characters.php">Characters</a></li>
+				<li><a href="/tools/users/notes.php">Notes</a></li>
 				<li><a href="/tools/users/bookmarks.php">Bookmarks</a></li>
 				<li><a href="/tools/users/logout.php">Logout</a></li>
 			</ul>
