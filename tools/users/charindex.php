@@ -374,7 +374,7 @@ if ($newlevel == 4 || $newlevel == 8 || $newlevel == 12 || $newlevel == 16 || $n
   </div>
 
 
-  <table style="width:100%;">
+  <table style="width:100%;" class="sidebartext">
     <tr>
       <td>STR</td>
       <td>DEX</td>
@@ -405,7 +405,7 @@ echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton"
 
 <div id="lvlupTable" style="display:none;">
   <div class="col-centered" style="margin-bottom: 15px;">Here's what's changed from your old level to your new level:</div>
-  <table class="table table-striped table-condensed">
+  <table id="levelclasstable" class="table lvltable table-striped table-condensed">
 <thead>
 <?php
 $upclass = ucwords($coreclassbare);
@@ -944,6 +944,24 @@ echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 </div>
 
 <script>
+$(document).ready(function() {
+
+    // DataTable
+    var table = $('#levelclasstable').DataTable({
+      "scrollX": true,
+      "ordering": false,
+      "paging": false,
+      "searching": false,
+      "info": false
+    });
+
+    $(".dataTables_scrollHeadInner").css({"width":"100%"});
+
+    $(".lvltable").css({"width":"100%"});
+
+} );
+
+
 function startLevelUp() {
   $('#lvlupLP').fadeOut(500);
   $('#lvlupAbilities').delay(400).fadeIn(300);

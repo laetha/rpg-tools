@@ -1067,3 +1067,10 @@ hr {
 	margin-bottom:3px;
 	border-color:grey;
 }
+
+@media (min-width: 768px){
+.modal-dialog {
+     width: 80%;
+    margin: 30px auto;
+	}
+}
