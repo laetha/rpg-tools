@@ -12,10 +12,11 @@ $wis = $_REQUEST['wisdom'];
 $cha = $_REQUEST['charisma'];
 $maxhp = $_REQUEST['maxhp'];
 $charLevel = $_REQUEST['charLevel'];
-
+$class2lvl = $_REQUEST['class2lvl'];
+$charMultiClass = $_REQUEST['charMultiClass'];
 
 $sql = "UPDATE characters
-SET str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', level = '$charLevel'
+SET str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', level = '$charLevel', class2lvl = '$class2lvl', class2 = '$charMultiClass'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {

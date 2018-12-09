@@ -81,7 +81,6 @@ function editSheet() {
       dels[d].style = "display:inline-block"
     }
 
-//    document.getElementById('test').innerHTML = dels[0];
     /*document.getElementById("mystics").style = "display:block";
     document.getElementById("mySpells").style = "display:none;";
     document.getElementById("mymystics").style = "display:none;";*/
@@ -92,6 +91,7 @@ function editSheet() {
 
   <!-- Page Header -->
   <div class="col-md-12">
+    <div class="sidebartext hide" id="lvlmulticlass"></div>
   <!-- <div class="pagetitle" id="pgtitle" style="visibility: visible;"> -->
     <?php
   $stripid = str_replace("'", "", $id);
@@ -246,6 +246,53 @@ function editSheet() {
 ?>
 </div>
 
+<div id="lvlupMultiSelect" style="display:none;">
+  <div class="col-centered">Select Class to Level:</div>
+  <div class="col-centered">
+  <button class="btn btn-success" onclick="levelupNoMulti()">Same Class</button>
+  <button class="btn btn-info" onclick="levelupMulti()">Multiclass</button>
+</div>
+</div>
+
+
+<div id="lvlupMultiClass" style="display:none;">
+  <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="levelupMultiSubclass()">Next</button></div>
+  <div class="col-centered">Class</div>
+  <div class="col-xs-12"><select class="sheetDrop" name="charClasseAdd" id="charClassAdd"  onchange="showClassDetails()">
+    <option value="">Select Class...
+    <?php
+    $racetitle = "SELECT name FROM `subclasses` WHERE `name` LIKE '%core%'";
+    $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+    while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+      $classNameClean = ucwords(substr($row1['name'], 0, strpos($row1['name'], " core")));
+      echo ('<option value="'.$classNameClean.'">'.$classNameClean);
+    }
+     ?>
+  </select>
+</div>
+  <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="classDetails" seamless></iframe></div>
+</div>
+
+<div id="lvlupMultiSubclass" style="display:none;">
+  <div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="levelupAbilities()">Next</button></div>
+  <div class="col-centered">Subclass</div>
+  <div class="col-xs-12"><select class="charSubclassSelect sheetDrop" name="charSubClassAdd" id="charSubclassAdd"  onchange="showSubclassDetails()">
+    <option value="">Select Subclass...
+    <?php
+    $racetitle = "SELECT name, class FROM `subclasses` WHERE `name` NOT LIKE '%core%'";
+    $racedata = mysqli_query($dbcon, $racetitle) or die('error getting data');
+    while($row1 =  mysqli_fetch_array($racedata, MYSQLI_ASSOC)) {
+      $classns = str_replace(' ', '', $row1['class']);
+      //$classNameClean = ucwords(substr($row1['name'], 0, strpos($row1['name'], " core")));
+      echo ('<option class="'.$classns.'1" style="display:none;" value="'.$row1['name'].'">'.$row1['name']);
+    }
+     ?>
+  </select>
+</div>
+  <div class="col-xs-12 iframe-container"><iframe class="charCreateFrame" frameBorder="0" id="subclassDetails" seamless></iframe></div>
+</div>
+
+
 <div id="lvlupAbilities" style="display:none;">
   <div class="sidebartext col-centered">At this level you gain the following new abilities (if any):</div>
 <?php
@@ -271,8 +318,8 @@ while($row2 =  mysqli_fetch_array($lvldata, MYSQLI_ASSOC)) {
       $featuretitlens1 = str_replace(' ', '', $row2[$featuretitle1]);
       $featuretitlens1 = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens1);
 
-      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens1.'show">'.$row2[$featuretitle1].' ('.$row2['class'].')</a><br />');
-      echo ('<div class="featureDetails collapse" id="'.$featuretitlens1.'show" name="'.$featuretitlens1.'show">'.nl2br($field1).'</div>');
+      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens1.'show1">'.$row2[$featuretitle1].' ('.$row2['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens1.'show1" name="'.$featuretitlens1.'show1">'.nl2br($field1).'</div>');
     }
   }
 }
@@ -944,6 +991,29 @@ echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 </div>
 
 <script>
+function showClassDetails(){
+  var selectedClass = document.getElementById('charClassAdd').value;
+  var classFrame = document.getElementById('classDetails');
+  classFrame.addEventListener("load", function() {
+  this.contentWindow.document.getElementById('nonav').style = "display:none";
+  this.contentWindow.document.getElementById('headbody').style = "background:none";
+  var mainBox = this.contentWindow.document.getElementsByClassName('mainbox');
+  mainBox[0].style = "background:none";
+});
+  classFrame.src= "/tools/compendium/compendium.php?id=" + selectedClass;
+};
+
+function showSubclassDetails(){
+  var selectedSubclass = document.getElementById('charSubclassAdd').value;
+  var subclassFrame = document.getElementById('subclassDetails');
+  subclassFrame.addEventListener("load", function() {
+  this.contentWindow.document.getElementById('nonav').style = "display:none";
+  this.contentWindow.document.getElementById('body').style = "background:none";
+});
+  subclassFrame.src= "/tools/compendium/popout.php?id=" + selectedSubclass;
+};
+
+
 $(document).ready(function() {
 
     // DataTable
@@ -964,6 +1034,51 @@ $(document).ready(function() {
 
 function startLevelUp() {
   $('#lvlupLP').fadeOut(500);
+  $('#lvlupMultiSelect').delay(400).fadeIn(300);
+};
+
+function levelupNoMulti(){
+  $('#lvlupMultiSelect').fadeOut(500);
+  $('#lvlupAbilities').delay(400).fadeIn(300);
+};
+
+function levelupMulti(){
+  $('#lvlupMultiSelect').fadeOut(500);
+  $('#lvlupMultiClass').delay(400).fadeIn(300);
+};
+
+jQuery.fn.toggleOption = function( show ) {
+    jQuery( this ).toggle( show );
+    if( show ) {
+        if( jQuery( this ).parent( 'span.toggleOption' ).length )
+            jQuery( this ).unwrap( );
+    } else {
+        if( jQuery( this ).parent( 'span.toggleOption' ).length == 0 )
+            jQuery( this ).wrap( '<span class="toggleOption" style="display: none;" />' );
+    }
+};
+
+function levelupMultiSubclass(){
+  var charClass1 = document.getElementById('charClassAdd').value;
+  var charClassns1 = charClass1.replace(' ', '');
+  //document.getElementById(charClassns + 'prof').style = "display:block";
+  if (charClass1 == ''){
+  }
+  else {
+  //document.getElementById('charClass').innerHTML = charClass1;
+  var charClass1lower = charClass1.toLowerCase();
+  document.getElementById('lvlmulticlass').innerHTML = charClass1lower;
+  jQuery('.' + charClassns1 + '1').toggleOption(true); // show option
+  $('#lvlupMultiClass').fadeOut(500);
+  $('#lvlupMultiSubclass').delay(400).fadeIn(300);
+  }
+};
+
+function levelupAbilities() {
+  var tempmulticlass = document.getElementById('lvlmulticlass').innerHTML;
+  var tempmultisub = document.getElementById('charSubclassAdd').value;
+  document.getElementById('lvlmulticlass').innerHTML = tempmulticlass + ' (' + tempmultisub + ')';
+  $('#lvlupMultiSubclass').fadeOut(500);
   $('#lvlupAbilities').delay(400).fadeIn(300);
 };
 
@@ -1175,13 +1290,19 @@ else {
   var charNewWis = charOldWis;
   var charNewCha = charOldCha;
 }
-
+var checklvlmulti = document.getElementById('lvlmulticlass').innerHTML;
+if (checklvlmulti == ''){
+}
+ else {
+   var charMultiClass = checklvlmulti;
+   var charMultiLevel = '1';
+ }
 
 
   $.ajax({
      url : 'charlevel.php',
      type: 'GET',
-     data : { "charID" : charID, "strength" : charNewStr, "dexterity" : charNewDex, "constitution" : charNewCon, "intelligence" : charNewInt, "wisdom" : charNewWis, "charisma" : charNewCha, "maxhp" : charNewMax, "charLevel" : charNewLevel },
+     data : { "charID" : charID, "strength" : charNewStr, "dexterity" : charNewDex, "constitution" : charNewCon, "intelligence" : charNewInt, "wisdom" : charNewWis, "charisma" : charNewCha, "maxhp" : charNewMax, "charLevel" : charNewLevel, "charMultiClass" : charMultiClass, "class2lvl" : charMultiLevel },
      success: function()
      {
          //if success then just output the text to the status div then clear the form inputs to prepare for new data
