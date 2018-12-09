@@ -249,8 +249,16 @@ function editSheet() {
 <div id="lvlupMultiSelect" style="display:none;">
   <div class="col-centered">Select Class to Level:</div>
   <div class="col-centered">
-  <button class="btn btn-success" onclick="levelupNoMulti()">Same Class</button>
-  <button class="btn btn-info" onclick="levelupMulti()">Multiclass</button>
+    <?php
+    if ($row['class2lvl'] !== '0'){
+      echo ('<button class="btn btn-success" onclick="levelupNoMulti(\'main\')">'.ucwords($row['class1']).'</button>
+      <button class="btn btn-info" onclick="levelupNoMulti(\'off\')">'.ucwords($row['class2']).'</button>');
+    }
+    else {
+      echo ('<button class="btn btn-success" onclick="levelupNoMulti(\'main\')">Same Class</button>
+      <button class="btn btn-info" onclick="levelupMulti()">Multiclass</button>');
+    }
+   ?>
 </div>
 </div>
 
@@ -296,21 +304,23 @@ function editSheet() {
 <div id="lvlupAbilities" style="display:none;">
   <div class="sidebartext col-centered">At this level you gain the following new abilities (if any):</div>
 <?php
+$newmain = (int)$newlevel - (int)$row['class2lvl'];
+$newoff = (int)$row['class2lvl'] + 1;
 $lvltitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coreclass'";
 $lvldata = mysqli_query($dbcon, $lvltitle) or die('error getting data');
 while($row2 =  mysqli_fetch_array($lvldata, MYSQLI_ASSOC)) {
   foreach($row2 as $column1=>$field1) {
-    if ($newlevel == 1) {
-      $lvlcheck = (' '.$newlevel.'st level');
+    if ($newmain == 1) {
+      $lvlcheck = (' '.$newmain.'st level');
     }
-    else if ($newlevel == 2) {
-      $lvlcheck = (' '.$newlevel.'nd level');
+    else if ($newmain == 2) {
+      $lvlcheck = (' '.$newmain.'nd level');
     }
-    else if ($newlevel == 3) {
-      $lvlcheck = (' '.$newlevel.'rd level');
+    else if ($newmain == 3) {
+      $lvlcheck = (' '.$newmain.'rd level');
     }
     else {
-      $lvlcheck = (' '.$newlevel.'th level');
+      $lvlcheck = (' '.$newmain.'th level');
     }
 
     if (strpos($field1, $lvlcheck) !== false) {
@@ -318,7 +328,7 @@ while($row2 =  mysqli_fetch_array($lvldata, MYSQLI_ASSOC)) {
       $featuretitlens1 = str_replace(' ', '', $row2[$featuretitle1]);
       $featuretitlens1 = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens1);
 
-      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens1.'show1">'.$row2[$featuretitle1].' ('.$row2['class'].')</a><br />');
+      echo ('<a name="main" class="featureName" data-toggle="collapse" href="#'.$featuretitlens1.'show1" style="display:none;">'.$row2[$featuretitle1].' ('.$row2['class'].')</a><br />');
       echo ('<div class="featureDetails collapse" id="'.$featuretitlens1.'show1" name="'.$featuretitlens1.'show1">'.nl2br($field1).'</div>');
     }
   }
@@ -331,17 +341,17 @@ while($row3 =  mysqli_fetch_array($lvl1data, MYSQLI_ASSOC)) {
 
   <?php
   foreach($row3 as $column=>$field) {
-    if ($newlevel == 1) {
-      $lvlcheck1 = (' '.$newlevel.'st level');
+    if ($newmain == 1) {
+      $lvlcheck1 = (' '.$newmain.'st level');
     }
-    else if ($newlevel == 2) {
-      $lvlcheck1 = (' '.$newlevel.'nd level');
+    else if ($newmain == 2) {
+      $lvlcheck1 = (' '.$newmain.'nd level');
     }
-    else if ($newlevel == 3) {
-      $lvlcheck1 = (' '.$newlevel.'rd level');
+    else if ($newmain == 3) {
+      $lvlcheck1 = (' '.$newmain.'rd level');
     }
     else {
-      $lvlcheck1 = (' '.$newlevel.'th level');
+      $lvlcheck1 = (' '.$newmain.'th level');
     }
 
     if (strpos($field, $lvlcheck1) !== false) {
@@ -349,11 +359,71 @@ while($row3 =  mysqli_fetch_array($lvl1data, MYSQLI_ASSOC)) {
       $featuretitlens = str_replace(' ', '', $row3[$featuretitle]);
       $featuretitlens = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens);
 
-      echo ('<a class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show">'.$row3[$featuretitle].' ('.$row3['class'].')</a><br />');
+      echo ('<a name="main" class="featureName" data-toggle="collapse" href="#'.$featuretitlens.'show" style="display:none;">'.$row3[$featuretitle].' ('.$row3['class'].')</a><br />');
       echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'.$featuretitlens.'show">'.nl2br($field).'</div>');
     }
   }
 }
+$coremulticlassUC = $coremulticlass.' core';
+$lvltitle = "SELECT * FROM `subclasses` WHERE name LIKE '$coremulticlassUC'";
+$lvldata = mysqli_query($dbcon, $lvltitle) or die('error getting data');
+while($row4 =  mysqli_fetch_array($lvldata, MYSQLI_ASSOC)) {
+  foreach($row4 as $column2=>$field2) {
+    if ($newoff == 1) {
+      $lvlcheck2 = (' '.$newoff.'st level');
+    }
+    else if ($newoff == 2) {
+      $lvlcheck2 = (' '.$newoff.'nd level');
+    }
+    else if ($newoff == 3) {
+      $lvlcheck2 = (' '.$newoff.'rd level');
+    }
+    else {
+      $lvlcheck2 = (' '.$newoff.'th level');
+    }
+
+    if (strpos($field2, $lvlcheck2) !== false) {
+      $featuretitle2 = str_replace('text', 'name', $column2);
+      $featuretitlens2 = str_replace(' ', '', $row4[$featuretitle2]);
+      $featuretitlens2 = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens2);
+
+      echo ('<a name="off" class="featureName" data-toggle="collapse" href="#'.$featuretitlens2.'show1" style="display:none;">'.$row4[$featuretitle2].' ('.$row4['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens2.'show1" name="'.$featuretitlens2.'show1">'.nl2br($field2).'</div>');
+    }
+  }
+}
+
+$lvl1title = "SELECT * FROM `subclasses` WHERE name LIKE '$multisubclass'";
+$lvl1data = mysqli_query($dbcon, $lvl1title) or die('error getting data');
+while($row5 =  mysqli_fetch_array($lvl1data, MYSQLI_ASSOC)) {
+  ?>
+
+  <?php
+  foreach($row5 as $column3=>$field3) {
+    if ($newoff == 1) {
+      $lvlcheck3 = (' '.$newoff.'st level');
+    }
+    else if ($newoff == 2) {
+      $lvlcheck3 = (' '.$newoff.'nd level');
+    }
+    else if ($newoff == 3) {
+      $lvlcheck3 = (' '.$newoff.'rd level');
+    }
+    else {
+      $lvlcheck3 = (' '.$newoff.'th level');
+    }
+
+    if (strpos($field3, $lvlcheck3) !== false) {
+      $featuretitle3 = str_replace('text', 'name', $column3);
+      $featuretitlens3 = str_replace(' ', '', $row5[$featuretitle3]);
+      $featuretitlens3 = preg_replace('/[^a-z\d]+/i', '_', $featuretitlens3);
+
+      echo ('<a name="off" class="featureName" data-toggle="collapse" href="#'.$featuretitlens3.'show" style="display:none;">'.$row5[$featuretitle3].' ('.$row5['class'].')</a><br />');
+      echo ('<div class="featureDetails collapse" id="'.$featuretitlens3.'show" name="'.$featuretitlens3.'show">'.nl2br($field3).'</div>');
+    }
+  }
+}
+
 
 echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="levelupHP()">Next</button></div>');
 ?>
@@ -1037,7 +1107,21 @@ function startLevelUp() {
   $('#lvlupMultiSelect').delay(400).fadeIn(300);
 };
 
-function levelupNoMulti(){
+function levelupNoMulti(value){
+  var mainoff = value;
+  if (mainoff == 'main'){
+    var showmain = document.getElementsByName('main');
+    for (var i = 0; i < showmain.length; i++) {
+      showmain[i].style = "display:block";
+    }
+
+  }
+  else if (mainoff == 'off'){
+    var showoff = document.getElementsByName('off');
+    for (var i = 0; i < showoff.length; i++) {
+      showoff[i].style = "display:block";
+    }
+  }
   $('#lvlupMultiSelect').fadeOut(500);
   $('#lvlupAbilities').delay(400).fadeIn(300);
 };
@@ -1292,6 +1376,8 @@ else {
 }
 var checklvlmulti = document.getElementById('lvlmulticlass').innerHTML;
 if (checklvlmulti == ''){
+  var charMultiClass = 'ranger (Gloom Stalker Conclave)';
+  var charMultiLevel = '0';
 }
  else {
    var charMultiClass = checklvlmulti;
