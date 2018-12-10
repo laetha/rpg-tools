@@ -91,7 +91,6 @@ function editSheet() {
 
   <!-- Page Header -->
   <div class="col-md-12">
-    <div class="sidebartext hide" id="lvlmulticlass"></div>
   <!-- <div class="pagetitle" id="pgtitle" style="visibility: visible;"> -->
     <?php
   $stripid = str_replace("'", "", $id);
@@ -228,6 +227,9 @@ function editSheet() {
     <!-- Modal content-->
     <div class="modal-content modalstyle bodytext" style="height:100%;">
       <div class="modal-header" style="padding-bottom: 0px;">
+        <div clas="sidebartext" id="test">TEST</div>
+        <div class="sidebartext hide" id="lvlmulticlass"></div>
+        <div class="sidebartext hide" id="mainoffLevel"></div>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -463,8 +465,8 @@ echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton"
 else {
   echo ('<div class="col-centered">Your proficiency bonus does not increase this level.</div>');
 }
-$fighterASI = ucwords($coreclassbare.$newlevel);
-if ($newlevel == 4 || $newlevel == 8 || $newlevel == 12 || $newlevel == 16 || $newlevel == 19 || $fighterASI == 'Fighter6' || $fighterASI == 'Fighter14'){
+
+  echo ('<div id="lvlstats" style="display:none;">');
   echo ('<div class="sidebartext col-centered">At this level you get an Ability Score Improvement. You may increase two skills by 1, or one skill by 2.</div>');
   ?>
   <div class="col-sm-4 sidebartext col-centered">Stat 1
@@ -510,13 +512,13 @@ if ($newlevel == 4 || $newlevel == 8 || $newlevel == 12 || $newlevel == 16 || $n
   </table>
   <?php
   echo ('<div class="sidebartext col-centered">You may choose to take a feat instead. Please add your selected feat from the character edit screen.</div>');
-}
-else {
-  echo ('<div class="col-centered">You do not get an Ability Score Improvement this level.</div>');
-}
+echo ('</div>');
+  echo ('<div class="col-centered" id="noability" style="display:block;">You do not get an Ability Score Improvement this level.</div>');
+
 echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton" onclick="levelupTable()">Next</button></div>');
 
 ?>
+
 </div>
 
 
@@ -532,26 +534,26 @@ $newrow = $upclass.$newmain;
 $oldrow = $upclass.$mainclasslevel;
 $newmcrow = $upmulticlass.$newoff;
 $oldmcrow = $upmulticlass.$multiclasslevel;
-if($upclass == "Artificer") {
-  echo ('<tr class="Artificer">');
-  echo('<th>Level</th>');
-  echo('<th>Proficiency</th>');
-  echo('<th>Features</th>');
-  echo('<th>Spells Known</th>');
-  echo('<th>1st</th>');
-  echo('<th>2nd</th>');
-  echo('<th>3rd</th>');
-  echo('<th>4th</th>');
+if($upclass == "Artificer" || $upmulticlass = "Artificer") {
+  echo ('<tr class="Artificer ctable">');
+  echo('<th class="Artificer ctable">Level</th>');
+  echo('<th class="Artificer ctable">Proficiency</th>');
+  echo('<th class="Artificer ctable">Features</th>');
+  echo('<th class="Artificer ctable">Spells Known</th>');
+  echo('<th class="Artificer ctable">1st</th>');
+  echo('<th class="Artificer ctable">2nd</th>');
+  echo('<th class="Artificer ctable">3rd</th>');
+  echo('<th class="Artificer ctable">4th</th>');
   echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Artificer%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-  echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+  echo ('<tr id="'.$classtablerow['name'].'" class="Artificer ctable"><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -563,24 +565,24 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   }
 }
 
-if($upclass == "Barbarian") {
-echo ('<tr class="Barbarian">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Rages</th>');
-echo('<th>Rage Damage</th>');
+if($upclass == "Barbarian" || $upmulticlass = "Barbarian") {
+echo ('<tr class="Barbarian ctable">');
+echo('<th class="Barbarian ctable">Level</th>');
+echo('<th class="Barbarian ctable">Proficiency</th>');
+echo('<th class="Barbarian ctable">Features</th>');
+echo('<th class="Barbarian ctable">Rages</th>');
+echo('<th class="Barbarian ctable">Rage Damage</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Barbarian%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Barbarian ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -589,33 +591,33 @@ echo ('<td>'.$classtablerow['spelllvl1'].'</td></tr>');
 }
 }
 
-if($upclass == "Bard") {
-  echo ('<tr class="Bard">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Cantrips</th>');
-echo('<th>Spells Known</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
-echo('<th>6th</th>');
-echo('<th>7th</th>');
-echo('<th>8th</th>');
-echo('<th>9th</th>');
+if($upclass == "Bard" || $upmulticlass = "Bard") {
+  echo ('<tr class="Bard ctable">');
+echo('<th class="Bard ctable">Level</th>');
+echo('<th class="Bard ctable">Proficiency</th>');
+echo('<th class="Bard ctable">Features</th>');
+echo('<th class="Bard ctable">Cantrips</th>');
+echo('<th class="Bard ctable">Spells Known</th>');
+echo('<th class="Bard ctable">1st</th>');
+echo('<th class="Bard ctable">2nd</th>');
+echo('<th class="Bard ctable">3rd</th>');
+echo('<th class="Bard ctable">4th</th>');
+echo('<th class="Bard ctable">5th</th>');
+echo('<th class="Bard ctable">6th</th>');
+echo('<th class="Bard ctable">7th</th>');
+echo('<th class="Bard ctable">8th</th>');
+echo('<th class="Bard ctable">9th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Bard%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Bard ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -633,32 +635,32 @@ echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
 }
 }
 
-if($upclass == "Cleric") {
-  echo ('<tr class="Cleric">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Cantrips</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
-echo('<th>6th</th>');
-echo('<th>7th</th>');
-echo('<th>8th</th>');
-echo('<th>9th</th>');
+if($upclass == "Cleric" || $upmulticlass = "Cleric") {
+  echo ('<tr class="Cleric ctable">');
+echo('<th class="Cleric ctable">Level</th>');
+echo('<th class="Cleric ctable">Proficiency</th>');
+echo('<th class="Cleric ctable">Features</th>');
+echo('<th class="Cleric ctable">Cantrips</th>');
+echo('<th class="Cleric ctable">1st</th>');
+echo('<th class="Cleric ctable">2nd</th>');
+echo('<th class="Cleric ctable">3rd</th>');
+echo('<th class="Cleric ctable">4th</th>');
+echo('<th class="Cleric ctable">5th</th>');
+echo('<th class="Cleric ctable">6th</th>');
+echo('<th class="Cleric ctable">7th</th>');
+echo('<th class="Cleric ctable">8th</th>');
+echo('<th class="Cleric ctable">9th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Cleric%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Cleric ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -675,32 +677,32 @@ echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
 }
 }
 
-if($upclass == "Druid") {
-  echo ('<tr class="Druid">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Cantrips</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
-echo('<th>6th</th>');
-echo('<th>7th</th>');
-echo('<th>8th</th>');
-echo('<th>9th</th>');
+if($upclass == "Druid" || $upmulticlass = "Druid") {
+  echo ('<tr class="Druid ctable">');
+echo('<th class="Druid ctable">Level</th>');
+echo('<th class="Druid ctable">Proficiency</th>');
+echo('<th class="Druid ctable">Features</th>');
+echo('<th class="Druid ctable">Cantrips</th>');
+echo('<th class="Druid ctable">1st</th>');
+echo('<th class="Druid ctable">2nd</th>');
+echo('<th class="Druid ctable">3rd</th>');
+echo('<th class="Druid ctable">4th</th>');
+echo('<th class="Druid ctable">5th</th>');
+echo('<th class="Druid ctable">6th</th>');
+echo('<th class="Druid ctable">7th</th>');
+echo('<th class="Druid ctable">8th</th>');
+echo('<th class="Druid ctable">9th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Druid%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Druid ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -717,47 +719,47 @@ echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
 }
 }
 
-if($upclass == "Fighter") {
-  echo ('<tr class="Fighter">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
+if($upclass == "Fighter" || $upmulticlass = "Fighter") {
+  echo ('<tr class="Fighter ctable">');
+echo('<th class="Fighter ctable">Level</th>');
+echo('<th class="Fighter ctable">Proficiency</th>');
+echo('<th class="Fighter ctable">Features</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Fighter%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Fighter ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td></tr>');
 
 }
 }
 
-if($upclass == "Monk") {
-  echo ('<tr class="Monk">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Martial Arts</th>');
-echo('<th>Ki Points</th>');
-echo('<th>Unarmored Movement</th>');
-echo('<th>Features</th>');
+if($upclass == "Monk" || $upmulticlass = "Monk") {
+  echo ('<tr class="Monk ctable">');
+echo('<th class="Monk ctable">Level</th>');
+echo('<th class="Monk ctable">Proficiency</th>');
+echo('<th class="Monk ctable">Martial Arts</th>');
+echo('<th class="Monk ctable">Ki Points</th>');
+echo('<th class="Monk ctable">Unarmored Movement</th>');
+echo('<th class="Monk ctable">Features</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Monk%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Monk ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -767,26 +769,26 @@ echo ('<td>'.$classtablerow['feature'].'</td></tr>');
 }
 }
 
-if($upclass == "Mystic") {
-  echo ('<tr class="Mystic">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Talents Known</th>');
-echo('<th>Disciplines Known</th>');
-echo('<th>Psi Points</th>');
-echo('<th>Psi Limit</th>');
+if($upclass == "Mystic" || $upmulticlass = "Mystic") {
+  echo ('<tr class="Mystic ctable">');
+echo('<th class="Mystic ctable">Level</th>');
+echo('<th class="Mystic ctable">Proficiency</th>');
+echo('<th class="Mystic ctable">Features</th>');
+echo('<th class="Mystic ctable">Talents Known</th>');
+echo('<th class="Mystic ctable">Disciplines Known</th>');
+echo('<th class="Mystic ctable">Psi Points</th>');
+echo('<th class="Mystic ctable">Psi Limit</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Mystic%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Mystic ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -797,27 +799,27 @@ echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
 }
 }
 
-if($upclass == "Paladin") {
-  echo ('<tr class="Paladin">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
+if($upclass == "Paladin" || $upmulticlass = "Paladin") {
+  echo ('<tr class="Paladin ctable">');
+echo('<th class="Paladin ctable">Level</th>');
+echo('<th class="Paladin ctable">Proficiency</th>');
+echo('<th class="Paladin ctable">Features</th>');
+echo('<th class="Paladin ctable">1st</th>');
+echo('<th class="Paladin ctable">2nd</th>');
+echo('<th class="Paladin ctable">3rd</th>');
+echo('<th class="Paladin ctable">4th</th>');
+echo('<th class="Paladin ctable">5th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Paladin%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Paladin ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -829,28 +831,28 @@ echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 }
 }
 
-if($upclass == "Ranger") {
-  echo ('<tr class="Ranger">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Spells Known</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
+if($upclass == "Ranger" || $upmulticlass = "Ranger") {
+  echo ('<tr class="Ranger ctable">');
+echo('<th class="Ranger ctable">Level</th>');
+echo('<th class="Ranger ctable">Proficiency</th>');
+echo('<th class="Ranger ctable">Features</th>');
+echo('<th class="Ranger ctable">Spells Known</th>');
+echo('<th class="Ranger ctable">1st</th>');
+echo('<th class="Ranger ctable">2nd</th>');
+echo('<th class="Ranger ctable">3rd</th>');
+echo('<th class="Ranger ctable">4th</th>');
+echo('<th class="Ranger ctable">5th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Ranger%' AND name NOT LIKE ' Ranger%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Ranger ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['known'].'</td>');
@@ -863,23 +865,23 @@ echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 }
 }
 
-if($upclass == "Rogue") {
-echo ('<tr class="Rogue">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Sneak Attack</th>');
-echo('<th>Features</th>');
+if($upclass == "Rogue" || $upmulticlass = "Rogue") {
+echo ('<tr class="Rogue ctable">');
+echo('<th class="Rogue ctable">Level</th>');
+echo('<th class="Rogue ctable">Proficiency</th>');
+echo('<th class="Rogue ctable">Sneak Attack</th>');
+echo('<th class="Rogue ctable">Features</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Rogue%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Rogue ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
@@ -888,34 +890,34 @@ echo ('<td>'.$classtablerow['feature'].'</td>');
 }
 
 
-if($upclass == "Sorcerer") {
-  echo ('<tr class="Sorcerer">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Sorcery Points</th>');
-echo('<th>Features</th>');
-echo('<th>Cantrips</th>');
-echo('<th>Spells Known</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
-echo('<th>6th</th>');
-echo('<th>7th</th>');
-echo('<th>8th</th>');
-echo('<th>9th</th>');
+if($upclass == "Sorcerer" || $upmulticlass = "Sorcerer") {
+  echo ('<tr class="Sorcerer ctable">');
+echo('<th class="Sorcerer ctable">Level</th>');
+echo('<th class="Sorcerer ctable">Proficiency</th>');
+echo('<th class="Sorcerer ctable">Sorcery Points</th>');
+echo('<th class="Sorcerer ctable">Features</th>');
+echo('<th class="Sorcerer ctable">Cantrips</th>');
+echo('<th class="Sorcerer ctable">Spells Known</th>');
+echo('<th class="Sorcerer ctable">1st</th>');
+echo('<th class="Sorcerer ctable">2nd</th>');
+echo('<th class="Sorcerer ctable">3rd</th>');
+echo('<th class="Sorcerer ctable">4th</th>');
+echo('<th class="Sorcerer ctable">5th</th>');
+echo('<th class="Sorcerer ctable">6th</th>');
+echo('<th class="Sorcerer ctable">7th</th>');
+echo('<th class="Sorcerer ctable">8th</th>');
+echo('<th class="Sorcerer ctable">9th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Sorcerer%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Sorcerer ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['resource'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
@@ -934,27 +936,27 @@ echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
 }
 }
 
-if($upclass == "Warlock") {
-  echo ('<tr class="Warlock">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Cantrips</th>');
-echo('<th>Spells Known</th>');
-echo('<th>Spell Slots</th>');
-echo('<th>Slot Level</th>');
-echo('<th>Invocations Known</th>');
+if($upclass == "Warlock" || $upmulticlass = "Warlock") {
+  echo ('<tr class="Warlock ctable">');
+echo('<th class="Warlock ctable">Level</th>');
+echo('<th class="Warlock ctable">Proficiency</th>');
+echo('<th class="Warlock ctable">Features</th>');
+echo('<th class="Warlock ctable">Cantrips</th>');
+echo('<th class="Warlock ctable">Spells Known</th>');
+echo('<th class="Warlock ctable">Spell Slots</th>');
+echo('<th class="Warlock ctable">Slot Level</th>');
+echo('<th class="Warlock ctable">Invocations Known</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Warlock%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Warlock ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -966,32 +968,32 @@ echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 }
 }
 
-if($upclass == "Wizard") {
-  echo ('<tr class="Wizard">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Cantrips</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
-echo('<th>6th</th>');
-echo('<th>7th</th>');
-echo('<th>8th</th>');
-echo('<th>9th</th>');
+if($upclass == "Wizard" || $upmulticlass = "Wizard") {
+  echo ('<tr class="Wizard ctable">');
+echo('<th class="Wizard ctable">Level</th>');
+echo('<th class="Wizard ctable">Proficiency</th>');
+echo('<th class="Wizard ctable">Features</th>');
+echo('<th class="Wizard ctable">Cantrips</th>');
+echo('<th class="Wizard ctable">1st</th>');
+echo('<th class="Wizard ctable">2nd</th>');
+echo('<th class="Wizard ctable">3rd</th>');
+echo('<th class="Wizard ctable">4th</th>');
+echo('<th class="Wizard ctable">5th</th>');
+echo('<th class="Wizard ctable">6th</th>');
+echo('<th class="Wizard ctable">7th</th>');
+echo('<th class="Wizard ctable">8th</th>');
+echo('<th class="Wizard ctable">9th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Wizard%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Wizard ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -1008,24 +1010,24 @@ echo ('<td>'.$classtablerow['spelllvl9'].'</td></tr>');
 }
 }
 
-if($upclass == "Blood Hunter") {
-  echo ('<tr class="BloodHunter">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Crimson Rite</th>');
-echo('<th>Features</th>');
-echo('<th>Blood Curses Known</th>');
+if($upclass == "Blood Hunter" || $upmulticlass = "Blood Hunter") {
+  echo ('<tr class="BloodHunter ctable">');
+echo('<th class="BloodHunter ctable">Level</th>');
+echo('<th class="BloodHunter ctable">Proficiency</th>');
+echo('<th class="BloodHunter ctable">Crimson Rite</th>');
+echo('<th class="BloodHunter ctable">Features</th>');
+echo('<th class="BloodHunter ctable">Blood Curses Known</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Blood Hunter%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
-
+ $ctr = str_replace(' ', '', $classtablerow['name']);
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$ctr.'" class="BloodHunter ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
@@ -1034,28 +1036,28 @@ echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
 }
 }
 
-if($upclass == "Revised Ranger") {
-  echo ('<tr class="RevisedRanger">');
-echo('<th>Level</th>');
-echo('<th>Proficiency</th>');
-echo('<th>Features</th>');
-echo('<th>Spells Known</th>');
-echo('<th>1st</th>');
-echo('<th>2nd</th>');
-echo('<th>3rd</th>');
-echo('<th>4th</th>');
-echo('<th>5th</th>');
+if($upclass == "Revised Ranger" || $upmulticlass = "Revised Ranger") {
+  echo ('<tr class="RevisedRanger ctable">');
+echo('<th class="RevisedRanger ctable">Level</th>');
+echo('<th class="RevisedRanger ctable">Proficiency</th>');
+echo('<th class="RevisedRanger ctable">Features</th>');
+echo('<th class="RevisedRanger ctable">Spells Known</th>');
+echo('<th class="RevisedRanger ctable">1st</th>');
+echo('<th class="RevisedRanger ctable">2nd</th>');
+echo('<th class="RevisedRanger ctable">3rd</th>');
+echo('<th class="RevisedRanger ctable">4th</th>');
+echo('<th class="RevisedRanger ctable">5th</th>');
 echo('</tr>');
 echo('</thead>');
 echo('<tbody>');
 
 
-$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE '$oldrow' OR name LIKE '$newrow' OR name LIKE '$oldmcrow' OR name LIKE '$newmcrow'";
+$classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Revised Ranger%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
-
+  $ctr = str_replace(' ', '', $classtablerow['name']);
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr class="'.$mcrowclass.'"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$ctr.'" class="RevisedRanger ctable"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['known'].'</td>');
@@ -1128,29 +1130,85 @@ function startLevelUp() {
 
 function levelupNoMulti(value){
   var mainoff = value;
+  var newmain = <?php echo $newmain; ?>;
+  var newoff = <?php echo $newoff; ?>;
 
   if (mainoff == 'main'){
+    document.getElementById('mainoffLevel').innerHTML = '<?php echo $row['class2lvl']; ?>';
     document.getElementById('lvlhitdie').innerHTML = '<?php echo $row['hitdice']; ?>';
     var showmain = document.getElementsByName('main');
     for (var i = 0; i < showmain.length; i++) {
       showmain[i].style = "display:block";
     }
-    var offtable = document.getElementsByClassName('<?php echo $coremulticlassbare; ?>');
-    for (var i = 0; i < offtable.length; i++) {
-      offtable[i].style = "display:none";
+    var offtable = document.getElementsByClassName('ctable');
+    var x = <?php echo $newmain; ?>;
+    var y = <?php echo $mainclasslevel; ?>;
+      for (var i = 0; i < offtable.length; i++) {
+        var showid = '<?php echo $coreclassbare; ?>' + x;
+        var showid1 = '<?php echo $coreclassbare; ?>' + y;
+
+        if ($(offtable[i]).hasClass('<?php echo $coreclassbare; ?>') !== false){
+
+          if ($(offtable[i]).has("#" + showid1)){
+            document.getElementById(showid1).style.color = "red";
+          }
+          if ($(offtable[i]).has("#" + showid)){
+            document.getElementById(showid).style.color = "#42f486";
+          }
+          
+        }
+        else {
+          offtable[i].style = "display:none";
+        }
+    }
+    var mainstat = '<?php echo $coreclassbare.$newmain; ?>';
+    if (newmain == 4 || newmain == 8 || newmain == 12 || newmain == 16 || newmain == 19 || mainstat == 'Fighter6' || mainstat == 'Fighter14'){
+      document.getElementById('lvlstats').style = "display:block";
+      document.getElementById('noability').style = "display:none";
+    }
+    else {
+      document.getElementById('noability').style = "display:block";
     }
   }
   else if (mainoff == 'off'){
+    document.getElementById('mainoffLevel').innerHTML = '<?php echo (int)$row['class2lvl'] + 1; ?>';
     document.getElementById('lvlhitdie').innerHTML = '<?php echo $row['hitdice2']; ?>';
     var showoff = document.getElementsByName('off');
     for (var i = 0; i < showoff.length; i++) {
       showoff[i].style = "display:block";
     }
-    var maintable = document.getElementsByClassName('<?php echo $coreclassbare; ?>');
+    var maintable = document.getElementsByClassName('ctable');
+    var x = <?php echo $newoff; ?>;
+    var y = <?php echo $multiclasslevel; ?>;
     for (var i = 0; i < maintable.length; i++) {
-      maintable[i].style = "display:none";
+      var showid = '<?php echo $coremultibare; ?>' + x;
+      var showid1 = '<?php echo $coremultibare; ?>' + y;
+      if ($(maintable[i]).hasClass('<?php echo $coremultibare; ?>') !== false){
+        if ($(maintable[i]).has("#" + showid)){
+          document.getElementById(showid).style = "color:red";
+        }
+        else if ($(maintable[i]).has("#" + showid1)){
+          document.getElementById(showid1).style = "color:blue";
+        }
+        else {
+          document.getElementById(showid).style = "display:none";
+        }
+      }
+      else {
+        maintable[i].style = "display:none";
+      }
+      x++;
     }
+    var offstat = '<?php echo $coremulticlassbare.$newoff; ?>';
+     if (newoff == 4 || newoff == 8 || newoff == 12 || newoff == 16 || newoff == 19 || offstat == 'Fighter6' || offstat == 'Fighter14'){
+       document.getElementById('lvlstats').style = "display:block";
+       document.getElementById('noability').style = "display:none";
+     }
+     else {
+       document.getElementById('noability').style = "display:block";
+     }
   }
+  document.getElementById('lvlmulticlass').innerHTML = '<?php echo $row['class2']; ?>';
   $('#lvlupMultiSelect').fadeOut(500);
   $('#lvlupAbilities').delay(400).fadeIn(300);
 };
@@ -1417,6 +1475,7 @@ else {
   var charNewWis = charOldWis;
   var charNewCha = charOldCha;
 }
+
 var checklvlmulti = document.getElementById('lvlmulticlass').innerHTML;
 if (checklvlmulti == ''){
   var charMultiClass = 'ranger (Gloom Stalker Conclave)';
@@ -1424,7 +1483,7 @@ if (checklvlmulti == ''){
 }
  else {
    var charMultiClass = checklvlmulti;
-   var charMultiLevel = '1';
+   var charMultiLevel = $('#mainoffLevel').html();
  }
 
 
@@ -4904,7 +4963,10 @@ if ($('#persuasionExpert').prop('checked')) {
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
 
- var charMultiClassTemp = $('#multiLevel').val();
+ var charMultiLevelTemp = $('#multiLevel').val();
+ var charMultiClassTemp = $('#charMulti').val();
+ //var charMultiSubclassTemp = $('#multiSubclass').val();
+
  if  (charMultiClassTemp == '0'){
    var charMultiClass = 'Ranger (Gloom Stalker)';
    charMultiLevel = '0';
