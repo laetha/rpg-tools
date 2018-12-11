@@ -1078,3 +1078,32 @@ hr {
 .spellinfo {
 	font-size:24px;
 }
+
+@media print {
+   .sidebartext {
+		 font-size: 10px;
+		 color: black;
+}
+	.pagetitle {
+		display:none;
+	}
+	#nonav{
+		display:none !important;
+	}
+	.mainbox {
+		margin: 0px;
+		padding: 0px;
+	}
+	.col-sm-6 {
+		display:none;
+	}
+	.col-sm-5 {
+		display:none;
+	}
+	.col-sm-7 {
+		display:none;
+	}
+	a[href]:after {
+    content: none !important;
+  }
+}
