@@ -149,12 +149,16 @@ function editSheet() {
        entryFeatNS = featArray[index1].replace(/ /g,'');
        $('#' + entryFeatNS + 'Box').prop('checked', true);
      }
-     var hd2 = '<?php echo $row['hitdice2']; ?>';
-     if (hd2 == '6' || hd2 == '8' || hd2 == '10' || hd2 == '12'){
-       document.getElementById('hitDice').value = "d<?php echo $row['hitdice']; ?>/d" + hd2;
-     }
    });
    $(document).ready(function() {
+     var hd2 = '<?php echo $row['hitdice2']; ?>';
+     var hd1 = '<?php echo $row['hitdice']; ?>';
+     if (hd2 == '6' || hd2 == '8' || hd2 == '10' || hd2 == '12'){
+       document.getElementById('hitDice').innerHTML = "d<?php echo $row['hitdice']; ?>/d" + hd2;
+     }
+     else {
+       document.getElementById('hitDice').innerHTML = "d" + hd1;
+     }
      var allSpells = '<?php echo $allspells; ?>';
       var spellArray = allSpells.split(',');
       var index = 0;
@@ -1961,7 +1965,7 @@ function multiSelect(){
             <tr>
               <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
               <td rowspan="3"><input class="vitals bigVital" id="maxHP" value="<?php echo $row['maxhp']; ?>"></td>
-              <td><input class="vitals" id="hitDice" value="d<?php echo $row['hitdice']; ?>"></td>
+              <td><div class="col-centered" id="hitDice"></div></td>
             </tr>
             <tr>
               <td><div class="charDeet profName" id="initiativeName" onclick="profRoll('initiative')">Initiative</div></td>
@@ -4932,7 +4936,6 @@ if ($('#persuasionExpert').prop('checked')) {
  var chaScore = $('#chaScore').val();
  var initiative = $('#initiative').val();
  var maxhp = $('#maxHP').val();
- var hitdice = $('#hitDice').val();
  var speed = $('#speed').val();
  var armorclass = $('#armorClass').val();
  var charName = $('#charName').val();
@@ -4968,11 +4971,24 @@ if ($('#persuasionExpert').prop('checked')) {
 
  var charClassTemp = $('#charClass').val();
  var charClassLower = charClassTemp.toLowerCase();
+
+
  var charClassNs = charClassLower.replace(/ +/g, "");
  var charSubTemp = "#" + charClassNs + "SubList";
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
-
+ if (charClassLower == 'fighter' || charClassLower == 'paladin' || charClassLower == 'ranger' || charClassLower == 'blood hunter' || charClassLower == 'revised ranger'){
+   var hitdice = 10;
+ }
+ else if (charClassLower == 'wizard' || charClassLower == 'sorcerer'){
+   var hitdice = 6;
+ }
+ else if (charClassLower == 'barbarian') {
+  var hitdice = 12;
+ }
+ else {
+  var hitdice = 8;
+ }
  var charMultiLevelTemp = $('#multiLevel').val();
  var charMultiClassTemp = $('#charMulti').val();
  //var charMultiSubclassTemp = $('#multiSubclass').val();
@@ -5000,6 +5016,9 @@ else {
  else {
   var charHitdie2 = 8;
  }
+ if (charMultiLevel == '0'){
+    charHitdie2 = 0;
+  }
  var charMultiSubClass = $(charMultiSubTemp).val();
  var charMultiClass = charMultiClassLower + " (" + charMultiSubClass + ")";
 }
@@ -5009,9 +5028,7 @@ else {
  var charNotes = $('#charNotes').val();
  var charItems = $('#currentItemsRaw').html();
  charSpells = charSpells.replace('\'', '_');
- if (hitdice.indexOf('d') > -1) {
-  hitdice = hitdice.replace('d', '');
-}
+
 
  //make the postdata
  //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)

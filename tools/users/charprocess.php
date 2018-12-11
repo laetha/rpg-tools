@@ -37,7 +37,8 @@ $charHitdie2 = $_REQUEST['hitdice2'];
 
 $sql = "UPDATE characters
 SET title = '$title', proficiencies = '$prof', saves = '$saves', expertise = '$expertise', str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', hitdice = '$hitdice', speed = '$speed', initiative = '$initiative', armorclass = '$armorclass',
- race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells', customattacks = '$customAttacks', notes = '$charNotes', items = '$charItems', feats = '$charFeats', class2 = '$charMultiClass', class2lvl = '$charMultiLevel', hitdice2 = '$charHitdie2'
+ race = '$charRace', level = '$charLevel', background = '$charBackground', alignment = '$charAlignment', class1 = '$charClass', attacks = '$charAttacks', spells = '$charSpells', customattacks = '$customAttacks', notes = '$charNotes', items = '$charItems', feats = '$charFeats', class2 = '$charMultiClass', class2lvl = '$charMultiLevel',
+ hitdice2 = '$charHitdie2'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {
