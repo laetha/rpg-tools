@@ -528,7 +528,7 @@ echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton"
 
 <div id="lvlupTable" style="display:none;">
 
-  <div class="col-centered" style="margin-bottom: 15px;">Here's what's changed from your old level to your new level:</div>
+  <div class="col-centered" id="lvlchanges" style="margin-bottom: 15px;">Here's what's changed from your old level to your new level:</div>
   <table id="levelclasstable" class="table lvltable table-striped table-condensed">
 <thead>
 <?php
@@ -1217,6 +1217,11 @@ function levelupNoMulti(value){
 };
 
 function levelupMulti(){
+  var hiderows = document.getElementsByClassName('ctable');
+  for (var i = 0; i < hiderows.length; i++) {
+    hiderows[i].style = "display:none";
+  }
+  document.getElementById('lvlchanges').innerHTML = "All done! Enjoy your new multiclass!";
   $('#lvlupMultiSelect').fadeOut(500);
   $('#lvlupMultiClass').delay(400).fadeIn(300);
 };
@@ -1265,6 +1270,8 @@ function levelupAbilities() {
   var tempmulticlass = document.getElementById('lvlmulticlass').innerHTML;
   var tempmultisub = document.getElementById('charSubclassAdd').value;
   document.getElementById('lvlmulticlass').innerHTML = tempmulticlass + ' (' + tempmultisub + ')';
+  document.getElementById('mainoffLevel').innerHTML = 1;
+
   $('#lvlupMultiSubclass').fadeOut(500);
   $('#lvlupAbilities').delay(400).fadeIn(300);
 };
@@ -1488,12 +1495,12 @@ if (checklvlmulti == ''){
    var charMultiClass = checklvlmulti;
    var charMultiLevel = $('#mainoffLevel').html();
  }
-
+   var lvlhitdie = $('#lvlhitdie').html();
 
   $.ajax({
      url : 'charlevel.php',
      type: 'GET',
-     data : { "charID" : charID, "strength" : charNewStr, "dexterity" : charNewDex, "constitution" : charNewCon, "intelligence" : charNewInt, "wisdom" : charNewWis, "charisma" : charNewCha, "maxhp" : charNewMax, "charLevel" : charNewLevel, "charMultiClass" : charMultiClass, "class2lvl" : charMultiLevel },
+     data : { "charID" : charID, "strength" : charNewStr, "dexterity" : charNewDex, "constitution" : charNewCon, "intelligence" : charNewInt, "wisdom" : charNewWis, "charisma" : charNewCha, "maxhp" : charNewMax, "charLevel" : charNewLevel, "charMultiClass" : charMultiClass, "class2lvl" : charMultiLevel, "hitdice2" : lvlhitdie },
      success: function()
      {
          //if success then just output the text to the status div then clear the form inputs to prepare for new data
