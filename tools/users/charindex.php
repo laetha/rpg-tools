@@ -149,6 +149,10 @@ function editSheet() {
        entryFeatNS = featArray[index1].replace(/ /g,'');
        $('#' + entryFeatNS + 'Box').prop('checked', true);
      }
+     var hd2 = '<?php echo $row['hitdice2']; ?>';
+     if (hd2 == '6' || hd2 == '8' || hd2 == '10' || hd2 == '12'){
+       document.getElementById('hitDice').value = "d<?php echo $row['hitdice']; ?>/d" + hd2;
+     }
    });
    $(document).ready(function() {
      var allSpells = '<?php echo $allspells; ?>';
@@ -227,7 +231,7 @@ function editSheet() {
     <!-- Modal content-->
     <div class="modal-content modalstyle bodytext" style="height:100%;">
       <div class="modal-header" style="padding-bottom: 0px;">
-        <div clas="sidebartext" id="test">TEST</div>
+        <div clas="sidebartext" id="test"></div>
         <div class="sidebartext hide" id="lvlmulticlass"></div>
         <div class="sidebartext hide" id="mainoffLevel"></div>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -553,7 +557,7 @@ $classtabletitle = "SELECT * FROM `classtable` WHERE name LIKE 'Artificer%'";
 $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-  echo ('<tr id="'.$classtablerow['name'].'" class="Artificer ctable"><td>'.$classtablerow['level'].'</td>');
+  echo ('<tr id="'.$classtablerow['name'].'" class="Artificer ctable hide"><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -582,7 +586,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Barbarian ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Barbarian ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -617,7 +621,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Bard ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Bard ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -660,7 +664,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Cleric ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Cleric ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -702,7 +706,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Druid ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Druid ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -734,7 +738,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Fighter ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Fighter ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td></tr>');
 
@@ -759,7 +763,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Monk ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Monk ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -788,7 +792,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Mystic ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Mystic ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -819,7 +823,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Paladin ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Paladin ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -852,7 +856,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Ranger ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Ranger ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['known'].'</td>');
@@ -881,7 +885,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Rogue ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Rogue ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
@@ -917,7 +921,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Sorcerer ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Sorcerer ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['resource'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
@@ -956,7 +960,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Warlock ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Warlock ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
@@ -993,7 +997,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$classtablerow['name'].'" class="Wizard ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$classtablerow['name'].'" class="Wizard ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
@@ -1027,7 +1031,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
  $ctr = str_replace(' ', '', $classtablerow['name']);
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$ctr.'" class="BloodHunter ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$ctr.'" class="BloodHunter ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
@@ -1057,7 +1061,7 @@ $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting d
 while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   $ctr = str_replace(' ', '', $classtablerow['name']);
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
-echo ('<tr id="'.$ctr.'" class="RevisedRanger ctable"><td>'.$classtablerow['level'].'</td>');
+echo ('<tr id="'.$ctr.'" class="RevisedRanger ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
 echo ('<td>'.$classtablerow['known'].'</td>');
@@ -1119,7 +1123,6 @@ $(document).ready(function() {
     $(".dataTables_scrollHeadInner").css({"width":"100%"});
 
     $(".lvltable").css({"width":"100%"});
-
 } );
 
 
@@ -1151,11 +1154,12 @@ function levelupNoMulti(value){
 
           if ($(offtable[i]).has("#" + showid1)){
             document.getElementById(showid1).style.color = "red";
+            $('#' + showid1).removeClass("hide");
           }
           if ($(offtable[i]).has("#" + showid)){
             document.getElementById(showid).style.color = "#42f486";
+            $('#' + showid).removeClass("hide");
           }
-          
         }
         else {
           offtable[i].style = "display:none";
@@ -1184,20 +1188,19 @@ function levelupNoMulti(value){
       var showid = '<?php echo $coremultibare; ?>' + x;
       var showid1 = '<?php echo $coremultibare; ?>' + y;
       if ($(maintable[i]).hasClass('<?php echo $coremultibare; ?>') !== false){
+
+        if ($(maintable[i]).has("#" + showid1)){
+          document.getElementById(showid1).style.color = "red";
+            $('#' + showid1).removeClass("hide");
+        }
         if ($(maintable[i]).has("#" + showid)){
-          document.getElementById(showid).style = "color:red";
-        }
-        else if ($(maintable[i]).has("#" + showid1)){
-          document.getElementById(showid1).style = "color:blue";
-        }
-        else {
-          document.getElementById(showid).style = "display:none";
+          document.getElementById(showid).style.color = "#42f486";
+          $('#' + showid).removeClass("hide");
         }
       }
       else {
         maintable[i].style = "display:none";
       }
-      x++;
     }
     var offstat = '<?php echo $coremulticlassbare.$newoff; ?>';
      if (newoff == 4 || newoff == 8 || newoff == 12 || newoff == 16 || newoff == 19 || offstat == 'Fighter6' || offstat == 'Fighter14'){
@@ -4978,7 +4981,18 @@ else {
 
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
-
+ if (charMultiClassLower == 'fighter' || charMultiClassLower == 'paladin' || charMultiClassLower == 'ranger' || charMultiClassLower == 'blood hunter' || charMultiClassLower == 'revised ranger'){
+   var charHitdie2 = 10;
+ }
+ else if (charMultiClassLower == 'wizard' || charMultiClassLower == 'sorcerer'){
+   var charHitdie2 = 6;
+ }
+ else if (charMultiClassLower == 'barbarian') {
+  var charHitdie2 = 12;
+ }
+ else {
+  var charHitdie2 = 8;
+ }
  var charMultiSubClass = $(charMultiSubTemp).val();
  var charMultiClass = charMultiClassLower + " (" + charMultiSubClass + ")";
 }
@@ -4999,7 +5013,7 @@ else {
     url : 'charprocess.php',
     type: 'GET',
     data : { "charID" : charID, "proficiencies" : newProf, "title" : charName, "saves" : newSaves, "expertise" : newExpert, "strength" : strScore, "dexterity" : dexScore, "constitution" : conScore, "intelligence" : intelScore, "wisdom" : wisScore, "charisma" : chaScore, "initiative" : initiative, "maxhp" : maxhp, "hitdice" : hitdice, "speed" : speed, "armorclass" : armorclass, "charClass" : charClass,
-    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems, "charFeats" : charFeats, "charMultiClass" : charMultiClass, "charMultiLevel" : charMultiLevel },
+    "charRace" : charRace, "charLevel" : charLevel, "charBackground" : charBackground, "charAlignment" : charAlignment, "attacks" : charAttacks, "spells" : charSpells, "customAttacks" : customAttacks, "charNotes" : charNotes, "charItems" : charItems, "charFeats" : charFeats, "charMultiClass" : charMultiClass, "charMultiLevel" : charMultiLevel, "hitdice2" : charHitdie2 },
     success: function()
     {
         //if success then just output the text to the status div then clear the form inputs to prepare for new data
