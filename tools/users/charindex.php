@@ -151,6 +151,10 @@ function editSheet() {
      }
    });
    $(document).ready(function() {
+     var spelltable = $('#spelldc').html();
+     if (spelltable == 'N/A'){
+       document.getElementById('spellstats').style = "display:none";
+     }
      var hd2 = '<?php echo $row['hitdice2']; ?>';
      var hd1 = '<?php echo $row['hitdice']; ?>';
      if (hd2 == '6' || hd2 == '8' || hd2 == '10' || hd2 == '12'){
@@ -1980,6 +1984,7 @@ function multiSelect(){
               <td><div class="charDeet">Hit Points</div></td>
               <td><div class="charDeet">AC</div></td>
             </tr>
+
           </table>
         </div>
 
@@ -3668,8 +3673,38 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
           <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
           <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
+          <?php
+            $basespelldc = 8 + (int)$profbonus;
+            if ($coreclassbare == 'Paladin' || $coreclassbare == 'Sorcerer' || $coreclassbare == 'Warlock' || $coreclassbare == 'Bard'){
+              $spelldc = $basespelldc + $chamod;
+              $spellattack = $chamod + (int)$profbonus;
+            }
+            else if ($coreclassbare == 'Wizard' || $coreclassbare == 'Mystic' || $coreclassbare == 'Artificer' || $subclass == 'Eldritch Knight' || $subclass == 'Arcane Trickster'){
+              $spelldc = $basespelldc + $intelmod;
+              $spellattack = $intelmod + (int)$profbonus;
+            }
+            else if ($coreclassbare == 'Cleric' || $coreclassbare == 'Druid' || $coreclassbare == 'Monk' || $coreclassbare == 'Ranger' || $coreclassbare == 'Revised Ranger'){
+              $spelldc = $basespelldc + $wismod;
+              $spellattack = $wismod + (int)$profbonus;
+            }
+            else {
+              $spelldc = 'N/A';
+              $spellattack = 'N/A';
+            }
+           ?>
+          <table class="vitalsTable" id="spellstats" style="width: 100%;">
+            <tbody>
+            <tr>
 
-
+              <td><div class="col-centered spellinfo" id="spelldc"><?php echo $spelldc; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spellattack">+<?php echo $spellattack; ?></div></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">Spell DC</div></td>
+              <td><div class="charDeet">Spell Attack</div></td>
+            </tr>
+          </tbody>
+        </table>
           <?php
           $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
           $coreTemp = $coreclass.' core';
