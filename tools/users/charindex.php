@@ -153,7 +153,12 @@ function editSheet() {
    $(document).ready(function() {
      var spelltable = $('#spelldc').html();
      if (spelltable == 'N/A'){
-       document.getElementById('spellstats').style = "display:none";
+       document.getElementById('spellmain').style = "display:none";
+     }
+     var spelltable2 = $('#spelldc2').html();
+     var multicheck = '<?php echo $row['class2lvl']; ?>';
+     if (spelltable2 == 'N/A' || multicheck == '0'){
+       document.getElementById('spelloff').style = "display:none";
      }
      var hd2 = '<?php echo $row['hitdice2']; ?>';
      var hd1 = '<?php echo $row['hitdice']; ?>';
@@ -3691,15 +3696,45 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
               $spelldc = 'N/A';
               $spellattack = 'N/A';
             }
+            if ($coremultibare == 'Paladin' || $coremultibare == 'Sorcerer' || $coremultibare == 'Warlock' || $coremultibare == 'Bard'){
+              $spelldc2 = $basespelldc + $chamod;
+              $spellattack2 = $chamod + (int)$profbonus;
+            }
+            else if ($coremultibare == 'Wizard' || $coremultibare == 'Mystic' || $coremultibare == 'Artificer' || $multisubclass == 'Eldritch Knight' || $multisubclass == 'Arcane Trickster'){
+              $spelldc2 = $basespelldc + $intelmod;
+              $spellattack2 = $intelmod + (int)$profbonus;
+            }
+            else if ($coremultibare == 'Cleric' || $coremultibare == 'Druid' || $coremultibare == 'Monk' || $coremultibare == 'Ranger' || $coremultibare == 'Revised Ranger'){
+              $spelldc2 = $basespelldc + $wismod;
+              $spellattack2 = $wismod + (int)$profbonus;
+            }
+            else {
+              $spelldc2 = 'N/A';
+              $spellattack2 = 'N/A';
+            }
            ?>
-          <table class="vitalsTable" id="spellstats" style="width: 100%;">
+          <table class="vitalsTable" id="spellmain" style="width: 100%;">
             <tbody>
             <tr>
-
+              <td><div class="col-centered" id="spellclass"><?php echo $coreclassbare; ?></div></td>
               <td><div class="col-centered spellinfo" id="spelldc"><?php echo $spelldc; ?></div></td>
               <td><div class="col-centered spellinfo" id="spellattack">+<?php echo $spellattack; ?></div></td>
             </tr>
             <tr>
+              <td><div class="charDeet">Main Class</div></td>
+              <td><div class="charDeet">Spell DC</div></td>
+              <td><div class="charDeet">Spell Attack</div></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="vitalsTable" id="spelloff" style="width: 100%;">
+            <tr>
+              <td><div class="col-centered" id="spellclass2"><?php echo $coremultibare; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spelldc2"><?php echo $spelldc2; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spellattack2">+<?php echo $spellattack2; ?></div></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">Multiclass</div></td>
               <td><div class="charDeet">Spell DC</div></td>
               <td><div class="charDeet">Spell Attack</div></td>
             </tr>
