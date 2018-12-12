@@ -14,10 +14,11 @@ $maxhp = $_REQUEST['maxhp'];
 $charLevel = $_REQUEST['charLevel'];
 $class2lvl = $_REQUEST['class2lvl'];
 $charMultiClass = $_REQUEST['charMultiClass'];
+$hitdice = $_REQUEST['hitdice'];
 $hitdice2 = $_REQUEST['hitdice2'];
 
 $sql = "UPDATE characters
-SET str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', level = '$charLevel', class2lvl = '$class2lvl', class2 = '$charMultiClass', hitdice2 = '$hitdice2'
+SET str = '$str', dex = '$dex', con = '$con', intel = '$intel', wis = '$wis', cha = '$cha', maxhp = '$maxhp', level = '$charLevel', class2lvl = '$class2lvl', class2 = '$charMultiClass', hitdice2 = '$hitdice2', hitdice = '$hitdice'
 WHERE id = $charID;";
 
         if ($dbcon->query($sql) === TRUE) {

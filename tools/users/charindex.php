@@ -234,6 +234,9 @@ function editSheet() {
         <div clas="sidebartext" id="test"></div>
         <div class="sidebartext hide" id="lvlmulticlass"></div>
         <div class="sidebartext hide" id="mainoffLevel"></div>
+        <div class="sidebartext hide" id="lvlhitdie"></div>
+        <div class="sidebartext hide" id="lvlhitdie2"></div>
+        <div class="sidebartext hide" id="mainoffroll"></div>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -1077,7 +1080,7 @@ echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 </tbody>
 </table>
 <div class="col-centered"><button class="btn btn-success" class="nextButton" onclick="saveLevel()">Finish Level Up!</button></div>
-<div class="hide" id="lvlhitdie"></div>
+
 </div>
 
 </div>
@@ -1137,8 +1140,10 @@ function levelupNoMulti(value){
   var newoff = <?php echo $newoff; ?>;
 
   if (mainoff == 'main'){
+    document.getElementById('mainoffroll').innerHTML = "main";
     document.getElementById('mainoffLevel').innerHTML = '<?php echo $row['class2lvl']; ?>';
     document.getElementById('lvlhitdie').innerHTML = '<?php echo $row['hitdice']; ?>';
+    document.getElementById('lvlhitdie2').innerHTML = '<?php echo $row['hitdice2']; ?>';
     var showmain = document.getElementsByName('main');
     for (var i = 0; i < showmain.length; i++) {
       showmain[i].style = "display:block";
@@ -1175,8 +1180,10 @@ function levelupNoMulti(value){
     }
   }
   else if (mainoff == 'off'){
+    document.getElementById('mainoffroll').innerHTML = "off";
     document.getElementById('mainoffLevel').innerHTML = '<?php echo (int)$row['class2lvl'] + 1; ?>';
-    document.getElementById('lvlhitdie').innerHTML = '<?php echo $row['hitdice2']; ?>';
+    document.getElementById('lvlhitdie').innerHTML = '<?php echo $row['hitdice']; ?>';
+    document.getElementById('lvlhitdie2').innerHTML = '<?php echo $row['hitdice2']; ?>';
     var showoff = document.getElementsByName('off');
     for (var i = 0; i < showoff.length; i++) {
       showoff[i].style = "display:block";
@@ -1293,15 +1300,24 @@ function levelupTable() {
 
 function rollHP(){
   var hitdie = $('#lvlhitdie').html();
+  var hitdie2 = $('#lvlhitdie2').html();
   const roller = new DiceRoller();
-  var rolltemp = roller.roll('1d' + hitdie);
+  var mainoffroll = $('#mainoffroll').html();
+  if (mainoffroll == 'main'){
+    var rolltemp = roller.roll('1d' + hitdie);
+    document.getElementById('hpRoll').innerHTML = "On your d" + hitdie + " you rolled a ";
+  }
+  else if (mainoffroll == 'off'){
+    var rolltemp = roller.roll('1d' + hitdie2);
+    document.getElementById('hpRoll').innerHTML = "On your d" + hitdie2 + " you rolled a ";
+  }
   var rollstring = rolltemp.toString();
   var roll = rollstring.split('= ')[1];
   if (roll == 1){
-    document.getElementById('hpRoll').innerHTML = "you rolled a 1. Go ahead and roll again.";
+    document.getElementById('hpRoll').innerHTML = document.getElementById('hpRoll').innerHTML + "1. Go ahead and roll again.";
   }
   else{
-  document.getElementById('hpRoll').innerHTML = "Your d" + hitdie + " rolled a " + roll;
+  document.getElementById('hpRoll').innerHTML = document.getElementById('hpRoll').innerHTML + roll;
   var conMod = parseInt(document.getElementById('conMod').innerHTML);
   document.getElementById('hpMod').innerHTML = "Plus your CON mod of " + conMod;
   document.getElementById('hpMod').style = "display:block";
@@ -1496,11 +1512,12 @@ if (checklvlmulti == ''){
    var charMultiLevel = $('#mainoffLevel').html();
  }
    var lvlhitdie = $('#lvlhitdie').html();
+   var lvlhitdie2 = $('#lvlhitdie2').html();
 
   $.ajax({
      url : 'charlevel.php',
      type: 'GET',
-     data : { "charID" : charID, "strength" : charNewStr, "dexterity" : charNewDex, "constitution" : charNewCon, "intelligence" : charNewInt, "wisdom" : charNewWis, "charisma" : charNewCha, "maxhp" : charNewMax, "charLevel" : charNewLevel, "charMultiClass" : charMultiClass, "class2lvl" : charMultiLevel, "hitdice2" : lvlhitdie },
+     data : { "charID" : charID, "strength" : charNewStr, "dexterity" : charNewDex, "constitution" : charNewCon, "intelligence" : charNewInt, "wisdom" : charNewWis, "charisma" : charNewCha, "maxhp" : charNewMax, "charLevel" : charNewLevel, "charMultiClass" : charMultiClass, "class2lvl" : charMultiLevel, "hitdice" : lvlhitdie, "hitdice2" : lvlhitdie2 },
      success: function()
      {
          //if success then just output the text to the status div then clear the form inputs to prepare for new data
