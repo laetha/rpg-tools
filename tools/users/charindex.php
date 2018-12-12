@@ -149,12 +149,25 @@ function editSheet() {
        entryFeatNS = featArray[index1].replace(/ /g,'');
        $('#' + entryFeatNS + 'Box').prop('checked', true);
      }
-     var hd2 = '<?php echo $row['hitdice2']; ?>';
-     if (hd2 == '6' || hd2 == '8' || hd2 == '10' || hd2 == '12'){
-       document.getElementById('hitDice').value = "d<?php echo $row['hitdice']; ?>/d" + hd2;
-     }
    });
    $(document).ready(function() {
+     var spelltable = $('#spelldc').html();
+     if (spelltable == 'N/A'){
+       document.getElementById('spellmain').style = "display:none";
+     }
+     var spelltable2 = $('#spelldc2').html();
+     var multicheck = '<?php echo $row['class2lvl']; ?>';
+     if (spelltable2 == 'N/A' || multicheck == '0'){
+       document.getElementById('spelloff').style = "display:none";
+     }
+     var hd2 = '<?php echo $row['hitdice2']; ?>';
+     var hd1 = '<?php echo $row['hitdice']; ?>';
+     if (hd2 == '6' || hd2 == '8' || hd2 == '10' || hd2 == '12'){
+       document.getElementById('hitDice').innerHTML = "d<?php echo $row['hitdice']; ?>/d" + hd2;
+     }
+     else {
+       document.getElementById('hitDice').innerHTML = "d" + hd1;
+     }
      var allSpells = '<?php echo $allspells; ?>';
       var spellArray = allSpells.split(',');
       var index = 0;
@@ -1978,7 +1991,7 @@ function multiSelect(){
             <tr>
               <td><input class="vitals" id="initiative" value="<?php echo $dexmod; ?>"></td>
               <td rowspan="3"><input class="vitals bigVital" id="maxHP" value="<?php echo $row['maxhp']; ?>"></td>
-              <td><input class="vitals" id="hitDice" value="d<?php echo $row['hitdice']; ?>"></td>
+              <td><div class="col-centered" id="hitDice"></div></td>
             </tr>
             <tr>
               <td><div class="charDeet profName" id="initiativeName" onclick="profRoll('initiative')">Initiative</div></td>
@@ -1993,6 +2006,7 @@ function multiSelect(){
               <td><div class="charDeet">Hit Points</div></td>
               <td><div class="charDeet">AC</div></td>
             </tr>
+
           </table>
         </div>
 
@@ -3681,8 +3695,68 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="spellsBlock" style="margin-top:10px;" style="float:left;">
           <div style="margin-bottom: 5px; border-bottom:1px solid white;">Spells</div>
           <div style="display:none; float:left;" id="spellWarning">Please save changes to your class/subclass before adding spells.</div>
-
-
+          <?php
+            $basespelldc = 8 + (int)$profbonus;
+            if ($coreclassbare == 'Paladin' || $coreclassbare == 'Sorcerer' || $coreclassbare == 'Warlock' || $coreclassbare == 'Bard'){
+              $spelldc = $basespelldc + $chamod;
+              $spellattack = $chamod + (int)$profbonus;
+            }
+            else if ($coreclassbare == 'Wizard' || $coreclassbare == 'Mystic' || $coreclassbare == 'Artificer' || $subclass == 'Eldritch Knight' || $subclass == 'Arcane Trickster'){
+              $spelldc = $basespelldc + $intelmod;
+              $spellattack = $intelmod + (int)$profbonus;
+            }
+            else if ($coreclassbare == 'Cleric' || $coreclassbare == 'Druid' || $coreclassbare == 'Monk' || $coreclassbare == 'Ranger' || $coreclassbare == 'Revised Ranger'){
+              $spelldc = $basespelldc + $wismod;
+              $spellattack = $wismod + (int)$profbonus;
+            }
+            else {
+              $spelldc = 'N/A';
+              $spellattack = 'N/A';
+            }
+            if ($coremultibare == 'Paladin' || $coremultibare == 'Sorcerer' || $coremultibare == 'Warlock' || $coremultibare == 'Bard'){
+              $spelldc2 = $basespelldc + $chamod;
+              $spellattack2 = $chamod + (int)$profbonus;
+            }
+            else if ($coremultibare == 'Wizard' || $coremultibare == 'Mystic' || $coremultibare == 'Artificer' || $multisubclass == 'Eldritch Knight' || $multisubclass == 'Arcane Trickster'){
+              $spelldc2 = $basespelldc + $intelmod;
+              $spellattack2 = $intelmod + (int)$profbonus;
+            }
+            else if ($coremultibare == 'Cleric' || $coremultibare == 'Druid' || $coremultibare == 'Monk' || $coremultibare == 'Ranger' || $coremultibare == 'Revised Ranger'){
+              $spelldc2 = $basespelldc + $wismod;
+              $spellattack2 = $wismod + (int)$profbonus;
+            }
+            else {
+              $spelldc2 = 'N/A';
+              $spellattack2 = 'N/A';
+            }
+           ?>
+          <table class="vitalsTable" id="spellmain" style="width: 100%;">
+            <tbody>
+            <tr>
+              <td><div class="col-centered" id="spellclass"><?php echo $coreclassbare; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spelldc"><?php echo $spelldc; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spellattack">+<?php echo $spellattack; ?></div></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">Main Class</div></td>
+              <td><div class="charDeet">Spell DC</div></td>
+              <td><div class="charDeet">Spell Attack</div></td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="vitalsTable" id="spelloff" style="width: 100%;">
+            <tr>
+              <td><div class="col-centered" id="spellclass2"><?php echo $coremultibare; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spelldc2"><?php echo $spelldc2; ?></div></td>
+              <td><div class="col-centered spellinfo" id="spellattack2">+<?php echo $spellattack2; ?></div></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">Multiclass</div></td>
+              <td><div class="charDeet">Spell DC</div></td>
+              <td><div class="charDeet">Spell Attack</div></td>
+            </tr>
+          </tbody>
+        </table>
           <?php
           $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
           $coreTemp = $coreclass.' core';
@@ -4949,7 +5023,6 @@ if ($('#persuasionExpert').prop('checked')) {
  var chaScore = $('#chaScore').val();
  var initiative = $('#initiative').val();
  var maxhp = $('#maxHP').val();
- var hitdice = $('#hitDice').val();
  var speed = $('#speed').val();
  var armorclass = $('#armorClass').val();
  var charName = $('#charName').val();
@@ -4985,11 +5058,24 @@ if ($('#persuasionExpert').prop('checked')) {
 
  var charClassTemp = $('#charClass').val();
  var charClassLower = charClassTemp.toLowerCase();
+
+
  var charClassNs = charClassLower.replace(/ +/g, "");
  var charSubTemp = "#" + charClassNs + "SubList";
  var charSubClass = $(charSubTemp).val();
  var charClass = charClassLower + " (" + charSubClass + ")";
-
+ if (charClassLower == 'fighter' || charClassLower == 'paladin' || charClassLower == 'ranger' || charClassLower == 'blood hunter' || charClassLower == 'revised ranger'){
+   var hitdice = 10;
+ }
+ else if (charClassLower == 'wizard' || charClassLower == 'sorcerer'){
+   var hitdice = 6;
+ }
+ else if (charClassLower == 'barbarian') {
+  var hitdice = 12;
+ }
+ else {
+  var hitdice = 8;
+ }
  var charMultiLevelTemp = $('#multiLevel').val();
  var charMultiClassTemp = $('#charMulti').val();
  //var charMultiSubclassTemp = $('#multiSubclass').val();
@@ -5017,6 +5103,9 @@ else {
  else {
   var charHitdie2 = 8;
  }
+ if (charMultiLevel == '0'){
+    charHitdie2 = 0;
+  }
  var charMultiSubClass = $(charMultiSubTemp).val();
  var charMultiClass = charMultiClassLower + " (" + charMultiSubClass + ")";
 }
@@ -5026,9 +5115,7 @@ else {
  var charNotes = $('#charNotes').val();
  var charItems = $('#currentItemsRaw').html();
  charSpells = charSpells.replace('\'', '_');
- if (hitdice.indexOf('d') > -1) {
-  hitdice = hitdice.replace('d', '');
-}
+
 
  //make the postdata
  //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)
