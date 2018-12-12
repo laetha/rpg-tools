@@ -247,8 +247,8 @@ function editSheet() {
         <div clas="sidebartext" id="test"></div>
         <div class="sidebartext hide" id="lvlmulticlass"></div>
         <div class="sidebartext hide" id="mainoffLevel"></div>
-        <div class="sidebartext hide" id="lvlhitdie"></div>
-        <div class="sidebartext hide" id="lvlhitdie2"></div>
+        <div class="sidebartext hide" id="lvlhitdie"><?php echo $row['hitdice']; ?></div>
+        <div class="sidebartext hide" id="lvlhitdie2"><?php echo $row['hitdice2']; ?></div>
         <div class="sidebartext hide" id="mainoffroll"></div>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -1267,16 +1267,16 @@ function levelupMultiSubclass(){
   //document.getElementById('charClass').innerHTML = charClass1;
   var charClass1lower = charClass1.toLowerCase();
   if (charClass1 == 'Artificer' || charClass1 == 'Bard' || charClass1 == 'Cleric' || charClass1 == 'Druid' || charClass1 == 'Monk' || charClass1 == 'Mystic' || charClass1 == 'Rogue'){
-    document.getElementById('lvlhitdie').innerHTML = '8';
+    document.getElementById('lvlhitdie2').innerHTML = '8';
   }
   else if (charClass1 == 'Blood Hunter' || charClass1 == 'Fighter' || charClass1 == 'Ranger' || charClass1 == 'Revised Ranger' || charClass1 == 'Paladin') {
-    document.getElementById('lvlhitdie').innerHTML = '10';
+    document.getElementById('lvlhitdie2').innerHTML = '10';
   }
   else if (charClass1 == 'Barbarian'){
-    document.getElementById('lvlhitdie').innerHTML = '12';
+    document.getElementById('lvlhitdie2').innerHTML = '12';
   }
   else {
-    document.getElementById('lvlhitdie').innerHTML = '6';
+    document.getElementById('lvlhitdie2').innerHTML = '6';
   }
   document.getElementById('lvlmulticlass').innerHTML = charClass1lower;
   jQuery('.' + charClassns1 + '1').toggleOption(true); // show option
@@ -1320,7 +1320,7 @@ function rollHP(){
     var rolltemp = roller.roll('1d' + hitdie);
     document.getElementById('hpRoll').innerHTML = "On your d" + hitdie + " you rolled a ";
   }
-  else if (mainoffroll == 'off'){
+  else {
     var rolltemp = roller.roll('1d' + hitdie2);
     document.getElementById('hpRoll').innerHTML = "On your d" + hitdie2 + " you rolled a ";
   }
