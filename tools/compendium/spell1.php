@@ -3,6 +3,9 @@
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];
    $sqlpath .= "/sql-connect.php";
    include_once($sqlpath);
+   $parsepath = $_SERVER['DOCUMENT_ROOT'];
+   $parsepath .= "/plugins/Parsedown.php";
+   include_once($parsepath);
 
    //Header
    $pgtitle = 'Spells - ';
@@ -10,6 +13,7 @@
    $headpath .= "/header.php";
    include_once($headpath);
    ?>
+   <?php  $Parsedown = new Parsedown(); ?>
    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
    <script src="https://cdn.datatables.net/responsive/2.2.1/js/dataTables.responsive.min.js" type="text/javascript"></script>
@@ -28,26 +32,26 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
-                   <th scope="col">Level</th>
-                   <th scope="col">School</th>
+                   <th scope="col">lvl</th>
                    <th scope="col">Casting Time</th>
-
-                   <th scope="col">Description</th>
-
+                   <th scope="col">Duration</th>
+                   <th scope="col">Range</th>
+                   <th scope="col" class="none">Description</th>
                </tr>
            </thead>
            <tfoot>
                <tr>
-                 <th>Name</th>
-                 <th>Level</th>
-                 <th>School</th>
-                 <th>Casting Time</th>
-
+                 <th scope="col">Name</th>
+                 <th scope="col">lvl</th>
+                 <th scope="col">Casting Time</th>
+                 <th scope="col">Duration</th>
+                 <th scope="col">Range</th>
                  <th scope="col">Description</th>
                </tr>
            </tfoot>
            <tbody>
              <?php
+               $a = 1;
                $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'spell' AND title NOT LIKE '%*' AND title NOT LIKE '%(Ritual Only)' AND title NOT LIKE '%invocation%'";
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
@@ -57,39 +61,37 @@
                echo $entry;
                echo "</a></td>";
                echo ('<td>'.$row['spellLevel'].'</td>');
-               echo ('<td>'.$row['spellSchool'].'</td>');
                echo ('<td>'.$row['spellTime'].'</td>');
-
-               echo ('<td>'.$row['text'].'</td>');
+               echo ('<td>'.$row['spellDuration'].'</td>');
+               echo ('<td>'.$row['spellRange'].'</td>');
+               $spelldeet = substr($row['text'], 0, strpos($row['text'], "Source:"));
+               $spelldeet = rtrim($spelldeet);
+               echo ('<td id="spell'.$a.'">'.nl2br($spelldeet).'</td>');
+               echo ('</tr>');
+               ?>
+               <?php
              }
                ?>
 
 </tbody>
 </table>
+
+
 <script>
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
 
 
     // DataTable
-    var table = $('#allspells').DataTable(
-
-        {
-
-          "columnDefs": [ {
-                "targets": [0,1],
-                "width": "20px"
-            },
-            {
-                "targets": 2,
-                "width": "50px"
-            },
-            {
-                "targets": [3,4],
-                "width": "auto"
-            }]
+    var table = $('#allspells').DataTable( {
+        responsive: {
+            details: {
+                display: $.fn.dataTable.Responsive.display.childRowImmediate,
+                type: ''
+            }
         }
-    );
+
+    } );
 
 
 } );
