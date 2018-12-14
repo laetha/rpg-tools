@@ -1079,6 +1079,13 @@ hr {
 	font-size:24px;
 }
 
+.bigt {
+	font-size: 20px;
+}
+.slotcell {
+	border-right: 1px solid white;
+}
+
 @media print {
    .sidebartext {
 		 font-size: 10px;

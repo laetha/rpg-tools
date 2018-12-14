@@ -233,6 +233,7 @@ function editSheet() {
   </label>
 
 </div>
+<a href="/tools/compendium/spell1.php?id=<?php echo $row['title']; ?>" target="_blank"><button class="btn btn-warning"><div style="color:black;">Spell Sheet</div></button></a>
 <button class="btn btn-success" data-toggle="modal" href="#levelModal">Level Up!</button>
  </div>
 
