@@ -151,7 +151,7 @@
          <td><div class="charDeet">Spell Attack</div></td>
        </tr>
        <table style="width:100%;">
-         <tr class="col-centered">
+         <tr class="col-centered col-xs-12">
            <td class="slotcell" style="border-left: 1px solid white;">1st</td>
            <td class="slotcell">2nd</td>
            <td class="slotcell">3rd</td>
@@ -162,16 +162,16 @@
            <td class="slotcell">8th</td>
            <td class="slotcell">9th</td>
          </tr>
-         <tr class="bigt col-centered">
-           <td class="slotcell" style="border-left: 1px solid white;">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
-           <td class="slotcell">OOOO</td>
+         <tr class="bigt col-centered col-xs-12">
+           <td class="slotcell" style="border-left: 1px solid white;"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
+           <td class="slotcell"><input class="prof" type="text"></td>
          </tr>
        </table>
        <div class="table-responsive">
@@ -273,7 +273,8 @@ $(document).ready(function() {
                 type: ''
             }
         },
-         "order": [[ 1, "asc" ]]
+         "order": [[ 1, "asc" ]],
+         "pageLength": 50
 
     } );
 

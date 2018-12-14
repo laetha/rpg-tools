@@ -1080,7 +1080,7 @@ hr {
 }
 
 .bigt {
-	font-size: 20px;
+	font-size: 16px;
 }
 .slotcell {
 	border-right: 1px solid white;
@@ -1088,8 +1088,11 @@ hr {
 
 @media print {
    .sidebartext {
-		 font-size: 10px;
+		 font-size: 8px;
 		 color: black;
+}
+.bigt {
+	font-size: 12px;
 }
 	.pagetitle {
 		display:none;
@@ -1113,4 +1116,8 @@ hr {
 	a[href]:after {
     content: none !important;
   }
+	body {
+		opacity: 1.0;
+	}
+
 }
