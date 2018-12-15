@@ -3758,6 +3758,91 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
             </tr>
           </tbody>
         </table>
+
+        <table style="width:100%;">
+          <?php
+          if ($coreclassbare == 'Warlock' || strpos($subclass, 'Profane Soul') !== false) { ?>
+            <tr class="col-centered col-xs-12">
+              <td class="slotcell" style="border-left: 1px solid white;">Slots</td>
+              <td class="slotcell">Slot Level</td>
+            </tr>
+
+            <tr class="bigt col-centered col-xs-12"> <?php
+          }
+          else if ($coreclassbare == 'Mystic'){ ?>
+            <tr class="col-centered col-xs-12">
+              <td class="slotcell" style="border-left: 1px solid white;">Psi Points</td>
+              <td class="slotcell">Psi Limit</td>
+            </tr>
+
+            <tr class="bigt col-centered col-xs-12"> <?php
+          }
+          else {
+            ?>
+          <tr class="col-centered col-xs-12">
+            <td class="slotcell" style="border-left: 1px solid white;">1st</td>
+            <td class="slotcell">2nd</td>
+            <td class="slotcell">3rd</td>
+            <td class="slotcell">4th</td>
+            <td class="slotcell">5th</td>
+            <td class="slotcell">6th</td>
+            <td class="slotcell">7th</td>
+            <td class="slotcell">8th</td>
+            <td class="slotcell">9th</td>
+          </tr>
+
+          <tr class="bigt col-centered col-xs-12">
+            <?php
+          }
+           if (strpos($subclass, 'Profane Soul') !== false){
+             $spellsub = 'Profane';
+           }
+           else if (strpos($subclass, 'Arcane Trickster') !== false){
+             $spellsub = 'Trickster';
+           }
+           else if (strpos($subclass, 'Eldritch Knight') !== false){
+             $spellsub = 'Knight';
+           }
+           else {
+             $spellsub = $coreclassbare;
+           }
+            $worldtitle1 = "SELECT * FROM `classtable` WHERE `class` LIKE '$spellsub'";
+            $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
+            while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
+              $checktable = str_replace($row1['class'], '', $row1['name']);
+              if ($checktable == $mainclasslevel) {
+                if ($coreclassbare == 'Warlock' || strpos($subclass, 'vitalsane Soul') !== false) { ?>
+                  <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
+                  <td class="slotcell"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
+
+                <?php
+              }
+             else if ($coreclassbare == 'Mystic') { ?>
+                <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
+                <td class="slotcell"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
+              <?php
+            }
+                else {
+                ?>
+                <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl5']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl6']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl7']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl8']; ?>"></td>
+                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl9']; ?>"></td>
+
+                 <?php
+               }
+             }
+          }
+
+             ?>
+
+          </tr>
+        </table>
           <?php
           $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
           $coreTemp = $coreclass.' core';
