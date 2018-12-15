@@ -209,12 +209,12 @@ $("#favButton").click(function(){
                   while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
                     echo ('<tr><td>'.$classtablerow['level'].'</td>');
+                    echo ('<td>'.$classtablerow['cantrips'].'</td>');
+                    echo ('<td>'.$classtablerow['known'].'</td>');
                     echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
                     echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
                     echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-                    echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
-                    echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
-                    echo ('<td>'.$classtablerow['spelllvl6'].'</td></tr>');
+                    echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
                     }
                     ?>
                   </tbody>
@@ -248,12 +248,12 @@ $("#favButton").click(function(){
                           while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
                             echo ('<tr><td>'.$classtablerow['level'].'</td>');
+                            echo ('<td>'.$classtablerow['cantrips'].'</td>');
+                            echo ('<td>'.$classtablerow['known'].'</td>');
                             echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
                             echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
                             echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-                            echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
-                            echo ('<td>'.$classtablerow['spelllvl5'].'</td>');
-                            echo ('<td>'.$classtablerow['spelllvl6'].'</td></tr>');
+                            echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
                             }
                             ?>
                           </tbody>
@@ -285,10 +285,10 @@ $("#favButton").click(function(){
                                   while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
                                     echo ('<tr><td>'.$classtablerow['level'].'</td>');
+                                    echo ('<td>'.$classtablerow['cantrips'].'</td>');
+                                    echo ('<td>'.$classtablerow['known'].'</td>');
                                     echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
-                                    echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
-                                    echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-                                    echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
+                                    echo ('<td>'.$classtablerow['spelllvl2'].'</td></tr>');
 
                                     }
                                     ?>
@@ -322,14 +322,14 @@ $("#favButton").click(function(){
     $classtabledata = mysqli_query($dbcon, $classtabletitle) or die('error getting data');
     while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
-      echo ('<tr><td>'.$classtablerow['level'].'</td>');
+      echo ('<tr id="'.$classtablerow['name'].'"><td>'.$classtablerow['level'].'</td>');
       echo ('<td>'.$classtablerow['proficiency'].'</td>');
       echo ('<td>'.$classtablerow['feature'].'</td>');
+      echo ('<td>'.$classtablerow['known'].'</td>');
       echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
       echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
       echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-      echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
-      echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+      echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
 
       }
 }
@@ -353,8 +353,8 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   echo ('<tr><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td>');
-  echo ('<td>'.$classtablerow['cantrips'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl1'].'</td></tr>');
+  echo ('<td>'.$classtablerow['resource'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td></tr>');
 
   }
 }
@@ -525,8 +525,8 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   echo ('<tr><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
   echo ('<td>'.$classtablerow['cantrips'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+  echo ('<td>'.$classtablerow['resource'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td></tr>');
 
   }
@@ -716,11 +716,11 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   echo ('<tr><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+  echo ('<td>'.$classtablerow['resource'].'</td></tr>');
 
   }
 }
@@ -784,9 +784,9 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 
   echo ('<tr><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
-  echo ('<td>'.$classtablerow['cantrips'].'</td>');
+  echo ('<td>'.$classtablerow['resource'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
 
   }
 }

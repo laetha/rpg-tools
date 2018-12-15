@@ -577,11 +577,11 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
   echo ('<tr id="'.$classtablerow['name'].'" class="Artificer ctable hide"><td>'.$classtablerow['level'].'</td>');
   echo ('<td>'.$classtablerow['proficiency'].'</td>');
   echo ('<td>'.$classtablerow['feature'].'</td>');
+  echo ('<td>'.$classtablerow['known'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
   echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
-  echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+  echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
 
   }
 }
@@ -606,8 +606,8 @@ $mcrowclass = str_replace(' ', '', $classtablerow['class']);
 echo ('<tr id="'.$classtablerow['name'].'" class="Barbarian ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
-echo ('<td>'.$classtablerow['cantrips'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl1'].'</td></tr>');
+echo ('<td>'.$classtablerow['resource'].'</td>');
+echo ('<td>'.$classtablerow['known'].'</td></tr>');
 
 }
 }
@@ -783,8 +783,8 @@ $mcrowclass = str_replace(' ', '', $classtablerow['class']);
 echo ('<tr id="'.$classtablerow['name'].'" class="Monk ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['cantrips'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
+echo ('<td>'.$classtablerow['resource'].'</td>');
+echo ('<td>'.$classtablerow['known'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td></tr>');
 
 }
@@ -980,11 +980,11 @@ $mcrowclass = str_replace(' ', '', $classtablerow['class']);
 echo ('<tr id="'.$classtablerow['name'].'" class="Warlock ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
+echo ('<td>'.$classtablerow['cantrips'].'</td>');
+echo ('<td>'.$classtablerow['known'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
 echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
+echo ('<td>'.$classtablerow['resource'].'</td></tr>');
 
 }
 }
@@ -1050,11 +1050,11 @@ while($classtablerow =  mysqli_fetch_array($classtabledata, MYSQLI_ASSOC)) {
 $mcrowclass = str_replace(' ', '', $classtablerow['class']);
 echo ('<tr id="'.$ctr.'" class="BloodHunter ctable hide"><td>'.$classtablerow['level'].'</td>');
 echo ('<td>'.$classtablerow['proficiency'].'</td>');
-echo ('<td>'.$classtablerow['cantrips'].'</td>');
+echo ('<td>'.$classtablerow['resource'].'</td>');
 echo ('<td>'.$classtablerow['feature'].'</td>');
-echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
+echo ('<td>'.$classtablerow['known'].'</td>');
 
-}
+  }
 }
 
 if($upclass == "Revised Ranger" || $upmulticlass = "Revised Ranger") {
