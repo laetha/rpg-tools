@@ -36,9 +36,13 @@ for (var i = 0; i < inputs.length; i++) {
   for (var i = 0; i < selects.length; i++) {
       selects[i].disabled = true;
     }
-  document.getElementById('currentlp').disabled = false;
+    var trackers = document.querySelectorAll('.vitals1');
+    for (var i = 0; i < trackers.length; i++) {
+        trackers[i].disabled = false;
+      }
+  /*document.getElementById('currentlp').disabled = false;
   document.getElementById('currenthp').disabled = false;
-  document.getElementById('temphp').disabled = false;
+  document.getElementById('temphp').disabled = false;*/
 });
 
 //EDIT SHEET, ENABLE ALL INPUTS
@@ -130,8 +134,10 @@ function editSheet() {
    $checkexperts = $row['expertise'];
    $allattacks = $row['attacks'];
    $allspells = $row['spells'];
+   $spellslots = $row['slots'];
    $allfeats = $row['feats'];
    $spellsarray = explode(',', $allspells);
+   $slotsarray = explode(',', $allslots);
    $customattacks = $row['customattacks'];
    $charNotes = $row['notes'];
    $charItems = $row['items'];
@@ -140,6 +146,21 @@ function editSheet() {
    $mainclasslevel = (int)$level - $multiclasslevel;
 
    ?>
+   <script>
+   $(document).ready(function (){
+     var allSlots = '<?php echo $spellslots; ?>';
+    // document.getElementById('spellslot9').value = allSlots;
+      var slotArray = allSlots.split(',');
+      slotnum = 1;
+      for (index = 0; index < slotArray.length; ++index) {
+        //entryNS = spellArray[index].replace(/ /g,'');
+        document.getElementById('spellslot9').value = slotArray[index];
+        slotnum = slotnum + 1;
+
+      }
+   });
+   </script>
+
 
    <script>
 
@@ -2021,11 +2042,97 @@ function multiSelect(){
               <td><div class="charDeet">Temp HP</div></td>
             </tr>
           </table>
+
+          <table style="width:100%;">
+            <?php
+            if ($coreclassbare == 'Warlock' || strpos($subclass, 'Profane Soul') !== false) { ?>
+              <tr class="col-centered col-xs-12">
+                <td class="slotcell" style="border-left: 1px solid white;">Slots</td>
+                <td class="slotcell">Slot Level</td>
+              </tr>
+
+              <tr class="bigt col-centered col-xs-12"> <?php
+            }
+            else if ($coreclassbare == 'Mystic'){ ?>
+              <tr class="col-centered col-xs-12">
+                <td class="slotcell" style="border-left: 1px solid white;">Psi Points</td>
+                <td class="slotcell">Psi Limit</td>
+              </tr>
+
+              <tr class="bigt col-centered col-xs-12"> <?php
+            }
+            else {
+              ?>
+            <tr class="col-centered col-xs-12">
+              <td class="slotcell" style="border-left: 1px solid white;">1st</td>
+              <td class="slotcell">2nd</td>
+              <td class="slotcell">3rd</td>
+              <td class="slotcell">4th</td>
+              <td class="slotcell">5th</td>
+              <td class="slotcell">6th</td>
+              <td class="slotcell">7th</td>
+              <td class="slotcell">8th</td>
+              <td class="slotcell">9th</td>
+            </tr>
+
+            <tr class="bigt col-centered col-xs-12">
+              <?php
+            }
+             if (strpos($subclass, 'Profane Soul') !== false){
+               $spellsub = 'Profane';
+             }
+             else if (strpos($subclass, 'Arcane Trickster') !== false){
+               $spellsub = 'Trickster';
+             }
+             else if (strpos($subclass, 'Eldritch Knight') !== false){
+               $spellsub = 'Knight';
+             }
+             else {
+               $spellsub = $coreclassbare;
+             }
+              $worldtitle1 = "SELECT * FROM `classtable` WHERE `class` LIKE '$spellsub'";
+              $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
+              while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
+                $checktable = str_replace($row1['class'], '', $row1['name']);
+                if ($checktable == $mainclasslevel) {
+                  if ($coreclassbare == 'Warlock' || strpos($subclass, 'Profane Soul') !== false) { ?>
+                    <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
+                    <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
+
+                  <?php
+                }
+               else if ($coreclassbare == 'Mystic') { ?>
+                  <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
+                <?php
+              }
+                  else {
+                  ?>
+                  <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" id="spellslot1" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot2" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot3" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot4" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot5" type="text"value="<?php echo $row1['spelllvl5']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot6" type="text"value="<?php echo $row1['spelllvl6']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot7" type="text"value="<?php echo $row1['spelllvl7']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot8" type="text"value="<?php echo $row1['spelllvl8']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" id="spellslot9" type="text"value="<?php echo $row1['spelllvl9']; ?>"></td>
+
+                   <?php
+                 }
+               }
+            }
+
+               ?>
+
+            </tr>
+          </table>
+
         </div>
 
 
       <!-- CLASS FEATURES -->
-      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="abilitiesBlock" style="float:right; min-height:125px;">
+      <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock floatright" name="mainBlock" id="abilitiesBlock" style="float:right; min-height:225px;">
         <div style="margin-bottom: 5px; border-bottom:1px solid white;">Abilities</div>
 
         <?php
@@ -3771,90 +3878,6 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
           </tbody>
         </table>
 
-        <table style="width:100%;">
-          <?php
-          if ($coreclassbare == 'Warlock' || strpos($subclass, 'Profane Soul') !== false) { ?>
-            <tr class="col-centered col-xs-12">
-              <td class="slotcell" style="border-left: 1px solid white;">Slots</td>
-              <td class="slotcell">Slot Level</td>
-            </tr>
-
-            <tr class="bigt col-centered col-xs-12"> <?php
-          }
-          else if ($coreclassbare == 'Mystic'){ ?>
-            <tr class="col-centered col-xs-12">
-              <td class="slotcell" style="border-left: 1px solid white;">Psi Points</td>
-              <td class="slotcell">Psi Limit</td>
-            </tr>
-
-            <tr class="bigt col-centered col-xs-12"> <?php
-          }
-          else {
-            ?>
-          <tr class="col-centered col-xs-12">
-            <td class="slotcell" style="border-left: 1px solid white;">1st</td>
-            <td class="slotcell">2nd</td>
-            <td class="slotcell">3rd</td>
-            <td class="slotcell">4th</td>
-            <td class="slotcell">5th</td>
-            <td class="slotcell">6th</td>
-            <td class="slotcell">7th</td>
-            <td class="slotcell">8th</td>
-            <td class="slotcell">9th</td>
-          </tr>
-
-          <tr class="bigt col-centered col-xs-12">
-            <?php
-          }
-           if (strpos($subclass, 'Profane Soul') !== false){
-             $spellsub = 'Profane';
-           }
-           else if (strpos($subclass, 'Arcane Trickster') !== false){
-             $spellsub = 'Trickster';
-           }
-           else if (strpos($subclass, 'Eldritch Knight') !== false){
-             $spellsub = 'Knight';
-           }
-           else {
-             $spellsub = $coreclassbare;
-           }
-            $worldtitle1 = "SELECT * FROM `classtable` WHERE `class` LIKE '$spellsub'";
-            $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
-            while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
-              $checktable = str_replace($row1['class'], '', $row1['name']);
-              if ($checktable == $mainclasslevel) {
-                if ($coreclassbare == 'Warlock' || strpos($subclass, 'vitalsane Soul') !== false) { ?>
-                  <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
-                  <td class="slotcell"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
-
-                <?php
-              }
-             else if ($coreclassbare == 'Mystic') { ?>
-                <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
-                <td class="slotcell"><input class="vitals" style="width:50px;" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
-              <?php
-            }
-                else {
-                ?>
-                <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl5']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl6']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl7']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl8']; ?>"></td>
-                <td class="slotcell"><input class="vitals" type="text"value="<?php echo $row1['spelllvl9']; ?>"></td>
-
-                 <?php
-               }
-             }
-          }
-
-             ?>
-
-          </tr>
-        </table>
           <?php
           $coreclass = substr($fullclass, 0, strpos($fullclass, "(") -1);
           $coreTemp = $coreclass.' core';
@@ -4043,11 +4066,23 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
           var currenthp = $('#currenthp').val();
           var temphp = $('#temphp').val();
           var charID = <?php echo $charID; ?>;
+          var slot1 = $('#spellslot1').val();
+          var slot2 = $('#spellslot2').val();
+          var slot3 = $('#spellslot3').val();
+          var slot4 = $('#spellslot4').val();
+          var slot5 = $('#spellslot5').val();
+          var slot6 = $('#spellslot6').val();
+          var slot7 = $('#spellslot7').val();
+          var slot8 = $('#spellslot8').val();
+          var slot9 = $('#spellslot9').val();
+          var spellslots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9];
+          spellslots = spellslots.toString();
+          document.getElementById('test').innerHTML = spellslots;
 
           $.ajax({
              url : 'tracking.php',
              type: 'GET',
-             data : { "currentlp" : currentlp, "currenthp" : currenthp, "temphp" : temphp, "id" : charID },
+             data : { "currentlp" : currentlp, "currenthp" : currenthp, "temphp" : temphp, "id" : charID, "slots" : spellslots },
              success: function()
              {
                  //if success then just output the text to the status div then clear the form inputs to prepare for new data
