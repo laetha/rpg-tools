@@ -136,8 +136,9 @@ function editSheet() {
    $allspells = $row['spells'];
    $spellslots = $row['slots'];
    $allfeats = $row['feats'];
+   $maxhp = $row['maxhp'];
    $spellsarray = explode(',', $allspells);
-   $slotsarray = explode(',', $allslots);
+   $slotsarray = explode(',', $spellslots);
    $customattacks = $row['customattacks'];
    $charNotes = $row['notes'];
    $charItems = $row['items'];
@@ -267,6 +268,7 @@ function editSheet() {
 
 </div>
 <a href="/tools/compendium/spell1.php?id=<?php echo $row['title']; ?>" target="_blank"><button class="btn btn-warning"><div style="color:black;">Spell Sheet</div></button></a>
+<button class="btn btn-danger" onclick="longrest()">Long Rest</button>
 <button class="btn btn-success" data-toggle="modal" href="#levelModal">Level Up!</button>
  </div>
 
@@ -278,7 +280,6 @@ function editSheet() {
     <!-- Modal content-->
     <div class="modal-content modalstyle bodytext" style="height:100%;">
       <div class="modal-header" style="padding-bottom: 0px;">
-        <div clas="sidebartext" id="test"></div>
         <div class="sidebartext hide" id="lvlmulticlass"></div>
         <div class="sidebartext hide" id="mainoffLevel"></div>
         <div class="sidebartext hide" id="lvlhitdie"><?php echo $row['hitdice']; ?></div>
@@ -2104,15 +2105,38 @@ function multiSelect(){
               while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
                 $checktable = str_replace($row1['class'], '', $row1['name']);
                 if ($checktable == $mainclasslevel) {
+                  $lockslot1 = $row1['spelllvl1'];
+                  $lockslot2 = $row1['spelllvl2'];
+                  $mysticslot1 = $row1['spelllvl3'];
+                  $mysticslot2 = $row1['spelllvl4'];
+                  echo ('<div id="defaultslots" style="display:none;">'.$row1['spelllvl1'].','.$row1['spelllvl2'].','.$row1['spelllvl3'].','.$row1['spelllvl4'].','.$row1['spelllvl5'].','.$row1['spelllvl6'].','.$row1['spelllvl7'].','.$row1['spelllvl8']);
+                  echo (','.$row1['spelllvl9'].'</div>');
                   if ($coreclassbare == 'Warlock' || strpos($subclass, 'Profane Soul') !== false) { ?>
                     <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="lockslot1" value="<?php echo $row1['spelllvl1']; ?>"></td>
-                    <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="lockslot2" value="<?php echo $row1['spelllvl2']; ?>"></td>
+                    <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="lockslot2" value="<?php echo $row1['spelllvl2']; ?>">
+                      <input class="hide" id="lockslot3">
+                      <input class="hide" id="lockslot4">
+                      <input class="hide" id="lockslot5">
+                      <input class="hide" id="lockslot6">
+                      <input class="hide" id="lockslot7">
+                      <input class="hide" id="lockslot8">
+                      <input class="hide" id="lockslot9">
+                    </td>
 
                   <?php
                 }
                else if ($coreclassbare == 'Mystic') { ?>
                   <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="mysticslot1" value="<?php echo $row1['spelllvl3']; ?>"></td>
-                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="mysticslot2" value="<?php echo $row1['spelllvl4']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="mysticslot2" value="<?php echo $row1['spelllvl4']; ?>">
+                  <input class="hide" id="mysticslot3">
+                  <input class="hide" id="mysticslot4">
+                  <input class="hide" id="mysticslot5">
+                  <input class="hide" id="mysticslot6">
+                  <input class="hide" id="mysticslot7">
+                  <input class="hide" id="mysticslot8">
+                  <input class="hide" id="mysticslot9">
+                  </td>
+
                 <?php
               }
                   else {
@@ -2136,7 +2160,6 @@ function multiSelect(){
 
             </tr>
           </table>
-
         </div>
 
 
@@ -4068,6 +4091,62 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
     <textarea type="text" class="notestext" id="charNotes" value="<?php echo $charNotes; ?>"><?php echo $charNotes; ?></textarea>
 
 </div>
+<script>
+function longrest() {
+  var defaultslots = $('#defaultslots').html();
+  var coreclass = '<?php echo $coreclassbare; ?>';
+  var subclass = '<?php echo $subclass; ?>';
+  var defaultArray = defaultslots.split(",");
+  var currenthp = <?php echo $maxhp; ?>;
+  var temphp = 0;
+  var currentlp = <?php echo $level; ?> * 3;
+  var charID = <?php echo $charID; ?>;
+  var lockslot1 = '<?php echo $lockslot1; ?>';
+  var lockslot2 = '<?php echo $lockslot2; ?>';
+  var mysticslot1 = '<?php echo $mysticslot1; ?>';
+  var mysticslot2 = '<?php echo $mysticslot2; ?>';
+  var slotnum = 1;
+  for (index = 0; index < defaultArray.length; ++index) {
+    if (coreclass == 'Mystic'){
+      var slot = 'mysticslot' + slotnum;
+      var defaultArray = [mysticslot1, mysticslot2, '-', '-', '-', '-', '-', '-', '-'];
+    }
+    else if (coreclass == 'Warlock' || subclass == 'Order of the Profane Soul'){
+      var slot = 'lockslot' + slotnum;
+      var defaultArray = [mysticslot1, mysticslot2, '-', '-', '-', '-', '-', '-', '-'];
+    }
+    else {
+    var slot = 'spellslot' + slotnum;
+  }
+    document.getElementById(slot).value = defaultArray[index];
+    slotnum = slotnum + 1;
+  }
+  document.getElementById('currenthp').value = currenthp;
+  document.getElementById('currentlp').value = currentlp;
+  document.getElementById('temphp').value = temphp;
+  defaultArray = defaultArray.toString();
+
+  $.ajax({
+     url : 'tracking.php',
+     type: 'GET',
+     data : { "currentlp" : currentlp, "currenthp" : currenthp, "temphp" : temphp, "id" : charID, "slots" : defaultArray },
+     success: function()
+     {
+         //if success then just output the text to the status div then clear the form inputs to prepare for new data
+       //  $("#favButton").addClass('disabled');
+         //$('#favButton').html('In Favourites');
+      //   var newURL = '/tools/users/characters.php?id=' + charName;
+        // $(location).attr('href', newURL)
+     },
+     error: function (jqXHR, status, errorThrown)
+     {
+         //if fail show error and server status
+         $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+     }
+  });
+};
+</script>
+
 
         <script type="text/javascript">
         function tracking(){
@@ -4093,7 +4172,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
           if (coreclass == 'Mystic'){
               var spellslots = [mysticslot1, mysticslot2, '-', '-', '-', '-', '-', '-', '-'];
           }
-          else if (coreclass == 'Warlock' || cubclass == 'Order of the Profane Soul'){
+          else if (coreclass == 'Warlock' || subclass == 'Order of the Profane Soul'){
             var spellslots = [lockslot1, lockslot2, '-', '-', '-', '-', '-', '-', '-'];
           }
           else {
@@ -4121,9 +4200,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
          });
         };
 
-
-
-				$('#itemSearch').selectize({
+      	$('#itemSearch').selectize({
 				onChange: function(value){
           if (value !== ""){
           var currentItems = $('#currentItemsRaw').html();
