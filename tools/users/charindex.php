@@ -151,9 +151,19 @@ function editSheet() {
      var allSlots = '<?php echo $spellslots; ?>';
      //document.getElementById('spellslot9').value = allSlots;
       var slotArray = allSlots.split(',');
+      var coreclass = '<?php echo $coreclassbare; ?>';
+      var subclass = '<?php echo $subclass; ?>';
       slotnum = 1;
       for (index = 0; index < slotArray.length; ++index) {
+        if (coreclass == 'Mystic'){
+          var slot = 'mysticslot' + slotnum;
+        }
+        else if (coreclass == 'Warlock' || subclass == 'Order of the Profane Soul'){
+          var slot = 'lockslot' + slotnum;
+        }
+        else {
         var slot = 'spellslot' + slotnum;
+      }
         document.getElementById(slot).value = slotArray[index];
         slotnum = slotnum + 1;
       }
@@ -2095,14 +2105,14 @@ function multiSelect(){
                 $checktable = str_replace($row1['class'], '', $row1['name']);
                 if ($checktable == $mainclasslevel) {
                   if ($coreclassbare == 'Warlock' || strpos($subclass, 'Profane Soul') !== false) { ?>
-                    <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl1']; ?>"></td>
-                    <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl2']; ?>"></td>
+                    <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="lockslot1" value="<?php echo $row1['spelllvl1']; ?>"></td>
+                    <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="lockslot2" value="<?php echo $row1['spelllvl2']; ?>"></td>
 
                   <?php
                 }
                else if ($coreclassbare == 'Mystic') { ?>
-                  <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl3']; ?>"></td>
-                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text"value="<?php echo $row1['spelllvl4']; ?>"></td>
+                  <td class="slotcell" style="border-left: 1px solid white;"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="mysticslot1" value="<?php echo $row1['spelllvl3']; ?>"></td>
+                  <td class="slotcell"><input class="vitals1" onkeyup="tracking()" style="width:50px;" type="text" id="mysticslot2" value="<?php echo $row1['spelllvl4']; ?>"></td>
                 <?php
               }
                   else {
@@ -4074,9 +4084,22 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
           var slot7 = $('#spellslot7').val();
           var slot8 = $('#spellslot8').val();
           var slot9 = $('#spellslot9').val();
+          var lockslot1 = $('#lockslot1').val();
+          var lockslot2 = $('#lockslot2').val();
+          var mysticslot1 = $('#mysticslot1').val();
+          var mysticslot2 = $('#mysticslot2').val();
+          var coreclass = '<?php echo $coreclassbare; ?>';
+          var subclass = '<?php echo $subclass; ?>';
+          if (coreclass == 'Mystic'){
+              var spellslots = [mysticslot1, mysticslot2, '-', '-', '-', '-', '-', '-', '-'];
+          }
+          else if (coreclass == 'Warlock' || cubclass == 'Order of the Profane Soul'){
+            var spellslots = [lockslot1, lockslot2, '-', '-', '-', '-', '-', '-', '-'];
+          }
+          else {
           var spellslots = [slot1, slot2, slot3, slot4, slot5, slot6, slot7, slot8, slot9];
+        }
           spellslots = spellslots.toString();
-          document.getElementById('test').innerHTML = spellslots;
 
           $.ajax({
              url : 'tracking.php',
