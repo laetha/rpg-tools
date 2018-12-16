@@ -149,14 +149,13 @@ function editSheet() {
    <script>
    $(document).ready(function (){
      var allSlots = '<?php echo $spellslots; ?>';
-    // document.getElementById('spellslot9').value = allSlots;
+     //document.getElementById('spellslot9').value = allSlots;
       var slotArray = allSlots.split(',');
       slotnum = 1;
       for (index = 0; index < slotArray.length; ++index) {
-        //entryNS = spellArray[index].replace(/ /g,'');
-        document.getElementById('spellslot9').value = slotArray[index];
+        var slot = 'spellslot' + slotnum;
+        document.getElementById(slot).value = slotArray[index];
         slotnum = slotnum + 1;
-
       }
    });
    </script>
