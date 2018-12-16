@@ -36,6 +36,9 @@ for (var i = 0; i < inputs.length; i++) {
   for (var i = 0; i < selects.length; i++) {
       selects[i].disabled = true;
     }
+  document.getElementById('currentlp').disabled = false;
+  document.getElementById('currenthp').disabled = false;
+  document.getElementById('temphp').disabled = false;
 });
 
 //EDIT SHEET, ENABLE ALL INPUTS
@@ -2004,10 +2007,19 @@ function multiSelect(){
             </tr>
             <tr>
               <td><div class="charDeet">Speed</div></td>
-              <td><div class="charDeet">Hit Points</div></td>
+              <td><div class="charDeet">Max HP</div></td>
               <td><div class="charDeet">AC</div></td>
             </tr>
-
+            <tr>
+              <td><input id="currentlp" class="vitals1" onkeyup="tracking()" value="<?php echo $row['currentlp']; ?>"></td>
+              <td class="col-centered"><input id="currenthp" class="vitals1 bigvital" onkeyup="tracking()" value="<?php echo $row['currenthp']; ?>"></td>
+              <td><input id="temphp" class="vitals1" onkeyup="tracking()" value="<?php echo $row['temphp']; ?>"></td>
+            </tr>
+            <tr>
+              <td><div class="charDeet">LP</div></td>
+              <td><div class="charDeet">HP</div></td>
+              <td><div class="charDeet">Temp HP</div></td>
+            </tr>
           </table>
         </div>
 
@@ -4026,6 +4038,34 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
 </div>
 
         <script type="text/javascript">
+        function tracking(){
+          var currentlp = $('#currentlp').val();
+          var currenthp = $('#currenthp').val();
+          var temphp = $('#temphp').val();
+          var charID = <?php echo $charID; ?>;
+
+          $.ajax({
+             url : 'tracking.php',
+             type: 'GET',
+             data : { "currentlp" : currentlp, "currenthp" : currenthp, "temphp" : temphp, "id" : charID },
+             success: function()
+             {
+                 //if success then just output the text to the status div then clear the form inputs to prepare for new data
+               //  $("#favButton").addClass('disabled');
+                 //$('#favButton').html('In Favourites');
+              //   var newURL = '/tools/users/characters.php?id=' + charName;
+                // $(location).attr('href', newURL)
+             },
+             error: function (jqXHR, status, errorThrown)
+             {
+                 //if fail show error and server status
+                 $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+             }
+         });
+        };
+
+
+
 				$('#itemSearch').selectize({
 				onChange: function(value){
           if (value !== ""){
