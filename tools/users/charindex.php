@@ -49,6 +49,13 @@ for (var i = 0; i < inputs.length; i++) {
 function editSheet() {
   classSelect();
   multiSelect();
+  var dels = document.getElementsByName("delitem");
+  var d = 0;
+
+  for (d = 0; d < dels.length; d++) {
+    dels[d].style = "display:inline-block"
+  }
+
   document.getElementById('spellsShow').style = "display:block";
   document.getElementById('spellWarning').style = "display:none";
   var inputs = document.getElementsByTagName("input");
@@ -80,17 +87,6 @@ function editSheet() {
     document.getElementById("charClass").style = "display:inline-block";
     document.getElementById("charSubclass").style = "display:inline-block";
 
-
-    var dels = document.getElementsByName("delitem");
-    var d = 0;
-
-    for (d = 0; d < dels.length; d++) {
-      dels[d].style = "display:inline-block"
-    }
-
-    /*document.getElementById("mystics").style = "display:block";
-    document.getElementById("mySpells").style = "display:none;";
-    document.getElementById("mymystics").style = "display:none;";*/
 };
 
 </script>
@@ -211,7 +207,8 @@ function editSheet() {
         $('#' + entryNS + 'Box').prop('checked', true);
       }
       });
-
+</script>
+<script>
  $(document).ready(function () {
       var itemsDirty = '<?php echo $charItems; ?>';
       var currentItems = itemsDirty.split('_');
