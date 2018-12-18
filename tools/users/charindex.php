@@ -4096,7 +4096,7 @@ function longrest() {
   var defaultArray = defaultslots.split(",");
   var currenthp = <?php echo $maxhp; ?>;
   var temphp = 0;
-  var currentlp = <?php echo $level; ?> * 3;
+  var currentlp = $('#currentlp').val();
   var charID = <?php echo $charID; ?>;
   var lockslot1 = '<?php echo $lockslot1; ?>';
   var lockslot2 = '<?php echo $lockslot2; ?>';
