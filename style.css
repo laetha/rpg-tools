@@ -1127,5 +1127,7 @@ hr {
 	body {
 		opacity: 1.0;
 	}
-
+	.btn {
+		display:none;
+	}
 }

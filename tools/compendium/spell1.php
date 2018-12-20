@@ -40,6 +40,7 @@
        die();
      }
      $allspells = $row['spells'];
+     $prepped = $row['prepped'];
      $spellsarray = explode(',', $allspells);
      $spellsarray = join("','",$spellsarray);
      $title = $row['title'];
@@ -136,8 +137,12 @@
        $spellattack2 = 'N/A';
      }
        ?>
+
      <!-- Page Header -->
      <div class="col-md-12">
+       <?php
+        echo ('<div id="currentSpells" class="hide">'.$prepped.'</div>');
+        ?>
      <div class="pagetitle" id="pgtitle"><?php echo ucwords($row['title']); ?>'s' Spells</div>
    </div>
      <div class="body sidebartext col-xs-12" id="body" style="padding: 0px;">
@@ -234,6 +239,8 @@
 
          </tr>
        </table>
+       <button class="btn btn-info" id="btn-show-all-children" type="button">Expand All</button>
+<button class="btn btn-primary" id="btn-hide-all-children" type="button">Collapse All</button>
        <div class="table-responsive">
    <table id="allspells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
            <thead class="thead-dark">
@@ -244,6 +251,8 @@
                    <th scope="col">Duration</th>
                    <th scope="col">Range</th>
                    <th scope="col">Attack/Save</th>
+                   <th scope="col">Prep?</th>
+                   <th scope="col">Prepared</th>
                    <th scope="col" class="none">Description</th>
                </tr>
            </thead>
@@ -255,6 +264,8 @@
                  <th scope="col">Duration</th>
                  <th scope="col">Range</th>
                  <th scope="col">Attack/Save</th>
+                 <th scope="col">Prep?</th>
+                 <th scope="col">Prepared</th>
                  <th scope="col">Description</th>
                </tr>
            </tfoot>
@@ -264,6 +275,9 @@
                $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'spell' AND title NOT LIKE '%*' AND title NOT LIKE '%(Ritual Only)' AND title NOT LIKE '%invocation%' AND title IN ('$spellsarray')";
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+                 $spelltitlens = str_replace(' ', '', $row['title']);
+                 $spelltitlespec = str_replace('\'', '_', $row['title']);
+                 $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
                echo ('<tr style="padding:50px;"><td class="bigt">');
                $entry = $row['title'];
                echo "<a href=\"compendium.php?id=$entry\">";
@@ -304,6 +318,8 @@
                else {
                  echo ('<td>-</td>');
                }
+               echo ('<td><input type="checkbox" class="expertRadio" id="'.$spelltitlens.'" onclick="spellList(\''.$spelltitlespec.'\')"></input></td>');
+               echo ('<td id="'.$spelltitlens.'prep"></td>');
                $spelldeet = substr($row['text'], 0, strpos($row['text'], "Source:"));
                $spelldeet = rtrim($spelldeet);
                echo ('<td class="smallt" id="spell'.$a.'">'.nl2br($spelldeet).'</td>');
@@ -315,12 +331,85 @@
 
 </tbody>
 </table>
+<script>
+$(document).ready(function() {
+  var prepped = '<?php echo $prepped; ?>';
+   var prepArray = prepped.split(',');
+   var index = 0;
+   var entryNS = '';
+   for (index = 0; index < prepArray.length; ++index) {
+     entryNS = prepArray[index].replace(/ /g,'');
+     var checkbox = document.getElementById(entryNS);
+     if (checkbox) {
+          $('#' + entryNS).prop('checked', true);
+          document.getElementById(entryNS + 'prep').innerHTML = "YES";
+     }
+   }
 
+});
+</script>
 <?php
   }
 }
  ?>
+
 <script>
+function spellList(value) {
+  var spellList = document.getElementById('currentSpells').innerHTML;
+  var valueNS = value.replace(/[() ]/g,'');
+  var spellBoxID = valueNS;
+  var charID = '<?php echo $charID; ?>';
+
+  if (document.getElementById(spellBoxID).checked) {
+    spellList = spellList + value + ',';
+}
+else {
+  if (spellList.includes(value + ',') == true){
+/*   if (spellList.startsWith(value)){
+     if (spellList.includes(value + ',')) {*/
+     spellList = spellList.replace(value + ',', '');
+     }
+     /*else {
+      spellList = spellList.replace(value , '');
+    }*/
+  }
+    //else {
+      //spellList = spellList.replace(',' + value, '');
+    //}
+
+  //}
+
+if (spellList.startsWith(',') == false){
+  spellList = ',' + spellList;
+}
+if (spellList.endsWith(',') == false){
+  spellList = spellList + ',';
+}
+
+document.getElementById('currentSpells').innerHTML = spellList;
+
+$.ajax({
+   url : 'prep.php',
+   type: 'GET',
+   data : { "id" : charID, "prepped" : spellList },
+   success: function()
+   {
+       //if success then just output the text to the status div then clear the form inputs to prepare for new data
+     //  $("#favButton").addClass('disabled');
+       //$('#favButton').html('In Favourites');
+       //var newURL = '/tools/compen/characters.php?id=' + levelName;
+       //$(location).attr('href', newURL)
+   },
+   error: function (jqXHR, status, errorThrown)
+   {
+       //if fail show error and server status
+       $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+   }
+});
+};
+
+
+
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
 
@@ -333,13 +422,24 @@ $(document).ready(function() {
                 type: ''
             }
         },
-         "order": [[ 1, "asc" ]],
+         "order": [[ 7, "desc" ], [ 1, "asc" ]],
          "pageLength": 50
 
     } );
 
+    $('#btn-show-all-children').on('click', function(){
+           // Expand row details
+           table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
+       });
 
+       // Handle click on "Collapse All" button
+       $('#btn-hide-all-children').on('click', function(){
+           // Collapse row details
+           table.rows('.parent').nodes().to$().find('td:first-child').trigger('click');
+       });
 } );
+
+
 </script>
 </div>
 </div>
