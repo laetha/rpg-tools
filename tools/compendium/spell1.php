@@ -141,7 +141,7 @@
      <!-- Page Header -->
      <div class="col-md-12">
        <?php
-        echo ('<div id="currentSpells" class="hide">'.$prepped.'</div>');
+        echo ('<div id="currentSpells" style="display:none;">'.$prepped.'</div>');
         ?>
      <div class="pagetitle" id="pgtitle"><?php echo ucwords($row['title']); ?>'s' Spells</div>
    </div>
@@ -239,8 +239,11 @@
 
          </tr>
        </table>
-       <button class="btn btn-info" id="btn-show-all-children" type="button">Expand All</button>
-<button class="btn btn-primary" id="btn-hide-all-children" type="button">Collapse All</button>
+       <table>
+         <tr>
+       <td><button class="btn btn-info" id="btn-show-all-children" type="button">Expand All</button></td>
+<td><button class="btn btn-primary" id="btn-hide-all-children" type="button">Collapse All</button></td>
+<td width="100%"><div class="col-centered sidebartext" id="prepwarning" style="display:none;">Please refresh to see changes to prepared spells</div></td>
        <div class="table-responsive">
    <table id="allspells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
            <thead class="thead-dark">
@@ -332,7 +335,7 @@
 </tbody>
 </table>
 <script>
-$(document).ready(function() {
+$(document).ready(function prepcheck() {
   var prepped = '<?php echo $prepped; ?>';
    var prepArray = prepped.split(',');
    var index = 0;
@@ -355,6 +358,7 @@ $(document).ready(function() {
 
 <script>
 function spellList(value) {
+
   var spellList = document.getElementById('currentSpells').innerHTML;
   var valueNS = value.replace(/[() ]/g,'');
   var spellBoxID = valueNS;
@@ -387,6 +391,8 @@ if (spellList.endsWith(',') == false){
 }
 
 document.getElementById('currentSpells').innerHTML = spellList;
+document.getElementById('prepwarning').style = "display:block";
+
 
 $.ajax({
    url : 'prep.php',
