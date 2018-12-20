@@ -19,7 +19,7 @@ $ciaratemp=$_POST['ciara'];
 $riordantemp=$_POST['riordan'];
 $frukastemp=$_POST['frukas'];
 $quynntemp=$_POST['quynn'];
-$threadstemp=$_POST['threads'];
+$redferdtemp=$_POST['redferd'];
 $sirknighttemp=$_POST['sirknight'];
 $alltemp=$_POST['all'];
 $xp=htmlentities(trim(addslashes($xptemp)));
@@ -28,7 +28,7 @@ $ciara=htmlentities(trim(addslashes($ciaratemp)));
 $riordan=htmlentities(trim(addslashes($riordantemp)));
 $frukas=htmlentities(trim(addslashes($frukastemp)));
 $quynn=htmlentities(trim(addslashes($quynntemp)));
-$threads=htmlentities(trim(addslashes($threadstemp)));
+$redferd=htmlentities(trim(addslashes($redferdtemp)));
 $sirknight=htmlentities(trim(addslashes($sirknighttemp)));
 $all=htmlentities(trim(addslashes($alltemp)));
 $xp = round($xp / $numplayers);
@@ -49,8 +49,8 @@ if ($quynn == 1){
 $player4 = 'Quynn';
 
 }
-if ($threads == 1){
-$player5 = 'Threads';
+if ($redferd == 1){
+$player5 = 'Redferd';
 
 }
 

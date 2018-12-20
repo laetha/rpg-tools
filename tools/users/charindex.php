@@ -484,7 +484,7 @@ echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton"
 </div>
 
 <div id="lvlupHP" style="display:none;">
-  <div class="sidebartext col-centered">Roll for Max HP! (Or click "Next" )</div>
+  <div class="sidebartext col-centered">Roll for Max HP! (Or click "Next" and add manually from the sheet)</div>
 <?php
 
   echo ('<div class="col-centered">Current Max HP: '.$row['maxhp'].'</div>');

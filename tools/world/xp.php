@@ -34,10 +34,10 @@
          </div>
          <div class="row">
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="ciara" value="1">Ciara</div>
-           <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="frukas" value="1">Frukas</div>
+           <!-- <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="frukas" value="1">Frukas</div> -->
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="quynn" value="1">Quynn</div>
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="riordan" value="1">Riordan</div>
-           <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="threads" value="1">Threads</div>
+           <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="redferd" value="1">Redferd</div>
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="sirknight" value="1">Sir Knight</div>
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="all" value="1">All</div>
          </div>

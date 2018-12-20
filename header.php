@@ -35,7 +35,7 @@ else {
 		     });
 		   </script>
 
-		<title><?php echo $pgtitle; ?>RPG Tools</title>
+		<title><?php echo $pgtitle; ?>DnD Tools</title>
 		<?php
 		/*$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');
 		while( $entry = readdir($handle) )
@@ -81,7 +81,7 @@ else {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/index.php">RPG Tools</a>
+      <a class="navbar-brand" href="/index.php">DnD Tools</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

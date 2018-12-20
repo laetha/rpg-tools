@@ -9,7 +9,7 @@ include('header.php');
  ?>
 
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
-				<h1 class="pagetitle">RPG Tools</h1>
+				<h1 class="pagetitle">DnD Tools</h1>
 			  <div class="quote">
           <?php
           $sqlworld = "SELECT * FROM quotes ORDER BY RAND() LIMIT 1";
