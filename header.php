@@ -9,6 +9,9 @@ if(!isset($_COOKIE['user'])) {
 	$cookie_name = "user";
 	$cookie_value = $loguser;
 	setcookie($cookie_name, $cookie_value, time() + (86400 * 90), "/"); // 86400 = 1 day
+	$cookie_name1 = "user";
+	$cookie_value1 = $loguser;
+	setcookie($cookie_name1, $cookie_value1, time() + (86400 * 90), "/"); // 86400 = 1 day
 	//echo ('Logged in user is '.$loguser);
 }
 }
@@ -69,7 +72,21 @@ else {
 		 $sqlpath = $_SERVER['DOCUMENT_ROOT'];
 		 $sqlpath .= "/sql-connect.php";
 		 include_once($sqlpath);
+		 $friend = 0;
+		 $usercheck = "SELECT * FROM `users` WHERE username LIKE '$loguser'";
+		 $userdata = mysqli_query($dbcon, $usercheck) or die('error getting data');
+		 while($row =  mysqli_fetch_array($userdata, MYSQLI_ASSOC)) {
+		 	$friend = $row['friend'];
+		 }
+		 $friendcheck = $_SERVER['PHP_SELF'];
+
+		 if ($friend !== '1' && $friendcheck !== '/tools/users/login.php') {
+			 if ($friendcheck !== '/tools/users/loginprocess.php'){
+			 echo ('<script>window.location.replace("/tools/users/login.php"); </script>');
+		 }
+		 }
 		 ?>
+
 		 <link rel="stylesheet" type="text/css" href="/navbar.css" />
 		 <nav class="navbar navbar-default navbar-inverse" id="nonav" style="display:block;">
   <div class="container-fluid">
@@ -177,9 +194,13 @@ else {
 							</li>
 
 						</ul>
-
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
+						<?php
+						if ($friend == 1) { ?>
 				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
+				<?php
+			}
+			?>
 				<!-- <li><a class="navbar-toggler" type="button" data-toggle="collapse" href="#" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Music</a></li> -->
 				<?php
 				if ($loguser == 'null'){

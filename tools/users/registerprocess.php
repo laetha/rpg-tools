@@ -13,7 +13,7 @@ include_once($headpath);
 $username=$_POST['username'];
 $password=$_POST['password'];
 $passwordconfirm=$_POST['passwordconfirm'];
-
+$friend = 0;
 if ($password == $passwordconfirm) {
 
 
@@ -33,8 +33,8 @@ while($row =  mysqli_fetch_array($userdata, MYSQLI_ASSOC)) {
 if ($duplicate != 1) {
   $hash = password_hash($password, PASSWORD_DEFAULT);
   //Execute the query
-  $sql = "INSERT INTO users(username,password)
-          VALUES('$username','$hash')";
+  $sql = "INSERT INTO users(username,password,friend)
+          VALUES('$username','$hash','$friend')";
 
           if ($dbcon->query($sql) === TRUE) {
             include('success.php');
