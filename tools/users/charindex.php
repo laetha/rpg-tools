@@ -4085,7 +4085,28 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
 
 <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="notesBlock" style="margin-top:10px;" style="float:left;">
   <div style="margin-bottom: 5px; border-bottom:1px solid white;">Notes</div>
-    <textarea type="text" class="notestext" id="charNotes" value="<?php echo $charNotes; ?>"><?php echo $charNotes; ?></textarea>
+    <div>General Notes</div>
+    <textarea type="text" class="notestext" id="charNotes" value="<?php echo $charNotes; ?>"><?php echo $charNotes; ?></textarea><br />
+    <table>
+      <tr>
+        <td><div style="margin-right: 10px;">Saved Notes</div></td>
+        <td><a href="/tools/users/noteimport.php" target="blank"><button class="btn btn-success">+</button></a></td>
+      </tr>
+    </table><br />
+    <table id="myNotes" class="table table-condensed table-striped table-responsive dt-responsive halftable" cellspacing="0" width="50%">
+      <?php
+      $notecount = 1;
+      $notestitle = "SELECT * FROM `notes` WHERE `user` LIKE '$loguser'";
+      $notesdata = mysqli_query($dbcon, $notestitle) or die('error getting data');
+      while($notesrow =  mysqli_fetch_array($notesdata, MYSQLI_ASSOC)) {
+          echo ('<tr><td><a class="featureName" data-toggle="collapse" href="#'.$notecount.'note">'.$notesrow['title'].'</a></td></tr>');
+          echo ('<tr><td><div class="featureDetails collapse" id="'.$notecount.'note" name="'.$notecount.'note">'.nl2br($notesrow['text']).'</div></td></tr>');
+          $notecount++;
+      }
+      ?>
+    </table>
+
+
 
 </div>
 <script>

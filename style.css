@@ -1058,6 +1058,7 @@ a:hover {
 	border-radius: 10px;
 	background: none;
 	width: 100%;
+	float:left;
 	height: 400px;
 	text-align: left;
 }
@@ -1092,6 +1093,10 @@ hr {
 }
 .slotcell {
 	border-right: 1px solid white;
+}
+
+.halftable {
+	width:100%;
 }
 
 @media print {
