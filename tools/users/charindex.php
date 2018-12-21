@@ -4509,7 +4509,7 @@ function longrest() {
         document.getElementById(damageName).value = "";
         document.getElementById(rangeName).value = "";
         document.getElementById(toHitName).value = "";
-        document.getElementById(attack + "value").innerHTML = "null";
+        document.getElementById("attack" + value).innerHTML = "null";
       }
       else {
       var attackName = mainString.substr(0, mainString.indexOf('['));
@@ -4564,7 +4564,7 @@ function longrest() {
   $(document).ready(function() {
     attack("1");
     attack("2");
-    customAttack();
+  //  customAttack();BRIAN
   });
 
 </script>

@@ -30,14 +30,7 @@ else {
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<link rel="stylesheet" type="text/css" href="/selectize/css/selectize.default.css" />
 
-			<!-- This code is to prevent FOUC -->
-			<script type="text/javascript">
-		    $('html').addClass('hidden');
-		    $(window).on('load', function () {
-		    $('html').removeClass('hidden');
-		     });
-		   </script>
-
+	
 		<title><?php echo $pgtitle; ?>DnD Tools</title>
 		<?php
 		/*$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');

@@ -10,20 +10,13 @@
 		 ?>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel="stylesheet" href="/bootstrap/css/bootstrap.min.ss">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<link rel="stylesheet" type="text/css" href="/selectize/css/selectize.default.css" />
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <link href="/tools/compendium/statblock.css" rel="stylesheet" type="text/css">
-			<!-- This code is to prevent FOUC -->
-			<script type="text/javascript">
-		    $('html').addClass('hidden');
-		    $(window).on('load', function () {
-		    $('html').removeClass('hidden');
-		     });
-		   </script>
+
        <?php
        //SQL Connect
         $sqlpath = $_SERVER['DOCUMENT_ROOT'];

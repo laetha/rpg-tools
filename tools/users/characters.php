@@ -128,7 +128,7 @@ if (empty($_GET['id'])) {
                 </button>
               </div>
         <div class="modal-body" id="charModalBody" style="height:100%; padding-top: 0px;">
-          <iframe frameBorder="0" src="popout.php?id=Potion of Gaseous Form" />
+          <iframe frameBorder="0" src="" />
         </div>
 
       </div>
