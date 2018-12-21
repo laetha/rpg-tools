@@ -242,7 +242,6 @@ function editSheet() {
         document.getElementById('delrow' + value).style = "display:none;";
     };
  </script>
-   <button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
    <button class="btn btn-success" id="saveSheet" onclick="saveSheet()" style="display:none;">Save</button>
    <button class="btn btn-danger" onclick="window.location.reload()" id="cancelSheet" style="display:none;">Cancel</button>
    <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -275,8 +274,10 @@ function editSheet() {
 <a href="/tools/compendium/spell1.php?id=<?php echo $row['title']; ?>" target="_blank"><button class="btn btn-warning"><div style="color:black;">Spell Sheet</div></button></a>
 <button class="btn btn-danger" onclick="longrest()">Long Rest</button>
 <button class="btn btn-success" data-toggle="modal" href="#levelModal">Level Up!</button>
+<button class="btn btn-info" onclick="editSheet()" id="editSheet">Edit</button>
+
  </div>
-<?php    echo ('<div id="prepSpells">'.$prepped.'</div>');
+<?php    echo ('<div id="prepSpells" class="hide">'.$prepped.'</div>');
  ?>
 <!-- LEVEL UP MODAL -->
 <!-- Item Modal -->
@@ -586,7 +587,7 @@ echo ('<div class="col-centered"><button class="btn btn-info" class="nextButton"
 <div id="lvlupTable" style="display:none;">
 
   <div class="col-centered" id="lvlchanges" style="margin-bottom: 15px;">Here's what's changed from your old level to your new level:</div>
-  <table id="levelclasstable" class="table lvltable table-striped table-condensed">
+  <table id="levelclasstable" class="table lvltable table-striped table-condensed table-responsive">
 <thead>
 <?php
 $upclass = ucwords($coreclassbare);
@@ -1170,11 +1171,11 @@ $(document).ready(function() {
 
     // DataTable
     var table = $('#levelclasstable').DataTable({
-      "scrollX": true,
       "ordering": false,
       "paging": false,
       "searching": false,
-      "info": false
+      "info": false,
+      "scrollX": true
     });
 
     $(".dataTables_scrollHeadInner").css({"width":"100%"});
