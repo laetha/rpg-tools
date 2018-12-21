@@ -4022,7 +4022,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
                       <th scope="col">lvl</th>
                       <th scope="col">Prep?</th>
                       <th scope="col">Prep</th>
-                      <th scope="col"></th>
+                      <th scope="col" class="none"></th>
 
                     </tr>
                 </thead>
@@ -4105,6 +4105,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         </table>
         <script>
         $(document).ready(function prepcheck() {
+          // Handle click on "Collapse All" button
         var prepped = '<?php echo $prepped; ?>';
         var prepArray = prepped.split(',');
         var index = 0;
@@ -4202,21 +4203,11 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
               "info": false,
               "columnDefs": [
                   { "width": "70%", "targets": 0 }
-  ]
 
+  ]
          }
       );
 
-         $('#btn-show-all-children').on('click', function(){
-                // Expand row details
-                table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
-            });
-
-            // Handle click on "Collapse All" button
-            $('#btn-hide-all-children').on('click', function(){
-                // Collapse row details
-                table.rows('.parent').nodes().to$().find('td:first-child').trigger('click');
-            });
         } );
 
 
@@ -4400,7 +4391,7 @@ function longrest() {
             );
 
         } );
-        $(document).ready(function() {
+  /*      $(document).ready(function() {
 
             // DataTable
             var table = $('#mySpells').DataTable(
@@ -4509,7 +4500,7 @@ function longrest() {
         document.getElementById(damageName).value = "";
         document.getElementById(rangeName).value = "";
         document.getElementById(toHitName).value = "";
-        document.getElementById("attack" + value).innerHTML = "null";
+        document.getElementById(attack + "value").innerHTML = "null";
       }
       else {
       var attackName = mainString.substr(0, mainString.indexOf('['));
@@ -4564,7 +4555,7 @@ function longrest() {
   $(document).ready(function() {
     attack("1");
     attack("2");
-  //  customAttack();BRIAN
+    customAttack();
   });
 
 </script>
