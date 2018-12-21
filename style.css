@@ -301,6 +301,16 @@ a {
 a:hover {
 	color: #7A85B1;
 }
+
+.fakelink {
+	color: #94A0CE;
+}
+.fakelink:hover {
+	color: #7A85B1;
+	cursor:pointer;
+
+}
+
 .tab-content h3 {
 	color: #5499c7;
 }

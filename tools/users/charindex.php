@@ -40,6 +40,10 @@ for (var i = 0; i < inputs.length; i++) {
     for (var i = 0; i < trackers.length; i++) {
         trackers[i].disabled = false;
       }
+      var prepbox = document.querySelectorAll('.prepbox');
+      for (var i = 0; i < prepbox.length; i++) {
+          prepbox[i].disabled = false;
+        }
   /*document.getElementById('currentlp').disabled = false;
   document.getElementById('currenthp').disabled = false;
   document.getElementById('temphp').disabled = false;*/
@@ -141,6 +145,10 @@ function editSheet() {
    $level = $row['level'];
    $multiclasslevel = (int)$row['class2lvl'];
    $mainclasslevel = (int)$level - $multiclasslevel;
+   $spellsarray = explode(',', $allspells);
+   $spellsarray = join("','",$spellsarray);
+   $prepped = $row['prepped'];
+
 
    ?>
    <script>
@@ -268,7 +276,8 @@ function editSheet() {
 <button class="btn btn-danger" onclick="longrest()">Long Rest</button>
 <button class="btn btn-success" data-toggle="modal" href="#levelModal">Level Up!</button>
  </div>
-
+<?php    echo ('<div id="prepSpells">'.$prepped.'</div>');
+ ?>
 <!-- LEVEL UP MODAL -->
 <!-- Item Modal -->
 <div class="modal fade bd-example-modal-lg" id="levelModal" role="dialog">
@@ -4006,82 +4015,214 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
         </tbody>
         </table>
 
-        <table id="mySpells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
-        <thead class="thead-dark">
-            <tr>
-              <th scope="col">
-                <?php
-                if ($ucClass == 'Mystic') {
-                  echo ('Ability');
-                }
-                else {
-                  echo ('Spell');
-                }
-                ?>
-              </th>
-              <th scope="col">
-                <?php
-                if ($ucClass == 'Mystic') {
-                  echo ('Type');
-                }
-                else {
-                  echo ('Level');
-                }
-                ?>
+        <table id="myspells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+                <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">lvl</th>
+                      <th scope="col">Prep?</th>
+                      <th scope="col">Prep</th>
+                      <th scope="col"></th>
 
-              </th>
+                    </tr>
+                </thead>
+                <tfoot>
+                    <tr>
+                      <th scope="col">Name</th>
+                      <th scope="col">lvl</th>
+                      <th scope="col">Prep?</th>
+                      <th scope="col">Prep</th>
+                      <th scope="col"></th>
 
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        // SPELLS Section
+                    </tr>
+                </tfoot>
+                <tbody>
+                  <?php
+                    $a = 1;
+                    $sqlcompendium = "SELECT * FROM compendium WHERE type LIKE 'spell' AND title NOT LIKE '%*' AND title NOT LIKE '%(Ritual Only)' AND title NOT LIKE '%invocation%' AND title IN ('$spellsarray')";
+                    $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+                    while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+                      $spelltitlens = str_replace(' ', '', $row['title']);
+                      $spelltitlespec = str_replace('\'', '_', $row['title']);
+                      $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
+                    echo ('<tr style="padding:50px;"><td class="bigt">');
+                    $entry = $row['title'];
+                    echo ('<div class="fakelink">');
+                    echo $entry;
+                    echo "</div></td>";
+                    echo ('<td>'.$row['spellLevel'].'</td>');
+                    //echo ('<td>'.$row['spellTime'].'</td>');
+                    //echo ('<td>'.$row['spellDuration'].'</td>');
+                    //echo ('<td>'.$row['spellRange'].'</td>');
+                    /*if (strpos($row['text'], 'Strength saving throw') !== false){
+                      echo ('<td>STR Save</td>');
 
-        $spelltitle = "SELECT * FROM `compendium` WHERE `spellClasses` LIKE '%$ucClass%' OR `spellClasses` LIKE '%$subclass%' OR `spellClasses` LIKE '%$ucmultiClass%' OR `spellClasses` LIKE '%$multisubclass%' ORDER BY spellLevel, title";
-        $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
-        while($spellrow =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
-        ?>
+                    }
+                    else if (strpos($row['text'], 'Dexterity saving throw') !== false){
+                      echo ('<td>DEX Save</td>');
 
-        <?php
-          //$featuretitle = str_replace('text', 'name', $column);
-        $spelltitlens = str_replace(' ', '', $spellrow['title']);
-        $spelltitlespec = str_replace('\'', '_', $spellrow['title']);
-        $spelltitlens = preg_replace('/[^a-z\d]+/i', '_', $spelltitlens);
-        if (strpos($allspells, ','.$spelltitlespec.',') !== false) {
-          echo ('<tr>');
-          echo ('<td><a class="featureName" data-toggle="collapse" href="#'.$spelltitlens.'myshow">'.$spellrow['title'].' (');
-          if (strpos($spellrow['spellClasses'], $ucClass) !== false) {
-            echo $ucClass;
-          }
-          if (strpos($spellrow['spellClasses'], $subclass) !== false) {
-            echo $subclass;
-          }
-          echo (')</a></td>');
-          if ($ucClass == 'Mystic') {
-            echo ('<td>'.ucwords($spellrow['spellSchool']).'</td></tr>');
+                    }
+                    else if (strpos($row['text'], 'Constitution saving throw') !== false){
+                      echo ('<td>CON Save</td>');
 
-          }
-          else {
-          echo ('<td>'.$spellrow['spellLevel'].'</td></tr>');
-        }          echo ('<tr></tr>');
-          echo ('<tr><td colspan="2"><div class="featureDetails collapse" id="'.$spelltitlens.'myshow" name="'.$spelltitlens.'show">');
-          echo ('Casting Time: '.$spellrow['spellTime']);
-          echo ('<br />Duration: '.$spellrow['spellDuration']);
-          echo ('<br />Range: '.$spellrow['spellRange']);
-          echo ('<br />Components: '.$spellrow['spellComponents']);
-          echo ('<br />'.nl2br($spellrow['text']).'</div></td></tr>');
-        }
-        }
+                    }
+                    else if (strpos($row['text'], 'Intelligence saving throw') !== false){
+                      echo ('<td>INT Save</td>');
 
-        ?>
+                    }
+                    else if (strpos($row['text'], 'Wisdom saving throw') !== false){
+                      echo ('<td>WIS Save</td>');
+
+                    }
+                    else if (strpos($row['text'], 'Charisma saving throw') !== false){
+                      echo ('<td>CHA Save</td>');
+
+                    }
+                    else if (strpos($row['text'], 'spell attack') !== false){
+                      echo ('<td>Spell Attack</td>');
+
+                    }
+                    else {
+                      echo ('<td>-</td>');
+                    }*/
+                    echo ('<td><input type="checkbox" class="expertRadio prepbox" id="'.$spelltitlens.'prepbox" onclick="prepList(\''.$spelltitlespec.'\')"></input></td>');
+                    echo ('<td id="'.$spelltitlens.'prep"></td>');
+                    $spelldeet = substr($row['text'], 0, strpos($row['text'], "Source:"));
+                    $spelldeet = rtrim($spelldeet);
+                    echo ('<td class="smallt" id="spell'.$a.'">');
+                    echo ('<br/><b>Casting Time:</b> '.$row['spellTime'].'</br>');
+                    echo ('<b>Range:</b> '.$row['spellRange'].'</br>');
+                    echo ('<b>Duration:</b> '.$row['spellDuration'].'</br>');
+                    echo ('<b>Components:</b> '.$row['spellComponents'].'</br>');
+                    echo nl2br($spelldeet).'</td>';
+                    echo ('</tr>');
+                    ?>
+                    <?php
+                  }
+                    ?>
+
         </tbody>
         </table>
+        <script>
+        $(document).ready(function prepcheck() {
+        var prepped = '<?php echo $prepped; ?>';
+        var prepArray = prepped.split(',');
+        var index = 0;
+        var entryNS = '';
+        for (index = 0; index < prepArray.length; ++index) {
+          entryNS = prepArray[index].replace(/ /g,'');
+          var entryNSbox = entryNS + 'prepbox';
 
-        </div>
-        </div>
+          var checkbox = document.getElementById(entryNSbox);
+          if (checkbox) {
+               $('#' + entryNSbox).prop('checked', true);
+               document.getElementById(entryNS + 'prep').innerHTML = "YES";
+          }
+        }
+
+        });
+        </script>
+
+        <script>
+        function prepList(value) {
+
+        var spellList = document.getElementById('prepSpells').innerHTML;
+        var valueNS = value.replace(/[() ]/g,'');
+        var spellBoxID = valueNS + 'prepbox';
+        var charID = '<?php echo $charID; ?>';
+
+        if (document.getElementById(spellBoxID).checked) {
+         spellList = spellList + value + ',';
+        }
+        else {
+        if (spellList.includes(value + ',') == true){
+        /*   if (spellList.startsWith(value)){
+          if (spellList.includes(value + ',')) {*/
+          spellList = spellList.replace(value + ',', '');
+          }
+          /*else {
+           spellList = spellList.replace(value , '');
+         }*/
+        }
+         //else {
+           //spellList = spellList.replace(',' + value, '');
+         //}
+
+        //}
+
+        if (spellList.startsWith(',') == false){
+        spellList = ',' + spellList;
+        }
+        if (spellList.endsWith(',') == false){
+        spellList = spellList + ',';
+        }
+
+        document.getElementById('prepSpells').innerHTML = spellList;
+        //document.getElementById('prepwarning').style = "display:block";
+
+
+        $.ajax({
+        url : '/tools/compendium/prep.php',
+        type: 'GET',
+        data : { "id" : charID, "prepped" : spellList },
+        success: function()
+        {
+            //if success then just output the text to the status div then clear the form inputs to prepare for new data
+          //  $("#favButton").addClass('disabled');
+            //$('#favButton').html('In Favourites');
+            //var newURL = '/tools/compen/characters.php?id=' + levelName;
+            //$(location).attr('href', newURL)
+        },
+        error: function (jqXHR, status, errorThrown)
+        {
+            //if fail show error and server status
+            $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+        }
+        });
+        };
 
 
 
+        $(document).ready(function() {
+         // Setup - add a text input to each footer cell
+
+
+         // DataTable
+         var table = $('#myspells').DataTable( {
+             responsive: {
+                 details: {
+                     //display: $.fn.dataTable.Responsive.display.childRowImmediate,
+                     type: ''
+                 }
+             },
+              "order": [[ 3, "desc" ], [ 1, "asc" ]],
+              "pageLength": 50,
+              "searching": false,
+              "paging": false,
+              "info": false,
+              "columnDefs": [
+                  { "width": "70%", "targets": 0 }
+  ]
+
+         }
+      );
+
+         $('#btn-show-all-children').on('click', function(){
+                // Expand row details
+                table.rows(':not(.parent)').nodes().to$().find('td:first-child').trigger('click');
+            });
+
+            // Handle click on "Collapse All" button
+            $('#btn-hide-all-children').on('click', function(){
+                // Collapse row details
+                table.rows('.parent').nodes().to$().find('td:first-child').trigger('click');
+            });
+        } );
+
+
+        </script>
+</div>
+</div>
 
 <div class="roundBorder col-md-4 col-sm-6 col-xs-12 sidebartext sheetBlock" name="mainBlock" id="notesBlock" style="margin-top:10px;" style="float:left;">
   <div style="margin-bottom: 5px; border-bottom:1px solid white;">Notes</div>
