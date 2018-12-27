@@ -976,11 +976,16 @@ trigger: 'focus'
     var foundlink = "<?php echo $temp ?>";
     function replace (querytext){
       var bodytext = document.getElementById("body").innerHTML;
-      //var pgtitle = document.getElementById("pgtitle").innerHTML;
-      var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+      var noquotes = querytext + "\">";
+      var quotesreg = new RegExp(noquotes, 'ig');
+      var quotestest = quotesreg.test(bodytext);
       var regex = new RegExp(querytext, 'ig');
-      var newtext = bodytext.replace(regex, url)
-      document.getElementById("body").innerHTML = newtext;
+      var regtest = regex.test(bodytext);
+     if (quotestest == false){
+        var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+        var newtext = bodytext.replace(regex, url);
+        document.getElementById("body").innerHTML = newtext;
+    }
     }
     replace(foundlink);
 
