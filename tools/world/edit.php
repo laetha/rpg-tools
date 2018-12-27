@@ -281,7 +281,13 @@ display:none;
                <!-- 'NPC title' Dropbox -->
                <div class="col-sm-6 typebox col-centered" id="npc-title">
                      <div class="text">Title</div>
-                       <div class="text"><input form="import" class="textbox" type="text" name="npc-title" id="title-form" placeholder="Title..."></div>
+                     <?php
+                     $titledrop = "SELECT * FROM world WHERE id LIKE '$editid'";
+                     $titledata = mysqli_query($dbcon, $titledrop) or die('error getting data');
+                     while($titlerow =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+                       echo ('<div class="text"><input form="import" class="textbox" type="text" name="npc-title" id="title-form" value="'.$titlerow['npc_title'].'"></div>');
+                     }
+                     ?>
                    </div>
 
        </div>
