@@ -29,9 +29,11 @@ echo ('<script>window.location.replace("/oops.php"); </script>');
   $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+    $sidebartype = $row['type'];
    echo $row['title'];
    $title = $row['title'];
    $deleteid = $row['id'];
+    $qu = $row['body'].'0';
    ?>
  </div>
  <?php
@@ -43,6 +45,29 @@ if ($row['coord'] != '') {
 
  <?php
  }
+ if ($sidebartype == 'questline'){
+ echo ('<ul class="body sidebartext col-xs-12">');
+
+ $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
+ $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
+ $num = 1;
+ while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+   $shorttitle = substr($titlerow['title'], strlen($qu));
+   echo ('<li><a href="#quest'.$num.'">'.$shorttitle.'</a></li>');
+   $num++;
+   //echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
+}
+echo ('</ul>');
+}
+//Questline NPCs
+if ($sidebartype == "quest") {
+    $questpre = substr($id, 0, strpos($id, '0'));
+    $questline = "SELECT * FROM world WHERE type LIKE 'questline' AND body LIKE '$questpre'";
+    $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
+    while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+      echo ('<div class="body sidebartext col-xs-12"><a href="/tools/world/world.php?id='.$titlerow['title'].'">'.$titlerow['title'].'</a></div>');
+    }
+}
   ?>
 
   <div class="body sidebartext col-xs-12" id="body">
@@ -52,7 +77,7 @@ if ($row['coord'] != '') {
         $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-          $sidebartype = $row['type'];
+          //$sidebartype = $row['type'];
           $esttype = $row['est_type'];
           $jpgurl = 'uploads/'.$stripid.'.jpg';
           $pngurl = 'uploads/'.$stripid.'.png';
@@ -82,11 +107,35 @@ if ($row['coord'] != '') {
 
 
               }
-              if ($sidebartype == "questline"){
-                echo ('Quest Code: ');
-                $qu = $row['body'].'0';
-                echo $row['body'];
+
+
+                if ($sidebartype == "questline") {
+                  echo ('Quest Code: ');
+                  $qu = $row['body'].'0';
+                  echo $row['body'];
+              /*    echo ('<ul>');
+                  $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
+                  $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
+                  $num = 1;
+                  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+                    $shorttitle = substr($titlerow['title'], strlen($qu));
+                    echo ('<li><a href="#quest'.$num.'">'.$shorttitle.'</a></li>');
+                    $num++;
+                    //echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
+                }
+                echo ('</ul>');*/
+
+                  $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
+                  $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
+                  $num1 = 1;
+                  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+                    echo ('<h3 style="border-bottom: 2px solid white;" id="quest'.$num1.'">'.$titlerow['title'].'</h3>');
+                    echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
+                    $num1++;
+                }
               }
+
+
               else {
               echo ('<p>'.$Parsedown->text(nl2br($row['body'])).'</p>');
 }
@@ -172,31 +221,7 @@ echo ("Deleted $photoname");
     <div class="body bodytext col-xs-12" id="body2">
 
 
-      <!--Questline NPCs-->
-      <?php
-      if ($sidebartype == "questline") {
-        echo ('<ul>');
-        $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
-        $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
-        $num = 1;
-        while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
-          $shorttitle = substr($titlerow['title'], strlen($qu));
-          echo ('<li><a href="#quest'.$num.'">'.$shorttitle.'</a></li>');
-          $num++;
-          //echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
-      }
-      echo ('</ul>');
 
-        $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
-        $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
-        $num1 = 1;
-        while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
-          echo ('<a href="/tools/world/world.php?id='.$titlerow['title'].'"><h3 style="border-bottom: 2px solid white;" id="quest'.$num1.'">'.$titlerow['title'].'</h3></a>');
-          echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
-          $num1++;
-      }
-    }
-?>
   <!--Settlement NPCs-->
   <?php
   if ($sidebartype == "settlement") {
