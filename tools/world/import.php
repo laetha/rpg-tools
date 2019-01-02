@@ -44,6 +44,33 @@ include_once($headpath);
         </script>
       </p>
       </div>
+
+      <div class="col-sm-6 typebox col-centered" id="npc-type">
+            <p class="text">Code
+
+              <select form="import" required="yes" name="code" id="code" onchange="codeForm(this);">
+                <option value="">None...</option>
+                <?php
+                $typeedit = "SELECT code FROM `world`";
+                $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+                while($typerow =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+                  $code = $typerow['code'];
+                  $codeUpper = ucwords($code);
+                  echo "<option value=\"$code\">$code</option>";
+                }
+
+               ?>
+              </select>
+              <script type="text/javascript">
+              $('#code').selectize({
+          create: true,
+          sortField: 'text'
+      });
+              </script>
+            </p>
+            </div>
+
+
       <!-- Different form for Different types -->
 <!-- Form Alteration Script -->
 <script type="text/javascript">

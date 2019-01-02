@@ -120,6 +120,32 @@ display:none;
                </script>
              </p>
              </div>
+
+             <div class="col-sm-6 typebox col-centered" id="code">
+                   <p class="text">Code
+                     <select form="import" name="code" id="code-form">
+                       <option value="">None...</option>
+                       <option value="<?php echo $editrow['code']; ?>" selected><?php echo $editrow['code']; ?></option>
+                       <?php
+                       $faithdrop = "SELECT code FROM `world`";
+                       $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
+                       while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
+                         $code = $deityrow['code'];
+                         echo "<option value=\"$code\">$code</option>";
+                       }
+                       ?>
+                     </select>
+                     <script type="text/javascript">
+                     $('#code-form').selectize({
+                 create: true,
+                 sortField: 'text'
+             });
+                     </script>
+                   </p>
+             </div>
+
+
+
        <!-- Different form for Different types -->
        <!-- Form Alteration Script -->
        <script type="text/javascript">

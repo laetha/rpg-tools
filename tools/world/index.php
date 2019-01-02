@@ -33,7 +33,7 @@ echo ('<script>window.location.replace("/oops.php"); </script>');
    echo $row['title'];
    $title = $row['title'];
    $deleteid = $row['id'];
-    $qu = $row['body'].'0';
+    $qu = $row['code'];
    ?>
  </div>
  <?php
@@ -48,7 +48,7 @@ if ($row['coord'] != '') {
  if ($sidebartype == 'questline'){
  echo ('<ul class="body sidebartext col-xs-12">');
 
- $questline = "SELECT * FROM world WHERE title LIKE '$qu%'";
+ $questline = "SELECT * FROM world WHERE AND code LIKE '$qu%'";
  $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
  $num = 1;
  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
