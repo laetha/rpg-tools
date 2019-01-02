@@ -48,7 +48,7 @@ if ($row['coord'] != '') {
  if ($sidebartype == 'questline'){
  echo ('<ul class="body sidebartext col-xs-12">');
 
- $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
+ $questline = "SELECT * FROM world WHERE title LIKE '$qu%'";
  $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
  $num = 1;
  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
