@@ -48,12 +48,12 @@ if ($row['coord'] != '') {
  if ($sidebartype == 'questline'){
  echo ('<ul class="body sidebartext col-xs-12">');
 
- $questline = "SELECT * FROM world WHERE AND code LIKE '$qu%'";
+ $questline = "SELECT * FROM world WHERE code LIKE '$qu%' AND type NOT LIKE 'questline'";
  $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
  $num = 1;
  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
-   $shorttitle = substr($titlerow['title'], strlen($qu));
-   echo ('<li><a href="#quest'.$num.'">'.$shorttitle.'</a></li>');
+   //$shorttitle = substr($titlerow['title'], strlen($qu));
+   echo ('<li><a href="#quest'.$num.'">'.$titlerow['title'].'</a></li>');
    $num++;
    //echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
 }
@@ -111,8 +111,8 @@ if ($sidebartype == "quest") {
 
                 if ($sidebartype == "questline") {
                   echo ('Quest Code: ');
-                  $qu = $row['body'].'0';
-                  echo $row['body'];
+                  $qu = $row['code'];
+                  echo $row['code'];
               /*    echo ('<ul>');
                   $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
                   $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
@@ -125,7 +125,7 @@ if ($sidebartype == "quest") {
                 }
                 echo ('</ul>');*/
 
-                  $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
+                  $questline = "SELECT * FROM world WHERE code LIKE '$qu%' AND type NOT LIKE 'questline'";
                   $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
                   $num1 = 1;
                   while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
