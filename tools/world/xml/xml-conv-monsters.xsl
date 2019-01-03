@@ -47,7 +47,7 @@
         </xsl:element>
       </xsl:for-each>
 
-      <xsl:for-each select="legendary">
+      <xsl:for-each select="monsterLegendary">
         <xsl:variable name="pos" select="position()"/>
       <xsl:element name="monsterLegendary{$pos}">
         <xsl:value-of select="name" />
