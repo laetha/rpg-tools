@@ -4230,7 +4230,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
     <table id="myNotes" class="table table-condensed table-striped table-responsive dt-responsive halftable" cellspacing="0" width="50%">
       <?php
       $notecount = 1;
-      $notestitle = "SELECT * FROM `notes` WHERE `user` LIKE '$charuser'";BRIAN
+      $notestitle = "SELECT * FROM `notes` WHERE `user` LIKE '$charuser'";
       $notesdata = mysqli_query($dbcon, $notestitle) or die('error getting data');
       while($notesrow =  mysqli_fetch_array($notesdata, MYSQLI_ASSOC)) {
           echo ('<tr><td><a class="featureName" data-toggle="collapse" href="#'.$notecount.'note">'.$notesrow['title'].'</a></td></tr>');

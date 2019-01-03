@@ -40,7 +40,14 @@
            </tfoot>
            <tbody>
              <?php
+             if ($loguser == 'tarfuin'){
+               $sqlcompendium = "SELECT * FROM notes";
+
+             }
+             else {
                $sqlcompendium = "SELECT * FROM notes WHERE user LIKE '$loguser'";
+
+             }
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
