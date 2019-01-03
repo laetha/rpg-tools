@@ -111,7 +111,7 @@ function editSheet() {
       die();
     }
    //echo $row['title'];
-   $cahruser = $row['user'];
+   $charuser = $row['user'];
    $title = $row['title'];
    $charID = $row['id'];
    $fullclass = $row['class1'];
@@ -4230,6 +4230,7 @@ echo ('<div class="featureDetails collapse" id="'.$featuretitlens.'show" name="'
     <table id="myNotes" class="table table-condensed table-striped table-responsive dt-responsive halftable" cellspacing="0" width="50%">
       <?php
       $notecount = 1;
+      echo $charuser;
       $notestitle = "SELECT * FROM `notes` WHERE `user` LIKE '$charuser'";
       $notesdata = mysqli_query($dbcon, $notestitle) or die('error getting data');
       while($notesrow =  mysqli_fetch_array($notesdata, MYSQLI_ASSOC)) {
