@@ -55,28 +55,17 @@ $player5 = 'Redferd';
 }
 
 if ($sirknight == 1){
-$player5 = 'Sir Knight';
+$player6 = 'Sir Knight';
 
 }
 
 if ($all == 1){
-
-$sql = "UPDATE world SET pc_xp = pc_xp + $xp WHERE type LIKE 'player character'";
-
-if ($dbcon->query($sql) === TRUE) {
-	?>
-<script type="text/javascript">
-window.location.href = 'lvlprocess.php';
-</script>
-<?php
-	die();
-}
-else {
-		echo "Error: " . $sql . "<br>" . $dbcon->error;
+	$player1 = 'Ciara';
+	$player2 = 'Riordan';
+	$player4 = 'Quynn';
+	$player5 = 'Redferd';
 }
 
-}
-else {
 	$sql = "UPDATE world SET pc_xp = pc_xp + $xp WHERE title LIKE '$player1' OR title LIKE '$player2' OR title LIKE '$player3' OR title LIKE '$player4' OR title LIKE '$player5' OR title LIKE '$player6'";
 	if ($dbcon->query($sql) === TRUE) {
 		?>
@@ -89,6 +78,6 @@ else {
 	else {
 			echo "Error: " . $sql . "<br>" . $dbcon->error;
 	}
-}
+
 
 ?>
