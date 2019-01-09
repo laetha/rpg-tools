@@ -593,7 +593,7 @@ color: #3D6D8D;
 }
 
 .grid-item img {
-  /* Just in case there are inline attributes */
+   Just in case there are inline attributes
   width: 100% !important;
   height: auto !important;
 }
@@ -627,8 +627,8 @@ color: #3D6D8D;
   }
 }
 
-.grid-item { width: 200px; }
-.grid-item--width2 { width: 400px; }
+.grid-item { width: 25%; }
+.grid-item--width2 { width: 50%; }
 
 .imgbox {
 	position: relative;
