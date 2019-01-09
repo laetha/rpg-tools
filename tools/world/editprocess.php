@@ -50,6 +50,14 @@ $newfilename = $name . '.' . end($temp);
 if (end($temp) == 'jpg' OR end($temp) == 'png') {
 $newfilename1 = str_replace("'", "", $newfilename);
 $newfilename1 = stripslashes($newfilename1);
+$OGname = $name;
+$i = 1;
+while(file_exists('uploads/'.$newfilename1))
+{
+    $OGname = (string)$OGname.$i;
+    $newfilename1 = $OGname.".".end($temp);
+    $i++;
+}
 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename1);
 }
 

@@ -431,7 +431,7 @@ display:none;
            }
            else if (file_exists($pngurl)){
              ?>
-             <img src="uploads/<?php echo $id?>.jpg" style="width:100px;">
+             <img src="uploads/<?php echo $id?>.png" style="width:100px;">
            <?php } ?>
            </div>
            <input class="col-centered" type="file" name="fileToUpload" id="fileToUpload">
