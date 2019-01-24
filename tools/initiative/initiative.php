@@ -741,8 +741,8 @@ else if (initDiv11 === "-5"){
         <input class="textbox1" name="namePlayer1" id="namePlayer1" value="Ciara"><input class="textbox1" type="text" name="initPlayer1" id="initPlayer1" value="">
         <button class="btn btn-info" onclick="addPlayer1()">Add</button>
 
-        <input class="textbox1" name="namePlayer2" id="namePlayer2" value="Sir Knight"><input class="textbox1" type="text" name="initPlayer2" id="initPlayer2" value="">
-        <button class="btn btn-info" onclick="addPlayer2()">Add</button>
+        <!--<input class="textbox1" name="namePlayer2" id="namePlayer2" value="Sir Knight"><input class="textbox1" type="text" name="initPlayer2" id="initPlayer2" value="">
+        <button class="btn btn-info" onclick="addPlayer2()">Add</button>-->
 
         <input class="textbox1" name="namePlayer3" id="namePlayer3" value="Quynn"><input class="textbox1" type="text" name="initPlayer3" id="initPlayer3" value="">
         <button class="btn btn-info" onclick="addPlayer3()">Add</button>
@@ -750,7 +750,7 @@ else if (initDiv11 === "-5"){
         <input class="textbox1" name="namePlayer4" id="namePlayer4" value="Riordan"><input class="textbox1" type="text" name="initPlayer4" id="initPlayer4" value="">
         <button class="btn btn-info" onclick="addPlayer4()">Add</button>
 
-        <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Threads"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="">
+        <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Redferd"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="">
         <button class="btn btn-info" onclick="addPlayer5()">Add</button>
 
         <input class="textbox1" name="namePlayer6" id="namePlayer6" value=""><input class="textbox1" type="text" name="initPlayer6" id="initPlayer6" value="">
