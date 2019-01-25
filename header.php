@@ -30,7 +30,7 @@ else {
 		<link rel="stylesheet" type="text/css" href="/style.css" />
 		<link rel="stylesheet" type="text/css" href="/selectize/css/selectize.default.css" />
 
-	
+
 		<title><?php echo $pgtitle; ?>DnD Tools</title>
 		<?php
 		/*$handle = opendir(dirname(realpath(__FILE__)).'/assets/images/bg/');
@@ -190,7 +190,7 @@ else {
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 						<?php
 						if ($friend == 1) { ?>
-				<li><a href="/tools/questboard/questboard.php">Quest Board</a></li>
+			<!--	<li><a href="/tools/questboard/questboard.php">Quest Board</a></li> -->
 				<?php
 			}
 			?>
