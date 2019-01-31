@@ -176,6 +176,7 @@ else {
 							<li><a href="/tools/world/workspace.php">Workspace</a></li>
 							<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 							<li><a href="/tools/generator/generator.php">Random Generator</a></li>
+
 							<li>
 <?php if ($loguser == 'tarfuin') {
 							echo ('<a href="/tools/resources/toc.php">Resources</a>');
@@ -185,8 +186,11 @@ else {
 	}
 	?>
 							</li>
+							<li><a href="/tools/generator/spell-generator.php">Spell Generator</a></li>
+							<li><a href="/tools/generator/encounter-builder.php">Encounter Builder</a></li>
 
 						</ul>
+
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
 						<?php
 						if ($friend == 1) { ?>
