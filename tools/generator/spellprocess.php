@@ -7,19 +7,19 @@ $spellClass =$_REQUEST['spellClass'];
 $spellLevel = $_REQUEST['spellLevel'];
 
 if ($spellClass !== 'all' && $spellLevel !== 'all'){
-$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellClasses LIKE '%$spellClass%' AND spellLevel LIKE '$spellLevel' ORDER BY rand() LIMIT 1";
+$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellClasses LIKE '%$spellClass%' AND spellLevel LIKE '$spellLevel' AND spellClasses NOT LIKE '%Eldritch Invocations%' AND spellClasses NOT LIKE '%Mystic%' ORDER BY rand() LIMIT 1";
 $spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
 }
 else if ($spellClass !== 'all' && $spellLevel == 'all'){
-	$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellClasses LIKE '%$spellClass%' ORDER BY rand() LIMIT 1";
+	$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellClasses LIKE '%$spellClass%' AND spellClasses NOT LIKE '%Eldritch Invocations%' AND spellClasses NOT LIKE '%Mystic%' ORDER BY rand() LIMIT 1";
 	$spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
 }
 else if ($spellClass == 'all' && $spellLevel !== 'all'){
-	$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellLevel LIKE '$spellLevel' ORDER BY rand() LIMIT 1";
+	$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellLevel LIKE '$spellLevel' AND spellClasses NOT LIKE '%Eldritch Invocations%' AND spellClasses NOT LIKE '%Mystic%' ORDER BY rand() LIMIT 1";
 	$spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
 }
 else {
-	$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' ORDER BY rand() LIMIT 1";
+	$spelltitle = "SELECT * FROM `compendium` WHERE type LIKE 'spell' AND spellClasses NOT LIKE '%Eldritch Invocations%' AND spellClasses NOT LIKE '%Mystic%' ORDER BY rand() LIMIT 1";
 	$spelldata = mysqli_query($dbcon, $spelltitle) or die('error getting data');
 }
 while($row =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
@@ -37,6 +37,7 @@ while($row =  mysqli_fetch_array($spelldata, MYSQLI_ASSOC)) {
 	echo ('<strong>Class:</strong> '.$row['spellClasses'].'<p style="margin-top:10px;">');
 	echo nl2br($row['text']);
 	echo ('</div>');
+
 }
 
 //Footer
