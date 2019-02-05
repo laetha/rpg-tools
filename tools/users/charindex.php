@@ -4351,7 +4351,8 @@ function longrest() {
              }
          });
         };
-
+</script>
+<script>
       	$('#itemSearch').selectize({
 				onChange: function(value){
           if (value !== ""){
