@@ -130,14 +130,16 @@ if ($sidebartype == "quest") {
                   $num1 = 1;
                   while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
                     echo ('<h3 style="border-bottom: 2px solid white;" id="quest'.$num1.'">'.$titlerow['title'].'</h3>');
-                    echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
+                    echo ('<div class="sidebartext">'.$Parsedown->setBreaksEnabled(true) # enables automatic line breaks
+                    ->text($titlerow['body']).'</div>');
                     $num1++;
                 }
               }
 
 
               else {
-              echo ('<p>'.$Parsedown->text(nl2br($row['body'])).'</p>');
+                $Parsedown->setBreaksEnabled(true);
+              echo ('<p>'.$Parsedown->text($row['body']).'</p>');
 }
 
 
