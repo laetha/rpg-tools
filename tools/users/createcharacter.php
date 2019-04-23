@@ -296,7 +296,7 @@ jQuery.fn.toggleOption = function( show ) {
       </div>
     </div>
   </div>
-<div class="hide">
+
 <div class="sidebartext" id="charName"></div>
 <div class="sidebartext" id="charRace"></div>
 <div class="sidebartext" id="charClass"></div>
@@ -315,7 +315,7 @@ jQuery.fn.toggleOption = function( show ) {
 <div id="classprof3"></div>
 <div id="classprof0"></div>
 <div id="classprofs"></div>
-</div>
+
 
 
 
