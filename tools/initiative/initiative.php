@@ -744,10 +744,10 @@ else if (initDiv11 === "-5"){
         <!--<input class="textbox1" name="namePlayer2" id="namePlayer2" value="Sir Knight"><input class="textbox1" type="text" name="initPlayer2" id="initPlayer2" value="">
         <button class="btn btn-info" onclick="addPlayer2()">Add</button>-->
 
-        <input class="textbox1" name="namePlayer3" id="namePlayer3" value="Quynn"><input class="textbox1" type="text" name="initPlayer3" id="initPlayer3" value="">
+        <input class="textbox1" name="namePlayer3" id="namePlayer3" value="Garfire"><input class="textbox1" type="text" name="initPlayer3" id="initPlayer3" value="">
         <button class="btn btn-info" onclick="addPlayer3()">Add</button>
 
-        <input class="textbox1" name="namePlayer4" id="namePlayer4" value="Riordan"><input class="textbox1" type="text" name="initPlayer4" id="initPlayer4" value="">
+        <input class="textbox1" name="namePlayer4" id="namePlayer4" value="AC3"><input class="textbox1" type="text" name="initPlayer4" id="initPlayer4" value="">
         <button class="btn btn-info" onclick="addPlayer4()">Add</button>
 
         <input class="textbox1" name="namePlayer5" id="namePlayer5" value="Redferd"><input class="textbox1" type="text" name="initPlayer5" id="initPlayer5" value="">
