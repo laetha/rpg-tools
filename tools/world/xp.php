@@ -69,7 +69,7 @@
                </tfoot>
                <tbody>
                  <?php
-                   $sqlcompendium = "SELECT * FROM world WHERE type LIKE 'player character'";
+                   $sqlcompendium = "SELECT * FROM world WHERE type LIKE 'player character' AND worlduser LIKE '$loguser'";
                    $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                    while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                    echo ('<tr><td>');
