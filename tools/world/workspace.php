@@ -10,9 +10,9 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
-   if ($loguser !== 'tarfuin') {
+   /*if ($loguser !== 'tarfuin') {
    echo ('<script>window.location.replace("/oops.php"); </script>');
-   }
+ }*/
 
 ?>
 <div class="mainbox">
@@ -99,7 +99,7 @@ function displayToggle() {
 <option value="campaignlog6">Campaign Log</option>
 <option value="generator7">Random Generator</option>
 <option value="Initiative8">Initiative</option>   <?php
-  $searchdrop = "SELECT title FROM world";
+  $searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
   $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
   while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
     $search = $searchrow['title'];
@@ -138,7 +138,7 @@ function displayToggle() {
 <option value="campaignlog6">Campaign Log</option>
 <option value="generator7">Random Generator</option>
 <option value="Initiative8">Initiative</option><?php
-$searchdrop = "SELECT title FROM world";
+$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
   $search = $searchrow['title'];
@@ -176,7 +176,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <option value="campaignlog6">Campaign Log</option>
 <option value="generator7">Random Generator</option>
 <option value="Initiative8">Initiative</option><?php
-$searchdrop = "SELECT title FROM world";
+$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
   $search = $searchrow['title'];
@@ -215,7 +215,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <option value="campaignlog6">Campaign Log</option>
 <option value="generator7">Random Generator</option>
 <option value="Initiative8">Initiative</option><?php
-$searchdrop = "SELECT title FROM world";
+$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
   $search = $searchrow['title'];
@@ -253,7 +253,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <option value="gmnotes5">GM Notes</option>
 <option value="campaignlog6">Campaign Log</option>
 <option value="generator7">Random Generator</option><?php
-$searchdrop = "SELECT title FROM world";
+$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
   $search = $searchrow['title'];
@@ -291,7 +291,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <option value="gmnotes5">GM Notes</option>
 <option value="campaignlog6">Campaign Log</option>
 <option value="generator7">Random Generator</option><?php
-$searchdrop = "SELECT title FROM world";
+$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
 $searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
   $search = $searchrow['title'];

@@ -11,10 +11,13 @@ $datetemp=$_POST['logdate'];
 $entrytemp=$_POST['logentry'];
 $coordtemp=$_POST['logcoord'];
 $maptemp=$_POST['logmap'];
+$worldusertemp=$_POST['worlduser'];
+
 $date=htmlentities(trim(addslashes($datetemp)));
 $entry=htmlentities(trim(addslashes($entrytemp)));
 $coord=htmlentities(trim(addslashes($coordtemp)));
 $map=htmlentities(trim(addslashes($maptemp)));
+$worlduser=htmlentities(trim(addslashes($worldusertemp)));
 
 //Execute the query
 if ($map == 1){
@@ -36,8 +39,8 @@ if ($map == 1){
 
 }
 else {
-$sql = "INSERT INTO campaignlog(date,entry,active,coord)
-				VALUES('$date','$entry',1,'$coord')";
+$sql = "INSERT INTO campaignlog(date,entry,active,coord,worlduser)
+				VALUES('$date','$entry',1,'$coord','$worlduser')";
 
         if ($dbcon->query($sql) === TRUE) {
 					?>

@@ -9,9 +9,9 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
-   if ($loguser !== 'tarfuin') {
+   /*if ($loguser !== 'tarfuin') {
    echo ('<script>window.location.replace("/oops.php"); </script>');
-   }
+ }*/
    ?>
    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js" type="text/javascript"></script>
    <script src="https://cdn.datatables.net/1.10.16/js/dataTables.bootstrap.min.js" type="text/javascript"></script>
@@ -40,7 +40,7 @@
            </tfoot>
            <tbody>
              <?php
-               $sqlcompendium = "SELECT * FROM world WHERE type LIKE 'faction'";
+               $sqlcompendium = "SELECT * FROM world WHERE type LIKE 'faction' AND worlduser LIKE '$loguser'";
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');

@@ -19,7 +19,7 @@ include_once($headpath);
       <div class="text">Name</div><input class="textbox" type="text" name="name" id="name" placeholder="Name...">
 </div>
 <!-- 'Type' Dropbox -->
-
+<div class="hide"><input type="text" name="worlduser" id="worlduser" value="<?php echo $loguser; ?>"></div>
 <div class="col-sm-6 typebox col-centered" id="npc-type">
       <p class="text">Type
 

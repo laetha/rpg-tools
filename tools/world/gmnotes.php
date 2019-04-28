@@ -9,9 +9,9 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
-   if ($loguser !== 'tarfuin') {
+   /* if ($loguser !== 'tarfuin') {
    echo ('<script>window.location.replace("/oops.php"); </script>');
-   }
+ }*/
    ?>
    <?php
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];
@@ -38,7 +38,7 @@
 
          <div class="text col-centered col-md-12" style="padding-left:2%; padding-right:2%;"><textarea type="text" name="gmnote" id="gmnote" placeholder="Enter notes here..." style="width:100%;">
            <?php
-           $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
+           $typeedit = "SELECT * FROM `gmnotes` WHERE worlduser LIKE '$loguser'";
            $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
            while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
            echo $row['note'];
@@ -51,7 +51,7 @@
 </div>
    <div class="body sidebartext col-xs-12" id="body">
      <?php
-     $typeedit = "SELECT * FROM `gmnotes` WHERE id LIKE '1'";
+     $typeedit = "SELECT * FROM `gmnotes` WHERE worlduser LIKE '$loguser'";
      $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
      while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
      echo $Parsedown->text(nl2br($row['note']));
@@ -64,7 +64,7 @@
 
  <!-- Search and add hyperlinks -->
    <?php
-     $sqlworld = "SELECT * FROM world";
+     $sqlworld = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
      $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
      while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
      $temp = $linkrow['title'];

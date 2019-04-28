@@ -2,9 +2,9 @@
 $sqlpath = $_SERVER['DOCUMENT_ROOT'];
 $sqlpath .= "/plugins/Parsedown.php";
 include_once($sqlpath);
-if ($loguser !== 'tarfuin') {
+/*if ($loguser !== 'tarfuin') {
 echo ('<script>window.location.replace("/oops.php"); </script>');
-}
+}*/
  ?>
 
  <?php  $Parsedown = new Parsedown();
@@ -29,6 +29,9 @@ echo ('<script>window.location.replace("/oops.php"); </script>');
   $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+    if ($loguser !== $row['worlduser']) {
+    echo ('<script>window.location.replace("/oops.php"); </script>');
+    }
     $sidebartype = $row['type'];
    echo $row['title'];
    $title = $row['title'];
@@ -74,7 +77,7 @@ if ($sidebartype == "quest") {
 
     <!-- Body Text -->
       <?php
-        $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id'";
+        $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '$id' AND worlduser LIKE '$loguser'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           //$sidebartype = $row['type'];
@@ -719,7 +722,7 @@ function modalChange(value) {
     <div class="row col-md-12 sidebartext" id="logref">
     <?php
     $temptitle = str_replace("'", "''", $title);
-    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 ORDER BY date DESC";
+    $logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 AND worlduser LIKE '$loguser' ORDER BY date DESC";
     $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
     $logshow = 1;
     while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
@@ -750,7 +753,7 @@ function modalChange(value) {
       <div class="row col-md-12 sidebartext">
       <?php
       $temptitle = str_replace("'", "''", $title);
-      $logs = "SELECT * FROM world WHERE body LIKE '%$temptitle%'";
+      $logs = "SELECT * FROM world WHERE body LIKE '%$temptitle%' AND worlduser LIKE '$loguser'";
       $logdata = mysqli_query($dbcon, $logs) or die('error getting data');
       $logshow = 1;
       while($logrow = mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
@@ -969,7 +972,7 @@ trigger: 'focus'
 
 <!-- Search and add hyperlinks -->
   <?php
-    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '$id'";
+    $sqlworld = "SELECT * FROM world WHERE title NOT LIKE '$id' AND worlduser LIKE '$loguser'";
     $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
     while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
     $temp = $linkrow['title'];
@@ -997,7 +1000,7 @@ trigger: 'focus'
   ?>
   <!-- Search and add hyperlinks -->
     <?php
-      $sqlworld = "SELECT title FROM world";
+      $sqlworld = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
       $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
       while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
       $temp = $linkrow['title'];

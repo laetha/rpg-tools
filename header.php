@@ -101,15 +101,15 @@ else {
 					<select id="search">
 					<option value=""></option>
 					<?php
-					if ($loguser == 'tarfuin') {
-					$searchdrop = "SELECT title FROM world";
+					//if ($loguser == 'tarfuin') {
+					$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
 					$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
 					while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
 						$search = $searchrow['title'];
 						$searchvalue = $search.'1';
 						echo "<option value=\"$searchvalue\">$search</option>";
 					}
-				}
+				//}
 					?>
 					<?php
 					$searchdrop1 = "SELECT title FROM compendium";
@@ -131,7 +131,7 @@ else {
 					?>
 					</select>
 				</li>
-				<?php if ($loguser == 'tarfuin') { ?>
+				<?php // if ($loguser == 'tarfuin') { ?>
 				<li class="dropdown">
 				<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">World(DM)<span class="caret"></span></a>
 				<ul class="dropdown-menu">
@@ -155,7 +155,7 @@ else {
 					<li><a href="/tools/world/publicquest.php">Public Quests</a></li>
 
 				</ul>
-			<?php } ?>
+			<?php // } ?>
 				<li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Compenium<span class="caret"></span></a>
           <ul class="dropdown-menu">

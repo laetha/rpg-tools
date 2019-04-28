@@ -9,9 +9,9 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
-   if ($loguser !== 'tarfuin') {
+   /*if ($loguser !== 'tarfuin') {
    echo ('<script>window.location.replace("/oops.php"); </script>');
-   }
+ }*/
 ?>
 
 <!-- Scripts and CSS -->
@@ -38,6 +38,7 @@ crossorigin=""></script>
     <div id="adddiv" style="display:none;">
       <div class="row">
       <form method="post" action="logprocess.php" id="logadd">
+        <div class="hide" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="worlduser" id="worlduser" value="<?php echo $loguser; ?>"></div>
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
         <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
         <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
@@ -78,7 +79,7 @@ crossorigin=""></script>
     </tfoot>
     <tbody id="thelog">
       <?php
-      $logtitle = "SELECT * FROM campaignlog WHERE active=1 ORDER BY date DESC ";
+      $logtitle = "SELECT * FROM campaignlog WHERE active=1 AND worlduser LIKE '$loguser' ORDER BY date DESC ";
       $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
       while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');

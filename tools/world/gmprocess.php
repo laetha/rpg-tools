@@ -16,7 +16,7 @@ $note=htmlentities(trim(addslashes($notetemp)));
 //Execute the query
 $sql = "UPDATE gmnotes
 SET note = '$note'
-WHERE id = 1";
+WHERE worlduser LIKE '$loguser'";
 
         if ($dbcon->query($sql) === TRUE){
 					?>
