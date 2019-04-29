@@ -33,12 +33,20 @@
 
          </div>
          <div class="row">
-           <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="ciara" value="1">Ciara</div>
-           <!-- <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="frukas" value="1">Frukas</div> -->
+           <?php
+           $sqlcompendium = "SELECT * FROM world WHERE type LIKE 'player character' AND worlduser LIKE '$loguser' AND active=1";
+           $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+           $playernum = 1;
+           while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+             echo ('<div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="player'.$playernum.'" value="'.$row['title'].'">'.$row['title'].'</div>');
+             $playernum++;
+           }
+           ?>
+           <!-- <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="frukas" value="1">Frukas</div>
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="garfire" value="1">Garfire</div>
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="ac3" value="1">AC3</div>
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="redferd" value="1">Redferd</div>
-           <!-- <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="sirknight" value="1">Sir Knight</div> -->
+           <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="sirknight" value="1">Sir Knight</div>-->
            <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="all" value="1">All</div>
          </div>
          <div class="row">

@@ -73,6 +73,7 @@ if ($sidebartype == "quest") {
 }
   ?>
 
+
   <div class="body sidebartext col-xs-12" id="body">
 
     <!-- Body Text -->
@@ -86,10 +87,114 @@ if ($sidebartype == "quest") {
           $pngurl = 'uploads/'.$stripid.'.png';
 
           if ($sidebartype == "player character") {
+            if ($row['active'] == 1){ ?>
+              <script>
+              $( document ).ready(function() {
+              $('#deactiveButton').show();
+              $('#activeButton').hide();
+              //on the click of the submit button
+              $("#deactiveButton").click(function(){
+               //get the form values
+               var dtitle = $('#dtitle').val();
+               var dtype = $('#dtype').val();
+               var duser = $('#duser').val();
+
+
+               //make the postdata
+               //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)
+
+               $.ajax({
+                  url : 'deactiveprocess.php',
+                  type: 'GET',
+                  data : { "title" : dtitle, "type" : dtype, "worlduser" : duser },
+                  success: function()
+                  {
+                      //if success then just output the text to the status div then clear the form inputs to prepare for new data
+                      $('#activeButton').show();
+                      $('#deactiveButton').hide();
+                      location.reload();
+
+                  },
+                  error: function (jqXHR, status, errorThrown)
+                  {
+                      //if fail show error and server status
+                      $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+                  }
+              });
+              });
+            });
+              </script>
+              <?php
+            }
+            else {
+               ?>
+
+              <script>
+              $( document ).ready(function() {
+              $('#activeButton').show();
+              $('#deactiveButton').hide();
+
+                        //on the click of the submit button
+              $("#activeButton").click(function(){
+
+               //get the form values
+               var atitle = $('#atitle').val();
+               var atype = $('#atype').val();
+               var auser = $('#auser').val();
+
+
+               //make the postdata
+               //call your input.php script in the background, when it returns it will call the success function if the request was successful or the error one if there was an issue (like a 404, 500 or any other error status)
+
+               $.ajax({
+                  url : 'activeprocess.php',
+                  type: 'GET',
+                  data : { "title" : atitle, "type" : atype, "worlduser" : auser },
+                  success: function()
+                  {
+                      //if success then just output the text to the status div then clear the form inputs to prepare for new data
+                      $('#deactiveButton').show();
+                      $('#activeButton').hide();
+                      location.reload();
+
+                  },
+                  error: function (jqXHR, status, errorThrown)
+                  {
+                      //if fail show error and server status
+                      $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+                  }
+              });
+            });
+          });
+              </script>
+              <?php
+            }
+            ?>
+
+            <?php
+            echo ('<form onSubmit="return false" id="deactiveForm" style="display:inline-block; margin-left: 20px;">');
+            echo ('<input type="hidden" name="dtitle" id="dtitle" value="'.$title.'">');
+            echo ('<input type="hidden" name="dtype" id="dtype" value="'.$row['type'].'">');
+            echo ('<input type="hidden" name="duser" id="duser" value="'.$loguser.'">');
+            echo ('<button type="submit" id="deactiveButton" name="deactiveButton" class="btn btn-success">De-Activate</button>');
+            echo ('</form>');
+
+
+
+            echo ('<form onSubmit="return false" id="activeForm" style="display:inline-block; margin-left: 20px;">');
+            echo ('<input type="hidden" name="atitle" id="atitle" value="'.$title.'">');
+            echo ('<input type="hidden" name="atype" id="atype" value="'.$row['type'].'">');
+            echo ('<input type="hidden" name="auser" id="auser" value="'.$loguser.'">');
+            echo ('<button type="submit" id="activeButton" name="activeButton" class="btn btn-success">Activate</button>');
+            echo ('</form>');
+            echo ('<br>');
             echo('Level: '.$row['pc_lvl'].'<br />');
             echo('XP: '.$row['pc_xp'].'<br />');
+?>
 
-          }
+
+
+<?php        }
 
 
 
