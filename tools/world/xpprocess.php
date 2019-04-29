@@ -75,7 +75,7 @@ $player8 = 'AC3';
 
 if ($all == 1){
 	$player1 = 'Ciara';
-	$player2 = 'Riordan';
+	$player2 = 'Redferd';
 	$player4 = 'Garfire';
 	$player5 = 'AC3';
 }

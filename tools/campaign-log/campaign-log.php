@@ -42,8 +42,8 @@ crossorigin=""></script>
         <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
         <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
         <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
-        <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
-          <button type="button" class="btn btn-primary" onclick="myGen()">Gen</button></div>
+        <!--<div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
+          <button type="button" class="btn btn-primary" onclick="myGen()">Gen</button></div>-->
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
@@ -177,8 +177,9 @@ var table = $('#campaignlog').DataTable(
   margin-bottom: 10px;
 }
 </style>
-
+<?php if ($loguser == 'tarfuin'){ ?>
 <div id="image-map"></div>
+<?php } ?>
 <script>
 // Using leaflet.js to pan and zoom a big image.
 // See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
