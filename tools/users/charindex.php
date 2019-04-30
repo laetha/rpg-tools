@@ -4394,7 +4394,7 @@ function longrest() {
             );
 
         } );
-  /*      $(document).ready(function() {
+        $(document).ready(function() {
 
             // DataTable
             var table = $('#mySpells').DataTable(
