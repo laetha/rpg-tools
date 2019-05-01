@@ -149,6 +149,235 @@
 		
 	</monster>
 	
+		<monster>
+		<title>Archon of the Triumverate</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>celestial</monsterType>
+		<monsterAlignment>lawful neutral</monsterAlignment>
+		<monsterAc>18</monsterAc>
+		<monsterHp>144 (17d8 + 68) </monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>20</monsterStr><monsterDex>15</monsterDex><monsterCon>19</monsterCon><monsterInt>15</monsterInt><monsterWis>21</monsterWis><monsterCha>18</monsterCha>
+		<monsterSave>Con +9, Wis +10, Cha +9</monsterSave>
+		<monsterSkill>Insight +10, Perception +10</monsterSkill>
+		<monsterResist>bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune>charmed, exhaustion, frightened</monsterConditionImmune>
+		<monsterSenses>darkvision 120 ft</monsterSenses>
+		<monsterPassive>20</monsterPassive>
+		<monsterLanguages>all</monsterLanguages>
+		<monsterCr>14</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.192</text>
+		</trait>		<trait>
+			<name>Eye of the Law</name>
+			<text>As a bonus action, the arch on can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.</text>
+		</trait>
+		<trait>
+			<name>Innate Spellcasting</name>
+			<text>The archon's innate spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:
+			At will: calm emotions, command, compelled duel</text>
+		</trait>
+		<trait>
+			<name>Mount</name>
+			<text>If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</text>
+		</trait>
 		
+	
+		<action>
+			<name>Multiattack</name>
+			<text>The archon makes two Hammer of justice attacks</text>
+		</action>
+		<action>
+			<name>Hammer ofjustice.</name>
+			<text>Melee Weapon Attack: +10 to hit, reach S ft., one target . Hit: 12 (2d6 + 5) bludgeoni ng damage plus 18 (4d8) force damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</text>
+		</action>
+		<action>
+			<name>Pacifying Presence</name>
+			<text>Each creature of the archon's choice that the archon can see within 120 feet of it must succeed on a DC 18 Wisdom saving throw, or else the target drops any weapons it is holding, ends its concentration on any spells or other ef· fects, and becomes charmed by the archon for 1 minute. The charmed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the archon's Pacifying Presence for the next 24 hours.</text>
+		</action>
+		
+		<monsterLegendary>
+		<name>Rejoin Mount</name>
+		<text> If the archon isn't mounted, it magically teleports to its steed and mounts it as long as the archon and its steed are on the same plane of existence.</text>
+		</monsterLegendary>
+		<monsterLegendary>
+		<name>Smite (Costs 2 Actions).</name>
+		<text>The archon makes a Hammer of jus· tice attack, and then its mount can use it s reaction to make a melee weapon attack.</text>
+		</monsterLegendary>
+		<monsterLegendary>
+		<name>Detention (Costs 3 Actions)</name>
+		<text> The archon targets a creature it can see within 60 feet of it. The target must succeed on a DC 18 Charisma saving throw or be magically teleported to a harmless demiplane until the end of the archon's next turn, whereupon the target reappears in the space it left or the nearest unoccupied space if that space is occupied</text>
+		</monsterLegendary>
+		
+	</monster>
+	
+				<monster>
+		<title>Arclight Phoenix</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>elemental</monsterType>
+		<monsterAlignment>chaotic neutral</monsterAlignment>
+		<monsterAc>16</monsterAc>
+		<monsterHp>142 (19d8 + 57)</monsterHp>
+		<monsterSpeed>0 ft., fly 120 ft.</monsterSpeed>
+		<monsterStr>15</monsterStr><monsterDex>22</monsterDex><monsterCon>17</monsterCon><monsterInt>5</monsterInt><monsterWis>12</monsterWis><monsterCha>7</monsterCha>
+		<monsterSave>Dex+ 10</monsterSave>
+		<monsterSkill></monsterSkill>
+		<monsterResist>thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>lightning, poison</monsterImmune>
+		<monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, restrained, unconscious</monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.,</monsterSenses>
+		<monsterPassive>11</monsterPassive>
+		<monsterLanguages>--</monsterLanguages>
+		<monsterCr>12</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.193</text>
+		</trait>		
+		<trait>
+			<name>Flyby</name>
+			<text>The arclight phoenix doesn't provoke an opportunity at· tack when it flies out of an enemy's reach.</text>
+		</trait>
+		<trait>
+			<name>Grounded Lightning.</name>
+			<text> The first time on a turn that the arclight phoenix touches the ground, it takes 11 (2d10) force damage.</text>
+		</trait>
+		<trait>
+			<name>Illumination.</name>
+			<text>The arclight phoenix sheds bright light in a 1 S· foot radius and dim light for an additional 15 feet. </text>
+		</trait>
+		<trait>
+			<name>Lightning Form.</name>
+			<text>The arclight phoenix can move through a space as narrow as 1 inch wide without squeezing. A creature that touches the phoenix or hits it with a melee attack while within 5 feet of it takes 9 2d8) lightning damage. In addition, the arclight phoenix can enter a hostile creature's space and stop there. The first time it enters a creature's space on a turn, that creature takes 9 (2d8) lightning damage.</text>
+		</trait>
+		<trait>
+			<name>Crackling Death</name>
+			<text> When the arclight phoenix dies, it explodes. Each creature within 30 feet of it must make a DC 18 Dexterity saving throw, taking 36 (8d8) lightning damage on a failed save, or half as much damage on a successful one. The explo-sion destroys the phoenix but leaves behind a Tiny, warm egg with a mizzium shell.
+			The egg contains the embryo of a new arclight phoenix. It hatches when it is in the area of a spell that deals lightning damage, or if a creature touches the egg and expends spell slots whose combined levels equal 13 or more. When it hatches, the egg releases a new arclight phoenix that appears in the egg's space.</text>
+		</trait>
+	
+		<action>
+			<name>Arclight Touch</name>
+			<text>Melee Weapon Attack: + 10 to hit, reach 5ft., one target. Hit: 27 (6d8) lightning damage, and lightning jumps from the target to one creature of the phoenix's choice that it can see within 30 feet of the target. That second creature must succeed on a DC 18 Dexterity saving throw or take 27 (6d8) lightning damage.</text>
+		</action>
+		
+	</monster>
+	
+			<monster>
+		<title>Conclave Dryad</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>fey</monsterType>
+		<monsterAlignment>lawful good</monsterAlignment>
+		<monsterAc>16</monsterAc>
+		<monsterHp>143 (22d8 + 44) </monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>12</monsterStr><monsterDex>19</monsterDex><monsterCon>14</monsterCon><monsterInt>19</monsterInt><monsterWis>20</monsterWis><monsterCha>21</monsterCha>
+		<monsterSave>Int +8, Wis +9, Cha +9</monsterSave>
+		<monsterSkill>Arcana +8, Nature +8, Perception +9</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.,</monsterSenses>
+		<monsterPassive>19</monsterPassive>
+		<monsterLanguages>Common, Elvish, Sylvan</monsterLanguages>
+		<monsterCr>9</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.194</text>
+		</trait>		
+		<trait>
+			<name>Innate Spel/casting.</name>
+			<text>The dryad's innate spellcasting ability is Charisma (spell save DC 17). The dryad can innately cast the following spells, requiring no material components: 
+			At will: druidcraft 
+			3/day each: dispel magic, entangle, plant growth, spike growth
+			l/day each: moonbeam, grasping vine, wall of thorns</text>
+		</trait>
+		<trait>
+			<name>Magic Resistance.</name>
+			<text>The dryad has advantage on saving throws against spells and other magical effects</text>
+		</trait>
+		<trait>
+			<name>Speak with Beasts and Plants.</name>
+			<text>The dryad can communicate with beasts and plants as if they and the dryad shared a language.</text>
+		</trait>
+		
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The dryad makes three attacks, using its vine staff, its longbow, or both.</text>
+		</action>
+		<action>
+			<name>Vine Staff.</name>
+			<text>Melee Weapon Attack: +9 to hit, reach 5 ft ., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Dexterity saving th row or become restrained by twisting vines for l minute. A target restrained in this way can use an action to make a DC 17 Strength (Athletics) or Dexterity (Acrobatics) check, ending the effect on itself on a success.</text>
+		</action>
+		<action>
+			<name>Longbow.</name>
+			<text>Ranged Weapon Attack: +8 to hit, range 150/600 ft., one target. Hit: 8 (ld8 + 4) piercing damage.</text>
+		</action>
+		<action>
+			<name>Summon Mount (1/Day).</name>
+			<text>The dryad magically summons a mount, which appears in an unoccupied space within 60 feet of the dryad. The  mount remains for 8 hours, until it or the dryad dies, or until the d ryad dismisses it as an action. The mount uses the stat block of an elk (see the Monster Manual) with these changes: it is a plant instead of a beast, it has an Intel-ligence of 6, and it understands Sylvan but can't speak. While within 1 mile of the mount, the dryad can communicate with it telepathically.</text>
+		</action>
+		<action>
+			<name>Suppress Magic (Recharge 5-6)</name>
+			<text>The dryad targets one magic item it can see within 120 feet of it. If the magic item isn't an artifact, its magical properties are suppressed for 10 minutes, until the dryad is incapacitated or dies, or until the dryad uses a bonus action to end the effect.</text>
+		</action>
+		
+	</monster>
+	
+		<monster>
+		<title>Cackler</title>
+		<monsterSize>small</monsterSize>
+		<monsterType>fiend (demon)</monsterType>
+		<monsterAlignment>chaotic evil</monsterAlignment>
+		<monsterAc>15</monsterAc>
+		<monsterHp>10 (3d6)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>9</monsterStr><monsterDex>16</monsterDex><monsterCon>11</monsterCon><monsterInt>11</monsterInt><monsterWis>7</monsterWis><monsterCha>12</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill>Deception +3, Perception +0, Performance +3</monsterSkill>
+		<monsterResist>cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>poison</monsterImmune>
+		<monsterConditionImmune>poisoned</monsterConditionImmune>
+		<monsterSenses>darkvision 120 ft.,</monsterSenses>
+		<monsterPassive>10</monsterPassive>
+		<monsterLanguages>Abyssal, Common</monsterLanguages>
+		<monsterCr>0.5</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.195</text>
+		</trait>		
+		<trait>
+			<name>Innate Spellcasting.</name>
+			<text>The cackler's innate spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The cackler ca n innately cast the following spells, requiring no ma-terial components: 
+			At will:.fire bolt 
+			1/day: Tasha's hideous laughter </text>
+		</trait>
+		<trait>
+			<name>Last Laugh.</name>
+			<text>When the cackler dies, it releases a dying laugh that scars the minds of other nearby creatures. Each creature within 10 feet of the cackler must succeed on a DC 11 Wisdom saving throw or take 2 (1d4) psychic damage</text>
+		</trait>
+		<trait>
+			<name>Mimicry.</name>
+			<text>The cackler can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 11 Wisdom (Insight) check.</text>
+		</trait>
+		
+	
+		<action>
+			<name>Bite.</name>
+			<text>Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (l d4 + 3) piercing damage.</text>
+		</action>
+		<action>
+			<name>Spiked Chain.</name>
+			<text>Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 6 (ld6 + 3) slashing damage. </text>
+		</action>
+		
+		
+	</monster>
 
 </world>
