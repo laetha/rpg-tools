@@ -379,5 +379,120 @@
 		
 		
 	</monster>
+	
+	
+		<monster>
+		<title>Master of Cruelties</title>
+		<monsterSize>large</monsterSize>
+		<monsterType>fiend (demon)</monsterType>
+		<monsterAlignment>chaotic evil</monsterAlignment>
+		<monsterAc>18</monsterAc>
+		<monsterHp>127 (15d10 + 45)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>18</monsterStr><monsterDex>17</monsterDex><monsterCon>16</monsterCon><monsterInt>19</monsterInt><monsterWis>16</monsterWis><monsterCha>21</monsterCha>
+		<monsterSave>Con +7, Int +8, Wis +7, Cha +9</monsterSave>
+		<monsterSkill>Deception +9, Intimidation +9, Performance +9, Persuasion +9</monsterSkill>
+		<monsterResist>cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>poison</monsterImmune>
+		<monsterConditionImmune>poisoned</monsterConditionImmune>
+		<monsterSenses>truesight 120 ft.</monsterSenses>
+		<monsterPassive>13</monsterPassive>
+		<monsterLanguages>Abyssal, Common, telepathy 120 ft.</monsterLanguages>
+		<monsterCr>9</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.196</text>
+		</trait>		
+		<trait>
+			<name>Aura of Blood Lust</name>
+			<text>When any other creature starts its turn within 30 feet of the master, that creature must succeed on a DC 17 Wisdom saving throw, or it must immediately take the Attack action, making one melee attack against a random creature within reach. If no creatures are within reach, it makes a ranged attack against a random creature within range, throwing its weapon if necessary.</text>
+		</trait>
+		<trait>
+			<name>Feed on the Crowd.</name>
+			<text>Whenever a creature within 60 feet of the master dies, the master gains 15 temporary hit points and has advantage on all attack rolls, ability checks, and saving throws until the end of its next turn.</text>
+		</trait>
+		<trait>
+			<name>Innate Spellcasting.</name>
+			<text>The master's innate spellcasting ability is Charisma (spell save DC 17). The master can innately cast the following spells, requiring no material components:
+				At will: charm person (as a 3rd-level spell), crown of madness
+				l/day: dominate person</text>
+		</trait>
+		<trait>
+			<name>Magic Resistance.</name>
+			<text>The master has advantage on saving throws against spells and other magical effects</text>
+		</trait>
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The master makes two melee attacks with its spear.</text>
+		</action>
+		<action>
+			<name>Spear.</name>
+			<text>Melee or Ranged Weapon Attack: +8 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack, plus 13 (3d8) psychic damage</text>
+		</action>
+		<action>
+			<name>Captivating Presence (Recharge 6).</name>
+			<text>Each creature within 120 feet of the master must succeed on a DC 17 Wisdom saving throw or be charmed by the master for 1 hour. While charmed in this way, a creature's speed is 0. If the charmed creature takes damage, it can repeat the saving throw, ending the effect on itself on a success. A target that succeeds on the saving throw is immune to the Captivating Presence of all masters of cruelties for the next 24 hours.</text>
+		</action>
+		
+		
+	</monster>
+	
+	
+		<monster>
+		<title>Sire of Insanity</title>
+		<monsterSize>huge</monsterSize>
+		<monsterType>fiend (demon)</monsterType>
+		<monsterAlignment>chaotic evil</monsterAlignment>
+		<monsterAc>17</monsterAc>
+		<monsterHp>157 (15d12 + 60)</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>23</monsterStr><monsterDex>6</monsterDex><monsterCon>19</monsterCon><monsterInt>14</monsterInt><monsterWis>19</monsterWis><monsterCha>22</monsterCha>
+		<monsterSave>Con +8 , Int +6, Wis +8, Cha +10</monsterSave>
+		<monsterSkill>Deception +10, Intimidation +10</monsterSkill>
+		<monsterResist>cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>poison</monsterImmune>
+		<monsterConditionImmune>poisoned</monsterConditionImmune>
+		<monsterSenses>truesight 120 ft.</monsterSenses>
+		<monsterPassive>14</monsterPassive>
+		<monsterLanguages>Abyssal, Common, telepathy 120 ft.</monsterLanguages>
+		<monsterCr>9</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.197</text>
+		</trait>		
+		<trait>
+			<name>Aura of Mind Erosion</name>
+			<text>Any creature that starts its turn within 30 feet of the sire must make a DC 18 Wisdom saving throw. On a successful save , the creature is immune to this aura for the next 24 hours. On a failed save, the creature has disadvantage for 1 minute on Wisdom and Charisma checks and on Wisdom and Charisma saves.
+			At the start of each of its turns, the sire can suppress this aura until the start of its next turn.</text>
+		</trait>
+		<trait>
+			<name>Innate Spellcasting.</name>
+			<text>The sire's innate spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The sire can innately cast the following spells, requiring no material components:
+			At will: clairvoyance, crown of madness, major image, suggestion
+			1/d ay each: confusion, mass suggestion</text>
+		</trait>
+		<trait>
+			<name>Magic Resistance.</name>
+			<text>The sire has advantage on saving throws against spells and other magical effects</text>
+		</trait>
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The sire makes two attacks: one with its bite and one with its claws.</text>
+		</action>
+		<action>
+			<name>Spear.</name>
+			<text>Melee Weapon Attack: +10 to hit, reach 5 ft., one creature. Hit: 25 (3d12 + 6) piercing damage plus 16 (3dl0) psychic damage.</text>
+			</action>
+		<action>
+			<name>Captivating Presence (Recharge 6).</name>
+			<text>Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit : 10 (ld8 + 6) slashing damage plus 9 (2d8) psychic damage</text>
+		</action>
+		
+		
+	</monster>
 
 </world>
