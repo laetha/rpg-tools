@@ -494,5 +494,599 @@
 		
 		
 	</monster>
+	
+		<monster>
+		<title>Devkarin Lich</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>undead</monsterType>
+		<monsterAlignment>neutral evil</monsterAlignment>
+		<monsterAc>14</monsterAc>
+		<monsterHp>97 (1 5d8 + 30)</monsterHp>
+		<monsterSpeed>30 ft.</monsterSpeed>
+		<monsterStr>11</monsterStr><monsterDex>16</monsterDex><monsterCon>14</monsterCon><monsterInt>19</monsterInt><monsterWis>16</monsterWis><monsterCha>15</monsterCha>
+		<monsterSave>Con +7, Int +9, Wis +8</monsterSave>
+		<monsterSkill>Arcana + 14, Insight +8, Perception +8</monsterSkill>
+		<monsterResist>necrotic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>poison</monsterImmune>
+		<monsterConditionImmune>charmed, exhaustion, frightened, paralyzed, poisoned</monsterConditionImmune>
+		<monsterSenses>truesight 120 ft.</monsterSenses>
+		<monsterPassive>18</monsterPassive>
+		<monsterLanguages>Common, Elvish, Kraul</monsterLanguages>
+		<monsterCr>14</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.198</text>
+		</trait>		
+		<trait>
+			<name>Legendary Resistance (3/Day).</name>
+			<text>If the lich fails a saving throw, it can choose to succeed instead.</text>
+		</trait>
+		<trait>
+			<name>Regeneration.</name>
+			<text>The lich regains 10 hit points at the start of its turn. If the lich takes fire or radiant damage, this trait doesn't function at the start of the lich's next turn. The lich dies only if it starts its turn with 0 hit points and doesn't regenerate.</text>
+		</trait>
+		<trait>
+			<name>Spellcasting.</name>
+			<text>The lich is a 14th-level Golgari spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The lich has the following wizard spells prepared:
+			Cantrips (at will): acid splash, chill touch, mage hand, poison spray, prestidigitation
+			lst level (4 slots): chromatic orb, magic missile, ray of sickness
+			2nd level (3 s lots): Melfs acid arrow, ray of enfeeblement, spider climb, web
+3rd level (3 slots): animate dead, bestow curse.fear, vampiric touch
+4th level (3 slots): blight, Evard's black tentacles
+5th level (2 slots): cloudkill, insect plague
+6th level (1 slot): circle of death, create undead
+7th level (1 slot): finger of death
+			</text>
+		</trait>
+		<trait>
+			<name>Turn Resistance.</name>
+			<text>The lich has advantage on saving throws against any effect that turns undead</text>
+		</trait>
+		<trait>
+			<name>Undead Fortitude.</name>
+			<text>If damage reduces the lich to 0 hit points, it must make a Constitut ion saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the lich drops to l hit point instead.</text>
+		</trait>
+	
+		<action>
+			<name>Noxious Touch.</name>
+			<text>Melee Spell Attack: +9 to hit, reach 5 ft., one creature. Hit: 14 (4d6) poison damage, and the target must succeed on a DC 17 Constitution saving throw or be poisoned for l minute. The poisoned target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</text>
+		</action>
+		<action>
+			<name>Spear.</name>
+			<text>Melee Weapon Attack: +10 to hit, reach 5 ft., one creature. Hit: 25 (3d12 + 6) piercing damage plus 16 (3dl0) psychic damage.</text>
+			</action>
+			
+		<monsterLegendary>
+		<name>Cantrip.</name>
+		<text>The lich casts one of its cantrips</text>
+		</monsterLegendary>
+		<monsterLegendary>
+		<name>Noxious Touch (Costs 2 Actions).</name>
+		<text>The lich uses Noxious Touch</text>
+		</monsterLegendary>
+		<monsterLegendary>
+		<name>Disrupt Life (Costs 3 Actions).</name>
+		<text>Each creature within 30 feet of the lich must make a DC 17 Constitution saving th row, taking 21 (6d6) necrotic damage on a failed save, or half as much damage on a successful one.</text>
+		</monsterLegendary>
+		
+		
+	</monster>
+	
+		<monster>
+		<title>Felidar</title>
+		<monsterSize>large</monsterSize>
+		<monsterType>celestial</monsterType>
+		<monsterAlignment>lawful neutral</monsterAlignment>
+		<monsterAc>17</monsterAc>
+		<monsterHp>93 {lldlO + 33)</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>19</monsterStr><monsterDex>16</monsterDex><monsterCon>17</monsterCon><monsterInt>10</monsterInt><monsterWis>17</monsterWis><monsterCha>14</monsterCha>
+		<monsterSave>Dex +6 , Wis +6, Cha +5</monsterSave>
+		<monsterSkill>Insight +6, Perception +6</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses>truesight 120 ft.</monsterSenses>
+		<monsterPassive>16</monsterPassive>
+		<monsterLanguages>understands Celestial and Common but can't speak</monsterLanguages>
+		<monsterCr>5</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.198</text>
+		</trait>		
+		<trait>
+			<name>Aura of Mind Erosion</name>
+			<text>The felidar can magically bond with one creature it can see, right after spending at least 1 hour observing that creature while within 30 feet of it . The bond lasts until the felidar bonds with a different creature or until the bonded creature dies . This bond has the following effects:
+	- The felidar and the bonded creature can communicate telepathically with each other at a distance of up to 100 feet.
+	- The felidar can sense the direction and distance to the bonded creature if they're on the same plane of existence.
+	- As an action, the felidar or the bonded creature can sense what the other sees and hears, during which time it loses its own sight and hearing. This effect lasts until the start of its next turn.</text>
+		</trait>
+		<trait>
+			<name>Keen Hearing and Sight .</name>
+			<text>The felidar has advantage on Wisdom {Perception) checks that rely on hearing or sight.</text>
+		</trait>
+		<trait>
+			<name>Pounce.</name>
+			<text>If the felidar moves at least 20 feet straight toward a creature and hits it with a claw attack on the same turn, that target must succeed on a DC 15 Strength saving th row or be knocke d prone . If the target is prone, the felidar can make one claw attack against it as a bonus action</text>
+		</trait>
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The felidar makes two attacks: one with its bite and one with its claws.</text>
+		</action>
+		<action>
+			<name>Bite.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 5 ft. , one target. Hit: 17 (3d8 + 4) piercing damage</text>
+			</action>
+		<action>
+			<name>Claws.</name>
+			<text>Melee Weapon Attack: +7 to hit , reach 5 ft., one target. Hit: 14 (3 d6 + 4) slashing damage.</text>
+		</action>
+		
+		
+	</monster>
+	
+		<monster>
+		<title>Bloodfray Giant</title>
+		<monsterSize>huge</monsterSize>
+		<monsterType>giant</monsterType>
+		<monsterAlignment>chaotic neutral</monsterAlignment>
+		<monsterAc>14</monsterAc>
+		<monsterHp>103 (9d12 + 45)</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>23</monsterStr><monsterDex>9</monsterDex><monsterCon>20</monsterCon><monsterInt>7</monsterInt><monsterWis>8</monsterWis><monsterCha>9</monsterCha>
+		<monsterSave>Str +9, Con +8, Wis +2</monsterSave>
+		<monsterSkill>Athletics +9, Perception +2</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses></monsterSenses>
+		<monsterPassive>12</monsterPassive>
+		<monsterLanguages>Giant</monsterLanguages>
+		<monsterCr>6</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.199</text>
+		</trait>		
+	
+		<action>
+			<name>Chain.</name>
+			<text>Melee Weapon Attack: +9 to hit, reach 20 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage. If the target is a creature, it is grappled (escape DC 17). Until the grapple ends, the target is restrained, and the giant can't use this attack on anyone else.</text>
+		</action>
+		<action>
+			<name>Rock.</name>
+			<text>Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage</text>
+			</action>
+		
+		<monsterReaction>
+		<name>Furious Defense.</name>
+		<text>After a creature the giant can see is dealt damage by a foe within 20 feet of the giant, the giant makes a chain attack against that foe.</text>
+		</monsterReaction>
+		
+		
+	</monster>
+	
+			<monster>
+		<title>Guardian Giant</title>
+		<monsterSize>huge</monsterSize>
+		<monsterType>giant</monsterType>
+		<monsterAlignment>lawful neutral</monsterAlignment>
+		<monsterAc>19</monsterAc>
+		<monsterHp>137 (lldl2 + 66)</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>24</monsterStr><monsterDex>17</monsterDex><monsterCon>22</monsterCon><monsterInt>10</monsterInt><monsterWis>18</monsterWis><monsterCha>12</monsterCha>
+		<monsterSave>Dex +6, Wis +7</monsterSave>
+		<monsterSkill>Insight +7, Perception +10</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses></monsterSenses>
+		<monsterPassive>20</monsterPassive>
+		<monsterLanguages>Common, Giant</monsterLanguages>
+		<monsterCr>6</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.200</text>
+		</trait>		
+		<trait>
+			<name>Vigilant.</name>
+			<text>The giant can't be surprised.</text>
+		</trait>	
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The giant makes three spear attacks.</text>
+		</action>
+		<action>
+			<name>Spear.</name>
+			<text>Melee or Ranged Weapon Attack: +10 to hit, reach 10 ft. or range 60/240 ft., one target. Hit: 17 (3d6 + 7) piercing damage, or 20 (3d8 + 7) piercing damage if used with two hands to make a melee attack.</text>
+			</action>
+		
+		<monsterReaction>
+		<name>Furious Defense.</name>
+		<text>When an attacker the giant can see makes an attack roll against a creature within 10 feet of the giant, the giant can impose disadvantage on the attack roll.</text>
+		</monsterReaction>
+		
+		
+	</monster>
+	
+		<monster>
+		<title>Orzhov Giant</title>
+		<monsterSize>large</monsterSize>
+		<monsterType>giant</monsterType>
+		<monsterAlignment>lawful evil</monsterAlignment>
+		<monsterAc>18</monsterAc>
+		<monsterHp>84 (8d10 + 40)</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>23</monsterStr><monsterDex>13</monsterDex><monsterCon>21</monsterCon><monsterInt>12</monsterInt><monsterWis>13</monsterWis><monsterCha>8</monsterCha>
+		<monsterSave>Dex +4, Con +8, Wis +4</monsterSave>
+		<monsterSkill></monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses>darkvision 60ft.</monsterSenses>
+		<monsterPassive>11</monsterPassive>
+		<monsterLanguages>Common, Giant</monsterLanguages>
+		<monsterCr>6</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.201</text>
+		</trait>		
+		<trait>
+			<name>Focus.</name>
+			<text>As a bonus action, the giant can target a creature it can see within 30 feet of it and make that creature its focus. The target remains the giant's focus for l minute, or until either the target or the giant drops to 0 hit points.
+		When the giant makes an attack roll against it s focus, it adds a d4 to its attack roll. If the giant attacks a different target while it has a focus, it subtracts a d4 from its attack roll</text>
+		</trait>	
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The giant makes two greataxe attacks.</text>
+		</action>
+		<action>
+			<name>Creataxe.</name>
+			<text>Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 25 (3dl2 + 6) slashing damage. If the Orzhov giant scores a critical hit, it rolls the damage dice three times, instead of twice.</text>
+			</action>
+			<action>
+			<name>Rock.</name>
+			<text>Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target . Hit: 28 (4dl0 + 6) bludgeoning damage.</text>
+			</action>		
+		
+	</monster>
+	
+			<monster>
+		<title>Sunder Shaman</title>
+		<monsterSize>huge</monsterSize>
+		<monsterType>giant</monsterType>
+		<monsterAlignment>chaotic neutral</monsterAlignment>
+		<monsterAc>20</monsterAc>
+		<monsterHp>138 (12d12 + 60}</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>23</monsterStr><monsterDex>15</monsterDex><monsterCon>21</monsterCon><monsterInt>10</monsterInt><monsterWis>12</monsterWis><monsterCha>9</monsterCha>
+		<monsterSave>Dex +6, Co n +9, Wis +5</monsterSave>
+		<monsterSkill>Athletics +10, Perception +5</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune></monsterConditionImmune>
+		<monsterSenses>darkvision 60ft.</monsterSenses>
+		<monsterPassive>15</monsterPassive>
+		<monsterLanguages>Giant</monsterLanguages>
+		<monsterCr>10</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.201</text>
+		</trait>		
+		<trait>
+			<name>Reckless.</name>
+			<text>At the start of its turn , the giant can gain advantage on all melee weapon attack rolls it makes during that turn, but attack rolls against it have advantage until the start of its next turn</text>
+		</trait>	
+		<trait>
+			<name>Siege Monster.</name>
+			<text>The giant deals double damage to objects and structures.</text>
+		</trait>	
+		<trait>
+			<name>Stone Camouflage.</name>
+			<text>The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.</text>
+		</trait>	
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The giant makes two slam attacks. The first of those attacks that hits deals an extra 18 (4d8) damage if the giant has taken damage since its last turn.</text>
+		</action>
+		<action>
+			<name>Slam.</name>
+			<text>Melee Weapon Attack: +10 to hit, reach 15 ft., one target. Hit : 24 (4d8 + 6) bludgeoning damage.</text>
+			</action>
+			<action>
+			<name>Rock.</name>
+			<text>Ranged Weapon Attack: +10 to hit, range 60/240 ft., one target . Hit: 28 (4dl0 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</text>
+			</action>		
+		
+	</monster>
+	
+			<monster>
+		<title>Flying Horror</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>aberration</monsterType>
+		<monsterAlignment>neutral evil</monsterAlignment>
+		<monsterAc>16</monsterAc>
+		<monsterHp>49 (9d8 + 9)</monsterHp>
+		<monsterSpeed>30 ft., fly 60 ft.</monsterSpeed>
+		<monsterStr>9</monsterStr><monsterDex>20</monsterDex><monsterCon>12</monsterCon><monsterInt>2</monsterInt><monsterWis>15</monsterWis><monsterCha>16</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill>Perception +4, Stealth +7</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable>radiant</monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune>frightened</monsterConditionImmune>
+		<monsterSenses>darkvision 120ft.</monsterSenses>
+		<monsterPassive>14</monsterPassive>
+		<monsterLanguages>--</monsterLanguages>
+		<monsterCr>3</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.202</text>
+		</trait>		
+		<trait>
+			<name>Fear Frenzy.</name>
+			<text>The horror has advantage on attack rolls against frightened creatures.</text>
+		</trait>	
+		<trait>
+			<name>Sunlight Sensitivity.</name>
+			<text>While in sunlight, the horror has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight.</text>
+		</trait>	
+	
+		<action>
+			<name>Claws.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 8 (ld6 + S) slashing damage plus 14 (4d6) psychic damage</text>
+		</action>
+		<action>
+			<name>Frightening Screech (Recharge 5-6).</name>
+			<text>The horror screeches. Each creature within 30 feet of it that can hear it must succeed on a DC 13 Wisdom saving throw or be frightened of it for l minute. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the horror's Frightening Screech for the next 24 hours.</text>
+			</action>	
+		
+	</monster>
+	
+			<monster>
+		<title>Shadow Horror</title>
+		<monsterSize>large</monsterSize>
+		<monsterType>aberration</monsterType>
+		<monsterAlignment>neutral evil</monsterAlignment>
+		<monsterAc>13</monsterAc>
+		<monsterHp>120 (l6dl0 + 32)</monsterHp>
+		<monsterSpeed>40 ft.</monsterSpeed>
+		<monsterStr>12</monsterStr><monsterDex>16</monsterDex><monsterCon>14</monsterCon><monsterInt>2</monsterInt><monsterWis>17</monsterWis><monsterCha>18</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill>Perception +7, Stealth +11</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable>radiant</monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune>frightened</monsterConditionImmune>
+		<monsterSenses>darkvision 120ft.</monsterSenses>
+		<monsterPassive>17</monsterPassive>
+		<monsterLanguages>--</monsterLanguages>
+		<monsterCr>9</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.205</text>
+		</trait>		
+		<trait>
+			<name>Incorporeal Movement.</name>
+			<text>The horror can move through other creatures and objects as if they were difficult terrain. It takes 5 (ld10) force damage if it ends its turn inside an object.</text>
+		</trait>	
+		<trait>
+			<name>Shadow Stealth.</name>
+			<text>While in dim light or darkness, the horror can take the Hide action as a bonus action.</text>
+		</trait>
+		<trait>
+			<name>Shadow Stride.</name>
+			<text>As a bonus action, the horror can step into a shadow within S feet of it and magically appear in an unoccupied space within S feet of a second shadow that is up to 60 feet away. Both shadows must be cast by a Small or larger creature or object.</text>
+		</trait>
+		<trait>
+			<name>Sunlight Sensitivity.</name>
+			<text>While in sunlight, the horror has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight.</text>
+		</trait>
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The horror makes three attacks: one with its bite and two with its claws.</text>
+		</action>
+		<action>
+			<name>Bite.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach S ft., one targe t . Hit: 21 (4d8 + 3) piercing damage.</text>
+			</action>	
+			<action>
+			<name>Claw.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (3d6 + 3) slashing damage , and the target must succeed on a DC 16 Wisdom saving throw or be frightened of the horror until the end of the target's next turn.</text>
+			</action>	
+			<action>
+			<name>Lashing Shadows (Recha rge 5-6).</name>
+			<text>Each creature within 60 feet of the horror, except other horrors, must succeed on a DC 16 Dexterity saving throw or take 27 (6d8) necrotic damage</text>
+			</action>	
+		
+	</monster>
+	
+				<monster>
+		<title>Skittering Horror</title>
+		<monsterSize>huge</monsterSize>
+		<monsterType>aberration</monsterType>
+		<monsterAlignment>neutral evil</monsterAlignment>
+		<monsterAc>17</monsterAc>
+		<monsterHp>228 (24dl2 + 72)</monsterHp>
+		<monsterSpeed>40 ft., climb 40 ft</monsterSpeed>
+		<monsterStr>22</monsterStr><monsterDex>16</monsterDex><monsterCon>17</monsterCon><monsterInt>2</monsterInt><monsterWis>14</monsterWis><monsterCha>18</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill>Perception +7, Stealth +8</monsterSkill>
+		<monsterResist></monsterResist>
+		<monsterVulnerable>radiant</monsterVulnerable>
+		<monsterImmune></monsterImmune>
+		<monsterConditionImmune>frightened</monsterConditionImmune>
+		<monsterSenses>darkvision 120ft.</monsterSenses>
+		<monsterPassive>17</monsterPassive>
+		<monsterLanguages>--</monsterLanguages>
+		<monsterCr>15</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.205</text>
+		</trait>		
+		<trait>
+			<name>Spider Climb.</name>
+			<text>The horror can climb difficult surfaces, including upside down on ceilings , without needing to make an ability check.</text>
+		</trait>	
+		
+		<trait>
+			<name>Sunlight Sensitivity.</name>
+			<text>While in sunlight, the horror has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight.</text>
+		</trait>
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The horror can use its Maddening Presence and make three attacks: one with its bite and two with its claws.</text>
+		</action>
+		<action>
+			<name>Bite.</name>
+			<text>Melee Weapon Atiack: +11 to hit, reach 10 ft., one target. Hit: 28 (4dl0 + 6) piercing damage</text>
+			</action>	
+			<action>
+			<name>Claws.</name>
+			<text>Melee Weapon Attack: +11 to hit, reach 10 ft. one target. Hit: 24 (4d8 + 6) slashing damage</text>
+			</action>	
+			<action>
+			<name>Maddening Presence.</name>
+			<text>The horror targets one creature it can see within 30 feet of it. If the target can see or hear the horror, the target must make a DC 17 Wisdom saving throw. On a failed saving throw, the target becomes paralyzed until the end of its next turn. If a creature's saving throw is successful, the creature is immune to the horror's Maddening Presence for the next 24 hours.</text>
+			</action>	
+		
+	</monster>
+	
+			<monster>
+		<title>Indentured Spirit</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>undead</monsterType>
+		<monsterAlignment>any alignment</monsterAlignment>
+		<monsterAc>11</monsterAc>
+		<monsterHp>13 (3d8)</monsterHp>
+		<monsterSpeed>0 ft., Ay 40 ft. (hover)</monsterSpeed>
+		<monsterStr>7</monsterStr><monsterDex>13</monsterDex><monsterCon>10</monsterCon><monsterInt>10</monsterInt><monsterWis>12</monsterWis><monsterCha>11</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill></monsterSkill>
+		<monsterResist>acid, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>cold , necrotic, poison</monsterImmune>
+		<monsterConditionImmune>charmed, exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained</monsterConditionImmune>
+		<monsterSenses></monsterSenses>
+		<monsterPassive>11</monsterPassive>
+		<monsterLanguages>the languages it knew in life</monsterLanguages>
+		<monsterCr>1</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.206</text>
+		</trait>		
+		<trait>
+			<name>Incorporeal Movement.</name>
+			<text>The spirit can move through other creatures and objects as if they were difficu lt terrain. It takes 5 (ldlO) force damage if it ends its turn inside an object.</text>
+		</trait>	
+	
+		<action>
+			<name>Withering Touch.</name>
+			<text>Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 10 (3d6) necrotic damage.</text>
+		</action>
+		
+	</monster>
+	
+		<monster>
+		<title>Blistercoil Weird</title>
+		<monsterSize>medium</monsterSize>
+		<monsterType>celestial</monsterType>
+		<monsterAlignment>chaotic neutral</monsterAlignment>
+		<monsterAc>13</monsterAc>
+		<monsterHp>45 (7d8 + 14)</monsterHp>
+		<monsterSpeed>40 ft., swim 60 ft</monsterSpeed>
+		<monsterStr>16</monsterStr><monsterDex>16</monsterDex><monsterCon>15</monsterCon><monsterInt>5</monsterInt><monsterWis>10</monsterWis><monsterCha>7</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill></monsterSkill>
+		<monsterResist>cold, fire; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>poison</monsterImmune>
+		<monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious</monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.</monsterSenses>
+		<monsterPassive>10</monsterPassive>
+		<monsterLanguages>Draconic</monsterLanguages>
+		<monsterCr>4</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.207</text>
+		</trait>		
+		<trait>
+			<name>Feed on Fire.</name>
+			<text>If the weird takes fire damage from a spell or other magical effect, its size increases by one category. If there isn't enough room for the weird to increase in size, it attains the maximum size possible in the space available. While the weird is Large or bigger, it makes Strength checks and saving throws with advantage.
+		If the weird starts its turn at Gargantuan size, the weird releases energy in an explosion. Each creature within 30 feet of the weird must make a DC 12 Dexterity saving throw, taking 28 (8d6) fire damage on a failed save, or half as much damage on a successfu l one. The explosion ignites flammable objects in the area that aren't being worn or carried. The weird's size then becomes Medium.</text>
+		</trait>
+<trait>
+			<name>Form of Fire and Water.</name>
+			<text>The weird can move through a space as narrow as 1 inch wide without squeezing. In addition, the weird can enter a hostile creature's space and stop there. The first time the weird enters another creature's space on a turn, that creature takes 5 (ldlO) fire damage and catches fire; until someone takes an action to douse the fire, the burning creature takes 5 (ldl0) fire damage at the start of each of its turns .</text>
+		</trait>	
+<trait>
+			<name>Heated Body.</name>
+			<text>A creature that touches the weird or hits it with a melee attack while within S feet of it takes 5 (1dl0) fire damage.</text>
+		</trait>	
+<trait>
+			<name>Illumination.</name>
+			<text>The weird sheds bright light in a 30-foot radius and dim light for an additional 30 feet.</text>
+		</trait>			
+	
+		<action>
+			<name>Slam.</name>
+			<text>Melee Weapon Attack: +5 to hit , reach 5 ft., one target. Hit: 7 (ld8 + 3) bludgeoning damage plus 7 (2d6) fire damage, or 11 (2d8 + 3) bludgeoning damage plus 14 (4d6) fire damage if the weird is Large or bigger.</text>
+		</action>
+		
+	</monster>
+	
+			<monster>
+		<title>Fluxcharger</title>
+		<monsterSize>large</monsterSize>
+		<monsterType>elemental</monsterType>
+		<monsterAlignment>chaotic neutral</monsterAlignment>
+		<monsterAc>16</monsterAc>
+		<monsterHp>60 (8d10 + 16)</monsterHp>
+		<monsterSpeed>0 ft., fly 60 ft.</monsterSpeed>
+		<monsterStr>15</monsterStr><monsterDex>18</monsterDex><monsterCon>15</monsterCon><monsterInt>6</monsterInt><monsterWis>10</monsterWis><monsterCha>7</monsterCha>
+		<monsterSave></monsterSave>
+		<monsterSkill></monsterSkill>
+		<monsterResist>thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+		<monsterVulnerable></monsterVulnerable>
+		<monsterImmune>lightning, poison</monsterImmune>
+		<monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious</monsterConditionImmune>
+		<monsterSenses>darkvision 60 ft.</monsterSenses>
+		<monsterPassive>10</monsterPassive>
+		<monsterLanguages>Draconic</monsterLanguages>
+		<monsterCr>7</monsterCr>
+		<trait>
+			<name>Source</name>
+			<text>Guildmaster's Guide to Ravnica, p.208</text>
+		</trait>		
+		<trait>
+			<name>Amplify Lightning.</name>
+			<text>Whenever a spell that deals lightning damage includes one or more fluxchargers in its area, the spell deals an extra 9 (2d8} lightning damage.</text>
+		</trait>
+	
+		<action>
+			<name>Multiattack.</name>
+			<text>The fluxcharger makes two slam attacks or uses Arc Lightning twice</text>
+		</action>
+		<action>
+			<name>Slam.</name>
+			<text>Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage plus 10 (3d6) fire damage.</text>
+		</action>
+		<action>
+			<name>Arc Lightning.</name>
+			<text>Ranged Spell Attack: +7 to hit, range 30 ft., one target. Hit: 16 (3d10} lightning damage, and lightning jumps from the target to one creature of the fluxcharger's choice that it can see within 30 feet of the target. That second creature must succeed on a DC 15 Dexterity saving throw or take 13 (3d8) lightning damage. Hit or Miss: The fluxcharger takes 5 (ldl0) force damage after resolving the attack.</text>
+		</action>
+		
+	</monster>
 
 </world>
