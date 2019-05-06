@@ -1,866 +1,829 @@
 <?xml version="1.0"?>
 <world version="5" auto_indent="NO">
   <monster>
-    <title>Battleforce Angel</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>lawful good</monsterAlignment>
-    <monsterAc>18 (plate)</monsterAc>
-    <monsterHp>66 (12d8 + 12)</monsterHp>
-    <monsterSpeed>30 ft., Ay 90 ft.</monsterSpeed>
-    <monsterStr>16</monsterStr>
-    <monsterDex>12</monsterDex>
-    <monsterCon>13</monsterCon>
-    <monsterInt>11</monsterInt>
-    <monsterWis>17</monsterWis>
-    <monsterCha>18</monsterCha>
-    <monsterSave>Wis +6, Cha +7</monsterSave>
-    <monsterSkill>Investigation +3, Perception + 6</monsterSkill>
-    <monsterResist>fire, radiant</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune>charmed , exhaustion, frightened</monsterConditionImmune>
-    <monsterSenses>darkvision 120 ft., truesight 120 ft.</monsterSenses>
-    <monsterPassive>16</monsterPassive>
-    <monsterLanguages>All</monsterLanguages>
-    <monsterCr>5</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.189</monsterTrait1>
-    <monsterTrait2>Flyby 
-The angel doesn't provoke an opportunity attack when it flies out of an enemy's  reach</monsterTrait2>
-    <monsterTrait3>Magic Resistance 
-The angel has advantage on saving throws against spells and other magical effects.</monsterTrait3>
-    <monsterAction1>Multiattack 
-The angel makes two melee attacks. It a lso uses Battlefield  Inspiration</monsterAction1>
-    <monsterAction2>Longsword 
-Melee Weapon Attack: + 6 to  hit,  reach 5 ft., one target. Hit: 7 (ld8 + 3) slashing damage, or 8 (ldl0 + 3) slashing damage if used with two hands, plus 18 (4d8) radiant damage. If the target is wit hin 5 feet of any of the angel's allies, the target takes an extra  2 (1d4) radiant damage.</monsterAction2>
-    <monsterAction3>Battlefield Inspiration 
-The angel chooses up to three creatures it can see within 30 feet of it. Until the end of the angel's next turn, each target can add a d4 to its attack rolls and saving throws.</monsterAction3>
-  </monster>
-  <monster>
-    <title>Firemane Angel</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>chaotic good</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>135 (18d8 + 54)</monsterHp>
-    <monsterSpeed>40 ft., fly 120 ft.</monsterSpeed>
-    <monsterStr>22</monsterStr>
-    <monsterDex>15</monsterDex>
-    <monsterCon>17</monsterCon>
-    <monsterInt>12</monsterInt>
-    <monsterWis>14</monsterWis>
-    <monsterCha>23</monsterCha>
-    <monsterSave>Str + 10, Wis +6, Cha + 10</monsterSave>
-    <monsterSkill>Insight +6, Perception +6</monsterSkill>
-    <monsterResist>fire, radiant; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune>charmed, exhaustion, frightened </monsterConditionImmune>
-    <monsterSenses>truesight 120 ft</monsterSenses>
-    <monsterPassive>16</monsterPassive>
-    <monsterLanguages>all</monsterLanguages>
-    <monsterCr>12</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.190</monsterTrait1>
-    <monsterTrait2>Innate Spellcasting 
-The angel's innate spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The angel can innately cast the following spells, requiring no mate-rial components:
-			3/day each: compelled duel, guiding bolt (as a 5th-level spell)
-			1/day each: daylight, fireball (as a 6th-level spell)</monsterTrait2>
-    <monsterTrait3>Magic Resistance 
-The angel has advantage on saving throws against spells and other magical effects</monsterTrait3>
-    <monsterTrait4>Relentless (Recharges after a Short or Long Rest). 
-If the angel takes 21 damage or less that would reduce it to 0 hit points, it is reduced to 1 hit point instead.</monsterTrait4>
-    <monsterAction1>Multiattack 
-The angel makes two melee attacks</monsterAction1>
-    <monsterAction2>Longsword 
-Melee Weapon Attack: +10 to hit, reach 5 ft., one target. Hit: 10 (1d8 + 6) slashing damage, or 11 (1dl0 + 6) slashing damage if used with two hands, plus 22 (5d8) fire or radiant damage (angel's choice).</monsterAction2>
-  </monster>
-  <monster>
-    <title>Deathpact Angel</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>lawful evil</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>175 (27d8 + 54)</monsterHp>
-    <monsterSpeed>90 ft., fly 90 ft.</monsterSpeed>
-    <monsterStr>16</monsterStr>
-    <monsterDex>18</monsterDex>
-    <monsterCon>14</monsterCon>
-    <monsterInt>19</monsterInt>
-    <monsterWis>20</monsterWis>
-    <monsterCha>23</monsterCha>
-    <monsterSave>Int +9, Wis+ 10, Cha+ 11</monsterSave>
-    <monsterSkill>Insight+ 10, Inti midation +11, Perception +10, Persuasion + 11</monsterSkill>
-    <monsterResist>necrotic, radiant; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune>charmed, exhaustion, frightened</monsterConditionImmune>
-    <monsterSenses>truesight 120 ft</monsterSenses>
-    <monsterPassive>20</monsterPassive>
-    <monsterLanguages>all</monsterLanguages>
-    <monsterCr>14</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.191</monsterTrait1>
-    <monsterTrait2>Innate Spellcasting 
-The angel's innate spellcasting ability is Charisma (spell save DC 19, + 11 to hit with spell attacks). The angel can innately cast  the following spells, requiring no material components:
-			At will: command (as a 2nd-level spell), detect evil and good
-			3/day each: charm person (as a 5th-level spell), darkness, suggestion 
-			1/day: raise dead </monsterTrait2>
-    <monsterTrait3>Exploitation of the Debtors 
-As a bonus action, the angel targets a creature charmed by it that it can see within 30 feet of it. The angel deals 11 (2d10) necrotic damage to the target, and the angel gains temporary hit points equal to the damage dealt.</monsterTrait3>
-    <monsterTrait4>Flyby 
-The angel doesn't provoke an opportunity attack when it flies out of an enemy's reach.</monsterTrait4>
-    <monsterTrait5>Magic Resistance 
-The angel has advantage on saving throws against spells and other magical effects.</monsterTrait5>
-    <monsterAction1>Multiattack 
-The angel makes two attacks with its scythe. It can substitute Chai ns of Obligation for one of these attacks.</monsterAction1>
-    <monsterAction2>Scythe 
-Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 9 (2d4 + 4) slashing damage plus 27 (6d8) necrotic damage. </monsterAction2>
-    <monsterAction3>Chains of Obligation 
-The angel targets one creature charmed by it that it can see within 90 feet of it. The target must succeed o n a DC 19 Charisma saving throw or become paralyzed for 1 minute or until it takes any damage.</monsterAction3>
-  </monster>
-  <monster>
-    <title>Archon of the Triumverate</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>144 (17d8 + 68) </monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>20</monsterStr>
-    <monsterDex>15</monsterDex>
-    <monsterCon>19</monsterCon>
-    <monsterInt>15</monsterInt>
-    <monsterWis>21</monsterWis>
-    <monsterCha>18</monsterCha>
-    <monsterSave>Con +9, Wis +10, Cha +9</monsterSave>
-    <monsterSkill>Insight +10, Perception +10</monsterSkill>
-    <monsterResist>bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune>charmed, exhaustion, frightened</monsterConditionImmune>
-    <monsterSenses>darkvision 120 ft</monsterSenses>
-    <monsterPassive>20</monsterPassive>
-    <monsterLanguages>all</monsterLanguages>
-    <monsterCr>14</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.192</monsterTrait1>
-    <monsterTrait2>Eye of the Law 
-As a bonus action, the arch on can target a creature it can see within 120 feet of it and determine which laws that creature has broken in the last 24 hours.</monsterTrait2>
-    <monsterTrait3>Innate Spellcasting 
-The archon's innate spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks). The archon can innately cast the following spells, requiring no material components:
-			At will: calm emotions, command, compelled duel</monsterTrait3>
-    <monsterTrait4>Mount 
-If the archon isn't mounted, it can use a bonus action to magically teleport onto the creature serving as its mount, provided the archon and its mount are on the same plane of existence. When it teleports, the archon appears astride the mount along with any equipment it is wearing or carrying. While mounted and not incapacitated, the archon can't be surprised, and both it and its mount gain advantage on Dexterity saving throws. If the archon is reduced to 0 hit points while riding its mount, the mount is reduced to 0 hit points as well.</monsterTrait4>
-    <monsterAction1>Multiattack 
-The archon makes two Hammer of justice attacks</monsterAction1>
-    <monsterAction2>Hammer ofjustice. 
-Melee Weapon Attack: +10 to hit, reach S ft., one target . Hit: 12 (2d6 + 5) bludgeoni ng damage plus 18 (4d8) force damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</monsterAction2>
-    <monsterAction3>Pacifying Presence 
-Each creature of the archon's choice that the archon can see within 120 feet of it must succeed on a DC 18 Wisdom saving throw, or else the target drops any weapons it is holding, ends its concentration on any spells or other ef· fects, and becomes charmed by the archon for 1 minute. The charmed creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the archon's Pacifying Presence for the next 24 hours.</monsterAction3>
-    <monsterLegendary1>Rejoin Mount 
- If the archon isn't mounted, it magically teleports to its steed and mounts it as long as the archon and its steed are on the same plane of existence.</monsterLegendary1>
-    <monsterLegendary2>Smite (Costs 2 Actions). 
-The archon makes a Hammer of jus· tice attack, and then its mount can use it s reaction to make a melee weapon attack.</monsterLegendary2>
-    <monsterLegendary3>Detention (Costs 3 Actions) 
- The archon targets a creature it can see within 60 feet of it. The target must succeed on a DC 18 Charisma saving throw or be magically teleported to a harmless demiplane until the end of the archon's next turn, whereupon the target reappears in the space it left or the nearest unoccupied space if that space is occupied</monsterLegendary3>
-  </monster>
-  <monster>
-    <title>Arclight Phoenix</title>
+    <title>Galvanice Weird</title>
     <monsterSize>medium</monsterSize>
     <monsterType>elemental</monsterType>
     <monsterAlignment>chaotic neutral</monsterAlignment>
-    <monsterAc>16</monsterAc>
-    <monsterHp>142 (19d8 + 57)</monsterHp>
-    <monsterSpeed>0 ft., fly 120 ft.</monsterSpeed>
-    <monsterStr>15</monsterStr>
-    <monsterDex>22</monsterDex>
+    <monsterAc>12</monsterAc>
+    <monsterHp>22 (3d8 + 9)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>14</monsterStr>
+    <monsterDex>10</monsterDex>
     <monsterCon>17</monsterCon>
-    <monsterInt>5</monsterInt>
-    <monsterWis>12</monsterWis>
-    <monsterCha>7</monsterCha>
-    <monsterSave>Dex+ 10</monsterSave>
+    <monsterInt>3</monsterInt>
+    <monsterWis>10</monsterWis>
+    <monsterCha>5</monsterCha>
+    <monsterSave/>
     <monsterSkill/>
-    <monsterResist>thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterResist>cold, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
     <monsterVulnerable/>
-    <monsterImmune>lightning, poison</monsterImmune>
-    <monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, restrained, unconscious</monsterConditionImmune>
-    <monsterSenses>darkvision 60 ft.,</monsterSenses>
-    <monsterPassive>11</monsterPassive>
+    <monsterImmune>poison</monsterImmune>
+    <monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious</monsterConditionImmune>
+    <monsterSenses>darkvision 60 ft.</monsterSenses>
+    <monsterPassive>10</monsterPassive>
     <monsterLanguages>--</monsterLanguages>
-    <monsterCr>12</monsterCr>
+    <monsterCr>1</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.193</monsterTrait1>
-    <monsterTrait2>Flyby 
-The arclight phoenix doesn't provoke an opportunity at· tack when it flies out of an enemy's reach.</monsterTrait2>
-    <monsterTrait3>Grounded Lightning. 
- The first time on a turn that the arclight phoenix touches the ground, it takes 11 (2d10) force damage.</monsterTrait3>
-    <monsterTrait4>Illumination. 
-The arclight phoenix sheds bright light in a 1 S· foot radius and dim light for an additional 15 feet. </monsterTrait4>
-    <monsterTrait5>Lightning Form. 
-The arclight phoenix can move through a space as narrow as 1 inch wide without squeezing. A creature that touches the phoenix or hits it with a melee attack while within 5 feet of it takes 9 2d8) lightning damage. In addition, the arclight phoenix can enter a hostile creature's space and stop there. The first time it enters a creature's space on a turn, that creature takes 9 (2d8) lightning damage.</monsterTrait5>
-    <monsterTrait6>Crackling Death 
- When the arclight phoenix dies, it explodes. Each creature within 30 feet of it must make a DC 18 Dexterity saving throw, taking 36 (8d8) lightning damage on a failed save, or half as much damage on a successful one. The explo-sion destroys the phoenix but leaves behind a Tiny, warm egg with a mizzium shell.
-			The egg contains the embryo of a new arclight phoenix. It hatches when it is in the area of a spell that deals lightning damage, or if a creature touches the egg and expends spell slots whose combined levels equal 13 or more. When it hatches, the egg releases a new arclight phoenix that appears in the egg's space.</monsterTrait6>
-    <monsterAction1>Arclight Touch 
-Melee Weapon Attack: + 10 to hit, reach 5ft., one target. Hit: 27 (6d8) lightning damage, and lightning jumps from the target to one creature of the phoenix's choice that it can see within 30 feet of the target. That second creature must succeed on a DC 18 Dexterity saving throw or take 27 (6d8) lightning damage.</monsterAction1>
+Guildmaster's Guide to Ravnica, p.209</monsterTrait1>
+    <monsterTrait2>Death Burst. 
+When the galvanice weird dies, it explodes in a burst of ice and lightning. Each creature within 10 feet of the exploding weird must make a DC 13 Dexterity saving throw, taking 7 (2d6) lightning damage on a failed save, or half as much damage on a successful one.</monsterTrait2>
+    <monsterAction1>Slam. 
+Melee Weapon Attack: +4 to hit, reach 5 ft. , one target. Hit: 5 (ld6 + 2) bludgeoning damage plus 5 (2d4) lightning damage. If the target is a creature, it must succeed on a DC 13 Constitution saving throw or lose the ability to use reactions until the start of the weird's next turn.</monsterAction1>
   </monster>
   <monster>
-    <title>Conclave Dryad</title>
+    <title>Category 1 Krasis</title>
     <monsterSize>medium</monsterSize>
-    <monsterType>fey</monsterType>
-    <monsterAlignment>lawful good</monsterAlignment>
-    <monsterAc>16</monsterAc>
-    <monsterHp>143 (22d8 + 44) </monsterHp>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
+    <monsterAc>15</monsterAc>
+    <monsterHp>19 (3d8 + 6)</monsterHp>
     <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>12</monsterStr>
-    <monsterDex>19</monsterDex>
+    <monsterStr>16</monsterStr>
+    <monsterDex>15</monsterDex>
     <monsterCon>14</monsterCon>
-    <monsterInt>19</monsterInt>
-    <monsterWis>20</monsterWis>
-    <monsterCha>21</monsterCha>
-    <monsterSave>Int +8, Wis +9, Cha +9</monsterSave>
-    <monsterSkill>Arcana +8, Nature +8, Perception +9</monsterSkill>
+    <monsterInt>2</monsterInt>
+    <monsterWis>13</monsterWis>
+    <monsterCha>8</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
     <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
-    <monsterSenses>darkvision 60 ft.,</monsterSenses>
-    <monsterPassive>19</monsterPassive>
-    <monsterLanguages>Common, Elvish, Sylvan</monsterLanguages>
-    <monsterCr>9</monsterCr>
+    <monsterSenses/>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>--</monsterLanguages>
+    <monsterCr>1</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.194</monsterTrait1>
-    <monsterTrait2>Innate Spel/casting. 
-The dryad's innate spellcasting ability is Charisma (spell save DC 17). The dryad can innately cast the following spells, requiring no material components: 
-			At will: druidcraft 
-			3/day each: dispel magic, entangle, plant growth, spike growth
-			l/day each: moonbeam, grasping vine, wall of thorns</monsterTrait2>
-    <monsterTrait3>Magic Resistance. 
-The dryad has advantage on saving throws against spells and other magical effects</monsterTrait3>
-    <monsterTrait4>Speak with Beasts and Plants. 
-The dryad can communicate with beasts and plants as if they and the dryad shared a language.</monsterTrait4>
+Guildmaster's Guide to Ravnica, p.210</monsterTrait1>
+    <monsterTrait2>Amphibious. 
+The krasis can breathe air and water.</monsterTrait2>
     <monsterAction1>Multiattack. 
-The dryad makes three attacks, using its vine staff, its longbow, or both.</monsterAction1>
-    <monsterAction2>Vine Staff. 
-Melee Weapon Attack: +9 to hit, reach 5 ft ., one target. Hit: 12 (2d6 + 5) bludgeoning damage. If the target is a creature, it must succeed on a DC 17 Dexterity saving th row or become restrained by twisting vines for l minute. A target restrained in this way can use an action to make a DC 17 Strength (Athletics) or Dexterity (Acrobatics) check, ending the effect on itself on a success.</monsterAction2>
-    <monsterAction3>Longbow. 
-Ranged Weapon Attack: +8 to hit, range 150/600 ft., one target. Hit: 8 (ld8 + 4) piercing damage.</monsterAction3>
-    <monsterAction4>Summon Mount (1/Day). 
-The dryad magically summons a mount, which appears in an unoccupied space within 60 feet of the dryad. The  mount remains for 8 hours, until it or the dryad dies, or until the d ryad dismisses it as an action. The mount uses the stat block of an elk (see the Monster Manual) with these changes: it is a plant instead of a beast, it has an Intel-ligence of 6, and it understands Sylvan but can't speak. While within 1 mile of the mount, the dryad can communicate with it telepathically.</monsterAction4>
-    <monsterAction5>Suppress Magic (Recharge 5-6) 
-The dryad targets one magic item it can see within 120 feet of it. If the magic item isn't an artifact, its magical properties are suppressed for 10 minutes, until the dryad is incapacitated or dies, or until the dryad uses a bonus action to end the effect.</monsterAction5>
+The krasis makes two attacks: one with its bite and one with its claws.</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack: +5 to hit, reach 5 ft., one creature. Hit: 8 (ldl0 + 3) piercing damage.</monsterAction2>
+    <monsterAction3>Claws. 
+Melee Weapon Attack: +5 to hit, reach S ft., one target. Hit: 7 {ld8 + 3) slashing damage.</monsterAction3>
   </monster>
   <monster>
-    <title>Cackler</title>
-    <monsterSize>small</monsterSize>
-    <monsterType>fiend (demon)</monsterType>
-    <monsterAlignment>chaotic evil</monsterAlignment>
+    <title>Category 2 Krasis</title>
+    <monsterSize>large</monsterSize>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
     <monsterAc>15</monsterAc>
-    <monsterHp>10 (3d6)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>9</monsterStr>
-    <monsterDex>16</monsterDex>
-    <monsterCon>11</monsterCon>
-    <monsterInt>11</monsterInt>
-    <monsterWis>7</monsterWis>
-    <monsterCha>12</monsterCha>
+    <monsterHp>136 (16dl0 + 48)</monsterHp>
+    <monsterSpeed>40 ft.</monsterSpeed>
+    <monsterStr>18</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>16</monsterCon>
+    <monsterInt>2</monsterInt>
+    <monsterWis>13</monsterWis>
+    <monsterCha>8</monsterCha>
     <monsterSave/>
-    <monsterSkill>Deception +3, Perception +0, Performance +3</monsterSkill>
-    <monsterResist>cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterSkill/>
+    <monsterResist/>
     <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>poisoned</monsterConditionImmune>
-    <monsterSenses>darkvision 120 ft.,</monsterSenses>
-    <monsterPassive>10</monsterPassive>
-    <monsterLanguages>Abyssal, Common</monsterLanguages>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>--</monsterLanguages>
+    <monsterCr>6</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.211</monsterTrait1>
+    <monsterTrait2>Amphibious. 
+The krasis can breathe air and water.</monsterTrait2>
+    <monsterAction1>Multiattack. 
+The krasis makes two attacks: one with its bite and one with its claws.</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack: +7 t o hit , reach 5 ft., one creature. Hit: 17 (2dl2 + 4) piercing damage.</monsterAction2>
+    <monsterAction3>Claws. 
+Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 17 (2dl 2 + 4) slashing damage</monsterAction3>
+  </monster>
+  <monster>
+    <title>Category 3 Krasis</title>
+    <monsterSize>huge</monsterSize>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>287 (25d12 + 125)</monsterHp>
+    <monsterSpeed>40 ft.</monsterSpeed>
+    <monsterStr>23</monsterStr>
+    <monsterDex>12</monsterDex>
+    <monsterCon>21</monsterCon>
+    <monsterInt>2</monsterInt>
+    <monsterWis>13</monsterWis>
+    <monsterCha>8</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>--</monsterLanguages>
+    <monsterCr>16</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.212</monsterTrait1>
+    <monsterTrait2>Amphibious. 
+The krasis can breathe air and water.</monsterTrait2>
+    <monsterAction1>Multiattack. 
+The krasis makes three attacks: one with its bite, one with its claws , and one with its tail</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack: +11 to hit, reach 10 ft., one creature. Hit: 27 (6d6 + 6) piercing damage.</monsterAction2>
+    <monsterAction3>Claws. 
+Melee Weapon Attack: +11 to hit, reach 10 ft., one target. Hit: 22 (3dl0 + 6) slashing damage.</monsterAction3>
+    <monsterAction4>Tail. 
+Melee Weapon Attack:+ 11 to hit, reach 15 ft., one target. Hit: 33 (6d8 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 19 Strength saving throw or be knocked prone.</monsterAction4>
+  </monster>
+  <monster>
+    <title>Kraul Warrior</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral evil</monsterAlignment>
+    <monsterAc>18</monsterAc>
+    <monsterHp>27 (5d8 + 5)</monsterHp>
+    <monsterSpeed>30 ft., climb 30 ft .</monsterSpeed>
+    <monsterStr>15</monsterStr>
+    <monsterDex>12</monsterDex>
+    <monsterCon>13</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>11</monsterWis>
+    <monsterCha>8</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>Kraul , understands Common but can't speak it</monsterLanguages>
     <monsterCr>0.5</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.195</monsterTrait1>
-    <monsterTrait2>Innate Spellcasting. 
-The cackler's innate spellcasting ability is Charisma (spell save DC 11, +3 to hit with spell attacks). The cackler ca n innately cast the following spells, requiring no ma-terial components: 
-			At will:.fire bolt 
-			1/day: Tasha's hideous laughter </monsterTrait2>
-    <monsterTrait3>Last Laugh. 
-When the cackler dies, it releases a dying laugh that scars the minds of other nearby creatures. Each creature within 10 feet of the cackler must succeed on a DC 11 Wisdom saving throw or take 2 (1d4) psychic damage</monsterTrait3>
-    <monsterTrait4>Mimicry. 
-The cackler can mimic any sounds it has heard, including voices. A creature that hears the sounds can tell they are imitations with a successful DC 11 Wisdom (Insight) check.</monsterTrait4>
-    <monsterAction1>Bite. 
-Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 5 (l d4 + 3) piercing damage.</monsterAction1>
-    <monsterAction2>Spiked Chain. 
-Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 6 (ld6 + 3) slashing damage. </monsterAction2>
+Guildmaster's Guide to Ravnica, p.213</monsterTrait1>
+    <monsterTrait2>Hive Mind. 
+The kraul is immune to the charmed and frightened conditions while within 30 feet of at least one other kraul.</monsterTrait2>
+    <monsterTrait3>Pack Tactics. 
+The kraul has advantage on an attack roll against a creature if at least one of the kraul's allies is within 5 feet of the creature and the ally isn't incapacitated.</monsterTrait3>
+    <monsterTrait4>Spider Climb. 
+The kraul can climb difficult surfaces , including upside down on ceilings, without needing to make an ability check.</monsterTrait4>
+    <monsterAction1>Spear. 
+Melee or Ranged Weapon Attack: + 4 to hit, reach 5 ft. or range 20/ 60 ft., one target. Hit: 5 (ld6 + 2) piercing damage, or 6 {ld8 + 2) piercing damage if used with two hands to make a melee attack.</monsterAction1>
   </monster>
   <monster>
-    <title>Master of Cruelties</title>
-    <monsterSize>large</monsterSize>
-    <monsterType>fiend (demon)</monsterType>
-    <monsterAlignment>chaotic evil</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>127 (15d10 + 45)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>18</monsterStr>
-    <monsterDex>17</monsterDex>
-    <monsterCon>16</monsterCon>
-    <monsterInt>19</monsterInt>
-    <monsterWis>16</monsterWis>
-    <monsterCha>21</monsterCha>
-    <monsterSave>Con +7, Int +8, Wis +7, Cha +9</monsterSave>
-    <monsterSkill>Deception +9, Intimidation +9, Performance +9, Persuasion +9</monsterSkill>
-    <monsterResist>cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>poisoned</monsterConditionImmune>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>13</monsterPassive>
-    <monsterLanguages>Abyssal, Common, telepathy 120 ft.</monsterLanguages>
-    <monsterCr>9</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.196</monsterTrait1>
-    <monsterTrait2>Aura of Blood Lust 
-When any other creature starts its turn within 30 feet of the master, that creature must succeed on a DC 17 Wisdom saving throw, or it must immediately take the Attack action, making one melee attack against a random creature within reach. If no creatures are within reach, it makes a ranged attack against a random creature within range, throwing its weapon if necessary.</monsterTrait2>
-    <monsterTrait3>Feed on the Crowd. 
-Whenever a creature within 60 feet of the master dies, the master gains 15 temporary hit points and has advantage on all attack rolls, ability checks, and saving throws until the end of its next turn.</monsterTrait3>
-    <monsterTrait4>Innate Spellcasting. 
-The master's innate spellcasting ability is Charisma (spell save DC 17). The master can innately cast the following spells, requiring no material components:
-				At will: charm person (as a 3rd-level spell), crown of madness
-				l/day: dominate person</monsterTrait4>
-    <monsterTrait5>Magic Resistance. 
-The master has advantage on saving throws against spells and other magical effects</monsterTrait5>
-    <monsterAction1>Multiattack. 
-The master makes two melee attacks with its spear.</monsterAction1>
-    <monsterAction2>Spear. 
-Melee or Ranged Weapon Attack: +8 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 11 (2d6 + 4) piercing damage, or 13 (2d8 + 4) piercing damage if used with two hands to make a melee attack, plus 13 (3d8) psychic damage</monsterAction2>
-    <monsterAction3>Captivating Presence (Recharge 6). 
-Each creature within 120 feet of the master must succeed on a DC 17 Wisdom saving throw or be charmed by the master for 1 hour. While charmed in this way, a creature's speed is 0. If the charmed creature takes damage, it can repeat the saving throw, ending the effect on itself on a success. A target that succeeds on the saving throw is immune to the Captivating Presence of all masters of cruelties for the next 24 hours.</monsterAction3>
-  </monster>
-  <monster>
-    <title>Sire of Insanity</title>
-    <monsterSize>huge</monsterSize>
-    <monsterType>fiend (demon)</monsterType>
-    <monsterAlignment>chaotic evil</monsterAlignment>
-    <monsterAc>17</monsterAc>
-    <monsterHp>157 (15d12 + 60)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>23</monsterStr>
-    <monsterDex>6</monsterDex>
-    <monsterCon>19</monsterCon>
-    <monsterInt>14</monsterInt>
-    <monsterWis>19</monsterWis>
-    <monsterCha>22</monsterCha>
-    <monsterSave>Con +8 , Int +6, Wis +8, Cha +10</monsterSave>
-    <monsterSkill>Deception +10, Intimidation +10</monsterSkill>
-    <monsterResist>cold, fire, lightning; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>poisoned</monsterConditionImmune>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>14</monsterPassive>
-    <monsterLanguages>Abyssal, Common, telepathy 120 ft.</monsterLanguages>
-    <monsterCr>9</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.197</monsterTrait1>
-    <monsterTrait2>Aura of Mind Erosion 
-Any creature that starts its turn within 30 feet of the sire must make a DC 18 Wisdom saving throw. On a successful save , the creature is immune to this aura for the next 24 hours. On a failed save, the creature has disadvantage for 1 minute on Wisdom and Charisma checks and on Wisdom and Charisma saves.
-			At the start of each of its turns, the sire can suppress this aura until the start of its next turn.</monsterTrait2>
-    <monsterTrait3>Innate Spellcasting. 
-The sire's innate spellcasting ability is Charisma (spell save DC 18, +10 to hit with spell attacks). The sire can innately cast the following spells, requiring no material components:
-			At will: clairvoyance, crown of madness, major image, suggestion
-			1/d ay each: confusion, mass suggestion</monsterTrait3>
-    <monsterTrait4>Magic Resistance. 
-The sire has advantage on saving throws against spells and other magical effects</monsterTrait4>
-    <monsterAction1>Multiattack. 
-The sire makes two attacks: one with its bite and one with its claws.</monsterAction1>
-    <monsterAction2>Spear. 
-Melee Weapon Attack: +10 to hit, reach 5 ft., one creature. Hit: 25 (3d12 + 6) piercing damage plus 16 (3dl0) psychic damage.</monsterAction2>
-    <monsterAction3>Captivating Presence (Recharge 6). 
-Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit : 10 (ld8 + 6) slashing damage plus 9 (2d8) psychic damage</monsterAction3>
-  </monster>
-  <monster>
-    <title>Devkarin Lich</title>
+    <title>Kraul Death Priest</title>
     <monsterSize>medium</monsterSize>
-    <monsterType>undead</monsterType>
+    <monsterType>humanoid</monsterType>
     <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>14</monsterAc>
-    <monsterHp>97 (1 5d8 + 30)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>11</monsterStr>
-    <monsterDex>16</monsterDex>
+    <monsterAc>18</monsterAc>
+    <monsterHp>65 (10d 8 + 20)</monsterHp>
+    <monsterSpeed>30 ft., climb 30 ft., fly 40 ft.</monsterSpeed>
+    <monsterStr>16</monsterStr>
+    <monsterDex>12</monsterDex>
     <monsterCon>14</monsterCon>
-    <monsterInt>19</monsterInt>
-    <monsterWis>16</monsterWis>
-    <monsterCha>15</monsterCha>
-    <monsterSave>Con +7, Int +9, Wis +8</monsterSave>
-    <monsterSkill>Arcana + 14, Insight +8, Perception +8</monsterSkill>
-    <monsterResist>necrotic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>charmed, exhaustion, frightened, paralyzed, poisoned</monsterConditionImmune>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>18</monsterPassive>
-    <monsterLanguages>Common, Elvish, Kraul</monsterLanguages>
-    <monsterCr>14</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.198</monsterTrait1>
-    <monsterTrait2>Legendary Resistance (3/Day). 
-If the lich fails a saving throw, it can choose to succeed instead.</monsterTrait2>
-    <monsterTrait3>Regeneration. 
-The lich regains 10 hit points at the start of its turn. If the lich takes fire or radiant damage, this trait doesn't function at the start of the lich's next turn. The lich dies only if it starts its turn with 0 hit points and doesn't regenerate.</monsterTrait3>
-    <monsterTrait4>Spellcasting. 
-The lich is a 14th-level Golgari spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The lich has the following wizard spells prepared:
-			Cantrips (at will): acid splash, chill touch, mage hand, poison spray, prestidigitation
-			lst level (4 slots): chromatic orb, magic missile, ray of sickness
-			2nd level (3 s lots): Melfs acid arrow, ray of enfeeblement, spider climb, web
-3rd level (3 slots): animate dead, bestow curse.fear, vampiric touch
-4th level (3 slots): blight, Evard's black tentacles
-5th level (2 slots): cloudkill, insect plague
-6th level (1 slot): circle of death, create undead
-7th level (1 slot): finger of death
-			</monsterTrait4>
-    <monsterTrait5>Turn Resistance. 
-The lich has advantage on saving throws against any effect that turns undead</monsterTrait5>
-    <monsterTrait6>Undead Fortitude. 
-If damage reduces the lich to 0 hit points, it must make a Constitut ion saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, the lich drops to l hit point instead.</monsterTrait6>
-    <monsterAction1>Noxious Touch. 
-Melee Spell Attack: +9 to hit, reach 5 ft., one creature. Hit: 14 (4d6) poison damage, and the target must succeed on a DC 17 Constitution saving throw or be poisoned for l minute. The poisoned target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</monsterAction1>
-    <monsterAction2>Spear. 
-Melee Weapon Attack: +10 to hit, reach 5 ft., one creature. Hit: 25 (3d12 + 6) piercing damage plus 16 (3dl0) psychic damage.</monsterAction2>
-    <monsterLegendary1>Cantrip. 
-The lich casts one of its cantrips</monsterLegendary1>
-    <monsterLegendary2>Noxious Touch (Costs 2 Actions). 
-The lich uses Noxious Touch</monsterLegendary2>
-    <monsterLegendary3>Disrupt Life (Costs 3 Actions). 
-Each creature within 30 feet of the lich must make a DC 17 Constitution saving th row, taking 21 (6d6) necrotic damage on a failed save, or half as much damage on a successful one.</monsterLegendary3>
-  </monster>
-  <monster>
-    <title>Felidar</title>
-    <monsterSize>large</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>17</monsterAc>
-    <monsterHp>93 {lldlO + 33)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>19</monsterStr>
-    <monsterDex>16</monsterDex>
-    <monsterCon>17</monsterCon>
-    <monsterInt>10</monsterInt>
-    <monsterWis>17</monsterWis>
-    <monsterCha>14</monsterCha>
-    <monsterSave>Dex +6 , Wis +6, Cha +5</monsterSave>
-    <monsterSkill>Insight +6, Perception +6</monsterSkill>
+    <monsterInt>12</monsterInt>
+    <monsterWis>15</monsterWis>
+    <monsterCha>10</monsterCha>
+    <monsterSave>Con +4, Wis +4</monsterSave>
+    <monsterSkill>Insight +4, Nature +3, Religion +3</monsterSkill>
     <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>16</monsterPassive>
-    <monsterLanguages>understands Celestial and Common but can't speak</monsterLanguages>
-    <monsterCr>5</monsterCr>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>12</monsterPassive>
+    <monsterLanguages>Common, Kraul</monsterLanguages>
+    <monsterCr>4</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.198</monsterTrait1>
-    <monsterTrait2>Aura of Mind Erosion 
-The felidar can magically bond with one creature it can see, right after spending at least 1 hour observing that creature while within 30 feet of it . The bond lasts until the felidar bonds with a different creature or until the bonded creature dies . This bond has the following effects:
-	- The felidar and the bonded creature can communicate telepathically with each other at a distance of up to 100 feet.
-	- The felidar can sense the direction and distance to the bonded creature if they're on the same plane of existence.
-	- As an action, the felidar or the bonded creature can sense what the other sees and hears, during which time it loses its own sight and hearing. This effect lasts until the start of its next turn.</monsterTrait2>
-    <monsterTrait3>Keen Hearing and Sight . 
-The felidar has advantage on Wisdom {Perception) checks that rely on hearing or sight.</monsterTrait3>
-    <monsterTrait4>Pounce. 
-If the felidar moves at least 20 feet straight toward a creature and hits it with a claw attack on the same turn, that target must succeed on a DC 15 Strength saving th row or be knocke d prone . If the target is prone, the felidar can make one claw attack against it as a bonus action</monsterTrait4>
+Guildmaster's Guide to Ravnica, p.214</monsterTrait1>
+    <monsterTrait2>Feed on Death. 
+When a creature within 30 feet of the kraul drops to 0 hit points, the kraul or another creature of its choice within 30 feet of it gains 5 (ldl0) temporary hit points, provided the kraul isn't incapacitated.</monsterTrait2>
+    <monsterTrait3>Hive Mind. 
+The kraul is immune to the charmed and frightened conditions while within 30 feet of at least one other kraul.</monsterTrait3>
+    <monsterTrait4>Innate Spellcasting. 
+The kraul's innate spellcasting ability is Wisdom (spell save DC 12, +4 to hit with spell attacks). The kraul can innately cast the following spells, requiring no material components:
+			At will: chill touch, poison spray
+			3/day each: ray of enfeeblement, ray of sickness
+			l/day each: animate dead, blight, vampiric touch</monsterTrait4>
+    <monsterTrait5>Pack Tactics. 
+The kraul has advantage on an attack roll against a creature if at least one of the kraul's allies is within 5 feet of the creature and the ally isn't incapacitated.</monsterTrait5>
+    <monsterTrait6>Spider Climb. 
+The kraul can climb difficult surfaces , including upside down on ceilings, without needing to make an ability check.</monsterTrait6>
     <monsterAction1>Multiattack. 
-The felidar makes two attacks: one with its bite and one with its claws.</monsterAction1>
-    <monsterAction2>Bite. 
-Melee Weapon Attack: +7 to hit, reach 5 ft. , one target. Hit: 17 (3d8 + 4) piercing damage</monsterAction2>
-    <monsterAction3>Claws. 
-Melee Weapon Attack: +7 to hit , reach 5 ft., one target. Hit: 14 (3 d6 + 4) slashing damage.</monsterAction3>
+The kraul makes one attack with its quarterstaff and casts one of its spells with a casting time of l action</monsterAction1>
+    <monsterAction2>Quarterstaff. 
+Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 6 (ld6 + 3) bludgeoning damage, or 7 (ld8 + 3) bludgeoning damage if used with two hands</monsterAction2>
   </monster>
   <monster>
-    <title>Bloodfray Giant</title>
-    <monsterSize>huge</monsterSize>
+    <title>Nightveil Specter</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>undead</monsterType>
+    <monsterAlignment>neutral evil</monsterAlignment>
+    <monsterAc>17</monsterAc>
+    <monsterHp>105 (14d8 + 42)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>18</monsterStr>
+    <monsterDex>19</monsterDex>
+    <monsterCon>16</monsterCon>
+    <monsterInt>6</monsterInt>
+    <monsterWis>17</monsterWis>
+    <monsterCha>11</monsterCha>
+    <monsterSave>Dex +8 , Wis +7</monsterSave>
+    <monsterSkill>Insight +7, Perception +7, Stealth +8</monsterSkill>
+    <monsterResist>necrotic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune>poison</monsterImmune>
+    <monsterConditionImmune>charmed, exhaustion, frightened, poisoned</monsterConditionImmune>
+    <monsterSenses>darkvision 120 ft</monsterSenses>
+    <monsterPassive>17</monsterPassive>
+    <monsterLanguages>understands Common but can't speak</monsterLanguages>
+    <monsterCr>10</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.215</monsterTrait1>
+    <monsterTrait2>Mount. 
+If the specter isn't mounted, it can use a bonus action to magically teleport onto its gloamwing mount, provided the specter and the gloamwing are on the same plane of existence. When it teleports, the specter appears astride the gloamwing along with any equipment it is wearing or carrying.
+			While moun ted and not incapacitated, the specter can't be surprised, and both it and its mount gain advantage on Dexterity saving throws.</monsterTrait2>
+    <monsterAction1>Multiattack. 
+The specter makes two scythe attacks</monsterAction1>
+    <monsterAction2>Scythe. 
+Melee Weapon Attack: + 8 to hit, reach 10 ft., one target. Hit : 11 (2d6 + 4) slashing damage plus 13 (3d8) psychic damage.</monsterAction2>
+    <monsterAction3>Mind Twist (Recharge 5-6). 
+The specter magically emits psychic energy in a 60-foot cone. Each creature in that area must succee d on a DC 15 Wisdom saving throw or take 22 (5d8) psychic damage and be stunned for 1 minute. The stunned creature can repeat the saving th row at the end of each of its turns, ending the effect on itself on a success.</monsterAction3>
+    <monsterAction4>Reap Memory (3/Day). 
+The specter touches one incapacitated creature and chooses 1 hour from among the past 24 . Unless the creature succeeds on a DC 15 Intelligence saving throw, the creature loses all memory of that hour. The creature regains the memory only if the specter dies within the next 24 hours.</monsterAction4>
+  </monster>
+  <monster>
+    <title>Gloamwing</title>
+    <monsterSize>large</monsterSize>
+    <monsterType>undead</monsterType>
+    <monsterAlignment>neutral evil</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>136 (16d10 + 48)</monsterHp>
+    <monsterSpeed>30 ft., fly 60 ft.</monsterSpeed>
+    <monsterStr>20</monsterStr>
+    <monsterDex>16</monsterDex>
+    <monsterCon>17</monsterCon>
+    <monsterInt>2</monsterInt>
+    <monsterWis>11</monsterWis>
+    <monsterCha>6</monsterCha>
+    <monsterSave>Str +8, Dex +6</monsterSave>
+    <monsterSkill>Perception +3, Stealth +6</monsterSkill>
+    <monsterResist>necrotic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune>poison</monsterImmune>
+    <monsterConditionImmune>charmed, exhaustion, frightened, poisoned</monsterConditionImmune>
+    <monsterSenses>darkvision 120 ft</monsterSenses>
+    <monsterPassive>13</monsterPassive>
+    <monsterLanguages>understands Common but can't speak</monsterLanguages>
+    <monsterCr>8</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.215</monsterTrait1>
+    <monsterTrait2>Death Link. 
+If its specter rider is reduced to 0 hit points. the gloamwing is destroyed.</monsterTrait2>
+    <monsterTrait3>Flyby. 
+The gloamwing doesn't provoke an opportunity attack when it flies out of an enemy's reach</monsterTrait3>
+    <monsterTrait4>Sunlight Sensitivity. 
+While in sunlight, the gloamwing has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</monsterTrait4>
+    <monsterAction1>Multiattack. 
+The gloamwing makes two attacks: one with its bite and one with its claws.</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 18 (3d8 + 5) piercing damage</monsterAction2>
+    <monsterAction3>Claws. 
+Melee Weapon Attack: +8 to hit, reach 5 ft., one target. Hit: 15 (3d6 + 5) slashing damage.</monsterAction3>
+  </monster>
+  <monster>
+    <title>Nivix Cyclops</title>
+    <monsterSize>large</monsterSize>
     <monsterType>giant</monsterType>
-    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAlignment>unaligned</monsterAlignment>
     <monsterAc>14</monsterAc>
-    <monsterHp>103 (9d12 + 45)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>23</monsterStr>
+    <monsterHp>115 (10d10 + 60)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>24</monsterStr>
     <monsterDex>9</monsterDex>
-    <monsterCon>20</monsterCon>
+    <monsterCon>22</monsterCon>
     <monsterInt>7</monsterInt>
-    <monsterWis>8</monsterWis>
+    <monsterWis>10</monsterWis>
     <monsterCha>9</monsterCha>
-    <monsterSave>Str +9, Con +8, Wis +2</monsterSave>
-    <monsterSkill>Athletics +9, Perception +2</monsterSkill>
+    <monsterSave>Con +9, Wis +3</monsterSave>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune>poison, psychic</monsterImmune>
+    <monsterConditionImmune>charmed, exhaustion, frightened, paralyzed, petrified, poisoned</monsterConditionImmune>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>10</monsterPassive>
+    <monsterLanguages>Common, Giant</monsterLanguages>
+    <monsterCr>8</monsterCr>
+    <monsterReaction>
+      <name>Spell Vitalization.</name>
+      <text>Immediately after a creature casts a spell of 1st level or higher within 120 feet of the cyclops, the cyclops can move up to twice its speed without provoking opportunity attacks. It can then make one slam attack against a target of its choice.</text>
+    </monsterReaction>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.216</monsterTrait1>
+    <monsterTrait2>Magic Resistance. 
+The cyclops has advantage on saving throws against spells and other magical effects.</monsterTrait2>
+    <monsterAction1>Multiattack. 
+The cyclops makes two slam attacks.</monsterAction1>
+    <monsterAction2>Slam. 
+Melee Weapon Attack: +10 to hit, reach 10 ft., one target. Hit : 23 (3d10 + 7 ) bludgeoning damage</monsterAction2>
+  </monster>
+  <monster>
+    <title>Simic Hybrid Brute</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>18</monsterAc>
+    <monsterHp>52 (8d8 + 16)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>18</monsterStr>
+    <monsterDex>11</monsterDex>
+    <monsterCon>15</monsterCon>
+    <monsterInt>8</monsterInt>
+    <monsterWis>11</monsterWis>
+    <monsterCha>9</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>10</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>2</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.216</monsterTrait1>
+    <monsterTrait2>Amphibious. 
+The hybrid can breathe air and water.</monsterTrait2>
+    <monsterAction1>Multiattack. 
+The hybrid makes two claw attacks.</monsterAction1>
+    <monsterAction2>Claw. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (ld6 + 4) slashing damage.</monsterAction2>
+  </monster>
+  <monster>
+    <title>Simic Hybrid Flier</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>13</monsterAc>
+    <monsterHp>39 (6d8 + 12)</monsterHp>
+    <monsterSpeed>30 ft., fly 40 ft.</monsterSpeed>
+    <monsterStr>12</monsterStr>
+    <monsterDex>16</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>11</monsterInt>
+    <monsterWis>10</monsterWis>
+    <monsterCha>11</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist>acid</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>10</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>2</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.216</monsterTrait1>
+    <monsterAction1>Multiattack. 
+The hybrid makes two javelin attacks. It can replace one javelin attack with Spit Acid.</monsterAction1>
+    <monsterAction2>javelin. 
+Melee or Ranged Weapon Attack: +5 to hit, reach 5 ft. or range 30/120 ft., one target. Hit: 6 (ld6 + 3) piercing damage</monsterAction2>
+    <monsterAction3>Spit Acid. 
+Ranged Weapon Attack: +5 to hit, range 20/60 ft., one target. Hit: 10 (4d4) acid damage</monsterAction3>
+  </monster>
+  <monster>
+    <title>Simic Hybrid Poisoner</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>14</monsterAc>
+    <monsterHp>26 (4d8 + 8)</monsterHp>
+    <monsterSpeed>40 ft.</monsterSpeed>
+    <monsterStr>12</monsterStr>
+    <monsterDex>19</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>12</monsterInt>
+    <monsterWis>13</monsterWis>
+    <monsterCha>12</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune>poison</monsterImmune>
+    <monsterConditionImmune>poisoned</monsterConditionImmune>
+    <monsterSenses>darkvision 30 ft.</monsterSenses>
+    <monsterPassive>13</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>1</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.216</monsterTrait1>
+    <monsterTrait2>Assassinate. 
+During its first turn, the hybrid poisoner has advantage on attack rolls against any creature that hasn't taken a turn. Any hit the hybrid scores against a surprised creature is a critical hit.</monsterTrait2>
+    <monsterTrait3>Poisonous Skin. 
+Any creature that touches the hybrid or hits it with a melee attack while within 5 feet of it takes 3 (ld6) poison damage.</monsterTrait3>
+    <monsterAction1>Toxic Touch. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (2d6) bludgeoning damage, and the target must succeed on a DC 12 Constitution saving throw or become poisoned for l minute. At the end of each of the poisoned target's turns, it must repeat the save, taking 3 (ld6) poison damage on a fa iled save, or ending the effect on itself on a successful one.</monsterAction1>
+  </monster>
+  <monster>
+    <title>Simic Hybrid Shocker</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>12</monsterAc>
+    <monsterHp>39 (6d8 + 12)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>13</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>12</monsterWis>
+    <monsterCha>9</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune>lightning</monsterImmune>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>1</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.217</monsterTrait1>
+    <monsterTrait2>Electrified Body. 
+Any creature that touches the hybrid or hits it with a melee attack while within 5 feet of it takes 5 (ldl0) lightning damage.</monsterTrait2>
+    <monsterTrait3>Illumination. 
+The hybrid sheds bright light in a 10-foot radius and dim light for an additional 10 feet</monsterTrait3>
+    <monsterAction1>Multiattack. 
+The hybrid makes two attacks: one with its shocking touch and one with its tentacles.</monsterAction1>
+    <monsterAction2>Shocking Touch. 
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 9 (2d8) lightning damage</monsterAction2>
+    <monsterAction3>Tentacles. 
+Melee Weapon Attack: + 4 to hit, reach 15 ft., one creature. Hit: The target is grappled (escape DC 11), and the hybrid pulls the target up to 15 feet straight toward it. Until this grapple ends, the target takes 5 (1 dlO) lightning damage at the start of each of its turns, and the hybrid shocker can't use its tentacles on another creature.</monsterAction3>
+  </monster>
+  <monster>
+    <title>Simic Hybrid Spy</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>13</monsterAc>
+    <monsterHp>22 (4d8 + 4)</monsterHp>
+    <monsterSpeed>30 ft., climb 30 ft.</monsterSpeed>
+    <monsterStr>11</monsterStr>
+    <monsterDex>17</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>13</monsterInt>
+    <monsterWis>14</monsterWis>
+    <monsterCha>9</monsterCha>
+    <monsterSave/>
+    <monsterSkill>Perception +4 , Stealth +5</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>darkvision 60 ft.</monsterSenses>
+    <monsterPassive>14</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>0.5</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.217</monsterTrait1>
+    <monsterTrait2>Chameleon Skin. 
+The hybrid has advantage on Dexterity (Stealth) checks made to hide.</monsterTrait2>
+    <monsterTrait3>Spider Climb. 
+The hybrid can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</monsterTrait3>
+    <monsterAction1>Multiattack. 
+The hybrid makes two shortsword attacks.</monsterAction1>
+    <monsterAction2>Shortsword. 
+Melee Weapon Attack: +5 to hit , reach 5 ft., one target. Hit: 6 (ld6 + 3) piercing damage</monsterAction2>
+  </monster>
+  <monster>
+    <title>Skyjek Roc</title>
+    <monsterSize>large</monsterSize>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
+    <monsterAc>15</monsterAc>
+    <monsterHp>37 (5d10 + 10)</monsterHp>
+    <monsterSpeed>20 ft., fly 90 ft.</monsterSpeed>
+    <monsterStr>20</monsterStr>
+    <monsterDex>13</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>3</monsterInt>
+    <monsterWis>10</monsterWis>
+    <monsterCha>8</monsterCha>
+    <monsterSave>Dex +3 , Wis +2</monsterSave>
+    <monsterSkill>Perception +2</monsterSkill>
     <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
     <monsterSenses/>
     <monsterPassive>12</monsterPassive>
-    <monsterLanguages>Giant</monsterLanguages>
-    <monsterCr>6</monsterCr>
-    <monsterReaction>
-      <name>Furious Defense.</name>
-      <text>After a creature the giant can see is dealt damage by a foe within 20 feet of the giant, the giant makes a chain attack against that foe.</text>
-    </monsterReaction>
+    <monsterLanguages>--</monsterLanguages>
+    <monsterCr>2</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.199</monsterTrait1>
-    <monsterAction1>Chain. 
-Melee Weapon Attack: +9 to hit, reach 20 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage. If the target is a creature, it is grappled (escape DC 17). Until the grapple ends, the target is restrained, and the giant can't use this attack on anyone else.</monsterAction1>
-    <monsterAction2>Rock. 
-Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target. Hit: 16 (3d6 + 6) bludgeoning damage</monsterAction2>
-  </monster>
-  <monster>
-    <title>Guardian Giant</title>
-    <monsterSize>huge</monsterSize>
-    <monsterType>giant</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>19</monsterAc>
-    <monsterHp>137 (lldl2 + 66)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>24</monsterStr>
-    <monsterDex>17</monsterDex>
-    <monsterCon>22</monsterCon>
-    <monsterInt>10</monsterInt>
-    <monsterWis>18</monsterWis>
-    <monsterCha>12</monsterCha>
-    <monsterSave>Dex +6, Wis +7</monsterSave>
-    <monsterSkill>Insight +7, Perception +10</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses/>
-    <monsterPassive>20</monsterPassive>
-    <monsterLanguages>Common, Giant</monsterLanguages>
-    <monsterCr>6</monsterCr>
-    <monsterReaction>
-      <name>Furious Defense.</name>
-      <text>When an attacker the giant can see makes an attack roll against a creature within 10 feet of the giant, the giant can impose disadvantage on the attack roll.</text>
-    </monsterReaction>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.200</monsterTrait1>
-    <monsterTrait2>Vigilant. 
-The giant can't be surprised.</monsterTrait2>
+Guildmaster's Guide to Ravnica, p.219</monsterTrait1>
+    <monsterTrait2>Keen Sight. 
+The roc has advantage on Wisdom (Perception) checks that rely on sight</monsterTrait2>
     <monsterAction1>Multiattack. 
-The giant makes three spear attacks.</monsterAction1>
-    <monsterAction2>Spear. 
-Melee or Ranged Weapon Attack: +10 to hit, reach 10 ft. or range 60/240 ft., one target. Hit: 17 (3d6 + 7) piercing damage, or 20 (3d8 + 7) piercing damage if used with two hands to make a melee attack.</monsterAction2>
+The roc makes two attacks: one with its beak and one with its talons.</monsterAction1>
+    <monsterAction2>Beak. 
+Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 9 (ld8 + 5) piercing damage</monsterAction2>
+    <monsterAction3>Talons. 
+Melee Wea pon Attack: +7 to hit , reach 5 ft. , one target. Hit: 10 (2d4 + 5) slashing damage</monsterAction3>
   </monster>
   <monster>
-    <title>Orzhov Giant</title>
-    <monsterSize>large</monsterSize>
-    <monsterType>giant</monsterType>
-    <monsterAlignment>lawful evil</monsterAlignment>
+    <title>Skyswimmer</title>
+    <monsterSize>garganutan</monsterSize>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
     <monsterAc>18</monsterAc>
-    <monsterHp>84 (8d10 + 40)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>23</monsterStr>
-    <monsterDex>13</monsterDex>
-    <monsterCon>21</monsterCon>
-    <monsterInt>12</monsterInt>
-    <monsterWis>13</monsterWis>
-    <monsterCha>8</monsterCha>
-    <monsterSave>Dex +4, Con +8, Wis +4</monsterSave>
-    <monsterSkill/>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses>darkvision 60ft.</monsterSenses>
-    <monsterPassive>11</monsterPassive>
-    <monsterLanguages>Common, Giant</monsterLanguages>
-    <monsterCr>6</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.201</monsterTrait1>
-    <monsterTrait2>Focus. 
-As a bonus action, the giant can target a creature it can see within 30 feet of it and make that creature its focus. The target remains the giant's focus for l minute, or until either the target or the giant drops to 0 hit points.
-		When the giant makes an attack roll against it s focus, it adds a d4 to its attack roll. If the giant attacks a different target while it has a focus, it subtracts a d4 from its attack roll</monsterTrait2>
-    <monsterAction1>Multiattack. 
-The giant makes two greataxe attacks.</monsterAction1>
-    <monsterAction2>Creataxe. 
-Melee Weapon Attack: +9 to hit, reach 10 ft., one target. Hit: 25 (3dl2 + 6) slashing damage. If the Orzhov giant scores a critical hit, it rolls the damage dice three times, instead of twice.</monsterAction2>
-    <monsterAction3>Rock. 
-Ranged Weapon Attack: +9 to hit, range 60/240 ft., one target . Hit: 28 (4dl0 + 6) bludgeoning damage.</monsterAction3>
-  </monster>
-  <monster>
-    <title>Sunder Shaman</title>
-    <monsterSize>huge</monsterSize>
-    <monsterType>giant</monsterType>
-    <monsterAlignment>chaotic neutral</monsterAlignment>
-    <monsterAc>20</monsterAc>
-    <monsterHp>138 (12d12 + 60}</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
+    <monsterHp>216 (16d20 + 48)</monsterHp>
+    <monsterSpeed>l0 ft., fly 60 ft.</monsterSpeed>
     <monsterStr>23</monsterStr>
     <monsterDex>15</monsterDex>
-    <monsterCon>21</monsterCon>
-    <monsterInt>10</monsterInt>
+    <monsterCon>16</monsterCon>
+    <monsterInt>7</monsterInt>
     <monsterWis>12</monsterWis>
-    <monsterCha>9</monsterCha>
-    <monsterSave>Dex +6, Co n +9, Wis +5</monsterSave>
-    <monsterSkill>Athletics +10, Perception +5</monsterSkill>
+    <monsterCha>6</monsterCha>
+    <monsterSave>Con +8</monsterSave>
+    <monsterSkill>Perception +6</monsterSkill>
     <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
-    <monsterSenses>darkvision 60ft.</monsterSenses>
-    <monsterPassive>15</monsterPassive>
-    <monsterLanguages>Giant</monsterLanguages>
-    <monsterCr>10</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.201</monsterTrait1>
-    <monsterTrait2>Reckless. 
-At the start of its turn , the giant can gain advantage on all melee weapon attack rolls it makes during that turn, but attack rolls against it have advantage until the start of its next turn</monsterTrait2>
-    <monsterTrait3>Siege Monster. 
-The giant deals double damage to objects and structures.</monsterTrait3>
-    <monsterTrait4>Stone Camouflage. 
-The giant has advantage on Dexterity (Stealth) checks made to hide in rocky terrain.</monsterTrait4>
-    <monsterAction1>Multiattack. 
-The giant makes two slam attacks. The first of those attacks that hits deals an extra 18 (4d8) damage if the giant has taken damage since its last turn.</monsterAction1>
-    <monsterAction2>Slam. 
-Melee Weapon Attack: +10 to hit, reach 15 ft., one target. Hit : 24 (4d8 + 6) bludgeoning damage.</monsterAction2>
-    <monsterAction3>Rock. 
-Ranged Weapon Attack: +10 to hit, range 60/240 ft., one target . Hit: 28 (4dl0 + 6) bludgeoning damage. If the target is a creature, it must succeed on a DC 18 Strength saving throw or be knocked prone.</monsterAction3>
-  </monster>
-  <monster>
-    <title>Flying Horror</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>aberration</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>16</monsterAc>
-    <monsterHp>49 (9d8 + 9)</monsterHp>
-    <monsterSpeed>30 ft., fly 60 ft.</monsterSpeed>
-    <monsterStr>9</monsterStr>
-    <monsterDex>20</monsterDex>
-    <monsterCon>12</monsterCon>
-    <monsterInt>2</monsterInt>
-    <monsterWis>15</monsterWis>
-    <monsterCha>16</monsterCha>
-    <monsterSave/>
-    <monsterSkill>Perception +4, Stealth +7</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable>radiant</monsterVulnerable>
-    <monsterImmune/>
-    <monsterConditionImmune>frightened</monsterConditionImmune>
-    <monsterSenses>darkvision 120ft.</monsterSenses>
-    <monsterPassive>14</monsterPassive>
-    <monsterLanguages>--</monsterLanguages>
-    <monsterCr>3</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.202</monsterTrait1>
-    <monsterTrait2>Fear Frenzy. 
-The horror has advantage on attack rolls against frightened creatures.</monsterTrait2>
-    <monsterTrait3>Sunlight Sensitivity. 
-While in sunlight, the horror has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight.</monsterTrait3>
-    <monsterAction1>Claws. 
-Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 8 (ld6 + S) slashing damage plus 14 (4d6) psychic damage</monsterAction1>
-    <monsterAction2>Frightening Screech (Recharge 5-6). 
-The horror screeches. Each creature within 30 feet of it that can hear it must succeed on a DC 13 Wisdom saving throw or be frightened of it for l minute. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to the horror's Frightening Screech for the next 24 hours.</monsterAction2>
-  </monster>
-  <monster>
-    <title>Shadow Horror</title>
-    <monsterSize>large</monsterSize>
-    <monsterType>aberration</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>13</monsterAc>
-    <monsterHp>120 (l6dl0 + 32)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>12</monsterStr>
-    <monsterDex>16</monsterDex>
-    <monsterCon>14</monsterCon>
-    <monsterInt>2</monsterInt>
-    <monsterWis>17</monsterWis>
-    <monsterCha>18</monsterCha>
-    <monsterSave/>
-    <monsterSkill>Perception +7, Stealth +11</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable>radiant</monsterVulnerable>
-    <monsterImmune/>
-    <monsterConditionImmune>frightened</monsterConditionImmune>
-    <monsterSenses>darkvision 120ft.</monsterSenses>
-    <monsterPassive>17</monsterPassive>
-    <monsterLanguages>--</monsterLanguages>
-    <monsterCr>9</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.205</monsterTrait1>
-    <monsterTrait2>Incorporeal Movement. 
-The horror can move through other creatures and objects as if they were difficult terrain. It takes 5 (ld10) force damage if it ends its turn inside an object.</monsterTrait2>
-    <monsterTrait3>Shadow Stealth. 
-While in dim light or darkness, the horror can take the Hide action as a bonus action.</monsterTrait3>
-    <monsterTrait4>Shadow Stride. 
-As a bonus action, the horror can step into a shadow within S feet of it and magically appear in an unoccupied space within S feet of a second shadow that is up to 60 feet away. Both shadows must be cast by a Small or larger creature or object.</monsterTrait4>
-    <monsterTrait5>Sunlight Sensitivity. 
-While in sunlight, the horror has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight.</monsterTrait5>
-    <monsterAction1>Multiattack. 
-The horror makes three attacks: one with its bite and two with its claws.</monsterAction1>
-    <monsterAction2>Bite. 
-Melee Weapon Attack: +7 to hit, reach S ft., one targe t . Hit: 21 (4d8 + 3) piercing damage.</monsterAction2>
-    <monsterAction3>Claw. 
-Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (3d6 + 3) slashing damage , and the target must succeed on a DC 16 Wisdom saving throw or be frightened of the horror until the end of the target's next turn.</monsterAction3>
-    <monsterAction4>Lashing Shadows (Recha rge 5-6). 
-Each creature within 60 feet of the horror, except other horrors, must succeed on a DC 16 Dexterity saving throw or take 27 (6d8) necrotic damage</monsterAction4>
-  </monster>
-  <monster>
-    <title>Skittering Horror</title>
-    <monsterSize>huge</monsterSize>
-    <monsterType>aberration</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>17</monsterAc>
-    <monsterHp>228 (24dl2 + 72)</monsterHp>
-    <monsterSpeed>40 ft., climb 40 ft</monsterSpeed>
-    <monsterStr>22</monsterStr>
-    <monsterDex>16</monsterDex>
-    <monsterCon>17</monsterCon>
-    <monsterInt>2</monsterInt>
-    <monsterWis>14</monsterWis>
-    <monsterCha>18</monsterCha>
-    <monsterSave/>
-    <monsterSkill>Perception +7, Stealth +8</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable>radiant</monsterVulnerable>
-    <monsterImmune/>
-    <monsterConditionImmune>frightened</monsterConditionImmune>
-    <monsterSenses>darkvision 120ft.</monsterSenses>
-    <monsterPassive>17</monsterPassive>
-    <monsterLanguages>--</monsterLanguages>
-    <monsterCr>15</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.205</monsterTrait1>
-    <monsterTrait2>Spider Climb. 
-The horror can climb difficult surfaces, including upside down on ceilings , without needing to make an ability check.</monsterTrait2>
-    <monsterTrait3>Sunlight Sensitivity. 
-While in sunlight, the horror has disadvantage on attack rolls and on Wisdom (Perception) checks that rely on sight.</monsterTrait3>
-    <monsterAction1>Multiattack. 
-The horror can use its Maddening Presence and make three attacks: one with its bite and two with its claws.</monsterAction1>
-    <monsterAction2>Bite. 
-Melee Weapon Atiack: +11 to hit, reach 10 ft., one target. Hit: 28 (4dl0 + 6) piercing damage</monsterAction2>
-    <monsterAction3>Claws. 
-Melee Weapon Attack: +11 to hit, reach 10 ft. one target. Hit: 24 (4d8 + 6) slashing damage</monsterAction3>
-    <monsterAction4>Maddening Presence. 
-The horror targets one creature it can see within 30 feet of it. If the target can see or hear the horror, the target must make a DC 17 Wisdom saving throw. On a failed saving throw, the target becomes paralyzed until the end of its next turn. If a creature's saving throw is successful, the creature is immune to the horror's Maddening Presence for the next 24 hours.</monsterAction4>
-  </monster>
-  <monster>
-    <title>Indentured Spirit</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>undead</monsterType>
-    <monsterAlignment>any alignment</monsterAlignment>
-    <monsterAc>11</monsterAc>
-    <monsterHp>13 (3d8)</monsterHp>
-    <monsterSpeed>0 ft., Ay 40 ft. (hover)</monsterSpeed>
-    <monsterStr>7</monsterStr>
-    <monsterDex>13</monsterDex>
-    <monsterCon>10</monsterCon>
-    <monsterInt>10</monsterInt>
-    <monsterWis>12</monsterWis>
-    <monsterCha>11</monsterCha>
-    <monsterSave/>
-    <monsterSkill/>
-    <monsterResist>acid, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>cold , necrotic, poison</monsterImmune>
-    <monsterConditionImmune>charmed, exhaustion, frightened, grappled, paralyzed, petrified, poisoned, prone, restrained</monsterConditionImmune>
     <monsterSenses/>
-    <monsterPassive>11</monsterPassive>
-    <monsterLanguages>the languages it knew in life</monsterLanguages>
-    <monsterCr>1</monsterCr>
+    <monsterPassive>16</monsterPassive>
+    <monsterLanguages>--</monsterLanguages>
+    <monsterCr>13</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.206</monsterTrait1>
-    <monsterTrait2>Incorporeal Movement. 
-The spirit can move through other creatures and objects as if they were difficu lt terrain. It takes 5 (ldlO) force damage if it ends its turn inside an object.</monsterTrait2>
-    <monsterAction1>Withering Touch. 
-Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 10 (3d6) necrotic damage.</monsterAction1>
+Guildmaster's Guide to Ravnica, p.220</monsterTrait1>
+    <monsterTrait2>Amphibious. 
+The skyswimmer can brea the air and water.</monsterTrait2>
+    <monsterAction1>Multiattack. 
+The skyswimmer makes three attacks: one with its bite and two with its slam.</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack:+ 11 to hit, reach 10 ft., one target. Hit: 22 (3dl0 + 6) piercing damage. If the target is a Large or smaller creature, it must succeed on a DC 19 Dexterity saving throw or be swallowed by the skyswimmer.
+A swallowed creature is blinded and restrained, it has total cover against attacks and other effects outside the skyswimmer, and it takes 21 (6d6} acid damage at the start of each of the skyswimmer's turns.
+If the skyswimmer takes 30 damage or more on a single turn from the swallowed creature, the skyswimmer must succeed on a DC 18 Constitution saving throw at the end of that turn or regurgitate the creature, which falls prone in a space within l0 feet of the skyswimmer.
+If the skyswimmer dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using l5 feet of movement, exiting prone.</monsterAction2>
+    <monsterAction3>Slam. 
+Melee Weapon Attack: +ll to hit, reach 30 ft., one target. Hit: 19 (2d l 2 + 6) bludgeoning damage.</monsterAction3>
   </monster>
   <monster>
-    <title>Blistercoil Weird</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>chaotic neutral</monsterAlignment>
-    <monsterAc>13</monsterAc>
-    <monsterHp>45 (7d8 + 14)</monsterHp>
-    <monsterSpeed>40 ft., swim 60 ft</monsterSpeed>
-    <monsterStr>16</monsterStr>
-    <monsterDex>16</monsterDex>
-    <monsterCon>15</monsterCon>
-    <monsterInt>5</monsterInt>
-    <monsterWis>10</monsterWis>
-    <monsterCha>7</monsterCha>
+    <title>Servitor Thrull</title>
+    <monsterSize>small</monsterSize>
+    <monsterType>construct</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
+    <monsterAc>11</monsterAc>
+    <monsterHp>22 (4d6 + 8)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>11</monsterStr>
+    <monsterDex>13</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>6</monsterInt>
+    <monsterWis>6</monsterWis>
+    <monsterCha>3</monsterCha>
     <monsterSave/>
     <monsterSkill/>
-    <monsterResist>cold, fire; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious</monsterConditionImmune>
-    <monsterSenses>darkvision 60 ft.</monsterSenses>
-    <monsterPassive>10</monsterPassive>
-    <monsterLanguages>Draconic</monsterLanguages>
+    <monsterConditionImmune>exhaustion, poisoned</monsterConditionImmune>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>8</monsterPassive>
+    <monsterLanguages>understands Common but can't speak</monsterLanguages>
+    <monsterCr>0.25</monsterCr>
+    <monsterReaction>
+      <name>Self-Sacrifice.</name>
+      <text>When a creature within 5 feet of the thrull is hit by an attack, the thrull swaps places with that creature and is hit instead.</text>
+    </monsterReaction>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.221</monsterTrait1>
+    <monsterAction1>Claws. 
+Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 5(ld8 + 1) slashing damage</monsterAction1>
+  </monster>
+  <monster>
+    <title>Winged Thrull</title>
+    <monsterSize>small</monsterSize>
+    <monsterType>construct</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
+    <monsterAc>12</monsterAc>
+    <monsterHp>31 (7d6 + 7)</monsterHp>
+    <monsterSpeed>30 ft., fly 30 ft.</monsterSpeed>
+    <monsterStr>9</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>8</monsterInt>
+    <monsterWis>9</monsterWis>
+    <monsterCha>8</monsterCha>
+    <monsterSave>Dex +4</monsterSave>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune>poison</monsterImmune>
+    <monsterConditionImmune>exhaustion, poisoned</monsterConditionImmune>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>9</monsterPassive>
+    <monsterLanguages>understands Common but can't speak</monsterLanguages>
+    <monsterCr>0.5</monsterCr>
+    <monsterReaction>
+      <name>Self-Sacrifice.</name>
+      <text>When a creature within 5 feet of the thrull is hit by an attack, the thrull swaps places with that creature and is hit instead.</text>
+    </monsterReaction>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.221</monsterTrait1>
+    <monsterAction1>Claws. 
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 7 (2d4 + 2) slashing damage.</monsterAction1>
+    <monsterAction2>Rock. 
+Ranged Weapon Attack: +4 to hit, range 20/60 ft., one target. Hit: 5 (ld6 + 2) bludgeoning damage.</monsterAction2>
+  </monster>
+  <monster>
+    <title>Undercity Medusa</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>neutral evil</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>120 (16d8 + 48)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>16</monsterStr>
+    <monsterDex>18</monsterDex>
+    <monsterCon>16</monsterCon>
+    <monsterInt>17</monsterInt>
+    <monsterWis>12</monsterWis>
+    <monsterCha>15</monsterCha>
+    <monsterSave/>
+    <monsterSkill>Deception +5, Insight +4, Perception +4, Stealth +7</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>14</monsterPassive>
+    <monsterLanguages>Common, Elvish</monsterLanguages>
+    <monsterCr>6</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.222</monsterTrait1>
+    <monsterTrait2>Innate Spellcasting. 
+The medusa's innate spellcasting ability is Intelligence (s pell save DC 14). The medusa can innately cast the following spells, requiring no material components:
+			l/day each: expeditious retreat, fog cloud, misty step</monsterTrait2>
+    <monsterTrait3>Magic Resistance 
+The medusa has advantage on saving throws against spells and other magical effects</monsterTrait3>
+    <monsterTrait4>Surprise Attack 
+During the first round of combat, the medusa has advantage on attack rolls against any creature that is surprised, and it deals an extra 10 (3d6) damage each time it hits such a creature with an attack</monsterTrait4>
+    <monsterAction1>Multiattack. 
+The medusa makes two claw attacks. It can also use Petrifying Gaze before or after making these attacks</monsterAction1>
+    <monsterAction2>Claw. 
+Melee Weapon Attack: +7 to hit, reach 5 ft., one target. Hit: 13 (2d8 + 4) slashing damage.</monsterAction2>
+    <monsterAction3>Petrifying Gaze. 
+The medusa fixes its gaze on one creature within 60 feet of it that it can see and that can see its eyes. The target must make a DC 14 Constitution saving throw. If the saving throw fails by 5 or more, the creature is instantly petrified. Otherwise, a creature that fails the save begins to turn to stone and is restrained. The restrained creature must repeat the saving throw at the end of its next turn, becoming petrified on a fa ilure or ending the effect on a success. The petrification lasts until the creature is freed by a greater restoration spell or similar magic.</monsterAction3>
+  </monster>
+  <monster>
+    <title>Blood Drinker Vampire</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>undead</monsterType>
+    <monsterAlignment>lawful evil</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>90 (12d8 + 36)</monsterHp>
+    <monsterSpeed>40 ft., fly 40 ft. (hover)</monsterSpeed>
+    <monsterStr>16</monsterStr>
+    <monsterDex>18</monsterDex>
+    <monsterCon>17</monsterCon>
+    <monsterInt>16</monsterInt>
+    <monsterWis>13</monsterWis>
+    <monsterCha>19</monsterCha>
+    <monsterSave>Dex +7, Con +6, Wis +4</monsterSave>
+    <monsterSkill>Intimidation +7, Perception +4, Stealth +7</monsterSkill>
+    <monsterResist>necrotic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>14</monsterPassive>
+    <monsterLanguages>the languages it knew in life</monsterLanguages>
+    <monsterCr>8</monsterCr>
+    <monsterReaction>
+      <name>Parry.</name>
+      <text>The vampire adds 3 to its AC against one melee attack that would hit it. To do so, the vampire must see the attacker and be wielding a melee weapon.</text>
+    </monsterReaction>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.223</monsterTrait1>
+    <monsterAction1>Multiattack. 
+The vampire makes three melee attacks, only one of which can be a bite attack</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack: +7 to hit, reach 5 ft., one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained. Hit: 7 (ld6 + 4) piercing damage plus 7 (2d6) necrotic damage. If the target is humanoid, it must succeed on a DC 15 Charisma saving throw or be charmed by the vampire for l minute. While charmed in this way, the target is infatuated with the vampire.
+The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target fi nishes a long rest. The target dies if its hit point maximum is reduced to 0.</monsterAction2>
+    <monsterAction3>Rapier. 
+Melee Weapon Attack: +7 to hit, reach S ft., one target. Hit: 8 (ld8 + 4) piercing damage.</monsterAction3>
+    <monsterAction4>Unarmed Strike. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (ld8 + 3) bludgeoning damage. The vampire can also grapple the target (escape DC 14) if it is a creature and the vampire has a hand free.</monsterAction4>
+  </monster>
+  <monster>
+    <title>Mind Drinker Vampire</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>undead</monsterType>
+    <monsterAlignment>neutral evil</monsterAlignment>
+    <monsterAc>14</monsterAc>
+    <monsterHp>55 (10d8 + 10)</monsterHp>
+    <monsterSpeed>30 ft., fly 30 ft. (hover)</monsterSpeed>
+    <monsterStr>16</monsterStr>
+    <monsterDex>18</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>19</monsterInt>
+    <monsterWis>13</monsterWis>
+    <monsterCha>14</monsterCha>
+    <monsterSave>Dex +6, Int +6, Wis +3</monsterSave>
+    <monsterSkill>Deception +4, Insight +3, Perception +3, Stealth +6</monsterSkill>
+    <monsterResist>necrotic</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>darkvision 60 ft</monsterSenses>
+    <monsterPassive>13</monsterPassive>
+    <monsterLanguages>the languages it knew in life</monsterLanguages>
     <monsterCr>4</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.207</monsterTrait1>
-    <monsterTrait2>Feed on Fire. 
-If the weird takes fire damage from a spell or other magical effect, its size increases by one category. If there isn't enough room for the weird to increase in size, it attains the maximum size possible in the space available. While the weird is Large or bigger, it makes Strength checks and saving throws with advantage.
-		If the weird starts its turn at Gargantuan size, the weird releases energy in an explosion. Each creature within 30 feet of the weird must make a DC 12 Dexterity saving throw, taking 28 (8d6) fire damage on a failed save, or half as much damage on a successfu l one. The explosion ignites flammable objects in the area that aren't being worn or carried. The weird's size then becomes Medium.</monsterTrait2>
-    <monsterTrait3>Form of Fire and Water. 
-The weird can move through a space as narrow as 1 inch wide without squeezing. In addition, the weird can enter a hostile creature's space and stop there. The first time the weird enters another creature's space on a turn, that creature takes 5 (ldlO) fire damage and catches fire; until someone takes an action to douse the fire, the burning creature takes 5 (ldl0) fire damage at the start of each of its turns .</monsterTrait3>
-    <monsterTrait4>Heated Body. 
-A creature that touches the weird or hits it with a melee attack while within S feet of it takes 5 (1dl0) fire damage.</monsterTrait4>
-    <monsterTrait5>Illumination. 
-The weird sheds bright light in a 30-foot radius and dim light for an additional 30 feet.</monsterTrait5>
-    <monsterAction1>Slam. 
-Melee Weapon Attack: +5 to hit , reach 5 ft., one target. Hit: 7 (ld8 + 3) bludgeoning damage plus 7 (2d6) fire damage, or 11 (2d8 + 3) bludgeoning damage plus 14 (4d6) fire damage if the weird is Large or bigger.</monsterAction1>
+Guildmaster's Guide to Ravnica, p.224</monsterTrait1>
+    <monsterTrait2>Innate Spellcasting (Psionics). 
+The vampire's innate spellcasting ability is Intelligence (spell save DC 14). It can innately cast the following spells, requiring no components:
+			At will: message
+			3/day each: charm person, hold person, mirror image, sleep
+			l/day each: gaseous form, major image</monsterTrait2>
+    <monsterTrait3>Shadow Stealth. 
+While in dim light or darkness, the vampire can take the Hide action as a bonus action</monsterTrait3>
+    <monsterTrait4>Sunlight Sensitivity. 
+While in sunlight, the vampire has disadvantage on attack rolls, as well as on Wisdom (Perception) checks that rely on sight.</monsterTrait4>
+    <monsterAction1>Multiattack. 
+The vampire makes two attacks, only one of which can be a bite attack.</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one willing creature, or a creature that is grappled by the vampire, incapacitated, or restrained. Hit: 7 (ld6 + 4) piercing damage plus 7 (2d6) necrotic damage. If the target is humanoid, it must succeed on a DC 15 Charisma saving throw or be charmed by the vampire for l minute. While charmed in this way, the target is infatuated with the vampire.
+The target's hit point maximum is reduced by an amount equal to the necrotic damage taken, and the vampire regains hit points equal to that amount. The reduction lasts until the target fi nishes a long rest. The target dies if its hit point maximum is reduced to 0.</monsterAction2>
+    <monsterAction3>Unarmed Strike. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (ld8 + 4) bludgeoning damage. The vampire can also grapple the target (escape DC 14) if it is a creature and the vampire has a hand free.</monsterAction3>
+    <monsterAction4>Mind Siphon (Recharge 5-6). 
+The vampire targets a creature it can see within 30 feet of it. The target must make a DC 14 Intelligence saving throw, with disadvantage if the vampire has previously consumed the target's blood. On a failed save, the target takes 28 (8d6) psychic damage, and the vampire discerns the target's surface emotions and thoughts. On a successful save, the target takes half as much damage, and the vampire discerns the target's general emotional state but not its thoughts.</monsterAction4>
   </monster>
   <monster>
-    <title>Fluxcharger</title>
-    <monsterSize>large</monsterSize>
-    <monsterType>elemental</monsterType>
-    <monsterAlignment>chaotic neutral</monsterAlignment>
-    <monsterAc>16</monsterAc>
-    <monsterHp>60 (8d10 + 16)</monsterHp>
-    <monsterSpeed>0 ft., fly 60 ft.</monsterSpeed>
-    <monsterStr>15</monsterStr>
-    <monsterDex>18</monsterDex>
-    <monsterCon>15</monsterCon>
-    <monsterInt>6</monsterInt>
-    <monsterWis>10</monsterWis>
-    <monsterCha>7</monsterCha>
-    <monsterSave/>
+    <title>Wurm</title>
+    <monsterSize>huge</monsterSize>
+    <monsterType>monstrosity</monsterType>
+    <monsterAlignment>unaligned</monsterAlignment>
+    <monsterAc>18</monsterAc>
+    <monsterHp>200 (16dl2 + 96)</monsterHp>
+    <monsterSpeed>50 ft. , burrow 30 ft.</monsterSpeed>
+    <monsterStr>24</monsterStr>
+    <monsterDex>10</monsterDex>
+    <monsterCon>22</monsterCon>
+    <monsterInt>3</monsterInt>
+    <monsterWis>12</monsterWis>
+    <monsterCha>4</monsterCha>
+    <monsterSave>Con + 11, Wis +6</monsterSave>
     <monsterSkill/>
-    <monsterResist>thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterResist/>
     <monsterVulnerable/>
-    <monsterImmune>lightning, poison</monsterImmune>
-    <monsterConditionImmune>exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained, unconscious</monsterConditionImmune>
-    <monsterSenses>darkvision 60 ft.</monsterSenses>
-    <monsterPassive>10</monsterPassive>
-    <monsterLanguages>Draconic</monsterLanguages>
-    <monsterCr>7</monsterCr>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>blindsight 60 ft., tremorsense 60 ft.</monsterSenses>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>--</monsterLanguages>
+    <monsterCr>14</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.208</monsterTrait1>
-    <monsterTrait2>Amplify Lightning. 
-Whenever a spell that deals lightning damage includes one or more fluxchargers in its area, the spell deals an extra 9 (2d8} lightning damage.</monsterTrait2>
-    <monsterAction1>Multiattack. 
-The fluxcharger makes two slam attacks or uses Arc Lightning twice</monsterAction1>
-    <monsterAction2>Slam. 
-Melee Weapon Attack: +7 to hit, reach 10 ft., one target. Hit: 13 (2d8 + 4) bludgeoning damage plus 10 (3d6) fire damage.</monsterAction2>
-    <monsterAction3>Arc Lightning. 
-Ranged Spell Attack: +7 to hit, range 30 ft., one target. Hit: 16 (3d10} lightning damage, and lightning jumps from the target to one creature of the fluxcharger's choice that it can see within 30 feet of the target. That second creature must succeed on a DC 15 Dexterity saving throw or take 13 (3d8) lightning damage. Hit or Miss: The fluxcharger takes 5 (ldl0) force damage after resolving the attack.</monsterAction3>
+Guildmaster's Guide to Ravnica, p.225</monsterTrait1>
+    <monsterTrait2>Earth Tremors. 
+The wurm creates earth tremors as it moves overland or underground. Any creature that comes within 30 feet of the moving wurm for the first time on a turn must succeed on a DC 20 Dexterity saving throw or take 10 (3d6) bludgeoning damage and fall prone. Any structure or object anchored to the ground that comes within 30 feet of the moving wurm for the first time on a turn takes 10 (3d6) force damage</monsterTrait2>
+    <monsterTrait3>Siege Monster. 
+The wurm deals double damage to objects and structures.</monsterTrait3>
+    <monsterTrait4>Tunneler. 
+The wurm can burrow through solid rock at half its burrow speed and leaves a 10-foot-diameter tunnel in its wake.</monsterTrait4>
+    <monsterAction1>Bite. 
+Melee Weapon Attack: +12 to hit, reach 10 ft., one target. Hit: 24 (5d6 + 7) piercing damage. If the target is a Medium or smaller creature, it must succeed on a DC 20 Dexterity saving throw or be swallowed by the wurm. A swallowed creature is blinded and restrained, has total cover against attacks and other effects outside the wurm, and takes 17 (5d6) acid damage at the start of each of the wurm's turns.
+If the wurm takes 30 damage or more on a single turn from a creature inside it, the wurm must succeed on a DC 21 Constitution saving throw at the end of that turn or regurgitate all swallowed creatures, which fall prone in a space within 10 feet of the wurm. If the wurm dies, a swallowed creature is no longer restrained by it and can escape from the corpse by using 20 feet of movement, exiting prone.</monsterAction1>
   </monster>
 </world>
