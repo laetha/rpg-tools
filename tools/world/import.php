@@ -137,7 +137,7 @@ document.getElementById("npc-form").style.display = "none";
         <select form="import" name="npc-deity" id="deity-form">
           <option value="" selected>None...</option>
           <?php
-          $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'deity' AND 'worlduser' LIKE '$loguser' ORDER BY `world`.`title` ASC";
+          $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'deity' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
           $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
           while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
             $deity = $deityrow['title'];
@@ -159,7 +159,7 @@ document.getElementById("npc-form").style.display = "none";
         <select form="import" name="npc-location" id="location-form">
           <option value="" selected>None...</option>
           <?php
-          $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' AND 'worlduser' LIKE '$loguser' ORDER BY `world`.`title` ASC";
+          $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
           $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
           while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
             $location = $locationrow['title'];
@@ -181,7 +181,7 @@ document.getElementById("npc-form").style.display = "none";
         <select form="import" name="npc-faction" id="faction-form">
           <option value="" selected>None...</option>
           <?php
-          $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND 'worlduser' LIKE '$loguser' ORDER BY `world`.`title` ASC";
+          $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
           $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
           while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
             $faction = $factionrow['title'];
@@ -204,7 +204,7 @@ document.getElementById("npc-form").style.display = "none";
             <select form="import" name="npc-establishment" id="establishment-form">
               <option value="" selected>None...</option>
               <?php
-              $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'establishment' AND 'worlduser' LIKE '$loguser' ORDER BY `world`.`title` ASC";
+              $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'establishment' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
               $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
               while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
                 $faction = $factionrow['title'];
@@ -238,7 +238,7 @@ document.getElementById("npc-form").style.display = "none";
         <select form="import" name="est-location" id="est-location-form">
           <option value="" selected>None...</option>
           <?php
-          $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' AND 'worlduser' LIKE '$loguser' ORDER BY `world`.`title` ASC";
+          $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
           $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
           while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
             $location = $locationrow['title'];
@@ -304,7 +304,7 @@ document.getElementById("npc-form").style.display = "none";
             <select form="import" name="quest-faction" id="quest-faction-form">
               <option value="" selected>None...</option>
               <?php
-              $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND 'worlduser' LIKE '$loguser'";
+              $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND worlduser LIKE '$loguser'";
               $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
               while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
                 $location = $locationrow['title'];
