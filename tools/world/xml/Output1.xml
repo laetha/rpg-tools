@@ -1,535 +1,921 @@
 <?xml version="1.0"?>
 <world version="5" auto_indent="NO">
   <monster>
-    <title>Isperia</title>
-    <monsterSize>gargantuan</monsterSize>
-    <monsterType>monstrosity</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>17</monsterAc>
-    <monsterHp>261 (18d20 + 72)</monsterHp>
-    <monsterSpeed>40 ft., fly 60 ft.</monsterSpeed>
-    <monsterStr>20</monsterStr>
-    <monsterDex>14</monsterDex>
-    <monsterCon>18</monsterCon>
-    <monsterInt>23</monsterInt>
-    <monsterWis>26</monsterWis>
-    <monsterCha>20</monsterCha>
-    <monsterSave>Dex +9, Con +11, Int +13, Wis +15</monsterSave>
-    <monsterSkill>Arcana +13, History +13, Insight +15, Perception +15</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune>psychic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterImmune>
-    <monsterConditionImmune>charmed, frightened</monsterConditionImmune>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>25</monsterPassive>
-    <monsterLanguages>Common, Sphinx</monsterLanguages>
-    <monsterCr>21</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.227</monsterTrait1>
-    <monsterTrait2>Innate Spellcasting. 
-Isperia's innate spellcasting ability is Wisdom (spell save DC 23). Isperia can in nately cast imprisonment twice per day, requiring no material components.</monsterTrait2>
-    <monsterTrait3>Inscrutable. 
-Isperia is immune to any effect that would sense her emotions or read her thoughts, as well as any divination spell that she refuses. Wisdom (Insight) checks made to ascertain her intentions or sincerity have disadvantage.</monsterTrait3>
-    <monsterTrait4>Legendary Resistance (3/Day). 
-If Isperia fails a saving throw, she can choose to succeed instead.</monsterTrait4>
-    <monsterTrait5>Magic Resistance. 
-Isperia has advantage on saving throws against spells and other magical effects.</monsterTrait5>
-    <monsterTrait6>Spellcasting. 
-Isperia is a 15th-level Azorius spellcaster. Her spellcasting ability is Wisdom (spell save DC 23, +14 to hit with spell attacks). Isperia has the following cleric spells prepared:
-Cantrips (at will): guidance, light, resistance, sacred flame, thaumaturgy
-1st level (4 slots): command, detect evil and good, ensnaring strike, sanctuary, shield of faith
-2nd level (3 slots): arcane lock, augury, calm emotions, hold person, silence, zone of truth
-3rd level (3 slots): bestow curse, clairvoyance, counterspell, dispel magic, tongues
-4th level (3 slots): divination, locate creature
-5th level (2 slots): dispel evil and good, scrying
-6th level (1 slot): word of recall
-7th level (1 slot): divine word
-8th level (l slot): antimagic field
-</monsterTrait6>
-    <monsterAction1>Multiattack. 
-Isperia makes two claw attacks. She can cast a spell with a casting time of 1 action in place of one claw attack.</monsterAction1>
-    <monsterAction2>Claw. 
-Melee Weapon Attack: + 12 to hit, reach 5 ft .. one target. Hit: 21 (3dl0 + 5) slashing damage. If the target is a creature, it must succeed on a DC 23 Wisdom saving throw or take 14 (4d6) psychic damage after each attack it makes against Isperia before the start of her next turn.</monsterAction2>
-    <monsterAction3>Supreme Legal Authority. 
-Isperia chooses up to three creatures she can see within 90 feet of her. Each target must succeed on a DC 23 Intelligence saving throw or Isperia chooses an action for that target: Attack, Cast a Spell, Dash, Disengage, Dodge, Help, Hide, Ready, Search, or Use an Object. The affected target can't take that action for 1 minute. At the end of each of the target's turns, it can end the effect on itself with a successful DC 23 Intelligence saving throw. A target that succeeds on the saving throw becomes immune to Isperia's Supreme Legal Authority for 24 hours</monsterAction3>
-  </monster>
-  <monster>
-    <title>Lawmage</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>humanoid</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>15</monsterAc>
-    <monsterHp>84 (l3d8 + 26)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>13</monsterStr>
-    <monsterDex>12</monsterDex>
-    <monsterCon>14</monsterCon>
-    <monsterInt>17</monsterInt>
-    <monsterWis>14</monsterWis>
-    <monsterCha>13</monsterCha>
-    <monsterSave>Int +6, Wis +5</monsterSave>
-    <monsterSkill>Arcana +6, Perception +5, Persuasion +4</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses/>
-    <monsterPassive>15</monsterPassive>
-    <monsterLanguages>Common plus any one language</monsterLanguages>
-    <monsterCr>6</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.228</monsterTrait1>
-    <monsterTrait2>Spellcasting. 
-The lawmage is an 8th-level Azorius spellcaster. Its spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The lawmage has the following wizard spells prepared:
-Cantrips (at will ): fire bolt, friends, light, message
-lst level (4 slots): alarm, expeditious retreat, shield
-2nd level (3 slots): arcane lock, detect thoughts, hold person
-3rd level (3 slots): clairvoyance, dispel magic, slow
-4th level (2 slots): locate creature, stoneskin
-</monsterTrait2>
-    <monsterAction1>Quarterstaff. 
-Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 4 (ld6 + l ) bludgeoning damage, or 5 (ld8 + l) bludgeoning damage if used with two hands.</monsterAction1>
-  </monster>
-  <monster>
-    <title>Precognitive Mage</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>humanoid</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>11</monsterAc>
-    <monsterHp>63 (l4d8)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>9</monsterStr>
-    <monsterDex>13</monsterDex>
-    <monsterCon>10</monsterCon>
-    <monsterInt>18</monsterInt>
-    <monsterWis>13</monsterWis>
-    <monsterCha>11</monsterCha>
-    <monsterSave>Int +6, Wis +5</monsterSave>
-    <monsterSkill>Perception +3</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>13</monsterPassive>
-    <monsterLanguages>Common plus any one language</monsterLanguages>
-    <monsterCr>3</monsterCr>
-    <monsterReaction>
-		Precognitive Insight (3/Day).
-		When the mage or a creature it can see makes an attack roll, a saving throw, or an ability check, the mage can cause the roll to be made with advantage or disadvantage.
-		</monsterReaction>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.228</monsterTrait1>
-    <monsterTrait2>Innate Spellcasting. 
-The mage's innate spellcasting ability is Intelligence (spell save DC 14). It can cast the following spells, requiring no material components:
-3/day: detect thoughts, mage armor
-1/day each: clairvoyance, locate object
-</monsterTrait2>
-    <monsterAction1>Quarterstaff. 
-Melee Weapon Attack: +l to hit, reach 5 ft., one target. Hit: 2 (ld6 - l) bludgeoning damage, or 3 (ld8 - l) bludgeoning damage if used with two hands</monsterAction1>
-    <monsterAction2>Glimpse the Temporal Flood (Recharge 5-6). 
-The mage targets one creature within 120 feet of it that it can see. The target takes 18 (4d8) psychic damage, and it must succeed on a DC 14 Intelligence saving throw or be stunned until the end of its next turn.</monsterAction2>
-  </monster>
-  <monster>
-    <title>Aurelia</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>celestial</monsterType>
-    <monsterAlignment>lawful good</monsterAlignment>
-    <monsterAc>22</monsterAc>
-    <monsterHp>287 (25d8 + 175)</monsterHp>
-    <monsterSpeed>50 ft., fly 150 ft.</monsterSpeed>
-    <monsterStr>26</monsterStr>
-    <monsterDex>24</monsterDex>
-    <monsterCon>25</monsterCon>
-    <monsterInt>17</monsterInt>
-    <monsterWis>25</monsterWis>
-    <monsterCha>30</monsterCha>
-    <monsterSave>Dex +14, Con +14, Cha +17</monsterSave>
-    <monsterSkill>Insight +14, Perception +14</monsterSkill>
-    <monsterResist>necrotic, radiant; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>charmed, exhaustion, frightened, paralyzed, poisoned</monsterConditionImmune>
-    <monsterSenses>truesight 120 ft.</monsterSenses>
-    <monsterPassive>24</monsterPassive>
-    <monsterLanguages>All</monsterLanguages>
-    <monsterCr>23</monsterCr>
-    <monsterReaction>
-		Parry.
-		Aurelia adds 7 to her AC against one melee attack that would hit her. To do so, Aurelia must see the attacker and be wielding a melee weapon.
-
-Unyielding.
-When Aurelia is subjected to an effect that would move her, knock her prone, or both, she can use her reaction to be neither moved nor knocked prone.
-		</monsterReaction>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.230</monsterTrait1>
-    <monsterTrait2>Legendary Resistance (3/Day). 
-If Aurelia fails a saving throw, she can choose to succeed instead.</monsterTrait2>
-    <monsterTrait3>Magic Resistance. 
-Aurelia has advantage on saving throws against spells and other magical effects</monsterTrait3>
-    <monsterAction1>Multiattack. 
-Aurelia makes three longsword attacks and uses Leadership.</monsterAction1>
-    <monsterAction2>Longsword. 
-Melee Weapon Attack: +15 to hit, reach 5 ft., one target. Hit: 12 (1d8 + 8) slashing damage, or l3 (ldlO + 8) slashing damage when used with two hands, plus 27 (6d8) radiant damage.</monsterAction2>
-    <monsterAction3>Leadership. 
-Aurelia utters a few inspiring words to one creature she can see with in 30 feet of her. If the creature can hear her, it can add a d10 to one attack roll or saving throw it makes before the start of Aurelia's next turn.</monsterAction3>
-    <monsterAction4>Warleader's Helix (Recharge 5-6). 
-Ranged Spell Attack: + 17 to hit, range 60 ft., one creature. Hit: 54 (12d8) radiant damage, and Aurelia can choose another creature she can see within l0 feet of the target. The second creature regains 27 (6d8) hit points.</monsterAction4>
-  </monster>
-  <monster>
-    <title>Firefist</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>humanoid</monsterType>
-    <monsterAlignment>lawful good</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>117 (18d8 + 36)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>16</monsterStr>
-    <monsterDex>10</monsterDex>
-    <monsterCon>14</monsterCon>
-    <monsterInt>11</monsterInt>
+    <title>Borborygmos</title>
+    <monsterSize>huge</monsterSize>
+    <monsterType>giant</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>14</monsterAc>
+    <monsterHp>270 (20dl2 + 140)</monsterHp>
+    <monsterSpeed>40 ft.</monsterSpeed>
+    <monsterStr>24</monsterStr>
+    <monsterDex>11</monsterDex>
+    <monsterCon>24</monsterCon>
+    <monsterInt>8</monsterInt>
     <monsterWis>17</monsterWis>
-    <monsterCha>13</monsterCha>
-    <monsterSave>Con +5, Wis +6</monsterSave>
-    <monsterSkill>Intimidation +4, Religion +3</monsterSkill>
-    <monsterResist/>
+    <monsterCha>16</monsterCha>
+    <monsterSave>Str +13, Con +13 , Wis +9</monsterSave>
+    <monsterSkill>Athletics +13, Insight +9 , Survival +9</monsterSkill>
+    <monsterResist>poison, psychic</monsterResist>
     <monsterVulnerable/>
     <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses/>
+    <monsterConditionImmune>charmed, frightened</monsterConditionImmune>
+    <monsterSenses>tremorsense 60 ft.</monsterSenses>
     <monsterPassive>13</monsterPassive>
-    <monsterLanguages>any one language (usually Common)</monsterLanguages>
-    <monsterCr>7</monsterCr>
-    <monsterReaction>
-		Guided Attack (Recharges after a Short or Long Rest).
-		When the firefist or one creature it can see within 30 feet of it makes an attack roll, the firefist grants a+ 10 bonus to that roll.
-		</monsterReaction>
+    <monsterLanguages>Common, Giant</monsterLanguages>
+    <monsterCr>18</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.231</monsterTrait1>
-    <monsterTrait2>Spellcasting. 
-The firefist is a 9th-level Boros spellcaster. Its spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). It has the following cleric spells prepared:
-Cantrips (at will): fire bolt, light, sacred flame, spare the dying
-lst level (4 slots): guiding bolt, healing word, heroism, shield of faith
-2nd level (3 slots): lesser restoration, scorching ray
-3rd level (3 slots): blinding smite, crusader's mantle, revivify
-4th level (3 slots): banishment, wolf of fire
-Sth level (l slot): flame strike</monsterTrait2>
+Guildmaster's Guide to Ravnica, p.238</monsterTrait1>
+    <monsterTrait2>Legendary Resistance (3/Day). 
+If Borborygmos fails a saving throw, he can choose to succeed instead.</monsterTrait2>
+    <monsterTrait3>Poor Depth Perception. 
+Borborygmos has disadvantage on any attack roll against a target more than 30 feet away</monsterTrait3>
+    <monsterTrait4>Siege Monster. 
+Borborygmos deals double damage to objects and structures.</monsterTrait4>
     <monsterAction1>Multiattack. 
-The firefist makes two greatsword attacks.</monsterAction1>
-    <monsterAction2>Creatsword. 
-Melee Weapon Attack: +6 to hi t , reach 5 ft .,one target. Hit: 10 (2d6 + 3) slashing damage</monsterAction2>
+Borborygmos can use his Frightful Presence. He a lso makes two attacks: one with his maul and one with his stomp.</monsterAction1>
+    <monsterAction2>Maul. 
+Melee Weapon Attack: +13 to hit, reach 10 ft., one target. Hit: 28 (6d6 + 7) bludgeoning damage. If the target is a creature, it must succeed on a DC 21 Strength saving throw or be knocked prone.</monsterAction2>
+    <monsterAction3>Stomp. 
+Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 18 (2d10 + 7) bludgeoning damage.</monsterAction3>
+    <monsterAction4>Rock. 
+Ranged Weapon Attack: +13 to hit, range 30/120 ft., one target. Hit: 29 (4d10 + 7) bludgeoning damage.</monsterAction4>
+    <monsterAction5>Frightful Presence. 
+Each creature of Borborygmos's choice that is within 60 feet of him and can see or hear him must succeed on a DC 17 Wisdom saving throw or become frightened of him for 1 minute. The frightened creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to Borborygmos's Frightful Presence for t he nex t 24 hours.</monsterAction5>
+    <monsterLegendary1>Attack. 
+Borborygmos makes a weapon attack</monsterLegendary1>
+    <monsterLegendary2>Bellow (Costs 2 Actions). 
+Borborygmos yells menacingly at one creature he can see within 60 feet of him. That creature must succeed on a DC 17 Wisdom saving throw or become frightened of him for 1 minute. If the creature is already frightened, it becomes stunned instead. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. If a creature's saving throw is successful or the effect ends for it, the creature is immune to Borborygmos's Bellow for the next 24 hours.</monsterLegendary2>
+    <monsterLegendary3>Wide Berth (Costs 3 Actions). 
+Borborygmos moves up to half his speed and can move through the space of any creature smaller than Huge. The first time Borborygmos enters a creature's space during this move, the creature must make a DC 21 Dexterity saving throw. If the saving throw succeeds, the creature is pushed 5 feet away from Borborygmos. If the saving throw fails, that creature is knocked prone, and Borborygmos can make a stomp a ttack against it.</monsterLegendary3>
   </monster>
   <monster>
-    <title>Frontline Medic</title>
-    <monsterSize>medium</monsterSize>
+    <title>Anarch</title>
+    <monsterSize>small or medium</monsterSize>
     <monsterType>humanoid</monsterType>
-    <monsterAlignment>lawful good</monsterAlignment>
-    <monsterAc>20</monsterAc>
-    <monsterHp>19 (3d8 + 6)</monsterHp>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>13</monsterAc>
+    <monsterHp>11 (2d8 + 2)</monsterHp>
     <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>15</monsterStr>
-    <monsterDex>10</monsterDex>
-    <monsterCon>14</monsterCon>
-    <monsterInt>10</monsterInt>
-    <monsterWis>13</monsterWis>
-    <monsterCha>12</monsterCha>
-    <monsterSave/>
-    <monsterSkill>Medicine + 5, Perception +3</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses/>
-    <monsterPassive>13</monsterPassive>
-    <monsterLanguages>any one language (usually Common)</monsterLanguages>
-    <monsterCr>0.25</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.231</monsterTrait1>
-    <monsterTrait2>Spellcasting. 
-The medic is a 3rd-level Boros spellcaster. Its spellcasting ability is Wisdom (spell save DC 11). The medic has the following cleric spells prepared:
-Cantrips (at will): mending, resistance, spore the dying
-lst level (4 slots): cure wounds, sanctuary
-2nd level (2 slots): aid, lesser restoration</monsterTrait2>
-    <monsterAction1>Spear. 
-Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/ 60 ft., one target. Hit: 5 (ld6 + 2) piercing damage, or 6 (ld8 + 2) piercing damage if used with two hands to make a melee attack.</monsterAction1>
-  </monster>
-  <monster>
-    <title>Reckoner</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>humanoid</monsterType>
-    <monsterAlignment>lawful neutral</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>52 (8d8 + 16)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>16</monsterStr>
-    <monsterDex>12</monsterDex>
-    <monsterCon>15</monsterCon>
-    <monsterInt>15</monsterInt>
-    <monsterWis>12</monsterWis>
+    <monsterStr>14</monsterStr>
+    <monsterDex>13</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>9</monsterInt>
+    <monsterWis>11</monsterWis>
     <monsterCha>10</monsterCha>
     <monsterSave/>
-    <monsterSkill>Arcana +4 , Intimidation +2, Perception +3</monsterSkill>
-    <monsterResist/>
-    <monsterVulnerable/>
-    <monsterImmune/>
-    <monsterConditionImmune/>
-    <monsterSenses/>
-    <monsterPassive>13</monsterPassive>
-    <monsterLanguages>any one language (usually Common)</monsterLanguages>
-    <monsterCr>4</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.231</monsterTrait1>
-    <monsterTrait2>First Strike. 
-The reckoner has advantage on initiative rolls.</monsterTrait2>
-    <monsterTrait3>Spellcasting. 
-The reckoner is a 5th-level Boros spellcaster. Its spellcasting ability is Intelligence (spell save DC 12, +4 to hit with spell attacks). The reckoner has the following wizard spells prepared:
-Cantrips (at will): blade ward, light, message, shocking grasp
-lst level (4 slots): guiding bolt, shield, thunderwave, witch bolt
-2nd level (3 slots): blur, levitate
-3rd level (2 slots) : lightning bolt</monsterTrait3>
-    <monsterAction1>Spear. 
-Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/ 60 ft., one target. Hit: 5 (ld6 + 2) piercing damage, or 6 (ld8 + 2) piercing damage if used with two hands to make a melee attack.</monsterAction1>
-  </monster>
-  <monster>
-    <title>Lazav</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>monstrosity</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>18</monsterAc>
-    <monsterHp>204 {24d8 + 96)</monsterHp>
-    <monsterSpeed>40 ft.</monsterSpeed>
-    <monsterStr>16</monsterStr>
-    <monsterDex>24</monsterDex>
-    <monsterCon>18</monsterCon>
-    <monsterInt>22</monsterInt>
-    <monsterWis>20</monsterWis>
-    <monsterCha>22</monsterCha>
-    <monsterSave>Dex +13, Int +1 2, Wis +11, Cha +12</monsterSave>
-    <monsterSkill>Deception + 18, Insight+ 11, Perception + 11, Stealth + 19</monsterSkill>
-    <monsterResist>necrotic, psychic</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>charmed, frightened, poisoned</monsterConditionImmune>
-    <monsterSenses>darkvision 120 ft</monsterSenses>
-    <monsterPassive>21</monsterPassive>
-    <monsterLanguages>Common, thieves' cant</monsterLanguages>
-    <monsterCr>17</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.232</monsterTrait1>
-    <monsterTrait2>Elusive. 
-No attack roll has advantage against Lazav unless he is incapacitated.</monsterTrait2>
-    <monsterTrait3>Spellcasting. 
-Lazav's innate spel lcasting ability is Intelligence (spell save DC 20). He can innately cast the following spells, requiring no material components:
-At will: detect thoughts, encode thoughts (see chapter 2), freedom of movement, vicious mockery (4d4 psychic damage)
-3/day each: blur, confusion, mirror image
-l/day each: modify memory, Rory's telepathic bond</monsterTrait3>
-    <monsterTrait4>Legendary Resistance (3/Day). 
-If Lazav fails a saving throw, he can choose to succeed instead.</monsterTrait4>
-    <monsterTrait5>Shapechanger Savant. 
-Lazav can use a bonus act on to polymorph into a Small or Medium humanoid he has seen. His statistics, other than his size, are the same in each form. Any equipment he is wearing or carrying isn't transformed.</monsterTrait5>
-    <monsterTrait6>Psychic Defenses. 
-Unless Lazav is incapacitated, he is immune to magic that allows other creatures to read his thoughts, determine whether he is lying, know his alignment, or know his creature type. Creatures can telepathically communicate with Lazav only if he allows it.</monsterTrait6>
-    <monsterAction1>Multiattack. 
-Lazav makes three shortsword attacks</monsterAction1>
-    <monsterAction2>Shortsword. 
-Melee Weapon Attack: +13 to hit, reach 5 ft., one target. Hit: 10 {ld6 + 7) piercing damage plus 10 (3d6) psychic damage, and the target has disadvantage on the next attack roll it makes before Lazav's next turn.</monsterAction2>
-    <monsterLegendary1>Attack. 
-Lazav makes a weapon attack.</monsterLegendary1>
-    <monsterLegendary2>Cast a Spell (Costs 2 Actions). 
-Lazav casts one of his innate spells.</monsterLegendary2>
-    <monsterLegendary3>Shifting Nightmare (Costs 3 Actions). 
-Lazav rapidly takes the form of several nightmarish creatures, lashing out at all nearby. Each creature within 10 feet of Lazav must succeed on a DC 21 Dexterity saving throw or take 18 (4d8) damage of a type chosen by Lazav: acid, cold, fire, lightning, or necrotic</monsterLegendary3>
-  </monster>
-  <monster>
-    <title>Mond Mage</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>humanoid</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>15</monsterAc>
-    <monsterHp>49 (11d8)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>10</monsterStr>
-    <monsterDex>14</monsterDex>
-    <monsterCon>10</monsterCon>
-    <monsterInt>20</monsterInt>
-    <monsterWis>15</monsterWis>
-    <monsterCha>16</monsterCha>
-    <monsterSave>Int +8 , Wis +5</monsterSave>
-    <monsterSkill>Arcana +8, Deception + 6, Insight +5, Persuasion +6</monsterSkill>
+    <monsterSkill>Perception +2, Survival +2</monsterSkill>
     <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
     <monsterSenses/>
     <monsterPassive>12</monsterPassive>
-    <monsterLanguages>Common plus any four languages</monsterLanguages>
-    <monsterCr>5</monsterCr>
+    <monsterLanguages>any one language (usually Common)</monsterLanguages>
+    <monsterCr>0.25</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.233</monsterTrait1>
-    <monsterTrait2>Special Equipment. 
-The mage wears a spies' murmur (see chapter 5).</monsterTrait2>
-    <monsterTrait3>Spellcasting. 
-The mage's spellcasting ability is Intelligence (spell save DC 16). It can innately cast the following spells, requiring no components:
-At will: encode thoughts (see chapter 2),friends
-3/day each: charm person, detect thoughts, mage armor, sleep, suggestion
-l/day each: dominate person, mass suggestion, modify memory</monsterTrait3>
-    <monsterAction1>Dagger. 
-Melee or Ranged Weapon Attack: +5 t o hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (ld4 + 2) piercing damage.</monsterAction1>
+Guildmaster's Guide to Ravnica, p.239</monsterTrait1>
+    <monsterTrait2>Aggressive. 
+As a bonus action, the anarch can move up to its speed toward a hostile creature it can see.</monsterTrait2>
+    <monsterTrait3>Siege Monster. 
+The anarch deals double damage to objects and structures.</monsterTrait3>
+    <monsterAction1>Spiked Club. 
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (ld8 + 2) piercing damage , or 7 (ldl0 + 2) piercing damage if used with two hands.</monsterAction1>
   </monster>
   <monster>
-    <title>Thought Spy</title>
+    <title>Rubblebelt Stalker</title>
     <monsterSize>medium</monsterSize>
     <monsterType>humanoid</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>13</monsterAc>
-    <monsterHp>27 (6d8)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>11</monsterStr>
-    <monsterDex>14</monsterDex>
-    <monsterCon>10</monsterCon>
-    <monsterInt>16</monsterInt>
-    <monsterWis>13</monsterWis>
-    <monsterCha>14</monsterCha>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>14</monsterAc>
+    <monsterHp>11 (2d8 + 2)</monsterHp>
+    <monsterSpeed>30 ft., climb 30 ft.</monsterSpeed>
+    <monsterStr>10</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>14</monsterWis>
+    <monsterCha>8</monsterCha>
     <monsterSave/>
-    <monsterSkill>Deception +6, Insight +3, Investigation + 5, Perception +3, Sleight of Hand +4, Stealth +4</monsterSkill>
+    <monsterSkill>Athletics +2, Perception +4, Stealth +4</monsterSkill>
     <monsterResist/>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
-    <monsterSenses>darkvision 30 ft.</monsterSenses>
+    <monsterSenses/>
+    <monsterPassive>14</monsterPassive>
+    <monsterLanguages>any one language (usually Common)</monsterLanguages>
+    <monsterCr>0.5</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.239</monsterTrait1>
+    <monsterTrait2>Ambusher. 
+In the first round of a combat, the stalker has advantage on attack rolls against any creature that hasn't taken a turn yet.</monsterTrait2>
+    <monsterTrait3>Nimble Escape. 
+The stalker can take the Disengage or Hide action as a bonus action on each of its turns.</monsterTrait3>
+    <monsterTrait4>Ruin Dweller. 
+The stalker has advantage on Dexterity (Stealth) checks made to hide in ruins, and its speed is not reduced in difficult terrain composed of rubble.</monsterTrait4>
+    <monsterTrait5>Siege Monster. 
+The stalker deals double damage to objects and structures.</monsterTrait5>
+    <monsterAction1>Shortsword. 
+Melee Attack: +4 to hit, reach 5 ft., one target. Hit: 5 (ld6 + 2) piercing damage.</monsterAction1>
+  </monster>
+  <monster>
+    <title>Druid of the Old Ways</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>14</monsterAc>
+    <monsterHp>90 (12d8 + 36)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>11</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>16</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>20</monsterWis>
+    <monsterCha>14</monsterCha>
+    <monsterSave>Dex +5, Con +6 , Wis +8</monsterSave>
+    <monsterSkill>Nature +3, Perception +8, Survival +8</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>18</monsterPassive>
+    <monsterLanguages>Common, Druidic</monsterLanguages>
+    <monsterCr>7</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.239</monsterTrait1>
+    <monsterTrait2>Siege Monster. 
+The druid deals double damage to objects and structures.</monsterTrait2>
+    <monsterTrait3>Speak with Beasts and Plants. 
+The druid can communicate with beasts and plants as if they shared a language.</monsterTrait3>
+    <monsterTrait4>Spellcasting. 
+The druid is a 12th-level Gruul spellcaster. Its spellcasting ability is Wisdom (spell save DC 16, +8 to hit with spell attacks). It has the following druid spells prepared:
+Cantrips (at will): druidcraft, produce fire, resistance, thorn whip
+lst level (4 slots): cure wounds, faerie fire, thunderwave
+2nd level (3 slots): beast sense, flame blade, pass without trace
+3rd level (3 slots): conjure animals, dispel magic, plant growth
+4th level (3 slots): dominate beast, freedom of movement, wall of fire
+5th level (2 slots): commune with nature, conjure elemental, scrying
+6th level (l slot): transport via plants, wall of thorns</monsterTrait4>
+    <monsterAction1>Quarterstaff. 
+Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (ld6) bludgeoning damage, or 4 (ld8) bludgeoning damage if used with two hands.</monsterAction1>
+  </monster>
+  <monster>
+    <title>Niv-Mizzet</title>
+    <monsterSize>gargantuan</monsterSize>
+    <monsterType>dragon</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>22</monsterAc>
+    <monsterHp>370 (19d20 + 171)</monsterHp>
+    <monsterSpeed>40 ft., climb 30 ft., fly 80 ft.</monsterSpeed>
+    <monsterStr>29</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>29</monsterCon>
+    <monsterInt>30</monsterInt>
+    <monsterWis>17</monsterWis>
+    <monsterCha>25</monsterCha>
+    <monsterSave>Con +17, Int +18, Wis +ll</monsterSave>
+    <monsterSkill>Arcana +18 , Insight +ll, Perception +ll</monsterSkill>
+    <monsterResist>cold, psychic, thunder</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune>fire, lightning</monsterImmune>
+    <monsterConditionImmune>charmed</monsterConditionImmune>
+    <monsterSenses>blindsight 60 ft., darkvision 120 ft.</monsterSenses>
+    <monsterPassive>21</monsterPassive>
+    <monsterLanguages>Common, Draconic</monsterLanguages>
+    <monsterCr>26</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.241</monsterTrait1>
+    <monsterTrait2>Legendary Resistance (3/Day). 
+If Niv-Mizzet fails a saving throw, he can choose to succeed instead.</monsterTrait2>
+    <monsterTrait3>Locus of the Firemind. 
+Niv- Mizzet can maintain concentration on two different spells at the same time. In addition, he has advantage on s aving throws to maintain concentration on spells</monsterTrait3>
+    <monsterTrait4>Magic Resistance. 
+Niv·Mizzet has advantage on saving throws against spells and other magical effects.</monsterTrait4>
+    <monsterTrait5>Master Chemister. 
+When Niv-Mizzet casts a spell that deals damage , he can change the spell's damage to cold, fire, force, lightning, or thunder.</monsterTrait5>
+    <monsterTrait6>Spellcasting. 
+Niv-Mizzet is a 20th-level lzzet spellcaster. His spell casting ability is Intelligence (spell save DC 26, +18 to hit with spell attacks). He has the following wizard spells prepared:
+Cantrips (at will) : fire bolt, light, prestidigitation, ray of frost, shocking grasp
+1st level (4 slots): detect magic, magic missile, shield, thunderwave, unseen servant
+2nd level (3 slots): blur, enlarge/reduce, flaming sphere, scorching ray
+3rd level (3 slots): counterspell,fireball, hold person, lightning bolt, slow
+4th level (3 slots): confusion, dimension door.fabricate
+5th level (2 slots): conjure elemental, polymorph, wall of fire, wall of force
+6th level (l slot): chain lightning, disintegrate, true seeing
+7th level (l slot): project image, reverse gravity, teleport
+8th level (l slot): control weather, maze, power word stun
+9th level (l slot): prismatic wall</monsterTrait6>
+    <monsterAction1>Multiattack. 
+Niv-Mizzet makes three attacks: one with his bite and two with his claws</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack:+ 17 to hit, reach 15 ft., one target. Hit: 18 (2d8 + 9) piercing damage plus 14 (4d6) fire damage</monsterAction2>
+    <monsterAction3>Claw. 
+Melee Weapon Attack: +17 to hit , reach 10 ft., one target. Hit: 14 (2d4 + 9) slashing damage</monsterAction3>
+    <monsterAction4>Tail. 
+Melee Weapon Attack: +17 to hit, reach 20 ft., one target. Hit: 16 (2d6 + 9) bludgeoning damage</monsterAction4>
+    <monsterAction5>Fire Breath (Recharge 5- 6). 
+Niv-Mizzet exhales fire in a 90-foot cone. Each creature in that area must make a DC 25 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save, or half as much damage on a successful one.</monsterAction5>
+    <monsterLegendary1>Cantrip. 
+Niv -Mizzet casts one of his cantrips.</monsterLegendary1>
+    <monsterLegendary2>Tail Attack. 
+Niv-Mizzet makes a tail attack</monsterLegendary2>
+    <monsterLegendary3>Wing Attack (Costs 2 Actions). 
+Niv-Mizzet beats his wings. Each creature within 15 feet of him must succeed on a DC 25 Dexterity saving throw or take 14 (2d4 + 9) bludgeoning damage and be knocked prone. Niv·Mizzet can then fly up to half his flying speed.</monsterLegendary3>
+    <monsterLegendary4>Dracogenius (Costs 3 Actions). 
+Niv-Mizzet regains a spell slot of 3rd level or lower</monsterLegendary4>
+  </monster>
+  <monster>
+    <title>Niv-Mizzet</title>
+    <monsterSize>gargantuan</monsterSize>
+    <monsterType>dragon</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>22</monsterAc>
+    <monsterHp>370 (19d20 + 171)</monsterHp>
+    <monsterSpeed>40 ft., climb 30 ft., fly 80 ft.</monsterSpeed>
+    <monsterStr>29</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>29</monsterCon>
+    <monsterInt>30</monsterInt>
+    <monsterWis>17</monsterWis>
+    <monsterCha>25</monsterCha>
+    <monsterSave>Con +17, Int +18, Wis +ll</monsterSave>
+    <monsterSkill>Arcana +18 , Insight +ll, Perception +ll</monsterSkill>
+    <monsterResist>cold, psychic, thunder</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune>fire, lightning</monsterImmune>
+    <monsterConditionImmune>charmed</monsterConditionImmune>
+    <monsterSenses>blindsight 60 ft., darkvision 120 ft.</monsterSenses>
+    <monsterPassive>21</monsterPassive>
+    <monsterLanguages>Common, Draconic</monsterLanguages>
+    <monsterCr>26</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.241</monsterTrait1>
+    <monsterTrait2>Legendary Resistance (3/Day). 
+If Niv-Mizzet fails a saving throw, he can choose to succeed instead.</monsterTrait2>
+    <monsterTrait3>Locus of the Firemind. 
+Niv- Mizzet can maintain concentration on two different spells at the same time. In addition, he has advantage on s aving throws to maintain concentration on spells</monsterTrait3>
+    <monsterTrait4>Magic Resistance. 
+Niv·Mizzet has advantage on saving throws against spells and other magical effects.</monsterTrait4>
+    <monsterTrait5>Master Chemister. 
+When Niv-Mizzet casts a spell that deals damage , he can change the spell's damage to cold, fire, force, lightning, or thunder.</monsterTrait5>
+    <monsterTrait6>Spellcasting. 
+Niv-Mizzet is a 20th-level lzzet spellcaster. His spell casting ability is Intelligence (spell save DC 26, +18 to hit with spell attacks). He has the following wizard spells prepared:
+Cantrips (at will) : fire bolt, light, prestidigitation, ray of frost, shocking grasp
+1st level (4 slots): detect magic, magic missile, shield, thunderwave, unseen servant
+2nd level (3 slots): blur, enlarge/reduce, flaming sphere, scorching ray
+3rd level (3 slots): counterspell,fireball, hold person, lightning bolt, slow
+4th level (3 slots): confusion, dimension door.fabricate
+5th level (2 slots): conjure elemental, polymorph, wall of fire, wall of force
+6th level (l slot): chain lightning, disintegrate, true seeing
+7th level (l slot): project image, reverse gravity, teleport
+8th level (l slot): control weather, maze, power word stun
+9th level (l slot): prismatic wall</monsterTrait6>
+    <monsterAction1>Multiattack. 
+Niv-Mizzet makes three attacks: one with his bite and two with his claws</monsterAction1>
+    <monsterAction2>Bite. 
+Melee Weapon Attack:+ 17 to hit, reach 15 ft., one target. Hit: 18 (2d8 + 9) piercing damage plus 14 (4d6) fire damage</monsterAction2>
+    <monsterAction3>Claw. 
+Melee Weapon Attack: +17 to hit , reach 10 ft., one target. Hit: 14 (2d4 + 9) slashing damage</monsterAction3>
+    <monsterAction4>Tail. 
+Melee Weapon Attack: +17 to hit, reach 20 ft., one target. Hit: 16 (2d6 + 9) bludgeoning damage</monsterAction4>
+    <monsterAction5>Fire Breath (Recharge 5- 6). 
+Niv-Mizzet exhales fire in a 90-foot cone. Each creature in that area must make a DC 25 Dexterity saving throw, taking 91 (26d6) fire damage on a failed save, or half as much damage on a successful one.</monsterAction5>
+    <monsterLegendary1>Cantrip. 
+Niv -Mizzet casts one of his cantrips.</monsterLegendary1>
+    <monsterLegendary2>Tail Attack. 
+Niv-Mizzet makes a tail attack</monsterLegendary2>
+    <monsterLegendary3>Wing Attack (Costs 2 Actions). 
+Niv-Mizzet beats his wings. Each creature within 15 feet of him must succeed on a DC 25 Dexterity saving throw or take 14 (2d4 + 9) bludgeoning damage and be knocked prone. Niv·Mizzet can then fly up to half his flying speed.</monsterLegendary3>
+    <monsterLegendary4>Dracogenius (Costs 3 Actions). 
+Niv-Mizzet regains a spell slot of 3rd level or lower</monsterLegendary4>
+  </monster>
+  <monster>
+    <title>Cosmotronic Blastseeker</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>15</monsterAc>
+    <monsterHp>37 (5d8 + 15)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>14</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>16</monsterCon>
+    <monsterInt>18</monsterInt>
+    <monsterWis>9</monsterWis>
+    <monsterCha>12</monsterCha>
+    <monsterSave>Dex + 4, Con +5</monsterSave>
+    <monsterSkill>Arcana +6, Intimidation +3, Perception +l</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>11</monsterPassive>
+    <monsterLanguages>any one language (usually Common)</monsterLanguages>
+    <monsterCr>4</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.242</monsterTrait1>
+    <monsterTrait2>Empowered Spell (3/Day). 
+When the blastseeker rolls damage for a spell, it can reroll up to four dice of damage. It must use the new dice.</monsterTrait2>
+    <monsterTrait3>Innate Spellcasting. 
+The blastseeker's innate spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The blastseeker can innately cast the following spells, requiring no components other than its lzzet gear, which doesn't function for others:
+3/day each: scorching ray, shield, thunderwave
+2/day: fireball</monsterTrait3>
+    <monsterTrait4>Tides of Chaos (1/Day). 
+The blastseeker makes one attack roll, ability check, or saving throw with advantage</monsterTrait4>
+    <monsterAction1>Warhammer. 
+Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 ( ld8 + 2) bludgeoning damage , or 7 (ldl0 + 2) bludgeoning damage if used with two hands</monsterAction1>
+  </monster>
+  <monster>
+    <title>Counterflux Blastseeker</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>39 (6d8 + 12)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>13</monsterStr>
+    <monsterDex>16</monsterDex>
+    <monsterCon>15</monsterCon>
+    <monsterInt>18</monsterInt>
+    <monsterWis>11</monsterWis>
+    <monsterCha>14</monsterCha>
+    <monsterSave>Con +4, Wis +2</monsterSave>
+    <monsterSkill>Arcana +6, Perception +2</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>12</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>2</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.242</monsterTrait1>
+    <monsterTrait2>Counterflux Overcast (Recharge 5-6). 
+The blastseeker can create an additional effect immediately after casting a spell. Roll a d6 to determine the effect:
+			1-3. The blastseeker creates a 15-foot-radius invisible sphere centered on itself that lasts until the end of its next turn. Creatures in the sphere have disadvantage on saving throws aga inst spe lls and other magical effects.
+4-6. The blastseeker creates a 15-foot radius invisible sphere centered on itself that lasts until the end of its next turn. Creatures in the sphere have advantage on saving throws against spells and other magical effects.</monsterTrait2>
+    <monsterTrait3>Innate Spellcasting. 
+The blastseeker's innate spellcasting ability is Intelligence (spell save DC 14, +6 to hit with spell attacks). The blastseeker can innately cast the following spells, requiring no components other than its lzzet gear, which doesn't function for others:
+3/day each: enlarge/reduce, mage armor (self only), scorching ray
+1/day each: counterspell, dispel magic, protection from energy</monsterTrait3>
+    <monsterAction1>Warhammer. 
+Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (ld8 + 3) pie rcing damage.</monsterAction1>
+  </monster>
+  <monster>
+    <title>Flux Blastseeker</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>15</monsterAc>
+    <monsterHp>55 (10d8 + 10)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>10</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>20</monsterInt>
+    <monsterWis>9</monsterWis>
+    <monsterCha>14</monsterCha>
+    <monsterSave>Dex +5, Int +8</monsterSave>
+    <monsterSkill>Arcana +8, Perception +2</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>12</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>5</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.242</monsterTrait1>
+    <monsterTrait2>Fluxbending Overcast (Recharge 5-6). 
+The blastseeker can create an additional effect immediately after casting a spell. Roll a d6 to determine the effect:
+			1-3. The blastseeker teleports, swapping places with a creature it can see within 30 feet of it.
+4-6. The blastseeker and each creature within 10 feet of it must succeed on a DC 16 Constitution saving throw or take 11 (2d10) thunder damage.</monsterTrait2>
+    <monsterTrait3>Innate Spellcasting. 
+The blastseeker's innate spellcasting ability is Intelligence (spell save DC 16, +8 to hit with spell attacks). The blastseeker can innately cast the following spells, requiring no components other than it s lzzet gear, which doesn't function for others:
+3/day each: mage armor (self only), scorching ray
+1/day each: banishment, cone of cold, dimension door, fireball, ice storm</monsterTrait3>
+    <monsterAction1>Quarterstaff. 
+Melee Weapon Attack: +3 to hit, reach 5 ft., one target. Hit: 3 (ld6) bludgeoning damage, or 4 (ld8) bludgeoning damage if used with two hands</monsterAction1>
+  </monster>
+  <monster>
+    <title>Galvanic Blastseeker</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>13</monsterAc>
+    <monsterHp>52 (8d8 + 16)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>10</monsterStr>
+    <monsterDex>17</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>19</monsterInt>
+    <monsterWis>10</monsterWis>
+    <monsterCha>13</monsterCha>
+    <monsterSave>Dex +6</monsterSave>
+    <monsterSkill>Acrobatics +6, Arcana +7, Perception +3</monsterSkill>
+    <monsterResist>lightning, thunder</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
     <monsterPassive>13</monsterPassive>
+    <monsterLanguages>Common and Primordial, plus any one language</monsterLanguages>
+    <monsterCr>5</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.243</monsterTrait1>
+    <monsterTrait2>Galvanic Overcast (Recharge 5-6). 
+When the blastseeker casts lightning bolt or thunderwave, it can roll a die. On an odd number, the blastseeker takes 9 (2d8) force damage. On an even number, the spell also deals 9 (2d8) lightning damage to each target that fails its saving throw.</monsterTrait2>
+    <monsterTrait3>Heart of the Storm. 
+When the blastseeker casts lightning bolt or thunderwave, all other creatures within 10 feet of the blastseeker each take 3 lightning damage.</monsterTrait3>
+    <monsterTrait4>Innate Spellcasting. 
+The blastseeker's innate spellcasting ability is Intelligence (spell save DC 15, +7 to hit with spell attacks). The blastseeker can innately cast the following spells, requiring no components other than its lzzet gear, which doesn't function for others:
+3/day each: levitate, lightning bolt, thunderwave
+1/day: stoneskin</monsterTrait4>
+    <monsterTrait5>Gust-Propelled Leap. 
+The blastseeker can use a bonus action to fly up to l0 feet without provoking opportunity attacks</monsterTrait5>
+    <monsterAction1>Spear. 
+Melee or Ranged Weapon Attack: +3 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 3 (ld6) piercing damage , or 4 (1d8) piercing damage if used with two hands to make a melee attack.</monsterAction1>
+  </monster>
+  <monster>
+    <title>Scorchbringer Guard</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic neutral</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>11 (2d8 + 2)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>13</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>9</monsterWis>
+    <monsterCha>10</monsterCha>
+    <monsterSave/>
+    <monsterSkill/>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>9</monsterPassive>
+    <monsterLanguages>any one language (usually Common)</monsterLanguages>
+    <monsterCr>0.5</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.243</monsterTrait1>
+    <monsterTrait2>Explosive Tank. 
+When the guard dies, or if it rolls a 1 when checking whether its Scorchbringer action recharges, the tank on its back explodes in a 10-foot radius sphere. Each creature in that area must make a DC 12 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one. The explosion ignites flammable objects that aren't being worn or carried, and it destroys the scorchbringer</monsterTrait2>
+    <monsterAction1>Light Hammer. 
+Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (1d4 + 2) bludgeoning damage.</monsterAction1>
+    <monsterAction2>Scorchbringer (Recharge 4-6). 
+The guard's scorchbringer spouts a stream of flame in a line that is 30 feet long and 5 feet wide. Each creature in the line must make a DC 12 Dexterity saving throw, taking 7 (2d6) fire damage on a failed save, or half as much damage on a successful one.</monsterAction2>
+  </monster>
+  <monster>
+    <title>Obzedat Ghost</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>undead</monsterType>
+    <monsterAlignment>lawful evil</monsterAlignment>
+    <monsterAc>14 plus 1 for each other Obzedat</monsterAc>
+    <monsterHp>110 (20 d8 + 20)</monsterHp>
+    <monsterSpeed>0 ft., fly 30 ft. (hover)</monsterSpeed>
+    <monsterStr>10</monsterStr>
+    <monsterDex>10</monsterDex>
+    <monsterCon>13</monsterCon>
+    <monsterInt>18</monsterInt>
+    <monsterWis>20</monsterWis>
+    <monsterCha>17</monsterCha>
+    <monsterSave>Int +7, Wis +8</monsterSave>
+    <monsterSkill>Insight +8, Perception +8</monsterSkill>
+    <monsterResist>acid, cold, fire, lightning, thunder; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune>necrotic, poison</monsterImmune>
+    <monsterConditionImmune>charmed, exhaustion, grappled, paralyzed, petrified, poisoned, prone, restrained</monsterConditionImmune>
+    <monsterSenses>darkvision 60 ft.</monsterSenses>
+    <monsterPassive>18</monsterPassive>
+    <monsterLanguages>Common</monsterLanguages>
+    <monsterCr>8</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.245</monsterTrait1>
+    <monsterTrait2>Council of Five. 
+The ghost has a trait based on who it is, as shown below:
+			
+			Enezesku: Enfeebling Ray. Enezesku's Innate Spellcasting trait includes ray of enfeeblement, which he can cast at will.
+Fautomni: Undead Fortitude. If damage reduces Fautomni to 0 hit points, he must make a Constitution saving throw with a DC of 5 +the damage taken, unless the damage is radiant or from a critical hit. On a success, Fautomni drops to 1 hit point instead.
+Karlov: Unnatural Vigor. When Karlov regains hit points, he has advantage on attack rolls he makes on his next turn.
+Vuliev: Teleportation. Vuliev's Innate Spellcasting trait includes misty step, which he can cast at will.
+Xii Xaxosz: Lingering Spite. When Xii Xaxosz is reduced to 0 hit points, his incorporeal form explodes in a burst of necrotic energy. Each creature within 5 feet of him must make a DC 16 Constitution saving throw, taking 14 (4d6) necrotic damage on a failed save, or half as much damage on a successful one.</monsterTrait2>
+    <monsterTrait3>Ethereal Sight. 
+The ghost can see 60 feet into the Ethereal Plane when it is on the Material Plane, and vice versa</monsterTrait3>
+    <monsterTrait4>Incorporeal Movement 
+The ghost can move through other creatures and objects as if they were difficult terrain. It takes 5 (ldl0) force damage if it ends its turn inside an object.</monsterTrait4>
+    <monsterTrait5>Council of Five. 
+The ghost's innate spellcasting ability is Wisdom (spell save DC 16, +8 to hit with spell attacks). It can inn ately cast the following spells, requiring no components:
+At will: chill touch (at 5th level, and the ghost regains hit points equal to half the amount of damage the target takes)
+1/ day each: sanctuary, spirit guardians (at 4th level)</monsterTrait5>
+    <monsterTrait6>Legendary Resistance (1/Day). 
+If the ghost fails a saving throw, it can choose to succeed instead.</monsterTrait6>
+    <monsterAction1>Life Drain. 
+Melee Weapon Attack: +8 to hit, reach 5 ft., one creature. Hit: 18 (4d8) necrotic damage, and the ghost regains hit points equal to half the amount of damage the target takes. The target must succeed on a DC 13 Constitution saving throw or its hit point maximum is reduced by an amount equal to the damage taken. The target dies if its hit point maximum is reduced to 0. This reduction to the target's hit point maximum lasts until the target finishes a long rest.</monsterAction1>
+    <monsterAction2>Convene the Ghost Council. 
+The ghost summons the other four members of the Obzedat. At the start of the ghost's next turn, the other members appear in unoccupied spaces within 30 feet of the summoner. The ghosts each roll initiative when they appear.</monsterAction2>
+    <monsterLegendary1>Forced Obedience. 
+A target that all of the Obzedat ghosts can see must succeed on a DC 16 Wisdom saving throw or bow until the end of its next turn. Until this bow ends, the target can't take actions or reactions, and its speed is 0 and can't be increased.</monsterLegendary1>
+    <monsterLegendary2>Indentured Spirits (Costs 3 Actions). 
+The Obzedat ghosts conjure ld6 indentured spirits (described in this chapter) within 60 feet of one of them.</monsterLegendary2>
+  </monster>
+  <monster>
+    <title>Rakdos</title>
+    <monsterSize>huge</monsterSize>
+    <monsterType>fiend</monsterType>
+    <monsterAlignment>chaotic evil</monsterAlignment>
+    <monsterAc>20</monsterAc>
+    <monsterHp>300 (24dl2 + 14 4)</monsterHp>
+    <monsterSpeed>40 ft., fly 80 ft.</monsterSpeed>
+    <monsterStr>26</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>22</monsterCon>
+    <monsterInt>14</monsterInt>
+    <monsterWis>18</monsterWis>
+    <monsterCha>30</monsterCha>
+    <monsterSave>Str +15, Con +13, Wis +11, Cha +17</monsterSave>
+    <monsterSkill>Intimidation +17, Performance +17, Persuasion +17</monsterSkill>
+    <monsterResist>necrotic; bludgeoning, piercing, and slashing from no nmagical attacks</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune>fire, poison</monsterImmune>
+    <monsterConditionImmune>charmed, exhausted, frightened, poisoned</monsterConditionImmune>
+    <monsterSenses>truesight 60 ft.</monsterSenses>
+    <monsterPassive>14</monsterPassive>
+    <monsterLanguages>Abyssal, Common</monsterLanguages>
+    <monsterCr>24</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.247</monsterTrait1>
+    <monsterTrait2>Captivating Presence. 
+Any creature that starts its turn within 30 feet of Rakdos must make a DC 25 Wisdom saving throw. On a failed save, the creature becomes charmed by Rakdos for 1 minute or until the creature is farther than 30 feet away from him. On a successful save, the creature becomes immune to Rakd os's Captivating Presence for 24 hours.</monsterTrait2>
+    <monsterTrait3>Cruel Entertainment. 
+When a creature Rakdos can see within 60 feet of him is reduced to 0 hit points, Rakdos gains 25 temporary hit points.</monsterTrait3>
+    <monsterTrait4>Innate Spellcasting. 
+Rakdos's spellcasting ability is Charisma (spell save DC 25). He can innately cast hellish rebuke (at 5th level) at will, requiring no material components.</monsterTrait4>
+    <monsterTrait5>Legendary Resistance (3/Day). 
+If Rakdos fails a saving throw, he can choose to succeed instead.</monsterTrait5>
+    <monsterTrait6>Magic Resistance. 
+Rakdos has advantage on saving throws against spells and other magical effects</monsterTrait6>
+    <monsterTrait7>Magic Weapons. 
+Rakdos's weapon attacks are magical</monsterTrait7>
+    <monsterAction1>Multiattack. 
+Rakdos makes two attacks with his Curtain-Call Scythe or his claws.</monsterAction1>
+    <monsterAction2>Curtain-Call Scythe. 
+Melee Weapon Attack: +15 to hit, reach 10 ft., one target. Hit: 24 (3dl0 + 8) slashing damage plus 13 (3d8) fire damage.</monsterAction2>
+    <monsterAction3>Claw. 
+Melee Weapon Attack: +15 to hit , reach 10 ft., one target. Hit: 17 (2d8 + 8) slashing damage</monsterAction3>
+    <monsterLegendary1>Sadistic Revelry. 
+Each creature within 60 feet of Rakdos that is his ally or is charmed by him must use its reaction to move up to half its speed toward the creature closest to it that it can see, provided it isn't already within 5 feet of that creature. It then must make one melee attack against that creature if it is able to do so.</monsterLegendary1>
+    <monsterLegendary2>Scythe (Costs 2 Actions). 
+Rakdos uses Curtain-Call Scythe.</monsterLegendary2>
+    <monsterLegendary3>Touch of Pain (Costs 3 Actions). 
+Rakdos makes a claw attack against one creature within 10 feet of h im. The target must succeed on a DC 25 Constitution saving throw or be poisoned for l minute. While poisoned in this way, the creature can't maintain concentration on a spell or any other effect that requires concentration. The poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</monsterLegendary3>
+  </monster>
+  <monster>
+    <title>Blood Witch</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic evil</monsterAlignment>
+    <monsterAc>15</monsterAc>
+    <monsterHp>78 (1 2d8 + 24)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>16</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>15</monsterCon>
+    <monsterInt>13</monsterInt>
+    <monsterWis>9</monsterWis>
+    <monsterCha>19</monsterCha>
+    <monsterSave>Wis +2, Cha +7</monsterSave>
+    <monsterSkill>Arcana +4, Intimdation +7, Perception +2, Stealth + 5</monsterSkill>
+    <monsterResist>psychic</monsterResist>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses>darkvision 120 ft.</monsterSenses>
+    <monsterPassive>12</monsterPassive>
+    <monsterLanguages>Abyssal plus any one language (usually Common)</monsterLanguages>
+    <monsterCr>7</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.248</monsterTrait1>
+    <monsterTrait2>Blood Witch Dance. 
+The witch can use a bonus action to control the movement of one creature cursed by its hex spell that it can see within 30 feet of it. The creature must succeed on a DC 15 Charisma saving throw or use its reaction to move up to 30 feet in a direction of the witch's choice.</monsterTrait2>
+    <monsterTrait3>Devil's Sight. 
+Magical darkness doesn't impede the witch's darkvision.</monsterTrait3>
+    <monsterTrait4>Innate Spellcasting. 
+The witch's innate spellcasting ability is Charisma (spell save DC 15, +7 to hit with spell attacks). The witch can innately cast the following spells, requiring no material components:
+At will: alter self, detect magic, eldritch blast (at 11th level).false life, levitate (self only), mage armor (self only)
+l/day each: circle of death, enthrall, suggestion
+3/day each: hellish rebuke, hex, scorching ray (at 3rd level)</monsterTrait4>
+    <monsterAction1>Multiattack. 
+The witch makes two attacks: one with its longsword and one with its shortsword.</monsterAction1>
+    <monsterAction2>Longsword. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 7 (ld8 + 3) slashing damage</monsterAction2>
+    <monsterAction3>Shortsword. 
+Me lee Weapo n Attack: +6 to hit, reach 5 ft., one target. Hit: 6 (ld6 + 3) piercing damage</monsterAction3>
+  </monster>
+  <monster>
+    <title>Rakdos Lampooner</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic evil</monsterAlignment>
+    <monsterAc>12</monsterAc>
+    <monsterHp>27 (5d8 + 5)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>11</monsterStr>
+    <monsterDex>12</monsterDex>
+    <monsterCon>13</monsterCon>
+    <monsterInt>12</monsterInt>
+    <monsterWis>9</monsterWis>
+    <monsterCha>18</monsterCha>
+    <monsterSave/>
+    <monsterSkill>Deception +6, Performance +6</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>9</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>2</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.248</monsterTrait1>
+    <monsterTrait2>Blood Witch Dance. 
+The lampooner is a 4th-level Rakdos spellcaster. Its spellcasting ability is Charisma (spell save DC 14, +6 to hit with spell attacks). It knows the following bard spells:
+Cantrips (at will): dancing lights, minor illusion, vicious mockery
+1st level (4 slots): bane, dissonant whispers, silent image, Tasha's hideous laughter, thunderwave
+2nd level (3 slots): crown of madness, enthrall, suggestion</monsterTrait2>
+    <monsterAction1>Club. 
+Melee Weapon Attack: +2 to hit, reach 5 ft., one target. Hit: 2 (ld4) bludgeoning damage.</monsterAction1>
+  </monster>
+  <monster>
+    <title>Rakdos Performer</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>chaotic evil</monsterAlignment>
+    <monsterAc>13</monsterAc>
+    <monsterHp>22 (4d8 + 4)</monsterHp>
+    <monsterSpeed>40 ft., climb 30 ft.</monsterSpeed>
+    <monsterStr>13</monsterStr>
+    <monsterDex>17</monsterDex>
+    <monsterCon>12</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>8</monsterWis>
+    <monsterCha>15</monsterCha>
+    <monsterSave>Dex +5, Cha +4</monsterSave>
+    <monsterSkill>Acrobatics +7, Performance + 4</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>9</monsterPassive>
+    <monsterLanguages>any one language (usually Common)</monsterLanguages>
+    <monsterCr>1</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.249</monsterTrait1>
+    <monsterTrait2>Nimble. 
+The performer can take the Disengage action as a bonus action on each of its turns.</monsterTrait2>
+    <monsterTrait3>Nimble. 
+The performer is one of the following types:
+blade juggler, fire eater, or high-wire acrobat. The performer's type determines its action options, presented below</monsterTrait3>
+    <monsterAction1>Blade Juggler Multiattack. 
+The juggler makes three dagger attacks.</monsterAction1>
+    <monsterAction2>Dagger. 
+Melee or Ranged Weapon Attack: + 5 to hit, reach 5 ft. or range 20/ 60 ft., one target. Hit: 5 (ld4 + 3) piercing damage</monsterAction2>
+    <monsterAction3>Fire Eater Multiattack. 
+The fire eater makes two attacks with its bladed chain.</monsterAction3>
+    <monsterAction4>Bladed Chain 
+Melee Weapon Attack: +5 to hit, reach 10 ft., one target. Hit: 6 (ld6 + 3) slashing damage</monsterAction4>
+    <monsterAction5>Spew Flame (Recharge 4-6). 
+The fire eater exhales flames. Each creature in a 15-foot cone must make a DC 13 Dexterity saving throw, taking 9 (2d8) fire damage on a failed save, or half as much damage on a successful one.</monsterAction5>
+    <monsterAction6>High Wire Acrobat Multiattack. 
+The acrobat makes two at tacks with its barbed pole.</monsterAction6>
+    <monsterAction7>Barbed Pole. 
+Melee Weapon Attack: +5 to hit, reach 5 ft., one target. Hit: 7 (ld8 + 3) piercing damage, and the acrobat can jump up to 20 feet. This movement doesn't provoke opportunity attacks.</monsterAction7>
+  </monster>
+  <monster>
+    <title>Trostani</title>
+    <monsterSize>large</monsterSize>
+    <monsterType>fey</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>17</monsterAc>
+    <monsterHp>252 (24dl0 + 120)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>19</monsterStr>
+    <monsterDex>14</monsterDex>
+    <monsterCon>20</monsterCon>
+    <monsterInt>16</monsterInt>
+    <monsterWis>30</monsterWis>
+    <monsterCha>25</monsterCha>
+    <monsterSave>Con +11, Wis +16, Cha +13</monsterSave>
+    <monsterSkill>Arcana +9, Insight +16, Nature +9, Perception +16, Persuasion + 13</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune>charmed, grappled</monsterConditionImmune>
+    <monsterSenses>darkvision 120 ft.</monsterSenses>
+    <monsterPassive>26</monsterPassive>
+    <monsterLanguages>Common, Druidic, Elvish, Sylvan</monsterLanguages>
+    <monsterCr>18</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.252</monsterTrait1>
+    <monsterTrait2>Innate Spellcasting. 
+Trostani's innate spellcasting ability is Wisdom (spell save DC 24). She can innately cast the following spells, requiring no material components:
+At will: dispel magic, druidcraft
+3/day each: bless, conjure animals, giant insect, moonbeam, plant growth, spike growth, suggestion
+l/day each: conjure fey, mass cure wounds</monsterTrait2>
+    <monsterTrait3>Legendary Resistance (3/0ay). 
+If Trostani fails a saving throw, she can choose to succeed instead.</monsterTrait3>
+    <monsterTrait4>Magic Resistance. 
+Trostani has advantage on saving throws against spells and other magical effects</monsterTrait4>
+    <monsterTrait5>Magic Weapons. 
+Trostani's weapon attacks are magical.</monsterTrait5>
+    <monsterTrait6>Speak with Beasts and Plants. 
+Trostani can communicate with beasts and plants as if they shared a language.</monsterTrait6>
+    <monsterTrait7>Tree Stride. 
+Once on her turn, Trostani can use 10 feet of her movement to step magically into one living tree within her reach and emerge from a second living tree within 60 feet of the first tree, appearing in an unoccupied space within 5 feet of the second tree. Both trees must be Large or bigger.</monsterTrait7>
+    <monsterAction1>Multiattack. 
+Trostani takes three actions: she uses Constrict and Touch of Order, and she casts a spell with a casting time of l action.</monsterAction1>
+    <monsterAction2>Constrict. 
+Melee Weapon Attack: +11 to hit, reach 5 ft., one creature. Hit: 15 (3d6 + 5) bludgeoning damage, and the target is grappled (escape DC 19). Until this grapple ends, the target is restrained. Trostani can grapple no more than three targets at a time.</monsterAction2>
+    <monsterAction3>Touch of Order. 
+Melee Spell Attack: +16 to hit. reach 5 ft., one creature. Hit: 23 (3d8 + 10) radiant damage, and Trostani can choose one magic item she can see in the target's possession. Unless it's an artifact, the item's magic is suppressed until the start of Trostani's next turn.</monsterAction3>
+    <monsterAction4>Wrath of Mat'Selesnya (Recharge 5-6). 
+Trostani conjures a momentary whirl of branches and vines at a point she can see within 60 feet of her. Each creature in a 30-foot cube on that point must make a DC 24 Dexterity saving throw, taking 21 (6d6) bludgeoning damage and 21 (6d6) slashing damage on a fai led save, or half as much damage on a successful one.</monsterAction4>
+    <monsterLegendary1>Voice of Harmony. 
+Trostani makes one melee attack, with advantage on the attack roll</monsterLegendary1>
+    <monsterLegendary2>Voice of life. 
+Trostani bestows 20 temporary hit points on another creature she can see within 120 feet of her.</monsterLegendary2>
+    <monsterLegendary3>Voice of Order. 
+Trostani casts dispel magic.</monsterLegendary3>
+    <monsterLegendary4>Chorus of the Conclave (Costs 2 Actions). 
+Trostani casts suggestion. This counts as one of her daily uses of the spell.</monsterLegendary4>
+    <monsterLegendary5>Awaken Grove Guardians (Costs 3 Actions). 
+Trostani animates one or two trees she can see within 120 feet of her, causing them to uproot themselves and become awakened trees (see the Monster Manual for their stat blocks) for l minute or until Trostani uses a bonus action to end the effect. These trees understand Druidic and obey Trostani's spoken commands, but can't speak. If she issues no commands to them, the trees do nothing but follow her and take the Dodge action.</monsterLegendary5>
+  </monster>
+  <monster>
+    <title>Horncaller</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>lawful good</monsterAlignment>
+    <monsterAc>13</monsterAc>
+    <monsterHp>39 (6d8 + 12)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>13</monsterStr>
+    <monsterDex>12</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>10</monsterInt>
+    <monsterWis>14</monsterWis>
+    <monsterCha>13</monsterCha>
+    <monsterSave/>
+    <monsterSkill>Animal Handling +4, Nature +2, Perception +4</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>14</monsterPassive>
     <monsterLanguages>Common plus any one language</monsterLanguages>
     <monsterCr>1</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.233</monsterTrait1>
-    <monsterTrait2>Cunning Action. 
-On each of its turns, the thought spy can use a bonus action to take the Dash, Disengage, or Hide action.</monsterTrait2>
-    <monsterTrait3>Spellcasting. 
-The thought spy's innate spellca sting ability is Intelligence (spell save DC 13 ). The thought spy can innately cast the following spells, requiring no components:
-At will: charm person, disguise self. encode thoughts (see chapter 2)
-l/day each : blur, detect thoughts, gaseous form</monsterTrait3>
+Guildmaster's Guide to Ravnica, p.253</monsterTrait1>
+    <monsterTrait2>Innate Spellcasting. 
+The horncaller's innate spellcasting ability is Wisdom (spell save DC 14). The horncaller can innately cast the following spells, requiring no material components:
+l/day each: bless, conjure animals</monsterTrait2>
+    <monsterTrait3>Speak with Beasts. 
+The horncaller can communicate with beasts as if they shared a language.</monsterTrait3>
     <monsterAction1>Multiattack. 
-The thought spy makes two melee attacks, or it makes three ranged attacks with its daggers.</monsterAction1>
-    <monsterAction2>Dagger. 
-Melee or Ranged Weapon Attack: +4 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 4 (ld4 + 2) piercing damage.</monsterAction2>
-    <monsterAction3>Rapier. 
-Melee Weapon Attack: +4 to hit, reach 5 ft., one target. Hit: 6 (ld8 + 2) piercing damage.</monsterAction3>
+The horncaller makes two melee attacks with its staff and uses One with the Worldsoul.</monsterAction1>
+    <monsterAction2>Staff. 
+Melee Weapon Attack: +3 to hit, reach 5 ft ., one target. Hit: 4 (ld6 + 1) piercing damage, or 5 (ld8 + 1) bludgeoning damage if used with two hands.</monsterAction2>
+    <monsterAction3>One with the Worldsoul. 
+The horncaller chooses one beast it can see within 30 feet of it. If the beast can hear the horn caller, the beast uses its reaction to make one melee attack against a target that the horncaller can see.</monsterAction3>
   </monster>
   <monster>
-    <title>Jarad Vod Savo</title>
-    <monsterSize>medium</monsterSize>
-    <monsterType>undead</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>17</monsterAc>
-    <monsterHp>180 (24d8 + 72)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
-    <monsterStr>14</monsterStr>
-    <monsterDex>16</monsterDex>
-    <monsterCon>16</monsterCon>
-    <monsterInt>20</monsterInt>
-    <monsterWis>16</monsterWis>
-    <monsterCha>15</monsterCha>
-    <monsterSave>Con +10, Int +12, Wis +10</monsterSave>
-    <monsterSkill>Arcana +12, Insight +10, Pe rception +10</monsterSkill>
-    <monsterResist>necrotic; bludgeoning, piercing, and slashing from nonmagical attacks</monsterResist>
-    <monsterVulnerable/>
-    <monsterImmune>poison</monsterImmune>
-    <monsterConditionImmune>charmed, exhausted, frightened, paralyzed, poisoned</monsterConditionImmune>
-    <monsterSenses>darkvision 120 ft.</monsterSenses>
-    <monsterPassive>20</monsterPassive>
-    <monsterLanguages>Common, Elvish, Kraul</monsterLanguages>
-    <monsterCr>22</monsterCr>
-    <type>monster</type>
-    <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.235</monsterTrait1>
-    <monsterTrait2>Legendary Resistance (3/Day). 
-If Jarad fails a saving throw, he can choose to succeed instead.</monsterTrait2>
-    <monsterTrait3>Magic Resistance. 
-Jarad has advantage on saving throws against spells and other magical effects</monsterTrait3>
-    <monsterTrait4>Regeneration. 
-Jarad regains 25 hit points at the start of his turn. If he takes fire or radiant damage, this trait doesn't function at the start of his next turn. He dies only if he starts its turn with 0 hit points and doesn't regenerate.</monsterTrait4>
-    <monsterTrait5>Spellcasting. 
-Jarad is a 14th-level Golgari spellcaster. His spellcasting ability is Intelligence (spell save DC 20, +12 to hit with spel l attacks). Jarad has the following wizard spells prepared:
-Cantrips (at will): acid splash, chill touch, mage hand, poison spray, prestidigitation
-1st level (4 slots): entangle, ray of sickness, sleep
-2nd level (3 slots): Melfs acid arrow, ray of enfeeblement, spider climb, web
-3rd level (3 slots): animate dead, plant growth, vampiric touch
-4th level (3 slots): blight, giant insect, grasping vine
-5th level (2 slots): cloudkill, insect plague
-6th level (1 slot): circle of death, create undead
-7th level (1 slot): finger of death,forcecage</monsterTrait5>
-    <monsterTrait6>Spore Infusion. 
-Jarad is surrounded by a cloud of spores. As a bonus action, he can cause the spores to deal 11 (2d10) poison damage to a cre ature he can see within 10 feet of him</monsterTrait6>
-    <monsterTrait7>Turn Resistance. 
-Jarad has advantage on saving throws against any effect that turns undead.</monsterTrait7>
-    <monsterTrait8>Undead Fortitude. 
-If damage reduces Jarad to 0 hit points, he must make a Constitution saving throw with a DC of 5 + the damage taken, unless the damage is radiant or from a critical hit. On a success, he drops to 1 hit point instead.</monsterTrait8>
-    <monsterAction1>Multiattack. 
-Jarad makes two attacks: one with his Noxious Touch and one with his Staff of Svogthir. He can cast a spell with a casting time of 1 action in place of one of these attacks.</monsterAction1>
-    <monsterAction2>Noxious Touch. 
-Melee Spell Attack: +12 to hit , reach 5 ft., one creature. Hit: 28 (8d6) poison damage, and the target must succeed on a DC 20 Constitution saving throw or be poisoned for 1 minute. The target can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success</monsterAction2>
-    <monsterAction3>Staff of Svogthir. 
-Melee Weapon Attack: + 12 to hit, reach 5 ft., one target. Hit: 12 (2d6 + 5) bludgeoning damage plus 13 (3d8) poison damage and 13 (3d8) necrotic damage.</monsterAction3>
-    <monsterLegendary1>Cantrip. 
-Jarad casts one of his can trips.</monsterLegendary1>
-    <monsterLegendary2>Noxious Touch (Costs 2 Actions). 
-Jarad uses Noxious Touch.</monsterLegendary2>
-    <monsterLegendary3>Disrupt Life (Costs 3 Actions). 
-Each creature within 30 feet of Jarad must make a DC 20 Constitution saving throw, taking 35 (10d6) necrotic damage on a failed save, or half as much damage on a successful one.</monsterLegendary3>
-  </monster>
-  <monster>
-    <title>Golgari Shaman</title>
+    <title>Zegana</title>
     <monsterSize>medium</monsterSize>
     <monsterType>humanoid</monsterType>
-    <monsterAlignment>neutral evil</monsterAlignment>
-    <monsterAc>14</monsterAc>
-    <monsterHp>88 (16d8 + 16)</monsterHp>
-    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterAlignment>lawful neutral</monsterAlignment>
+    <monsterAc>16</monsterAc>
+    <monsterHp>130 (20d8 + 40)</monsterHp>
+    <monsterSpeed>30 ft., swim 40 ft.</monsterSpeed>
     <monsterStr>11</monsterStr>
-    <monsterDex>15</monsterDex>
-    <monsterCon>12</monsterCon>
-    <monsterInt>12</monsterInt>
-    <monsterWis>17</monsterWis>
-    <monsterCha>16</monsterCha>
-    <monsterSave>Con +4 , Wis +6</monsterSave>
-    <monsterSkill>Arcana +4, Insight +6, Nature +4 , Religion +4</monsterSkill>
-    <monsterResist/>
+    <monsterDex>14</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>20</monsterInt>
+    <monsterWis>18</monsterWis>
+    <monsterCha>18</monsterCha>
+    <monsterSave>Int +10, Wis +9</monsterSave>
+    <monsterSkill>Insight +9, Nature +1 0, Perception +9</monsterSkill>
+    <monsterResist>cold, poison</monsterResist>
     <monsterVulnerable/>
     <monsterImmune/>
     <monsterConditionImmune/>
     <monsterSenses>darkvision 60 ft.</monsterSenses>
-    <monsterPassive>13</monsterPassive>
-    <monsterLanguages>Common, Elvish</monsterLanguages>
-    <monsterCr>5</monsterCr>
-    <monsterReaction>
-			Feed on Death.
-			When a creature within 30 feet of the shaman drops to 0 hit points, the shaman gains 5 (ldl0) temporary hit points.
-		</monsterReaction>
+    <monsterPassive>19</monsterPassive>
+    <monsterLanguages>Common, Elvish, Merfolk</monsterLanguages>
+    <monsterCr>1</monsterCr>
     <type>monster</type>
     <monsterTrait1>Source 
-Guildmaster's Guide to Ravnica, p.236</monsterTrait1>
-    <monsterTrait2>Fey Ancestry. 
-The shaman has advantage on saving throws against being charmed, and magic can't put it to sleep.</monsterTrait2>
+Guildmaster's Guide to Ravnica, p.255</monsterTrait1>
+    <monsterTrait2>Amphibious. 
+Zegana can breathe air and water.</monsterTrait2>
+    <monsterTrait3>Legendary Resistance (3/Day). 
+lf Zegana fails a saving throw, she can choose to succeed instead.</monsterTrait3>
+    <monsterTrait4>Magic Resistance. 
+Zegana has advantage on saving throws against spells and other magical effects</monsterTrait4>
+    <monsterTrait5>Spellcasting. 
+Zegana is a 15th-level Simic spellcaster. Her spellcasting ability is Intelligence (spell save DC 18, +10 to hit with spell attacks). She has the following wizard spells prepared:
+Cantrips (at will): acid splash, druidcraft, ray of frost, shape water
+lst level (4 slots): color spray, expeditious retreat, fog cloud, shield
+2nd level (3 slots): enlarge/reduce, gust of wind
+3rd level (3 slots): counterspell, fly, slow
+4th level (3 slots): control water, ice storm, polymorph
+5th level (2 slots): conjure elemental, creation
+6th level (l slot): move earth, wall of ice
+7th level (l slot): prismatic spray, teleport
+8th level (l slot): control weather, dominate monster</monsterTrait5>
+    <monsterAction1>Prime Speaker's Trident. 
+Melee or Ranged Weapon Attack: +10 to hit, reach 5 ft. or range 20/60 ft., one target. Hit: 12 (2d6 +5) piercing damage, and the trident emits a thunderous boom. Each creature in a 15-foot cube originating from the prongs of the trident must make a DC 18 Constitution saving throw. On a failed save, the creature takes 9 (2d8) thunder damage and is pushed 10 feet away from Zegana. If the creature is underwater, the damage is increased to 13 (3d8). On a successful save, the creature takes half as much damage and isn't pushed.</monsterAction1>
+    <monsterAction2>Deluge (Recharge 4-6). 
+Zegana conjures a wave of water that crashes down on an area within 120 feet of her. The area can be up to 30 feet long, up to 10 feet wide, and up to l0 feet tall. Each creature in that area must make a DC 18 Dexterity saving throw. On a failed save, a creature takes 18 (4d8) bludgeoning damage and is knocked prone. On a successful save, a creature takes half as much damage and isn't knocked prone. The water spreads out across the ground, extinguishing unprotected flames it comes in contact with, and then vanishes.</monsterAction2>
+    <monsterLegendary1>Adaptive Skin. 
+Zegana gains resistance to one damage type of her choice- acid, fire, lightning, or thunder-until the start of her next turn.</monsterLegendary1>
+    <monsterLegendary2>Trident. 
+Zegana makes one melee attack with the Prime Speaker's Trident.</monsterLegendary2>
+    <monsterLegendary3>Enlarge (Costs 2 Actions). 
+Zegana casts enlarge/reduce on herself, using the enlarge option, without expending a spell slot.</monsterLegendary3>
+    <monsterLegendary4>Deluge (Costs 3 Actions). 
+Zegana uses Deluge, if available.</monsterLegendary4>
+  </monster>
+  <monster>
+    <title>Biomancer</title>
+    <monsterSize>medium</monsterSize>
+    <monsterType>humanoid</monsterType>
+    <monsterAlignment>neutral good</monsterAlignment>
+    <monsterAc>17</monsterAc>
+    <monsterHp>110 (17d8 + 34)</monsterHp>
+    <monsterSpeed>30 ft.</monsterSpeed>
+    <monsterStr>10</monsterStr>
+    <monsterDex>15</monsterDex>
+    <monsterCon>14</monsterCon>
+    <monsterInt>20</monsterInt>
+    <monsterWis>14</monsterWis>
+    <monsterCha>15</monsterCha>
+    <monsterSave>Int +9, Wis +6</monsterSave>
+    <monsterSkill>Arcana +9, Nature +9</monsterSkill>
+    <monsterResist/>
+    <monsterVulnerable/>
+    <monsterImmune/>
+    <monsterConditionImmune/>
+    <monsterSenses/>
+    <monsterPassive>12</monsterPassive>
+    <monsterLanguages>Common plus any one language</monsterLanguages>
+    <monsterCr>10</monsterCr>
+    <type>monster</type>
+    <monsterTrait1>Source 
+Guildmaster's Guide to Ravnica, p.256</monsterTrait1>
+    <monsterTrait2>Bolstering Presence. 
+The biomancer magically emanates life-giving energy within 30 feet of itself. Any ally of the biomancer that starts its turn there regains 5 (ld10) hit points</monsterTrait2>
     <monsterTrait3>Magic Resistance. 
-The shaman is an 8th-level Golgari spellcaster. Its spellcasting ability is Wisdom (spell save DC 14, +6 to hit with spell attacks). The shaman has the following druid spells prepared:
-Cantrips (at will): poison spray, shillelagh , thorn whip
-lst level (4 slots): cure wounds, entangle, ray of sickness
-2nd level (3 slots): pass without trace, ray of enfeeblement, spike growth
-3rd level (3 slots): animate dead, dispel magic, plant growth
-4th level (2 slots): blight, giant insect</monsterTrait3>
-    <monsterAction1>Quarterstaff. 
-Melee Weapon Attack: + 4 to hit, reach 5 ft., one target. Hit: 5 (ld6 + 2) bludgeoning damage, or 6 (ld8 + 2) bludgeoning damage if used with two hands.</monsterAction1>
-    <monsterAction2>Fungal Rot. 
-Melee Spell Attack: +6 to hit, reach 5 ft., one target. Hit: 9 (2d8) necrotic damage, and the target must make a DC 14 Constitution saving throw, taking 18 (4d8) poison damage on a failed save, or half as much damage on a successful one</monsterAction2>
+The biomancer has advantage on saving throws against spells and other magical effects.</monsterTrait3>
+    <monsterTrait4>Spellcasting. 
+The biomancer is a 16th-level Simic spellcaster. Its spellcasting ability is Intelligence (spell save DC 17, +9 to hit with spell attacks). The biomancer has the following wizard spells prepared:
+Cantrips (at will): acid splash, light, mending, poison spray, shocking grasp
+1st level (4 slots): detect magic, grease, shield
+2nd level (3 slots): alter self, darkvision, enlarge/reduce, hold person
+3rd level (3 slots): counterspell, dispel magic, haste, protection from energy
+4th level (3 slots): confusion, conjure minor elementals, polymorph
+5th level (2 slots): cone of cold, creation, hold monster
+6th level (1 slot): move earth, wall of ice
+7th level (1 slot): prismatic spray
+8th level (1 slot): control weather</monsterTrait4>
+    <monsterAction1>Scimitar. 
+Melee Weapon Attack: +6 to hit, reach 5 ft., one target. Hit: 5 (ld6 + 2) slashing damage</monsterAction1>
   </monster>
 </world>
