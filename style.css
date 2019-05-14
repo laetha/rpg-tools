@@ -1166,3 +1166,8 @@ margin-bottom:25px;
 .selectors {
 	margin-bottom: 20px;
 }
+
+.diff {
+	font-weight: Bold;
+	color: #5499c7;
+}

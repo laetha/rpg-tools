@@ -27,7 +27,7 @@
    <div class="col-md-4 sidebartext">
      <div class="selectors">
      # of players
-     <select>
+     <select id="numPlayers" onchange="calcDifficulty()">
        <option>1
        <option>2
        <option>3
@@ -39,7 +39,7 @@
      </select>
 
      Level
-     <select>
+     <select id="playerLevel" onchange="calcDifficulty()">
        <option>1
        <option>2
        <option>3
@@ -73,12 +73,14 @@
      <div class="hide monslot" id="slot9"><div class="inline" id="monster9"></div><div class="hide" id="xp9"></div><div class="controls"><button class="btn btn-success" onclick="addMon('9')">+</button><button class="btn btn-danger" onclick="remMon('9')">-</button><input class="narrowinput" type"text" id="num9" value="0"></input></div></div>
      <div class="hide monslot" id="slot10"><div class="inline" id="monster10"></div><div class="hide" id="xp10"></div><div class="controls"><button class="btn btn-success" onclick="addMon('10')">+</button><button class="btn btn-danger" onclick="remMon('10')">-</button><input class="narrowinput" type"text" id="num10" value="0"></input></div></div>
 
-     <br><div style="float:right;">Total XP: <div id="totalxp" style="display:inline;">0</div></div>
-     <br><div style="float:right;">Adjusted XP: <div id="adjxp" style="display:inline;">0</div></div>
-     <br><div style="float:right;">Easy: <div id="easy" style="display:inline;">0</div></div>
-     <br><div style="float:right;">Medium: <div id="medium" style="display:inline;">0</div></div>
-     <br><div style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
-     <br><div style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div>
+     <br><div style="margin-bottom:15px;"><div style="float:right;">Total XP: <div id="totalxp" style="display:inline;">0</div></div>
+     <br><div style="float:right;">Adjusted XP: <div id="adjxp" style="display:inline;">0</div></div></div>
+     <br><div><div id="easyname" style="float:right;">Easy: <div id="easy" style="display:inline;">0</div></div>
+     <br><div id="mediumname" style="float:right;">Medium: <div id="medium" style="display:inline;">0</div></div>
+     <br><div id="hardname" style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
+     <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div>
+     <br><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div></div>
+
 
 
    </div>
@@ -214,6 +216,7 @@
 </table>
 <script>
 $(document).ready(function() {
+  calcDifficulty();
     // Setup - add a text input to each footer cell
 /*    $('#allspells tfoot th').each( function () {
         var title = $(this).text();
@@ -226,9 +229,11 @@ $(document).ready(function() {
          "scrollX": true,
          "scrollY": "600px",
          "responsive": false,
+         "pageLength": 50,
          "columnDefs": [
     { "width": 25, "targets": 0 }
   ],
+   "lengthMenu": [[10, 25, 50, 100, 250, -1], [10, 25, 50, 100, 250, "All"]],
         "fixedColumns": true
      }
     );
@@ -278,7 +283,7 @@ function addMonster(value) {
       }
 
  }
-   calcDifficulty();
+   calcAdjXp();
 
   },
   error: function (jqXHR, status, errorThrown)
@@ -300,7 +305,7 @@ var monXp = $('#xp' + value).html();
 var totalxp = document.getElementById('totalxp').innerHTML;
 totalxp = parseInt(totalxp) + parseInt(monXp);
 document.getElementById('totalxp').innerHTML = totalxp;
-calcDifficulty();
+calcAdjXp();
 }
 </script>
 <script>
@@ -321,12 +326,12 @@ if (newNum == 0) {
   $('#num' + value).val("0");
 }
 }
-calcDifficulty();
+calcAdjXp();
 }
 
 </script>
 <script>
-function calcDifficulty(){
+function calcAdjXp(){
 var mon1 = parseInt($('#num1').val());
 var mon2 = parseInt($('#num2').val());
 var mon3 = parseInt($('#num3').val());
@@ -362,7 +367,89 @@ if (numMon >= 15){
 var totalxp = $('#totalxp').html();
 var adjXp = totalxp * monMult;
 document.getElementById('adjxp').innerHTML = adjXp;
+calcDifficulty();
+}
 
+</script>
+
+<script>
+function calcDifficulty() {
+    var easy = [25, 50, 75, 125, 250, 300, 350, 450, 550, 600, 800, 1000, 1100, 1250, 1400, 1600, 2000, 2100, 2400, 2800];
+    var medium = [50, 100, 150, 250, 500, 600, 750, 900, 1100, 1200, 1600, 2000, 2200, 2500, 2800, 3200, 3900, 4200, 4900, 5700];
+    var hard = [75, 150, 225, 375, 750, 900, 1100, 1400, 1600, 1900, 2400, 3000, 3400, 3800, 4300, 4800, 5900, 6300, 7300, 8500];
+    var deadly = [100, 200, 400, 500, 1100, 1400, 1700, 2100, 2400, 2800, 3600, 4500, 5100, 5700, 6400, 7200, 8800, 9500, 10900, 12700];
+    var daily = [300, 600, 1200, 1700, 3500, 4000, 5000, 6000, 7500, 9000, 10500, 11500, 13500, 15000, 18000, 20000, 25000, 27000, 30000, 40000];
+
+    var numPlayers = $('#numPlayers').find(":selected").text();
+    var playerLevel = $('#playerLevel').find(":selected").text();
+    var arrayPos = parseInt(playerLevel) - 1;
+    var easyBar = parseInt(numPlayers) * parseInt(easy[arrayPos]);
+    var mediumBar = parseInt(numPlayers) * parseInt(medium[arrayPos]);
+    var hardBar = parseInt(numPlayers) * parseInt(hard[arrayPos]);
+    var deadlyBar = parseInt(numPlayers) * parseInt(deadly[arrayPos]);
+    var dailyBar = parseInt(numPlayers) * parseInt(daily[arrayPos]);
+
+    $('#easy').html(easyBar);
+    $('#medium').html(mediumBar);
+    $('#hard').html(hardBar);
+    $('#deadly').html(deadlyBar);
+    $('#daily').html(dailyBar);
+    var adjXp = parseInt($('#adjxp').html());
+    easyBar = parseInt(easyBar);
+    mediumBar = parseInt(mediumBar);
+    hardBar = parseInt(hardBar);
+    deadlyBar = parseInt(deadlyBar);
+    dailyBar = parseInt(dailyBar);
+    if (adjXp <= easyBar){
+      $('#easy').addClass("diff");
+      $('#easyname').addClass("diff");
+      $('#medium').removeClass("diff");
+      $('#mediumname').removeClass("diff");
+      $('#hard').removeClass("diff");
+      $('#hardname').removeClass("diff");
+      $('#deadly').removeClass("diff");
+      $('#deadlyname').removeClass("diff");
+    }
+    if (adjXp > easyBar && adjXp <= mediumBar){
+      $('#easy').addClass("diff");
+      $('#easyname').addClass("diff");
+      $('#medium').removeClass("diff");
+      $('#mediumname').removeClass("diff");
+      $('#hard').removeClass("diff");
+      $('#hardname').removeClass("diff");
+      $('#deadly').removeClass("diff");
+      $('#deadlyname').removeClass("diff");
+    }
+    if (adjXp > mediumBar && adjXp <= hardBar){
+      $('#easy').removeClass("diff");
+      $('#easyname').removeClass("diff");
+      $('#medium').addClass("diff");
+      $('#mediumname').addClass("diff");
+      $('#hard').removeClass("diff");
+      $('#hardname').removeClass("diff");
+      $('#deadly').removeClass("diff");
+      $('#deadlyname').removeClass("diff");
+    }
+    if (adjXp > hardBar && adjXp <= deadlyBar){
+      $('#easy').removeClass("diff");
+      $('#easyname').removeClass("diff");
+      $('#medium').removeClass("diff");
+      $('#mediumname').removeClass("diff");
+      $('#hard').addClass("diff");
+      $('#hardname').addClass("diff");
+      $('#deadly').removeClass("diff");
+      $('#deadlyname').removeClass("diff");
+    }
+    if (adjXp > deadlyBar){
+      $('#easy').removeClass("diff");
+      $('#easyname').removeClass("diff");
+      $('#medium').removeClass("diff");
+      $('#mediumname').removeClass("diff");
+      $('#hard').removeClass("diff");
+      $('#hardname').removeClass("diff");
+      $('#deadly').addClass("diff");
+      $('#deadlyname').addClass("diff");
+    }
 }
 
 </script>

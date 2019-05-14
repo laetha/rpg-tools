@@ -178,6 +178,7 @@ else {
 							<li><a href="/tools/world/workspace.php">Workspace</a></li>
 							<li><a href="/tools/initiative/initiative.php">Initiative</a></li>
 							<li><a href="/tools/generator/generator.php">Random Generator</a></li>
+							<li><a href="/tools/compendium/encounter-builder.php">Encounter Builder</a></li>
 
 							<li>
 <?php if ($loguser == 'tarfuin') {
@@ -189,7 +190,6 @@ else {
 	?>
 							</li>
 							<li><a href="/tools/generator/spell-generator.php">Spell Generator</a></li>
-							<li><a href="/tools/generator/encounter-builder.php">Encounter Builder</a></li>
 
 						</ul>
 
