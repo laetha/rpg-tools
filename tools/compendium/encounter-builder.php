@@ -75,11 +75,11 @@
 
      <br><div style="margin-bottom:15px;"><div style="float:right;">Total XP: <div id="totalxp" style="display:inline;">0</div></div>
      <br><div style="float:right;">Adjusted XP: <div id="adjxp" style="display:inline;">0</div></div></div>
-     <br><div><div id="easyname" style="float:right;">Easy: <div id="easy" style="display:inline;">0</div></div>
+     <br><div style="margin-bottom:15px;"><div id="easyname" style="float:right;">Easy: <div id="easy" style="display:inline;">0</div></div>
      <br><div id="mediumname" style="float:right;">Medium: <div id="medium" style="display:inline;">0</div></div>
      <br><div id="hardname" style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
-     <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div>
-     <br><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div></div>
+     <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div></div>
+     <br><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
 
 
 
