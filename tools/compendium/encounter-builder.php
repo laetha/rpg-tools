@@ -79,8 +79,8 @@
      <br><div id="mediumname" style="float:right;">Medium: <div id="medium" style="display:inline;">0</div></div>
      <br><div id="hardname" style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
      <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div></div>
-     <br><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
-
+     <br><button class="btn btn-primary" onclick="saveEncounter()">Save Encounter</button><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
+<div id="test">HAAAAA</div>
 
 
    </div>
@@ -450,6 +450,64 @@ function calcDifficulty() {
       $('#deadly').addClass("diff");
       $('#deadlyname').addClass("diff");
     }
+}
+
+</script>
+
+<script>
+function saveEncounter(){
+  var mon1 = $('#monster1').html();
+  var mon2 = $('#monster2').html();
+  var mon3 = $('#monster3').html();
+  var mon4 = $('#monster4').html();
+  var mon5 = $('#monster5').html();
+  var mon6 = $('#monster6').html();
+  var mon7 = $('#monster7').html();
+  var mon8 = $('#monster8').html();
+  var mon9 = $('#monster9').html();
+  var mon10 = $('#monster10').html();
+  var num1 = $('#num1').val();
+  var num2 = $('#num2').val();
+  var num3 = $('#num3').val();
+  var num4 = $('#num4').val();
+  var num5 = $('#num5').val();
+  var num6 = $('#num6').val();
+  var num7 = $('#num7').val();
+  var num8 = $('#num8').val();
+  var num9 = $('#num9').val();
+  var num10 = $('#num10').val();
+  mon1 = mon1 + num1;
+  mon2 = mon2 + num2;
+  mon3 = mon3 + num3;
+  mon4 = mon4 + num4;
+  mon5 = mon5 + num5;
+  mon6 = mon6 + num6;
+  mon7 = mon7 + num7;
+  mon8 = mon8 + num8;
+  mon9 = mon9 + num9;
+  mon10 = mon10 + num10;
+  var mons = [mon1,mon2,mon3,mon4,mon5,mon6,mon7,mon8,mon9,mon10];
+  mons = mons.filter(a => a !== '0');
+  mons = mons.join(',');
+  mons = mons.replace(/[- )(]/g,'');
+  var worlduser = '<?php echo $loguser; ?>';
+
+  $.ajax({
+  url : '/tools/compendium/encounter-save.php',
+  type: 'GET',
+  data : { "encounter" : mons, "worlduser" : worlduser },
+  success: function()
+  {
+    $('#test').html(mons);
+
+  },
+  error: function (jqXHR, status, errorThrown)
+  {
+      //if fail show error and server status
+      $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
+  }
+  });
+
 }
 
 </script>
