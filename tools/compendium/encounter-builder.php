@@ -96,7 +96,7 @@
                    <th scope="col">Type</th>
                    <th scope="col">CR</th>
                    <th scope="col">Source</th>
-                   <th scope="col">AC</th>
+              <!--     <th scope="col">AC</th>
                    <th scope="col">HP</th>
                    <th scope="col">Speed</th>
                    <th scope="col">STR</th>
@@ -112,7 +112,7 @@
                    <th scope="col">Condition Immunities</th>
                    <th scope="col">Senses</th>
                    <th scope="col">Passive Perception</th>
-                   <th scope="col">Languages</th>
+                   <th scope="col">Languages</th>  -->
 
 
                </tr>
@@ -126,7 +126,7 @@
                  <th scope="col">Type</th>
                  <th scope="col">CR</th>
                  <th scope="col">Source</th>
-                 <th scope="col">AC</th>
+              <!--   <th scope="col">AC</th>
                  <th scope="col">HP</th>
                  <th scope="col">Speed</th>
                  <th scope="col">STR</th>
@@ -142,7 +142,7 @@
                  <th scope="col">Condition Immunities</th>
                  <th scope="col">Senses</th>
                  <th scope="col">Passive Perception</th>
-                 <th scope="col">Languages</th>
+                 <th scope="col">Languages</th> -->
 
                </tr>
            </tfoot>
@@ -189,7 +189,7 @@
                echo ('<td>'.number_format((float)$row['monsterCr'], 0, '.', '').'</td>');
              }
              echo ('<td>'.$row['monsterTrait1'].'</td>');
-             echo ('<td>'.$row['monsterAc'].'</td>');
+          /*   echo ('<td>'.$row['monsterAc'].'</td>');
              echo ('<td>'.$row['monsterHp'].'</td>');
              echo ('<td>'.$row['monsterSpeed'].'</td>');
              echo ('<td>'.$row['monsterStr'].'</td>');
@@ -205,7 +205,7 @@
              echo ('<td>'.$row['monsterConditionImmune'].'</td>');
              echo ('<td>'.$row['monsterSenses'].'</td>');
              echo ('<td>'.$row['monsterPassive'].'</td>');
-             echo ('<td>'.$row['monsterLanguages'].'</td>');
+             echo ('<td>'.$row['monsterLanguages'].'</td>');*/
 
              echo ('</tr>');
 
