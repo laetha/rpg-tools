@@ -5,7 +5,7 @@
    include_once($sqlpath);
 
    //Header
-   $pgtitle = 'Monsters - ';
+   $pgtitle = 'Enounter Builder - ';
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
@@ -22,7 +22,7 @@
      </style>
      <!-- Page Header -->
      <div class="col-md-12">
-     <div class="pagetitle" id="pgtitle">Monsters</div>
+     <div class="pagetitle" id="pgtitle">Enounter Builder</div>
    </div>
    <div class="col-md-4 sidebartext">
      <div class="selectors">
