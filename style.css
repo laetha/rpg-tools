@@ -1146,3 +1146,23 @@ hr {
 		display:none;
 	}
 }
+
+.inline {
+	display:inline;
+}
+
+.narrowinput {
+	width:40px;
+}
+.controls {
+	display:inline;
+	float:right;
+}
+
+.monslot {
+margin-bottom:25px;
+}
+
+.selectors {
+	margin-bottom: 20px;
+}

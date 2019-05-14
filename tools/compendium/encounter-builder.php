@@ -24,27 +24,72 @@
      <div class="col-md-12">
      <div class="pagetitle" id="pgtitle">Monsters</div>
    </div>
-   <div class="col-xs-4 sidebartext">
-     <div class="hide" id="slot1"><div id="monster1"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="1"></input></div>
-     <div class="hide" id="slot2"><div id="monster2"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="2"></input></div>
-     <div class="hide" id="slot3"><div id="monster3"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="3"></input></div>
-     <div class="hide" id="slot4"><div id="monster4"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="4"></input></div>
-     <div class="hide" id="slot5"><div id="monster5"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="5"></input></div>
-     <div class="hide" id="slot6"><div id="monster6"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="6"></input></div>
-     <div class="hide" id="slot7"><div id="monster7"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="7"></input></div>
-     <div class="hide" id="slot8"><div id="monster8"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="8"></input></div>
-     <div class="hide" id="slot9"><div id="monster9"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="9"></input></div>
-     <div class="hide" id="slot10"><div id="monster10"></div><button class="btn btn-success">+</button><button class="btn btn-danger">-</button><input type="text" id="num1" value="10"></input></div>
-     <div style="float:right;">Total XP: <div id="totalxp" style="display:inline;">0</div></div>
+   <div class="col-md-4 sidebartext">
+     <div class="selectors">
+     # of players
+     <select>
+       <option>1
+       <option>2
+       <option>3
+       <option>4
+       <option>5
+       <option>6
+       <option>7
+       <option>8
+     </select>
+
+     Level
+     <select>
+       <option>1
+       <option>2
+       <option>3
+       <option>4
+       <option>5
+       <option>6
+       <option>7
+       <option>8
+       <option>9
+       <option>10
+       <option>11
+       <option>12
+       <option>13
+       <option>14
+       <option>15
+       <option>16
+       <option>17
+       <option>18
+       <option>19
+       <option>20
+     </select>
    </div>
-     <div class="body sidebartext col-xs-8" id="body">
+     <div class="hide monslot" id="slot1"><div class="inline" id="monster1"></div><div class="hide" id="xp1"></div><div class="controls"><button class="btn btn-success" onclick="addMon('1')">+</button><button class="btn btn-danger" onclick="remMon('1')">-</button><input class="narrowinput" type"text" id="num1" value="0"></input></div></div>
+     <div class="hide monslot" id="slot2"><div class="inline" id="monster2"></div><div class="hide" id="xp2"></div><div class="controls"><button class="btn btn-success" onclick="addMon('2')">+</button><button class="btn btn-danger" onclick="remMon('2')">-</button><input class="narrowinput" type"text" id="num2" value="0"></input></div></div>
+     <div class="hide monslot" id="slot3"><div class="inline" id="monster3"></div><div class="hide" id="xp3"></div><div class="controls"><button class="btn btn-success" onclick="addMon('3')">+</button><button class="btn btn-danger" onclick="remMon('3')">-</button><input class="narrowinput" type"text" id="num3" value="0"></input></div></div>
+     <div class="hide monslot" id="slot4"><div class="inline" id="monster4"></div><div class="hide" id="xp4"></div><div class="controls"><button class="btn btn-success" onclick="addMon('4')">+</button><button class="btn btn-danger" onclick="remMon('4')">-</button><input class="narrowinput" type"text" id="num4" value="0"></input></div></div>
+     <div class="hide monslot" id="slot5"><div class="inline" id="monster5"></div><div class="hide" id="xp5"></div><div class="controls"><button class="btn btn-success" onclick="addMon('5')">+</button><button class="btn btn-danger" onclick="remMon('5')">-</button><input class="narrowinput" type"text" id="num5" value="0"></input></div></div>
+     <div class="hide monslot" id="slot6"><div class="inline" id="monster6"></div><div class="hide" id="xp6"></div><div class="controls"><button class="btn btn-success" onclick="addMon('6')">+</button><button class="btn btn-danger" onclick="remMon('6')">-</button><input class="narrowinput" type"text" id="num6" value="0"></input></div></div>
+     <div class="hide monslot" id="slot7"><div class="inline" id="monster7"></div><div class="hide" id="xp7"></div><div class="controls"><button class="btn btn-success" onclick="addMon('7')">+</button><button class="btn btn-danger" onclick="remMon('7')">-</button><input class="narrowinput" type"text" id="num7" value="0"></input></div></div>
+     <div class="hide monslot" id="slot8"><div class="inline" id="monster8"></div><div class="hide" id="xp8"></div><div class="controls"><button class="btn btn-success" onclick="addMon('8')">+</button><button class="btn btn-danger" onclick="remMon('8')">-</button><input class="narrowinput" type"text" id="num8" value="0"></input></div></div>
+     <div class="hide monslot" id="slot9"><div class="inline" id="monster9"></div><div class="hide" id="xp9"></div><div class="controls"><button class="btn btn-success" onclick="addMon('9')">+</button><button class="btn btn-danger" onclick="remMon('9')">-</button><input class="narrowinput" type"text" id="num9" value="0"></input></div></div>
+     <div class="hide monslot" id="slot10"><div class="inline" id="monster10"></div><div class="hide" id="xp10"></div><div class="controls"><button class="btn btn-success" onclick="addMon('10')">+</button><button class="btn btn-danger" onclick="remMon('10')">-</button><input class="narrowinput" type"text" id="num10" value="0"></input></div></div>
+
+     <br><div style="float:right;">Total XP: <div id="totalxp" style="display:inline;">0</div></div>
+     <br><div style="float:right;">Adjusted XP: <div id="adjxp" style="display:inline;">0</div></div>
+     <br><div style="float:right;">Easy: <div id="easy" style="display:inline;">0</div></div>
+     <br><div style="float:right;">Medium: <div id="medium" style="display:inline;">0</div></div>
+     <br><div style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
+     <br><div style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div>
+
+
+   </div>
+     <div class="body sidebartext col-md-8" id="body">
        <div class="table-responsive">
    <table id="allspells" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Add</th>
                    <th scope="col">Name</th>
-                   <th scope="col">Image</th>
+                <!--   <th scope="col">Image</th> -->
                    <th scope="col">Size</th>
                    <th scope="col">Type</th>
                    <th scope="col">CR</th>
@@ -74,7 +119,7 @@
                <tr>
                  <th scope="col">Add</th>
                  <th scope="col">Name</th>
-                 <th scope="col">Image</th>
+            <!--     <th scope="col">Image</th> -->
                  <th scope="col">Size</th>
                  <th scope="col">Type</th>
                  <th scope="col">CR</th>
@@ -115,7 +160,7 @@
                echo "<a href=\"compendium.php?id=$entry\">";
                echo $entry;
                echo "</a></td>";
-               if (file_exists($jpgurl)){
+            /*   if (file_exists($jpgurl)){
                  echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
                }
                else if (file_exists($pngurl)){
@@ -123,7 +168,7 @@
                }
                else {
                  echo ('<td>n/a</td>');
-               }
+               }*/
                echo ('<td>'.$row['monsterSize'].'</td>');
                echo ('<td>'.$row['monsterType'].'</td>');
                if($row['monsterCr'] ==0.125){
@@ -204,26 +249,37 @@ $(document).ready(function() {
 </script>
 
 <script>
-var i = 1;
-var totalxp = document.getElementById('totalxp').innerHTML;
-totalxp = parseFloat(totalxp);
+//var i = 1;
 function addMonster(value) {
+  var totalxp = document.getElementById('totalxp').innerHTML;
+  totalxp = parseFloat(totalxp);
   var monster = value;
-  var currentxp = 0;
+  var currentxp;
   $.ajax({
   url : '/tools/compendium/encounter-add.php',
   type: 'GET',
   data : { "monster" : monster },
   success: function(data)
   {
+    var x = 1;
+    for (i = 1; i <= 10; i++){
+      var checkEmpty = document.getElementById('monster' + i).innerHTML;
+      if (checkEmpty == '' && x == 1){
+        document.getElementById('num' + i).value = 1;
+        document.getElementById('monster' + i).innerHTML = monster;
+        $('#slot' + i).removeClass('hide');
+        currentxp = data.replace(/\D/g,'');
+        currentxp = parseInt(currentxp.slice(0, -2));
+        document.getElementById('xp' + i).innerHTML = currentxp;
+       // i++;
+        totalxp = totalxp + currentxp;
+        document.getElementById('totalxp').innerHTML = totalxp;
+        x++;
+      }
 
-   document.getElementById('monster' + i).innerHTML = monster;
-   $('#slot' + i).removeClass('hide');
-   i++;
-   currentxp = data.replace(/\D/g,'');
-   currentxp = parseInt(currentxp.slice(0, -2));
-   totalxp = totalxp + currentxp;
-   document.getElementById('totalxp').innerHTML = totalxp;
+ }
+   calcDifficulty();
+
   },
   error: function (jqXHR, status, errorThrown)
   {
@@ -231,9 +287,86 @@ function addMonster(value) {
       $("#status_text").html('there was an error ' + errorThrown + ' with status ' + textStatus);
   }
   });
-
 }
 </script>
+
+<script>
+function addMon(value) {
+var currentNum = $('#num' + value).val();
+var monID = 'num' + value;
+var newNum = parseInt(currentNum) + 1;
+document.getElementById(monID).value = newNum;
+var monXp = $('#xp' + value).html();
+var totalxp = document.getElementById('totalxp').innerHTML;
+totalxp = parseInt(totalxp) + parseInt(monXp);
+document.getElementById('totalxp').innerHTML = totalxp;
+calcDifficulty();
+}
+</script>
+<script>
+function remMon(value) {
+var currentNum = $('#num' + value).val();
+if (parseInt(currentNum) > 0){
+var monID = 'num' + value;
+var newNum = parseInt(currentNum) - 1;
+document.getElementById(monID).value = newNum;
+var monXp = $('#xp' + value).html();
+var totalxp = document.getElementById('totalxp').innerHTML;
+totalxp = parseInt(totalxp) - parseInt(monXp);
+document.getElementById('totalxp').innerHTML = totalxp;
+if (newNum == 0) {
+  $('#slot' + value).addClass("hide");
+  $('#xp' + value).html("0");
+  $('#monster' + value).html("");
+  $('#num' + value).val("0");
+}
+}
+calcDifficulty();
+}
+
+</script>
+<script>
+function calcDifficulty(){
+var mon1 = parseInt($('#num1').val());
+var mon2 = parseInt($('#num2').val());
+var mon3 = parseInt($('#num3').val());
+var mon4 = parseInt($('#num4').val());
+var mon5 = parseInt($('#num5').val());
+var mon6 = parseInt($('#num6').val());
+var mon7 = parseInt($('#num7').val());
+var mon8 = parseInt($('#num8').val());
+var mon9 = parseInt($('#num9').val());
+var mon10 = parseInt($('#num10').val());
+var numMon = 0;
+numMon = mon1 + mon2 + mon3 + mon4 + mon5 + mon6 + mon7 + mon8 + mon9 + mon10;
+var monMult = 0;
+
+if (numMon == 1){
+  monMult = 1;
+}
+if (numMon == 2){
+  monMult = 1.5;
+}
+if (numMon >= 3 && numMon <= 6){
+  monMult = 2;
+}
+if (numMon >= 7 && numMon <= 10){
+  monMult = 2.5;
+}
+if (numMon >= 11 && numMon <= 14){
+  monMult = 3;
+}
+if (numMon >= 15){
+  monMult = 4;
+}
+var totalxp = $('#totalxp').html();
+var adjXp = totalxp * monMult;
+document.getElementById('adjxp').innerHTML = adjXp;
+
+}
+
+</script>
+
 </div>
 </div>
 </div>
