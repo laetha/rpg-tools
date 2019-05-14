@@ -16,6 +16,10 @@
 
 <script src="/plugins/rpg-dice-roller-master/dice-roller.js"></script>
 
+<script>
+
+</script>
+
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
   <h1 class="pagetitle">Initiative Tracker</h1>
   <!-- <p><a href="http://kobold.club/fight/#/encounter-manager" target="_BLANK">Kobold Fight Club Encounters</a></p> -->
@@ -72,7 +76,9 @@ if(active.prev() && active.prev().length){
   $(".initcontainer").removeClass('active-init');
   $(".initcontainer").first().addClass('active-init');
 }
+
   </script>
+
 <div class ="body bodytext">
 <div class="col-md-4">
   <select form="import" name="add-monster" id="add-monster" onChange="addMonster(this)">
@@ -91,6 +97,7 @@ if(active.prev() && active.prev().length){
 create: false,
 sortField: 'text'
 });
+
   </script>
 
   <script type="text/javascript">
@@ -905,11 +912,40 @@ else if (initDiv11 === "-5"){
       <button type="submit">Roll</button>
     </form>
     <div>
-      <div style="float:left;" id="awardbutton"><a id="xphref" href="/tools/world/xp.php?id=0"><button>Award XP</button></a></div>
+      <div style="float:left;" id="awardbutton"><a id="xphref" href="/tools/world/xp.php?id=0"><button>XP</button></a></div>
       <button style="display:inline-block; margin-left:10px;" id="showplayers">Add Players</button>
+      <button style="display:inline-block; margin-left:10px;" id="showencounters">Import</button>
       <div id="totalxp"></div>
-      <div id="test1"></div>
 
+      <div id="encounterAdd" style="display:none;">
+        <?php
+        $playercount = 1;
+        $worldtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' AND type LIKE 'encounter'";
+        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+            echo ('<button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')">+</button>');
+            echo $row['title'];
+          }
+         ?>
+
+    </div>
+<script>
+
+function addEncounter(value) {
+  var mons = value.split(",");
+  for (var i = 0; i < mons.length; i++) {
+    var monType = mons[i].replace(/[0-9]/g, '');
+    var monNum = mons[i].replace(/[^0-9]/g, '');
+  //$('#add-monster').val(monType);
+    document.getElementById("show" + monType).style = "display:block";
+    var monDupe = parseInt(monNum) - 1;
+    for (var x = 0; x < monDupe; x++) {
+      $('#' + monType + '-dupe').trigger('click');
+    }
+  }
+  //$('#test').html(monNum);
+}
+</script>
 
       <div id="playeradd" style="display:none;">
         <?php
@@ -938,6 +974,10 @@ else if (initDiv11 === "-5"){
       $(document).ready(function showPlayers(){
         $("#showplayers").click(function addLog(){
             $("#playeradd").slideToggle("slow");
+
+        });
+        $("#showencounters").click(function encounterLog(){
+            $("#encounterAdd").slideToggle("slow");
 
         });
       });
@@ -1164,6 +1204,7 @@ $(document).ready(function remLog(){
 
 </script>
 <?php } ?>
+
 <script>
 $('.one, .two, .three, .four, .five, .six, .seven').click(function() {
     this.className = {
@@ -1201,6 +1242,7 @@ $('.hp-track').each(function(){
   var $this = $(this);
 $(this).abacus();
 });
+
 
 </script>
 <div class="col-md-8 col-xs-12" style="float:right;"><iframe class="blockframe" name="statblock"></iframe></div>

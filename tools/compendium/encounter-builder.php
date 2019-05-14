@@ -80,7 +80,6 @@
      <br><div id="hardname" style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
      <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div></div>
      <br><button class="btn btn-primary" onclick="saveEncounter()">Save Encounter</button><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
-<div id="test">HAAAAA</div>
 
 
    </div>

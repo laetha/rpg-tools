@@ -5,7 +5,7 @@ include_once($sqlpath);
 
 $encounter = $_REQUEST['encounter'];
 $worlduser = $_REQUEST['worlduser'];
-$type = 'ecnounter';
+$type = 'encounter';
 $sqlcompendium = "INSERT INTO `world`(title,type,worlduser)
                   VALUES ('$encounter','$type','$worlduser')";
 
