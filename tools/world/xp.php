@@ -84,6 +84,9 @@
                    $entry = $row['title'];
                    echo "<a href=\"world.php?id=$entry\">";
                    echo $entry;
+                   if ($row['active'] != '1'){
+                     echo (' (inactive)');
+                   }
                    echo "</a></td>";
                    echo ('<td>'.$row['pc_lvl'].'</td>');
                    echo ('<td>'.$row['pc_xp'].'</td>');
