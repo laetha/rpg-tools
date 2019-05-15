@@ -151,9 +151,9 @@
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                  $entry = $row['title'];
-                 $entry =  str_replace("(monster)","",$entry);
-                 $jpgurl = 'bestiary/'.$entry.'.jpg';
-                 $pngurl = 'bestiary/'.$entry.'.png';
+                 $entry1 =  str_replace("(monster)","",$entry);
+                 $jpgurl = 'bestiary/'.$entry1.'.jpg';
+                 $pngurl = 'bestiary/'.$entry1.'.png';
 
                echo ('<tr><td>');
                echo ('<button class="btn btn-success" onclick="addMonster(\''.$entry.'\')">+</button>');

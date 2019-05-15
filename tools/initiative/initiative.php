@@ -925,9 +925,25 @@ else if (initDiv11 === "-5"){
         $worldtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' AND type LIKE 'encounter'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-            echo ('<tr><td><button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')" style="margin-right: 10px;">+</button>');
+            echo ('<tr><td><button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')" style="margin-right: 10px; margin-top:20px;">+</button>');
             echo ('</td><td class="sidebartext">');
-            echo $row['title'];
+            $EncArray = explode(",",$row['title']);
+            $ArrLength = count($EncArray);
+            foreach ($EncArray as $i => $item) {
+              $EncName = str_replace("monster","",$EncArray[$i]);
+              $EncNum  = preg_replace('/[^0-9]/', '', $EncName);
+              $EncWords  = preg_replace('/[0-9]/', '', $EncName);
+              echo ($EncNum.'x '.$EncWords);
+              $x = $i + 1;
+              if ($ArrLength != $x) {
+                echo (', ');
+              }
+            }
+
+
+            ?>
+            <?php
+            //echo ($EncNum.'x '.$EncName);
             echo ('</td></tr>');
           }
          ?>
@@ -941,6 +957,7 @@ function addEncounter(value) {
   for (var i = 0; i < mons.length; i++) {
     var monType = mons[i].replace(/[0-9]/g, '');
     var monName = monType.replace(/([A-Z])/g, ' $1').trim();
+    var monNameClean = monName.replace('monster', '');
     var monNum = mons[i].replace(/[^0-9]/g, '');
 
     document.getElementById("show" + monType).style = "display:block";
@@ -969,66 +986,66 @@ function addEncounter(value) {
     var initDiv11 = document.getElementById("initValue11").innerHTML;
 
 if (initDiv1 === "-5") {
-      document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + monName;
+      document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + monNameClean;
       document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
       document.getElementById("init1").style = "display:block";
 }
 else if (initDiv2 === "-5"){
- document.getElementById("init2").innerHTML = "<div id=\"initValue2\">" + initVal + "</div>" + monName;
+ document.getElementById("init2").innerHTML = "<div id=\"initValue2\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer2").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init2").style = "display:block";
 
 }
 else if (initDiv3 === "-5"){
- document.getElementById("init3").innerHTML = "<div id=\"initValue3\">" + initVal + "</div>" + monName;
+ document.getElementById("init3").innerHTML = "<div id=\"initValue3\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer3").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init3").style = "display:block";
 
 }
 else if (initDiv4 === "-5"){
- document.getElementById("init4").innerHTML = "<div id=\"initValue4\">" + initVal + "</div>" + monName;
+ document.getElementById("init4").innerHTML = "<div id=\"initValue4\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer4").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init4").style = "display:block";
 
 }
 else if (initDiv5 === "-5"){
- document.getElementById("init5").innerHTML = "<div id=\"initValue5\">" + initVal + "</div>" + monName;
+ document.getElementById("init5").innerHTML = "<div id=\"initValue5\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer5").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init5").style = "display:block";
 
 }
 else if (initDiv6 === "-5"){
- document.getElementById("init6").innerHTML = "<div id=\"initValue6\">" + initVal + "</div>" + monName;
+ document.getElementById("init6").innerHTML = "<div id=\"initValue6\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer6").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init6").style = "display:block";
 
 }
 else if (initDiv7 === "-5"){
- document.getElementById("init7").innerHTML = "<div id=\"initValue7\">" + initVal + "</div>" + monName;
+ document.getElementById("init7").innerHTML = "<div id=\"initValue7\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer7").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init7").style = "display:block";
 
 }
 else if (initDiv8 === "-5"){
- document.getElementById("init8").innerHTML = "<div id=\"initValue8\">" + initVal + "</div>" + monName;
+ document.getElementById("init8").innerHTML = "<div id=\"initValue8\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer8").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init8").style = "display:block";
 
 }
 else if (initDiv9 === "-5"){
- document.getElementById("init9").innerHTML = "<div id=\"initValue9\">" + initVal + "</div>" + monName;
+ document.getElementById("init9").innerHTML = "<div id=\"initValue9\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer9").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init9").style = "display:block";
 
 }
 else if (initDiv10 === "-5"){
- document.getElementById("init10").innerHTML = "<div id=\"initValue10\">" + initVal + "</div>" + monName;
+ document.getElementById("init10").innerHTML = "<div id=\"initValue10\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer10").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init10").style = "display:block";
 
 }
 else if (initDiv11 === "-5"){
- document.getElementById("init11").innerHTML = "<div id=\"initValue11\">" + initVal + "</div>" + monName;
+ document.getElementById("init11").innerHTML = "<div id=\"initValue11\">" + initVal + "</div>" + monNameClean;
  document.getElementById("initcontainer11").setAttribute("data-initiativevalue", initVal);
  document.getElementById("init11").style = "display:block";
 
