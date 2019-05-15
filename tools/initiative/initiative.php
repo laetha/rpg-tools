@@ -107,6 +107,7 @@ sortField: 'text'
 
      var selectIndex=selectObj.selectedIndex;
      var selectValue=selectObj.options[selectIndex].text;
+     //if (typeof select)
      output.push(selectValue);
      var selectValueNoBrackets = selectValue.replace(/"/g, "").replace(/'/g, "").replace(/\(|\)/g, "");
      var selectValueNs = selectValueNoBrackets.replace(/\s/g, '');
@@ -918,35 +919,134 @@ else if (initDiv11 === "-5"){
       <div id="totalxp"></div>
 
       <div id="encounterAdd" style="display:none;">
+        <table>
         <?php
         $playercount = 1;
         $worldtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' AND type LIKE 'encounter'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-            echo ('<button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')">+</button>');
+            echo ('<tr><td><button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')" style="margin-right: 10px;">+</button>');
+            echo ('</td><td class="sidebartext">');
             echo $row['title'];
+            echo ('</td></tr>');
           }
          ?>
-
+       </table>
     </div>
 <script>
 
 function addEncounter(value) {
   var mons = value.split(",");
+  var tempxp = 0;
   for (var i = 0; i < mons.length; i++) {
     var monType = mons[i].replace(/[0-9]/g, '');
+    var monName = monType.replace(/([A-Z])/g, ' $1').trim();
     var monNum = mons[i].replace(/[^0-9]/g, '');
-  //$('#add-monster').val(monType);
+
     document.getElementById("show" + monType).style = "display:block";
+
     var monDupe = parseInt(monNum) - 1;
     for (var x = 0; x < monDupe; x++) {
       $('#' + monType + '-dupe').trigger('click');
     }
+    var xpname = "#" + monType + 'xp';
+    var monxp = parseInt($(xpname).html());
+    tempxp = parseInt(tempxp) + monxp;
+
+    var initname = "init" + monType;
+    var initVal = document.getElementById(initname).innerHTML;
+
+    var initDiv1 = document.getElementById("initValue1").innerHTML;
+    var initDiv2 = document.getElementById("initValue2").innerHTML;
+    var initDiv3 = document.getElementById("initValue3").innerHTML;
+    var initDiv4 = document.getElementById("initValue4").innerHTML;
+    var initDiv5 = document.getElementById("initValue5").innerHTML;
+    var initDiv6 = document.getElementById("initValue6").innerHTML;
+    var initDiv7 = document.getElementById("initValue7").innerHTML;
+    var initDiv8 = document.getElementById("initValue8").innerHTML;
+    var initDiv9 = document.getElementById("initValue9").innerHTML;
+    var initDiv10 = document.getElementById("initValue10").innerHTML;
+    var initDiv11 = document.getElementById("initValue11").innerHTML;
+
+if (initDiv1 === "-5") {
+      document.getElementById("init1").innerHTML = "<div id=\"initValue1\">" + initVal + "</div>" + monName;
+      document.getElementById("initcontainer1").setAttribute("data-initiativevalue", initVal);
+      document.getElementById("init1").style = "display:block";
+}
+else if (initDiv2 === "-5"){
+ document.getElementById("init2").innerHTML = "<div id=\"initValue2\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer2").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init2").style = "display:block";
+
+}
+else if (initDiv3 === "-5"){
+ document.getElementById("init3").innerHTML = "<div id=\"initValue3\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer3").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init3").style = "display:block";
+
+}
+else if (initDiv4 === "-5"){
+ document.getElementById("init4").innerHTML = "<div id=\"initValue4\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer4").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init4").style = "display:block";
+
+}
+else if (initDiv5 === "-5"){
+ document.getElementById("init5").innerHTML = "<div id=\"initValue5\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer5").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init5").style = "display:block";
+
+}
+else if (initDiv6 === "-5"){
+ document.getElementById("init6").innerHTML = "<div id=\"initValue6\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer6").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init6").style = "display:block";
+
+}
+else if (initDiv7 === "-5"){
+ document.getElementById("init7").innerHTML = "<div id=\"initValue7\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer7").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init7").style = "display:block";
+
+}
+else if (initDiv8 === "-5"){
+ document.getElementById("init8").innerHTML = "<div id=\"initValue8\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer8").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init8").style = "display:block";
+
+}
+else if (initDiv9 === "-5"){
+ document.getElementById("init9").innerHTML = "<div id=\"initValue9\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer9").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init9").style = "display:block";
+
+}
+else if (initDiv10 === "-5"){
+ document.getElementById("init10").innerHTML = "<div id=\"initValue10\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer10").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init10").style = "display:block";
+
+}
+else if (initDiv11 === "-5"){
+ document.getElementById("init11").innerHTML = "<div id=\"initValue11\">" + initVal + "</div>" + monName;
+ document.getElementById("initcontainer11").setAttribute("data-initiativevalue", initVal);
+ document.getElementById("init11").style = "display:block";
+
+}
+
+
+
+
+
+
   }
-  //$('#test').html(monNum);
+  var totalxp = $("#totalxp").html();
+  totalxp = parseInt(totalxp.replace(/[^0-9]/g, ''));
+  totalxp = totalxp + tempxp;
+  $("#totalxp").html("Total XP = " + totalxp);
+
 }
 </script>
-
       <div id="playeradd" style="display:none;">
         <?php
         $playercount = 1;
@@ -1193,13 +1293,17 @@ $(document).ready(function remLog(){
     var remmult = document.getElementById("<?php echo $rowns; ?>monnum").innerHTML;
     var remmultint = parseInt(remmult);
     var remtotal = remxp * remmultint;
+    totalxp = $('#totalxp').html();
+    totalxp = parseInt(totalxp.replace(/[^0-9]/g, ''));
     totalxp = totalxp - remtotal;
     document.getElementById("totalxp").innerHTML = "Total XP = " + totalxp;
+    $("#<?php echo $rowns; ?>monnum").html("1");
+    $('.<?php echo $rowns; ?>-hptrack').not(':first').remove();
     var newhref = "/tools/world/xp.php?id=" + totalxp;
     document.getElementById("xphref").href = newhref;
   document.getElementById("show<?php echo $rowns; ?>").style.display = "none";
   document.getElementById("<?php echo $rowns; ?>").style.display = "none";
-    });
+});
   });
 
 </script>
@@ -1233,7 +1337,6 @@ $(function addbar(){
     $('.hp-track').each(function(){
       var $this = $(this);
     $(this).abacus();
-
     });
 
   });
