@@ -922,7 +922,7 @@ else if (initDiv11 === "-5"){
         <table>
         <?php
         $playercount = 1;
-        $worldtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' AND type LIKE 'encounter'";
+        $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
             echo ('<tr><td><button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')" style="margin-right: 10px; margin-top:20px;">+</button>');

@@ -5,9 +5,9 @@ include_once($sqlpath);
 
 $encounter = $_REQUEST['encounter'];
 $worlduser = $_REQUEST['worlduser'];
-$type = 'encounter';
-$sqlcompendium = "INSERT INTO `world`(title,type,worlduser)
-                  VALUES ('$encounter','$type','$worlduser')";
+//$type = 'encounter';
+$sqlcompendium = "INSERT INTO `fights`(title,worlduser)
+                  VALUES ('$encounter','$worlduser')";
 
 
         if ($dbcon->query($sqlcompendium) === TRUE) {

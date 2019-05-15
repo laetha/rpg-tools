@@ -497,7 +497,7 @@ function saveEncounter(){
   data : { "encounter" : mons, "worlduser" : worlduser },
   success: function()
   {
-    $('#test').html(mons);
+  $('#myModal').modal('show');
 
   },
   error: function (jqXHR, status, errorThrown)
@@ -513,6 +513,25 @@ function saveEncounter(){
 
 </div>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content modalstyle bodytext">
+
+      <div class="modal-body">
+        <p>Encounter Saved!</p>
+      </div>
+      <div class="modal-footer">
+        <a href="encounter-builder.php"><button type="button" class="btn btn-primary">Add Another Encounter</button></a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 </div>
    <?php
    //Footer
