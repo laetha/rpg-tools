@@ -80,7 +80,61 @@
      <br><div id="hardname" style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
      <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div></div>
      <br><button class="btn btn-primary" onclick="saveEncounter()">Save Encounter</button><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
+     <br>
+     <div id="encounterAdd">
+       My Encounters:
+       <table>
+       <?php
+       $playercount = 1;
+       $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser'";
+       $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+       while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+           echo ('<tr id="encounter'.$row['id'].'"><td><button class="btn btn-danger" style="margin-right: 10px; margin-top:20px;" onclick="delEncounter('.$row['id'].')">-</button>');
+           echo ('</td><td class="sidebartext">');
+           $EncArray = explode(",",$row['title']);
+           $ArrLength = count($EncArray);
+           foreach ($EncArray as $i => $item) {
+             $EncName = str_replace("monster","",$EncArray[$i]);
+             $EncNum  = preg_replace('/[^0-9]/', '', $EncName);
+             $EncWords  = preg_replace('/[0-9]/', '', $EncName);
+             echo ($EncNum.'x '.$EncWords);
+             $x = $i + 1;
+             if ($ArrLength != $x) {
+               echo (', ');
+             }
+           }
 
+
+           ?>
+           <?php
+           //echo ($EncNum.'x '.$EncName);
+           echo ('</td></tr>');
+         }
+        ?>
+      </table>
+   </div>
+<div id="test">TEST</div>
+<script>
+function delEncounter(value){
+    var delID = parseInt(value);
+
+    $.ajax({
+    url : '/tools/compendium/encounter-del.php',
+    type: 'GET',
+    data : { "delID" : delID },
+    success: function(data)
+    {
+      $('#encounter' + delID).addClass("hide");
+      $("#test").html(data);
+    },
+    error: function (jqXHR, status, errorThrown)
+    {
+
+    }
+    });
+}
+
+</script>
 
    </div>
      <div class="body sidebartext col-md-8" id="body">
