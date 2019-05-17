@@ -113,7 +113,6 @@
         ?>
       </table>
    </div>
-<div id="test">TEST</div>
 <script>
 function delEncounter(value){
     var delID = parseInt(value);
@@ -125,7 +124,6 @@ function delEncounter(value){
     success: function(data)
     {
       $('#encounter' + delID).addClass("hide");
-      $("#test").html(data);
     },
     error: function (jqXHR, status, errorThrown)
     {
