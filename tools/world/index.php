@@ -632,6 +632,52 @@ if ($esttype == "blacksmith") {
 </div>
 <?php }
 
+if ($esttype == "all") {
+
+?>
+<div class="table-responsive sidebartext">
+<table id="bsmith" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Value</th>
+            <th scope="col">Magic</th>
+
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Value</th>
+          <th scope="col">Magic</th>
+
+        </tr>
+    </tfoot>
+    <tbody>
+
+      <?php
+        $sqlcompendium = "SELECT * FROM compendium WHERE itemMagic like '1' AND itemValue NOT LIKE '' ORDER BY rand() LIMIT 8";
+        $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
+        while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
+        echo ('<tr><td>');
+        $entry = $row['title'];
+        $entry1 = addslashes($entry);
+        ?>
+        <a class="magichref" onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $entry; ?></a>
+        <?php
+        echo ('</td>');
+        echo ('<td>'.$row['itemValue'].'</td><td>');
+          echo ('Yes');
+        echo ('</td></tr>');
+      }
+        ?>
+
+</tbody>
+</table>
+
+</div>
+<?php }
+
 if ($esttype == "Jeweler") {
 
 ?>
