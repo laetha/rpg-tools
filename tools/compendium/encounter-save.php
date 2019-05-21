@@ -5,9 +5,10 @@ include_once($sqlpath);
 
 $encounter = $_REQUEST['encounter'];
 $worlduser = $_REQUEST['worlduser'];
+$encLabel = $_REQUEST['encLabel'];
 //$type = 'encounter';
-$sqlcompendium = "INSERT INTO `fights`(title,worlduser)
-                  VALUES ('$encounter','$worlduser')";
+$sqlcompendium = "INSERT INTO `fights`(title,worlduser,encLabel)
+                  VALUES ('$encounter','$worlduser','$encLabel')";
 
 
         if ($dbcon->query($sqlcompendium) === TRUE) {

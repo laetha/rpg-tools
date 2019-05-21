@@ -918,7 +918,7 @@ else if (initDiv11 === "-5"){
       <button style="display:inline-block; margin-left:10px;" id="showencounters">Import</button>
       <div id="totalxp"></div>
 
-      <div id="encounterAdd" style="display:none;">
+      <div id="encounterAdd" class="margintop" style="display:none;">
         <table>
         <?php
         $playercount = 1;
@@ -926,13 +926,16 @@ else if (initDiv11 === "-5"){
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
             echo ('<tr><td><button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')" style="margin-right: 10px; margin-top:20px;">+</button>');
-            echo ('</td><td class="sidebartext">');
+            echo ('</td><td class="sidebartext" style="white-space: normal;"><div class="diff" style="display:inline-block;">');
+            echo $row['encLabel'];
+            echo (': </div><br>');
             $EncArray = explode(",",$row['title']);
             $ArrLength = count($EncArray);
             foreach ($EncArray as $i => $item) {
               $EncName = str_replace("monster","",$EncArray[$i]);
               $EncNum  = preg_replace('/[^0-9]/', '', $EncName);
-              $EncWords  = preg_replace('/[0-9]/', '', $EncName);
+              $EncWords = preg_replace('/[0-9]/', '', $EncName);
+              $EncWords = preg_replace('/(?<!\ )[A-Z][a-z]/', ' $0', $EncWords);
               echo ($EncNum.'x '.$EncWords);
               $x = $i + 1;
               if ($ArrLength != $x) {

@@ -79,24 +79,28 @@
      <br><div id="mediumname" style="float:right;">Medium: <div id="medium" style="display:inline;">0</div></div>
      <br><div id="hardname" style="float:right;">Hard: <div id="hard" style="display:inline;">0</div></div>
      <br><div id="deadlyname" style="float:right;">Deadly: <div id="deadly" style="display:inline;">0</div></div></div>
-     <br><button class="btn btn-primary" onclick="saveEncounter()">Save Encounter</button><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
+     <br><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
+     <br><button class="btn btn-primary" onclick="saveEncounter()">Save Encounter</button><input type="text" id="encLabel" placeholder="Enter Encounter label..."></input>
      <br>
-     <div id="encounterAdd">
+     <div id="encounterAdd" class="margintop">
        My Encounters:
-       <table>
+       <table style="overflow:auto;">
        <?php
        $playercount = 1;
        $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser'";
        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
            echo ('<tr id="encounter'.$row['id'].'"><td><button class="btn btn-danger" style="margin-right: 10px; margin-top:20px;" onclick="delEncounter('.$row['id'].')">-</button>');
-           echo ('</td><td class="sidebartext">');
+           echo ('</td><td class="sidebartext" style="white-space: normal;"><div class="diff" style="display:inline-block;">');
+           echo $row['encLabel'];
+           echo (': </div><br>');
            $EncArray = explode(",",$row['title']);
            $ArrLength = count($EncArray);
            foreach ($EncArray as $i => $item) {
              $EncName = str_replace("monster","",$EncArray[$i]);
              $EncNum  = preg_replace('/[^0-9]/', '', $EncName);
              $EncWords  = preg_replace('/[0-9]/', '', $EncName);
+             $EncWords = preg_replace('/(?<!\ )[A-Z][a-z]/', ' $0', $EncWords);
              echo ($EncNum.'x '.$EncWords);
              $x = $i + 1;
              if ($ArrLength != $x) {
@@ -542,11 +546,12 @@ function saveEncounter(){
   mons = mons.join(',');
   mons = mons.replace(/[- )(]/g,'');
   var worlduser = '<?php echo $loguser; ?>';
+  var encLabel = $("#encLabel").val();
 
   $.ajax({
   url : '/tools/compendium/encounter-save.php',
   type: 'GET',
-  data : { "encounter" : mons, "worlduser" : worlduser },
+  data : { "encounter" : mons, "worlduser" : worlduser, "encLabel" : encLabel },
   success: function()
   {
   $('#myModal').modal('show');
