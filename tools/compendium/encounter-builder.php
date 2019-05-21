@@ -91,9 +91,12 @@
        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
            echo ('<tr id="encounter'.$row['id'].'"><td><button class="btn btn-danger" style="margin-right: 10px; margin-top:20px;" onclick="delEncounter('.$row['id'].')">-</button>');
-           echo ('</td><td class="sidebartext" style="white-space: normal;"><div class="diff" style="display:inline-block;">');
+           echo ('</td><td class="sidebartext" style="white-space: normal;">');
+           if ($row['encLabel'] != ''){
+           echo ('<div class="diff" style="display:inline-block;">');
            echo $row['encLabel'];
            echo (': </div><br>');
+         }
            $EncArray = explode(",",$row['title']);
            $ArrLength = count($EncArray);
            foreach ($EncArray as $i => $item) {
