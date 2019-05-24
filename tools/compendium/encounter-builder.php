@@ -87,7 +87,7 @@
        <table style="overflow:auto;">
        <?php
        $playercount = 1;
-       $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser' ORDER BY title ASC";
+       $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser' ORDER BY encLabel ASC";
        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
            echo ('<tr id="encounter'.$row['id'].'"><td><button class="btn btn-danger" style="margin-right: 10px; margin-top:20px;" onclick="delEncounter('.$row['id'].')">-</button>');
