@@ -281,6 +281,8 @@ $(document).ready(function() {
         $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
     } ); */
 
+
+
     // DataTable
     var table = $('#allspells').DataTable(
       {
@@ -292,12 +294,41 @@ $(document).ready(function() {
     { "width": 25, "targets": 0 }
   ],
    "lengthMenu": [[10, 25, 50, 100, 250, -1], [10, 25, 50, 100, 250, "All"]],
-        "fixedColumns": true
+        "fixedColumns": true,
+
+        initComplete: function () {
+            var countnum = 1;
+            this.api().columns().every( function () {
+                if (countnum > 2 && countnum < 6){
+                var column = this;
+                var select = $('<select><option value=""></option></select>')
+                    .appendTo( $(column.footer()).empty() )
+                    .on( 'change', function () {
+                        var val = $.fn.dataTable.util.escapeRegex(
+                            $(this).val()
+                        );
+
+                        column
+                            .search( val ? '^'+val+'$' : '', true, false )
+                            .draw();
+                    } );
+
+                column.data().unique().sort().each( function ( d, j ) {
+                    select.append( '<option value="'+d+'">'+ d +'</option>' )
+                } );
+  }
+  countnum = countnum + 1;
+
+            } );
+        }
+        //table.draw();
+
      }
+
     );
 
     // Apply the search
-    table.columns().every( function () {
+/*    table.columns().every( function () {
         var that = this;
 
         $( 'input', this.footer() ).on( 'keyup change', function () {
@@ -307,7 +338,8 @@ $(document).ready(function() {
                     .draw();
             }
         } );
-    } );
+    } );*/
+
 } );
 </script>
 
