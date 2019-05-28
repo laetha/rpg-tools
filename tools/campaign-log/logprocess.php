@@ -12,6 +12,7 @@ $entrytemp=$_POST['logentry'];
 $coordtemp=$_POST['logcoord'];
 $maptemp=$_POST['logmap'];
 $worldusertemp=$_POST['worlduser'];
+$active = 1;
 
 $date=htmlentities(trim(addslashes($datetemp)));
 $entry=htmlentities(trim(addslashes($entrytemp)));
@@ -39,10 +40,11 @@ if ($map == 1){
 
 }
 else {
-$sql = "INSERT INTO campaignlog(date,entry,active,coord,worlduser)
-				VALUES('$date','$entry',1,'$coord','$worlduser')";
+$sql = $dbcon->prepare("INSERT INTO campaignlog(date,entry,active,coord,worlduser)
+				VALUES (?, ?, ?, ?, ?)");
 
-        if ($dbcon->query($sql) === TRUE) {
+				$sql->bind_param("sssss",$date,$entry,$active,$coord,$worlduser);
+				if ($sql->execute()) {
 					?>
 <script type="text/javascript">
 window.location.href = 'campaign-log.php';
