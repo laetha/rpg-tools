@@ -1175,3 +1175,8 @@ margin-bottom:25px;
 .margintop {
 	margin-top:10px;
 }
+
+code {
+	color: #72a5bf;
+	background-color: #212121;
+}
