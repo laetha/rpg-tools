@@ -18,7 +18,7 @@
    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
    <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
      <style>
-     th, td { white-space: nowrap; }
+     th, td { white-space: normal; }
      </style>
      <!-- Page Header -->
      <div class="col-md-12">
@@ -149,12 +149,12 @@ function delEncounter(value){
                <tr>
                    <th scope="col">Add</th>
                    <th scope="col">Name</th>
-                <!--   <th scope="col">Image</th> -->
+                   <th scope="col">Image</th>
                    <th scope="col">Size</th>
                    <th scope="col">Type</th>
                    <th scope="col">CR</th>
                    <th scope="col">Source</th>
-              <!--     <th scope="col">AC</th>
+                   <th scope="col">AC</th>
                    <th scope="col">HP</th>
                    <th scope="col">Speed</th>
                    <th scope="col">STR</th>
@@ -170,7 +170,7 @@ function delEncounter(value){
                    <th scope="col">Condition Immunities</th>
                    <th scope="col">Senses</th>
                    <th scope="col">Passive Perception</th>
-                   <th scope="col">Languages</th>  -->
+                   <th scope="col">Languages</th>
 
 
                </tr>
@@ -179,12 +179,12 @@ function delEncounter(value){
                <tr>
                  <th scope="col">Add</th>
                  <th scope="col">Name</th>
-            <!--     <th scope="col">Image</th> -->
+                <th scope="col">Image</th> 
                  <th scope="col">Size</th>
                  <th scope="col">Type</th>
                  <th scope="col">CR</th>
                  <th scope="col">Source</th>
-              <!--   <th scope="col">AC</th>
+                 <th scope="col">AC</th>
                  <th scope="col">HP</th>
                  <th scope="col">Speed</th>
                  <th scope="col">STR</th>
@@ -200,7 +200,7 @@ function delEncounter(value){
                  <th scope="col">Condition Immunities</th>
                  <th scope="col">Senses</th>
                  <th scope="col">Passive Perception</th>
-                 <th scope="col">Languages</th> -->
+                 <th scope="col">Languages</th>
 
                </tr>
            </tfoot>
@@ -220,7 +220,7 @@ function delEncounter(value){
                echo "<a href=\"compendium.php?id=$entry\">";
                echo $entry;
                echo "</a></td>";
-            /*   if (file_exists($jpgurl)){
+               if (file_exists($jpgurl)){
                  echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
                }
                else if (file_exists($pngurl)){
@@ -228,7 +228,7 @@ function delEncounter(value){
                }
                else {
                  echo ('<td>n/a</td>');
-               }*/
+               }
                echo ('<td>'.$row['monsterSize'].'</td>');
                echo ('<td>'.$row['monsterType'].'</td>');
                if($row['monsterCr'] ==0.125){
@@ -247,7 +247,7 @@ function delEncounter(value){
                echo ('<td>'.number_format((float)$row['monsterCr'], 0, '.', '').'</td>');
              }
              echo ('<td>'.$row['monsterTrait1'].'</td>');
-          /*   echo ('<td>'.$row['monsterAc'].'</td>');
+             echo ('<td>'.$row['monsterAc'].'</td>');
              echo ('<td>'.$row['monsterHp'].'</td>');
              echo ('<td>'.$row['monsterSpeed'].'</td>');
              echo ('<td>'.$row['monsterStr'].'</td>');
@@ -263,7 +263,7 @@ function delEncounter(value){
              echo ('<td>'.$row['monsterConditionImmune'].'</td>');
              echo ('<td>'.$row['monsterSenses'].'</td>');
              echo ('<td>'.$row['monsterPassive'].'</td>');
-             echo ('<td>'.$row['monsterLanguages'].'</td>');*/
+             echo ('<td>'.$row['monsterLanguages'].'</td>');
 
              echo ('</tr>');
 
@@ -276,10 +276,14 @@ function delEncounter(value){
 $(document).ready(function() {
   calcDifficulty();
     // Setup - add a text input to each footer cell
-/*    $('#allspells tfoot th').each( function () {
+    var x = 1;
+    $('#allspells tfoot th').each( function () {
         var title = $(this).text();
-        $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
-    } ); */
+        if (x > 1 && x != 3){
+        $(this).html( '<input type="text" class="form-control" placeholder="'+title+'..." style="width:90px;" />' );
+        }
+        x = x + 1;
+    } ); 
 
 
 
@@ -290,13 +294,11 @@ $(document).ready(function() {
          "scrollY": "600px",
          "responsive": false,
          "pageLength": 50,
-         "columnDefs": [
-    { "width": 25, "targets": 0 }
-  ],
+         
    "lengthMenu": [[10, 25, 50, 100, 250, -1], [10, 25, 50, 100, 250, "All"]],
-        "fixedColumns": true,
+        "fixedColumns": true
 
-        initComplete: function () {
+        /* initComplete: function () {
             var countnum = 1;
             this.api().columns().every( function () {
                 if (countnum > 2 && countnum < 6){
@@ -322,13 +324,13 @@ $(document).ready(function() {
             } );
         }
         //table.draw();
-
+*/
      }
 
     );
 
     // Apply the search
-/*    table.columns().every( function () {
+    table.columns().every( function () {
         var that = this;
 
         $( 'input', this.footer() ).on( 'keyup change', function () {
@@ -338,7 +340,7 @@ $(document).ready(function() {
                     .draw();
             }
         } );
-    } );*/
+    } );
 
 } );
 </script>
