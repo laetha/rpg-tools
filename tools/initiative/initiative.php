@@ -919,10 +919,30 @@ else if (initDiv11 === "-5"){
       <div id="totalxp"></div>
 
       <div id="encounterAdd" class="margintop" style="display:none;">
-        <table>
+         <?php
+      $dungeontitle = "SELECT DISTINCT dungeon FROM fights WHERE worlduser LIKE '$loguser' ORDER BY encLabel ASC";
+       $dungeondata = mysqli_query($dbcon, $dungeontitle) or die('error getting data');
+       while($row1 =  mysqli_fetch_array($dungeondata, MYSQLI_ASSOC)) {
+        $dungeonorig = $row1['dungeon'];
+        $dungeonquery = str_replace("'", "''", $dungeonorig);
+        $dungeon = str_replace("'", "", $dungeonorig);
+        $dungeon = str_replace(" ", "", $dungeon);
+
+               echo ('<button class="btn btn-primary margintop" id="'.$dungeon.'" onclick="plusminus()">'.$row1['dungeon'].' +</button>');
+               ?>
+               <script>
+                $(document).ready(function showPlayers(){
+        $("#<?php echo $dungeon; ?>").click(function addLog(){
+            $("#<?php echo ($dungeon.'show'); ?> ").slideToggle("slow");
+        });
+      });
+
+        </script>
         <?php
+               echo ('<div id="'.$dungeon.'show" class="margintop" style="display:none;">');
+       echo ('<table style="overflow:auto;">');
         $playercount = 1;
-        $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser'";
+        $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser' AND dungeon LIKE '$dungeonquery' ORDER BY encLabel ASC";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
             echo ('<tr><td><button class="btn btn-success" onclick="addEncounter(\''.$row['title'].'\')" style="margin-right: 10px; margin-top:20px;">+</button>');
@@ -952,8 +972,11 @@ else if (initDiv11 === "-5"){
             //echo ($EncNum.'x '.$EncName);
             echo ('</td></tr>');
           }
-         ?>
-       </table>
+         
+       echo ('</table>');
+       echo ('</div><br>');
+        }
+       ?>
     </div>
 <script>
 

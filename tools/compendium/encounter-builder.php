@@ -82,12 +82,59 @@
      <br><div id="dailyname" style="float:right;">Daily Budget: <div id="daily" style="display:inline;">0</div></div>
      <br><button class="btn btn-primary" onclick="saveEncounter()">Save Encounter</button><input type="text" id="encLabel" placeholder="Enter Encounter label..."></input>
      <br>
+     <select id="dungeon" onchange="dungeonform(this)">
+     <option value="">Add to dungeon...</option>
+     <?php
+     $worldtitle = "SELECT DISTINCT dungeon FROM fights WHERE worlduser LIKE '$loguser' ORDER BY title ASC";
+       $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+       while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+          echo ('<option>'.$row['dungeon'].'</option>');
+       }
+     ?>
+     </select>
+       <div class="hide" id="currentdungeon"></div>
+      <script type="text/javascript">
+        $('#dungeon').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
+
+        <script>
+        function dungeonform(selectObj){
+          var selectIndex=selectObj.selectedIndex;
+          var selectValue=selectObj.options[selectIndex].text;
+          $('#currentdungeon').html(selectValue);
+        }
+        </script>
+
      <div id="encounterAdd" class="margintop">
-       My Encounters:
-       <table style="overflow:auto;">
+       My Encounters: <br>
+
        <?php
+      $dungeontitle = "SELECT DISTINCT dungeon FROM fights WHERE worlduser LIKE '$loguser' ORDER BY encLabel ASC";
+       $dungeondata = mysqli_query($dbcon, $dungeontitle) or die('error getting data');
+       while($row1 =  mysqli_fetch_array($dungeondata, MYSQLI_ASSOC)) {
+        $dungeonorig = $row1['dungeon'];
+        $dungeonquery = str_replace("'", "''", $dungeonorig);
+        $dungeon = str_replace("'", "", $dungeonorig);
+        $dungeon = str_replace(" ", "", $dungeon);
+
+               echo ('<button class="btn btn-primary margintop" id="'.$dungeon.'">'.$row1['dungeon'].' +</button>');
+               ?>
+               <script>
+                $(document).ready(function showPlayers(){
+        $("#<?php echo $dungeon; ?>").click(function addLog(){
+            $("#<?php echo ($dungeon.'show'); ?> ").slideToggle("slow");
+        });
+      });
+
+        </script>
+        <?php
+               echo ('<div id="'.$dungeon.'show" class="margintop" style="display:none;">');
+       echo ('<table style="overflow:auto;">');
        $playercount = 1;
-       $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser' ORDER BY encLabel ASC";
+       $worldtitle = "SELECT * FROM fights WHERE worlduser LIKE '$loguser' AND dungeon LIKE '$dungeonquery' ORDER BY encLabel ASC";
        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
            echo ('<tr id="encounter'.$row['id'].'"><td><button class="btn btn-danger" style="margin-right: 10px; margin-top:20px;" onclick="delEncounter('.$row['id'].')">-</button>');
@@ -117,8 +164,12 @@
            //echo ($EncNum.'x '.$EncName);
            echo ('</td></tr>');
          }
-        ?>
-      </table>
+
+        
+      echo ('</table>');
+         echo ('</div><br>');
+        }
+      ?>
    </div>
 <script>
 function delEncounter(value){
@@ -584,11 +635,15 @@ function saveEncounter(){
   mons = mons.replace(/[- )(]/g,'');
   var worlduser = '<?php echo $loguser; ?>';
   var encLabel = $("#encLabel").val();
+  var dungeon = $("#currentdungeon").html();
+  if ($("#currentdungeon").is(':empty')){
+    dungeon = "Misc Encounters";
+  }
 
   $.ajax({
   url : '/tools/compendium/encounter-save.php',
   type: 'GET',
-  data : { "encounter" : mons, "worlduser" : worlduser, "encLabel" : encLabel },
+  data : { "encounter" : mons, "worlduser" : worlduser, "encLabel" : encLabel, "dungeon" : dungeon },
   success: function()
   {
   $('#myModal').modal('show');
