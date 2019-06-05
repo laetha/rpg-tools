@@ -1,5 +1,6 @@
 <?php
   //SQL Connect
+  //test
    $sqlpath = $_SERVER['DOCUMENT_ROOT'];
    $sqlpath .= "/sql-connect.php";
    include_once($sqlpath);
