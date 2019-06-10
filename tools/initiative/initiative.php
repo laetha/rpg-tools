@@ -117,6 +117,8 @@ sortField: 'text'
      var initVal = document.getElementById(initname).innerHTML;
      var newxp1 = document.getElementById(xpname).innerHTML;
      var newxp = parseInt(newxp1);
+     totalxp = $("#totalxp").html();
+     totalxp = parseInt(totalxp.replace("Total XP = ", '')) || 0;
      totalxp = totalxp + newxp;
      var fullSelect = "show" + selectValueNs;
      document.getElementById(fullSelect).style.display = "block";
@@ -916,7 +918,7 @@ else if (initDiv11 === "-5"){
       <div style="float:left;" id="awardbutton"><a id="xphref" href="/tools/world/xp.php?id=0"><button>XP</button></a></div>
       <button style="display:inline-block; margin-left:10px;" id="showplayers">Add Players</button>
       <button style="display:inline-block; margin-left:10px;" id="showencounters">Import</button>
-      <div id="totalxp"></div>
+      <div id="totalxp">Total XP = 0</div>
 
       <div id="encounterAdd" class="margintop" style="display:none;">
          <?php
@@ -990,14 +992,16 @@ function addEncounter(value) {
     var monNum = mons[i].replace(/[^0-9]/g, '');
 
     document.getElementById("show" + monType).style = "display:block";
+    
+    var xpname = "#" + monType + 'xp';
+    var monxp = parseInt($(xpname).html());
+    tempxp = parseInt(tempxp) + monxp;
 
     var monDupe = parseInt(monNum) - 1;
     for (var x = 0; x < monDupe; x++) {
       $('#' + monType + '-dupe').trigger('click');
     }
-    var xpname = "#" + monType + 'xp';
-    var monxp = parseInt($(xpname).html());
-    tempxp = parseInt(tempxp) + monxp;
+    
 
     var initname = "init" + monType;
     var initVal = document.getElementById(initname).innerHTML;
@@ -1080,16 +1084,13 @@ else if (initDiv11 === "-5"){
 
 }
 
-
-
-
-
-
-  }
+}
   var totalxp = $("#totalxp").html();
-  totalxp = parseInt(totalxp.replace(/[^0-9]/g, ''));
+  totalxp = parseInt(totalxp.replace("Total XP = ", '')) || 0;
   totalxp = totalxp + tempxp;
   $("#totalxp").html("Total XP = " + totalxp);
+  var newhref = "/tools/world/xp.php?id=" + totalxp;
+    document.getElementById("xphref").href = newhref;
 
 }
 </script>
@@ -1375,6 +1376,8 @@ $(function addbar(){
     var numaddint = parseInt(numadd);
     addednum = numaddint + 1;
     document.getElementById(numtrack).innerHTML = addednum;
+    var totalxp = $("#totalxp").html();
+    totalxp = parseInt(totalxp.replace("Total XP = ", '')) || 0;
     totalxp = totalxp + addxpint;
     var newhref = "/tools/world/xp.php?id=" + totalxp;
     document.getElementById("xphref").href = newhref;
