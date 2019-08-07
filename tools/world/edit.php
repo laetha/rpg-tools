@@ -127,7 +127,7 @@ display:none;
                        <option value="">None...</option>
                        <option value="<?php echo $editrow['code']; ?>" selected><?php echo $editrow['code']; ?></option>
                        <?php
-                       $faithdrop = "SELECT code FROM `world`";
+                       $faithdrop = "SELECT code FROM `world` WHERE worlduser LIKE '$loguser'";
                        $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
                        while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
                          $code = $deityrow['code'];
@@ -193,7 +193,7 @@ display:none;
                    <option value="">None...</option>
                    <option value="<?php echo $editrow['npc_race']; ?>" selected><?php echo $editrow['npc_race']; ?></option>
                    <?php
-                   $faithdrop = "SELECT npc_race FROM `world` WHERE `type` LIKE 'npc'";
+                   $faithdrop = "SELECT npc_race FROM `world` WHERE `type` LIKE 'npc' AND worlduser LIKE '$loguser'";
                    $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
                    while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
                      $deity = $deityrow['npc_race'];
@@ -217,7 +217,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['npc_deity']; ?>" selected><?php echo $editrow['npc_deity']; ?></option>
                  <?php
-                 $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'deity' ORDER BY `world`.`title` ASC";
+                 $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'deity' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
                  $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
                  while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
                    $deity = $deityrow['title'];
@@ -240,7 +240,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['npc_location']; ?>" selected><?php echo $editrow['npc_location']; ?></option>
                  <?php
-                 $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' ORDER BY `world`.`title` ASC";
+                 $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
                  $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
                  while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
                    $location = $locationrow['title'];
@@ -263,7 +263,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['npc_faction']; ?>" selected><?php echo $editrow['npc_faction']; ?></option>
                  <?php
-                 $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' ORDER BY `world`.`title` ASC";
+                 $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
                  $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
                  while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
                    $faction = $factionrow['title'];
@@ -287,7 +287,7 @@ display:none;
                      <option value="">None...</option>
                      <option value="<?php echo $editrow['npc_est']; ?>" selected><?php echo $editrow['npc_est']; ?></option>
                      <?php
-                     $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'establishment' ORDER BY `world`.`title` ASC";
+                     $factiondrop = "SELECT title FROM `world` WHERE `type` LIKE 'establishment' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
                      $factiondata = mysqli_query($dbcon, $factiondrop) or die('error getting data');
                      while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
                        $faction = $factionrow['title'];
@@ -327,7 +327,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['est_location']; ?>" selected><?php echo $editrow['est_location']; ?></option>
                  <?php
-                 $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' ORDER BY `world`.`title` ASC";
+                 $faithdrop = "SELECT title FROM `world` WHERE `type` LIKE 'settlement' AND worlduser LIKE '$loguser' ORDER BY `world`.`title` ASC";
                  $faithdata = mysqli_query($dbcon, $faithdrop) or die('error getting data');
                  while($deityrow =  mysqli_fetch_array($faithdata, MYSQLI_ASSOC)) {
                    $deity = $deityrow['title'];
@@ -350,7 +350,7 @@ display:none;
                  <option value="">None...</option>
                  <option value="<?php echo $editrow['est_type']; ?>" selected><?php echo $editrow['est_type']; ?></option>
                  <?php
-                 $locationdrop = "SELECT est_type FROM `world` WHERE `type` LIKE 'establishment' ORDER BY `world`.`est_type` ASC";
+                 $locationdrop = "SELECT est_type FROM `world` WHERE `type` LIKE 'establishment' AND worlduser LIKE '$loguser' ORDER BY `world`.`est_type` ASC";
                  $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
                  while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
                    $location = $locationrow['est_type'];
@@ -398,7 +398,7 @@ display:none;
                      <option value="<?php echo $editrow['quest_faction']; ?>" selected><?php echo $editrow['quest_faction']; ?></option>
                      <option value="">None...</option>
                      <?php
-                     $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction'";
+                     $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' WHERE worlduser LIKE '$loguser'";
                      $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
                      while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
                        $location = $locationrow['title'];
