@@ -234,6 +234,27 @@ document.getElementById("item3").innerHTML = '<?php echo $item3 ?>';
     ?>
   </div>
 
+  <h3 style="color:#5499c7;">Full Names:</h3>
+   <div class="sidebartext col-centered">
+   <?php
+   $firstname = array();
+   $worldtitle = "SELECT name FROM `npcs` WHERE `type` LIKE 'first' ORDER BY rand() LIMIT 5";
+   $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+   while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+     array_push($firstname, $row['name']);
+} 
+$lastname = array();
+$worldtitle = "SELECT name FROM `npcs` WHERE `type` LIKE 'last' ORDER BY rand() LIMIT 5";
+$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+  array_push($lastname, $row['name']);
+}
+for ($x = 0; $x <= 4; $x++) {
+  echo ('<p>'.$firstname[$x].' '.$lastname[$x].'</p>');
+}
+    ?>
+  </div>
+
   </div>
 </div>
 </div>
