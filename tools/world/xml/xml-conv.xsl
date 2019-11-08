@@ -11,7 +11,7 @@
 
   <xsl:template match="item">
     <xsl:copy>
-      <xsl:apply-templates select="title|type|itemStock|itemValue|itemType|itemMagic|itemDetail"/>
+      <xsl:apply-templates select="name"/>
       <text>
         <xsl:for-each select="text">
             <xsl:value-of select="."/>

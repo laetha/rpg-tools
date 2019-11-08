@@ -9,23 +9,10 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="background">
+  <xsl:template match="nentry">
     <xsl:copy>
-      <xsl:apply-templates select="name|proficiency"/>
-        <traits>
-        <xsl:for-each select="trait">
-            <xsl:value-of select="name" />
-            <xsl:text> &#xa;</xsl:text>
-            <xsl:for-each select="text">
-                <xsl:value-of select="."/>
-                   <!-- ADD SPACE DELIMITER AFTER EACH ITEM EXCEPT LAST -->
-                   <!-- REPLACE WITH &#xa; FOR LINE BREAK ENTITY or \n -->
-                   <xsl:text>&#xa;</xsl:text>
+      <xsl:apply-templates select="name|type|gender"/>
 
-            </xsl:for-each>
-            <xsl:text>&#xa;</xsl:text>
-        </xsl:for-each>
-      </traits>
     </xsl:copy>
   </xsl:template>
 

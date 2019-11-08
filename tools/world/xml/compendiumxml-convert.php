@@ -1,10 +1,10 @@
 <?php
 // LOAD XML AND XSLT
 $doc = new DOMDocument();
-$doc->load('addmonsters.xml');
+$doc->load('surnames.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('xml-conv-monsters.xsl');
+$xsl->load('xml-conv-backgrounds.xsl');
 
 // CONFIGURE TRANSFORMER
 $proc = new XSLTProcessor;
