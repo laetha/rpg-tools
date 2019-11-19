@@ -1,7 +1,7 @@
 <?php
 // LOAD XML AND XSLT
 $doc = new DOMDocument();
-$doc->load('surnames.xml');
+$doc->load('eyes.xml');
 
 $xsl = new DOMDocument;
 $xsl->load('xml-conv-backgrounds.xsl');

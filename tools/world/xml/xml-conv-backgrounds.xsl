@@ -9,9 +9,9 @@
     </xsl:copy>
   </xsl:template>
 
-  <xsl:template match="nentry">
+  <xsl:template match="npcentry">
     <xsl:copy>
-      <xsl:apply-templates select="name|type|gender"/>
+      <xsl:apply-templates select="title|type"/>
 
     </xsl:copy>
   </xsl:template>
