@@ -373,51 +373,50 @@ display:none;
 <!-- Quest Form -->
        <div id="quest-form">
 
-       <!-- 'Quest Status' Dropbox -->
-       <div class="col-sm-6 typebox col-centered" id="quest-status">
-             <p class="text">Quest Status
-               <select form="import" name="quest-status" id="quest-status-form">
-                 <option value="<?php echo $editrow['quest_status']; ?>" selected><?php echo $editrow['quest_status']; ?></option>
-                 <option value="">None...</option>
-                 <option value="available">Available</option>
-                 <option value="private">Private</option>
-                 <option value="complete">Complete</option>
-               </select>
-               <script type="text/javascript">
-               $('#quest-status-form').selectize({
-           create: true,
-           sortField: 'text'
-       });
-               </script>
-             </p>
-           </div>
-           <!-- 'establishment type' Dropbox -->
-           <div class="col-sm-6 typebox col-centered" id="quest-faction">
-                 <p class="text">Faction
-                   <select form="import" name="quest-faction" id="quest-faction-form">
-                     <option value="<?php echo $editrow['quest_faction']; ?>" selected><?php echo $editrow['quest_faction']; ?></option>
-                     <option value="">None...</option>
-                     <?php
-                     $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' WHERE worlduser LIKE '$loguser'";
-                     $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
-                     while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
-                       $location = $locationrow['title'];
-                       echo "<option value=\"$location\">$location</option>";
-                     }
-                     ?>
-                   </select>
-                   <script type="text/javascript">
-                   $('#quest-faction-form').selectize({
-               create: true,
-               sortField: 'text'
-           });
-                   </script>
-                 </p>
-               </div>
+      <!-- 'establishment location' Dropbox -->
+<div class="col-sm-6 typebox col-centered" id="equest-status">
+      <p class="text">Quest Status
+        <select form="import" name="quest-status" id="quest-status-form">
+        <option value="<?php echo $editrow['quest_status']; ?>" selected><?php echo $editrow['quest_status']; ?></option>
+          <option value="" selected>None...</option>
+          <option value="available">Available</option>
+          <option value="private">Private</option>
+          <option value="complete">Complete</option>
+        </select>
+        <script type="text/javascript">
+        $('#quest-status-form').selectize({
+    create: true,
+    sortField: 'text'
+});
+        </script>
+      </p>
+    </div>
+    <!-- 'establishment type' Dropbox -->
+    <div class="col-sm-6 typebox col-centered" id="quest-faction">
+          <p class="text">Faction
+            <select form="import" name="quest-faction" id="quest-faction-form">
+            <option value="<?php echo $editrow['quest_faction']; ?>" selected><?php echo $editrow['quest_faction']; ?></option>
+              <option value="" selected>None...</option>
+              <?php
+              $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND worlduser LIKE '$loguser'";
+              $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+              while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                $location = $locationrow['title'];
+                echo "<option value=\"$location\">$location</option>";
+              }
+              ?>
+            </select>
+            <script type="text/javascript">
+            $('#quest-faction-form').selectize({
+        create: true,
+        sortField: 'text'
+    });
+            </script>
+          </p>
+        </div>
                <div class="text col-centered col-md-6"><textarea type="text" name="quest-reward" id="quest-reward" placeholder="Reward...." style="height:100px;"><?php echo $editrow['quest_reward']; ?></textarea></div>
 
        </div>
-
 
            <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body"><?php echo $editrow['body']; ?></textarea></div>
            <div class="col-centered">
