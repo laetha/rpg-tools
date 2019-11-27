@@ -61,11 +61,10 @@
 
 // create the slippy map
 var map = L.map('image-map', {
-  minZoom: 3,
-  maxZoom: 7,
-  maxNativeZoom: 10,
+  minZoom: 1,
+  maxZoom: 4,
   center: [0, 0],
-  zoom: 3,
+  zoom: 2,
   crs: L.CRS.Simple,
   scrollWheelZoom:'center'
 
@@ -85,9 +84,9 @@ L.control.layers(null, overlayMaps).addTo(map);
 
 
 // dimensions of the image
-var w = 2259*6,
-    h = 1435*6,
-    url = '/assets/images/City2.png';
+var w = 5040,
+    h = 3308,
+    url = '/assets/images/Starting-Region.jpg';
 
 // calculate the edges of the image, in coordinate space
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);
@@ -127,7 +126,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
  ?>
 
 <?php
-$worldtitle = "SELECT * FROM campaignlog WHERE active = 1 AND worlduser LIKE '$loguser'";
+$worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
