@@ -266,19 +266,19 @@ var district1 = [[-92.125, 101.560761],
               ];
       var poly = L.polygon(district1).addTo(map);
       poly.setStyle({
-        fillColor: '#0000FF',
-        color: '#0000FF'
+        fillColor: '#cfcc00',
+        color: '#cfcc00'
       });
       poly.on('mouseover', function(){
         poly.setStyle({
-          fillColor: '#000000',
-        color: '#000000'
+          fillColor: '#fffd6e',
+        color: '#fffd6e'
         });
       });
         poly.on('mouseout', function(){
         poly.setStyle({
-          fillColor: '#0000FF',
-        color: '#0000FF'
+          fillColor: '#cfcc00',
+        color: '#cfcc00'
         });
       });
 
@@ -316,19 +316,19 @@ var district2 = [[-93.34375, 99.372687],
               ];
       var poly2 = L.polygon(district2).addTo(map);
       poly2.setStyle({
-        fillColor: '#0000FF',
-        color: '#0000FF'
+        fillColor: '#9500ff',
+        color: '#9500ff'
       });
       poly2.on('mouseover', function(){
         poly2.setStyle({
-          fillColor: '#000000',
-        color: '#000000'
+          fillColor: '#c26bff',
+        color: '#c26bff'
         });
       });
         poly2.on('mouseout', function(){
         poly2.setStyle({
-          fillColor: '#0000FF',
-        color: '#0000FF'
+          fillColor: '#9500ff',
+        color: '#9500ff'
         });
       });
 
@@ -366,17 +366,105 @@ var district2 = [[-93.34375, 99.372687],
               ];
       var poly3 = L.polygon(district3).addTo(map);
       poly3.setStyle({
-        fillColor: '#0000FF',
-        color: '#0000FF'
+        fillColor: '#00ff47',
+        color: '#00ff47'
       });
       poly3.on('mouseover', function(){
         poly3.setStyle({
-          fillColor: '#000000',
-        color: '#000000'
+          fillColor: '#69ff93',
+        color: '#69ff93'
         });
       });
         poly3.on('mouseout', function(){
         poly3.setStyle({
+          fillColor: '#00ff47',
+        color: '#00ff47'
+        });
+      });
+
+        //DISTRICT 4
+     var district4 = [[-18.125, 118.841574],
+                  [-16.09375, 92.47139],
+                  [-17.9375, 77.032081],
+                  [-25.40625, 62.469381],
+                  [-34.5625, 53.031585],
+                  [-43.09375, 60.717647],
+                  [-49.78125, 62.373509],
+                  [-54.90625, 67.653794],
+                  [-51.28125, 72.152973],
+                  [-55.375, 82.526078],
+                  [-52.03125, 87.091129],
+                  [-48.53125, 90.184314],
+                  [-48.0625, 103.373258],
+                  [-50.4375, 111.278064],
+                  [-45.125, 116.370884],
+                  [-41.65625, 122.528423],
+                  [-29.9375, 121.497362],
+                  [-18.125, 118.841574]
+                
+              ];
+      var poly4 = L.polygon(district4).addTo(map);
+      poly4.setStyle({
+        fillColor: '#ff0015',
+        color: '#ff0015'
+      });
+      poly4.on('mouseover', function(){
+        poly4.setStyle({
+          fillColor: '#ff6975',
+        color: '#ff6975'
+        });
+      });
+        poly4.on('mouseout', function(){
+        poly4.setStyle({
+          fillColor: '#ff0015',
+        color: '#ff0015'
+        });
+      });
+
+        //DISTRICT 5
+     var district5 = [[-34.53125, 52.937646],
+                  [-21.6875, 37.906528],
+                  [-32.625, 29.935997],
+                  [-46.625, 36.310084],
+                  [-71.9375, 26.967458],
+                  [-79.625, 39.809342],
+                  [-77.03125, 45.839491],
+                  [-86.03125, 52.432037],
+                  [-92, 56.9984],
+                  [-101.90625, 65.340838],
+                  [-116.6875, 68.590535],
+                  [-128.875, 77.931641],
+                  [-117.75, 91.616642],
+                  [-107.875, 86.929998],
+                  [-107.125, 82.404085],
+                  [-102.875, 77.498731],
+                  [-98.75, 75.592829],
+                  [-90.59375, 75.155078],
+                  [-86.71875, 74.435797],
+                  [-80.5625, 71.186391],
+                  [-76.90625, 70.842367],
+                  [-69.65625, 73.748086],
+                  [-65.6875, 76.810027],
+                  [-59.5, 66.717184],
+                  [-54.96875, 67.592025],
+                  [-49.9375, 62.373611],
+                  [-43.15625, 60.654764],
+                  [-34.53125, 52.937646]
+                
+              ];
+      var poly5 = L.polygon(district5).addTo(map);
+      poly5.setStyle({
+        fillColor: '#0000FF',
+        color: '#0000FF'
+      });
+      poly5.on('mouseover', function(){
+        poly5.setStyle({
+          fillColor: '#5c5cff',
+        color: '#5c5cff'
+        });
+      });
+        poly5.on('mouseout', function(){
+        poly5.setStyle({
           fillColor: '#0000FF',
         color: '#0000FF'
         });
