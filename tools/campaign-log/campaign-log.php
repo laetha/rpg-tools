@@ -186,13 +186,15 @@ var table = $('#campaignlog').DataTable(
 
 // create the slippy map
 var map = L.map('image-map', {
-minZoom: 1,
-maxZoom: 4,
-center: [0, 0],
-zoom: 2,
-crs: L.CRS.Simple
-});
+  minZoom: 2,
+  maxZoom: 7,
+  maxNativeZoom: 10,
+  center: [0, 0],
+  zoom: 3,
+  crs: L.CRS.Simple,
+  scrollWheelZoom:'center'
 
+});
 var mapFeatures = L.layerGroup();
 var mapLog = L.layerGroup();
 var mapCompendium = L.layerGroup();
@@ -208,9 +210,9 @@ L.control.layers(null, overlayMaps).addTo(map);
 
 
 // dimensions of the image
-var w = 5040,
-h = 3308,
-url = '/assets/images/Starting-Region.jpg';
+var w = 2259*6,
+    h = 1435*6,
+    url = '/assets/images/City2.png';
 
 // calculate the edges of the image, in coordinate space
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);
@@ -242,13 +244,152 @@ document.getElementById("logcoord").value = newCoord;
 
 map.on('click', onMapClick);
 
+//DISTRICT 1
+var district1 = [[-92.125, 101.560761],
+                [-86.4375, 111.621424],
+                [-92.375, 115.370739],
+                [-95.125, 120.682269],
+                [-78.3125, 124.744027],
+                [-74.375, 124.306367],
+                [-69.5625, 125.681116],
+                [-64.625, 122.681664],
+                [-60.0625, 121.806824],
+                [-51.625, 112.746036],
+                [-57.5, 110.683912],
+                [-64, 105.93478],
+                [-66, 103.935145],
+                [-67.3125, 103.747679],
+                [-76.8125, 106.184734],
+                [-83.625, 103.057725],
+                [-85.75, 100.620671],
+                [-92.125, 101.560761]
+              ];
+      var poly = L.polygon(district1).addTo(map);
+      poly.setStyle({
+        fillColor: '#0000FF',
+        color: '#0000FF'
+      });
+      poly.on('mouseover', function(){
+        poly.setStyle({
+          fillColor: '#000000',
+        color: '#000000'
+        });
+      });
+        poly.on('mouseout', function(){
+        poly.setStyle({
+          fillColor: '#0000FF',
+        color: '#0000FF'
+        });
+      });
+
+      //DISTRICT 2
+var district2 = [[-93.34375, 99.372687],
+                [-95.53125, 92.62392],
+                [-101.40625, 93.311659],
+                [-104.90625, 92.343086],
+                [-107.8125, 87.687686],
+                [-107.28125, 82.594867],
+                [-102.65625, 77.533291],
+                [-98.625, 75.687589],
+                [-90.75, 75.281265],
+                [-86.59375, 74.405734],
+                [-80.4375, 71.217681],
+                [-76.96875, 70.936482],
+                [-69.59375, 73.998697],
+                [-65.53125, 76.997949],
+                [-59.46875, 66.68727],
+                [-55.0625, 67.624599],
+                [-51.46875, 72.21751],
+                [-55.5, 82.496882],
+                [-52.09375, 87.185016],
+                [-48.71875, 90.184468],
+                [-48.28125, 103.244583],
+                [-50.625, 111.184143],
+                [-56.28125, 109.090975],
+                [-62.53125, 104.404331],
+                [-64.375, 102.592162],
+                [-67.75, 101.904416],
+                [-76.5, 104.185387],
+                [-82.40625, 101.248423],
+                [-85.046875, 98.733604],
+                [-93.34375, 99.372687]
+              ];
+      var poly2 = L.polygon(district2).addTo(map);
+      poly2.setStyle({
+        fillColor: '#0000FF',
+        color: '#0000FF'
+      });
+      poly2.on('mouseover', function(){
+        poly2.setStyle({
+          fillColor: '#000000',
+        color: '#000000'
+        });
+      });
+        poly2.on('mouseout', function(){
+        poly2.setStyle({
+          fillColor: '#0000FF',
+        color: '#0000FF'
+        });
+      });
+
+     //DISTRICT 3
+     var district3 = [[-95.125, 120.733792],
+                [-98.3125, 123.436192],
+                [-107.625, 140.05872],
+                [-109.0625, 140.746426],
+                [-99.8125, 148.903121],
+                [-102.65625, 155.964331],
+                [-102.875, 163.806649],
+                [-100.21875, 163.153497],
+                [-93.96875, 159.060495],
+                [-86.21875, 153.591911],
+                [-77.3125, 152.560449],
+                [-63.5625, 149.060678],
+                [-59, 161.996637],
+                [-57.71875, 161.777927],
+                [-46.6875, 151.747961],
+                [-44.84375, 136.467801],
+                [-28.4375, 139.123315],
+                [-20.8125, 133.744472],
+                [-23.875, 122.184084],
+                [-29.734375, 123.4047],
+                [-42.34375, 124.091677],
+                [-47.4375, 116.654228],
+                [-51.46875, 113.217356],
+                [-60.03125, 121.935158],
+                [-64.71875, 122.84134],
+                [-69.375, 125.840792],
+                [-74.6875, 124.528195],
+                [-78.375, 124.934371],
+                [-87.5, 122.215518],
+                [-95.125, 120.733792]
+              ];
+      var poly3 = L.polygon(district3).addTo(map);
+      poly3.setStyle({
+        fillColor: '#0000FF',
+        color: '#0000FF'
+      });
+      poly3.on('mouseover', function(){
+        poly3.setStyle({
+          fillColor: '#000000',
+        color: '#000000'
+        });
+      });
+        poly3.on('mouseout', function(){
+        poly3.setStyle({
+          fillColor: '#0000FF',
+        color: '#0000FF'
+        });
+      });
+
+    
 </script>
 
 <!-- END MAP -->
 
 </div>
 <?php
-  $sqlworld = "SELECT * FROM world";
+  $sqlworld = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
   $worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
   while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
   $temp = $linkrow['title'];
@@ -331,7 +472,7 @@ $(document).ready(function() {
 
 
 <?php
-$worldtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
+$worldtitle = "SELECT * FROM world WHERE coord NOT LIKE '' AND user LIKE '$loguser'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
@@ -353,7 +494,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
  ?>
 
 <?php
-$worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
+$worldtitle = "SELECT * FROM campaignlog WHERE active = 1 AND user LIKE '$loguser'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
