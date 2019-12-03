@@ -68,19 +68,59 @@ include_once($headpath);
  }
 </script>
 <div id="background-form" style="display:none;">
-Background
+<div class="text col-centered col-md-6"><textarea type="text" name="backgroundProficiency" id="backgroundProficiency" placeholder="backgroundProficiency" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="backgroundTraits" id="backgroundTraits" placeholder="backgroundTraits" style="height:50px;"></textarea></div>
+
 </div>
 <div id="feat-form" style="display:none;">
-feat
+<div class="text col-centered col-md-6"><textarea type="text" name="featText" id="featText" placeholder="featText" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="featPrerequisite" id="featPrerequisite" placeholder="featPrerequisite" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="featModifier" id="featModifier" placeholder="featModifier" style="height:50px;"></textarea></div>
+
 </div>
 <div id="item-form" style="display:none;">
-item
+<div class="text col-centered col-md-6"><textarea type="text" name="itemText" id="itemText" placeholder="itemText" style="height:50px;"></textarea></div>
+<select form="import" name="itemType" id="itemType-form">
+              <option value="" selected>None...</option>
+              <?php
+              $locationdrop = "SELECT DISTINCT itemType FROM `compendium` WHERE `type` LIKE 'item'";
+              $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+              while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                $location = $locationrow['itemType'];
+                echo "<option value=\"$location\">$location</option>";
+              }
+              ?>
+            </select>
+<div class="text col-centered col-md-6"><textarea type="text" name="itemWeight" id="itemWeight" placeholder="itemWeight" style="height:50px;"></textarea></div>
+<select form="import" name="itemStock" id="itemStock-form">
+              <option value="" selected>None...</option>
+              <?php
+              $locationdrop = "SELECT DISTINCT itemStock FROM `compendium` WHERE `type` LIKE 'item' AND itemStock NOT LIKE ''";
+              $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+              while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                $location = $locationrow['itemStock'];
+                echo "<option value=\"$location\">$location</option>";
+              }
+              ?>
+            </select>
+<div class="text col-centered col-md-6"><textarea type="text" name="itemDetail" id="itemDetail" placeholder="itemDetail" style="height:50px;"></textarea></div>
+<input type="checkbox" name="itemMagic" value="1">Magic?<br>
+<div class="text col-centered col-md-6"><textarea type="text" name="itemValue" id="itemValue" placeholder="itemValue" style="height:50px;"></textarea></div>
+
 </div>
 <div id="monster-form" style="display:none;">
 monster
 </div>
 <div id="race-form" style="display:none;">
-race
+<select form="import" name="itemStock" id="itemStock-form">
+              <option value="T">Tiny</option>
+              <option value="S">Small</option>
+              <option value="M" selected>Medium</option>
+              <option value="L">Large</option>
+              <option value="H">Huge</option>
+              <option value="G">Gargantuan</option>
+            </select>
+            
 </div>
 <div id="spell-form" style="display:none;">
 spell
