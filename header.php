@@ -139,6 +139,7 @@ else {
 <?php if ($loguser == 'tarfuin') { ?>
 					<li><a href="/tools/world/map.php">World Map</a></li>
 					<li><a href="/tools/resources/calendar.php">Calendar</a></li>
+					<li><a href="/tools/world/dbimport.php">Add to Compendium</a></li>
 					<?php  } ?>
 
 					<li><a href="/tools/world/import.php">Import</a></li>
