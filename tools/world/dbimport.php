@@ -15,7 +15,7 @@ include_once($headpath);
   <h1 class="pagetitle">Add to World</h1>
 <div class="col-md-10 col-centered">
   <div class="col-sm-6 typebox col-centered" id="name">
-      <form method="post" action="process.php" id="import" enctype="multipart/form-data">
+      <form method="post" action="dbprocess.php" id="compendium" enctype="multipart/form-data">
       <div class="text">Name</div><input class="textbox" type="text" name="name" id="name" placeholder="Name...">
 </div>
 <!-- 'Type' Dropbox -->
@@ -23,7 +23,7 @@ include_once($headpath);
 <div class="col-sm-6 typebox col-centered" id="npc-type">
       <p class="text">Type
 
-        <select form="import" required="yes" name="type" id="type" onchange="typeForm(this);">
+        <select form="compendium" required="yes" name="type" id="type" onchange="typeForm(this);">
           <option value="">None...</option>
           <option value="background">Background</option>
           <option value="feat">Feat</option>
@@ -80,7 +80,7 @@ include_once($headpath);
 </div>
 <div id="item-form" style="display:none;">
 <div class="text col-centered col-md-6"><textarea type="text" name="itemText" id="itemText" placeholder="itemText" style="height:50px;"></textarea></div>
-<select form="import" name="itemType" id="itemType-form">
+<select form="compendium" name="itemType" id="itemType-form">
               <option value="" selected>None...</option>
               <?php
               $locationdrop = "SELECT DISTINCT itemType FROM `compendium` WHERE `type` LIKE 'item'";
@@ -92,7 +92,7 @@ include_once($headpath);
               ?>
             </select>
 <div class="text col-centered col-md-6"><textarea type="text" name="itemWeight" id="itemWeight" placeholder="itemWeight" style="height:50px;"></textarea></div>
-<select form="import" name="itemStock" id="itemStock-form">
+<select form="compendium" name="itemStock" id="itemStock-form">
               <option value="" selected>None...</option>
               <?php
               $locationdrop = "SELECT DISTINCT itemStock FROM `compendium` WHERE `type` LIKE 'item' AND itemStock NOT LIKE ''";
@@ -112,7 +112,7 @@ include_once($headpath);
 monster
 </div>
 <div id="race-form" style="display:none;">
-<select form="import" name="itemStock" id="itemStock-form">
+<select form="compendium" name="itemStock" id="itemStock-form">
               <option value="T">Tiny</option>
               <option value="S">Small</option>
               <option value="M" selected>Medium</option>
@@ -120,7 +120,11 @@ monster
               <option value="H">Huge</option>
               <option value="G">Gargantuan</option>
             </select>
-            
+<div class="text col-centered col-md-6"><textarea type="text" name="raceSpeed" id="raceSpeed" placeholder="raceSpeed" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="raceAbility" id="raceAbility" placeholder="raceAbility" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="raceSpellAbility" id="raceSpellAbility" placeholder="raceSpellAbility" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="raceProficiency" id="raceProficiency" placeholder="raceProficiency" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="raceTraits" id="raceTraits" placeholder="raceTraits" style="height:50px;"></textarea></div>
 </div>
 <div id="spell-form" style="display:none;">
 spell
@@ -136,7 +140,7 @@ subclass
    
 
 <div class="col-centered">
-<input form="import" class="btn btn-primary col-centered" type="submit" value="Submit">
+<input form="compendium" class="btn btn-primary col-centered" type="submit" value="Submit">
 </div>
 </form>
 

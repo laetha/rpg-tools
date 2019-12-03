@@ -1,10 +1,10 @@
 <?php
 // LOAD XML AND XSLT
 $doc = new DOMDocument();
-$doc->load('eyes.xml');
+$doc->load('complete/races.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('xml-conv-backgrounds.xsl');
+$xsl->load('xml-conv-races.xsl');
 
 // CONFIGURE TRANSFORMER
 $proc = new XSLTProcessor;
