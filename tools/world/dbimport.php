@@ -31,7 +31,6 @@ include_once($headpath);
           <option value="monster">Monster</option>
           <option value="race">Race</option>
           <option value="spell">Spell</option>
-          <option value="class">Class</option>
           <option value="subclass">Subclass</option>
         </select>
         <script type="text/javascript">
@@ -60,7 +59,6 @@ include_once($headpath);
    $("#monster-form").hide();
    $("#race-form").hide();
    $("#spell-form").hide();
-   $("#class-form").hide();
    $("#subclass-form").hide();
    
    $(selectedForm).show();
@@ -129,11 +127,61 @@ monster
 <div id="spell-form" style="display:none;">
 spell
 </div>
-<div id="class-form" style="display:none;">
-class
-</div>
 <div id="subclass-form" style="display:none;">
-subclass
+Class
+<select form="compendium" name="subclassClass" id="subclassClass-form">
+              <option value="" selected>None...</option>
+              <?php
+              $locationdrop = "SELECT DISTINCT class FROM `subclasses`";
+              $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+              while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                $location = $locationrow['class'];
+                echo "<option value=\"$location\">$location</option>";
+              }
+              ?>
+            </select>
+
+<div class="text col-centered col-md-6"><textarea type="text" name="subclassSource" id="subclassSource" placeholder="subclassSource" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill1name" id="lvlskill1name" placeholder="lvlskill1name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill1text" id="lvlskill1text" placeholder="lvlskill1text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill2name" id="lvlskill2name" placeholder="lvlskill2name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill2text" id="lvlskill2text" placeholder="lvlskill2text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill3name" id="lvlskill3name" placeholder="lvlskill3name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill3text" id="lvlskill3text" placeholder="lvlskill3text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill4name" id="lvlskill4name" placeholder="lvlskill4name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill4text" id="lvlskill4text" placeholder="lvlskill4text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill5name" id="lvlskill5name" placeholder="lvlskill5name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill5text" id="lvlskill5text" placeholder="lvlskill5text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill6name" id="lvlskill6name" placeholder="lvlskill6name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill6text" id="lvlskill6text" placeholder="lvlskill6text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill7name" id="lvlskill7name" placeholder="lvlskill7name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill7text" id="lvlskill7text" placeholder="lvlskill7text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill8name" id="lvlskill8name" placeholder="lvlskill8name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill8text" id="lvlskill8text" placeholder="lvlskill8text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill9name" id="lvlskill9name" placeholder="lvlskill9name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill9text" id="lvlskill9text" placeholder="lvlskill9text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill10name" id="lvlskill10name" placeholder="lvlskill10name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill10text" id="lvlskill10text" placeholder="lvlskill10text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill11name" id="lvlskill11name" placeholder="lvlskill11name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill11text" id="lvlskill11text" placeholder="lvlskill11text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill12name" id="lvlskill12name" placeholder="lvlskill12name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill12text" id="lvlskill12text" placeholder="lvlskill12text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill13name" id="lvlskill13name" placeholder="lvlskill13name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill13text" id="lvlskill13text" placeholder="lvlskill13text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill14name" id="lvlskill14name" placeholder="lvlskill14name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill14text" id="lvlskill14text" placeholder="lvlskill14text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill15name" id="lvlskill15name" placeholder="lvlskill15name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill15text" id="lvlskill15text" placeholder="lvlskill15text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill16name" id="lvlskill16name" placeholder="lvlskill16name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill16text" id="lvlskill16text" placeholder="lvlskill16text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill17name" id="lvlskill17name" placeholder="lvlskill17name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill17text" id="lvlskill17text" placeholder="lvlskill17text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill18name" id="lvlskill18name" placeholder="lvlskill18name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill18text" id="lvlskill18text" placeholder="lvlskill18text" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill19name" id="lvlskill19name" placeholder="lvlskill19name" style="height:50px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="lvlskill19text" id="lvlskill19text" placeholder="lvlskill19text" style="height:50px;"></textarea></div>
+
+
 </div>
 
 <!--    <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div> -->

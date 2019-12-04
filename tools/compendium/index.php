@@ -308,11 +308,14 @@ $("#favButton").click(function(){
       echo('<th>Level</th>');
       echo('<th>Proficiency</th>');
       echo('<th>Features</th>');
-      echo('<th>Spells Known</th>');
+      echo('<th>Infusions Known</th>');
+      echo('<th>Infused Items</th>');
+      echo('<th>Cantrips</th>');
       echo('<th>1st</th>');
       echo('<th>2nd</th>');
       echo('<th>3rd</th>');
       echo('<th>4th</th>');
+      echo('<th>5th</th>');
       echo('</tr>');
     echo('</thead>');
     echo('<tbody>');
@@ -325,11 +328,14 @@ $("#favButton").click(function(){
       echo ('<tr id="'.$classtablerow['name'].'"><td>'.$classtablerow['level'].'</td>');
       echo ('<td>'.$classtablerow['proficiency'].'</td>');
       echo ('<td>'.$classtablerow['feature'].'</td>');
+      echo ('<td>'.$classtablerow['resource'].'</td>');
       echo ('<td>'.$classtablerow['known'].'</td>');
+      echo ('<td>'.$classtablerow['cantrips'].'</td>');
       echo ('<td>'.$classtablerow['spelllvl1'].'</td>');
       echo ('<td>'.$classtablerow['spelllvl2'].'</td>');
       echo ('<td>'.$classtablerow['spelllvl3'].'</td>');
-      echo ('<td>'.$classtablerow['spelllvl4'].'</td></tr>');
+      echo ('<td>'.$classtablerow['spelllvl4'].'</td>');
+      echo ('<td>'.$classtablerow['spelllvl5'].'</td></tr>');
 
       }
 }
