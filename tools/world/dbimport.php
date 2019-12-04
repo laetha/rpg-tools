@@ -112,7 +112,7 @@ include_once($headpath);
 monster
 </div>
 <div id="race-form" style="display:none;">
-<select form="compendium" name="itemStock" id="itemStock-form">
+<select form="compendium" name="raceSize" id="raceSize-form">
               <option value="T">Tiny</option>
               <option value="S">Small</option>
               <option value="M" selected>Medium</option>
