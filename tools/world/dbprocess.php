@@ -219,6 +219,27 @@ $monsterLegendary6=htmlentities(trim(addslashes($monsterLegendary6temp)));
 $monsterLegendary7=htmlentities(trim(addslashes($monsterLegendary7temp)));
 $monsterLegendary8=htmlentities(trim(addslashes($monsterLegendary8temp)));
 $monsterReaction=htmlentities(trim(addslashes($monsterReactiontemp)));
+if ($monsterStr == '') {
+  $monsterStr = 0;
+}
+if ($monsterDex == '') {
+  $monsterDex = 0;
+}
+if ($monsterCon == '') {
+  $monsterCon = 0;
+}
+if ($monsterInt == '') {
+  $monsterInt = 0;
+}
+if ($monsterWis == '') {
+  $monsterWis = 0;
+}
+if ($monsterCha == '') {
+  $monsterCha = 0;
+}
+if ($monsterCr == '') {
+  $monsterCr = 0;
+}
 
 if ($lvlskill1name != ''){
   $sql = "INSERT INTO subclasses(name,class,source,lvlskill1name,lvlskill1text,lvlskill2name,lvlskill2text,lvlskill3name,lvlskill3text,lvlskill4name,lvlskill4text,lvlskill5name,lvlskill5text,lvlskill6name,lvlskill6text,lvlskill7name,lvlskill7text,lvlskill8name,lvlskill8text,lvlskill9name,lvlskill9text,lvlskill10name,lvlskill10text,lvlskill11name,lvlskill11text,lvlskill12name,lvlskill12text,lvlskill13name,lvlskill13text,lvlskill14name,lvlskill14text,lvlskill15name,lvlskill15text,lvlskill16name,lvlskill16text,lvlskill17name,lvlskill17text,lvlskill18name,lvlskill18text,lvlskill19name,lvlskill19text)
