@@ -440,50 +440,64 @@ display:none;
 
 <div class="text">Coord</div><input class="textbox" style="text-align:center;" type="text" name="coord" id="coord" value="<?php echo $editrow['coord']; ?>">
 
-           <style>
-           #image-map {
-             width: 100%;
-             height: 600px;
-             border: 1px solid #ccc;
-             margin-bottom: 10px;
-           }
-           </style>
+<style>
+        #image-map {
+          width: 100%;
+          height: 600px;
+          border: 1px solid #ccc;
+          margin-bottom: 10px;
+        }
+        </style>
 
-           <div id="image-map"></div>
-           <script>
-           // Using leaflet.js to pan and zoom a big image.
-           // See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
+        <div id="image-map"></div>
+<script>
+// Using leaflet.js to pan and zoom a big image.
+// See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
 
-           // create the slippy map
-           var map = L.map('image-map', {
-           minZoom: 1,
-           maxZoom: 4,
-           center: [0, 0],
-           zoom: 1,
-           crs: L.CRS.Simple
-           });
+// create the slippy map
+var map = L.map('image-map', {
+  minZoom: 2,
+  maxZoom: 7,
+  center: [0, 0],
+  zoom: 2,
+  crs: L.CRS.Simple,
+  scrollWheelZoom:'center'
 
-           // dimensions of the image
-           var w = 5040,
-           h = 3308,
-           url = '/assets/images/Starting-Region.jpg';
+});
+var mapFeatures = L.layerGroup();
+var mapLog = L.layerGroup();
+var mapCompendium = L.layerGroup();
+var mapZones = L.layerGroup();
 
-           // calculate the edges of the image, in coordinate space
-           var southWest = map.unproject([0, h], map.getMaxZoom()-1);
-           var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
-           var bounds = new L.LatLngBounds(southWest, northEast);
-           map.setView(new L.LatLng(-220.925003, 103.017123), 3);
+var overlayMaps = {
+    "Map Feautures": mapFeatures,
+    "Campaign Log": mapLog,
+    "Legend": mapCompendium,
+    "Zones": mapZones
+
+};
+
+L.control.layers(null, overlayMaps).addTo(map);
 
 
-           // add the image overlay,
-           // so that it covers the entire map
-           L.imageOverlay(url, bounds).addTo(map);
+// dimensions of the image
+var w = 2259*6,
+    h = 1435*6,
+    url = '/assets/images/City2.png';
 
-           // tell leaflet that the map is exactly as big as the image
-           map.setMaxBounds(bounds);
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
 
-           var popup = L.popup();
+// add the image overlay,
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
 
+// tell leaflet that the map is exactly as big as the image
+map.setMaxBounds(bounds);
+
+var popup = L.popup();
            function onMapClick(e) {
            popup
            .setLatLng(e.latlng)
