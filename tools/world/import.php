@@ -335,11 +335,13 @@ document.getElementById("npc-form").style.display = "none";
 
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>
     <input class="col-centered" type="file" name="fileToUpload1" id="fileToUpload1">
+    <?php
+    if ($loguser == 'tarfuin') { ?>
     <p><button type="button" class="btn btn-info" id="locbutton">Add Location</button></p>
-
+    <?php } ?>
     <div id="map" style="display:none;">
 
-    <div class="text">Coord</div><input class="textbox" style="text-align:center;" type="text" name="coord" id="coord" value="<?php echo $editrow['coord']; ?>">
+    <div class="text">Coord</div><div style="display:none;"><input class="textbox" style="text-align:center;" type="text" name="coord" id="coord" value=""></div>
     <style>
         #image-map {
           width: 100%;
