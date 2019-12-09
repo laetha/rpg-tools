@@ -417,8 +417,11 @@ var popup = L.popup();
            map.on('click', onMapClick);
 
            </script>
+
+           
+
            <?php
-           $worldtitle = "SELECT * FROM campaignlog WHERE active = 1";
+           $worldtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
            $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
            $mrk = 1;
            while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
@@ -431,7 +434,7 @@ var popup = L.popup();
            });
            var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>, {icon: myIcon}]).addTo(map);
 
-           marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['entry']; ?>");
+           marker<?php echo $mrk; ?>.bindPopup("<?php echo $row['title']; ?>");
            </script>
            <?php
            $mrk = $mrk + 1;
@@ -454,6 +457,7 @@ var popup = L.popup();
                  });
              });
              </script>
+
     </div>
 
 <div class="col-centered">

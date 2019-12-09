@@ -115,7 +115,24 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   <script>
   var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
   var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
+  <?php if ($row['est_type'] == 'inn'){ ?>
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-inn.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  <?php } 
+  elseif ($row['est_type'] == 'blacksmith'){ ?>
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-blacksmith.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  <?php } 
+  elseif ($row['est_type'] == 'jeweler'){ ?>
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-jeweler.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  <?php } 
+  elseif ($row['est_type'] == 'alchemist'){ ?>
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-alchemist.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  <?php } 
+  elseif ($row['est_type'] == 'enchanter'){ ?>
+  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-enchanter.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  <?php } 
+  else { ?>
   var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
+  <?php } ?>
   var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup('<a href="world.php?id=<?php echo $row['title']; ?>" target="_BLANK"><?php echo $row['title']; ?></a>');
 //  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
   marker<?php echo $mrk; ?>.addTo(mapCompendium);
@@ -185,7 +202,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
       </tfoot>
       <tbody>
         <?php
-        $logtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
+        $logtitle = "SELECT * FROM world WHERE coord NOT LIKE '' AND worlduser LIKE '$loguser'";
         $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
           $temptitle = $row['title'];
@@ -200,13 +217,17 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           echo ('<td>'.$row['title'].'</td>');
           echo ('<td>'.$row['est_type'].'</td>');
 
-        $log1title = "SELECT title FROM world WHERE npc_est LIKE '$temptitle' LIMIT 1";
+        $log1title = "SELECT title FROM world WHERE npc_est LIKE '$temptitle' AND worlduser LIKE '$loguser' LIMIT 1";
         $log1data = mysqli_query($dbcon, $log1title) or die('error getting data');
+        if ($log1data->num_rows > 0){
         while($row1 =  mysqli_fetch_array($log1data, MYSQLI_ASSOC)) {
           echo ('<td>'.$row1['title'].'</td>');
 
         }
-
+      }
+      else {
+        echo ('<td></td>');
+      }
           echo ('</tr>');
          }
           ?>
