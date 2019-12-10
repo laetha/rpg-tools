@@ -121,7 +121,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   elseif ($row['est_type'] == 'blacksmith'){ ?>
   var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-blacksmith.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
   <?php } 
-  elseif ($row['est_type'] == 'jeweler'){ ?>
+  elseif ($row['est_type'] == 'Jeweler'){ ?>
   var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-jeweler.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
   <?php } 
   elseif ($row['est_type'] == 'alchemist'){ ?>
