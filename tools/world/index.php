@@ -214,7 +214,7 @@ if ($sidebartype == "quest") {
               echo('Title: '.$row['npc_title'].'<br />');
               $templast = substr($row['title'], strpos($row['title'], " "));
               echo('Family: ');
-              $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%$templast%' AND worlduser LIKE '$loguser' AND title NOT LIKE '$id'";
+              $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%$templast%' AND worlduser LIKE '$loguser' AND title NOT LIKE '$id' AND type LIKE 'npc'";
               $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
               while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
                 echo '<br />';
