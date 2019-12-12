@@ -212,6 +212,16 @@ if ($sidebartype == "quest") {
               echo('Faction: '.$row['npc_faction'].'<br />');
               echo('Deity: '.$row['npc_deity'].'<br />');
               echo('Title: '.$row['npc_title'].'<br />');
+              $templast = substr($row['title'], strpos($row['title'], " "));
+              echo('Family: ');
+              $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%$templast%' AND worlduser LIKE '$loguser' AND title NOT LIKE '$id'";
+              $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+              while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+                echo '<br />';
+                echo $row['title'].' :: '.$row['npc_title'].' :: '.$row['npc_location'];
+              
+              }
+              echo '<br />';
 
 
               }
@@ -352,7 +362,7 @@ echo ("Deleted $photoname");
       $npcModal = addslashes($titlerow['title']);
       //echo "<a href=\"world.php?id=$selectednpc\">";
       echo ('<div class="col-md-4 col-sm-5">');
-      ?><a onclick="NPCModalChange('<?php echo $npcModal; ?>')"><?php echo $selectednpc; ?></a><?php
+      ?><a href="world.php?id=<?php echo $titlerow['title']; ?>"><?php echo $selectednpc; ?></a><?php
       if ($titlerow['npc_title'] != '') {
       echo (' :: '.$titlerow['npc_title']);
     }
@@ -470,7 +480,7 @@ if ($sidebartype == "establishment") {
   $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
   while($row2 = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
     $entry1 = addslashes($row2['title']);
-    ?><p><a onClick="modalChange('<?php echo $entry1; ?>')"> <?php echo $row2['title']; ?></a></p><?php
+    ?><p><a href="world.php?id=<?php echo $row2['title']; ?>"> <?php echo $row2['title']; ?> :: <?php echo $row2['npc_title']; ?></a></p><?php
   }
   echo ('</td><td class="loctable">');
   $sqlcompendium = "SELECT * FROM world WHERE title LIKE '%{$id}%'";
