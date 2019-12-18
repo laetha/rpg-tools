@@ -42,6 +42,7 @@
       <!-- Page Header -->
       <div class="col-md-12">
       <div class="pagetitle" id="pgtitle">Region Map</div>
+      <div style="color:white;" id="test">?????</div>
     </div>
       <div class="body sidebartext col-xs-12" id="body">
 
@@ -52,10 +53,11 @@
           border: 1px solid #ccc;
           margin-bottom: 10px;
         }
-        </style>
+                </style>
 
         <div id="image-map"></div>
 <script>
+
 // Using leaflet.js to pan and zoom a big image.
 // See also: http://kempe.net/blog/2014/06/14/leaflet-pan-zoom-image.html
 
@@ -78,10 +80,13 @@ var overlayMaps = {
     "Map Feautures": mapFeatures,
     "Campaign Log": mapLog,
     "Compendium": mapCompendium
+};
+
+var baseMaps = {
 
 };
 
-L.control.layers(null, overlayMaps).addTo(map);
+L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 
 // dimensions of the image
@@ -106,42 +111,7 @@ var popup = L.popup();
 
 </script>
 
-<?php
-$worldtitle = "SELECT * FROM world WHERE coord NOT LIKE ''";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-$mrk = 1;
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  ?>
-  <script>
-  var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
-  var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
-  <?php if ($row['est_type'] == 'inn'){ ?>
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-inn.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  <?php } 
-  elseif ($row['est_type'] == 'blacksmith'){ ?>
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-blacksmith.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  <?php } 
-  elseif ($row['est_type'] == 'Jeweler'){ ?>
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-jeweler.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  <?php } 
-  elseif ($row['est_type'] == 'alchemist'){ ?>
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-alchemist.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  <?php } 
-  elseif ($row['est_type'] == 'enchanter'){ ?>
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/icon-enchanter.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  <?php } 
-  else { ?>
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  <?php } ?>
-  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup('<a href="world.php?id=<?php echo $row['title']; ?>" target="_BLANK"><?php echo $row['title']; ?></a>');
-//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
-  marker<?php echo $mrk; ?>.addTo(mapCompendium);
-  </script>
-  <?php
-    $mrk = $mrk + 1;
 
-}
- ?>
 
 <?php
 $worldtitle = "SELECT * FROM campaignlog WHERE active = 1 AND worlduser LIKE '$loguser'";
@@ -207,7 +177,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
         while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
           $temptitle = $row['title'];
           echo ('<tr>');
-          echo ('<td><a onclick="movemap'.$row['id'].'()">'.$row['coord'].'</a></td>'); ?>
+          echo ('<td>'.$row['coord'].'</td>'); ?>
           <script>
           function movemap<?php echo $row['id'] ?>() {
               map.setView(new L.LatLng(<?php echo $row['coord']; ?>), 4);
@@ -235,7 +205,12 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
  </tbody>
  </table>
  <script>
+
+
  $(document).ready(function() {
+
+
+
  // Setup - add a text input to each footer cell
  $('#faction tfoot th').each( function () {
    var title = $(this).text();
@@ -244,6 +219,52 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
  // DataTable
  var table = $('#faction').DataTable();
+ var markerPos = [];
+      var pinAnchor = [];
+      var pin = [];
+      var marker = [];
+
+ function filterMarkers(){
+    mapCompendium.clearLayers();
+
+    table.rows({search:'applied'}).every(function(index){
+      var row = table.row(index);
+      var data = row.data();
+      var coord = data[0];
+      var vtitle = data[1];
+      var vtype = data[2];
+      $('#test').html(coord);
+      var coords = coord.split(', ');
+  markerPos[index] = new L.LatLng(coords[0],coords[1]);
+  pinAnchor[index] = new L.Point(10, 32);
+ if (vtype == 'inn'){
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-inn.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+ else if (vtype == 'blacksmith'){
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-blacksmith.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+ else if (vtype == 'Jeweler'){
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-jeweler.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+ else if (vtype == 'alchemist'){
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-alchemist.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+ else if (vtype == 'enchanter'){
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-enchanter.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+ else {
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+  marker[index] = new L.marker(markerPos[index], { icon: pin[index] }).addTo(map).bindPopup('<a href="world.php?id=' + vtitle + '" target="_BLANK">' + vtitle + '</a>');
+
+  marker[index].addTo(mapCompendium);
+  
+    });
+}
+
+$("input[type='search']").on("keyup", function () {
+  filterMarkers();
+});
 
  // Apply the search
  table.columns().every( function () {
@@ -255,9 +276,13 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
                .search( this.value )
                .draw();
        }
+      filterMarkers();
    } );
  } );
  } );
+
+ 
+
  </script>
  </div>
 </div>
