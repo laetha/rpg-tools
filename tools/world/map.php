@@ -76,17 +76,15 @@ var mapFeatures = L.layerGroup();
 var mapLog = L.layerGroup();
 var mapCompendium = L.layerGroup();
 
+
 var overlayMaps = {
     "Map Feautures": mapFeatures,
     "Campaign Log": mapLog,
     "Compendium": mapCompendium
 };
 
-var baseMaps = {
 
-};
-
-L.control.layers(baseMaps, overlayMaps).addTo(map);
+L.control.layers(null, overlayMaps).addTo(map);
 
 
 // dimensions of the image
@@ -208,8 +206,30 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
 
  $(document).ready(function() {
+   var x = document.getElementsByClassName("leaflet-control-layers-selector");
+   var i;
+   setTimeout(function () {
+for (i = 0; i < x.length; i++) {
+  x[i].click();
+    }
+}, 300);
 
+setTimeout(function () {
+for (i = 0; i < x.length; i++) {
+  x[i].click();
+    }
+}, 400);
 
+setTimeout(function () {
+for (i = 0; i < x.length; i++) {
+  x[i].click();
+    }
+}, 500);
+
+setTimeout(function () {
+  filterMarkers();
+}, 200);
+    
 
  // Setup - add a text input to each footer cell
  $('#faction tfoot th').each( function () {
@@ -226,7 +246,6 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 
  function filterMarkers(){
     mapCompendium.clearLayers();
-
     table.rows({search:'applied'}).every(function(index){
       var row = table.row(index);
       var data = row.data();
@@ -258,6 +277,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
   marker[index] = new L.marker(markerPos[index], { icon: pin[index] }).addTo(map).bindPopup('<a href="world.php?id=' + vtitle + '" target="_BLANK">' + vtitle + '</a>');
 
   marker[index].addTo(mapCompendium);
+
   
     });
 }
