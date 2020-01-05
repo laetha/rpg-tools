@@ -149,30 +149,30 @@ include_once($headpath);
             </select>
 
             <!--<textarea type="text" name="monsterTrait1" id="monsterTrait1" placeholder="monsterTrait1" style="height:20px;"></textarea>-->
-            <textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait3" id="monsterTrait3" placeholder="monsterTrait3" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait4" id="monsterTrait4" placeholder="monsterTrait4" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait5" id="monsterTrait5" placeholder="monsterTrait5" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait6" id="monsterTrait6" placeholder="monsterTrait6" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait7" id="monsterTrait7" placeholder="monsterTrait7" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait8" id="monsterTrait8" placeholder="monsterTrait8" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction1" id="monsterAction1" placeholder="monsterAction1" style="height:20px;"></textarea>
-            <textarea type="text" name="monsterAction2" id="monsterAction2" placeholder="monsterAction2" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction3" id="monsterAction3" placeholder="monsterAction3" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction4" id="monsterAction4" placeholder="monsterAction4" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction5" id="monsterAction5" placeholder="monsterAction5" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction6" id="monsterAction6" placeholder="monsterAction6" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction7" id="monsterAction7" placeholder="monsterAction7" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterAction8" id="monsterAction8" placeholder="monsterAction8" style="height:20px;"></textarea>
-            <textarea type="text" name="monsterLegendary1" id="monsterLegendary1" placeholder="monsterLegendary1" style="height:20px;"></textarea>
-            <textarea type="text" name="monsterLegendary2" id="monsterLegendary2" placeholder="monsterLegendary2" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterLegendary3" id="monsterLegendary3" placeholder="monsterLegendary3" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterLegendary4" id="monsterLegendary4" placeholder="monsterLegendary4" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterLegendary5" id="monsterLegendary5" placeholder="monsterLegendary5" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterLegendary6" id="monsterLegendary6" placeholder="monsterLegendary6" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterLegendary7" id="monsterLegendary7" placeholder="monsterLegendary7" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterLegendary8" id="monsterLegendary8" placeholder="monsterLegendary8" style="height:20px;"></textarea>
-            <textarea type="text" name="monsterReaction" id="monsterReaction" placeholder="monsterReaction" style="height:20px;"></textarea>
+            <textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterTrait3" id="monsterTrait3" placeholder="monsterTrait3" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterTrait4" id="monsterTrait4" placeholder="monsterTrait4" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterTrait5" id="monsterTrait5" placeholder="monsterTrait5" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterTrait6" id="monsterTrait6" placeholder="monsterTrait6" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterTrait7" id="monsterTrait7" placeholder="monsterTrait7" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterTrait8" id="monsterTrait8" placeholder="monsterTrait8" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction1" id="monsterAction1" placeholder="monsterAction1" style="height:200px;"></textarea>
+            <textarea type="text" name="monsterAction2" id="monsterAction2" placeholder="monsterAction2" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction3" id="monsterAction3" placeholder="monsterAction3" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction4" id="monsterAction4" placeholder="monsterAction4" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction5" id="monsterAction5" placeholder="monsterAction5" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction6" id="monsterAction6" placeholder="monsterAction6" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction7" id="monsterAction7" placeholder="monsterAction7" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterAction8" id="monsterAction8" placeholder="monsterAction8" style="height:200px;"></textarea>
+            <textarea type="text" name="monsterLegendary1" id="monsterLegendary1" placeholder="monsterLegendary1" style="height:200px;"></textarea>
+            <textarea type="text" name="monsterLegendary2" id="monsterLegendary2" placeholder="monsterLegendary2" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterLegendary3" id="monsterLegendary3" placeholder="monsterLegendary3" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterLegendary4" id="monsterLegendary4" placeholder="monsterLegendary4" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterLegendary5" id="monsterLegendary5" placeholder="monsterLegendary5" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterLegendary6" id="monsterLegendary6" placeholder="monsterLegendary6" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterLegendary7" id="monsterLegendary7" placeholder="monsterLegendary7" style="height:200px;"></textarea> 
+            <textarea type="text" name="monsterLegendary8" id="monsterLegendary8" placeholder="monsterLegendary8" style="height:200px;"></textarea>
+            <textarea type="text" name="monsterReaction" id="monsterReaction" placeholder="monsterReaction" style="height:200px;"></textarea>
             
 
             </div>
