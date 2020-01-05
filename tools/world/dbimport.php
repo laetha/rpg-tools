@@ -12,7 +12,7 @@ include_once($headpath);
 <!-- Import Form -->
 <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
     <div class ="body bodytext">
-  <h1 class="pagetitle">Add to World</h1>
+  <h1 class="pagetitle">Add to Copendium</h1>
 <div class="col-md-10 col-centered">
   <div class="col-sm-6 typebox col-centered" id="name">
       <form method="post" action="dbprocess.php" id="compendium" enctype="multipart/form-data">
@@ -137,7 +137,18 @@ include_once($headpath);
             <textarea type="text" name="monsterPassive" id="monsterPassive" placeholder="monsterPassive" style="height:20px;"></textarea>
             <textarea type="text" name="monsterLanguages" id="monsterLanguages" placeholder="monsterLanguages" style="height:20px;"></textarea>
             <textarea type="text" name="monsterCr" id="monsterCr" placeholder="monsterCr" style="height:20px;"></textarea> 
-            <textarea type="text" name="monsterTrait1" id="monsterTrait1" placeholder="monsterTrait1" style="height:20px;"></textarea>
+            <select form="compendium" name="monsterTrait1" id="monsterTrait1-form">
+              <?php
+                  $locationdrop = "SELECT DISTINCT monsterTrait1 FROM `compendium` WHERE monsterTrait1 NOT LIKE '%p.%'";
+                  $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+                  while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                    $source = $locationrow['monsterTrait1'];
+                  echo "<option value=\"$source\">$source</option>";
+                  }
+              ?>
+            </select>
+
+            <!--<textarea type="text" name="monsterTrait1" id="monsterTrait1" placeholder="monsterTrait1" style="height:20px;"></textarea>-->
             <textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:20px;"></textarea> 
             <textarea type="text" name="monsterTrait3" id="monsterTrait3" placeholder="monsterTrait3" style="height:20px;"></textarea> 
             <textarea type="text" name="monsterTrait4" id="monsterTrait4" placeholder="monsterTrait4" style="height:20px;"></textarea> 
