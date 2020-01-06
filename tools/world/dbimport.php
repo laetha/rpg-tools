@@ -147,6 +147,12 @@ include_once($headpath);
                   }
               ?>
             </select>
+            <script type="text/javascript">
+              $('#monsterTrait1-form').selectize({
+          create: true,
+          sortField: 'text'
+      });
+              </script>
 
             <!--<textarea type="text" name="monsterTrait1" id="monsterTrait1" placeholder="monsterTrait1" style="height:20px;"></textarea>-->
             <textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:200px;"></textarea> 
