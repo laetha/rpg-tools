@@ -251,7 +251,7 @@ $sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpe
 				VALUES('$name','$type','$raceSize','$raceSpeed','$raceAbility','$raceSpellAbility','$raceProficiency','$raceTraits','$itemText','$itemType','$itemStock','$itemDetail','$itemValue','$itemMagic','$backgroundProficiency','$backgroundTraits','$monsterSize','$monsterType','$monsterAlignment','$monsterAc','$monsterHp','$monsterSpeed','$monsterStr','$monsterDex','$monsterCon','$monsterInt','$monsterWis','$monsterCha','$monsterSave','$monsterSkill','$monsterResist','$monsterVulnerable','$monsterImmune','$monsterConditionImmune','$monsterSenses','$monsterPassive','$monsterLanguages','$monsterCr','$monsterTrait1','$monsterTrait2','$monsterTrait3','$monsterTrait4','$monsterTrait5','$monsterTrait6','$monsterTrait7','$monsterTrait8','$monsterAction1','$monsterAction2','$monsterAction3','$monsterAction4','$monsterAction5','$monsterAction6','$monsterAction7','$monsterAction8','$monsterLegendary1','$monsterLegendary2','$monsterLegendary3','$monsterLegendary4','$monsterLegendary5','$monsterLegendary6','$monsterLegendary7','$monsterLegendary8','$monsterReaction')";
   }
         if ($dbcon->query($sql) === TRUE) {
-					include('success.php');
+					include('dbsuccess.php');
 					include('dbimport.php');
         }
 				else {
