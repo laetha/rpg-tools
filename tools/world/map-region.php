@@ -5,7 +5,7 @@
    include_once($sqlpath);
 
    //Header
-   $pgtitle = 'City Map - ';
+   $pgtitle = 'Region Map - ';
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
@@ -41,7 +41,7 @@
 
       <!-- Page Header -->
       <div class="col-md-12">
-      <div class="pagetitle" id="pgtitle">City Map</div>
+      <div class="pagetitle" id="pgtitle">Region Map</div>
       <p><button class="btn btn-info" id="addbutton">Add to Log</button></p>
 
       
@@ -61,7 +61,7 @@
         <input name="logmap" value="0" type="hidden">
         <div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
         <button type="button" class="btn btn-primary" onclick="myGen()">Gen</button></div>
-        <div class="hide"><input class="searchbox" style="width:100%;" type="text" name="maptype" id="maptype" value="city"></div>
+        <div class="hide"><input class="searchbox" style="width:100%;" type="text" name="maptype" id="maptype" value="region"></div>
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
     </form>
   </div>
@@ -97,7 +97,7 @@
     </tfoot>
     <tbody id="thelog">
       <?php
-      $logtitle = "SELECT * FROM campaignlog WHERE active=1 AND worlduser LIKE '$loguser' AND maptype LIKE 'city' ORDER BY date DESC ";
+      $logtitle = "SELECT * FROM campaignlog WHERE active=1 AND worlduser LIKE '$loguser' AND maptype LIKE 'region' ORDER BY date DESC ";
       $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
       while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
         echo ('<tr><td>');
@@ -230,9 +230,9 @@ L.control.layers(null, overlayMaps).addTo(map);
 
 
 // dimensions of the image
-var w = 2259*6,
-    h = 1435*6,
-    url = '/assets/images/City2.png';
+var w = 5040*2,
+    h = 3308*2,
+    url = '/assets/images/campaign-2-map.jpg';
 
 // calculate the edges of the image, in coordinate space
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);
@@ -267,7 +267,7 @@ map.on('click', onMapClick);
 
 
 <?php
-$worldtitle = "SELECT * FROM campaignlog WHERE active = 1 AND worlduser LIKE '$loguser' AND maptype LIKE 'city'";
+$worldtitle = "SELECT * FROM campaignlog WHERE active = 1 AND worlduser LIKE '$loguser' AND maptype LIKE 'region'";
 $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
 $mrk = 1;
 while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
@@ -291,25 +291,23 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
       <thead class="thead-dark">
           <tr>
               <th scope="col">Coord</th>
-             <th scope="col">Establishment</th>
-             <th scope="col">Type</th>
-             <th scope="col">Proprieter</th>
+             <th scope="col">Text</th>
+            
           </tr>
       </thead>
       <tfoot>
           <tr>
           <th scope="col">Coord</th>
-             <th scope="col">Establishment</th>
-             <th scope="col">Type</th>
-             <th scope="col">Proprieter</th>
+             <th scope="col">Text</th>
+            
           </tr>
       </tfoot>
       <tbody>
         <?php
-        $logtitle = "SELECT * FROM world WHERE coord NOT LIKE '' AND worlduser LIKE '$loguser'";
-        $logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
-        while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
-          $temptitle = $row['title'];
+        $worldtitle = "SELECT * FROM mapfeatures WHERE active= 1";
+        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
+        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+          //$temptitle = $row['title'];
           echo ('<tr>');
           echo ('<td>'.$row['coord'].'</td>'); ?>
           <script>
@@ -318,20 +316,8 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           }
           </script>
           <?php
-          echo ('<td>'.$row['title'].'</td>');
-          echo ('<td>'.$row['est_type'].'</td>');
-
-        $log1title = "SELECT title FROM world WHERE npc_est LIKE '$temptitle' AND worlduser LIKE '$loguser' LIMIT 1";
-        $log1data = mysqli_query($dbcon, $log1title) or die('error getting data');
-        if ($log1data->num_rows > 0){
-        while($row1 =  mysqli_fetch_array($log1data, MYSQLI_ASSOC)) {
-          echo ('<td>'.$row1['title'].'</td>');
-
-        }
-      }
-      else {
-        echo ('<td></td>');
-      }
+          echo ('<td>'.$row['text'].'</td>');
+        
           echo ('</tr>');
          }
           ?>
@@ -382,7 +368,7 @@ setTimeout(function () {
       var marker = [];
 
  function filterMarkers(){
-    mapCompendium.clearLayers();
+    mapFeatures.clearLayers();
     table.rows({search:'applied'}).every(function(index){
       var row = table.row(index);
       var data = row.data();
@@ -393,27 +379,12 @@ setTimeout(function () {
       var coords = coord.split(', ');
   markerPos[index] = new L.LatLng(coords[0],coords[1]);
   pinAnchor[index] = new L.Point(10, 32);
- if (vtype == 'inn'){
-  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-inn.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
- }
- else if (vtype == 'blacksmith'){
-  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-blacksmith.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
- }
- else if (vtype == 'Jeweler'){
-  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-jeweler.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
- }
- else if (vtype == 'alchemist'){
-  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-alchemist.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
- }
- else if (vtype == 'enchanter'){
-  pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-enchanter.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
- }
- else {
-  pin[index] = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
- }
-  marker[index] = new L.marker(markerPos[index], { icon: pin[index] }).addTo(map).bindPopup('<a href="world.php?id=' + vtitle + '" target="_BLANK">' + vtitle + '</a>');
+ 
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/map-marker-red.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ 
+  marker[index] = new L.marker(markerPos[index], { icon: pin[index] }).addTo(map).bindPopup(vtitle);
 
-  marker[index].addTo(mapCompendium);
+  marker[index].addTo(mapFeatures);
 
   
     });
@@ -453,6 +424,208 @@ else { ?>
   map.setView(new L.LatLng(<?php echo $id; ?>), 4);
 
 <?php } ?>
+</script>
+
+<!-- Map Gen -->
+
+<?php
+$rand1 = rand(0,99);
+$type = '';
+$text1 = '';
+$text2 = '';
+$foundOverall = 0;
+$found2 = 0;
+
+?>
+ <?php
+ $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+ $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+ while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+   if ($rand1 <= $row['num'] && $foundOverall == 0 && $row['type'] == 'overallpre') {
+      $foundOverall = 1;
+      $type = $row['text'];
+      $rand2 = rand(0,99);
+   }
+
+
+}
+
+ $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+ $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+ while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+   if ($type == 'lair' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'lair') {
+       $found2 = 1;
+     $text1 = $row['text'];
+
+     if ($rand2 >= 0 && $rand2 <= 64) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'commonlair') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+    else if ($rand2 >= 65 && $rand2 <= 94) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'uncommonlair') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 95 && $rand2 <= 99) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'legendarylair') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+   }
+
+   if ($type == 'Remote Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'remotestructure') {
+     $found2 = 1;
+     $text1 = $row['text'];
+
+     if ($rand2 >= 0 && $rand2 <= 9) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'singlehouse') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 50 && $rand2 <= 54) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'tower') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 63 && $rand2 <= 65) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'woodenpole') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 79 && $rand2 <= 82) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'workingmine') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+   }
+
+
+   if ($type == 'Ruined Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'ruinedstructure') {
+     $found2 = 1;
+     $text1 = $row['text'];
+   }
+
+   if ($type == 'Natural Structure' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'naturalstructure') {
+     $found2 = 1;
+     $text1 = $row['text'];
+   }
+
+   if ($type == 'Remarkable Event' && $rand2 <= $row['num'] && $found2 == 0 && $row['type'] == 'remarkableevent') {
+     $found2 = 1;
+     $text1 = $row['text'];
+
+     if ($rand2 >= 15 && $rand2 <= 19) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'glowingpillar') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+     else if ($rand2 >= 20 && $rand2 <= 24) {
+       $rand3 = rand(0,99);
+       $found3 = 0;
+       $typeedit = "SELECT * FROM `encounters` ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand3 <= $row['num'] && $found3 == 0 && $row['type'] == 'blacktree') {
+           $found3 = 1;
+           $text2 = $row['text'];
+         }
+
+       }
+
+     }
+
+
+   }
+ }
+
+$mapgen = $type.' :: '. $text1.' :: '.$text2;
+
+?>
+<script>
+function myGen() {
+  document.getElementById("logentry").value = '<?php echo $mapgen; ?>';
+}
 </script>
 
    <?php
