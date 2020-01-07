@@ -232,7 +232,7 @@ L.control.layers(null, overlayMaps).addTo(map);
 // dimensions of the image
 var w = 5040*2,
     h = 3308*2,
-    url = '/assets/images/campaign-2-map.jpg';
+    url = '/assets/images/campaign-2-map-grid.jpg';
 
 // calculate the edges of the image, in coordinate space
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);

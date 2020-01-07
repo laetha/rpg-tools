@@ -137,7 +137,8 @@ else {
 				<ul class="dropdown-menu">
 					<li><a href="/tools/campaign-log/campaign-log.php">Campaign Log</a></li>
 <?php if ($loguser == 'tarfuin') { ?>
-					<li><a href="/tools/world/map.php">World Map</a></li>
+					<li><a href="/tools/world/map-region.php">Region Map</a></li>
+					<li><a href="/tools/world/map.php">City Map</a></li>
 					<li><a href="/tools/resources/calendar.php">Calendar</a></li>
 					<li><a href="/tools/world/dbimport.php">Add to Compendium</a></li>
 					<?php  } ?>
