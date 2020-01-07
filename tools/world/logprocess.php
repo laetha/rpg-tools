@@ -26,8 +26,8 @@ $maptype=htmlentities(trim(addslashes($maptypetemp)));
 
 //Execute the query
 if ($map == 1){
-	$sql = "INSERT INTO mapfeatures(coord,text,active)
-					VALUES('$coord','$entry','$active')";
+	$sql = "INSERT INTO mapfeatures(coord,text,active,maptype)
+					VALUES('$coord','$entry','$active','$maptype')";
 
 	        if ($dbcon->query($sql) === TRUE) {
 						?>

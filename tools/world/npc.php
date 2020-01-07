@@ -32,6 +32,8 @@
                <tr>
                    <th scope="col">Name</th>
 
+                   <th scope="col">Title</th>
+
                    <th scope="col">Establishment</th>
 
                    <th scope="col">Location</th>
@@ -45,6 +47,8 @@
            <tfoot>
              <tr>
                <th scope="col">Name</th>
+
+               <th scope="col">Title</th>
 
                <th scope="col">Establishment</th>
 
@@ -71,6 +75,7 @@
                echo "<a href=\"world.php?id=$entry\">";
                echo $entry;
                echo "</a></td>";
+               echo ('<td>'.$row['npc_title'].'</td>');
                echo "<td><a href=\"world.php?id=$entryest\">".$entryest."</a></td>";
                echo "<td><a href=\"world.php?id=$entryloc\">".$entryloc."</a></td>";
                echo "<td><a href=\"world.php?id=$entryfac\">".$entryfac."</a></td>";

@@ -232,7 +232,7 @@ L.control.layers(null, overlayMaps).addTo(map);
 // dimensions of the image
 var w = 5040*2,
     h = 3308*2,
-    url = '/assets/images/campaign-2-map-grid.jpg';
+    url = '/assets/images/Campaign-2-map-grid.jpg';
 
 // calculate the edges of the image, in coordinate space
 var southWest = map.unproject([0, h], map.getMaxZoom()-1);
@@ -304,7 +304,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
       </tfoot>
       <tbody>
         <?php
-        $worldtitle = "SELECT * FROM mapfeatures WHERE active= 1";
+        $worldtitle = "SELECT * FROM mapfeatures WHERE active= 1 AND maptype LIKE 'region'";
         $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
         while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           //$temptitle = $row['title'];
