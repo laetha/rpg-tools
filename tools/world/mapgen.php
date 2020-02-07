@@ -264,7 +264,81 @@ else if (preg_match('/\bLarge Castle\b/', $mapgen)) {
 	}
 }
 
+else if (preg_match('/\bDressing\b/', $mapgen)) {
 
+	$rand8 = rand(1,100);
+       $found9 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'plainsdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found9 == 0) {
+			$found9= 1;
+           $mapgen = '<em>Plains:</em> '.$row['text'];
+         }
+  }
+  
+  $found10 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'mountainsdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found10 == 0) {
+			$found10 = 1;
+           $mapgen = $mapgen.'<p><em>Mountains:</em>'.$row['text'];
+         }
+  }
+
+
+  $found11 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'desertdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found11 == 0) {
+			$found11 = 1;
+           $mapgen = $mapgen.'<p><em>Desert:</em> '.$row['text'];
+         }
+  }
+
+  $found12 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'swampdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found12 == 0) {
+			$found12 = 1;
+           $mapgen = $mapgen.'<p></em>Swamp:</em> '.$row['text'];
+         }
+  }
+
+  $found13 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'forestdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found13 == 0) {
+			$found13 = 1;
+           $mapgen = $mapgen.'<p><em>Forest:</em> '.$row['text'];
+         }
+  }
+
+  $found14 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'coastdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found14 == 0) {
+			$found14 = 1;
+           $mapgen = $mapgen.'<p><em>Coast:</em> '.$row['text'];
+         }
+  }
+
+  $found15 = 0;
+       $typeedit = "SELECT * FROM `encounters` WHERE type LIKE 'hillsdressing' ORDER BY num";
+       $typedata = mysqli_query($dbcon, $typeedit) or die('error getting data');
+       while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
+         if ($rand8 <= $row['num'] && $found15 == 0) {
+			$found15 = 1;
+           $mapgen = $mapgen.'<p><em>Hills:</em> '.$row['text'];
+         }
+  }
+
+}
 
 $active = 1;
 
