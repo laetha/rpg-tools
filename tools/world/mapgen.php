@@ -273,7 +273,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found9 == 0) {
 			$found9= 1;
-           $mapgen = '<em>Plains:</em> '.$row['text'];
+           $mapgen = '<b>Plains:</b> '.$row['text'];
          }
   }
   
@@ -283,7 +283,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found10 == 0) {
 			$found10 = 1;
-           $mapgen = $mapgen.'<p><em>Mountains:</em>'.$row['text'];
+           $mapgen = $mapgen.'<p><b>Mountains:</b> '.$row['text'];
          }
   }
 
@@ -294,7 +294,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found11 == 0) {
 			$found11 = 1;
-           $mapgen = $mapgen.'<p><em>Desert:</em> '.$row['text'];
+           $mapgen = $mapgen.'<p><b>Desert:</b> '.$row['text'];
          }
   }
 
@@ -304,7 +304,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found12 == 0) {
 			$found12 = 1;
-           $mapgen = $mapgen.'<p></em>Swamp:</em> '.$row['text'];
+           $mapgen = $mapgen.'<p><b>Swamp:</b> '.$row['text'];
          }
   }
 
@@ -314,7 +314,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found13 == 0) {
 			$found13 = 1;
-           $mapgen = $mapgen.'<p><em>Forest:</em> '.$row['text'];
+           $mapgen = $mapgen.'<p><b>Forest:</b> '.$row['text'];
          }
   }
 
@@ -324,7 +324,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found14 == 0) {
 			$found14 = 1;
-           $mapgen = $mapgen.'<p><em>Coast:</em> '.$row['text'];
+           $mapgen = $mapgen.'<p><b>Coast:</b> '.$row['text'];
          }
   }
 
@@ -334,7 +334,7 @@ else if (preg_match('/\bDressing\b/', $mapgen)) {
        while($row =  mysqli_fetch_array($typedata, MYSQLI_ASSOC)) {
          if ($rand8 <= $row['num'] && $found15 == 0) {
 			$found15 = 1;
-           $mapgen = $mapgen.'<p><em>Hills:</em> '.$row['text'];
+           $mapgen = $mapgen.'<p><b>Hills:</b> '.$row['text'];
          }
   }
 

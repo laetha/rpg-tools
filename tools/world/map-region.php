@@ -316,7 +316,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
           }
           </script>
           <?php
-          echo ('<td>'.$row['text'].'</td>');
+          echo ('<td>'.htmlspecialchars_decode($row['text'].'</td>'));
         
           echo ('</tr>');
          }
