@@ -106,14 +106,10 @@ include_once($headpath);
 <div class="text col-centered col-md-6"><textarea type="text" name="itemValue" id="itemValue" placeholder="itemValue" style="height:50px;"></textarea></div>
 </div>
 <div id="monster-form" style="display:none;">
-<select form="compendium" name="monsterSize" id="monsterSize-form">
-              <option value="tiny">Tiny</option>
-              <option value="small">Small</option>
-              <option value="medium" selected>Medium</option>
-              <option value="large">Large</option>
-              <option value="huge">Huge</option>
-              <option value="gargantuan">Gargantuan</option>
-            </select>
+<div class="text col-centered col-md-6"><textarea type="text" name="monsterBlock" id="monsterBlock" placeholder="monsterBlock" style="height:50px;" onKeyUp="monBlock()"></textarea></div>
+
+<div style="display:none;">            <div class="text col-centered col-md-6"><textarea type="text" name="monsterSize" id="monsterSize-form" placeholder="monsterSize" style="height:50px;"></textarea></div>
+
 
             <div class="text col-centered col-md-6"><textarea type="text" name="monsterType" id="monsterType" placeholder="monsterType" style="height:50px;"></textarea></div>
             <div class="text col-centered col-md-6"><textarea type="text" name="monsterAlignment" id="monsterAlignment" placeholder="monsterAlignment" style="height:50px;"></textarea></div>
@@ -136,7 +132,7 @@ include_once($headpath);
             <textarea type="text" name="monsterSenses" id="monsterSenses" placeholder="monsterSenses" style="height:20px;"></textarea>
             <textarea type="text" name="monsterPassive" id="monsterPassive" placeholder="monsterPassive" style="height:20px;"></textarea>
             <textarea type="text" name="monsterLanguages" id="monsterLanguages" placeholder="monsterLanguages" style="height:20px;"></textarea>
-            <textarea type="text" name="monsterCr" id="monsterCr" placeholder="monsterCr" style="height:20px;"></textarea> 
+            <textarea type="text" name="monsterCr" id="monsterCr" placeholder="monsterCr" style="height:20px;"></textarea></div>
             <select form="compendium" name="monsterTrait1" id="monsterTrait1-form">
               <?php
                   $locationdrop = "SELECT DISTINCT monsterTrait1 FROM `compendium` WHERE monsterTrait1 NOT LIKE '%p.%'";
@@ -155,7 +151,7 @@ include_once($headpath);
               </script>
 
             <!--<textarea type="text" name="monsterTrait1" id="monsterTrait1" placeholder="monsterTrait1" style="height:20px;"></textarea>-->
-            <textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:200px;"></textarea> 
+           <div style="display:none;"><textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterTrait3" id="monsterTrait3" placeholder="monsterTrait3" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterTrait4" id="monsterTrait4" placeholder="monsterTrait4" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterTrait5" id="monsterTrait5" placeholder="monsterTrait5" style="height:200px;"></textarea> 
@@ -178,10 +174,266 @@ include_once($headpath);
             <textarea type="text" name="monsterLegendary6" id="monsterLegendary6" placeholder="monsterLegendary6" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterLegendary7" id="monsterLegendary7" placeholder="monsterLegendary7" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterLegendary8" id="monsterLegendary8" placeholder="monsterLegendary8" style="height:200px;"></textarea>
-            <textarea type="text" name="monsterReaction" id="monsterReaction" placeholder="monsterReaction" style="height:200px;"></textarea>
+            <textarea type="text" name="monsterReaction" id="monsterReaction" placeholder="monsterReaction" style="height:200px;"></textarea></div>
             
 
             </div>
+
+  <script>
+  function monBlock(){
+    var monsterBlock = $('#monsterBlock').val();
+    monsterBlock = monsterBlock.trim();
+    var monName = monsterBlock.substr(0, monsterBlock.indexOf('\n'));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf('\n')+1);
+    var monsterSize = monsterBlock.substr(0, monsterBlock.indexOf(' '));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf(' ')+1);
+    var monsterType = monsterBlock.substr(0, monsterBlock.indexOf(', '));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf(', ')+1);
+    var monsterAlignment = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Armor Class ")+12);
+    var monsterAc = monsterBlock.substr(0, monsterBlock.indexOf("Hit Points "));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Hit Points ")+11);
+    var monsterHp = monsterBlock.substr(0, monsterBlock.indexOf("Speed "));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Speed ")+6);
+    var monsterSpeed = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf(monsterSpeed)+monsterSpeed.length);
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("STR\n")+4);
+    var monsterStr = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("DEX\n")+4);
+    var monsterDex = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("CON\n")+4);
+    var monsterCon = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("INT\n")+4);
+    var monsterInt = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("WIS\n")+4);
+    var monsterWis = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("CHA\n")+4);
+    var monsterCha = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf(")\n")+2);
+    var monsterSave='';
+    if (monsterBlock.startsWith('Saving Throws') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Saving Throws ")+14);
+      monsterSave = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    }
+    var monsterSkill='';
+    if (monsterBlock.startsWith('Skills') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Skills ")+7);
+      monsterSkill = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    }
+    var monsterVulnerable='';
+    if (monsterBlock.startsWith('Damage Vulnerabilities') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Damage Vulnerabilities ")+23);
+      monsterVulnerable = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    }
+    var monsterResist='';
+    if (monsterBlock.startsWith('Damage Resistances') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Damage Resistances ")+19);
+      monsterResist = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    }
+    var monsterImmune='';
+    if (monsterBlock.startsWith('Damage Immunities') == true ){
+      var immune = "Damage Immunities ";
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Damage Immunities ")+18);
+      monsterImmune = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    }
+    var monsterConditionImmune='';
+    if (monsterBlock.startsWith('Condition Immunities') == true ){
+      var conditionImmune = "Condition Immunities ";
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Condition Immunities ")+21);
+      monsterConditionImmune = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    }
+
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Senses ")+7);
+    var monsterSenses = monsterBlock.substr(0, monsterBlock.indexOf(" Passive"));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf(monsterSenses)+monsterSenses.length);
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Perception ")+11);
+    var monsterPassive = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Languages ")+10);
+    var monsterLanguages = monsterBlock.substr(0, monsterBlock.indexOf("\n"));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Challenge ")+10);
+    var monsterCr = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
+    var monsterTrait2 = '';
+    if (monsterBlock.startsWith('Actions') == false ){
+      monsterTrait2 = monsterBlock.substr(0, monsterBlock.indexOf("Actions"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Actions\n"));
+    }
+
+    var monsterAction1 = '';
+    if (monsterBlock.includes('Legendary Actions\n') == true){
+      monsterAction1 = monsterBlock.substr(0, monsterBlock.indexOf("Legendary Actions"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Legendary Actions"));
+    }
+    else if (monsterBlock.includes('Reactions\n') == true ){
+      monsterAction1 = monsterBlock.substr(0, monsterBlock.indexOf("Reactions"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Reactions"));
+    }
+    else {
+      monsterAction1 = monsterBlock;
+      monsterBlock = '';
+    }
+   /* var monsterAction2 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction2 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction3 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction1 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction3 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction3 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction4 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction4 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction5 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction5 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction6 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction6 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction7 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction7 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterAction8 = '';
+    if (monsterBlock.startsWith('Legendary') == false ){
+      monsterAction8 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }*/
+
+    //monsterBlock = monsterBlock.substr(monsterBlock.indexOf("its turn.")+11);
+
+    var monsterLegendary1 = '';
+    if (monsterBlock.includes('Legendary Actions\n') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Legendary Actions")+19);
+      if (monsterBlock.includes('Reactions\n') == true ){
+      monsterLegendary1 = monsterBlock.substr(0, monsterBlock.indexOf("Reactions"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Reactions"));
+      }
+      else {
+        monsterLegendary1 = monsterBlock;
+      }
+    }
+    else {
+      
+    }
+    /*var monsterLegendary2 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary2 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterLegendary3 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary3 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterLegendary4 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary4 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterLegendary5 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary5 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterLegendary6 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary6 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterLegendary7 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary7 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+    var monsterLegendary8 = '';
+    if (monsterBlock.startsWith('Reactions') == false ){
+      monsterLegendary8 = monsterBlock.substr(0, monsterBlock.indexOf("\n\n"));
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n\n")+2);
+    }
+*/
+    var monsterReaction = '';
+    if (monsterBlock.includes('Reactions\n') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Reactions")+11);
+      monsterReaction = monsterBlock;
+    }
+    else{
+      monsterBlock = '';
+      monsterReaction = '';
+    }
+    $('#name').attr('value',monName);
+    $('#monsterSize-form').attr('value',monsterSize);
+    $('#monsterType').attr('value',monsterType);
+    $('#monsterAlignment').attr('value',monsterAlignment);
+    $('#monsterAc').attr('value',monsterAc);
+    $('#monsterHp').attr('value',monsterHp);
+    $('#monsterSpeed').attr('value',monsterSpeed);
+    $('#monsterStr').attr('value',monsterStr);
+    $('#monsterDex').attr('value',monsterDex);
+    $('#monsterCon').attr('value',monsterCon);
+    $('#monsterInt').attr('value',monsterInt);
+    $('#monsterWis').attr('value',monsterWis);
+    $('#monsterCha').attr('value',monsterCha);
+    $('#monsterSave').attr('value',monsterSave);
+    $('#monsterSkill').attr('value',monsterSkill);
+    $('#monsterVulnerable').attr('value',monsterVulnerable);
+    $('#monsterResist').attr('value',monsterResist);
+    $('#monsterImmune').attr('value',monsterImmune);
+    $('#monsterConditionImmune').attr('value',monsterConditionImmune);
+    $('#monsterSenses').attr('value',monsterSenses);
+    $('#monsterPassive').attr('value',monsterPassive);
+    $('#monsterLanguages').attr('value',monsterLanguages);
+    $('#monsterCr').attr('value',monsterCr);
+    $('#monsterTrait2').attr('value',monsterTrait2);
+    /*$('#monsterTrait3').attr('value',monsterTrait3);
+    $('#monsterTrait4').attr('value',monsterTrait4);
+    $('#monsterTrait5').attr('value',monsterTrait5);
+    $('#monsterTrait6').attr('value',monsterTrait6);
+    $('#monsterTrait7').attr('value',monsterTrait7);
+    $('#monsterTrait8').attr('value',monsterTrait8);*/
+    $('#monsterAction1').attr('value',monsterAction1);
+    /*$('#monsterAction2').attr('value',monsterAction2);
+    $('#monsterAction3').attr('value',monsterAction3);
+    $('#monsterAction4').attr('value',monsterAction4);
+    $('#monsterAction5').attr('value',monsterAction5);
+    $('#monsterAction6').attr('value',monsterAction6);
+    $('#monsterAction7').attr('value',monsterAction7);
+    $('#monsterAction8').attr('value',monsterAction8);*/
+    $('#monsterLegendary1').attr('value',monsterLegendary1);
+    /*$('#monsterLegendary2').attr('value',monsterLegendary2);
+    $('#monsterLegendary3').attr('value',monsterLegendary3);
+    $('#monsterLegendary4').attr('value',monsterLegendary4);
+    $('#monsterLegendary5').attr('value',monsterLegendary5);
+    $('#monsterLegendary6').attr('value',monsterLegendary6);
+    $('#monsterLegendary7').attr('value',monsterLegendary7);
+    $('#monsterLegendary8').attr('value',monsterLegendary8);*/
+    $('#monsterReaction').attr('value',monsterReaction);
+    $('#monsterChunk').attr('value',monsterBlock);
+    $('#checktest').attr('value',checktest);
+  };
+  </script>
 </div>
 <div id="race-form" style="display:none;">
 <select form="compendium" name="raceSize" id="raceSize-form">
