@@ -16,7 +16,7 @@ include_once($headpath);
 <div class="col-md-10 col-centered">
   <div class="col-sm-6 typebox col-centered" id="name">
       <form method="post" action="dbprocess.php" id="compendium" enctype="multipart/form-data">
-      <div class="text">Name</div><input class="textbox" type="text" name="name" id="name" placeholder="Name...">
+      <div class="text">Name</div><input class="textbox" type="text" name="name" id="monname" placeholder="Name...">
 </div>
 <!-- 'Type' Dropbox -->
 <div class="hide"><input type="text" name="worlduser" id="worlduser" value="<?php echo $loguser; ?>"></div>
@@ -107,8 +107,23 @@ include_once($headpath);
 </div>
 <div id="monster-form" style="display:none;">
 <div class="text col-centered col-md-6"><textarea type="text" name="monsterBlock" id="monsterBlock" placeholder="monsterBlock" style="height:50px;" onKeyUp="monBlock()"></textarea></div>
-
-<div style="display:none;">            <div class="text col-centered col-md-6"><textarea type="text" name="monsterSize" id="monsterSize-form" placeholder="monsterSize" style="height:50px;"></textarea></div>
+<select form="compendium" name="monsterTrait1" id="monsterTrait1-form">
+              <?php
+                  $locationdrop = "SELECT DISTINCT monsterTrait1 FROM `compendium` WHERE monsterTrait1 NOT LIKE '%p.%'";
+                  $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
+                  while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
+                    $source = $locationrow['monsterTrait1'];
+                  echo "<option value=\"$source\">$source</option>";
+                  }
+              ?>
+            </select>
+            <script type="text/javascript">
+              $('#monsterTrait1-form').selectize({
+          create: true,
+          sortField: 'text'
+      });
+              </script>
+          <div class="text col-centered col-md-6"><textarea type="text" name="monsterSize" id="monsterSize-form" placeholder="monsterSize" style="height:50px;"></textarea></div>
 
 
             <div class="text col-centered col-md-6"><textarea type="text" name="monsterType" id="monsterType" placeholder="monsterType" style="height:50px;"></textarea></div>
@@ -132,26 +147,11 @@ include_once($headpath);
             <textarea type="text" name="monsterSenses" id="monsterSenses" placeholder="monsterSenses" style="height:20px;"></textarea>
             <textarea type="text" name="monsterPassive" id="monsterPassive" placeholder="monsterPassive" style="height:20px;"></textarea>
             <textarea type="text" name="monsterLanguages" id="monsterLanguages" placeholder="monsterLanguages" style="height:20px;"></textarea>
-            <textarea type="text" name="monsterCr" id="monsterCr" placeholder="monsterCr" style="height:20px;"></textarea></div>
-            <select form="compendium" name="monsterTrait1" id="monsterTrait1-form">
-              <?php
-                  $locationdrop = "SELECT DISTINCT monsterTrait1 FROM `compendium` WHERE monsterTrait1 NOT LIKE '%p.%'";
-                  $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
-                  while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
-                    $source = $locationrow['monsterTrait1'];
-                  echo "<option value=\"$source\">$source</option>";
-                  }
-              ?>
-            </select>
-            <script type="text/javascript">
-              $('#monsterTrait1-form').selectize({
-          create: true,
-          sortField: 'text'
-      });
-              </script>
+            <textarea type="text" name="monsterCr" id="monsterCr" placeholder="monsterCr" style="height:20px;"></textarea>
+            
 
             <!--<textarea type="text" name="monsterTrait1" id="monsterTrait1" placeholder="monsterTrait1" style="height:20px;"></textarea>-->
-           <div style="display:none;"><textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:200px;"></textarea> 
+           <textarea type="text" name="monsterTrait2" id="monsterTrait2" placeholder="monsterTrait2" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterTrait3" id="monsterTrait3" placeholder="monsterTrait3" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterTrait4" id="monsterTrait4" placeholder="monsterTrait4" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterTrait5" id="monsterTrait5" placeholder="monsterTrait5" style="height:200px;"></textarea> 
@@ -174,10 +174,10 @@ include_once($headpath);
             <textarea type="text" name="monsterLegendary6" id="monsterLegendary6" placeholder="monsterLegendary6" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterLegendary7" id="monsterLegendary7" placeholder="monsterLegendary7" style="height:200px;"></textarea> 
             <textarea type="text" name="monsterLegendary8" id="monsterLegendary8" placeholder="monsterLegendary8" style="height:200px;"></textarea>
-            <textarea type="text" name="monsterReaction" id="monsterReaction" placeholder="monsterReaction" style="height:200px;"></textarea></div>
+            <textarea type="text" name="monsterReaction" id="monsterReaction" placeholder="monsterReaction" style="height:200px;"></textarea>
             
 
-            </div>
+            <!--</div>-->
 
   <script>
   function monBlock(){
@@ -261,6 +261,15 @@ include_once($headpath);
     monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
     monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Challenge ")+10);
     var monsterCr = monsterBlock.substr(0, monsterBlock.indexOf(" ("));
+    if (monsterCr == '1/2'){
+      monsterCr = 0.5;
+    }
+    if (monsterCr == '1/4'){
+      monsterCr = 0.25;
+    }
+    if (monsterCr == '1/8'){
+      monsterCr = 0.125;
+    }
     monsterBlock = monsterBlock.substr(monsterBlock.indexOf("\n")+1);
     var monsterTrait2 = '';
     if (monsterBlock.startsWith('Actions') == false ){
@@ -270,14 +279,17 @@ include_once($headpath);
 
     var monsterAction1 = '';
     if (monsterBlock.includes('Legendary Actions\n') == true){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Actions")+9);
       monsterAction1 = monsterBlock.substr(0, monsterBlock.indexOf("Legendary Actions"));
       monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Legendary Actions"));
     }
     else if (monsterBlock.includes('Reactions\n') == true ){
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Actions")+9);
       monsterAction1 = monsterBlock.substr(0, monsterBlock.indexOf("Reactions"));
       monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Reactions"));
     }
     else {
+      monsterBlock = monsterBlock.substr(monsterBlock.indexOf("Actions")+9);
       monsterAction1 = monsterBlock;
       monsterBlock = '';
     }
@@ -383,55 +395,55 @@ include_once($headpath);
       monsterBlock = '';
       monsterReaction = '';
     }
-    $('#name').attr('value',monName);
-    $('#monsterSize-form').attr('value',monsterSize);
-    $('#monsterType').attr('value',monsterType);
-    $('#monsterAlignment').attr('value',monsterAlignment);
-    $('#monsterAc').attr('value',monsterAc);
-    $('#monsterHp').attr('value',monsterHp);
-    $('#monsterSpeed').attr('value',monsterSpeed);
-    $('#monsterStr').attr('value',monsterStr);
-    $('#monsterDex').attr('value',monsterDex);
-    $('#monsterCon').attr('value',monsterCon);
-    $('#monsterInt').attr('value',monsterInt);
-    $('#monsterWis').attr('value',monsterWis);
-    $('#monsterCha').attr('value',monsterCha);
-    $('#monsterSave').attr('value',monsterSave);
-    $('#monsterSkill').attr('value',monsterSkill);
-    $('#monsterVulnerable').attr('value',monsterVulnerable);
-    $('#monsterResist').attr('value',monsterResist);
-    $('#monsterImmune').attr('value',monsterImmune);
-    $('#monsterConditionImmune').attr('value',monsterConditionImmune);
-    $('#monsterSenses').attr('value',monsterSenses);
-    $('#monsterPassive').attr('value',monsterPassive);
-    $('#monsterLanguages').attr('value',monsterLanguages);
-    $('#monsterCr').attr('value',monsterCr);
-    $('#monsterTrait2').attr('value',monsterTrait2);
-    /*$('#monsterTrait3').attr('value',monsterTrait3);
-    $('#monsterTrait4').attr('value',monsterTrait4);
-    $('#monsterTrait5').attr('value',monsterTrait5);
-    $('#monsterTrait6').attr('value',monsterTrait6);
-    $('#monsterTrait7').attr('value',monsterTrait7);
-    $('#monsterTrait8').attr('value',monsterTrait8);*/
-    $('#monsterAction1').attr('value',monsterAction1);
-    /*$('#monsterAction2').attr('value',monsterAction2);
-    $('#monsterAction3').attr('value',monsterAction3);
-    $('#monsterAction4').attr('value',monsterAction4);
-    $('#monsterAction5').attr('value',monsterAction5);
-    $('#monsterAction6').attr('value',monsterAction6);
-    $('#monsterAction7').attr('value',monsterAction7);
-    $('#monsterAction8').attr('value',monsterAction8);*/
-    $('#monsterLegendary1').attr('value',monsterLegendary1);
-    /*$('#monsterLegendary2').attr('value',monsterLegendary2);
-    $('#monsterLegendary3').attr('value',monsterLegendary3);
-    $('#monsterLegendary4').attr('value',monsterLegendary4);
-    $('#monsterLegendary5').attr('value',monsterLegendary5);
-    $('#monsterLegendary6').attr('value',monsterLegendary6);
-    $('#monsterLegendary7').attr('value',monsterLegendary7);
-    $('#monsterLegendary8').attr('value',monsterLegendary8);*/
-    $('#monsterReaction').attr('value',monsterReaction);
-    $('#monsterChunk').attr('value',monsterBlock);
-    $('#checktest').attr('value',checktest);
+    $('#monname').val(monName);
+    $('#monsterSize-form').val(monsterSize);
+    $('#monsterType').val(monsterType);
+    $('#monsterAlignment').val(monsterAlignment);
+    $('#monsterAc').val(monsterAc);
+    $('#monsterHp').val(monsterHp);
+    $('#monsterSpeed').val(monsterSpeed);
+    $('#monsterStr').val(monsterStr);
+    $('#monsterDex').val(monsterDex);
+    $('#monsterCon').val(monsterCon);
+    $('#monsterInt').val(monsterInt);
+    $('#monsterWis').val(monsterWis);
+    $('#monsterCha').val(monsterCha);
+    $('#monsterSave').val(monsterSave);
+    $('#monsterSkill').val(monsterSkill);
+    $('#monsterVulnerable').val(monsterVulnerable);
+    $('#monsterResist').val(monsterResist);
+    $('#monsterImmune').val(monsterImmune);
+    $('#monsterConditionImmune').val(monsterConditionImmune);
+    $('#monsterSenses').val(monsterSenses);
+    $('#monsterPassive').val(monsterPassive);
+    $('#monsterLanguages').val(monsterLanguages);
+    $('#monsterCr').val(monsterCr);
+    $('#monsterTrait2').val(monsterTrait2);
+    /*$('#monsterTrait3').val(monsterTrait3);
+    $('#monsterTrait4').val(monsterTrait4);
+    $('#monsterTrait5').val(monsterTrait5);
+    $('#monsterTrait6').val(monsterTrait6);
+    $('#monsterTrait7').val(monsterTrait7);
+    $('#monsterTrait8').val(monsterTrait8);*/
+    $('#monsterAction1').val(monsterAction1);
+    /*$('#monsterAction2').val(monsterAction2);
+    $('#monsterAction3').val(monsterAction3);
+    $('#monsterAction4').val(monsterAction4);
+    $('#monsterAction5').val(monsterAction5);
+    $('#monsterAction6').val(monsterAction6);
+    $('#monsterAction7').val(monsterAction7);
+    $('#monsterAction8').val(monsterAction8);*/
+    $('#monsterLegendary1').val(monsterLegendary1);
+    /*$('#monsterLegendary2').val(monsterLegendary2);
+    $('#monsterLegendary3').val(monsterLegendary3);
+    $('#monsterLegendary4').val(monsterLegendary4);
+    $('#monsterLegendary5').val(monsterLegendary5);
+    $('#monsterLegendary6').val(monsterLegendary6);
+    $('#monsterLegendary7').val(monsterLegendary7);
+    $('#monsterLegendary8').val(monsterLegendary8);*/
+    $('#monsterReaction').val(monsterReaction);
+    $('#monsterChunk').val(monsterBlock);
+    $('#checktest').val(checktest);
   };
   </script>
 </div>

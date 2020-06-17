@@ -66,19 +66,7 @@ $lvlskill18nametemp=$_POST['lvlskill18name'];
 $lvlskill18texttemp=$_POST['lvlskill18text'];
 $lvlskill19nametemp=$_POST['lvlskill19name'];
 $lvlskill19texttemp=$_POST['lvlskill19text'];
-$monsterBlock=$_POST['monsterBlock'];
-
-$splitter = strpos($monsterBlock, ' ');
-$last_chunk = substr($monsterBlock, $splitter);
-$monsterSizetemp = substr($monsterBlock, 0, $splitter);
-$splitter = strpos($last_chunk, ' ');
-$last_chunk = substr($last_chunk, $splitter);
-$monsterTypetemp = substr($last_chunk, 0, $splitter);
-$splitter = strpos($last_chunk, '\n');
-$last_chunk = substr($last_chunk, $splitter);
-$monsterAlignmenttemp = substr($last_chunk, 0, $splitter);
-
-/*$monsterSizetemp=$_POST['monsterSize'];
+$monsterSizetemp=$_POST['monsterSize'];
 $monsterTypetemp=$_POST['monsterType'];
 $monsterAlignmenttemp=$_POST['monsterAlignment'];
 $monsterActemp=$_POST['monsterAc'];
@@ -126,7 +114,7 @@ $monsterLegendary7temp=$_POST['monsterLegendary7'];
 $monsterLegendary8temp=$_POST['monsterLegendary8'];
 $monsterLegendary8temp=$_POST['monsterLegendary8'];
 $monsterReactiontemp=$_POST['monsterReaction'];
-*/
+
 
 $name=htmlentities(trim(addslashes($nametemp)));
 $type=htmlentities(trim(addslashes($typetemp)));
@@ -187,7 +175,7 @@ $lvlskill19text=htmlentities(trim(addslashes($lvlskill19texttemp)));
 $monsterSize=htmlentities(trim(addslashes($monsterSizetemp)));
 $monsterType=htmlentities(trim(addslashes($monsterTypetemp)));
 $monsterAlignment=htmlentities(trim(addslashes($monsterAlignmenttemp)));
-/*$monsterAc=htmlentities(trim(addslashes($monsterActemp)));
+$monsterAc=htmlentities(trim(addslashes($monsterActemp)));
 $monsterHp=htmlentities(trim(addslashes($monsterHptemp)));
 $monsterSpeed=htmlentities(trim(addslashes($monsterSpeedtemp)));
 $monsterStr=htmlentities(trim(addslashes($monsterStrtemp)));
@@ -252,19 +240,19 @@ if ($monsterCha == '') {
 if ($monsterCr == '') {
   $monsterCr = 0;
 }
-*/
+
 if ($lvlskill1name != ''){
   $sql = "INSERT INTO subclasses(name,class,source,lvlskill1name,lvlskill1text,lvlskill2name,lvlskill2text,lvlskill3name,lvlskill3text,lvlskill4name,lvlskill4text,lvlskill5name,lvlskill5text,lvlskill6name,lvlskill6text,lvlskill7name,lvlskill7text,lvlskill8name,lvlskill8text,lvlskill9name,lvlskill9text,lvlskill10name,lvlskill10text,lvlskill11name,lvlskill11text,lvlskill12name,lvlskill12text,lvlskill13name,lvlskill13text,lvlskill14name,lvlskill14text,lvlskill15name,lvlskill15text,lvlskill16name,lvlskill16text,lvlskill17name,lvlskill17text,lvlskill18name,lvlskill18text,lvlskill19name,lvlskill19text)
           VALUES('$name','$subclassClass','$subclassSource','$lvlskill1name','$lvlskill1text','$lvlskill2name','$lvlskill2text','$lvlskill3name','$lvlskill3text','$lvlskill4name','$lvlskill4text','$lvlskill5name','$lvlskill5text','$lvlskill6name','$lvlskill6text','$lvlskill7name','$lvlskill7text','$lvlskill8name','$lvlskill8text','$lvlskill9name','$lvlskill9text','$lvlskill10name','$lvlskill10text','$lvlskill11name','$lvlskill11text','$lvlskill12name','$lvlskill12text','$lvlskill13name','$lvlskill13text','$lvlskill14name','$lvlskill14text','$lvlskill15name','$lvlskill15text','$lvlskill16name','$lvlskill16text','$lvlskill17name','$lvlskill17text','$lvlskill18name','$lvlskill18text','$lvlskill19name','$lvlskill19text')";
 }
 else {
 //Execute the query
-/*$sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment,monsterAc,monsterHp,monsterSpeed,monsterStr,monsterDex,monsterCon,monsterInt,monsterWis,monsterCha,monsterSave,monsterSkill,monsterResist,monsterVulnerable,monsterImmune,monsterConditionImmune,monsterSenses,monsterPassive,monsterLanguages,monsterCr,monsterTrait1,monsterTrait2,monsterTrait3,monsterTrait4,monsterTrait5,monsterTrait6,monsterTrait7,monsterTrait8,monsterAction1,monsterAction2,monsterAction3,monsterAction4,monsterAction5,monsterAction6,monsterAction7,monsterAction8,monsterLegendary1,monsterLegendary2,monsterLegendary3,monsterLegendary4,monsterLegendary5,monsterLegendary6,monsterLegendary7,monsterLegendary8,monsterReaction)
+$sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment,monsterAc,monsterHp,monsterSpeed,monsterStr,monsterDex,monsterCon,monsterInt,monsterWis,monsterCha,monsterSave,monsterSkill,monsterResist,monsterVulnerable,monsterImmune,monsterConditionImmune,monsterSenses,monsterPassive,monsterLanguages,monsterCr,monsterTrait1,monsterTrait2,monsterTrait3,monsterTrait4,monsterTrait5,monsterTrait6,monsterTrait7,monsterTrait8,monsterAction1,monsterAction2,monsterAction3,monsterAction4,monsterAction5,monsterAction6,monsterAction7,monsterAction8,monsterLegendary1,monsterLegendary2,monsterLegendary3,monsterLegendary4,monsterLegendary5,monsterLegendary6,monsterLegendary7,monsterLegendary8,monsterReaction)
 				VALUES('$name','$type','$raceSize','$raceSpeed','$raceAbility','$raceSpellAbility','$raceProficiency','$raceTraits','$itemText','$itemType','$itemStock','$itemDetail','$itemValue','$itemMagic','$backgroundProficiency','$backgroundTraits','$monsterSize','$monsterType','$monsterAlignment','$monsterAc','$monsterHp','$monsterSpeed','$monsterStr','$monsterDex','$monsterCon','$monsterInt','$monsterWis','$monsterCha','$monsterSave','$monsterSkill','$monsterResist','$monsterVulnerable','$monsterImmune','$monsterConditionImmune','$monsterSenses','$monsterPassive','$monsterLanguages','$monsterCr','$monsterTrait1','$monsterTrait2','$monsterTrait3','$monsterTrait4','$monsterTrait5','$monsterTrait6','$monsterTrait7','$monsterTrait8','$monsterAction1','$monsterAction2','$monsterAction3','$monsterAction4','$monsterAction5','$monsterAction6','$monsterAction7','$monsterAction8','$monsterLegendary1','$monsterLegendary2','$monsterLegendary3','$monsterLegendary4','$monsterLegendary5','$monsterLegendary6','$monsterLegendary7','$monsterLegendary8','$monsterReaction')";
-  }*/
-  $sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment)
+  }
+  /*$sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment)
   VALUES('$name','$type','$raceSize','$raceSpeed','$raceAbility','$raceSpellAbility','$raceProficiency','$raceTraits','$itemText','$itemType','$itemStock','$itemDetail','$itemValue','$itemMagic','$backgroundProficiency','$backgroundTraits','$monsterSize','$monsterType','$monsterAlignment')";
-}
+}*/
         if ($dbcon->query($sql) === TRUE) {
 					include('dbsuccess.php');
 					include('dbimport.php');
