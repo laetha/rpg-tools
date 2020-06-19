@@ -101,7 +101,12 @@ include_once($headpath);
   document.getElementById("est-form").style.display = "block";
   document.getElementById("npc-form").style.display = "none";
 }
-else if (selectValue == "public quest") {
+/*else if (selectValue == "public quest") {
+document.getElementById("quest-form").style.display = "block";
+document.getElementById("est-form").style.display = "none";
+document.getElementById("npc-form").style.display = "none";
+}*/
+else if (selectValue == "quest") {
 document.getElementById("quest-form").style.display = "block";
 document.getElementById("est-form").style.display = "none";
 document.getElementById("npc-form").style.display = "none";
@@ -289,48 +294,24 @@ document.getElementById("npc-form").style.display = "none";
 
 <div id="quest-form" style="display:none;">
 
-<!-- 'establishment location' Dropbox -->
-<div class="col-sm-6 typebox col-centered" id="equest-status">
-      <p class="text">Quest Status
-        <select form="import" name="quest-status" id="quest-status-form">
-          <option value="" selected>None...</option>
-          <option value="available">Available</option>
-          <option value="private">Private</option>
-          <option value="complete">Complete</option>
-        </select>
-        <script type="text/javascript">
-        $('#quest-status-form').selectize({
-    create: true,
-    sortField: 'text'
-});
-        </script>
-      </p>
-    </div>
-    <!-- 'establishment type' Dropbox -->
-    <div class="col-sm-6 typebox col-centered" id="quest-faction">
-          <p class="text">Faction
-            <select form="import" name="quest-faction" id="quest-faction-form">
-              <option value="" selected>None...</option>
-              <?php
-              $locationdrop = "SELECT title FROM `world` WHERE `type` LIKE 'faction' AND worlduser LIKE '$loguser'";
-              $locationdata = mysqli_query($dbcon, $locationdrop) or die('error getting data');
-              while($locationrow =  mysqli_fetch_array($locationdata, MYSQLI_ASSOC)) {
-                $location = $locationrow['title'];
-                echo "<option value=\"$location\">$location</option>";
-              }
-              ?>
-            </select>
-            <script type="text/javascript">
-            $('#quest-faction-form').selectize({
-        create: true,
-        sortField: 'text'
-    });
-            </script>
-          </p>
-        </div>
-        <div class="text col-centered col-md-6"><textarea type="text" name="quest-reward" id="quest-reward" placeholder="Reward...." style="height:100px;"></textarea></div>
+<button type="button" class="btn btn-primary" onclick="randquest()">Generate Random Quest</button>
 
 </div>
+
+<script>
+function randquest(){
+
+  $.ajax({
+     url : 'randquest.php',
+     success: function(data)
+     {
+      document.getElementById('body').value = data;
+
+     }
+
+ });
+};
+</script>
 
 
     <div class="text col-centered col-md-12"><textarea type="text" name="body" id="body" placeholder="Type the body of your content here..."></textarea></div>

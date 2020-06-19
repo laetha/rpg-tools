@@ -11,8 +11,8 @@ include_once($headpath);
 
 //Execute the query
 $sql = "LOAD XML LOCAL INFILE 'xml/Output1.xml'
-  INTO TABLE npctraits
-  ROWS IDENTIFIED BY '<npcentry>'";
+  INTO TABLE quests
+  ROWS IDENTIFIED BY '<entry>'";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');

@@ -4,7 +4,7 @@ $doc = new DOMDocument();
 $doc->load('complete/races.xml');
 
 $xsl = new DOMDocument;
-$xsl->load('xml-conv-races.xsl');
+$xsl->load('xml-conv-quests.xsl');
 
 // CONFIGURE TRANSFORMER
 $proc = new XSLTProcessor;
