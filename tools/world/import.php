@@ -295,7 +295,8 @@ document.getElementById("npc-form").style.display = "none";
 <div id="quest-form" style="display:none;">
 
 <button type="button" class="btn btn-primary" onclick="randquest()">Generate Random Quest</button>
-
+<button type="button" class="btn btn-primary" onclick="randnpc()">Random NPC</button>
+<div id="randnpc"></div>
 </div>
 
 <script>
@@ -306,11 +307,23 @@ function randquest(){
      success: function(data)
      {
       document.getElementById('body').value = data;
-
      }
 
  });
 };
+
+function randnpc(){
+
+$.ajax({
+   url : 'randnpc.php',
+   success: function(data)
+   {
+    document.getElementById('randnpc').innerHTML = data;
+   }
+
+});
+};
+
 </script>
 
 
