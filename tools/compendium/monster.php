@@ -51,7 +51,10 @@
                $compendiumdata = mysqli_query($dbcon, $sqlcompendium) or die('error getting data');
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                  $jpgurl = 'bestiary/'.$row['title'].'.jpg';
+                 $jpgurl = str_replace("JPG","jpg", $jpgurl);
+                 $jpegurl = 'bestiary/'.$row['title'].'.jpeg';
                  $pngurl = 'bestiary/'.$row['title'].'.png';
+                 $genurl = 'bestiary/'.$row['monsterType'].'.png';
                echo ('<tr><td>');
                $entry = $row['title'];
                echo "<a href=\"compendium.php?id=$entry\">";
@@ -63,8 +66,11 @@
                else if (file_exists($pngurl)){
                  echo ('<td><img class="tableimg" src="'.$pngurl.'"></td>');
                }
+               else if (file_exists($jpegurl)){
+                echo ('<td><img class="tableimg" src="'.$jpegurl.'"></td>');
+              }
                else {
-                 echo ('<td>n/a</td>');
+                 echo ('<td><img class="tableimg" src="'.$genurl.'"></td>');
                }
                echo ('<td>'.$row['monsterSize'].'</td>');
                echo ('<td>'.$row['monsterType'].'</td>');
