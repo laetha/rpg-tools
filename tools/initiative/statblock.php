@@ -40,6 +40,7 @@
           $worldtitle = "SELECT * FROM `compendium` WHERE `title` LIKE '$id'";
           $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
           while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+            $stripid = str_replace("'", "", $id);
             //echo ('<h2>'.ucwords($row['type']).'</h2>');
             $type = $row['type'];
 
@@ -323,7 +324,17 @@
     </div> <!-- section left -->
     <div class="section-right">
       <div class="actions">
-        <h3>Actions</h3>
+        <h3>Actions<button class="btn btn-success" type="button" data-toggle="collapse" data-target="#monToken">+</button>
+      <?php
+      $tokenurl = $_SERVER['DOCUMENT_ROOT']."/tools/compendium/bestiary/tokens/$stripid.png";
+    if (file_exists($tokenurl)){
+     
+     echo ('<div class="collapse"  id="monToken"><img class="monsterimg" src="/tools/compendium/bestiary/tokens/'.$stripid.'.png" /></div>'); 
+   
+    
+     }
+     ?></h3>
+        
         <?php if($row['monsterAction1'] != ''){ ?>
           <div class="property-block">
             <p><?php echo nl2br($row['monsterAction1']); ?></p>
@@ -417,7 +428,9 @@
        <?php } ?>
 
      </div>
+        <?php  
 
+?>
     </div> <!-- section right -->
     <hr class="orange-border bottom" />
   </div> <!-- stat block -->

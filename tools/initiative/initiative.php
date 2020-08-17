@@ -1292,6 +1292,8 @@ else if (initDiv11 === "-5"){
       $worldtitle1 = "SELECT * FROM compendium WHERE type LIKE 'monster'";
       $titledata1 = mysqli_query($dbcon, $worldtitle1) or die('error getting data');
       while($row1 =  mysqli_fetch_array($titledata1, MYSQLI_ASSOC)) {
+        $stripid = str_replace("'", "", $row1['title']);
+        $stripid = stripslashes($stripid);
         $rowns1 = preg_replace('/\s+/', '', $row1['title']);
         $rowns1 = preg_replace('/\(|\)/','', $rowns1);
         ?>
@@ -1316,7 +1318,10 @@ else if (initDiv11 === "-5"){
     <div class="two">
   </div>
         </div>
-      </td></tr>
+     
+      </td>
+      
+      </tr>
 <?php      echo ('<div id="'.$rowns1.'xp" style="display:none;">'.${$rowns1 . $xp}.'</div>');
             echo ('<div id="'.$rowns1.'monnum" style="display:none;">1</div>'); ?>
 
