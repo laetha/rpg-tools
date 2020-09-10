@@ -340,7 +340,6 @@ $worldtitle = "SELECT * FROM mapfeatures WHERE active= 1 AND maptype LIKE 'city'
           <?php
           echo ('<td><a href="world.php?id='.$row['title'].'" target="_BLANK">'.$row['title'].'</a></td>');
           echo ('<td>'.$row['est_type'].'</td>');
-
         $log1title = "SELECT title FROM world WHERE npc_est LIKE '$temptitle' AND worlduser LIKE '$loguser'";
         $log1data = mysqli_query($dbcon, $log1title) or die('error getting data');
         if ($log1data->num_rows == 1){

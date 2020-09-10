@@ -335,6 +335,7 @@ echo ("Deleted $photoname");
     </div>
 
       <p>
+      <button type="button" class="editbutton btn btn-success" id="party-log" data-toggle="modal" data-target="#logModal">Party Encountered</button>
       <button type="button" class="editbutton btn btn-danger" id="delete-entry" data-toggle="modal" data-target="#delModal"><span class="glyphicon glyphicon-remove"></span>Delete</button>
       <a href="edit.php?id=<?php echo $title; ?>"><button class="editbutton btn btn-info"><span class="glyphicon glyphicon-edit"></span>Edit</button></a></p>
 
@@ -1192,6 +1193,57 @@ trigger: 'focus'
 
   </div>
 
+<!-- Log Modal -->
+<div class="modal fade" id="logModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content modalstyle bodytext">
+
+        <div class="modal-body">
+          <input class="textbox" type="text" id="logtext" />
+          <button type="button" class="editbutton btn btn-success" id="logsave">Save</button>
+          <script>
+          $('#logsave').click(function(){
+            $('#logModal').modal('hide');
+            var loguser = "<?php echo $loguser; ?>";
+            var currentDate = new Date();
+            var date = currentDate.getDate();
+            var month = currentDate.getMonth();
+            var year = currentDate.getFullYear();
+            var dateString = year + "-" + (month + 1) + "-" + date;
+            var active = 1;
+            var logtext = $('#logtext').val();
+            var logtitle = "<?php echo $title; ?>";
+            var logentry = logtitle + ": " + logtext;
+
+            $.ajax({
+              url : 'npclogprocess.php',
+              type: 'GET',
+              data : { "worlduser" : loguser, "date" : dateString, "entry" : logentry, "active" : active },
+              success: function()
+              {
+                  
+              },
+              error: function (jqXHR, status, errorThrown)
+              {
+                  //if fail show error and server status
+             }
+
+            });
+
+          });
+          </script>
+        </div>
+        <div class="modal-footer">
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
   <!-- Delete Modal -->
   <div class="modal fade" id="delModal" role="dialog">
     <div class="modal-dialog">
@@ -1236,6 +1288,7 @@ trigger: 'focus'
 
     </div>
   </div>
+
 
   <?php
   //Footer
