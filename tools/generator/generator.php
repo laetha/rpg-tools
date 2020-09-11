@@ -259,52 +259,23 @@ for ($x = 0; $x <= 4; $x++) {
    <div class="sidebartext col-centered">
    <?php
    //$firstname = array();
-   $worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'first' ORDER BY rand() LIMIT 1";
+   $worldtitle = "SELECT * FROM `world` WHERE `type` LIKE 'npc' ORDER BY rand() LIMIT 1";
    $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
    while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
      $npcfirst = $row['title'];
+     $npcrace = $row['npc_race'];
+     $npcjob = $row['npc_title'];
+     $npcdeity = $row['npc_deity'];
+     $npcdistrict = $row['npc_location'];
+     $npcest = $row['npc_est'];
+
 }
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'last' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npclast = $row['title'];
+
+echo ('<p><a href="/tools/world/world.php?id='.$npcfirst.'" target="_BLANK">'.$npcfirst.'</a> is a '.$npcrace. ' '.$npcjob. '. They worship '.$npcdeity.', and live in '.$npcdistrict.'.');
+
+if ($npcest != '') {
+  echo (' They work at <a href="/tools/world/world.php?id='.$npcest.'" target="_BLANK">'.$npcest.'</a>');
 }
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'race' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npcrace = $row['title'];
-}
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'personality' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npcpersonality = $row['title'];
-}
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'deity' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npcdeity = $row['title'];
-}
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'district' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npcdistrict = $row['title'];
-}
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'job' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npcjob = $row['title'];
-}
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'hair' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npchair = $row['title'];
-}
-$worldtitle = "SELECT title FROM `npctraits` WHERE `type` LIKE 'eyes' ORDER BY rand() LIMIT 1";
-$titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  $npceyes = $row['title'];
-}
-echo ('<p>'.$npcfirst.' '.$npclast.' is a '.$npcrace. ' '.$npcjob. ' with '.$npchair.' hair and '.$npceyes.' eyes. They worship '.$npcdeity.', live in '.$npcdistrict.', and are '.$npcpersonality.'.');
 
     ?>
   </div>

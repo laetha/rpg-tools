@@ -39,9 +39,9 @@ crossorigin=""></script>
       <div class="row">
       <form method="post" action="logprocess.php" id="logadd">
         <div class="hide" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="worlduser" id="worlduser" value="<?php echo $loguser; ?>"></div>
-        <div class="col-md-1" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
+        <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logdate" id="logdate" placeholder="day #"></div>
         <div class="col-md-2" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logcoord" id="logcoord" placeholder="coordinates"></div>
-        <div class="col-md-6" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
+        <div class="col-md-5" style="padding-bottom:20px;"><input class="searchbox" style="width:100%;" type="text" name="logentry" id="logentry" placeholder="Log Entry...."></div>
         <!--<div class="col-md-1 sidebartext" style="padding-bottom:20px;"><input type="checkbox" name="logmap" value="1">Map?
           <button type="button" class="btn btn-primary" onclick="myGen()">Gen</button></div>-->
         <div class="col-md-1"><input class="btn btn-primary" type="submit" value="Submit"></div>
@@ -55,6 +55,17 @@ crossorigin=""></script>
           $("#adddiv").slideToggle("slow");
       });
   });
+
+  $(document).ready(function() {
+    
+    var currentDate = new Date();
+    var date = currentDate.getDate();
+    var month = currentDate.getMonth();
+    var year = currentDate.getFullYear();
+    var dateString = year + "-" + (month + 1) + "-" + date;
+    $('#logdate').val(dateString);
+// Setup - add a text input to each footer cell
+});
   </script>
 
 <div class="table-responsive sidebartext">
