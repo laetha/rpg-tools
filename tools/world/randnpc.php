@@ -16,6 +16,6 @@ $worldtitle = "SELECT * FROM world WHERE worlduser LIKE 'tarfuin' AND type LIKE 
            }
            echo ('<p>'.$npcname.' is a '.$npcrace. ' '.$npctitle. ' who is described as '.$npcbody.'. They worship '.$npcdeity.' and live in '.$npcdistrict.'.');
            if (!empty($npcest)){
-            echo (' They are located at <a href="'.$npcest.'.php">'.$npcest.'</a>.');
+            echo (' They are located at <a href="/tools/world/world.php?id='.$npcest.'">'.$npcest.'</a>.');
            }
         
