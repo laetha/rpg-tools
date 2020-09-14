@@ -254,7 +254,9 @@ for ($x = 0; $x <= 4; $x++) {
 }
     ?>
   </div>
-
+<?php
+if ($loguser == 'tarfuin') {
+?>
    <h3 style="color:#5499c7;">Full NPC:</h3>
    <div class="sidebartext col-centered">
    <?php
@@ -279,6 +281,7 @@ if ($npcest != '') {
 
     ?>
   </div>
+<?php } ?>
   </div>
 
   </div>
