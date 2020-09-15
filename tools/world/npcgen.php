@@ -10,7 +10,7 @@ $headpath = $_SERVER['DOCUMENT_ROOT'];
 $headpath .= "/header.php";
 include_once($headpath);
 
-for ($i=0; $i < 1; $i++) { 
+for ($i=0; $i < 60; $i++) { 
 	# code...
 
 
