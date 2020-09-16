@@ -179,6 +179,7 @@ include_once($headpath);
 
             <!--</div>-->
 
+
   <script>
   function monBlock(){
     var monsterBlock = $('#monsterBlock').val();
@@ -447,6 +448,7 @@ include_once($headpath);
   };
   </script>
 </div>
+</div>
 <div id="race-form" style="display:none;">
 <select form="compendium" name="raceSize" id="raceSize-form">
               <option value="T">Tiny</option>
@@ -463,8 +465,70 @@ include_once($headpath);
 <div class="text col-centered col-md-6"><textarea type="text" name="raceTraits" id="raceTraits" placeholder="raceTraits" style="height:50px;"></textarea></div>
 </div>
 <div id="spell-form" style="display:none;">
-spell
+<div class="text col-centered col-md-6"><textarea type="text" name="spellBlock" id="spellBlock" placeholder="spellBlock" style="height:50px;" onKeyUp="spellCalc()"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="spellLevel" id="spellLevel" placeholder="spellLevel" style="height:200px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="spellTime" id="spellTime" placeholder="spellTime" style="height:200px;"></textarea></div> 
+<div class="text col-centered col-md-6"><textarea type="text" name="spellRange" id="spellRange" placeholder="spellRange" style="height:200px;"></textarea></div> 
+<div class="text col-centered col-md-6"><textarea type="text" name="spellSchool" id="spellSchool" placeholder="spellSchool" style="height:200px;"></textarea></div> 
+<div class="text col-centered col-md-6"><textarea type="text" name="spellRitual" id="spellRitual" placeholder="spellRitual" style="height:200px;"></textarea></div> 
+<div class="text col-centered col-md-6"><textarea type="text" name="spellComponents" id="spellComponents" placeholder="spellComponents" style="height:200px;"></textarea></div>
+<div class="text col-centered col-md-6"><textarea type="text" name="spellDuration" id="spellDuration" placeholder="spellDuration" style="height:200px;"></textarea></div> 
+<div class="text col-centered col-md-6"><textarea type="text" name="spellClasses" id="spellClasses" placeholder="spellClasses" style="height:200px;"></textarea></div> 
+<div class="text col-centered col-md-6"><textarea type="text" name="spellText" id="spellText" placeholder="spellText" style="height:200px;"></textarea></div> 
 </div>
+
+<script>
+    function spellCalc(){
+    var spellBlock = $('#spellBlock').val();
+    spellBlock = spellBlock.trim();
+    var spellName = spellBlock.substr(0, spellBlock.indexOf('\n'));
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('Level\n')+6);
+    var spellLevel = spellBlock.charAt(0);
+    if (spellLevel == 'C'){
+      spellLevel = '0';
+    }
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    var spellTime = spellBlock.substr(0, spellBlock.indexOf('\n'));
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    var spellRange = spellBlock.substr(0, spellBlock.indexOf('\n'));
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    var spellComponents = spellBlock.substr(0, spellBlock.indexOf('\n'));
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    var spellDuration = spellBlock.substr(0, spellBlock.indexOf('\n'));
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    var spellSchool = spellBlock.substr(0, spellBlock.indexOf('\n'));
+    spellSchool = spellSchool.charAt(0);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    spellBlock = spellBlock.substr(spellBlock.indexOf('\n')+1);
+    var spellText = spellBlock.substr(0, spellBlock.indexOf('Available For:'));
+    spellBlock = spellBlock.substr(spellBlock.indexOf('Available For: ')+15);
+    var spellClasses = spellBlock;
+    
+
+      $('#monname').val(spellName);
+      $('#spellLevel').val(spellLevel);
+      $('#spellTime').val(spellTime);
+      $('#spellRange').val(spellRange);
+      $('#spellComponents').val(spellComponents);
+      $('#spellDuration').val(spellDuration);
+      $('#spellSchool').val(spellSchool);
+      $('#spellText').val(spellText);
+      $('#spellClasses').val(spellClasses);
+      $('#spellRitual').val('0');
+
+      
+    };
+  </script>
+
 <div id="subclass-form" style="display:none;">
 Class
 <select form="compendium" name="subclassClass" id="subclassClass-form">

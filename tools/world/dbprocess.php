@@ -114,6 +114,17 @@ $monsterLegendary7temp=$_POST['monsterLegendary7'];
 $monsterLegendary8temp=$_POST['monsterLegendary8'];
 $monsterLegendary8temp=$_POST['monsterLegendary8'];
 $monsterReactiontemp=$_POST['monsterReaction'];
+$spellLeveltemp=$_POST['spellLevel'];
+$spellTimetemp=$_POST['spellTime'];
+$spellRangetemp=$_POST['spellRange'];
+$spellComponentstemp=$_POST['spellComponents'];
+$spellDurationtemp=$_POST['spellDuration'];
+$spellSchooltemp=$_POST['spellSchool'];
+$spellTexttemp=$_POST['spellText'];
+$spellClassestemp=$_POST['spellClasses'];
+$spellRitualtemp=$_POST['spellRitual'];
+
+
 
 
 $name=htmlentities(trim(addslashes($nametemp)));
@@ -219,6 +230,17 @@ $monsterLegendary6=htmlentities(trim(addslashes($monsterLegendary6temp)));
 $monsterLegendary7=htmlentities(trim(addslashes($monsterLegendary7temp)));
 $monsterLegendary8=htmlentities(trim(addslashes($monsterLegendary8temp)));
 $monsterReaction=htmlentities(trim(addslashes($monsterReactiontemp)));
+$spellLevel=htmlentities(trim(addslashes($spellLeveltemp)));
+$spellTime=htmlentities(trim(addslashes($spellTimetemp)));
+$spellRange=htmlentities(trim(addslashes($spellRangetemp)));
+$spellComponents=htmlentities(trim(addslashes($spellComponentstemp)));
+$spellDuration=htmlentities(trim(addslashes($spellDurationtemp)));
+$spellSchool=htmlentities(trim(addslashes($spellSchooltemp)));
+$spellText=htmlentities(trim(addslashes($spellTexttemp)));
+$spellClasses=htmlentities(trim(addslashes($spellClassestemp)));
+$spellRitual=htmlentities(trim(addslashes($spellRitualtemp)));
+$text = $spellText.$itemText;
+
 if ($monsterStr == '') {
   $monsterStr = 0;
 }
@@ -247,8 +269,8 @@ if ($lvlskill1name != ''){
 }
 else {
 //Execute the query
-$sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment,monsterAc,monsterHp,monsterSpeed,monsterStr,monsterDex,monsterCon,monsterInt,monsterWis,monsterCha,monsterSave,monsterSkill,monsterResist,monsterVulnerable,monsterImmune,monsterConditionImmune,monsterSenses,monsterPassive,monsterLanguages,monsterCr,monsterTrait1,monsterTrait2,monsterTrait3,monsterTrait4,monsterTrait5,monsterTrait6,monsterTrait7,monsterTrait8,monsterAction1,monsterAction2,monsterAction3,monsterAction4,monsterAction5,monsterAction6,monsterAction7,monsterAction8,monsterLegendary1,monsterLegendary2,monsterLegendary3,monsterLegendary4,monsterLegendary5,monsterLegendary6,monsterLegendary7,monsterLegendary8,monsterReaction)
-				VALUES('$name','$type','$raceSize','$raceSpeed','$raceAbility','$raceSpellAbility','$raceProficiency','$raceTraits','$itemText','$itemType','$itemStock','$itemDetail','$itemValue','$itemMagic','$backgroundProficiency','$backgroundTraits','$monsterSize','$monsterType','$monsterAlignment','$monsterAc','$monsterHp','$monsterSpeed','$monsterStr','$monsterDex','$monsterCon','$monsterInt','$monsterWis','$monsterCha','$monsterSave','$monsterSkill','$monsterResist','$monsterVulnerable','$monsterImmune','$monsterConditionImmune','$monsterSenses','$monsterPassive','$monsterLanguages','$monsterCr','$monsterTrait1','$monsterTrait2','$monsterTrait3','$monsterTrait4','$monsterTrait5','$monsterTrait6','$monsterTrait7','$monsterTrait8','$monsterAction1','$monsterAction2','$monsterAction3','$monsterAction4','$monsterAction5','$monsterAction6','$monsterAction7','$monsterAction8','$monsterLegendary1','$monsterLegendary2','$monsterLegendary3','$monsterLegendary4','$monsterLegendary5','$monsterLegendary6','$monsterLegendary7','$monsterLegendary8','$monsterReaction')";
+$sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment,monsterAc,monsterHp,monsterSpeed,monsterStr,monsterDex,monsterCon,monsterInt,monsterWis,monsterCha,monsterSave,monsterSkill,monsterResist,monsterVulnerable,monsterImmune,monsterConditionImmune,monsterSenses,monsterPassive,monsterLanguages,monsterCr,monsterTrait1,monsterTrait2,monsterTrait3,monsterTrait4,monsterTrait5,monsterTrait6,monsterTrait7,monsterTrait8,monsterAction1,monsterAction2,monsterAction3,monsterAction4,monsterAction5,monsterAction6,monsterAction7,monsterAction8,monsterLegendary1,monsterLegendary2,monsterLegendary3,monsterLegendary4,monsterLegendary5,monsterLegendary6,monsterLegendary7,monsterLegendary8,monsterReaction,spellLevel,spellTime,spellRange,spellComponents,spellDuration,spellSchool,spellClasses,spellRitual)
+				VALUES('$name','$type','$raceSize','$raceSpeed','$raceAbility','$raceSpellAbility','$raceProficiency','$raceTraits','$text','$itemType','$itemStock','$itemDetail','$itemValue','$itemMagic','$backgroundProficiency','$backgroundTraits','$monsterSize','$monsterType','$monsterAlignment','$monsterAc','$monsterHp','$monsterSpeed','$monsterStr','$monsterDex','$monsterCon','$monsterInt','$monsterWis','$monsterCha','$monsterSave','$monsterSkill','$monsterResist','$monsterVulnerable','$monsterImmune','$monsterConditionImmune','$monsterSenses','$monsterPassive','$monsterLanguages','$monsterCr','$monsterTrait1','$monsterTrait2','$monsterTrait3','$monsterTrait4','$monsterTrait5','$monsterTrait6','$monsterTrait7','$monsterTrait8','$monsterAction1','$monsterAction2','$monsterAction3','$monsterAction4','$monsterAction5','$monsterAction6','$monsterAction7','$monsterAction8','$monsterLegendary1','$monsterLegendary2','$monsterLegendary3','$monsterLegendary4','$monsterLegendary5','$monsterLegendary6','$monsterLegendary7','$monsterLegendary8','$monsterReaction','$spellLevel','$spellTime','$spellRange','$spellComponents','$spellDuration','$spellSchool','$spellClasses','$spellRitual')";
   }
   /*$sql = "INSERT INTO compendium(title,type,raceSize,raceSpeed,raceAbility,raceSpellAbility,raceProficiency,raceTraits,text,itemType,itemStock,itemDetail,itemValue,itemMagic,backgroundProficiency,backgroundTraits,monsterSize,monsterType,monsterAlignment)
   VALUES('$name','$type','$raceSize','$raceSpeed','$raceAbility','$raceSpellAbility','$raceProficiency','$raceTraits','$itemText','$itemType','$itemStock','$itemDetail','$itemValue','$itemMagic','$backgroundProficiency','$backgroundTraits','$monsterSize','$monsterType','$monsterAlignment')";
