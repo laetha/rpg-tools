@@ -7,10 +7,10 @@ $worlduser =$_REQUEST['worlduser'];
 $date = $_REQUEST['date'];
 $entry = $_REQUEST['entry'];
 $active = $_REQUEST['active'];
+$coord = '';
 
-
-$sql = "INSERT INTO campaignlog(worlduser,date,entry,active)
-				VALUES('$worlduser','$date','$entry','$active')";
+$sql = "INSERT INTO campaignlog(worlduser,date,entry,active,coord)
+				VALUES('$worlduser','$date','$entry','$active','$coord')";
 
         if ($dbcon->query($sql) === TRUE) {
 					
