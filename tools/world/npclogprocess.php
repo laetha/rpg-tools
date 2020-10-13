@@ -8,9 +8,10 @@ $date = $_REQUEST['date'];
 $entry = $_REQUEST['entry'];
 $active = $_REQUEST['active'];
 $coord = '';
+$maptype = 'city';
 
-$sql = "INSERT INTO campaignlog(worlduser,date,entry,active,coord)
-				VALUES('$worlduser','$date','$entry','$active','$coord')";
+$sql = "INSERT INTO campaignlog(worlduser,date,entry,active,coord,maptype)
+				VALUES('$worlduser','$date','$entry','$active','$coord','$maptype')";
 
         if ($dbcon->query($sql) === TRUE) {
 					
