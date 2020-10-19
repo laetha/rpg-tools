@@ -34,7 +34,7 @@
      
 <script>
 var gameInfo;
-    /*
+    /* aaaaa
  *  Send a get request to the Giant bomb api.
  *  @param string resource set the RESOURCE.
  *  @param object data specifiy any filters or fields.
