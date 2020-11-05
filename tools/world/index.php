@@ -216,12 +216,13 @@ if ($sidebartype == "quest") {
               echo('Family: ');
               $worldtitle = "SELECT * FROM `world` WHERE `title` LIKE '%$templast%' AND worlduser LIKE '$loguser' AND title NOT LIKE '$id' AND type LIKE 'npc'";
               $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-              while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
+              while($row1 =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
                 echo '<br />';
-                echo $row['title'].' :: '.$row['npc_title'].' :: '.$row['npc_location'];
+                echo $row1['title'].' :: '.$row1['npc_title'].' :: '.$row1['npc_location'];
               
               }
-              echo '<br />';
+              echo ('<br />');
+            
 
 
               }
@@ -231,17 +232,7 @@ if ($sidebartype == "quest") {
                   echo ('Quest Code: ');
                   $qu = $row['code'];
                   echo $row['code'];
-              /*    echo ('<ul>');
-                  $questline = "SELECT * FROM world WHERE type LIKE 'quest' AND title LIKE '$qu%'";
-                  $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
-                  $num = 1;
-                  while($titlerow = mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
-                    $shorttitle = substr($titlerow['title'], strlen($qu));
-                    echo ('<li><a href="#quest'.$num.'">'.$shorttitle.'</a></li>');
-                    $num++;
-                    //echo ('<div class="sidebartext">'.$Parsedown->text(nl2br($titlerow['body'])).'</div>');
-                }
-                echo ('</ul>');*/
+              
 
                   $questline = "SELECT * FROM world WHERE code LIKE '$qu%' AND type NOT LIKE 'questline'";
                   $npcdata = mysqli_query($dbcon, $questline) or die('error getting data');
