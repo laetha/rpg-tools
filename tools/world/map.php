@@ -372,6 +372,13 @@ $worldtitle = "SELECT * FROM mapfeatures WHERE active= 1 AND maptype LIKE 'city'
       }
           echo ('</tr>');
          }
+
+        $log2title = "SELECT * FROM mapfeatures WHERE active = 1 AND maptype LIKE 'city'";
+        $log2data = mysqli_query($dbcon, $log2title) or die('error getting data');
+        while($row2 =  mysqli_fetch_array($log2data, MYSQLI_ASSOC)) {
+          echo ('<tr><td>'.$row2['coord'].'</td>');
+          echo ('<td>'.$row2['text'].'</td><td></td><td></td></tr>');
+        }
           ?>
 
  </tbody>
@@ -445,6 +452,10 @@ setTimeout(function () {
  }
  else if (vtype == 'enchanter'){
   pin[index] = new L.Icon({ iconUrl: "/assets/images/icon-enchanter.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+ }
+ else if (vtype == ''){
+  pin[index] = new L.Icon({ iconUrl: "/assets/images/map-marker-red.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
+
  }
  else {
   pin[index] = new L.Icon({ iconUrl: "/assets/images/map-marker-purple.png", iconAnchor: pinAnchor[index], iconSize: [20, 32] });
