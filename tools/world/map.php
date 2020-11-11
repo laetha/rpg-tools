@@ -231,7 +231,7 @@ var mapCompendium = L.layerGroup();
 
 
 var overlayMaps = {
-    "Map Feautures": mapFeatures,
+    /*"Map Feautures": mapFeatures,*/
     "Campaign Log": mapLog,
     "Compendium": mapCompendium
 };
@@ -297,25 +297,7 @@ while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
 }
  ?>
 
-<?php
-$worldtitle = "SELECT * FROM mapfeatures WHERE active= 1 AND maptype LIKE 'city'";
-        $titledata = mysqli_query($dbcon, $worldtitle) or die('error getting data');
-        $mrk = 1;
-        while($row =  mysqli_fetch_array($titledata, MYSQLI_ASSOC)) {
-  ?>
-  <script>
-  var markerPos<?php echo $mrk; ?> = new L.LatLng(<?php echo $row['coord']; ?>);
-  var pinAnchor<?php echo $mrk; ?> = new L.Point(10, 32);
-  var pin<?php echo $mrk; ?> = new L.Icon({ iconUrl: "/assets/images/map-marker-red.png", iconAnchor<?php echo $mrk; ?>: pinAnchor<?php echo $mrk; ?>, iconSize: [20, 32] });
-  var marker<?php echo $mrk; ?> = new L.marker(markerPos<?php echo $mrk; ?>, { icon: pin<?php echo $mrk; ?> }).addTo(map).bindPopup('<?php echo $row['text']; ?>');
-//  var marker<?php echo $mrk; ?> = L.marker([<?php echo $row['coord']; ?>], {icon: myIcon}).addTo(map).bindPopup("<?php echo $row['entry']; ?>");
-  marker<?php echo $mrk; ?>.addTo(mapFeatures);
-  </script>
-  <?php
-    $mrk = $mrk + 1;
 
-}
- ?>
 
   <div class="table-responsive">
  <table id="faction" class="table table-condensed table-striped table-responsive dt-responsive" cellspacing="0" width="100%">
