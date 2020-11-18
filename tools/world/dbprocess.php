@@ -123,6 +123,7 @@ $spellSchooltemp=$_POST['spellSchool'];
 $spellTexttemp=$_POST['spellText'];
 $spellClassestemp=$_POST['spellClasses'];
 $spellRitualtemp=$_POST['spellRitual'];
+$featTexttemp=$_POST['featText'];
 
 
 
@@ -239,7 +240,8 @@ $spellSchool=htmlentities(trim(addslashes($spellSchooltemp)));
 $spellText=htmlentities(trim(addslashes($spellTexttemp)));
 $spellClasses=htmlentities(trim(addslashes($spellClassestemp)));
 $spellRitual=htmlentities(trim(addslashes($spellRitualtemp)));
-$text = $spellText.$itemText;
+$featText=htmlentities(trim(addslashes($featTexttemp)));
+$text = $spellText.$itemText.$featText;
 
 if ($monsterStr == '') {
   $monsterStr = 0;

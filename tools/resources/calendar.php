@@ -10,7 +10,7 @@ include_once($headpath);
 </div>
 <div class="body sidebartext col-xs-12" id="body">
 
-<iframe src="https://www.fantasy-calendar.com/calendar.php?action=view&id=5752f966e0418bff07ba310d8817dd86" style="width:100%; height:800px;"/>
+<iframe src="http://app.fantasy-calendar.com/calendars/5752f966e0418bff07ba310d8817dd86" style="width:100%; height:800px;"/>
 </div>
 
      <?php

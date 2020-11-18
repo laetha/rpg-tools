@@ -139,7 +139,7 @@ else {
 <?php if ($loguser == 'tarfuin') { ?>
 					<li><a href="/tools/world/map-region.php">Region Map</a></li>
 					<li><a href="/tools/world/map.php">City Map</a></li>
-					<li><a href="/tools/resources/calendar.php">Calendar</a></li>
+					<li><a href="https://app.fantasy-calendar.com/calendars/5752f966e0418bff07ba310d8817dd86" target="_BLANK">Calendar</a></li>
 					<li><a href="/tools/world/dbimport.php">Add to Compendium</a></li>
 					<?php  } ?>
 
