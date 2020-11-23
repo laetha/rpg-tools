@@ -60,10 +60,11 @@ while(file_exists('uploads/'.$newfilename1))
 }
 move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], "uploads/" . $newfilename1);
 }
-
+$created = date('ymdHi');
+$edited = date('ymdHi');
 //Execute the query
 $sql = "UPDATE world
-SET title = '$name', type = '$type', code = '$code', body = '$body', npc_race = '$npcrace', npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction', npc_est = '$npcest', npc_title = '$npctitle', est_type = '$esttype', est_location = '$estlocation', quest_status = '$queststatus', quest_faction = '$questfaction', quest_reward = '$questreward', coord = '$coord'
+SET title = '$name', type = '$type', code = '$code', body = '$body', npc_race = '$npcrace', npc_deity = '$npcdeity', npc_location = '$npclocation', npc_faction = '$npcfaction', npc_est = '$npcest', npc_title = '$npctitle', est_type = '$esttype', est_location = '$estlocation', quest_status = '$queststatus', quest_faction = '$questfaction', quest_reward = '$questreward', coord = '$coord', edited = '$edited'
 WHERE id = $id;";
 
         if ($dbcon->query($sql) === TRUE) {

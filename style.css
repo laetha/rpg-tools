@@ -1180,3 +1180,7 @@ code {
 	color: #72a5bf;
 	background-color: #212121;
 }
+
+.card {
+	padding: 1.25rem;
+}

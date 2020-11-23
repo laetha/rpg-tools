@@ -10,9 +10,7 @@
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
-   /*if ($loguser !== 'tarfuin') {
-   echo ('<script>window.location.replace("/oops.php"); </script>');
- }*/
+
 
 ?>
 <div class="mainbox">
@@ -33,55 +31,7 @@
   }
   </script>
 </div>
-<!-- <div class="row">
-  <button class="btn btn-info" id="logbutton">Campaign Log</button>
-<button class="btn btn-info" id="notesbutton">GM Notes</button>
-<button class="btn btn-info" id="notesbutton" onclick ="displayToggle()">Toggle Display</button>
-<div id="logdiv" style="display:none;">
-  <div class="row">
-<iframe class="blockframetall" id="logframe" data-src="/tools/campaign-log/campaign-log.php"></iframe></div>
 
-</div>
-<div id="notesdiv" style="display:none;">
-  <div class="row">
-<iframe class="blockframetall" id="notesframe" data-src="/tools/world/gmnotes.php"></iframe></div>
-
-</div>
-<script>
-
-$(document).ready(function addLog(){
-    $("#logbutton").click(function addLog(){
-        $("#logdiv").slideToggle("slow");
-        var iframe = $("#logframe");
-        iframe.attr("src", iframe.data("src"));
-        window.setTimeout(nonav,2000);
-    });
-});
-
-$(document).ready(function addLog(){
-  $("#notesbutton").click(function addLog(){
-      $("#notesdiv").slideToggle("slow");
-      var iframe = $("#notesframe");
-      iframe.attr("src", iframe.data("src"));
-      window.setTimeout(nonav,2000);
-
-  });
-});
-
-function displayToggle() {
-  document.getElementById('area4');
-  if (area4.style.display === 'none') {
-    area4.style.display = "block";
-    document.getElementById('area1').className = "col-md-4";
-
-  }
-  else {
-  area4.style.display = "none";
-  document.getElementById('area1').className = "col-md-8";
-}
-}
-</script>
-</div> -->
   <style>
   .col-md-4 {
     padding-left: 0px;
@@ -245,83 +195,6 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
 <div id="box4"><iframe class="blockframetall" id="frame4"></iframe></div>
 
 </div>
-<?php /*
-<div class="col-md-4">
-<select id="search5">
-<option value=""></option>
-<option value="awardxp4">Award XP</option>
-<option value="gmnotes5">GM Notes</option>
-<option value="campaignlog6">Campaign Log</option>
-<option value="generator7">Random Generator</option><?php
-$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
-$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
-while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
-  $search = $searchrow['title'];
-  $searchvalue = $search.'1';
-  echo "<option value=\"$searchvalue\">$search</option>";
-}
-?>
-<?php
-$searchdrop1 = "SELECT title FROM compendium";
-$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
-while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
-  $search1 = $searchrow1['title'];
-  $searchvalue1 = $search1.'2';
-  echo "<option value=\"$searchvalue1\">$search1</option>";
-}
-?>
-<?php
-$searchdrop2 = "SELECT title FROM srd";
-$searchdata2 = mysqli_query($dbcon, $searchdrop2) or die('error getting data');
-while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
-  $search2 = $searchrow2['title'];
-  $searchvalue2 = $search2.'3';
-  echo "<option value=\"$searchvalue2\">Rules: $search2</option>";
-}
-?>
-</select>
-<div id="box5"><iframe class="blockframe" id="frame5"></iframe></div>
-
-</div>
-
-<div class="col-md-4">
-<select id="search6">
-<option value=""></option>
-<option value="awardxp4">Award XP</option>
-<option value="gmnotes5">GM Notes</option>
-<option value="campaignlog6">Campaign Log</option>
-<option value="generator7">Random Generator</option><?php
-$searchdrop = "SELECT title FROM world WHERE worlduser LIKE '$loguser'";
-$searchdata = mysqli_query($dbcon, $searchdrop) or die('error getting data');
-while($searchrow =  mysqli_fetch_array($searchdata, MYSQLI_ASSOC)) {
-  $search = $searchrow['title'];
-  $searchvalue = $search.'1';
-  echo "<option value=\"$searchvalue\">$search</option>";
-}
-?>
-<?php
-$searchdrop1 = "SELECT title FROM compendium";
-$searchdata1 = mysqli_query($dbcon, $searchdrop1) or die('error getting data');
-while($searchrow1 =  mysqli_fetch_array($searchdata1, MYSQLI_ASSOC)) {
-  $search1 = $searchrow1['title'];
-  $searchvalue1 = $search1.'2';
-  echo "<option value=\"$searchvalue1\">$search1</option>";
-}
-?>
-<?php
-$searchdrop2 = "SELECT title FROM srd";
-$searchdata2 = mysqli_query($dbcon, $searchdrop2) or die('error getting data');
-while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
-  $search2 = $searchrow2['title'];
-  $searchvalue2 = $search2.'3';
-  echo "<option value=\"$searchvalue2\">Rules: $search2</option>";
-}
-?>
-</select>
-<div id="box6"><iframe class="blockframe" id="frame6"></iframe></div>
-
-</div>
-*/ ?>
 
 
   <script type="text/javascript">
@@ -529,93 +402,7 @@ while($searchrow2 =  mysqli_fetch_array($searchdata2, MYSQLI_ASSOC)) {
   placeholder: 'search...'
   },);
   </script>
-<?php /*
-  <script type="text/javascript">
-  $('#search5').selectize({
-  onChange: function(value){
-    if(value.slice(-1) == 1) {
-    document.getElementById("frame5").src = '/tools/world/world.php?id=' + value.slice(0, -1);
-  }
-  else if(value.slice(-1) == 2) {
 
-    document.getElementById("frame5").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
-  }
-  else if(value.slice(-1) == 3) {
-
-    document.getElementById("frame5").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
-  }
-  else if(value.slice(-1) == 4) {
-
-    document.getElementById("frame5").src = '/tools/world/xp.php';
-  }
-  else if(value.slice(-1) == 5) {
-
-    document.getElementById("frame5").src = '/tools/world/gmnotes.php';
-  }
-  else if(value.slice(-1) == 6) {
-
-    document.getElementById("frame5").src = '/tools/campaign-log/campaign-log.php';
-  }
-  else if(value.slice(-1) == 7) {
-
-    document.getElementById("frame5").src = '/tools/generator/generator.php';
-  }
-  else if(value.slice(-1) == 8) {
-
-    document.getElementById("frame5").src = '/tools/initiative/initiative.php';
-  }
-  },
-  create: false,
-  openOnFocus: false,
-  maxOpions: 4,
-  sortField: 'text',
-  placeholder: 'search...'
-  },);
-  </script>
-
-  <script type="text/javascript">
-  $('#search6').selectize({
-  onChange: function(value){
-    if(value.slice(-1) == 1) {
-    document.getElementById("frame6").src = '/tools/world/world.php?id=' + value.slice(0, -1);
-  }
-  else if(value.slice(-1) == 2) {
-
-    document.getElementById("frame6").src = '/tools/compendium/compendium.php?id=' + value.slice(0, -1);
-  }
-  else if(value.slice(-1) == 3) {
-
-    document.getElementById("frame6").src = '/tools/srd/rules.php?id=' + value.slice(0, -1);
-  }
-  else if(value.slice(-1) == 4) {
-
-    document.getElementById("frame6").src = '/tools/world/xp.php';
-  }
-  else if(value.slice(-1) == 5) {
-
-    document.getElementById("frame6").src = '/tools/world/gmnotes.php';
-  }
-  else if(value.slice(-1) == 6) {
-
-    document.getElementById("frame6").src = '/tools/campaign-log/campaign-log.php';
-  }
-  else if(value.slice(-1) == 7) {
-
-    document.getElementById("frame6").src = '/tools/generator/generator.php';
-  }
-  else if(value.slice(-1) == 8) {
-
-    document.getElementById("frame6").src = '/tools/initiative/initiative.php';
-  }
-  },
-  create: false,
-  openOnFocus: false,
-  maxOpions: 4,
-  sortField: 'text',
-  placeholder: 'search...'
-  },);
-  </script>
-*/ ?>
 </div>
 <?php
 //Footer

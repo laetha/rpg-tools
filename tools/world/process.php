@@ -54,9 +54,11 @@ if (end($temp) == 'jpg' OR end($temp) == 'png') {
 	move_uploaded_file($_FILES["fileToUpload1"]["tmp_name"], "uploads/" . $newfilename1);
 }
 
+$created = date('ymdHi');
+$edited = date('ymdHi');
 //Execute the query
-$sql = "INSERT INTO world(title,type,code,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,npc_title,est_type,est_location,quest_status,quest_faction,quest_reward,coord,worlduser)
-				VALUES('$name','$type','$code','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$npctitle','$esttype','$estlocation','$queststatus','$questfaction','$questreward','$coord','$worlduser')";
+$sql = "INSERT INTO world(title,type,code,body,npc_race,npc_location,npc_faction,npc_deity,npc_est,npc_title,est_type,est_location,quest_status,quest_faction,quest_reward,coord,worlduser,created,edited)
+				VALUES('$name','$type','$code','$body','$npcrace','$npclocation','$npcfaction','$npcdeity','$npcest','$npctitle','$esttype','$estlocation','$queststatus','$questfaction','$questreward','$coord','$worlduser','$created','$edited')";
 
         if ($dbcon->query($sql) === TRUE) {
 					include('success.php');
