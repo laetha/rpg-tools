@@ -37,6 +37,7 @@
            <thead class="thead-dark">
                <tr>
                    <th scope="col">Name</th>
+                   <th scope="col">Location</th>
 
                    <th scope="col">Image</th>
                    <th scope="col">Created</th>
@@ -48,6 +49,7 @@
            <tfoot>
              <tr>
                <th scope="col">Name</th>
+               <th scope="col">Location</th>
 
                <th scope="col">Image</th>
                <th scope="col">Created</th>
@@ -61,10 +63,15 @@
                while($row = mysqli_fetch_array($compendiumdata, MYSQLI_ASSOC)) {
                echo ('<tr><td>');
                $entry = $row['title'];
+               $type = $row['type'];
                $jpgurl = 'uploads/'.$row['title'].'.jpg';
                $pngurl = 'uploads/'.$row['title'].'.png';
-               echo ('<a onclick="worldModal(\''.$entry.'\')" data-toggle="modal" data-target="#myModal">'.$entry);
-               echo "</a></td>";
+               echo ('<a onclick="worldModal(\''.$entry.'\')" data-toggle="modal" data-target="#myModal">'.$entry.' :: '.$row['npc_title'].$row['est_type']);
+               if (($type != 'npc') && ($type != 'establishment')){
+                echo $row['type'];
+               }
+               echo ('</a></td>');
+               echo ('<td>'.$row['npc_location'].$row['est_location'].'</td>');
                
                if (file_exists($jpgurl)){
                  echo ('<td><img class="tableimg" src="'.$jpgurl.'"></td>');
@@ -108,14 +115,17 @@ function worldModal(value){
 <script>
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
+    var x = 1;
     $('#npcs tfoot th').each( function () {
         var title = $(this).text();
-        if (title = "Name") {
-        //$(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
+        if (x <= 2){
+        $(this).html( '<input type="text" class="form-control" placeholder="Search '+title+'" />' );
         }
         else {
 
         }
+        x++;
+       
     } );
 
     // DataTable
@@ -123,10 +133,11 @@ $(document).ready(function() {
       {
     "order": [[ 2, "desc" ]],
     "columnDefs": [
-  { "width": "50%", "targets": 0 },
+  { "width": "40%", "targets": 0 },
   { "width": "30%", "targets": 1 },
-  { "width": "10%", "targets": 2 },
-  { "width": "10%", "targets": 3 }
+  { "width": "20%", "targets": 2 },
+  { "width": "5%", "targets": 3 },
+  { "width": "5%", "targets": 4 }
 
 
 ]
