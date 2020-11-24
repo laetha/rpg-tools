@@ -131,7 +131,7 @@ $(document).ready(function() {
     // DataTable
     var table = $('#npcs').DataTable(
       {
-    "order": [[ 2, "desc" ]],
+    "order": [[ 4, "desc" ]],
     "columnDefs": [
   { "width": "40%", "targets": 0 },
   { "width": "30%", "targets": 1 },

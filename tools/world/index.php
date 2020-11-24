@@ -41,7 +41,7 @@ echo ('<script>window.location.replace("/oops.php"); </script>');
  </div>
  <?php
 if ($row['coord'] != '') {
- echo('<a href="/tools/world/map.php?id='.$row['coord'].'" target="_BLANK">View on Map</a>');
+ echo('<a href="/tools/world/map.php?id='.$row['title'].'" target="_BLANK">View on Map</a>');
 }
   ?>
  </div>
