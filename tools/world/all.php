@@ -140,7 +140,6 @@ $(document).ready(function() {
   { "width": "5%", "targets": 3 },
   { "width": "5%", "targets": 4 }
 
-
 ]
   }
     );
