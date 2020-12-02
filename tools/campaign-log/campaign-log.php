@@ -62,7 +62,7 @@ crossorigin=""></script>
     var date = currentDate.getDate();
     var month = currentDate.getMonth();
     var year = currentDate.getFullYear();
-    var dateString = year + "-" + (month + 1) + "-" + date;
+    var dateString = year + (month + 1) + date;
     $('#logdate').val(dateString);
 // Setup - add a text input to each footer cell
 });

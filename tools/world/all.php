@@ -54,6 +54,7 @@
                <th scope="col">Image</th>
                <th scope="col">Created</th>
                <th scope="col">Edited</th>
+
              </tr>
            </tfoot>
            <tbody>
@@ -84,8 +85,8 @@
                }
                echo ('<td>'.$row['created'].'</td>');
                echo ('<td>'.$row['edited'].'</td>');
-               echo "</tr>";
 
+               echo ('</tr>');
              }
                ?>
 
@@ -131,10 +132,10 @@ $(document).ready(function() {
     // DataTable
     var table = $('#npcs').DataTable(
       {
-    "order": [[ 4, "desc" ]],
+    "order": [[ 3, "desc" ]],
     "columnDefs": [
   { "width": "40%", "targets": 0 },
-  { "width": "30%", "targets": 1 },
+  { "width": "25%", "targets": 1 },
   { "width": "20%", "targets": 2 },
   { "width": "5%", "targets": 3 },
   { "width": "5%", "targets": 4 }

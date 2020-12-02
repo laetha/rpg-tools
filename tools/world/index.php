@@ -1202,7 +1202,7 @@ trigger: 'focus'
             var date = currentDate.getDate();
             var month = currentDate.getMonth();
             var year = currentDate.getFullYear();
-            var dateString = year + "-" + (month + 1) + "-" + date;
+            var dateString = year + (month + 1) + date;
             var active = 1;
             var logtext = $('#logtext').val();
             var logtitle = "<?php echo $title; ?>";
