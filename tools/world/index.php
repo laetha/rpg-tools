@@ -918,7 +918,7 @@ function modalChange(value) {
         }
 
         echo ('<li>');
-        echo ('<a href="world.php?id='.$logrow['title'].'">'.$logrow['title'].'</a>');
+        echo ('<a onclick="worldModal(\''.$logrow['title'].'\')" data-toggle="modal" data-target="#myModal">'.$logrow['title'].'</a>');
         echo "</li><p>";
 
       }
@@ -1140,7 +1140,7 @@ trigger: 'focus'
       var regex = new RegExp(querytext, 'ig');
       var regtest = regex.test(bodytext);
      if (quotestest == false){
-        var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+      var url = "<a onclick=\"worldModal('" + querytext + "')\" data-toggle=\"modal\" data-target=\"#myModal\">" + querytext + "</a>";
         var newtext = bodytext.replace(regex, url);
         document.getElementById("body").innerHTML = newtext;
     }
@@ -1169,20 +1169,38 @@ trigger: 'focus'
         var regex = new RegExp(querytext, 'ig');
         var regtest = regex.test(bodytext);
        if (quotestest == false){
-          var url = "<a href=\"world.php?id=" + querytext + "\">" + querytext + "</a>";
+        var url = "<a onclick=\"worldModal('" + querytext + "')\" data-toggle=\"modal\" data-target=\"#myModal\">" + querytext + "</a>";
           var newtext = bodytext.replace(regex, url);
           document.getElementById("logref").innerHTML = newtext;
       }
 
       }
       replace(foundlink);
-
+      function worldModal(value){
+  var newURL = '<div class="col-md-12"><iframe width="100%" height="600" src="world.php?id=' + value + '" /></div>';
+  $('#worldmodal').html(newURL);
+}
       </script>
       <?php
     }
     ?>
 
   </div>
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content" style="background-color: rgb(45, 45, 45);">
+        <div class="modal-body" id="worldmodal">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 
 <!-- Log Modal -->
 <div class="modal fade" id="logModal" role="dialog">
@@ -1199,10 +1217,10 @@ trigger: 'focus'
             $('#logModal').modal('hide');
             var loguser = "<?php echo $loguser; ?>";
             var currentDate = new Date();
-            var date = currentDate.getDate();
+            var date = ("0" + currentDate.getDate()).slice(-2);
             var month = currentDate.getMonth();
             var year = currentDate.getFullYear();
-            var dateString = year + (month + 1) + date;
+            var dateString = year + '' + (month + 1) + '' + date;
             var active = 1;
             var logtext = $('#logtext').val();
             var logtitle = "<?php echo $title; ?>";

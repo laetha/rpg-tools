@@ -59,10 +59,10 @@ crossorigin=""></script>
   $(document).ready(function() {
     
     var currentDate = new Date();
-    var date = currentDate.getDate();
+    var date = ("0" + currentDate.getDate()).slice(-2);
     var month = currentDate.getMonth();
     var year = currentDate.getFullYear();
-    var dateString = year + (month + 1) + date;
+    var dateString = year + '' + (month + 1) + '' + date;
     $('#logdate').val(dateString);
 // Setup - add a text input to each footer cell
 });
