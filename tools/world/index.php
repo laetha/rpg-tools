@@ -1218,9 +1218,9 @@ trigger: 'focus'
             var loguser = "<?php echo $loguser; ?>";
             var currentDate = new Date();
             var date = ("0" + currentDate.getDate()).slice(-2);
-            var month = currentDate.getMonth();
+            var month = ("0" + currentDate.getMonth() + 1).slice(-2);
             var year = currentDate.getFullYear();
-            var dateString = year + '' + (month + 1) + '' + date;
+            var dateString = year + '' + (month) + '' + date;
             var active = 1;
             var logtext = $('#logtext').val();
             var logtitle = "<?php echo $title; ?>";
