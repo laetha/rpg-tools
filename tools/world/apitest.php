@@ -5,7 +5,7 @@
    include_once($sqlpath);
 
    //Header
-   $pgtitle = 'GM Notes - ';
+   $pgtitle = '';
    $headpath = $_SERVER['DOCUMENT_ROOT'];
    $headpath .= "/header.php";
    include_once($headpath);
@@ -26,14 +26,25 @@
    <script src="https://cdn.datatables.net/responsive/2.2.1/js/responsive.bootstrap.min.js" type="text/javascript"></script>
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.1/css/responsive.bootstrap.min.css">
+   <script type="text/javascript" src="/apikey.js"></script> 
+
    <div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
 
      <div class="col-md-12">
+  <?php
+  $id = $_GET['id'];
+  $stripid = str_replace("'", "", $id);
+  $stripid = stripslashes($stripid);
+  $id = addslashes($id);
+  ?>
      <div class="pagetitle" id="pgtitle">API Test</div>
-     <div class="sidebartext" id="test">aaa</div>
+     <div class="sidebartext col-md-8" id="test">aaa</div>
+     <div class="sidebartext col-md-4" style="text-align:center;" id="test2">bbb</div>
+
      
 <script>
 var gameInfo;
+var gamePoster;
     /* aaaaa
  *  Send a get request to the Giant bomb api.
  *  @param string resource set the RESOURCE.
@@ -42,7 +53,7 @@ var gameInfo;
  */
 function sendRequest(resource, data, callbacks) {
     var baseURL = 'http://giantbomb.com/api';
-    var apiKey = '21d2c7d9e3780b0d606a6b7807c884a8f74d9202';
+    var apiKey = GBKey;
     var format = 'jsonp';
 
     // make sure data is an empty object if its not defined.
@@ -78,20 +89,26 @@ function sendRequest(resource, data, callbacks) {
                     jsonp: 'json_callback',
                     format: 'jsonp',
                     success: function(res) {
-                      gameInfo = JSON.stringify(res.results.name);
-                        $('#test').html(gameInfo);
+                      gameTitle = JSON.stringify(res.results.name);
+                      gameAlias = JSON.stringify(res.results.aliases);
+                      gameDeck = JSON.stringify(res.results.deck);
+                      gameImage = JSON.stringify(res.results.image.medium_url);
+                        $('#pgtitle').html(gameTitle);
+                        $('#test').html(gameDeck);
+                        $('#test2').html('<img src=' + gameImage + ' height="300px" />');
+
                     }
                 });
 }
 $(document).ready(function(){
   
  // get game id from somewhere like a link.
- var gameID = '3030-38206';
+ var gameID = '<?php echo $id; ?>';
     var resource = '/game/' + gameID;
 
     // Set the fields or filters 
     var data = {
-        field_list: 'name,description'
+        field_list: 'name,deck,image,aliases'
     };
 
     // No custom callbacks defined here, just use the default onces.
