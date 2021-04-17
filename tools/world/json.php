@@ -16,7 +16,7 @@ $json = '{
 			"name":"Riverbend",
 			"contents": [
 				';
-				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' ORDER BY id DESC LIMIT 30";
+				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
 				$logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
 				while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
 				 $json = $json.'{"name":"'.$row['title'].'"},';
@@ -31,7 +31,7 @@ $json = '{
 			"data":[
 				';
 
-				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' ORDER BY id DESC LIMIT 30";
+				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
 				$logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
 				while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
 					$item->name = $row['title'];
@@ -68,7 +68,7 @@ $json = '{
 					
 					$body=$body.'<hr />'.nl2br($row['body'].'<p>');
 					$temptitle = str_replace("'", "''", $row['title']);
-					$logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 AND worlduser LIKE '$loguser' ORDER BY date DESC";
+					$logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 AND worlduser LIKE '$loguser'";
     				$log2data = mysqli_query($dbcon, $logs) or die('error getting data');
     				$logshow = 1;
     				while($log2row = mysqli_fetch_array($log2data, MYSQLI_ASSOC)) {
