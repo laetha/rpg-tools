@@ -99,7 +99,8 @@ $json = '{
 					while($row1 =  mysqli_fetch_array($log1data, MYSQLI_ASSOC)) {
 						if (strpos($body, $row1['title']) !== false && $row1['title'] !== $row['title']) {
 							$replace = $row1['title'];
-							$body = str_replace($row1['title'],"@JournalEntry[$replace]",$body);
+							$fullreplace = '@Compendium[Riverbend.Riverbend Journal.'.$replace.']{'.$replace.'}';
+							$body = str_replace($row1['title'],$fullreplace,$body);
 }
 }
 
@@ -116,7 +117,7 @@ while($log3row = mysqli_fetch_array($log3data, MYSQLI_ASSOC)) {
   }
   $worldref = $log3row['title'];
   $body = $body.'<li>';
-  $body = $body.'@JournalEntry['.$worldref.']';
+  $body = $body.'@Compendium[Riverbend.Riverbend Journal.'.$worldref.']{'.$worldref.'}';
   $body = $body."</li><p>";
 
 }
@@ -135,7 +136,13 @@ $body=$body."</ul>";
 }';
 
 
-	$bytes = file_put_contents("myfile.json", $json); 
+	$bytes = file_put_contents("myfile.json", $json);
+	echo ('<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
+    <div class ="body bodytext">
+  <h1 class="pagetitle">JSON Exported</h1>
+<div class="col-md-10 col-centered">');
+	echo ('<a href="myfile.json" download><div class="btn btn-success">Download</div></a>');
+	echo ('</div></div></div>');
 
 //Footer
 $footpath = $_SERVER['DOCUMENT_ROOT'];
