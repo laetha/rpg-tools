@@ -196,13 +196,16 @@ else {
 						</ul>
 
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
-						<?php
-						if ($friend == 1) { ?>
-			<!--	<li><a href="/tools/questboard/questboard.php">Quest Board</a></li> -->
-				<?php
-			}
-			?>
-				<!-- <li><a class="navbar-toggler" type="button" data-toggle="collapse" href="#" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">Music</a></li> -->
+						<?php if ($loguser == 'tarfuin') {?>
+							<li class="dropdown">
+						<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foundry<span class="caret"></span></a>
+						<ul class="dropdown-menu">
+						<li><a href="/tools/world/foundryimport.php">Import</a></li>
+						<li><a href="/tools/world/json.php">Export</a></li>
+						</ul>
+						<?php } ?>
+			
+						
 				<?php
 				if ($loguser == 'null'){
 
