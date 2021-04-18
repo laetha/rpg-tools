@@ -201,7 +201,7 @@ else {
 						<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foundry<span class="caret"></span></a>
 						<ul class="dropdown-menu">
 						<li><a href="/tools/world/foundryimport.php">Import</a></li>
-						<li><a href="/tools/world/json.php">Export</a></li>
+						<li><a data-toggle="modal" data-target="#worldmodal">Export</a></li>
 						</ul>
 						<?php } ?>
 			
@@ -243,6 +243,32 @@ else {
 
 
     </div><!-- /.navbar-collapse -->
+
+
+	<div class="modal fade" id="worldmodal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content modalstyle bodytext">
+
+        <div class="modal-body">
+		<?php 
+			$sqlworld = "SELECT DISTINCT worldname FROM world WHERE worlduser LIKE '$loguser'";
+			$worlddata = mysqli_query($dbcon, $sqlworld) or die('error getting data');
+			while($linkrow = mysqli_fetch_array($worlddata, MYSQLI_ASSOC)) {
+				$worldname = $linkrow['worldname'];
+				echo('<a href="/tools/world/json.php?id='.$worldname.'"><button type="button" class="btn btn-success" id="'.$worldname.'">'.$worldname.'</button></a>');
+			}
+		?>
+         
+        </div>
+        <div class="modal-footer">
+        
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 				<!--<div class="col-md-2"><a href="/tools/world/import.php">Import</a></div>
 				<div class="col-md-2"><a href="/login.php">Signup/Login</a></div>-->

@@ -32,7 +32,7 @@ $json = '{
 			"data":[
 				';
 
-				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' AND title NOT LIKE ''";
+				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
 				$logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
 				while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
 					$item->name = $row['title'];
@@ -62,30 +62,13 @@ $json = '{
 						if ($row['est_type'] !== ''){
 						$body = $body.'Type: '.$row['est_type'].'<br />';
 						}
-						if ($row['est_location'] !== ''){
-							$body = $body.'Location: '.$row['est_location'].'<p>';
+						if ($row['est_type'] !== ''){
+							$body = $body.'Type: '.$row['est_type'].'<p>';
 							}
 					}
-
-					$log1title = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
-					$log1data = mysqli_query($dbcon, $log1title) or die('error getting data');
-					while($row1 =  mysqli_fetch_array($log1data, MYSQLI_ASSOC)) {
-						$logcount = 0;
-						if (strpos($body, $row1['title']) !== false && $row1['title'] !== $row['title'] && $logcount != 1) {
-							$replace = $row1['title'];
-							if ($replace !== $worldname){
-							$fullreplace = '@Compendium['.$worldname.'.'.$worldname.' Journal.'.$replace.']{'.$replace.'}';
-							$body = str_replace($replace,$fullreplace,$body);
-							$logcount = 1;
-							}
-}
-}
-
-
 					
 					$body=$body.'<hr />'.nl2br($row['body'].'<p>');
 					$temptitle = str_replace("'", "''", $row['title']);
-					
 					$logs = "SELECT * FROM campaignlog WHERE entry LIKE '%$temptitle%' AND active = 1 AND worlduser LIKE '$loguser'";
     				$log2data = mysqli_query($dbcon, $logs) or die('error getting data');
     				$logshow = 1;
@@ -109,7 +92,18 @@ $json = '{
 
 					}
 					$body=$body."</ul><p>";
-					
+
+
+
+					$log1title = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
+					$log1data = mysqli_query($dbcon, $log1title) or die('error getting data');
+					while($row1 =  mysqli_fetch_array($log1data, MYSQLI_ASSOC)) {
+						if (strpos($body, $row1['title']) !== false && $row1['title'] !== $row['title']) {
+							$replace = $row1['title'];
+							$fullreplace = '@Compendium['.$worldname.'.'.$worldname.' Journal.'.$replace.']{'.$replace.'}';
+							$body = str_replace($row1['title'],$fullreplace,$body);
+}
+}
 
 $temptitle = str_replace("'", "''", $row['title']);
 $logs = "SELECT * FROM world WHERE body LIKE '%$temptitle%' AND worlduser LIKE '$loguser'";
@@ -142,13 +136,14 @@ $body=$body."</ul>";
 	]
 }';
 
-	$filename = $worldname.'.json';
+	$filename = ($worldname.'.json');
+	echo ($filename);
 	$bytes = file_put_contents($filename, $json);
 	echo ('<div class="mainbox col-lg-10 col-xs-12 col-lg-offset-1">
     <div class ="body bodytext">
   <h1 class="pagetitle">JSON Exported</h1>
 <div class="col-md-10 col-centered">');
-	echo ('<a href="'.$filename.'" download><div class="btn btn-success">'.$filename.'</div></a>');
+	echo ('<a href="'.$filename.'" download><div class="btn btn-success">Download</div></a>');
 	echo ('</div></div></div>');
 
 //Footer
