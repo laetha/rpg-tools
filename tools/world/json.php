@@ -65,6 +65,21 @@ $json = '{
 						if ($row['est_location'] !== ''){
 							$body = $body.'Location: '.$row['est_location'].'<p>';
 							}
+							if ($row['est_location'] !== ''){
+								$npctitle = "SELECT * FROM world WHERE npc_location LIKE '$row['title']'";
+								$npcdata = mysqli_query($dbcon, $npctitle) or die('error getting data');
+								$zz=1;
+								while($npcrow =  mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
+									if ($zz = 1){
+										$body = $body.'Inhabitants:<br />'.$npcrow['title'].' :: '.$npcrow['npc_title'].'<br />';
+										$zz++;
+									}
+									else {
+										$body = $body.$npcrow['title'].' :: '.$npcrow['npc_title'].'<br />';
+									}
+								}
+								$body = $body.'<p>';
+							}
 					}
 
 					$log1title = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";

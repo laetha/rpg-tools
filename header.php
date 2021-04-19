@@ -196,7 +196,7 @@ else {
 						</ul>
 
 						<li><a href="/tools/srd/srd.php">Rules/SRD</a></li>
-						<?php if ($loguser == 'tarfuin') {?>
+						<?php if ($friend = 1) {?>
 							<li class="dropdown">
 						<a href="#" class="dropdown-toggle"  data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Foundry<span class="caret"></span></a>
 						<ul class="dropdown-menu">
