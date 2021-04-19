@@ -35,6 +35,7 @@ $json = '{
 				$logtitle = "SELECT * FROM world WHERE worlduser LIKE '$loguser' AND title NOT LIKE ''";
 				$logdata = mysqli_query($dbcon, $logtitle) or die('error getting data');
 				while($row =  mysqli_fetch_array($logdata, MYSQLI_ASSOC)) {
+					$tmptitle = $row['title'];
 					$item->name = $row['title'];
 					$body = 'Type: '.$row['type'].'<br />';
 					if ($row['type'] == "npc"){
@@ -65,21 +66,15 @@ $json = '{
 						if ($row['est_location'] !== ''){
 							$body = $body.'Location: '.$row['est_location'].'<p>';
 							}
-							if ($row['est_location'] !== ''){
-								$npctitle = "SELECT * FROM world WHERE npc_location LIKE '$row['title']'";
+								$body = $body.'Inhabitants:<br />';
+								$npctitle = "SELECT * FROM world WHERE npc_est LIKE '$tmptitle'";
 								$npcdata = mysqli_query($dbcon, $npctitle) or die('error getting data');
-								$zz=1;
 								while($npcrow =  mysqli_fetch_array($npcdata, MYSQLI_ASSOC)) {
-									if ($zz = 1){
-										$body = $body.'Inhabitants:<br />'.$npcrow['title'].' :: '.$npcrow['npc_title'].'<br />';
-										$zz++;
-									}
-									else {
 										$body = $body.$npcrow['title'].' :: '.$npcrow['npc_title'].'<br />';
-									}
+									
 								}
 								$body = $body.'<p>';
-							}
+							
 					}
 
 					$log1title = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
@@ -145,6 +140,29 @@ while($log3row = mysqli_fetch_array($log3data, MYSQLI_ASSOC)) {
 }
 
 $body=$body."</ul>";
+
+/*if ($row['type'] == "deity"){
+	$body = $body.'Known Followers:<br />';
+	$deitytitle = "SELECT * FROM world WHERE npc_deity LIKE '$tmptitle' AND worlduser LIKE '$loguser'";
+			$deitydata = mysqli_query($dbcon, $deitytitle) or die('error getting data');
+			while($deityrow =  mysqli_fetch_array($deitydata, MYSQLI_ASSOC)) {
+				
+					$body = $body.$deityrow['title'].' :: '.$deityrow['npc_title'].', ';
+				
+			}
+			$body = $body.'<p>';
+}
+if ($row['type'] == "faction"){
+	$body = $body.'Known Members:<br />';
+	$factiontitle = "SELECT * FROM world WHERE npc_faction LIKE '$tmptitle' AND worlduser LIKE '$loguser'";
+			$factiondata = mysqli_query($dbcon, $factiontitle) or die('error getting data');
+			while($factionrow =  mysqli_fetch_array($factiondata, MYSQLI_ASSOC)) {
+				
+					$body = $body.$factionrow['title'].' :: '.$factionrow['npc_title'].', ';
+				
+			}
+			$body = $body.'<p>';
+}*/
 
 
 					$item->entries = array($body);
