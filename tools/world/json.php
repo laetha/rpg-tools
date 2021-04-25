@@ -76,7 +76,7 @@ $json = '{
 								$body = $body.'<p>';
 							
 					}
-
+/*
 					$log1title = "SELECT * FROM world WHERE worlduser LIKE '$loguser'";
 					$log1data = mysqli_query($dbcon, $log1title) or die('error getting data');
 					while($row1 =  mysqli_fetch_array($log1data, MYSQLI_ASSOC)) {
@@ -90,7 +90,7 @@ $json = '{
 							}
 }
 }
-
+*/
 
 					
 					$body=$body.'<hr />'.nl2br($row['body'].'<p>');
@@ -120,7 +120,7 @@ $json = '{
 					}
 					$body=$body."</ul><p>";
 					
-
+/*
 $temptitle = str_replace("'", "''", $row['title']);
 $logs = "SELECT * FROM world WHERE body LIKE '%$temptitle%' AND worlduser LIKE '$loguser'";
 $log3data = mysqli_query($dbcon, $logs) or die('error getting data');
@@ -139,7 +139,7 @@ while($log3row = mysqli_fetch_array($log3data, MYSQLI_ASSOC)) {
 
 }
 
-$body=$body."</ul>";
+$body=$body."</ul>";*/
 
 /*if ($row['type'] == "deity"){
 	$body = $body.'Known Followers:<br />';
